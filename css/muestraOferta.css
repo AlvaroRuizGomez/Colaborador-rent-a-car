@@ -320,6 +320,111 @@ background: red;
   margin-left: 143px;
 }
 
+
+/* ----- Articles------ */
+
+/* reset ul */
+ul
+{
+  
+  list-style: none;
+}
+
+.oferta
+{
+  display: grid;
+  grid-template-columns: 200px 350px 180px;
+  grid-template-rows: 200px 25px ;
+  grid-template-areas: 
+  "i c d"
+  "z z z"
+  ;
+
+}
+
+.rentacar-info
+{
+  grid-area: i;
+  align-self: flex-start;
+  justify-self: center;
+
+}
+
+.car-info
+{
+  grid-area: c;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto;
+  grid-template-areas: 
+  "titulo"
+  "info"
+  ;
+  justify-items: flex-start;
+  align-items: center;
+
+}
+
+
+
+.car-info-prices
+{
+  grid-area: d;
+}
+
+.car-info-zones
+{
+  grid-area: z;
+
+}
+
+.car-image
+{
+  max-width: 200px;
+  box-sizing: border-box;
+  border-collapse: collapse;
+  margin: 10px auto;
+}
+
+.icon-24
+{
+  width: 24px;
+
+}
+
+
+.car-info-services
+{
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-template-areas: 
+  "a b c d e"
+  "l l . p p"
+  "m m . o o"
+  ;
+}
+
+.titulo-nombre
+{
+  font-size: 1.8em;
+}
+
+
+.servicios-asientos-icono
+{
+  background: url(/cdn/img/icons/icons-128.png) no-repeat;
+  background-size: 96px;
+}
+
+
+
+
+
+
+/* ----- FIN Articles------ */
+
+
 /*---------------- Fin Datos-busqueda/Vehículos-Ofertados encontrados ---------- */
 
 /* --------------- Inicio Slider --------------------------- */
