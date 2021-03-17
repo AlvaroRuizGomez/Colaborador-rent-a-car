@@ -341,7 +341,7 @@ background: red;
 .oferta
 {
   display: grid;
-  grid-template-columns: 200px 350px 180px;
+  grid-template-columns: 230px 450px 180px;
   grid-template-rows: 200px 25px ;
   grid-template-areas: 
   "i c d"
@@ -380,6 +380,13 @@ background: red;
 .car-info-prices
 {
   grid-area: d;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(5, 1fr);
+
+  justify-items: flex-end;
+  align-items: center;
+
 }
 
 .car-info-zones
@@ -454,7 +461,29 @@ background: red;
   background-size: 96px;
 }
 
+.current-price
+{
+  color: #383838;
+  font-size: 2.8em;
+  font-weight: 700;
+  line-height: 1em;
+  margin-bottom: 0;
+  white-space: nowrap;
+}
 
+.old-price
+{
+  text-decoration: line-through;
+  font-size: 1.5em;
+  color: rgb(189, 76, 66);
+
+}
+
+.description-price
+{
+  color: rgb(109, 196, 86);
+  font-size: 13px;
+}
 
 
 
