@@ -1,3 +1,16 @@
+/* reset ul sin puntos */
+ul
+{
+  
+  list-style: none;
+  margin-block-start: 0px;
+  margin-block-end: 0px;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  padding: 0px;
+}
+
+
 body {
   width:100%;
   text-align: center;
@@ -323,12 +336,7 @@ background: red;
 
 /* ----- Articles------ */
 
-/* reset ul sin puntos */
-ul
-{
-  
-  list-style: none;
-}
+
 
 .oferta
 {
@@ -339,6 +347,8 @@ ul
   "i c d"
   "z z z"
   ;
+
+  gap: 10px;
 
 }
 
@@ -375,6 +385,8 @@ ul
 .car-info-zones
 {
   grid-area: z;
+  align-items: center;
+  justify-self: flex-start;
 
 }
 
@@ -395,15 +407,40 @@ ul
 
 .car-info-services
 {
+
+  grid-area: info;
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(4, auto);
   grid-template-rows: repeat(3, 1fr);
   grid-template-areas: 
-  "a b c d e"
-  "l l . p p"
-  "m m . o o"
+  "a a a a a"
+  "l l . o o"
+  "m m . p p"
   ;
+
+  justify-items: flex-start;
 }
+
+.servicios-kilometraje
+{
+  grid-area: l;
+}
+
+.servicios-combustible
+{
+  grid-area: o;
+}
+
+.servicios-cancelaciones
+{
+  grid-area: m;
+}
+
+.servicios-modificaciones
+{
+  grid-area: p;
+}
+
 
 .titulo-nombre
 {
