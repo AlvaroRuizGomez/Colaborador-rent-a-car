@@ -70,51 +70,50 @@
             <!------------ Inicio contenido ------------------------->
             <section id="content">
                 <!-------- Inicio Formulario de Busqueda ------------>
-                <div class="aside-box">
-                    <div class="titulo-form">
-                        <label>Alquiler de Coches</label>
-                    </div>
-                        
-                    <!-------------  Inicio  Fecha/Hora Recogida  ------------------------- -->
-                    <div class="form-inline form-buscar">
-                        <div class="formDateRecogida">
-                            <form class="form-inline">  
-                                <div class="labelDate-form-recogida">
-                                    <label>
-                                            Recogida:
-                                    </label>
-                                </div>
+                <form id="formulario-index" class="form-inline">
+                    <div class="aside-box">
+                        <div class="titulo-form">
+                            <label>Alquiler de Coches</label>
+                        </div>
+                            
+                        <!-------------  Inicio  Fecha/Hora Recogida  ------------------------- -->
+                        <div class="form-inline form-buscar">
+                            <div class="formDateRecogida">
+                                    <div class="labelDate-form-recogida">
+                                        <label>
+                                                Recogida:
+                                        </label>
+                                    </div>
 
-                                <input type="text" class="form-control form-control-date datepicker" id="fechaRecogida" value="" data-placement="right" data-align="bottom" data-name="" readonly="">  
-                                <img src="./img/img-Calendar/calendar.jpg" alt="Calendario recogida" class="img-calendar triggerRec">
+                                    <input type="text" class="form-control form-control-date datepicker" id="fechaRecogida" value="" data-placement="right" data-align="bottom" data-name="" readonly="">  
+                                    <img src="./img/img-Calendar/calendar.jpg" alt="Calendario recogida" class="img-calendar triggerRec">
 
-                                <div class="labelClock-form-recogida">
-                                    <label>
-                                            Hora :
-                                    </label>
-                                </div>
-                                <div class="input-group clockpicker" data-placement="bottom" data-align="top" data-autoclose="true">
-                                    <input type="text" class="form-control form-control-clock" value="09:00" readonly=""/>
-                                    <span class="input-group-addon">
-                                      <img src="./img/Img-Clock/clock.png" alt="Reloj Recogida" class="img-clock">
-                                    </span>
-                                </div>
-                            </form>   
-                        </div>    
-                    </div>
-                    <!-- --------------------- Fin Fecha/Hora Recogida  --------------------------->
-                    <!-- *********************************************************************** -->
-                    <!-- ------------------ Inicio Fecha/Hora Devolucion -------------------------->
-                    <div class="form-inline form-buscar">
-                        <div class="formDateDevolucion">
-                            <form class="form-inline">  
+                                    <div class="labelClock-form-recogida">
+                                        <label>
+                                                Hora :
+                                        </label>
+                                    </div>
+                                    <div class="input-group clockpicker" data-placement="bottom" data-align="top" data-autoclose="true">
+                                        <input type="text" class="form-control form-control-clock" value="09:00" readonly=""/>
+                                        <span class="input-group-addon">
+                                        <img src="./img/Img-Clock/clock.png" alt="Reloj Recogida" class="img-clock">
+                                        </span>
+                                    </div>
+                                </form>   
+                            </div>    
+                        </div>
+                        <!-- --------------------- Fin Fecha/Hora Recogida  --------------------------->
+                        <!-- *********************************************************************** -->
+                        <!-- ------------------ Inicio Fecha/Hora Devolucion -------------------------->
+                        <div class="form-inline form-buscar">
+                            <div class="formDateDevolucion">
                                 <div class="labelDate-form-devolucion">
                                     <label>
                                             Devolucion :
                                     </label>
                                 </div>
-
                                 <input type="text" class="form-control form-control-date datepicker" id="fechaDevolucion" value="" data-placement="right" data-align="bottom" data-name="" readonly="">  
+
                                 <img src="./img/img-Calendar/calendar.jpg" alt="Calendario devolucion" class="img-calendar triggerDev">
 
                                 <div class="labelClock-form-devolucion">
@@ -123,25 +122,26 @@
                                     </label>
                                 </div>
                                 <div class="input-group clockpicker" data-placement="bottom" data-align="top" data-autoclose="true">
-                                    <input type="text" class="form-control form-control-clock" value="20:00" readonly=""/>
+                                    <input id="horaDevolucion" type="text" class="form-control form-control-clock" value="20:00" readonly=""/>
                                     <span class="input-group-addon">
-                                      <img src="./img/Img-Clock/clock.png" alt="Reloj Recogida" class="img-clock">
+                                        <img src="./img/Img-Clock/clock.png" alt="Reloj Recogida" class="img-clock">
                                     </span>
                                 </div>
-                            </form>   
-                        </div>    
+                            </div>
+                        </div>
+                        <!--------------------------- Fin Fecha/Hora Devolucion  ---------------------->
+                            
+                        <div class="form-chequeo">
+                            <label>
+                                <input id="conductor_con_experiencia" type="checkbox" name="" class="form-check-input mr-sm-2" checked>Conductor de entre 26 y 69 años
+                            </label>
+                        </div>
+                        <div class="btnBuscar">
+                            <button id="bt-enviar-index" type="submit" class="btn btn-primary btn-lg btn-block">Ver precios</button>
+                            <!-- <a href="./muestraOferta.html" type="button" >Ver precios</a> -->
+                        </div>
                     </div>
-                    <!--------------------------- Fin Fecha/Hora Devolucion  ---------------------->
-
-                    <div class="form-chequeo">
-                        <label>
-                            <input type="checkbox" name="" class="form-check-input mr-sm-2" checked>Conductor de entre 26 y 69 años
-                        </label>
-                    </div> 
-                    <div class="btnBuscar">
-                        <a href="./muestraOferta.html" type="button" class="btn btn-primary btn-lg btn-block">Ver precios</a>
-                    </div>
-                </div>         
+                </form>
                 <!-------------------------------- Fin Formulario de Busqueda --------------------------->
 
                 <!-------- Inicio Tarjetas --------->
@@ -620,7 +620,8 @@
         </div>
         <!-- Fin container -->
 
-        
+        <!------- Formulario ------>
+        <script src="./js/app.js"></script>
     </body>
     
     </html>
