@@ -76,6 +76,7 @@ background: red;
   border-bottom: 1px solid rgba(225, 225, 226, 0.8);
 }
   
+/*  */
 .logo {
   display: grid;
   grid-template-columns: 10% 60%;
@@ -109,6 +110,7 @@ background: red;
   grid-column-end:3;
   grid-row-start: 1;
   grid-row-end: 1;
+  text-align: left;
 }
   
 .logo p {
