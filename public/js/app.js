@@ -1,40 +1,43 @@
 // formulario
 const elementoFormulario = document.getElementById("formulario-index");
 const btEnviarIndex = document.getElementById("bt-enviar-index");
-const conductorExperienciado = document.getElementById("conductor_con_experiencia");
+
 const fechaDevolucion = document.getElementById("fechaDevolucion");
 const horaDevolucion = document.getElementById("horaDevolucion");
+const fechaRecogida = document.getElementById("fechaRecogida");
+const horaRecogida = document.getElementById("horaRecogida");
 const conductorExperiencia = document.getElementById("conductor_con_experiencia");
 
 
-const URL_BACKEND = "http://localhost:3000/api";
+const URL_BACKEND = "/";
 
 
-elementoFormulario.addEventListener("submit", async (evento) => {
+elementoFormulario.addEventListener("submit", (evento) => {
     evento.preventDefault();
 
     //prevenir que no de otra vez click en el boton
     btEnviarIndex.disabled = true;
 
-    const dataFromForm = {
+    const dataForm = {
         fechaDevolucionValue: fechaDevolucion.value,
         horaDevolucionValue: horaDevolucion.value,
-        conductorExperienciaValue: conductorExperiencia.value
+        fechaRecogidaValue: fechaRecogida.value,
+        horaRecogidaValue: horaRecogida.value,
+        conductorExperienciaValue: conductorExperiencia.value,
+
     };
 
     try
     {
         //enviamos al backend
-        const responseRaw = await fetch(URL_BACKEND, {
+        fetch(URL_BACKEND, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify(dataFromForm),
+            body: JSON.stringify(dataForm),
         });
     
-        const responseData = await responseRaw.json();
-
     }
     catch (error)
     {
