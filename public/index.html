@@ -29,7 +29,7 @@
 
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 
-         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
         <!-- --------------------------------------------------- -->
         
     </head>
@@ -70,22 +70,22 @@
             <!------------ Inicio contenido ------------------------->
             <section id="content">
                 <!-------- Inicio Formulario de Busqueda ------------>
-                <form id="formulario-index" class="form-inline" method="POST" action="/"></form>
-                    <div class="aside-box">
-                        <div class="titulo-form">
-                            <label>Alquiler de Coches</label>
-                        </div>
-                            
-                        <!-------------  Inicio  Fecha/Hora Recogida  ------------------------- -->
-                        <div class="form-inline form-buscar">
-                            <div class="formDateRecogida">
+                <div class="aside-box">
+                    <div class="titulo-form">
+                        <label>Alquiler de Coches</label>
+                    </div>
+                        
+                    <!-------------  Inicio  Fecha/Hora Recogida  ------------------------- -->
+                    <div class="form-inline form-buscar">
+                        <div class="formDateRecogida">
+                            <form class="form-inline">  
                                 <div class="labelDate-form-recogida">
                                     <label>
                                             Recogida:
                                     </label>
                                 </div>
 
-                                <input type="text" class="form-control form-control-date datepicker" id="fechaRecogida" name="fechaRecogida" value="" data-placement="right" data-align="bottom" data-name="" readonly="">  
+                                <input type="text" class="form-control form-control-date datepicker" id="fechaRecogida" value="" data-placement="right" data-align="bottom" data-name="" readonly="">  
                                 <img src="./img/img-Calendar/calendar.jpg" alt="Calendario recogida" class="img-calendar triggerRec">
 
                                 <div class="labelClock-form-recogida">
@@ -94,25 +94,27 @@
                                     </label>
                                 </div>
                                 <div class="input-group clockpicker" data-placement="bottom" data-align="top" data-autoclose="true">
-                                    <input type="text" class="form-control form-control-clock" id="horaRecogida" name="horaRecogida" value="09:00" readonly=""/>
+                                    <input type="text" class="form-control form-control-clock" value="09:00" readonly=""/>
                                     <span class="input-group-addon">
-                                    <img src="./img/Img-Clock/clock.png" alt="Reloj Recogida" class="img-clock">
+                                      <img src="./img/Img-Clock/clock.png" alt="Reloj Recogida" class="img-clock">
                                     </span>
                                 </div>
-                            </div>    
-                        </div>
-                        <!-- --------------------- Fin Fecha/Hora Recogida  --------------------------->
-                        <!-- *********************************************************************** -->
-                        <!-- ------------------ Inicio Fecha/Hora Devolucion -------------------------->
-                        <div class="form-inline form-buscar">
-                            <div class="formDateDevolucion">
+                            </form>   
+                        </div>    
+                    </div>
+                    <!-- --------------------- Fin Fecha/Hora Recogida  --------------------------->
+                    <!-- *********************************************************************** -->
+                    <!-- ------------------ Inicio Fecha/Hora Devolucion -------------------------->
+                    <div class="form-inline form-buscar">
+                        <div class="formDateDevolucion">
+                            <form class="form-inline">  
                                 <div class="labelDate-form-devolucion">
                                     <label>
                                             Devolucion :
                                     </label>
                                 </div>
 
-                                <input type="text" class="form-control form-control-date datepicker" id="fechaDevolucion" name="fechaDevolucion" value="" data-placement="right" data-align="bottom" data-name="" readonly="">  
+                                <input type="text" class="form-control form-control-date datepicker" id="fechaDevolucion" value="" data-placement="right" data-align="bottom" data-name="" readonly="">  
                                 <img src="./img/img-Calendar/calendar.jpg" alt="Calendario devolucion" class="img-calendar triggerDev">
 
                                 <div class="labelClock-form-devolucion">
@@ -121,24 +123,27 @@
                                     </label>
                                 </div>
                                 <div class="input-group clockpicker" data-placement="bottom" data-align="top" data-autoclose="true">
-                                    <input type="text" class="form-control form-control-clock" id="horaDevolucion" name="horaDevolucion" value="20:00" readonly=""/>
+                                    <input type="text" class="form-control form-control-clock" value="20:00" readonly=""/>
                                     <span class="input-group-addon">
-                                    <img src="./img/Img-Clock/clock.png" alt="Reloj Recogida" class="img-clock">
+                                      <img src="./img/Img-Clock/clock.png" alt="Reloj Recogida" class="img-clock">
                                     </span>
                                 </div>
-                            </div>    
-                        </div>
-                        <!--------------------------- Fin Fecha/Hora Devolucion  ---------------------->
-                        <div class="form-chequeo">
-                            <label>
-                                <input type="checkbox" name="" class="form-check-input mr-sm-2" checked>Conductor de entre 26 y 69 años
-                            </label>
-                        </div> 
-                        <div class="btnBuscar">
-                            <button id="bt-enviar-index" type="submit" class="btn btn-primary btn-lg btn-block">Ver precios</button>
-                        </div>
+                            </form>   
+                        </div>    
                     </div>
-                </form>
+                    <!--------------------------- Fin Fecha/Hora Devolucion  ---------------------->
+
+                    <div class="form-chequeo">
+                        <label>
+                            <input type="checkbox" name="" class="form-check-input mr-sm-2" checked>Conductor de entre 26 y 69 años
+                        </label>
+                    </div> 
+                    <section class="btnBuscar">
+                        <button id="boton-VerPrecios" class="btn btn-primary btn-lg btn-block">
+                            Ver precios
+                        </button>
+                    </section>
+                </div>         
                 <!-------------------------------- Fin Formulario de Busqueda --------------------------->
 
                 <!-------- Inicio Tarjetas --------->
@@ -623,6 +628,9 @@
     </html>
     
 <!--------------------------- Scripts ---------------------------->
+<!---------------------------------------------------------------->
+<script src="./js/index.js"></script>
+<!---------------------------------------------------------------->
 <script>
     $.datepicker.regional['es'] = {
         closeText: 'Cerrar',
