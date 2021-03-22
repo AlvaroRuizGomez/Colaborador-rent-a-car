@@ -1,4 +1,3 @@
-/* reset ul sin puntos */
 *{
   text-decoration: none;
   margin: 0px;
@@ -6,6 +5,7 @@
   font-family: sans-serif;
 }
 
+/* reset ul sin puntos */
 ul
 {
   list-style: none;

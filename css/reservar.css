@@ -1,0 +1,159 @@
+*{
+    text-decoration: none;
+    margin: 0px;
+    padding: 0px;
+    font-family: sans-serif;
+  }
+
+body {
+    width:100%;
+    text-align: center;
+    background-color: #fafafa;
+}
+
+ /* -------------- BANNER --------------------*/
+.layout {
+  width: 100%;
+  height: 100vh;
+  margin: 0px auto;
+  display: grid;
+  grid-template-columns: 26% 1fr;
+  grid-template-rows: 186px;
+}
+
+.layout .banner {
+  grid-column-start: 1;
+  grid-column-end:3;
+  /* background: green; */
+}
+
+#header {
+  display: grid;
+  grid-template-columns: 44% 20% 30%;
+  margin-bottom: 32px;
+  align-items: center;
+  width: 100%;
+  height: 185px;
+  background-color: #e6e9f0;
+  border-bottom: 1px solid rgba(225, 225, 226, 0.8);
+}
+  
+ /* -------------- LOGO --------------------*/
+
+.logo {
+  display: grid;
+  grid-template-columns: 10% 60%;
+  grid-template-rows: 95px;
+  font-weight: 900px;
+  font-size: 15px;
+  padding: 10px;
+  margin-left: 43px;
+  text-shadow: 1px 1px 0px #ccc;
+}
+  
+.logo_r {
+  font-family: 'Faster One', cursive;
+  font-size: 70px;
+  color: #ff0000;
+  text-shadow: 1px 6px 2px #222;
+  grid-column-start: 1;
+  grid-column-end:2;
+  grid-row-start: 1;
+  grid-row-end: 1;
+  margin-top: 17px;
+}
+  
+.logo h1 {
+  width: 100%;
+  margin-top: 46px;
+  margin-left: -3px;
+  font-size: 40px;
+  color: #000080;
+  text-shadow: 1px 1px 2px;
+  grid-column-start: 2;
+  grid-column-end:3;
+  grid-row-start: 1;
+  grid-row-end: 1;
+  text-align: left;
+}
+  
+.logo > p {
+  color: red;
+  font-family: 'Caveat', cursive;
+  font-size: 22px;
+  font-style: oblique;
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 2;
+  grid-row-end: 2;
+  margin-left: -94px;
+}
+  
+.contacto {
+  display: grid;
+  /* grid-template-columns: 15% 40%; */
+  grid-template-columns: 1fr;
+  width: 100%;
+  padding-right: 10px;
+  margin-top: 2px;
+  font-family: Helvetica;
+  font-style: italic;
+  font-weight: 900px;
+  font-size: 15px;
+}
+  
+.contacto img {
+  width: 45px;
+}
+  
+.contacto h2 {
+  font-size: 20px;
+  margin-top: -39px;
+  margin-left: -63px;
+}
+
+.contacto p {
+  margin-right: 124px;
+}
+  
+#reserva-telefono {
+  font-family: "Open Sans", sans-serif;
+  margin-left: 66px;
+  margin-top: -15px;  
+}
+  
+#idioma {
+  width: 100%;
+  height: 100%;
+  padding-right: 20px;
+}
+  
+#idioma > ul {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  justify-content: center;
+  text-align: right;
+  height: 100%;
+  list-style: none;
+}
+  
+#eslogan {
+  display: grid;
+  grid-template-columns: 1fr;
+    
+  width: 100%;
+  margin-top: -53px;
+  margin-left: 37px;
+  
+  position: absolute;
+  z-index: 100;
+  justify-items: center;
+    
+  color: #0d6efd;
+  font-family: 'Lobster', cursive;
+  font-size: 63px;
+  font-weight: bold;
+  font-style: oblique;
+  text-shadow: 1px 6px 2px #222;
+}
