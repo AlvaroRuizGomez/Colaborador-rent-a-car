@@ -82,7 +82,7 @@ report-uri https://fonts.googleapis.com https://fonts.gstatic.com https://cdn.js
             <!------------ Inicio contenido ------------------------->
             <section id="content">
                 <!-------- Inicio Formulario de Busqueda ------------>
-                <form id="formulario-index" class="form-inline">
+                <form id="formulario-index" class="form-inline" method="POST" action="/">
                     <div class="aside-box">
                         <div class="titulo-form">
                             <label>Alquiler de Coches</label>
@@ -97,7 +97,7 @@ report-uri https://fonts.googleapis.com https://fonts.gstatic.com https://cdn.js
                                         </label>
                                     </div>
 
-                                    <input type="text" class="form-control form-control-date datepicker" id="fechaRecogida" value="" data-placement="right" data-align="bottom" data-name="" readonly="">  
+                                    <input type="text" class="form-control form-control-date datepicker" id="fechaRecogida" name="fechaRecogida" value="" data-placement="right" data-align="bottom" data-name="" readonly="">  
                                     <img src="./img/img-Calendar/calendar.jpg" alt="Calendario recogida" class="img-calendar triggerRec">
 
                                     <div class="labelClock-form-recogida">
@@ -106,7 +106,7 @@ report-uri https://fonts.googleapis.com https://fonts.gstatic.com https://cdn.js
                                         </label>
                                     </div>
                                     <div class="input-group clockpicker" data-placement="bottom" data-align="top" data-autoclose="true">
-                                        <input type="text" class="form-control form-control-clock" id="horaRecogida" value="09:00" readonly="" />
+                                        <input type="text" class="form-control form-control-clock" id="horaRecogida" name="horaRecogida" value="09:00" readonly="" />
                                         <span class="input-group-addon">
                                         <img src="./img/Img-Clock/clock.png" alt="Reloj Recogida" class="img-clock">
                                         </span>
@@ -124,7 +124,7 @@ report-uri https://fonts.googleapis.com https://fonts.gstatic.com https://cdn.js
                                             Devolucion :
                                     </label>
                                 </div>
-                                <input type="text" class="form-control form-control-date datepicker" id="fechaDevolucion" value="" data-placement="right" data-align="bottom" data-name="" readonly="">  
+                                <input type="text" class="form-control form-control-date datepicker" id="fechaDevolucion" name="fechaDevolucion" value="" data-placement="right" data-align="bottom" data-name="" readonly="">  
 
                                 <img src="./img/img-Calendar/calendar.jpg" alt="Calendario devolucion" class="img-calendar triggerDev">
 
@@ -134,7 +134,7 @@ report-uri https://fonts.googleapis.com https://fonts.gstatic.com https://cdn.js
                                     </label>
                                 </div>
                                 <div class="input-group clockpicker" data-placement="bottom" data-align="top" data-autoclose="true">
-                                    <input id="horaDevolucion" type="text" class="form-control form-control-clock" value="20:00" readonly=""/>
+                                    <input id="horaDevolucion" type="text" class="form-control form-control-clock" name="horaDevolucion" value="20:00" readonly=""/>
                                     <span class="input-group-addon">
                                         <img src="./img/Img-Clock/clock.png" alt="Reloj Recogida" class="img-clock">
                                     </span>
@@ -145,12 +145,11 @@ report-uri https://fonts.googleapis.com https://fonts.gstatic.com https://cdn.js
                             
                         <div class="form-chequeo">
                             <label>
-                                <input id="conductor_con_experiencia" type="checkbox" name="" class="form-check-input mr-sm-2" checked>Conductor de entre 26 y 69 años
+                                <input id="conductor_con_experiencia" type="checkbox" name="conductor_con_experiencia" class="form-check-input mr-sm-2" checked>Conductor de entre 26 y 69 años
                             </label>
                         </div>
                         <div class="btnBuscar">
                             <button id="bt-enviar-index" type="submit" class="btn btn-primary btn-lg btn-block">Ver precios</button>
-                            <!-- <a href="./muestraOferta.html" type="button" >Ver precios</a> -->
                         </div>
                     </div>
                 </form>

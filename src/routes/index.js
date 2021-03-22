@@ -13,15 +13,16 @@ router.get('/', (req, res) => {
 });
 
 
+
 // index page POST
-router.post('/', async (req, res, next) => {
+router.post('/', async (req, res) => {
     
     const isSchemaValid = await ControlSchema( req.body);
 
     if (isSchemaValid === false) {
         //TODO: mejorar
-        res.send({ "data": "" });
-        console.error("schema invalido")
+        res.status(404).send("Not found");
+        console.error("schema invalido");
         return;
     }
 
@@ -38,37 +39,48 @@ router.post('/', async (req, res, next) => {
     const dataResponse = await responseRaw.json();
 
     req.session.data = dataResponse;
-    console.log("redirect");
-    res.redirect(301, `/muestraoferta`);
-    next;
-
+    res.render("muestraOferta", {
+        "body": req.body
+    });
+    // res.redirect(301, `/muestraoferta/${req.sessionID}`);
+    
 });
 
 router.get("/muestraoferta", async (req, res) => {
-    
-    console.log("muestraoferta");
-    const sessionData = req.session.data;
-    res.render('muestraOferta.html', {sessionData} );
-    // res.renderFile("muestraOferta.html")
+
+    // console.log("123123123 muestraoferta");
+    res.redirect("/");
+
+});
 
 
+router.get("/muestraoferta/:id", async (req, res) => {
     
+    console.log("123123123 muestraoferta");
+    // const sessionData = req.session.data;
+    
+
+    
+
 });
 
 
 const ControlSchema = async (body) => {
 
+    const tamanyoBody = Object.keys(body).length;
+    if (tamanyoBody <= 0 || tamanyoBody > formSchema.length) return false;
 
+    let isValid = false;
     for (key in body) {
         if (body[key] === "" || body[key] === undefined) {
             return false;
         }
 
-
-        let schemaValid = false;
+        let schemaValid = isValid = false;
         for (let i = 0; i < formSchema.length; i++) {
             if (key === formSchema[i]) {
                 schemaValid = true;
+                isValid = true;
                 break;
             }
         }
@@ -79,7 +91,7 @@ const ControlSchema = async (body) => {
 
     }
 
-    return true;
+    return isValid;
 }
 
 
