@@ -1,7 +1,13 @@
 /* reset ul sin puntos */
+*{
+  text-decoration: none;
+  margin: 0px;
+  padding: 0px;
+  font-family: sans-serif;
+}
+
 ul
 {
-  
   list-style: none;
   margin-block-start: 0px;
   margin-block-end: 0px;
@@ -14,6 +20,7 @@ ul
 body {
   width:100%;
   text-align: center;
+  background-color: #fafafa;
 }
 
 .layout {
@@ -52,7 +59,6 @@ background: red;
   grid-column-start: 2;
   grid-column-end:3;
   grid-row-start: 3;
-  background: blue;
   width:100%;
 }
 
@@ -122,7 +128,7 @@ background: red;
   grid-column-end: 3;
   grid-row-start: 2;
   grid-row-end: 2;
-  margin-left: 55px;
+  margin-left: -94px;
 }
   
 .logo img {
@@ -149,7 +155,11 @@ background: red;
 .contacto h2 {
   font-size: 20px;
   margin-top: -39px;
-  margin-left: 50px;
+  margin-left: -63px;
+}
+
+.contacto p {
+  margin-right: 124px;
 }
   
 #reserva-telefono {
@@ -199,17 +209,19 @@ background: red;
 }
 
 .form-container {
+ 
 }
+
+
+/*---- Inicio Formulario busqueda (aside) -------------------*/
 
 .aside-box {
   display: flex;
   flex-flow: row wrap;
-  width: 100%;
-  height: 345px;
-  margin: 0px auto;
-  margin-left: auto;
-  margin-top: 0px;
-  margin-left: 0px;
+  width: 89%;
+  height: 299px;
+  margin-top: 12px;
+  margin-left: 26px;
   padding-top: 0px;
   background: #c3d2f2;
   box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.3), 0px 3px 7px rgba(0, 0, 0, 0.3), 0px 0px 1px white inset, 0px -3px 2px rgba(0, 0, 0, 0.3) inset;
@@ -220,17 +232,18 @@ background: red;
   margin-left: 11px;
   margin-top: 13px;
   font-family: inherit;
-  font-size: 22px;
+  font-size: 18px;
   font-weight: bold;
+  margin-bottom: -21px;
 }
 
 .titulo-form-cambiar {
   display: inline;
-  margin-left: 111px;
+  margin-left: 60px;
 }
 
 .titulo-form a {
-  margin-left: 11px;
+  margin-left: 13px;
   margin-top: 18px;
   font-family: Sans;
   font-size: 19px;
@@ -260,21 +273,21 @@ background: red;
   
 .labelDate-form-recogida {
   margin-left: -192px;
-  margin-right: 25px;
-  font-size: 20px;
+  margin-right: 31px;
+  font-size: 15px;
   font-weight: bolder;
 }
   
 .labelDate-form-devolucion {
   margin-left: -192px;
-    margin-right: 3px;
-  font-size: 20px;
+  margin-right: 12px;
+  font-size: 15px;
   font-weight: bolder;
 }
   
 .form-control-date {
-  width: 153px !important;
-  margin-left: 2px;
+  width: 132px !important;
+  margin-left: -8px;
   box-shadow: 0px 0px 2px #1e1c1c;
   cursor: pointer;
 }
@@ -332,209 +345,11 @@ background: red;
   
 .btnMod {
   margin: 13px 41px;  
-  margin-left: 143px;
+  margin-left: 111px;
 }
-
-
-/* ----- Articles------ */
-
-
-
-.oferta
-{
-  display: grid;
-  grid-template-columns: 230px 450px 180px;
-  grid-template-rows: 200px 25px ;
-  grid-template-areas: 
-  "i c d"
-  "z z z"
-  ;
-
-  gap: 10px;
-
-}
-
-.rentacar-info
-{
-  grid-area: i;
-  align-self: flex-start;
-  justify-self: center;
-
-}
-
-.car-info
-{
-  grid-area: c;
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: auto auto;
-  grid-template-areas: 
-  "titulo"
-  "info"
-  ;
-  justify-items: flex-start;
-  align-items: center;
-
-}
-
-
-
-.car-info-prices
-{
-  grid-area: d;
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: repeat(5, 1fr);
-
-  justify-items: flex-end;
-  align-items: center;
-
-}
-
-.car-info-zones
-{
-  grid-area: z;
-  align-items: center;
-  justify-self: flex-start;
-
-}
-
-.car-image
-{
-  max-width: 200px;
-  box-sizing: border-box;
-  border-collapse: collapse;
-  margin: 10px auto;
-}
-
-.icon-24
-{
-  width: 24px;
-
-}
-
-
-.car-info-services
-{
-
-  grid-area: info;
-  display: grid;
-  grid-template-columns: repeat(4, auto);
-  grid-template-rows: repeat(3, 1fr);
-  grid-template-areas: 
-  "a a a a a"
-  "l l . o o"
-  "m m . p p"
-  ;
-
-  justify-items: flex-start;
-}
-
-.servicios-kilometraje
-{
-  grid-area: l;
-}
-
-.servicios-combustible
-{
-  grid-area: o;
-}
-
-.servicios-cancelaciones
-{
-  grid-area: m;
-}
-
-.servicios-modificaciones
-{
-  grid-area: p;
-}
-
-
-.titulo-nombre
-{
-  font-size: 1.8em;
-}
-
-
-.servicios-asientos-icono
-{
-  background: url(/cdn/img/icons/icons-128.png) no-repeat;
-  background-size: 96px;
-}
-
-.current-price
-{
-  color: #383838;
-  font-size: 2.8em;
-  font-weight: 700;
-  line-height: 1em;
-  margin-bottom: 0;
-  white-space: nowrap;
-}
-
-.old-price
-{
-  text-decoration: line-through;
-  font-size: 1.5em;
-  color: rgb(189, 76, 66);
-
-}
-
-.description-price
-{
-  color: rgb(109, 196, 86);
-  font-size: 13px;
-}
-
-
-
-
-/* ----- FIN Articles------ */
-
-
-/*---------------- Fin Datos-busqueda/Vehículos-Ofertados encontrados ---------- */
+/*---- Fin Formulario busqueda (aside) -------------------*/
 
 /* --------------- Inicio Slider --------------------------- */
-/* .cardd{
-  float: left;
-  width: 205px;
-  height: 196px;
-  border: 1px solid #ccc;
-  box-shadow: 1px 1px 2px #ddd;
-  background: white;
-  overflow: hidden;
-  margin: 22px;
-  margin-top: 0px;
-  margin-left: 5px;
-  margin-right: 7px !important;
-  cursor: pointer;
-  transition: all 300ms;
-}
-
-.cardd h5 {
-  font-size: 17px;
-}
-
-.card-slide1 {
- 
-}
-
-.card-slide2 {
-  background:#f2f2f2;
-}
-
-.cardd .card-slide2 > p {
-  color: #000;
-  font-size: 15px;
-  font-weight: 700px;
-}
-
-.card-slide-txt{
-  color: #686868;
-  margin-bottom: -14px;
-  font-size: 12px;
-} */
 
 .carruselSlider{
   width: 1222px;
@@ -548,17 +363,18 @@ background: red;
 }
 
 .row-p {
-  width: 75%;
+  width: 77%;
 }
 
 .col-p {
   height: 183px;
-  border: 1px solid #000000;
-  margin-left: 29px;
-  margin-right: -16px;
-  border: 1px solid #e9e7e7;
-  border-radius: 3px;
-  margin-top: 11px;
+    border: 1px solid #000000;
+    margin-left: 30px;
+    margin-right: -18px;
+    border: 1px solid #e9e7e7;
+    border-radius: 3px;
+    margin-top: 11px;
+    background-color: #ffffff;
 }
 
 .img-ta {
@@ -586,3 +402,250 @@ background: red;
 }
 
 /* ---------- Fin    Slider ----------- */
+
+
+
+
+.tablero_ofertas{
+  width: 929px;
+  border: 1px solid#ddd;
+  margin-left: 31px;
+  margin-top: -65px;
+  margin-bottom: 62px;
+  box-shadow: 1px 1px 4px #1e1c1c;
+  background-color: #fbe8ec;
+}
+
+
+/* ----- Inicio Ofertas --------------- */
+.oferta
+{
+  display: grid;
+  grid-template-columns: 230px 460px 200px;
+  grid-template-rows: 200px 25px ;
+  grid-template-areas: 
+  "i c d"
+  "z z z"
+  ;
+  gap: 10px;
+  /* background-color: #fefdfe; */
+  border: 1px solid#ddd;
+  border-radius: 2px;
+  color: black;
+  font-size: 12px;
+  margin-right: 275px;
+  margin-left: 31px;
+  margin-bottom: 13px;
+  background-color: #ffffff;
+}
+
+.rentacar-info
+{
+  grid-area: i;
+  align-self: flex-start;
+  justify-self: center;
+
+}
+
+.car-info
+{
+  grid-area: c;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto;
+  grid-template-areas: 
+  "titulo"
+  "info"
+  ;
+  justify-items: flex-start;
+  align-items: center;
+  margin-left: 14px;
+}
+
+.car-name {
+  /* font-size: 18px;
+  margin-top: 11px;
+  color: #333333; */
+
+  color: #333333;
+  font-size: 1.8em;
+  font-weight: 700;
+  /* margin: 0; */
+  margin-bottom: -29px;
+  margin-left: 0px;
+  text-size-adjust: none;
+  line-height: 1.3em;
+}
+
+.car-info-prices
+{
+  grid-area: d;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(5, 1fr);
+
+  justify-items: flex-end;
+  align-items: center;
+
+}
+
+.car-info-zones
+{
+  grid-area: z;
+  align-items: center;
+  justify-self: flex-start;
+
+}
+
+.car-image
+{
+  max-width: 243px;
+  box-sizing: border-box;
+  border-collapse: collapse;
+  margin: 45px;
+}
+
+.icon-24
+{
+  width: 16px;
+  margin-top: 7px;
+}
+
+.icon-25
+{
+  width: 20px;
+  margin-bottom: 6px;
+}
+
+.car-info-services
+{
+  grid-area: info;
+  display: grid;
+  grid-template-columns: repeat(4, 39px);
+  grid-template-rows: 31px;
+  grid-template-areas: 
+  "a a a a"
+  "l l . o"
+  /*"m m . p" */
+  ;
+
+  justify-items: flex-start;
+}
+
+.servicios-asientos{
+  width: 82%;
+  border: 1px solid #ccc;
+  margin-left: 2px;
+  margin-top: 4px;
+}
+
+.icon-number{
+  display: inline;
+  font-size: 13px;
+  color: #787878;
+}
+
+.servicios-puertas{
+  border: 1px solid #ccc;
+  width: 82%;
+  margin-left: 2px;
+  margin-top: 4px;
+}
+
+.servicios-aire{
+  border: 1px solid #ccc;
+  width: 82%;
+  margin-left: 2px;
+  margin-top: 4px;
+}
+
+.servicios-trasmision{
+  border: 1px solid #ccc;
+  width: 97%;
+  margin-left: 2px;
+  margin-top: 4px;
+}
+
+.servicios-kilometraje
+{
+  margin-left: 2px;
+}
+
+.icon-kilometro{
+  display: inline;
+  font-size: 13px;
+  color: #787878;
+}
+
+
+.car-info-services-2{
+  margin-top: 2px;
+}
+
+.servicios-cancelaciones
+{
+  margin-left: 2px;
+
+}
+
+.icon-cancelaciones{
+  display: inline;
+  font-size: 13px;
+  color: #787878;
+}
+
+.servicios-modificaciones
+{
+  margin-left: 2px;
+}
+
+.icon-modificaciones{
+  display: inline;
+  font-size: 13px;
+  color: #787878;
+}
+
+.titulo-nombre
+{
+  font-size: 1.8em;
+}
+
+.servicios-asientos-icono
+{
+  background: url(/cdn/img/icons/icons-128.png) no-repeat;
+  background-size: 96px;
+}
+
+.current-price
+{
+  color: #383838;
+  font-size: 2.8em;
+  font-weight: 700;
+  line-height: 1em;
+  margin-bottom: 0;
+  white-space: nowrap;
+  margin-top: 12px;
+}
+
+.old-price
+{
+  text-decoration: line-through;
+  font-size: 1.5em;
+  color: rgb(189, 76, 66);
+
+}
+
+.description-price
+{
+  color:#126df6;
+  font-size: 13px;
+}
+
+.btn-reservar {
+  margin-top: 124px;;
+}
+/* ----- Fin Ofertas --------------- */
+
+
+/*---------------- Fin Datos-busqueda/Vehículos-Ofertados encontrados ---------- */
+

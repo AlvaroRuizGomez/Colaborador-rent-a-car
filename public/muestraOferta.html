@@ -81,66 +81,64 @@
                         </div>
                     </div>
                 </div>
-                
-                <!-------------  Inicio  Fecha/Hora Recogida  ------------------------- -->
-                <div class="form-inline form-buscar">
-                    <div class="formDateRecogida">
-                        <div class="labelDate-form-recogida">
-                            <label>
-                                    Recogida:
-                            </label>
-                        </div>
-                        <form class="form-inline">  
-
-                            <input type="text" class="form-control form-control-date datepicker" id="fechaRecogida" value="<%= it.body.fechaRecogida %>" data-placement="right" data-align="bottom" data-name="" readonly="">  
-                            <img src="./img/img-Calendar/calendar.jpg" alt="Calendario recogida" class="img-calendar triggerRec">
-
-                            <div class="labelClock-form-recogida">
-                                <label></label>
-                            </div>
-                            <div class="input-group clockpicker" data-placement="bottom" data-align="top" data-autoclose="true">
-                                <input type="text" class="form-control form-control-clock" id="horaRecogida" value="09:00" readonly=""/>
-                                <span class="input-group-addon">
-                                  <img src="./img/Img-Clock/clock.png" alt="Reloj Recogida" class="img-clock">
-                                </span>
-                            </div>
-                        </form>   
-                    </div>    
-                </div>
-                
-                <!-- --------------------- Fin Fecha/Hora Recogida  --------------------------->
-                <!-- *********************************************************************** -->
-                <!-- ------------------ Inicio Fecha/Hora Devolucion -------------------------->
-                <div class="form-inline form-buscar">
-                    <div class="formDateDevolucion">
-                        <div class="labelDate-form-devolucion">
-                            <label>
-                                    Devolucion :
-                            </label>
-                        </div>
-                        <form class="form-inline">  
-
-                            <input type="text" class="form-control form-control-date datepicker" id="fechaDevolucion" value="" data-placement="right" data-align="bottom" data-name="" readonly="">  
-                            <img src="./img/img-Calendar/calendar.jpg" alt="Calendario devolucion" class="img-calendar triggerDev">
-
-                            <div class="labelClock-form-devolucion">
+                <form class="form-inline">
+                    <!-------------  Inicio  Fecha/Hora Recogida  ------------------------- -->
+                    <div class="form-inline form-buscar">
+                        <div class="formDateRecogida">
+                            <div class="labelDate-form-recogida">
                                 <label>
-                            
+                                        Recogida:
                                 </label>
                             </div>
-                            <div class="input-group clockpicker" data-placement="bottom" data-align="top" data-autoclose="true">
-                                <input type="text" class="form-control form-control-clock" value="20:00" readonly=""/>
-                                <span class="input-group-addon">
-                                  <img src="./img/Img-Clock/clock.png" alt="Reloj Recogida" class="img-clock">
-                                </span>
+                            
+
+                                <input type="text" class="form-control form-control-date datepicker" id="fechaRecogida" name="fechaRecogida" value="" data-placement="right" data-align="bottom" data-name="" readonly="">  
+                                <img src="./img/img-Calendar/calendar.jpg" alt="Calendario recogida" class="img-calendar triggerRec">
+
+                                <div class="labelClock-form-recogida">
+                                    <label></label>
+                                </div>
+                                <div class="input-group clockpicker" data-placement="bottom" data-align="top" data-autoclose="true">
+                                    <input type="text" class="form-control form-control-clock" name="horaRecogida" value="09:00" readonly=""/>
+                                    <span class="input-group-addon">
+                                    <img src="./img/Img-Clock/clock.png" alt="Reloj Recogida" class="img-clock">
+                                    </span>
+                                </div>
+                            
+                        </div>    
+                    </div>
+                    
+                    <!-- --------------------- Fin Fecha/Hora Recogida  --------------------------->
+                    <!-- *********************************************************************** -->
+                    <!-- ------------------ Inicio Fecha/Hora Devolucion -------------------------->
+                    <div class="form-inline form-buscar">
+                        <div class="formDateDevolucion">
+                            <div class="labelDate-form-devolucion">
+                                <label>
+                                        Devolucion :
+                                </label>
                             </div>
-                        </form>   
-                    </div>    
-                </div>
-                <!--------------------------- Fin Fecha/Hora Devolucion  ---------------------->
-                <div class="btnMod">
-                    <button type="button" class="btn btn-primary btn-lg btn-block">Modificar</button>
-                </div>
+                                <input type="text" class="form-control form-control-date datepicker" id="fechaDevolucion" name="fechaDevolucion" value="" data-placement="right" data-align="bottom" data-name="" readonly="">  
+                                <img src="./img/img-Calendar/calendar.jpg" alt="Calendario devolucion" class="img-calendar triggerDev">
+
+                                <div class="labelClock-form-devolucion">
+                                    <label>
+                                
+                                    </label>
+                                </div>
+                                <div class="input-group clockpicker" data-placement="bottom" data-align="top" data-autoclose="true">
+                                    <input type="text" class="form-control form-control-clock" name="horaDevolucion" value="20:00" readonly=""/>
+                                    <span class="input-group-addon">
+                                    <img src="./img/Img-Clock/clock.png" alt="Reloj Recogida" class="img-clock">
+                                    </span>
+                                </div>
+                        </div>    
+                    </div>
+                    <!--------------------------- Fin Fecha/Hora Devolucion  ---------------------->
+                    <div class="btnMod">
+                        <button id="bt-enviar-index" type="submit" class="btn btn-primary btn-lg btn-block">Modificar</button>
+                    </div>
+                </form>
             </div>         
             <!-------------------------------- Fin Formulario de Busqueda --------------------------->
         </div>
@@ -314,78 +312,158 @@
     
         <!--------------- Fin Slider ------------------------->
 
+
         <!--------------- Inicio Ofertas --------------------->
         <div class="ofertas">
+            <div class="tablero_ofertas">
+                <h3>O F E R T A S</h3>
+            </div>
             <!-- Ofertas -->
             <article class="oferta">
                 <!-- Zona Izquierda-->
                 <section class="rentacar-info">
                     <img class="car-image" src="./img/Img-Vehiculos/rescambiada/png/CitroenC1Automatic.png" alt="Citroen C1">
-                    <span class="">
+                    <!-- <span class="">
                         <img src="./" alt="Rentacar">
                         <strong>Empresa Rentacar</strong> 
                         <a class="" href="#">Condiciones</a>
-                    </span>
+                    </span> -->
                 </section>
                 <!-- Zona centro -->
                 <section class="car-info">
-                    <h2 class="car-name">Citron C1</h2>
-                    <ul class="car-info-services">
-                        <li class="servicios-asientos" title="asientos">
-                            <img class="icon-24" src="./img/svg/person-fill.svg" alt="persona">
-                            <span>4</span>
-                        </li>
+                    <h2 class="car-name">Citröen C1</h2>
+                    <div class="car-info-services">
+                        <div class="servicios-asientos" title="asientos">
+                            <img class="icon-24" src="img/svg/person-fill.svg" alt="persona">
+                            <div class="icon-number">4</div>
+                        </div>
                         
-                        <li class="servicios-puertas" title="puertas">
-                            <img class="icon-24" src="./img/svg/person-fill.svg" alt="puertas">
-                            <span>3</span>
-                        </li>
+                        <div class="servicios-puertas" title="puertas">
+                            <img class="icon-24" src="img/svg/puerta.svg" alt="puertas">
+                            <div class="icon-number">3</div>
 
-                        <li class="servicios-aire" title="aire">
-                            <img class="icon-24" src="./img/svg/person-fill.svg" alt="aire">
-                        </li>
+                        </div>
 
-                        <li class="servicios-trasmision" title="transmision">
-                            <img class="icon-24" src="./img/svg/person-fill.svg" alt="transmision">
-                            <span>M</span>
-                        </li>
+                        <div class="servicios-aire" title="aire">
+                            <img class="icon-24" src="img/svg/aire.svg" alt="aire">
+                        </div>
 
-                        <li class="servicios-kilometraje" title="kilometraje">
-                            <img class="icon-24" src="./img/svg/person-fill.svg" alt="kilometraje">
-                            <span>Kilometraje Ilimitado</span>
-                        </li>
+                        <div class="servicios-trasmision" title="transmision">
+                            <img class="icon-24" src="img/svg/tansmision.svg" alt="transmision">
+                            <div class="icon-number">M</div>
+                        </div>
+                    </div> 
+                    <div class="car-info-services-2"> 
+                        <div class="servicios-kilometraje" title="kilometraje">
+                            <img class="icon-25" src="img/svg/velocimetro.png" alt="kilometraje">
+                            <div class="icon-kilometro">Kilometraje Ilimitado</div>
+                        </div>
 
-                        <li class="servicios-combustible" title="El vehículo se entregará con el depósito lleno de combustible y lo deberá devolver lleno; de esta manera no le cobrarán nada por el combustible.<BR/><BR/>Si no devuelve el coche lleno, se le cobrará la gasolina usada a precio de mercado de ese día más los gastos de repostaje: 23.18 €, consultar el precio de la gasolina en http://geoportalgasolineras.es">
+                        <!-- <li class="servicios-combustible" title="El vehículo se entregará con el depósito lleno de combustible y lo deberá devolver lleno; de esta manera no le cobrarán nada por el combustible.<BR/><BR/>Si no devuelve el coche lleno, se le cobrará la gasolina usada a precio de mercado de ese día más los gastos de repostaje: 23.18 €, consultar el precio de la gasolina en http://geoportalgasolineras.es">
                             <img class="icon-24" src="./img/svg/person-fill.svg" alt="combustible">
                             <span>Combustible Lleno/Lleno</span>
-                        </li>
+                        </li> -->
 
-                        <li class="servicios-cancelaciones" title="Cancelaciones">
-                            <img class="icon-24" src="./img/svg/person-fill.svg" alt="cancelaciones">
-                            <span>cancelaciones</span>
-                        </li>
-
-                        <li class="servicios-modificaciones" title="modificaciones">
-                            <img class="icon-24" src="./img/svg/person-fill.svg" alt="modificaciones">
-                            <span>Modificaciones Gratis</span>
-                        </li>
-                    </ul>
+                        <div class="servicios-cancelaciones" title="Cancelaciones">
+                            <img class="icon-25" src="img/svg/hecho.svg" alt="cancelaciones">
+                            <div class="icon-cancelaciones">Cancelación gratuita</div>
+                        </div>
+                        <div class="servicios-modificaciones" title="Modificaciones">
+                            <img class="icon-25" src="img/svg/hecho.svg" alt="modificaciones">
+                            <div class="icon-modificaciones">Modificación gratuita</div>
+                        </div>
+                    </div>
                 </section>
 
                 <!-- Zona derecha -->
                 <section class="car-info-prices">
                     <span class="current-price">81.73 €</span>
-                    <span class="old-price">100.81 €</span>
+                    <!-- <span class="old-price">100.81 €</span> -->
                     <span class="description-price" title="Precio total para 8 días">Precio por 8 días</span>
-                    <input type="button" class="btn btn-xxl btn-success" value="Reservar">
-                    <span class="marked">Modificaciones Gratis</span>
+                    <input type="button" class="btn btn-xxl btn-success btn-reservar" value="Reservar">
+                    <!-- <span class="marked">Modificaciones Gratis</span> -->
                 </section>
 
                 <!-- Zona abajo -->
-                <section class="car-info-zones">
+                <!-- <section class="car-info-zones">
                     <i class="car-info-zones-image"></i>
                     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deleniti, assumenda!</p>
+                </section> -->
+
+            </article>
+
+            <!--  -->
+
+            <article class="oferta">
+                <!-- Zona Izquierda-->
+                <section class="rentacar-info">
+                    <img class="car-image" src="./img/Img-Vehiculos/rescambiada/png/CitroenC1Automatic.png" alt="Citroen C1">
+                    <!-- <span class="">
+                        <img src="./" alt="Rentacar">
+                        <strong>Empresa Rentacar</strong> 
+                        <a class="" href="#">Condiciones</a>
+                    </span> -->
                 </section>
+                <!-- Zona centro -->
+                <section class="car-info">
+                    <h2 class="car-name">Citröen C1</h2>
+                    <div class="car-info-services">
+                        <div class="servicios-asientos" title="asientos">
+                            <img class="icon-24" src="img/svg/person-fill.svg" alt="persona">
+                            <div class="icon-number">4</div>
+                        </div>
+                        
+                        <div class="servicios-puertas" title="puertas">
+                            <img class="icon-24" src="img/svg/puerta.svg" alt="puertas">
+                            <div class="icon-number">3</div>
+
+                        </div>
+
+                        <div class="servicios-aire" title="aire">
+                            <img class="icon-24" src="img/svg/aire.svg" alt="aire">
+                        </div>
+
+                        <div class="servicios-trasmision" title="transmision">
+                            <img class="icon-24" src="img/svg/tansmision.svg" alt="transmision">
+                            <div class="icon-number">M</div>
+                        </div>
+                    </div> 
+                    <div class="car-info-services-2"> 
+                        <div class="servicios-kilometraje" title="kilometraje">
+                            <img class="icon-25" src="img/svg/velocimetro.png" alt="kilometraje">
+                            <div class="icon-kilometro">Kilometraje Ilimitado</div>
+                        </div>
+
+                        <!-- <li class="servicios-combustible" title="El vehículo se entregará con el depósito lleno de combustible y lo deberá devolver lleno; de esta manera no le cobrarán nada por el combustible.<BR/><BR/>Si no devuelve el coche lleno, se le cobrará la gasolina usada a precio de mercado de ese día más los gastos de repostaje: 23.18 €, consultar el precio de la gasolina en http://geoportalgasolineras.es">
+                            <img class="icon-24" src="./img/svg/person-fill.svg" alt="combustible">
+                            <span>Combustible Lleno/Lleno</span>
+                        </li> -->
+
+                        <div class="servicios-cancelaciones" title="Cancelaciones">
+                            <img class="icon-25" src="img/svg/hecho.svg" alt="cancelaciones">
+                            <div class="icon-cancelaciones">Cancelación gratuita</div>
+                        </div>
+                        <div class="servicios-modificaciones" title="Modificaciones">
+                            <img class="icon-25" src="img/svg/hecho.svg" alt="modificaciones">
+                            <div class="icon-modificaciones">Modificación gratuita</div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Zona derecha -->
+                <section class="car-info-prices">
+                    <span class="current-price">81.73 €</span>
+                    <!-- <span class="old-price">100.81 €</span> -->
+                    <span class="description-price" title="Precio total para 8 días">Precio por 8 días</span>
+                    <input type="button" class="btn btn-xxl btn-success btn-reservar" value="Reservar">
+                    <!-- <span class="marked">Modificaciones Gratis</span> -->
+                </section>
+
+                <!-- Zona abajo -->
+                <!-- <section class="car-info-zones">
+                    <i class="car-info-zones-image"></i>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deleniti, assumenda!</p>
+                </section> -->
 
             </article>
         </div>

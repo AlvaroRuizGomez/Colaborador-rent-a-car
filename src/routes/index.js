@@ -3,7 +3,6 @@ const router = express.Router();
 const formSchema = require("../schemas/formschema");
 const fetch = require("node-fetch");
 const session = require('express-session');
-const ejs = require("ejs");
 
 const URI_BACKEND = `${process.env.URL_BACKEND}:${process.env.PORT_BACKEND}/api`;
 
