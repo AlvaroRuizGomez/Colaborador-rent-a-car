@@ -16,8 +16,8 @@
         <script src="clockpicker.js"></script>
         <!-- --------------------------------------------------- -->
     
-        <link rel = "preconnect" href = "https://fonts.gstatic.com">
-        <link href = "https://fonts.googleapis.com/css2? family = Caveat & display = swap" rel = "stylesheet ">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2? family=Caveat&display=swap" rel="stylesheet">
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Allura&family=Arizonia&family=Charmonman:wght@700&family=Damion&family=Faster+One&family=Galada&family=Gravitas+One&family=Montez&family=Sarina&family=Sonsie+One&display=swap" rel="stylesheet">  
@@ -92,14 +92,14 @@
                             </div>
                             
 
-                                <input type="text" class="form-control form-control-date datepicker" id="fechaRecogida" name="fechaRecogida" value="" data-placement="right" data-align="bottom" data-name="" readonly="">  
+                                <input type="text" class="form-control form-control-date datepicker" id="fechaRecogida" name="fechaRecogida" value="<%= it.body.fechaRecogida %>" data-placement="right" data-align="bottom" data-name="" readonly="">  
                                 <img src="./img/img-Calendar/calendar.jpg" alt="Calendario recogida" class="img-calendar triggerRec">
 
                                 <div class="labelClock-form-recogida">
                                     <label></label>
                                 </div>
                                 <div class="input-group clockpicker" data-placement="bottom" data-align="top" data-autoclose="true">
-                                    <input type="text" class="form-control form-control-clock" name="horaRecogida" value="09:00" readonly=""/>
+                                    <input type="text" class="form-control form-control-clock" name="horaRecogida" value="<%= it.body.horaRecogida %>" readonly=""/>
                                     <span class="input-group-addon">
                                     <img src="./img/Img-Clock/clock.png" alt="Reloj Recogida" class="img-clock">
                                     </span>
@@ -118,7 +118,7 @@
                                         Devolucion :
                                 </label>
                             </div>
-                                <input type="text" class="form-control form-control-date datepicker" id="fechaDevolucion" name="fechaDevolucion" value="" data-placement="right" data-align="bottom" data-name="" readonly="">  
+                                <input type="text" class="form-control form-control-date datepicker" id="fechaDevolucion" name="fechaDevolucion" value="<%= it.body.fechaDevolucion %>" data-placement="right" data-align="bottom" data-name="" readonly="">  
                                 <img src="./img/img-Calendar/calendar.jpg" alt="Calendario devolucion" class="img-calendar triggerDev">
 
                                 <div class="labelClock-form-devolucion">
@@ -127,7 +127,7 @@
                                     </label>
                                 </div>
                                 <div class="input-group clockpicker" data-placement="bottom" data-align="top" data-autoclose="true">
-                                    <input type="text" class="form-control form-control-clock" name="horaDevolucion" value="20:00" readonly=""/>
+                                    <input type="text" class="form-control form-control-clock" name="horaDevolucion" value="<%= it.body.horaDevolucion %>" readonly=""/>
                                     <span class="input-group-addon">
                                     <img src="./img/Img-Clock/clock.png" alt="Reloj Recogida" class="img-clock">
                                     </span>
