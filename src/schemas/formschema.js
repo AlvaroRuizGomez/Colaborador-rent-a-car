@@ -4,7 +4,6 @@ const apiSchema = [
     "fechaRecogida",
     "horaRecogida",
     "conductor_con_experiencia"
-    
 
 ];
 

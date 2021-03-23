@@ -37,9 +37,11 @@ router.post('/', async (req, res) => {
 
     const dataResponse = await responseRaw.json();
 
-    req.session.data = dataResponse;
+    req.session.data = dataResponse.data;
     res.render("muestraOferta", {
-        "body": req.body
+        "data": dataResponse.data,
+        "formdata": req.body
+
     });
     // res.redirect(301, `/muestraoferta/${req.sessionID}`);
     
