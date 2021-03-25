@@ -324,7 +324,7 @@
             <article class="oferta">
                 <!-- Zona Izquierda-->
                 <section class="rentacar-info">
-                    <img class="car-image" src="./img/Img-Vehiculos/rescambiada/png/<%= element.imagencoche %>" alt="<%= element.modelo %>">
+                    <img class="car-image" src="./img/Img-Vehiculos/rescambiada/png/<%= element.ImagenVehiclo %>" alt="<%= element.descripcion %>">
                     <!-- <span class="">
                         <img src="./" alt="Rentacar">
                         <strong>Empresa Rentacar</strong> 
@@ -334,11 +334,11 @@
                 <!-- Zona centro -->
                 <section class="car-info">
                     
-                    <h2 class="car-name"><%= element.modelo %></h2>
+                    <h2 class="car-name"><%= element.descripcion %></h2>
                     <div class="car-info-services">
                         <div class="servicios-asientos" title="asientos">
                             <img class="icon-24" src="img/svg/person-fill.svg" alt="persona">
-                            <div class="icon-number"><%= element.asientos %></div>
+                            <div class="icon-number"><%= element.pax %></div>
                         </div>
                         
                         <div class="servicios-puertas" title="puertas">
@@ -347,7 +347,7 @@
 
                         </div>
                         
-                        <% if (element.aireacondicionado === true) { %>
+                        <% if (element.aireacondicionado === 1) { %>
                         <div class="servicios-aire" title="aire">
                             <img class="icon-24" src="img/svg/aire.svg" alt="aire">
                         </div>
@@ -382,9 +382,13 @@
 
                 <!-- Zona derecha -->
                 <section class="car-info-prices">
-                    <span class="current-price"><%= element.precioactual %> €</span>
+                    <span class="current-price"><%= element.preciototaldias %> €</span>
                     <!-- <span class="old-price">100.81 €</span> -->
-                    <span class="description-price" title="Precio total para 8 días">Precio por 8 días</span>
+                    <% if(it.diasEntreRecogidaDevolucion > 1) { %>
+                        <span class="description-price" title="Precio total para <%= it.diasEntreRecogidaDevolucion %> días">Precio por <%= it.diasEntreRecogidaDevolucion %> días</span>
+                    <% } else { %>
+                        <span class="description-price" title="Precio total para <%= it.diasEntreRecogidaDevolucion %> día">Precio por <%= it.diasEntreRecogidaDevolucion %> día</span>
+                    <% } %>
                     <input type="button" class="btn btn-xxl btn-success btn-reservar" value="Reservar">
                     <!-- <span class="marked">Modificaciones Gratis</span> -->
                 </section>
