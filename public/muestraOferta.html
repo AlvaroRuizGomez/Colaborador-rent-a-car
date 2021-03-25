@@ -151,162 +151,61 @@
                 <div class="carousel-inner">
                     <div class="carousel-item active">
                         <div class="row row-p">
-                            <div class="col col-p">
-                                <h5>Citröen C1</h5>
-                                <div class="py-4 text-black text-center">
-                                    <img class="d-block w-100 img-ta" src="img/Img-Vehiculos/rescambiada/png/CitroenC1.png" alt="">
-                                </div>
-                                <div class="precio">
-                                    <div class="precio-txt">
-                                        <p>desde</p>
+                            <% for (let i= 0; i < 5; i++) { %>
+                                <% if (it.data[i]===undefined ) continue; %>
+                                <div class="col col-p">
+                                    <h5>
+                                        <%= it.data[i].descripcion %>
+                                    </h5>
+                                    <div class="py-4 text-black text-center">
+                                        <img class="d-block w-100 img-ta" src="img/Img-Vehiculos/rescambiada/png/<%= it.data[i].ImagenVehiclo %>"
+                                            alt="<%= it.data[i].descripcion %>">
                                     </div>
-                                    <div class="precio-p">
-                                        <p>3.50€</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col col-p">
-                                <h5>Citröen C1 Open</h5>
-                                <div class="py-4 text-black text-center">
-                                    <img class="d-block w-100 img-ta" src="img/Img-Vehiculos/rescambiada/png/CitroenC1_open.png" alt="">
-                                </div>
-                                <div class="precio">
-                                    <div class="precio-txt">
-                                        <p>desde</p>
-                                    </div>
-                                    <div class="precio-p">
-                                        <p>3.50€</p>
+                                    <div class="precio">
+                                        <div class="precio-txt">
+                                            <p>desde</p>
+                                        </div>
+                                        <div class="precio-p">
+                                            <p>
+                                                <%= it.data[i].preciopordia %>€
+                                            </p>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col col-p">
-                                <h5>Citröen C1 Automático</h5>
-                                <div class="py-4 text-black text-center">
-                                    <img class="d-block w-100 img-ta" src="img/Img-Vehiculos/rescambiada/png/CitroenC1Automatic.png" alt="">
-                                </div>
-                                <div class="precio">
-                                    <div class="precio-txt">
-                                        <p>desde</p>
-                                    </div>
-                                    <div class="precio-p">
-                                        <p>3.50€</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col col-p">
-                                <h5>Citröen C3</h5>
-                                <div class="py-4 text-black text-center">
-                                    <img class="d-block w-100 img-ta" src="img/Img-Vehiculos/rescambiada/png/CitroenC3.png" alt="">
-                                </div>
-                                <div class="precio">
-                                    <div class="precio-txt">
-                                        <p>desde</p>
-                                    </div>
-                                    <div class="precio-p">
-                                        <p>3.50€</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col col-p">
-                                <h5>Peugeot 108</h5>
-                                <div class="py-4 text-black text-center">
-                                    <img class="d-block w-100 img-ta" src="img/Img-Vehiculos/rescambiada/png/Peugeot_108.png" alt="">
-                                </div>
-                                <div class="precio">
-                                    <div class="precio-txt">
-                                        <p>desde</p>
-                                    </div>
-                                    <div class="precio-p">
-                                        <p>3.50€</p>
-                                    </div>
-                                </div>
-                            </div>
+                                <% } %>
                         </div>
                     </div>
                     
                     <div class="carousel-item">
                         <div class="row row-p">
-                            <div class="col col-p">
-                                <h5>Peugeot 807</h5>
-                                <div class="py-4 text-black text-center">
-                                    <img class="d-block w-100 img-ta" src="img/Img-Vehiculos/rescambiada/png/Peugeot_807.png" alt="">
+                            <% for (let i = 5; i < 10; i++) { %>
+                                <% if (it.data[i] === undefined ) continue; %>
+                                <div class="col col-p">
+                                    <h5><%= it.data[i].descripcion %></h5>
+                                    <div class="py-4 text-black text-center">
+                                        <img class="d-block w-100 img-ta" src="img/Img-Vehiculos/rescambiada/png/<%= it.data[i].ImagenVehiclo %>" alt="<%= it.data[i].descripcion %>">
+                                    </div>
+                                    <div class="precio">
+                                        <div class="precio-txt">
+                                            <p>desde</p>
+                                        </div>
+                                        <div class="precio-p">
+                                            <p><%= it.data[i].preciopordia %>€</p>
+                                        </div>
+                                    </div> 
                                 </div>
-                                <div class="precio">
-                                    <div class="precio-txt">
-                                        <p>desde</p>
-                                    </div>
-                                    <div class="precio-p">
-                                        <p>3.50€</p>
-                                    </div>
-                                </div> 
-                            </div>
-                            <div class="col col-p">
-                                <h5>Toyota Aygo</h5>
-                                <div class="py-4 text-black text-center">
-                                    <img class="d-block w-100 img-ta" src="img/Img-Vehiculos/rescambiada/png/ToyotaAygo.png" alt="">
-                                </div>
-                                <div class="precio">
-                                    <div class="precio-txt">
-                                        <p>desde</p>
-                                    </div>
-                                    <div class="precio-p">
-                                        <p>3.50€</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col col-p">
-                                <h5>Toyota Aygo Open</h5>
-                                <div class="py-4 text-black text-center">
-                                    <img class="d-block w-100 img-ta" src="img/Img-Vehiculos/rescambiada/png/ToyotaAygoOpen.png" alt="">
-                                </div>
-                                <div class="precio">
-                                    <div class="precio-txt">
-                                        <p>desde</p>
-                                    </div>
-                                    <div class="precio-p">
-                                        <p>3.50€</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col col-p">
-                                <h5>Piagggio Liberty 125cc</h5>
-                                <div class="py-4 text-black text-center">
-                                    <img class="d-block w-100 img-ta" src="img/Img-Vehiculos/rescambiada/png/PiaggioLiberty_125cc.png" alt="">
-                                </div>
-                                <div class="precio">
-                                    <div class="precio-txt">
-                                        <p>desde</p>
-                                    </div>
-                                    <div class="precio-p">
-                                        <p>3.50€</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col col-p">
-                                <h5>Suzuki Burgman 125cc</h5>
-                                <div class="py-4 text-black text-center">
-                                    <img class="d-block w-100 img-ta" src="img/Img-Vehiculos/rescambiada/png/Suzuki-Burgman_125cc.png" alt="">
-                                </div>
-                                <div class="precio">
-                                    <div class="precio-txt">
-                                        <p>desde</p>
-                                    </div>
-                                    <div class="precio-p">
-                                        <p>3.50€</p>
-                                    </div>
-                                </div>
-                            </div>
+                            <% } %>
                         </div>
                     </div>
                 </div>
                 <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                     <span class="sr-only">Previous</span>
-                  </a>
-                  <a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
+                </a>
+                <a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
                     <span class="sr-only">Next</span>
-                  </a>
+                </a>
             </div>
         </div>
     
