@@ -3,14 +3,14 @@ const router = express.Router();
 const formSchema = require("../schemas/formschema");
 const fetch = require("node-fetch");
 const session = require('express-session');
+const eta = require("eta");
 
 const URI_BACKEND = `${process.env.URL_BACKEND}:${process.env.PORT_BACKEND}/api`;
 
 // index page
-router.get('/', (req, res) => {
-    res.render('index.html', { title: 'Home Page' })
+router.get("/", async (req, res) => {
+    res.render("inicio");
 });
-
 
 
 // index page POST
@@ -37,32 +37,23 @@ router.post('/', async (req, res) => {
 
     const dataResponse = await responseRaw.json();
 
+
+    if (dataResponse.errorFormulario !== "")
+    {
+        return res.render("inicio", {
+            "errorFormulario": dataResponse.errorFormulario
+        });
+    }
+    
     req.session.data = dataResponse.data;
     res.render("muestraOferta", {
         "data": dataResponse.data,
-        "formdata": req.body
-
+        "formdata": req.body,
+        "errorFormulario": dataResponse.error,
+        "diasEntreRecogidaDevolucion": dataResponse.diasEntreRecogidaDevolucion
     });
     // res.redirect(301, `/muestraoferta/${req.sessionID}`);
     
-});
-
-router.get("/muestraoferta", async (req, res) => {
-
-    // console.log("123123123 muestraoferta");
-    res.redirect("/");
-
-});
-
-
-router.get("/muestraoferta/:id", async (req, res) => {
-    
-    console.log("123123123 muestraoferta");
-    // const sessionData = req.session.data;
-    
-
-    
-
 });
 
 
