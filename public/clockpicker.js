@@ -21,6 +21,7 @@
 			return supported;
 		})();
 
+	let is20Clicked = true;
 	// Can I use transition ?
 	var transitionSupported = (function(){
 		var style = document.createElement('div').style;
@@ -219,6 +220,7 @@
 			}
 		}
 
+		
 		// Minutes view
 		for (i = 0; i < 60; i += 5) {
 			tick = tickTpl.clone();
@@ -295,7 +297,22 @@
 					self.setHand(x, y);
 				}
 				if (self.currentView === 'hours') {
-					self.toggleView('minutes', duration / 2);
+
+					if (is20Clicked === false)
+					{
+						self.toggleView('minutes', duration / 2);
+						
+					}
+					else
+					{
+
+						document.getElementsByName("horaDevolucion")[0].value = "20:00";
+						self.minutesView.addClass('clockpicker-dial-out');
+						setTimeout(function () {
+							self.done();
+						}, duration / 2);
+					}
+					
 				} else {
 					if (options.autoclose) {
 						self.minutesView.addClass('clockpicker-dial-out');
@@ -618,6 +635,16 @@
 					value = value + 12;
 				}
 
+				if (value === 20)
+				{
+					is20Clicked = true;
+					document.getElementsByName("horaDevolucion")[0].value = "20:00";
+				}
+				else
+				{
+					is20Clicked = false;
+				}
+
 				// if (value > 12)
 				// {
 				// 	// value = inner ? (value === 0 ? 12 : value) : value === 0 ? 0 : value + 12;
@@ -695,7 +722,13 @@
 			value = value + this.amOrPm;
 		}
 		
+		if(this.hours === 20)
+		{
+			value = "20:00";
+		}
+
 		this.input.prop('value', value);
+
 		if (value !== last) {
 			this.input.triggerHandler('change');
 			if (! this.isInput) {
