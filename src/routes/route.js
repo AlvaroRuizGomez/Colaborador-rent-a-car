@@ -9,6 +9,7 @@ const URI_BACKEND = `${process.env.URL_BACKEND}:${process.env.PORT_BACKEND}/api`
 
 // index page
 router.get("/", async (req, res) => {
+    // console.log(req.useragent);
     res.render("inicio");
 });
 
@@ -37,14 +38,13 @@ router.post('/', async (req, res) => {
 
     const dataResponse = await responseRaw.json();
 
-
     if (dataResponse.errorFormulario !== "")
     {
         return res.render("inicio", {
             "errorFormulario": dataResponse.errorFormulario
         });
     }
-    
+
     req.session.data = dataResponse.data;
     res.render("muestraOferta", {
         "data": dataResponse.data,

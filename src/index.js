@@ -46,7 +46,7 @@ const corsOptions = (req, callback) => {
 // configuracion
 app.use(session({ secret: process.env.SECRET_SESSION, resave: false, saveUninitialized: false }));
 app.use(compression());
-// app.use(userAgent.express());
+app.use(userAgent.express());
 
 app.use(express.urlencoded({ extended: true, limit: '2mb' }));
 app.use(express.json({ limit: '2mb' }));
@@ -63,9 +63,6 @@ app.use("/", express.static('public'));
 // rutas
 app.use("/", apiLimiter);
 app.use("/", router);
-
-
-
 
 // escucha puerto servidor
 app.listen(process.env.NODE_EXPRESS_PORT, (error) => {
