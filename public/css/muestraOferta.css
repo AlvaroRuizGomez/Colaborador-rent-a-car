@@ -627,6 +627,13 @@ background: red;
   margin-top: 12px;
 }
 
+.current-price-consultar
+{
+  font-size: 2em;
+  font-weight: 700;
+  line-height: 1em;
+}
+
 .old-price
 {
   text-decoration: line-through;
