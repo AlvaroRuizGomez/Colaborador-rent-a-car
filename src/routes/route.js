@@ -26,6 +26,7 @@ router.post('/', async (req, res) => {
         return;
     }
 
+
     //enviamos al backedn la informacion
     const responseRaw = await fetch(URI_BACKEND, {
         method: "POST",
@@ -38,21 +39,40 @@ router.post('/', async (req, res) => {
 
     const dataResponse = await responseRaw.json();
 
-    if (dataResponse.errorFormulario !== "")
+    if (dataResponse.isOk === false)
     {
-        return res.render("inicio", {
-            "errorFormulario": dataResponse.errorFormulario
+        if (dataResponse.errorFormulario !== "")
+        {
+            return res.render("inicio", {
+                "errorFormulario": dataResponse.errorFormulario
+            });
+        }
+
+    }
+    
+    req.session.data = dataResponse.data;
+
+    if (dataResponse.data.length <= 0)
+    {
+        res.render("muestraOferta", {
+            "data": dataResponse.data,
+            "formdata": req.body,
+            "errorFormulario": dataResponse.errorFormulario,
+            "diasEntreRecogidaDevolucion": dataResponse.diasEntreRecogidaDevolucion
         });
     }
+    else
+    {
+        res.render("muestraOferta", {
+            "data": dataResponse.data,
+            "formdata": req.body,
+            "errorFormulario": dataResponse.errorFormulario,
+            "diasEntreRecogidaDevolucion": dataResponse.diasEntreRecogidaDevolucion
+        });
+        
 
-    req.session.data = dataResponse.data;
-    res.render("muestraOferta", {
-        "data": dataResponse.data,
-        "formdata": req.body,
-        "errorFormulario": dataResponse.error,
-        "diasEntreRecogidaDevolucion": dataResponse.diasEntreRecogidaDevolucion
-    });
-    // res.redirect(301, `/muestraoferta/${req.sessionID}`);
+    }
+
     
 });
 

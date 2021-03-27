@@ -214,9 +214,15 @@
 
         <!--------------- Inicio Ofertas --------------------->
         <div class="ofertas">
-            <div class="tablero_ofertas">
-                <h3>O F E R T A S</h3>
-            </div>
+            <% if (it.data.length <= 0) { %>
+                <article class="">
+                <h3 class="error-sinproductos"><%= it.errorFormulario %></h3>
+                </article>
+            <% } else { %>
+                <div class="tablero_ofertas">
+                    <h3>O F E R T A S</h3>
+                </div>
+            <% } %>
 
     <% it.data.forEach(function(element){ %>
             <!-- Ofertas -->
@@ -224,11 +230,6 @@
                 <!-- Zona Izquierda-->
                 <section class="rentacar-info">
                     <img class="car-image" src="./img/Img-Vehiculos/rescambiada/png/<%= element.ImagenVehiclo %>" alt="<%= element.descripcion %>">
-                    <!-- <span class="">
-                        <img src="./" alt="Rentacar">
-                        <strong>Empresa Rentacar</strong> 
-                        <a class="" href="#">Condiciones</a>
-                    </span> -->
                 </section>
                 <!-- Zona centro -->
                 <section class="car-info">
@@ -283,13 +284,17 @@
                 <section class="car-info-prices">
                     <% if (element.preciototaldias > 0) { %>
                         <span class="current-price"><%= element.preciototaldias %> €</span>
-                        <span class="old-price"><%= element.preciototalsindescuento %> €</span>
+                        
+                        <% if (it.diasEntreRecogidaDevolucion > 1) { %>
+                            <span class="old-price"><%= element.preciototalsindescuento %> €</span>
+                        <% } %>
+
                     <% } else { %>
                         <span class="current-price current-price-consultar">Consultar Precio</span>
                     <% } %>
                     
                     <% if (element.preciototaldias > 0) { %>
-                        
+
                         <% if(it.diasEntreRecogidaDevolucion > 1) { %>
                             <span class="description-price" title="Precio total para <%= it.diasEntreRecogidaDevolucion %> días">Precio por <%= it.diasEntreRecogidaDevolucion %> días</span>
                         <% } else { %>
