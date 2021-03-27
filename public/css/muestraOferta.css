@@ -641,6 +641,11 @@ background: red;
   color: rgb(189, 76, 66);
 
 }
+.error-sinproductos
+{
+  font-size: 1em;
+  text-align: left;
+}
 
 .description-price
 {

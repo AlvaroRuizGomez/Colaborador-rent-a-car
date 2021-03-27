@@ -60,6 +60,7 @@ app.set("view engine", "html");
 
 app.use("/", express.static('public'));
 
+
 // rutas
 app.use("/", apiLimiter);
 app.use("/", router);
