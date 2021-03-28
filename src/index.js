@@ -3,12 +3,12 @@ const cors = require('cors');
 const morgan = require('morgan');
 const helmet = require('helmet');
 const express = require('express');
+const eta = require("eta");
 const compression = require('compression');
 const userAgent = require('express-useragent')
 const rateLimit = require('express-rate-limit');
 const session = require('express-session');
-const router = require('./routes/index');
-const eta = require("eta");
+const router = require('./routes/route');
 const path = require("path");
 
 
@@ -46,22 +46,24 @@ const corsOptions = (req, callback) => {
 // configuracion
 app.use(session({ secret: process.env.SECRET_SESSION, resave: false, saveUninitialized: false }));
 app.use(compression());
-app.use(userAgent.express())
+app.use(userAgent.express());
 
 app.use(express.urlencoded({ extended: true, limit: '2mb' }));
 app.use(express.json({ limit: '2mb' }));
 app.use( cors(corsOptions) );
 app.use(morgan('combined'));
-app.use(express.static('public'));
 
 //registro de html como eta
 app.engine(".html", eta.renderFile);
 app.set("views", path.join(__dirname, "../public"));
 app.set("view engine", "html");
 
+app.use("/", express.static('public'));
+
+
 // rutas
-app.use('/', apiLimiter);
-app.use('/', router);
+app.use("/", apiLimiter);
+app.use("/", router);
 
 // escucha puerto servidor
 app.listen(process.env.NODE_EXPRESS_PORT, (error) => {

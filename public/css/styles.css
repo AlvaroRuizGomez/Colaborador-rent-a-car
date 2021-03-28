@@ -28,9 +28,9 @@ body{
 }
 
 .logo {
-  display: grid;
+  /* display: grid;
   grid-template-columns: 10% 60%;
-  grid-template-rows: 95px;
+  grid-template-rows: 95px; */
   font-weight: 900px;
   font-size: 15px;
   padding: 10px;
@@ -75,7 +75,7 @@ body{
 }
 
 .logo img {
-  width: 55px;
+  width: 280px;
 }
 
 .contacto {
