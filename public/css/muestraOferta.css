@@ -517,6 +517,14 @@ background: red;
   margin-bottom: 6px;
 }
 
+.icono-azul
+{
+  
+  width: 32px;
+  height: 32px;
+  
+}
+
 .car-info-services
 {
   grid-area: info;
