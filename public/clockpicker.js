@@ -21,6 +21,7 @@
 			return supported;
 		})();
 
+	let is20Clicked = true;
 	// Can I use transition ?
 	var transitionSupported = (function(){
 		var style = document.createElement('div').style;
@@ -186,7 +187,7 @@
 
 		// Hours view
 		if (options.twelvehour) {
-			for (i = 1; i < 13; i += 1) {
+			for (i = 0; i < 13; i += 1) {
 				tick = tickTpl.clone();
 				radian = i / 6 * Math.PI;
 				radius = outerRadius;
@@ -200,11 +201,12 @@
 				tick.on(mousedownEvent, mousedown);
 			}
 		} else {
-			for (i = 0; i < 24; i += 1) {
+			for (i = 9; i < 21; i += 1) {
 				tick = tickTpl.clone();
 				radian = i / 6 * Math.PI;
-				var inner = i > 0 && i < 13;
-				radius = inner ? innerRadius : outerRadius;
+				var inner = i > 9 && i < 21;
+				// radius = inner ? innerRadius : outerRadius;
+				radius = outerRadius;
 				tick.css({
 					left: dialRadius + Math.sin(radian) * radius - tickRadius,
 					top: dialRadius - Math.cos(radian) * radius - tickRadius
@@ -218,6 +220,7 @@
 			}
 		}
 
+		
 		// Minutes view
 		for (i = 0; i < 60; i += 5) {
 			tick = tickTpl.clone();
@@ -294,7 +297,22 @@
 					self.setHand(x, y);
 				}
 				if (self.currentView === 'hours') {
-					self.toggleView('minutes', duration / 2);
+
+					if (is20Clicked === false)
+					{
+						self.toggleView('minutes', duration / 2);
+						
+					}
+					else
+					{
+
+						document.getElementsByName("horaDevolucion")[0].value = "20:00";
+						self.minutesView.addClass('clockpicker-dial-out');
+						setTimeout(function () {
+							self.done();
+						}, duration / 2);
+					}
+					
 				} else {
 					if (options.autoclose) {
 						self.minutesView.addClass('clockpicker-dial-out');
@@ -552,6 +570,7 @@
 			unit = Math.PI / (isHours ? 6 : 30),
 			radian = value * unit,
 			radius = isHours && value > 0 && value < 13 ? innerRadius : outerRadius,
+			radius = outerRadius,
 			x = Math.sin(radian) * radius,
 			y = - Math.cos(radian) * radius,
 			self = this;
@@ -608,10 +627,33 @@
 			}
 		} else {
 			if (isHours) {
-				if (value === 12) {
-					value = 0;
+				// if (value === 12) {
+				// 	value = 0;
+				// }
+				if (value <= 8)
+				{
+					value = value + 12;
 				}
-				value = inner ? (value === 0 ? 12 : value) : value === 0 ? 0 : value + 12;
+
+				if (value === 20)
+				{
+					is20Clicked = true;
+					document.getElementsByName("horaDevolucion")[0].value = "20:00";
+				}
+				else
+				{
+					is20Clicked = false;
+				}
+
+				// if (value > 12)
+				// {
+				// 	// value = inner ? (value === 0 ? 12 : value) : value === 0 ? 0 : value + 12;
+				// 	value = value + 12;
+				// }
+				// else
+				// {
+
+				// }
 			} else {
 				if (roundBy5) {
 					value *= 5;
@@ -680,7 +722,13 @@
 			value = value + this.amOrPm;
 		}
 		
+		if(this.hours === 20)
+		{
+			value = "20:00";
+		}
+
 		this.input.prop('value', value);
+
 		if (value !== last) {
 			this.input.triggerHandler('change');
 			if (! this.isInput) {

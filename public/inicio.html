@@ -48,14 +48,7 @@
         <div id="container">
             <!-- Inicio Cabecera -->
             <header id="header">
-                <div class="logo">
-                    <div class="logo_r">
-                        R
-                    </div>
-                    <h1>entCar Mallorca</h1>
-                    <p>¡ El mejor precio y servicio !</p>
-                </div>
-
+                <%~ includeFile("parciallogo.html") %>
                 <div class="contacto">
                     <img src="./img/whatsapp-icon-hd-21.jpg"/>
                     <h2>+34 651 722 345</h2>
@@ -86,6 +79,11 @@
                         </div>
                         <!-------------  Inicio  Fecha/Hora Recogida  ------------------------- -->
                         <div class="form-inline form-buscar">
+                            <% if (it.errorFormulario !== undefined ) { %>
+                                <label>
+                                    <%= it.errorFormulario %>
+                                </label>
+                                <% } %>
                             <div class="formDateRecogida">
                                 
                                     <div class="labelDate-form-recogida">
@@ -134,7 +132,7 @@
                                     <div class="input-group clockpicker" data-placement="bottom" data-align="top" data-autoclose="true">
                                         <input type="text" class="form-control form-control-clock" name="horaDevolucion" value="20:00" readonly=""/>
                                         <span class="input-group-addon">
-                                        <img src="./img/Img-Clock/clock.png" alt="Reloj Recogida" class="img-clock">
+                                            <img src="./img/Img-Clock/clock.png" alt="Reloj Recogida" class="img-clock">
                                         </span>
                                     </div>
                                 
@@ -144,7 +142,7 @@
 
                         <div class="form-chequeo">
                             <label>
-                                <input type="checkbox" name="conductor_con_experiencia" class="form-check-input mr-sm-2" checked>Conductor de entre 26 y 69 años
+                                <input type="checkbox" name="conductor_con_experiencia" value="on" class="form-check-input mr-sm-2" checked>Conductor de entre 26 y 69 años
                             </label>
                         </div> 
                         <section class="btnBuscar">

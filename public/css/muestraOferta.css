@@ -132,7 +132,7 @@ background: red;
 }
   
 .logo img {
-  width: 55px;
+  width: 280px;
 }
   
 .contacto {
@@ -627,12 +627,24 @@ background: red;
   margin-top: 12px;
 }
 
+.current-price-consultar
+{
+  font-size: 2em;
+  font-weight: 700;
+  line-height: 1em;
+}
+
 .old-price
 {
   text-decoration: line-through;
   font-size: 1.5em;
   color: rgb(189, 76, 66);
 
+}
+.error-sinproductos
+{
+  font-size: 1em;
+  text-align: left;
 }
 
 .description-price
