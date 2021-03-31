@@ -25,16 +25,24 @@ body {
 
 .layout {
   width: 100%;
-  height:100vh;
+  /* height:100vh; */
   margin : 0px auto;
   display : grid;
-  grid-template-columns: 26% 1fr;
-  grid-template-rows: .5fr 1fr 1fr 1fr;
+  grid-template-columns: 30% 70%;
+  /* grid-template-rows: .5fr 1fr; */
+
+  grid-template-areas: 
+  "banner banner"
+  "form content"
+  ". content"
+  
+  ;
 }
 
 .layout .banner {
-  grid-column-start: 1;
-  grid-column-end:3;
+  grid-area: banner;
+  /* grid-column-start: 1;
+  grid-column-end:3; */
   /* background: green; */
 }
 
@@ -352,8 +360,9 @@ background: red;
 /* --------------- Inicio Slider --------------------------- */
 
 .carruselSlider{
-  width: 1222px;
-  margin-left: 13px;
+  width: 100%;
+  /* width: 1222px; */
+  /* margin-left: 13px; */
 }
 
 .col-p h5 {
@@ -407,7 +416,7 @@ background: red;
 
 
 .tablero_ofertas{
-  width: 929px;
+  width: 100%;
   border: 1px solid#ddd;
   margin-left: 31px;
   margin-top: -65px;
@@ -428,13 +437,12 @@ background: red;
   "z z z"
   ;
   gap: 10px;
-  /* background-color: #fefdfe; */
   border: 1px solid#ddd;
   border-radius: 2px;
   color: black;
   font-size: 12px;
-  margin-right: 275px;
-  margin-left: 31px;
+  /* margin-right: 275px;
+  margin-left: 31px; */
   margin-bottom: 13px;
   background-color: #ffffff;
 }
@@ -442,39 +450,38 @@ background: red;
 .rentacar-info
 {
   grid-area: i;
-  align-self: flex-start;
   justify-self: center;
+  align-self: center;
 
 }
 
 .car-info
 {
   grid-area: c;
+
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: auto auto;
+  grid-template-rows: 40px 40px auto;
   grid-template-areas: 
   "titulo"
   "info"
-  ;
+  "iconos";
   justify-items: flex-start;
-  align-items: center;
-  margin-left: 14px;
+  align-items: flex-start;
+
+
 }
 
 .car-name {
-  /* font-size: 18px;
-  margin-top: 11px;
-  color: #333333; */
 
   color: #333333;
   font-size: 1.8em;
   font-weight: 700;
-  /* margin: 0; */
-  margin-bottom: -29px;
-  margin-left: 0px;
   text-size-adjust: none;
   line-height: 1.3em;
+  align-self: flex-end;
+  margin-bottom: 0px;
+
 }
 
 .car-info-prices
@@ -669,3 +676,44 @@ background: red;
 
 /*---------------- Fin Datos-busqueda/Vehículos-Ofertados encontrados ---------- */
 
+/* CARRUSEL */
+.carousel
+{
+  /* position: relative; */
+
+  display: grid;
+  grid-template-columns: 100px auto 100px;
+  grid-template-areas: "izq carrusel der";
+
+
+}
+
+.carrusel-control
+{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  text-align: center;
+  opacity: .5;
+
+}
+
+.carrusel-control-prev
+{
+  grid-area: izq;
+  width: 100%;
+}
+
+
+.carousel-inner {
+  grid-area: carrusel;
+}
+
+.carrusel-control-next 
+{
+  grid-area: der;
+  width: 100%;
+
+  
+}

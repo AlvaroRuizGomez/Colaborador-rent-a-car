@@ -14,7 +14,6 @@ router.get("/", async (req, res) => {
     res.render("inicio");
 });
 
-
 // index page POST
 router.post('/', async (req, res) => {
     
@@ -27,6 +26,7 @@ router.post('/', async (req, res) => {
         return;
     }
 
+    const body = { "token": process.env.TOKEN_FOR_BACKEND_ACCESS, ...req.body};
 
     //enviamos al backedn la informacion
     const responseRaw = await fetch(URI_BACKEND, {
@@ -35,11 +35,11 @@ router.post('/', async (req, res) => {
             "Content-Type": "application/json",
         },
         credentials: "include",
-        body: JSON.stringify(req.body)
+        body: JSON.stringify(body)
     });
 
     const dataResponse = await responseRaw.json();
-
+    
     if (dataResponse.isOk === false)
     {
         if (dataResponse.errorFormulario !== "")
@@ -103,6 +103,7 @@ const OrdenaPorClaseVehiculos = async (datosOrdenacion, datosVehiculos) =>
     }
 
     return buffer;
+    
 
 }
 

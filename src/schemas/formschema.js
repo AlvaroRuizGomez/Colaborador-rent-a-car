@@ -3,7 +3,8 @@ const apiSchema = [
     "horaDevolucion",
     "fechaRecogida",
     "horaRecogida",
-    "conductor_con_experiencia"
+    "conductor_con_experiencia",
+    "edad_conductor"
 
 ];
 
