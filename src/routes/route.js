@@ -7,11 +7,41 @@ const eta = require("eta");
 const { abbrev } = require('../schemas/formschema');
 
 const URI_BACKEND = `${process.env.URL_BACKEND}:${process.env.PORT_BACKEND}/api`;
+const URI_BACKEND_GENERAR_CONDICIONES = `${process.env.URL_BACKEND}:${process.env.PORT_BACKEND}/generar`;
 
 // index page
 router.get("/", async (req, res) => {
     // console.log(req.useragent);
     res.render("inicio");
+});
+
+router.get("/generar", async (req, res) =>
+{
+
+    const body = { "token": process.env.TOKEN_FOR_BACKEND_ACCESS, ...req.body };
+    //enviamos al backedn la informacion
+    const responseRaw = await fetch(URI_BACKEND_GENERAR_CONDICIONES, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        credentials: "include",
+        body: JSON.stringify(body)
+    });
+
+    const dataResponse = await responseRaw.json();
+
+    const fileName = '../../public/condicionesgenerales.html';
+    const stream = fs.createWriteStream(fileName);
+
+    stream.once('open', function (fd) {
+        let html = buildHtml();
+
+        stream.end(html);
+    });
+
+
+
 });
 
 // index page POST
@@ -38,6 +68,7 @@ router.post('/', async (req, res) => {
         body: JSON.stringify(body)
     });
 
+    
     const dataResponse = await responseRaw.json();
     
     if (dataResponse.isOk === false)
@@ -59,7 +90,8 @@ router.post('/', async (req, res) => {
             "data": dataResponse.data,
             "formdata": req.body,
             "errorFormulario": dataResponse.errorFormulario,
-            "diasEntreRecogidaDevolucion": dataResponse.diasEntreRecogidaDevolucion
+            "diasEntreRecogidaDevolucion": dataResponse.diasEntreRecogidaDevolucion,
+            
         });
     }
     else
@@ -75,7 +107,11 @@ router.post('/', async (req, res) => {
             "data": dataResponse.data,
             "formdata": req.body,
             "errorFormulario": dataResponse.errorFormulario,
-            "diasEntreRecogidaDevolucion": dataResponse.diasEntreRecogidaDevolucion
+            "diasEntreRecogidaDevolucion": dataResponse.diasEntreRecogidaDevolucion,
+            "suplementogenerico_base": dataResponse.suplementogenerico_base,
+            "suplementotipochofer_base": dataResponse.suplementotipochofer_base,
+            "preciosPorClase": dataResponse.preciosPorClase,
+            "condicionesgenerales": dataResponse.condicionesgenerales
         });
         
 

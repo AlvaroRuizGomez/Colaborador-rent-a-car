@@ -137,188 +137,366 @@
         </div>
         <!------- Fin formulario de Busqueda ----------------->
         
-        <!--------------- Inicio Slider ---------------------->
-        <div class="carruselSlider">
-            <div id="carousel" class="carousel slide " data-ride="carousel">
-                <a class="carrusel-control-prev carrusel-control" href="#carousel" role="button" data-slide="prev">
-                    <img src="img/svg/carrusel_control_previous.svg" class="icono-azul" alt="previous">
-                </a>
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <div class="row ">
-                            <% for (let i= 0; i < 5; i++) { %>
-                                <% if (it.data[i]===undefined ) continue; %>
-                                <div class="col col-p">
-                                    <h5>
-                                        <%= it.data[i].descripcion %>
-                                    </h5>
-                                    <div class="py-4 text-black text-center">
-                                        <img class="d-block w-100 img-ta" src="img/Img-Vehiculos/rescambiada/png/<%= it.data[i].ImagenVehiclo %>"
-                                            alt="<%= it.data[i].descripcion %>">
-                                    </div>
-                                    <div class="precio">
-                                        <div class="precio-txt">
-                                            <p>desde</p>
+        <div class="contenido">
+            
+            <!--------------- Inicio Slider ---------------------->
+            <% if (it.data.length > 0) { %>
+            <div class="carruselSlider">
+                <div id="carousel" class="carousel slide " data-ride="carousel">
+                    <a class="carrusel-control-prev carrusel-control" href="#carousel" role="button" data-slide="prev">
+                        <img src="img/svg/carrusel_control_previous.svg" class="icono-azul" alt="previous">
+                    </a>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <div class="row ">
+                                <% for (let i= 0; i < 5; i++) { %>
+                                    <% if (it.data[i]===undefined ) continue; %>
+                                    <div class="col col-p">
+                                        <h5>
+                                            <%= it.data[i].descripcion %>
+                                        </h5>
+                                        <div class="py-4 text-black text-center">
+                                            <img class="d-block w-100 img-ta" src="img/Img-Vehiculos/rescambiada/png/<%= it.data[i].ImagenVehiclo %>"
+                                                alt="<%= it.data[i].descripcion %>">
                                         </div>
-                                        <div class="precio-p">
-                                            <p>
-                                                <%= it.data[i].preciopordiasindescuento %>€
-                                            </p>
+                                        <div class="precio">
+                                            <div class="precio-txt">
+                                                <p>desde</p>
+                                            </div>
+                                            <div class="precio-p">
+                                                <p>
+                                                    <%= it.data[i].preciopordiasindescuento %>€
+                                                </p>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            <% } %>
+                                <% } %>
+                            </div>
+                        </div>
+                        
+                        <div class="carousel-item">
+                            <div class="row row-p">
+                                <% for (let i = 5; i < 10; i++) { %>
+                                    <% if (it.data[i] === undefined ) continue; %>
+                                    <div class="col col-p">
+                                        <h5><%= it.data[i].descripcion %></h5>
+                                        <div class="py-4 text-black text-center">
+                                            <img class="d-block w-100 img-ta" src="img/Img-Vehiculos/rescambiada/png/<%= it.data[i].ImagenVehiclo %>" alt="<%= it.data[i].descripcion %>">
+                                        </div>
+                                        <div class="precio">
+                                            <div class="precio-txt">
+                                                <p>desde</p>
+                                            </div>
+                                            <div class="precio-p">
+                                                <p><%= it.data[i].preciopordiasindescuento %>€</p>
+                                            </div>
+                                        </div> 
+                                    </div>
+                                <% } %>
+                            </div>
                         </div>
                     </div>
-                    
-                    <div class="carousel-item">
-                        <div class="row row-p">
-                            <% for (let i = 5; i < 10; i++) { %>
-                                <% if (it.data[i] === undefined ) continue; %>
-                                <div class="col col-p">
-                                    <h5><%= it.data[i].descripcion %></h5>
-                                    <div class="py-4 text-black text-center">
-                                        <img class="d-block w-100 img-ta" src="img/Img-Vehiculos/rescambiada/png/<%= it.data[i].ImagenVehiclo %>" alt="<%= it.data[i].descripcion %>">
-                                    </div>
-                                    <div class="precio">
-                                        <div class="precio-txt">
-                                            <p>desde</p>
-                                        </div>
-                                        <div class="precio-p">
-                                            <p><%= it.data[i].preciopordiasindescuento %>€</p>
-                                        </div>
-                                    </div> 
-                                </div>
-                            <% } %>
-                        </div>
-                    </div>
+                    <a class=" carrusel-control-next carrusel-control" href="#carousel" role="button" data-slide="next">
+                        <img src="img/svg/carrusel_control_next.svg" class="icono-azul" alt="next">
+                    </a>
                 </div>
-                <a class=" carrusel-control-next carrusel-control" href="#carousel" role="button" data-slide="next">
-                    <img src="img/svg/carrusel_control_next.svg" class="icono-azul" alt="next">
-                </a>
             </div>
-        </div>
-    
-        <!--------------- Fin Slider ------------------------->
-
-
-        <!--------------- Inicio Ofertas --------------------->
-        <div class="ofertas">
-            <% if (it.data.length <= 0) { %>
-                <article class="">
-                <h3 class="error-sinproductos"><%= it.errorFormulario %></h3>
-                </article>
-            <% } else { %>
-                <div class="tablero_ofertas">
-                    <h3>O F E R T A S</h3>
-                </div>
             <% } %>
+            <!--------------- Fin Slider ------------------------->
 
-    <% it.data.forEach(function(element){ %>
-            <!-- Ofertas -->
-            <article class="oferta">
-                <!-- Zona Izquierda-->
-                <section class="rentacar-info">
-                    <img class="car-image" src="./img/Img-Vehiculos/rescambiada/png/<%= element.ImagenVehiclo %>" alt="<%= element.descripcion %>">
-                </section>
-                <!-- Zona centro -->
-                <section class="car-info">
-                    
-                    <h2 class="car-name"><%= element.descripcion %></h2>
-                    <%
-                    /* 
-                        <h3><%= element.clasevehiculo %></h3>
-                    */
-                    %>
-                    <div class="car-info-services">
-                        <div class="servicios-asientos" title="asientos">
-                            <img class="icon-24" src="img/svg/person-fill.svg" alt="persona">
-                            <div class="icon-number"><%= element.pax %></div>
-                        </div>
-                        
-                        <% if (element.puertas > 0) { %>
-                        <div class="servicios-puertas" title="puertas">
-                            <img class="icon-24" src="img/svg/puerta.svg" alt="puertas">
-                            <div class="icon-number"><%= element.puertas %></div>
-
-                        </div>
-                        <% } %>
-                        <% if (element.aireacondicionado === 1) { %>
-                        <div class="servicios-aire" title="aire">
-                            <img class="icon-24" src="img/svg/aire.svg" alt="aire">
-                        </div>
-                        <% } %> 
-
-                        <div class="servicios-trasmision" title="transmision">
-                            <img class="icon-24" src="img/svg/tansmision.svg" alt="transmision">
-                            <div class="icon-number"><%= element.transmision %></div>
-                        </div>
-                    </div> 
-                    <div class="car-info-services-2"> 
-                        <div class="servicios-kilometraje" title="kilometraje">
-                            <img class="icon-25" src="img/svg/velocimetro.png" alt="kilometraje">
-                            <div class="icon-kilometro">Kilometraje Ilimitado</div>
-                        </div>
-
-                        <!-- <li class="servicios-combustible" title="El vehículo se entregará con el depósito lleno de combustible y lo deberá devolver lleno; de esta manera no le cobrarán nada por el combustible.<BR/><BR/>Si no devuelve el coche lleno, se le cobrará la gasolina usada a precio de mercado de ese día más los gastos de repostaje: 23.18 €, consultar el precio de la gasolina en http://geoportalgasolineras.es">
-                            <img class="icon-24" src="./img/svg/person-fill.svg" alt="combustible">
-                            <span>Combustible Lleno/Lleno</span>
-                        </li> -->
-
-                        <div class="servicios-cancelaciones" title="Cancelaciones">
-                            <img class="icon-25" src="img/svg/hecho.svg" alt="cancelaciones">
-                            <div class="icon-cancelaciones">Cancelación gratuita</div>
-                        </div>
-                        <div class="servicios-modificaciones" title="Modificaciones">
-                            <img class="icon-25" src="img/svg/hecho.svg" alt="modificaciones">
-                            <div class="icon-modificaciones">Modificación gratuita</div>
-                        </div>
+            <!--------------- Inicio Ofertas --------------------->
+            <div class="ofertas">
+                <% if (it.data.length <=0) { %>
+                    <article class="">
+                        <h3 class="error-sinproductos">
+                            <%= it.errorFormulario %>
+                        </h3>
+                    </article>
+                <% } else { %>
+                    <div class="tablero_ofertas">
+                        <h3>O F E R T A S</h3>
                     </div>
-                </section>
+                <% } %>
+            
+                <% it.data.forEach(function(element){ %>
+                    <!-- Ofertas -->
+                    <article class="oferta">
+                        <input type="hidden" name="vehiculo" value="<%= element.vehiculo %>" >
+                        <!-- Zona Izquierda-->
+                        <section class="rentacar-info">
+                            <img class="car-image"
+                                src="./img/Img-Vehiculos/rescambiada/png/<%= element.ImagenVehiclo %>"
+                                alt="<%= element.descripcion %>">
+                        </section>
+                        <!-- Zona centro -->
+                        <section class="car-info">
 
-                <!-- Zona derecha -->
-                <section class="car-info-prices">
-                    <% if (element.preciototaldias > 0) { %>
-                        <span class="current-price"><%= element.preciototaldias %> €</span>
-                        
-                        <% if (it.diasEntreRecogidaDevolucion > 1) { %>
-                            <span class="old-price"><%= element.preciototalsindescuento %> €</span>
-                        <% } %>
+                            <h2 class="car-name">
+                                <%= element.descripcion %>
+                            </h2>
+                            <% /* <h3>
+                                <%= element.clasevehiculo %>
+                                </h3>
+                                */
+                            %>
+                            <div class="car-info-services">
+                                <div class="servicios-asientos" data-tooltip="vehiculo tiene <%= element.pax %> asientos" data-tooltip-location="top">
+                                    <img class="icon-24" src="img/svg/person-fill.svg" alt="persona">
+                                    <div class="icon-number">
+                                        <%= element.pax %>
+                                    </div>
+                                </div>
 
-                    <% } else { %>
-                        <span class="current-price current-price-consultar">Consultar Precio</span>
-                    <% } %>
-                    
-                    <% if (element.preciototaldias > 0) { %>
+                                <% if (element.puertas> 0) { %>
+                                    <div class="servicios-puertas" data-tooltip="vehiculo tiene <%= element.puertas %> puertas" data-tooltip-location="top">
+                                        <img class="icon-24" src="img/svg/puerta.svg" alt="puertas">
+                                        <div class="icon-number">
+                                            <%= element.puertas %>
+                                        </div>
+                                    </div>
+                                <% } %>
+                                <% if (element.aireacondicionado===1) { %>
+                                    <div class="servicios-aire" data-tooltip="vehiculo tiene aire acondicionado" data-tooltip-location="top">
+                                        <img class="icon-24" src="img/svg/aire.svg" alt="aire">
+                                    </div>
+                                <% } %>
 
-                        <% if(it.diasEntreRecogidaDevolucion > 1) { %>
-                            <span class="description-price" title="Precio total para <%= it.diasEntreRecogidaDevolucion %> días">Precio por <%= it.diasEntreRecogidaDevolucion %> días</span>
-                        <% } else { %>
-                                <span class="description-price" title="Precio total para <%= it.diasEntreRecogidaDevolucion %> día">Precio por <%= it.diasEntreRecogidaDevolucion %> día</span>
-                        <% } %>
+                                <% if  (element.transmision === "M" ) { %>
+                                <div class="servicios-trasmision" data-tooltip="vehiculo tiene transmision manual" data-tooltip-location="top">
+                                <% } else if (element.transmision === "A" ) { %>
+                                <div class="servicios-trasmision" data-tooltip="vehiculo tiene transmision automatica" data-tooltip-location="top">
+                                <% } %>
+                                    <img class="icon-24" src="img/svg/tansmision.svg"
+                                        alt="transmision">
+                                    <div class="icon-number">
+                                        <%= element.transmision %>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="car-info-services-2">
+                                <div class="servicios-kilometraje" data-tooltip="vehiculo tiene kilometraje --- cambiar" data-tooltip-location="top">
+                                    <img class="icon-25" src="img/svg/velocimetro.png" alt="kilometraje">
+                                    <div class="icon-kilometro">Kilometraje Ilimitado</div>
+                                </div>
+                                <div class="servicios-cancelaciones" data-tooltip="vehiculo tiene cancelaciones ---- cambiar" data-tooltip-location="top">
+                                    <img class="icon-25" src="img/svg/hecho.svg" alt="cancelaciones">
+                                    <div class="icon-cancelaciones">Cancelación gratuita</div>
+                                </div>
+                                <div class="servicios-modificaciones" data-tooltip="vehiculo tiene modificaciones --- cambiar" data-tooltip-location="top">
+                                    <img class="icon-25" src="img/svg/hecho.svg" alt="modificaciones">
+                                    <div class="icon-modificaciones">Modificación gratuita</div>
+                                </div>
+                                
+                                <% if (element.sumaSuplementosGenericos > 0) { %>
+                                    <h5 class="title-specials">Ofertas Especiales</h5>
+                                    <% for (const key of element.suplemento) { %>
+                                        <% if (element.suplementosgenericos[key]["valor"] > 0) { %>
+                                            <div class="servicios-kilometraje">
+                                                <img class="icon-25" src="img/svg/velocimetro.png" alt="">
+                                                <div class="icon-kilometro"><%= element.suplementosgenericos[key]["descripcion_anadir_suplemento"] %></div>
+                                            </div>
+    
+                                        <% } else { %>
+                                            <div class="servicios-kilometraje" >
+                                                <img class="icon-25" src="img/svg/velocimetro.png" alt="">
+                                                <div class="icon-kilometro">
+                                                    <%= element.suplementosgenericos[key]["descripcion_no_anadir_suplemento"] %>
+                                                </div>
+                                            </div>
+    
+                                        <% } %>
+                                    <% } %>
+                                <% } %>
+                                
                             
-                        <input type="button" class="btn btn-xxl btn-success btn-reservar" value="Reservar">
-                    <% } %>
-                    
-                </section>
+                            </div>
+                        </section>
 
-                <!-- Zona abajo -->
-                <!-- <section class="car-info-zones">
-                    <i class="car-info-zones-image"></i>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deleniti, assumenda!</p>
-                </section> -->
+                        <!-- Zona derecha -->
+                        <section class="car-info-prices">
+                            <% if (element.preciototaldias> 0) { %>
+                                <span class="current-price">
+                                    <%= element.preciototaldias %> €
+                                </span>
 
-            </article>
-<% }) %>
+                                <% if (it.diasEntreRecogidaDevolucion> 1) { %>
+                                    <span class="old-price">
+                                        <%= element.preciototalsindescuento %> €
+                                    </span>
+                                <% } %>
+
+                            <% } else { %>
+                                <span class="current-price current-price-consultar">Consultar Precio</span>
+                            <% } %>
+
+                            <% if (element.preciototaldias> 0) { %>
+                                <% if(it.diasEntreRecogidaDevolucion> 1) { %>
+                                    <span class="description-price" data-tooltip-location="top" data-tooltip="Precio total para <%= it.diasEntreRecogidaDevolucion %> días">
+                                        Precio por <%= it.diasEntreRecogidaDevolucion %> días</span>
+                                <% } else { %>
+                                    <span class="description-price" data-tooltip-location="top" 
+                                        data-tooltip="Precio total para <%= it.diasEntreRecogidaDevolucion %> día">Precio
+                                        por <%= it.diasEntreRecogidaDevolucion %> día</span>
+                                <% } %>
+                                <button class="btn btn-xxl btn-success btn-reservar">Reservar</button>
+                            <% } %>
+
+                        </section>
+
+                        <!-- Zona abajo -->
+                        <section class="car-info-zones">
+                            <button class="boton_modal" data-tooltip-location="top" data-tooltip="Condiciones generales">
+                                <img src="./img/svg/condiciones.svg" alt="icono condiciones">
+                                <span class="link-condiciones">Condiciones</span>
+                            </button>
+
+                            <div class="overlay-transparente modal-invisible">
+                                <ul class="details-modal ">
+                                    <li class="details-modal-close">
+                                        <button class="boton-cerrar-modal">
+                                            <img class="cerrar-modal" src="./img/svg/cerrar_modal.svg" alt="boton cerrar modal">
+                                        </button>
+                                    </li>
+                                    <li class="details-modal-title">
+                                        <h5 class="details-modal-title-text">CONDICIONES GENERALES</h5>
+                                    </li>
+                                    <li class="details-modal-content">
+                                        <ul class="texto-izquierda">
+                                            <li class="titulo-contenido-modal">
+                                                Requisitos de edad:
+                                            </li>
+                                            <li>
+                                                Edad para conductor Plus Coche: <%= it.condicionesgenerales.edad_conductor_plus_coche %>
+                                            </li>
+                                            <li>
+                                                Edad para conductor Plus Moto: <%= it.condicionesgenerales.edad_conductor_plus_moto %>
+                                            </li>
+                                        </ul>
+                                        
+                                        <ul class="texto-izquierda">
+                                            <li class="titulo-contenido-modal">
+                                                Conductor novel de Coches (<%= it.condicionesgenerales.edad_conductor_novel_coches %>):
+                                            </li>
+                                            <li>
+                                                <p class="texto-justificado">
+                                                <ul>
+                                                    <% for (let entrada of it.condicionesgenerales.choferPlusNovelCars.datos ) { %>
+                                                        <li>
+                                                            <%= entrada["descripcion_vehiculo"] %> <%= entrada["valor"] %> € por día.
+                                                        </li>
+                                                    <% } %>
+                                                </ul>
+                                        
+                                                </p>
+                                            </li>
+                                        
+                                            <li class="titulo-contenido-modal">
+                                                Conductor novel de Motos (<%= it.condicionesgenerales.edad_conductor_novel_motos %>):
+                                            </li>
+                                            <li>
+                                                <p class="texto-justificado">
+                                                <ul>
+                                                    <% for (let entrada of it.condicionesgenerales.choferPlusNovelMotos.datos ) { %>
+                                                        <li>
+                                                            <%= entrada["descripcion_vehiculo"] %>
+                                                                <%= entrada["valor"] %> € por día.
+                                                        </li>
+                                                        <% } %>
+                                                </ul>
+                                        
+                                                </p>
+                                            </li>
+                                        </ul>
+                                        <ul class="texto-izquierda">
+                                            <li class="titulo-contenido-modal">
+                                                Permiso de conducir internacional:
+                                            </li>
+                                            <li>
+                                                <p class="texto-justificado">
+                                                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Mollitia, dicta.
+                                                </p>
+                                            </li>
+                                            <li class="titulo-contenido-modal">
+                                                Conductor adicional:
+                                            </li>
+                                            <li>
+                                                <p class="texto-justificado">
+                                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae, repellat.
+                                                </p>
+                                            </li>
+                                            <li class="titulo-contenido-modal">
+                                                Pago:
+                                            </li>
+                                            <li >
+                                                <p class="texto-justificado">
+                                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic, enim!
+                                                </p>
+                                            </li>
+                                            <li class="titulo-contenido-modal">
+                                                Seguro:
+                                            </li>
+                                            <li>
+                                                <p class="texto-justificado">
+                                                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Doloribus, mollitia?
+                                                </p>
+                                            </li>
+                                            <li class="titulo-contenido-modal">
+                                                Noche por fuera de entrega:
+                                            </li>
+                                            <li>
+                                                <p class="texto-justificado">
+                                                    <ol>
+                                                        <%
+                                                        /*
+                                                        <li>Motos: <%= it.suplementogenerico_base["nocheMoto"]["valor"] %> € por dia </li>
+                                                        <li>Coches: <%= it.suplementogenerico_base["nocheCar"]["valor"] %> € por dia </li>
+                                                        */
+                                                        %>
+                                                    </ol>
+                                                </p>
+                                            </li>
+                                            <li class="titulo-contenido-modal">
+                                                Fuera de tiempo en la entrega:
+                                            </li>
+                                            <li>
+                                                <p class="texto-justificado">
+                                                <ol>
+                                                    <% /*
+                                                    <li>Motos: <%= it.suplementotipochofer_base["outTimeMoto"]["valor"]%> € por dia
+                                                    </li>
+                                                    <li>Coches: <%= it.suplementotipochofer_base["outTimeCar"]["valor"]%> € por dia
+                                                    </li>
+                                                    */ 
+                                                    %>
+                                                </ol>
+                                                </p>
+                                            </li>
+
+
+                                        </ul>
+
+                                    </li>
+                                    
+                                </ul>
+                            </div>
+
+                        </section>
+                    </article>
+                <% }) %>
+            </div>
+            <!--------------- Fin Ofertas ------------------------>
+
 
         </div>
-        <!--------------- Fin Ofertas ------------------------>
-
+        
+        
+        
         <div class="footer">
             5 footer
         </div>
     </div>
-
+    
+    <script src="./js/muestraOferta.js"></script>
 </body>
 </html>
 <script>
@@ -373,7 +551,6 @@
 
 
 <!----------------------------------- Scripts -------------------------------------------------->
-<script src="/js/muestraOferta.js"></script>
 <!----------------------------------------------------------------------------------------------->
 
 <!----------------------------------------------------------------------------------------------->

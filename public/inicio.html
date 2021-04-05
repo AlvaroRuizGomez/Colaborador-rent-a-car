@@ -27,7 +27,7 @@
         
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+        <script async src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
         <!-- --------------------------------------------------- -->
         
     </head>
@@ -132,12 +132,12 @@
                             <section class="centrado gap-10">
                                 <input id="rangoedad" type="checkbox" name="conductor_con_experiencia" value="on" class="elemento__inputradio" checked="checked">
                                 <label class="elemento__circulo" for="rangoedad"></label>
-                                <label class="elemento__titulo" for="rangoedad">Conductor tiene mas de 22 años</label>
+                                <label class="elemento__titulo" for="rangoedad">Conductor tiene mas de 24 años</label>
                             </section>
 
                             <section id="desplegable_edad" class="centrado invisible gap-10">
                                 <label for="edad_conductor">Edad del conductor</label>
-                                <input id="edad_conductor" type="text" name="edad_conductor" value="22" class="edad_conductor">
+                                <input id="edad_conductor" type="number" name="edad_conductor" value="24" min="18" max="100" class="edad_conductor">
                             </section>
                         </div> 
                         <section class="btnBuscar">
@@ -626,7 +626,7 @@
         <!-- Fin container -->
 
         
-        <script src="./js/index.js"></script>
+        <script async src="./js/index.js"></script>
     </body>
     
     </html>

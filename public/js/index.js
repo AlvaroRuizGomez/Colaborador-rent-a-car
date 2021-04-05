@@ -18,6 +18,5 @@ const CheckRangoEdad = async () => {
 checkboxRangoEdad.addEventListener("click", CheckRangoEdad );
 
 window.onload = function () {
-    const desplegable_edad = document.getElementById("desplegable_edad");
     CheckRangoEdad();
 };

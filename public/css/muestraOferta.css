@@ -29,12 +29,13 @@ body {
   margin : 0px auto;
   display : grid;
   grid-template-columns: 30% 70%;
-  /* grid-template-rows: .5fr 1fr; */
+  grid-template-rows: auto 1fr 1fr auto;
 
   grid-template-areas: 
   "banner banner"
   "form content"
-  ". content"
+  "form content"
+  "footer footer"
   
   ;
 }
@@ -63,11 +64,18 @@ background: red;
   width: 100%;
 }
 
-.layout .ofertas {
-  grid-column-start: 2;
-  grid-column-end:3;
-  grid-row-start: 3;
+.contenido
+{
+  grid-area: content;
   width:100%;
+
+}
+
+.layout .ofertas {
+
+  /* grid-column-start: 2;
+  grid-column-end:3;
+  grid-row-start: 3; */
 }
 
 .layout .footer {
@@ -418,8 +426,8 @@ background: red;
 .tablero_ofertas{
   width: 100%;
   border: 1px solid#ddd;
-  margin-left: 31px;
-  margin-top: -65px;
+  /* margin-left: 31px;
+  margin-top: -65px; */
   margin-bottom: 62px;
   box-shadow: 1px 1px 4px #1e1c1c;
   background-color: #fbe8ec;
@@ -430,21 +438,20 @@ background: red;
 .oferta
 {
   display: grid;
-  grid-template-columns: 230px 460px 200px;
-  grid-template-rows: 200px 25px ;
+  grid-template-columns: 250px auto 200px;
+  grid-template-rows: auto 25px ;
   grid-template-areas: 
   "i c d"
   "z z z"
   ;
-  gap: 10px;
   border: 1px solid#ddd;
   border-radius: 2px;
   color: black;
   font-size: 12px;
-  /* margin-right: 275px;
-  margin-left: 31px; */
-  margin-bottom: 13px;
+  margin-bottom: 20px;
   background-color: #ffffff;
+  column-gap: 10px;
+  
 }
 
 .rentacar-info
@@ -460,7 +467,7 @@ background: red;
   grid-area: c;
 
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: minmax(250px, 400px);
   grid-template-rows: 40px 40px auto;
   grid-template-areas: 
   "titulo"
@@ -490,18 +497,31 @@ background: red;
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: repeat(5, 1fr);
+  grid-template-areas: 
+  "precio"
+  "dias"
+  "."
+  "botonreservar"
+  "."
+  ;
 
   justify-items: flex-end;
   align-items: center;
 
 }
 
+.btn-reservar {
+  grid-area: botonreservar;
+  width: 160px;
+}
+
+
 .car-info-zones
 {
   grid-area: z;
   align-items: center;
   justify-self: flex-start;
-
+  align-self: flex-start;
 }
 
 .car-image
@@ -509,7 +529,6 @@ background: red;
   max-width: 243px;
   box-sizing: border-box;
   border-collapse: collapse;
-  margin: 45px;
 }
 
 .icon-24
@@ -546,6 +565,7 @@ background: red;
 
   justify-items: flex-start;
 }
+
 
 .servicios-asientos{
   width: 82%;
@@ -594,7 +614,12 @@ background: red;
 
 
 .car-info-services-2{
-  margin-top: 2px;
+  /* margin-top: 2px; */
+  grid-area: iconos;
+  width: 100%;
+
+  text-align: justify;
+
 }
 
 .servicios-cancelaciones
@@ -668,11 +693,306 @@ background: red;
   font-size: 13px;
 }
 
-.btn-reservar {
-  margin-top: 124px;;
+.link-condiciones
+{
+  text-decoration: underline;
+  cursor: pointer;
+
 }
+
+.title-specials
+{
+  font-size: 1.1em;
+  font-weight: 800;
+  color: rgb(217, 145, 38);
+
+}
+
 /* ----- Fin Ofertas --------------- */
 
+/* VENTANA MODAL */
+
+
+.modal-visible {
+  visibility: visible;
+  opacity: 1;
+}
+
+.modal-invisible
+{
+  visibility: hidden;
+  opacity: 0;
+}
+
+.overlay-transparente
+{
+  display: block;
+  background: rgba(0, 0, 0, 0.563);
+  
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  overflow: hidden;
+
+
+}
+
+.details-modal {
+
+  position: relative;
+
+  background: rgb(255, 255, 255);
+  border-radius: 0.5em;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
+  padding-bottom: 32px; 
+  padding-right: 0px;
+  overflow: auto;
+  
+  width: 700px; 
+  height: 312px;
+  opacity: 1;
+
+  
+}
+.details-modal-close {
+  position: absolute;
+  
+  align-items: center;
+  color: rgb(17, 24, 39);
+  display: flex;
+  height: 4.5em;
+  justify-content: center;
+  
+  right: 0;
+  top: 0;
+  width: 4.5em;
+  cursor: pointer;
+}
+
+
+
+
+.details-modal-title {
+  color: rgb(17, 24, 39);
+  padding: 1.5em 2em;
+  pointer-events: all;
+  position: relative;
+  width: calc(100% - 4.5em);
+}
+.details-modal-title-text 
+{
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: normal;
+}
+.details-modal-content 
+{
+  border-top: 1px solid rgb(224, 224, 224);
+  padding: 2em;
+  pointer-events: all;
+  overflow: auto;
+}
+
+.texto-justificado
+{
+  text-align: justify;
+}
+.texto-izquierda
+{
+  text-align: left;
+}
+
+.titulo-contenido-modal
+{
+  text-align: left;
+  font-weight: 800;
+  font-size: 1.1em;
+}
+
+.boton-cerrar-modal
+{
+  width: 100px;
+  height: 100px;
+}
+
+/* FIN VENTANA MODAL */
+
+
+/* TOOLTIP */
+
+
+[data-tooltip]
+{
+  position: relative;
+  z-index: 10;
+}
+
+
+[data-tooltip]:before,
+[data-tooltip]:after 
+{
+  position: absolute;
+  visibility: hidden;
+  opacity: 0;
+  left: 50%;
+  bottom: calc(100% + 5px);
+  pointer-events: none;
+  transition: 0.2s;
+  will-change: transform;
+}
+
+
+[data-tooltip]:before {
+  content: attr(data-tooltip);
+  padding: 10px 18px;
+  min-width: 50px;
+  max-width: 300px;
+  width: max-content;
+  border-radius: 6px;
+  font-size: 14px;
+  background-color: rgba(59, 72, 80, 0.9);
+  background-image: linear-gradient(30deg,
+    rgba(59, 72, 80, 0.44),
+    rgba(59, 68, 75, 0.44),
+    rgba(60, 82, 88, 0.44));
+  box-shadow: 0px 0px 24px rgba(0, 0, 0, 0.2);
+  color: #fff;
+  text-align: center;
+  white-space: pre-wrap;
+  transform: translate(-50%, -5px) scale(0.5);
+}
+
+
+[data-tooltip]:after {
+  content: '';
+  border-style: solid;
+  border-width: 5px 5px 0px 5px;
+  border-color: rgba(55, 64, 70, 0.9) transparent transparent transparent;
+  transition-duration: 0s; 
+  transform-origin: top;  
+  transform: translateX(-50%) scaleY(0);
+}
+
+
+[data-tooltip]:hover:before,
+[data-tooltip]:hover:after {
+  visibility: visible;
+  opacity: 1;
+}
+
+
+[data-tooltip]:hover:before {
+  transition-delay: 0.3s;
+  transform: translate(-50%, -5px) scale(1);
+}
+
+
+[data-tooltip]:hover:after {
+  transition-delay: 0.5s;
+  transition-duration: 0.2s;
+  transform: translateX(-50%) scaleY(1);
+}
+
+
+[data-tooltip-location="left"]:before,
+[data-tooltip-location="left"]:after {
+  left: auto;
+  right: calc(100% + 5px);
+  bottom: 50%;
+}
+
+[data-tooltip-location="left"]:before
+{
+  transform: translate(-5px, 50%) scale(0.5);
+}
+[data-tooltip-location="left"]:hover:before
+{
+  transform: translate(-5px, 50%) scale(1);
+}
+
+/* Flechita */
+[data-tooltip-location="left"]:after
+{
+  border-width: 5px 0px 5px 5px;
+  border-color: transparent transparent transparent rgba(55, 64, 70, 0.9);
+  transform-origin: left;
+  transform: translateY(50%) scaleX(0);
+}
+
+[data-tooltip-location="left"]:hover:after
+{
+  transform: translateY(50%) scaleX(1);
+}
+
+
+
+/* RIGHT */
+[data-tooltip-location="right"]:before,
+[data-tooltip-location="right"]:after
+{
+  left: calc(100% + 5px);
+  bottom: 50%;
+}
+
+[data-tooltip-location="right"]:before
+{
+  transform: translate(5px, 50%) scale(0.5);
+}
+
+[data-tooltip-location="right"]:hover:before
+{
+  transform: translate(5px, 50%) scale(1);
+}
+
+[data-tooltip-location="right"]:after
+{
+  border-width: 5px 5px 5px 0px;
+  border-color: transparent rgba(55, 64, 70, 0.9) transparent transparent;
+  transform-origin: right;
+  transform: translateY(50%) scaleX(0);
+}
+
+[data-tooltip-location="right"]:hover:after
+{
+  transform: translateY(50%) scaleX(1);
+}
+
+
+/* BOTTOM */
+[data-tooltip-location="bottom"]:before,
+[data-tooltip-location="bottom"]:after
+{
+  top: calc(100% + 5px);
+  bottom: auto;
+}
+
+[data-tooltip-location="bottom"]:before
+{
+  transform: translate(-50%, 5px) scale(0.5);
+}
+[data-tooltip-location="bottom"]:hover:before
+{
+  transform: translate(-50%, 5px) scale(1);
+}
+
+[data-tooltip-location="bottom"]:after
+{
+  border-width: 0px 5px 5px 5px;
+  border-color: transparent transparent rgba(55, 64, 70, 0.9) transparent;
+  transform-origin: bottom;
+}
+
+
+
+/* FIN TOOLTIP*/
 
 /*---------------- Fin Datos-busqueda/Vehículos-Ofertados encontrados ---------- */
 
@@ -682,7 +1002,7 @@ background: red;
   /* position: relative; */
 
   display: grid;
-  grid-template-columns: 100px auto 100px;
+  grid-template-columns: 60px auto 60px;
   grid-template-areas: "izq carrusel der";
 
 
