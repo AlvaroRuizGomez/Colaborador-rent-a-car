@@ -216,7 +216,7 @@
                     <div class="tablero_ofertas">
                         <h3>O F E R T A S</h3>
                     </div>
-                    <% if (it.formdata.conductor_con_experiencia === "undefined" )  { %>
+                    <% if (it.formdata["conductor_con_experiencia"] === undefined )  { %>
                         <div class="aviso-edad">
                             <img class="icono-alerta-edad" src="./img/svg/alerta_edad.svg" alt="icono edad conductor">
                             <p class="texto-alerta-edad">Es posible que los conductores de <%= it.formdata.edad_conductor %> años deban abonar un cargo adicional cuando vayan a
@@ -294,10 +294,21 @@
                                     <div class="icon-modificaciones">Modificación gratuita</div>
                                 </div>
                                 
+                                <% if (it.formdata.conductor_con_experiencia==="undefined" ) { %>
+                                    <div data-tooltip="Tiene un cargo adicional para conductores jovenes. Este cargo puede ser un simple suplemento o puede que le obliguen a contratar el seguro a todo riesgo en el mostrador." 
+                                        data-tooltip-location="top">
+                                        <i></i>Cargo Conductor Joven: 
+                                        
+                                        
+                                    </div>
+
+                                <% } %>
+
+
                                 <% if (element.sumaSuplementosGenericos > 0) { %>
                                     <h5 class="title-specials">Ofertas Especiales</h5>
                                     <% for (const key of element.suplemento) { %>
-                                        <% if (element.suplementosgenericos[key]["valor"] > 0) { %>
+                                        <% if (element.suplementosgenericos[key] > 0) { %>
                                             <div class="servicios-kilometraje">
                                                 <img class="icon-25" src="img/svg/velocimetro.png" alt="">
                                                 <div class="icon-kilometro"><%= element.suplementosgenericos[key]["descripcion_anadir_suplemento"] %></div>
@@ -381,7 +392,7 @@
                                         </ul>
                                         <ul class="texto-izquierda">
                                             <li class="titulo-contenido-modal">
-                                                Conductor novel de Coches (<%= it.condicionesgenerales.edad_conductor_novel_coches %>):
+                                                Conductor joven de Coches (<%= it.condicionesgenerales.edad_conductor_novel_coches %>):
                                             </li>
                                             <li>
                                                 <p class="texto-justificado">
@@ -397,7 +408,7 @@
                                             </li>
                                         
                                             <li class="titulo-contenido-modal">
-                                                Conductor novel de Motos (<%= it.condicionesgenerales.edad_conductor_novel_motos %>):
+                                                Conductor joven de Motos (<%= it.condicionesgenerales.edad_conductor_novel_motos %>):
                                             </li>
                                             <li>
                                                 <p class="texto-justificado">
