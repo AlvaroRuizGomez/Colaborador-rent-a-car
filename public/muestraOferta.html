@@ -442,9 +442,14 @@
                                                 Seguro:
                                             </li>
                                             <li>
-                                                <p class="texto-justificado">
-                                                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Doloribus, mollitia?
-                                                </p>
+                                                <ul>
+                                                    <li class="texto-justificado">
+                                                        El precio de los coches incluye seguro a todo riesgo (pero no cubre pérdida o rotura de llaves).
+                                                    </li>
+                                                    <li class="texto-justificado">
+                                                        El precio de las motos incluye una garantia (pero no cubre pérdida o rotura de llaves).
+                                                    </li>
+                                                </ul>
                                             </li>
                                             <li class="titulo-contenido-modal">
                                                 Noche por fuera de entrega:
@@ -452,8 +457,8 @@
                                             <li>
                                                 <p class="texto-justificado">
                                                     <ul>
-                                                        <li>Coches: <%= it.suplementogenerico_base["nocheCar"]["valor"] %> € por dia </li>
-                                                        <li>Motos: <%= it.suplementogenerico_base["nocheMoto"]["valor"] %> € por dia </li>
+                                                        <li>Coches: <%= it.suplementogenerico_base["nocheCar"] %> € por dia </li>
+                                                        <li>Motos: <%= it.suplementogenerico_base["nocheMoto"] %> € por dia </li>
                                                     </ul>
                                                 </p>
                                             </li>
@@ -463,8 +468,8 @@
                                             <li>
                                                 <p class="texto-justificado">
                                                 <ul>
-                                                    <li>Coches: <%= it.suplementogenerico_base["outTimeCar"]["valor"] %> € por dia </li>
-                                                    <li>Motos: <%= it.suplementogenerico_base["outTimeMoto"]["valor"] %> € por dia </li>
+                                                    <li>Coches: <%= it.suplementogenerico_base["outTimeCar"] %> € por dia </li>
+                                                    <li>Motos: <%= it.suplementogenerico_base["outTimeMoto"] %> € por dia </li>
                                                 </ul>
                                                 </p>
                                             </li>
