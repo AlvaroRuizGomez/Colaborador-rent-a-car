@@ -114,9 +114,9 @@ router.post('/', async (req, res) => {
             "condicionesgenerales": dataResponse.condicionesgenerales
         });
         
-
     }
 
+    
     
 });
 

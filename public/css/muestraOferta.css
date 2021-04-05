@@ -612,13 +612,43 @@ background: red;
   color: #787878;
 }
 
+.aviso-edad
+{
+  border: 3px solid rgb(87, 87, 87);
+  background-color: rgb(255, 229, 181);
+  border-radius: 2px;
+  margin-bottom: 10px;
+  display: grid;
+  grid-template-columns: 50px auto;
+  grid-template-areas: "i d";
+  justify-items: center;
+  align-items: flex-start;
+  padding: 10px;
+
+}
+
+.icono-alerta-edad
+{
+
+}
+
+.texto-alerta-edad
+{
+  text-align: justify;
+  padding-right: 20px;
+  font-size: 18px;
+
+}
 
 .car-info-services-2{
-  /* margin-top: 2px; */
+
   grid-area: iconos;
   width: 100%;
 
-  text-align: justify;
+  /* text-align: justify; */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 
 }
 
