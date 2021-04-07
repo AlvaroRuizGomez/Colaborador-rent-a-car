@@ -29,15 +29,14 @@ router.get("/generar", async (req, res) =>
         body: JSON.stringify(body)
     });
 
+    
     const dataResponse = await responseRaw.json();
 
     const fileName = '../../public/condicionesgenerales.html';
     const stream = fs.createWriteStream(fileName);
 
     stream.once('open', function (fd) {
-        let html = buildHtml();
-
-        stream.end(html);
+        stream.end(dataResponse.html);
     });
 
 
@@ -96,6 +95,8 @@ router.post('/', async (req, res) => {
     }
     else
     {
+
+        
 
         // ordenar por precio
         dataResponse.data = await OrdenarPorPrecioTotalDias(dataResponse.data);

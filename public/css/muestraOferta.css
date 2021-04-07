@@ -437,29 +437,28 @@ background: red;
 /* ----- Inicio Ofertas --------------- */
 .oferta
 {
+  width: fit-content;
   display: grid;
-  grid-template-columns: 250px auto 200px;
-  grid-template-rows: auto 25px ;
+  grid-template-columns: 250px 350px 185px;
+  grid-template-rows: auto 25px;
   grid-template-areas: 
   "i c d"
-  "z z z"
-  ;
-  border: 1px solid#ddd;
+  "z z d";
+  border: 1px solid rgb(192, 192, 192);
   border-radius: 2px;
   color: black;
-  font-size: 12px;
+  /* font-size: 12px; */
   margin-bottom: 20px;
   background-color: #ffffff;
   column-gap: 10px;
-  
+
 }
 
 .rentacar-info
 {
   grid-area: i;
   justify-self: center;
-  align-self: center;
-
+  align-self: flex-start;
 }
 
 .car-info
@@ -494,19 +493,20 @@ background: red;
 .car-info-prices
 {
   grid-area: d;
+  align-self: center;
+  justify-self: flex-start;
   display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: repeat(5, 1fr);
+  grid-template-columns: 0.2fr;
+  grid-template-rows: 20px 40px 40px 20px 40px;
   grid-template-areas: 
+  "."
   "precio"
   "dias"
   "."
-  "botonreservar"
-  "."
-  ;
-
+  "botonreservar";
   justify-items: flex-end;
   align-items: center;
+  height: 100%;
 
 }
 
@@ -689,13 +689,12 @@ background: red;
 
 .current-price
 {
+  grid-area: precio;
   color: #383838;
   font-size: 2.8em;
   font-weight: 700;
   line-height: 1em;
-  margin-bottom: 0;
-  white-space: nowrap;
-  margin-top: 12px;
+
 }
 
 .current-price-consultar
@@ -720,8 +719,11 @@ background: red;
 
 .description-price
 {
+  grid-area: dias;
   color:#126df6;
   font-size: 13px;
+  align-self: flex-start;
+
 }
 
 .link-condiciones
@@ -739,6 +741,10 @@ background: red;
 
 }
 
+.boton_modal
+{
+  margin-left: 1.5em;
+}
 /* ----- Fin Ofertas --------------- */
 
 /* VENTANA MODAL */
@@ -787,9 +793,15 @@ background: red;
   padding-right: 0px;
   overflow: auto;
   
-  width: 700px; 
-  height: 312px;
+  width: 700px;
+  height: 400px;
   opacity: 1;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 5px;
+  padding-left: 25px;
 
   
 }
@@ -818,34 +830,25 @@ background: red;
   position: relative;
   width: calc(100% - 4.5em);
 }
+
 .details-modal-title-text 
 {
   font-size: 1.25rem;
   font-weight: 600;
   line-height: normal;
 }
-.details-modal-content 
-{
-  border-top: 1px solid rgb(224, 224, 224);
-  padding: 2em;
-  pointer-events: all;
-  overflow: auto;
-}
 
-.texto-justificado
+.subtitulo-contenido-modal
 {
-  text-align: justify;
+  font-size: 15px;
+  font-weight: 900;
+  margin-top: 20px;
+  text-decoration: underline;
 }
-.texto-izquierda
+.negrita
 {
-  text-align: left;
-}
-
-.titulo-contenido-modal
-{
-  text-align: left;
-  font-weight: 800;
-  font-size: 1.1em;
+  
+  font-weight: 700;
 }
 
 .boton-cerrar-modal
@@ -921,13 +924,13 @@ background: red;
 
 
 [data-tooltip]:hover:before {
-  transition-delay: 0.3s;
+  transition-delay: 0.2s;
   transform: translate(-50%, -5px) scale(1);
 }
 
 
 [data-tooltip]:hover:after {
-  transition-delay: 0.5s;
+  transition-delay: 0.2s;
   transition-duration: 0.2s;
   transform: translateX(-50%) scaleY(1);
 }

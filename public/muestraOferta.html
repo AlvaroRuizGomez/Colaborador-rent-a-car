@@ -298,10 +298,7 @@
                                     <div data-tooltip="Tiene un cargo adicional para conductores jovenes. Este cargo puede ser un simple suplemento o puede que le obliguen a contratar el seguro a todo riesgo en el mostrador." 
                                         data-tooltip-location="top">
                                         <i></i>Cargo Conductor Joven: 
-                                        
-                                        
                                     </div>
-
                                 <% } %>
 
 
@@ -378,118 +375,61 @@
                                     <li class="details-modal-title">
                                         <h5 class="details-modal-title-text">CONDICIONES GENERALES</h5>
                                     </li>
-                                    <li class="details-modal-content">
-                                        <ul class="texto-izquierda">
-                                            <li class="titulo-contenido-modal">
-                                                Requisitos de edad:
-                                            </li>
+                                    <li class="subtitulo-contenido-modal">Requisitos Conductor Plus:</li>
+                                        <li>
+                                            <b class="negrita">Conductor Plus Coche:</b> <%= it.condicionesgenerales["choferPlus232Cars"]["descripcion"] %>
+                                        </li>
+                                        <li>
+                                            <b class="negrita">Conductor Plus Moto:</b> <%= it.condicionesgenerales["choferPlus252Motos"]["descripcion"] %>
+                                        </li>
+                                    <li class="subtitulo-contenido-modal">Suplemento Conductor Plus Coche:</li>
+                                        <% for (let entrada of it.condicionesgenerales.choferPlus232Cars.datos ) { %>
                                             <li>
-                                                Edad para conductor Plus Coche: <%= it.condicionesgenerales.edad_conductor_plus_coche %>
+                                                <b class="negrita">Coche <%= entrada["descripcion_vehiculo"] %>:</b> <%= entrada["valor"] %> € por día.
                                             </li>
-                                            <li>
-                                                Edad para conductor Plus Moto: <%= it.condicionesgenerales.edad_conductor_plus_moto %>
-                                            </li>
-                                        </ul>
-                                        <ul class="texto-izquierda">
-                                            <li class="titulo-contenido-modal">
-                                                Conductor joven de Coches (<%= it.condicionesgenerales.edad_conductor_novel_coches %>):
-                                            </li>
-                                            <li>
-                                                <p class="texto-justificado">
-                                                <ul>
-                                                    <% for (let entrada of it.condicionesgenerales.choferPlusNovelCars.datos ) { %>
-                                                        <li>
-                                                            <%= entrada["descripcion_vehiculo"] %> <%= entrada["valor"] %> € por día.
-                                                        </li>
-                                                    <% } %>
-                                                </ul>
-                                        
-                                                </p>
-                                            </li>
-                                        
-                                            <li class="titulo-contenido-modal">
-                                                Conductor joven de Motos (<%= it.condicionesgenerales.edad_conductor_novel_motos %>):
-                                            </li>
-                                            <li>
-                                                <p class="texto-justificado">
-                                                <ul>
-                                                    <% for (let entrada of it.condicionesgenerales.choferPlusNovelMotos.datos ) { %>
-                                                        <li>
-                                                            <%= entrada["descripcion_vehiculo"] %>
-                                                                <%= entrada["valor"] %> € por día.
-                                                        </li>
-                                                        <% } %>
-                                                </ul>
-                                        
-                                                </p>
-                                            </li>
-                                        </ul>
-                                        <ul class="texto-izquierda">
-                                            <li class="titulo-contenido-modal">
-                                                Permiso de conducir internacional:
-                                            </li>
-                                            <li>
-                                                <p class="texto-justificado">
-                                                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Mollitia, dicta.
-                                                </p>
-                                            </li>
-                                            <li class="titulo-contenido-modal">
-                                                Conductor adicional:
-                                            </li>
-                                            <li>
-                                                <p class="texto-justificado">
-                                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae, repellat.
-                                                </p>
-                                            </li>
-                                            <li class="titulo-contenido-modal">
-                                                Pago:
-                                            </li>
-                                            <li >
-                                                <p class="texto-justificado">
-                                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic, enim!
-                                                </p>
-                                            </li>
-                                            <li class="titulo-contenido-modal">
-                                                Seguro:
-                                            </li>
-                                            <li>
-                                                <ul>
-                                                    <li class="texto-justificado">
-                                                        El precio de los coches incluye seguro a todo riesgo (pero no cubre pérdida o rotura de llaves).
-                                                    </li>
-                                                    <li class="texto-justificado">
-                                                        El precio de las motos incluye una garantia (pero no cubre pérdida o rotura de llaves).
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                            <li class="titulo-contenido-modal">
-                                                Noche por fuera de entrega:
-                                            </li>
-                                            <li>
-                                                <p class="texto-justificado">
-                                                    <ul>
-                                                        <li>Coches: <%= it.suplementogenerico_base["nocheCar"] %> € por dia </li>
-                                                        <li>Motos: <%= it.suplementogenerico_base["nocheMoto"] %> € por dia </li>
-                                                    </ul>
-                                                </p>
-                                            </li>
-                                            <li class="titulo-contenido-modal">
-                                                Fuera de tiempo en la entrega:
-                                            </li>
-                                            <li>
-                                                <p class="texto-justificado">
-                                                <ul>
-                                                    <li>Coches: <%= it.suplementogenerico_base["outTimeCar"] %> € por dia </li>
-                                                    <li>Motos: <%= it.suplementogenerico_base["outTimeMoto"] %> € por dia </li>
-                                                </ul>
-                                                </p>
-                                            </li>
-
-
-                                        </ul>
-
+                                        <% } %>
+                                    <li class="subtitulo-contenido-modal">Suplemento Conductor Plus Motos:</li>
+                                        <% for (let entrada of it.condicionesgenerales.choferPlus252Motos.datos ) { %>
+                                            <li><b class="negrita"><%= entrada["descripcion_vehiculo"] %>:</b> <%= entrada["valor"] %> € por día.</li>
+                                        <% } %>
+                                    <li class="subtitulo-contenido-modal">
+                                        Edad conductor joven:
                                     </li>
-                                    
+                                        <li>
+                                            <b class="negrita">Conductor joven de Coches:</b> de 18 años a <%= it.condicionesgenerales.edad_minima_para_conductor_plus_coche - 1 %> años.
+                                        </li>
+                                        <li>
+                                            <b class="negrita">Conductor joven de Motos:</b> de 18 años a <%= it.condicionesgenerales.edad_minima_para_conductor_plus_motos - 1 %> años.
+                                        </li>
+                                    <li class="subtitulo-contenido-modal">
+                                        Suplemento conductor joven de Coches:
+                                    </li>
+                                        <% for (let entrada of it.condicionesgenerales.choferPlusNovelCars.datos ) { %>
+                                            <li>
+                                                <b class="negrita">Coche <%= entrada["descripcion_vehiculo"] %>:</b> <%= entrada["valor"] %> € por día.
+                                            </li>
+                                        <% } %>
+                                    <li class="subtitulo-contenido-modal">
+                                        Suplemento conductor joven de Motos:
+                                    </li>
+                                        <% for (let entrada of it.condicionesgenerales.choferPlusNovelMotos.datos ) { %>
+                                            <li><b class="negrita"><%= entrada["descripcion_vehiculo"] %>:</b> <%= entrada["valor"] %> € por día.</li>
+                                        <% } %>
+                                    <li class="subtitulo-contenido-modal">Permiso de conducir internacional:</li>
+                                        <li>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Mollitia, dicta.</li>
+                                    <li class="subtitulo-contenido-modal">Conductor adicional:</li>
+                                        <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae, repellat.</li>
+                                    <li class="subtitulo-contenido-modal">Pago:</li>
+                                        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic, enim!</li>
+                                    <li class="subtitulo-contenido-modal">Seguro:</li>
+                                        <li >El precio de los coches incluye seguro a todo riesgo (pero no cubre pérdida o rotura de llaves).</li>
+                                        <li>El precio de las motos incluye una garantia (pero no cubre pérdida o rotura de llaves).</li>
+                                    <li class="subtitulo-contenido-modal">Noche por fuera de entrega:</li>
+                                        <li><b class="negrita">Coches:</b> <%= it.suplementogenerico_base["nocheCar"] %> € por dia </li>
+                                        <li><b class="negrita">Motos:</b> <%= it.suplementogenerico_base["nocheMoto"] %> € por dia </li>
+                                    <li class="subtitulo-contenido-modal">Fuera de tiempo en la entrega:</li>
+                                        <li><b class="negrita">Coches:</b> <%= it.suplementogenerico_base["outTimeCar"] %> € por dia </li>
+                                        <li><b class="negrita">Motos:</b> <%= it.suplementogenerico_base["outTimeMoto"] %> € por dia </li>
                                 </ul>
                             </div>
 
