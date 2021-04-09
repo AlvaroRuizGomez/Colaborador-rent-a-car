@@ -4,156 +4,303 @@
     padding: 0px;
     font-family: sans-serif;
   }
-
-body {
+  
+  /* reset ul sin puntos */
+  ul
+  {
+    list-style: none;
+    margin-block-start: 0px;
+    margin-block-end: 0px;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding: 0px;
+  }
+  
+  
+  body {
     width:100%;
     text-align: center;
     background-color: #fafafa;
-}
+  }
 
- /* -------------- BANNER --------------------*/
-.layout {
-  width: 100%;
-  height: 100vh;
-  margin: 0px auto;
-  display: grid;
-  grid-template-columns: 26% 1fr;
-  grid-template-rows: 186px;
-}
-
-.layout .banner {
-  grid-column-start: 1;
-  grid-column-end:3;
-  /* background: green; */
-}
-
-#header {
-  display: grid;
-  grid-template-columns: 44% 20% 30%;
-  margin-bottom: 32px;
-  align-items: center;
-  width: 100%;
-  height: 185px;
+.header {
+  height: 190px;
   background-color: #e6e9f0;
-  border-bottom: 1px solid rgba(225, 225, 226, 0.8);
 }
-  
- /* -------------- LOGO --------------------*/
 
-.logo {
-  display: grid;
-  grid-template-columns: 10% 60%;
-  grid-template-rows: 95px;
-  font-weight: 900px;
-  font-size: 15px;
-  padding: 10px;
-  margin-left: 43px;
-  text-shadow: 1px 1px 0px #ccc;
+.container {
+  width: 1200px;
+  /* position: relative; */
+  margin-left: 140px;
+  display: flex;
 }
-  
-.logo_r {
-  font-family: 'Faster One', cursive;
-  font-size: 70px;
-  color: #ff0000;
-  text-shadow: 1px 6px 2px #222;
-  grid-column-start: 1;
-  grid-column-end:2;
+
+.container a img {
+  width: 300px;
+  margin-top: 25px;
+}
+
+.contacto{
+  width: 100%;
+  margin-top: 73px;
+}
+
+.contacto img {
+  width: 150px;
+  vertical-align: middle;
+  border-style: none;
+}
+
+/* ------- Inicio Contenido ------ */
+.principal {
+  width: 100%;
+}
+
+.content{
+  width: 100%;
+}
+
+.espacio {
+  display: block;
+}
+
+.blockContent{
+  width: 1200px;
+  margin-left: 140px;
+  position: relative;
+  margin-top: 25px;
+  margin-right: auto;
+  margin-left: 155px;
+}
+
+.sidebarBlock{
+  width: 280px;
+  float: left;
+  width: 240px;
+  z-index: 100;
+}
+
+.dataContentBox{
+  border-top-color: #e6e9f0;
+  box-shadow: 0 5px 0 #e6e9f0 inset;
+  max-width: 100%;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-top-color: rgb(221, 221, 221);
+  margin-bottom: 0;
+  position: relative;
+}
+
+.dataContentBox .databox {
+  font-size: 14px;
+  line-height: 16px;
+}
+
+.databox {
+  padding: 20px !important;
+  font-size: 14px;
+  line-height: 16px;
+}
+
+.imgDatabox{
+  width: 110%;
+  max-width: 330px; 
+}
+
+.carName {
+  margin: 0px;
+  font-weight: bolder;
+  font-size: 15px;
+}
+
+.car-info-services
+{
+  grid-area: info;
+  display: grid;
+  grid-template-columns: repeat(4, 39px);
+  grid-template-areas: 
+  "a a a a";
+  justify-items: flex-start;
+  margin-left: 20px;
+  margin-top: 13px;
+}
+
+.servicios-asientos{
+  width: 82%;
+  border: 1px solid #ccc;
+  margin-left: 2px;
+  margin-top: 4px;
+}
+
+.icon-number{
+  display: inline;
+  font-size: 13px;
+  color: #787878;
+}
+
+.servicios-puertas{
+  border: 1px solid #ccc;
+  width: 82%;
+  margin-left: 2px;
+  margin-top: 4px;
+}
+
+.icon-24
+{
+  width: 16px;
+  margin-top: 7px;
+}
+
+.servicios-aire{
+  border: 1px solid #ccc;
+  width: 82%;
+  margin-left: 2px;
+  margin-top: 4px;
+}
+
+.servicios-trasmision{
+  border: 1px solid #ccc;
+  width: 97%;
+  margin-left: 2px;
+  margin-top: 4px;
+}
+
+/* --  Inicio más servicios del vehículo -- */
+.car-info-services2{
+  display: grid;
+  grid-template-rows: 32px 35px 30px 30px 30px 30px;
+}
+
+.servicios-kilometraje
+{
   grid-row-start: 1;
-  grid-row-end: 1;
+  display: block;
+  width: 160px;
+  margin-top: 4px;
+}
+
+.icon-kilometro {
+  display: inline;
+  font-size: 13px;
+  color: #27960a;
+  margin-left: 5px;
+  margin-top: 5px;
+}
+
+.icon-25
+{
+  width: 20px;
+  margin-bottom: -2px;
+  
+}
+
+.recogida {
+  grid-row-start: 2;
+  display: flex;
   margin-top: 17px;
 }
-  
-.logo h1 {
-  width: 100%;
-  margin-top: 46px;
-  margin-left: -3px;
-  font-size: 40px;
-  color: #000080;
-  text-shadow: 1px 1px 2px;
-  grid-column-start: 2;
-  grid-column-end:3;
-  grid-row-start: 1;
-  grid-row-end: 1;
-  text-align: left;
-}
-  
-.logo > p {
-  color: red;
-  font-family: 'Caveat', cursive;
-  font-size: 22px;
-  font-style: oblique;
-  grid-column-start: 1;
-  grid-column-end: 3;
-  grid-row-start: 2;
-  grid-row-end: 2;
-  margin-left: -94px;
-}
-  
-.contacto {
-  display: grid;
-  /* grid-template-columns: 15% 40%; */
-  grid-template-columns: 1fr;
-  width: 100%;
-  padding-right: 10px;
-  margin-top: 2px;
-  font-family: Helvetica;
-  font-style: italic;
-  font-weight: 900px;
-  font-size: 15px;
-}
-  
-.contacto img {
-  width: 45px;
-}
-  
-.contacto h2 {
-  font-size: 20px;
-  margin-top: -39px;
-  margin-left: -63px;
+
+.recogida h3 {
+  margin-left: -17px;
+  font-weight: bolder;
+  color: #231f1f;
 }
 
-.contacto p {
-  margin-right: 124px;
+.recogida a {
+  text-decoration: underline blue;        
+  font-family: sans-serif;
+  font-size: 12px;
+  margin-left: 77px;
+  color: blue;
 }
-  
-#reserva-telefono {
-  font-family: "Open Sans", sans-serif;
-  margin-left: 66px;
-  margin-top: -15px;  
+
+.location {
+  grid-row-start: 3;
+  display: block;
+  width: 158px;
+  margin-top: 5px;
 }
-  
-#idioma {
-  width: 100%;
-  height: 100%;
-  padding-right: 20px;
+
+.imgLocation {
+  width: 22px;
+  margin-left: -176px;
 }
-  
-#idioma > ul {
-  display: grid;
-  grid-template-columns: 1fr;
-  align-items: center;
-  justify-content: center;
-  text-align: right;
-  height: 100%;
-  list-style: none;
+
+.locationText {
+  width: 117%;
+  margin-top: -21px;
+  margin-left: 0px;
 }
-  
-#eslogan {
-  display: grid;
-  grid-template-columns: 1fr;
-    
-  width: 100%;
-  margin-top: -53px;
+
+.locationText h5 {
+  font-size: 12px;
+}
+
+/* ------ Recogida ------ */
+.dateRecogida {
+  grid-row-start: 4;
+  display: flex;
+  width: 205px;
+  margin-top: 7px;
+  margin-left: -20px;
+} 
+
+.dateDevolucion {
+  grid-row-start: 6;
+  display: flex;
+  width: 205px;
+  margin-top: 7px;
+  margin-left: -20px;
+}
+
+.imgDateRecogida, .imgClockDevolucion {
+  width: 22px;
+}
+
+.textDateRecogida, .textDateDevolucion {
+  width: 40%;
+  margin-top: 4px;
+}
+
+.textDateRecogida h5, 
+.textDateDevolucion h5{
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.imgClockRecogida,
+.imgClockDevolucion {
+  width: 22px;
   margin-left: 37px;
-  
-  position: absolute;
-  z-index: 100;
-  justify-items: center;
-    
-  color: #0d6efd;
-  font-family: 'Lobster', cursive;
-  font-size: 63px;
-  font-weight: bold;
-  font-style: oblique;
-  text-shadow: 1px 6px 2px #222;
+}
+
+.textClockRecogida,
+.textClockDevolucion {
+  width: 23%;
+  margin-top: 4px;
+}
+
+.textClockRecogida h5,
+.textClockDevolucion h5 {
+  font-size: 12px;
+  font-weight: 500;
+}
+
+/* ------ Flechas --------- */
+.flechas {
+  grid-row-start: 5;
+  display: flex;
+  margin-top: 2px;
+  margin-left: -17px;
+}
+
+.flechas img {
+  width: 7%;
+}
+
+.flechas p {
+  font-size: 12px;
+  margin-left: 10px;
+  margin-top: 7px;
+  color: #4c4a4acc;
 }

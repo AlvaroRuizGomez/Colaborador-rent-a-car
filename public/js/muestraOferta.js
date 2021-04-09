@@ -60,9 +60,6 @@ for (let i = 0; i < botonCondiciones.length; i++)
             document.querySelector("html").scrollTop = window.scrollY;
             divOverlay.classList.remove("modal-invisible");
             divOverlay.classList.add("modal-visible");
-
         }
-        
-
     });
 }

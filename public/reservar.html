@@ -5,57 +5,166 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reservar</title>
-    
-    <!--------------------------------    FONTS   ------------------------->
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Caveat&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Allura&family=Arizonia&family=Charmonman:wght@700&family=Damion&family=Faster+One&family=Galada&family=Gravitas+One&family=Montez&family=Sarina&family=Sonsie+One&display=swap" rel="stylesheet">  
-
-    <!------------------------------------------------------------------------>
-
+    <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="css/reservar.css" />
 
 </head>
-<body>
-    <!-- COMENTARIO SE PUEDE BORRAR -->
-    <div class="layout">
-        <!-- Inicio Cabecera -->
-        <div class="banner">
-            <header id="header">
-                <div class="logo">
-                    <div class="logo_r">
-                        R
-                    </div>
-                    <h1>entCar Mallorca</h1>
-                    <p>¡ El mejor precio y servicio !</p>
-                </div>
+    <body>
+        <!---------------------   Inicio cabecera  -------------------->
+        <div class="header">
+            <div class="container">
+                    <!-- <%~ includeFile("parciallogo.html") %> -->
+                <!-- ********************* -->
+                <a href="/">
+                        <!-- <img src="./img/Img-Logo/logoRentCarInnerBlue.svg"> -->
+                        <!-- <img src="./img/Img-Logo/logoRentCarInnerWhite.svg"> -->
+                    <img src="./img/Img-Logo/logoRentCarSimpleBlue.svg">
+                </a>
 
+                <!-- ********************* -->
+                <!-- <a href="./inicio.html" class="logo">
+                        <img src="./img/Img-Logo/logoRentCarSimpleBlue.svg" alt="">
+                </a> -->
+
+                <!-- ********************* -->
                 <div class="contacto">
-                    <img src="./img/whatsapp-icon-hd-21.jpg"/>
-                    <h2>+34 651 722 345</h2>
-                    <p id="reserva-telefono">Contacto reservas</p>
+                    <img src="./img/svg/contacto.svg"/>
                 </div>
-
-                <nav id="idioma">
-                    <ul>
-                        <li>    
-                            <a href="#">Idioma</a>
-                        </li>
-                    </ul>
-                </nav>
-            </header>
-            <!------- Fin Cabecera ---->
-
-            <!------- Inicio Slogan  --------->
-            <!-- <section id="eslogan">
-                Conozca Mallorca...
-            </section> -->
-            <!------- Fin Slogan  ------------>
+            </div>
         </div>
-    </div>
-</body>
+        <!----------------   Fin cabecera  ---------------------->
+
+        <!----------------   Inicio Contenido ------------------->
+        <div class="principal">
+            <div class="content">
+                <div class="espacio"></div>
+                <div class="blockContent">
+                    <div class="sidebarBlock">
+                        <div class="dataContentBox">
+                            <div class="databox">
+                                <img class="imgDatabox" src="/public/img/Img-Vehiculos/rescambiada/png/Peugeot_108.png" alt="">
+                                <h3 class="carName">
+                                    Peugeot 108 4 puertas A/C  
+                                </h3>
+                                <small>o similar</small>
+                                <!--------- Inicio barra de servicios del Vehículo ----------->
+                                <!-- ****************************************************** -->
+                                <!-- ***** La comentada es con template ******************* -->
+                                <!-- ****************************************************** -->
+                                <!-- <div class="car-info-services">
+                                    <div class="servicios-asientos" data-tooltip="vehiculo tiene <%= element.pax %> asientos" data-tooltip-location="top">
+                                        <img class="icon-24" src="img/svg/person-fill.svg" alt="persona">
+                                        <div class="icon-number">
+                                            <%= element.pax %>
+                                        </div>
+                                    </div>
+    
+                                    <% if (element.puertas> 0) { %>
+                                        <div class="servicios-puertas" data-tooltip="vehiculo tiene <%= element.puertas %> puertas" data-tooltip-location="top">
+                                            <img class="icon-24" src="img/svg/puerta.svg" alt="puertas">
+                                            <div class="icon-number">
+                                                <%= element.puertas %>
+                                            </div>
+                                        </div>
+                                    <% } %>
+                                    <% if (element.aireacondicionado===1) { %>
+                                        <div class="servicios-aire" data-tooltip="vehiculo tiene aire acondicionado" data-tooltip-location="top">
+                                            <img class="icon-24" src="img/svg/aire.svg" alt="aire">
+                                        </div>
+                                    <% } %>
+    
+                                    <% if  (element.transmision === "M" ) { %>
+                                        <div class="servicios-trasmision" data-tooltip="vehiculo tiene cambio manual" data-tooltip-location="top">
+                                        <img class="icon-24" src="img/svg/cambio_manual.svg" alt="cambio manual">
+                                        <div class="icon-number">M</div>
+                                    <% } else if (element.transmision === "A" ) { %>
+                                        <div class="servicios-trasmision" data-tooltip="vehiculo tiene cambio automatico" data-tooltip-location="top">
+                                        <img class="icon-24" src="img/svg/cambio_automatico.svg" alt="cambio automatico">
+                                        <div class="icon-number">A</div>
+                                    <% } %>
+                                    </div>
+                                </div> -->
+                                <!-- ****************************************************** -->
+                                <div class="car-info-services">
+                                    <div class="servicios-asientos" >
+                                        <img class="icon-24" src="img/svg/person-fill.svg" alt="persona">
+                                        <div class="icon-number">4</div>
+                                    </div>
+    
+                                    <div class="servicios-puertas">
+                                        <img class="icon-24" src="img/svg/puerta.svg" alt="puertas">
+                                        <div class="icon-number">4</div>
+                                    </div>
+                                        
+                                    <div class="servicios-aire" >
+                                        <img class="icon-24" src="img/svg/aire.svg" alt="aire">
+                                    </div>
+    
+                                    <div class="servicios-trasmision">
+                                        <img class="icon-24" src="img/svg/cambio_manual.svg" alt="cambio manual">
+                                    <div class="icon-number">M</div>
+                                </div>
+                                <!--------- Fin barra de servicios del Vehículo ----------->
+
+                                <!--------- Inicio más servicios del Vehículo ------------->
+                                <div class="car-info-services2">
+                                    <div class="servicios-kilometraje">
+                                        <img class="icon-25" src="img/svg/velocimetro.png" alt="kilometraje">
+                                        <p class="icon-kilometro">Kilometraje ilimitado</p>
+                                    </div>
+    
+                                    <div class="recogida">
+                                        <h3>Recogida</h3>
+                                        <a href="">Cambiar</a>
+                                    </div>
+    
+                                    <div class="location">
+                                        <img class="imgLocation" src="./img/svg/mapaMundi.svg" alt="">
+                                        <div class="locationText">
+                                            <h5>Mallorca - Can Pastilla - España</h5>
+                                        </div>
+                                    </div>
+
+                                    <div class="dateRecogida">
+                                        <img class="imgDateRecogida" src="./img/img-Calendar/calendar.jpg" alt="">
+                                        <div class="textDateRecogida" id="textDateRecogida" >
+                                            <h5>Dom 15 Sept</h5>
+                                        </div>
+
+                                        <img class="imgClockRecogida" src="./img/Img-Clock/clock.png" alt="">
+                                        <div class="textClockRecogida" id="textDateRecogida" >
+                                            <h5>09:00</h5>
+                                        </div>
+                                    </div>
+
+                                    <div class="flechas">
+                                        <img src="/public/img/svg/flechaDown.svg" alt="">
+                                        <p>3 días</p>
+                                    </div>
+                                   
+                                    <div class="dateDevolucion">
+                                        <img class="imgDateDevolucion" src="./img/img-Calendar/calendar.jpg" alt="">
+                                        <div class="textDateDevolucion" id="textDateDevolucion" >
+                                            <h5>Mar 18 Sept</h5>
+                                        </div>
+
+                                        <img class="imgClockDevolucion" src="./img/Img-Clock/clock.png" alt="">
+                                        <div class="textClockDevolucion" id="textDateDevolucion" >
+                                            <h5>20:00</h5>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <!---------- Fin más servicios del Vehículo --------------->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>  
+        <!----------------   Fin Contenido    ------------------->
+
+    </body>
 </html>
 
 <!--------------------------- Scripts ---------------------------->
