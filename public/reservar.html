@@ -10,7 +10,7 @@
 
 </head>
     <body>
-        <!---------------------   Inicio cabecera  -------------------->
+        <!----------------------------   Inicio cabecera  -------------------------->
         <div class="header">
             <div class="container">
                     <!-- <%~ includeFile("parciallogo.html") %> -->
@@ -35,10 +35,11 @@
         <!----------------   Fin cabecera  ---------------------->
 
         <!----------------   Inicio Contenido ------------------->
-        <div class="principal">
-            <div class="content">
-                <div class="espacio"></div>
-                <div class="blockContent">
+        <div class="content">
+            <div class="espacio"></div>
+            <div class="blockContainer">
+                <form action="">
+                    <!------------------- Inicio Bloque Sidebar ------------------------------>
                     <div class="sidebarBlock">
                         <div class="dataContentBox">
                             <div class="databox">
@@ -46,78 +47,78 @@
                                 <h3 class="carName">
                                     Peugeot 108 4 puertas A/C  
                                 </h3>
-                                <small>o similar</small>
+                                <small>o similar</small>                                    
                                 <!--------- Inicio barra de servicios del Vehículo ----------->
                                 <!-- ****************************************************** -->
                                 <!-- ***** La comentada es con template ******************* -->
                                 <!-- ****************************************************** -->
-                                <!-- <div class="car-info-services">
-                                    <div class="servicios-asientos" data-tooltip="vehiculo tiene <%= element.pax %> asientos" data-tooltip-location="top">
-                                        <img class="icon-24" src="img/svg/person-fill.svg" alt="persona">
-                                        <div class="icon-number">
-                                            <%= element.pax %>
-                                        </div>
-                                    </div>
-    
-                                    <% if (element.puertas> 0) { %>
-                                        <div class="servicios-puertas" data-tooltip="vehiculo tiene <%= element.puertas %> puertas" data-tooltip-location="top">
-                                            <img class="icon-24" src="img/svg/puerta.svg" alt="puertas">
+                                    <!-- <div class="car-info-services">
+                                        <div class="servicios-asientos" data-tooltip="vehiculo tiene <%= element.pax %> asientos" data-tooltip-location="top">
+                                            <img class="icon-24" src="img/svg/person-fill.svg" alt="persona">
                                             <div class="icon-number">
-                                                <%= element.puertas %>
+                                                <%= element.pax %>
                                             </div>
                                         </div>
-                                    <% } %>
-                                    <% if (element.aireacondicionado===1) { %>
-                                        <div class="servicios-aire" data-tooltip="vehiculo tiene aire acondicionado" data-tooltip-location="top">
-                                            <img class="icon-24" src="img/svg/aire.svg" alt="aire">
+        
+                                        <% if (element.puertas> 0) { %>
+                                            <div class="servicios-puertas" data-tooltip="vehiculo tiene <%= element.puertas %> puertas" data-tooltip-location="top">
+                                                <img class="icon-24" src="img/svg/puerta.svg" alt="puertas">
+                                                <div class="icon-number">
+                                                    <%= element.puertas %>
+                                                </div>
+                                            </div>
+                                        <% } %>
+                                        <% if (element.aireacondicionado===1) { %>
+                                            <div class="servicios-aire" data-tooltip="vehiculo tiene aire acondicionado" data-tooltip-location="top">
+                                                <img class="icon-24" src="img/svg/aire.svg" alt="aire">
+                                            </div>
+                                        <% } %>
+        
+                                        <% if  (element.transmision === "M" ) { %>
+                                            <div class="servicios-trasmision" data-tooltip="vehiculo tiene cambio manual" data-tooltip-location="top">
+                                            <img class="icon-24" src="img/svg/cambio_manual.svg" alt="cambio manual">
+                                            <div class="icon-number">M</div>
+                                        <% } else if (element.transmision === "A" ) { %>
+                                            <div class="servicios-trasmision" data-tooltip="vehiculo tiene cambio automatico" data-tooltip-location="top">
+                                            <img class="icon-24" src="img/svg/cambio_automatico.svg" alt="cambio automatico">
+                                            <div class="icon-number">A</div>
+                                        <% } %>
                                         </div>
-                                    <% } %>
-    
-                                    <% if  (element.transmision === "M" ) { %>
-                                        <div class="servicios-trasmision" data-tooltip="vehiculo tiene cambio manual" data-tooltip-location="top">
-                                        <img class="icon-24" src="img/svg/cambio_manual.svg" alt="cambio manual">
-                                        <div class="icon-number">M</div>
-                                    <% } else if (element.transmision === "A" ) { %>
-                                        <div class="servicios-trasmision" data-tooltip="vehiculo tiene cambio automatico" data-tooltip-location="top">
-                                        <img class="icon-24" src="img/svg/cambio_automatico.svg" alt="cambio automatico">
-                                        <div class="icon-number">A</div>
-                                    <% } %>
-                                    </div>
-                                </div> -->
-                                <!-- ****************************************************** -->
+                                    </div> -->
+                                    <!-- ****************************************************** -->
                                 <div class="car-info-services">
                                     <div class="servicios-asientos" >
                                         <img class="icon-24" src="img/svg/person-fill.svg" alt="persona">
                                         <div class="icon-number">4</div>
                                     </div>
-    
+        
                                     <div class="servicios-puertas">
                                         <img class="icon-24" src="img/svg/puerta.svg" alt="puertas">
                                         <div class="icon-number">4</div>
                                     </div>
-                                        
+                                            
                                     <div class="servicios-aire" >
                                         <img class="icon-24" src="img/svg/aire.svg" alt="aire">
                                     </div>
-    
+        
                                     <div class="servicios-trasmision">
                                         <img class="icon-24" src="img/svg/cambio_manual.svg" alt="cambio manual">
                                     <div class="icon-number">M</div>
                                 </div>
                                 <!--------- Fin barra de servicios del Vehículo ----------->
 
-                                <!--------- Inicio más servicios del Vehículo ------------->
+                                <!------> Inicio más servicios del Vehículo  y datos de recogida -->
                                 <div class="car-info-services2">
                                     <div class="servicios-kilometraje">
                                         <img class="icon-25" src="img/svg/velocimetro.png" alt="kilometraje">
                                         <p class="icon-kilometro">Kilometraje ilimitado</p>
                                     </div>
-    
+        
                                     <div class="recogida">
                                         <h3>Recogida</h3>
                                         <a href="">Cambiar</a>
                                     </div>
-    
+        
                                     <div class="location">
                                         <img class="imgLocation" src="./img/svg/mapaMundi.svg" alt="">
                                         <div class="locationText">
@@ -141,7 +142,7 @@
                                         <img src="/public/img/svg/flechaDown.svg" alt="">
                                         <p>3 días</p>
                                     </div>
-                                   
+                                    
                                     <div class="dateDevolucion">
                                         <img class="imgDateDevolucion" src="./img/img-Calendar/calendar.jpg" alt="">
                                         <div class="textDateDevolucion" id="textDateDevolucion" >
@@ -154,12 +155,293 @@
                                         </div>
                                     </div>
 
+                                    </div>
+                                    <!------> Fin más servicios del Vehículo  y datos de recogida -->
                                 </div>
-                                <!---------- Fin más servicios del Vehículo --------------->
                             </div>
                         </div>
                     </div>
-                </div>
+                    <!------------------------ Fin Bloque Sidebar ------------------------------>
+
+                    <!--------------------- Inicio Bloque de Contenido ------------------------->
+                    <div class="contentBlock">
+                        <div class="dataContentBox">
+                            <h2>Datos de la Reserva</h2>
+                            <div class="dataBox">
+                                ::before
+                                <!------------------------- Inicio  1  ------------------------------>
+                                <div class="row">
+                                    ::before
+                                    <div class="bookingDetails">
+                                        ::before
+                                        <div class="data">
+                                            ::before
+                                            <span class="col-1">
+                                                <strong>Días</strong>
+                                            </span>
+                                            <span id="col-2">3 días (Dom 15 Sep - Mar 18 Sep)</span>
+
+                                            <span class="col-1">
+                                                <strong>Alquiler</strong>
+                                            </span>
+                                            <span id="col-2">80.0 €</span>
+
+                                            <span class="col-1">
+                                                <strong>Seguro</strong>
+                                            </span>
+                                            <span id="col-2">Todo Riesgo incluido en el precio de reserva</span>
+
+                                            <!------------- Inicio Cargos por suplementos ----------->
+                                            <div id="localServiceCharges">
+                                                <span class="col-1">
+                                                    <strong>Conductor Joven</strong>
+                                                </span>
+                                                <span class="clo-2">
+                                                    <strong>Gratis</strong>
+                                                </span>
+                                            </div>
+                                            <!------------- Fin Cargos por suplementos ----------->
+                                        </div>
+
+                                        <div class="data">
+                                            <span id="idTotalPrecio">
+                                                <span class="col-1">
+                                                    <strong>Total</strong>
+                                                </span>
+                                                <span id="totalPrecioSuple" class="col-2">
+                                                    <strong>
+                                                        <span id="sumarAccesorios">80.0 €</span>
+                                                    </strong>
+                                                </span>
+                                            </span>
+
+                                            <span id="totalPrecioDestino">
+                                                <span class="col-1">
+                                                    <strong>Pago en Destino</strong>
+                                                </span>
+                                                <span id="totalDestino" class="col-2">80.0 €</span>
+                                            </span>
+                                        </div>
+
+                                        <div class="dataFooter">
+                                            <span id="pagueOnline">
+                                                <span class="col-1">
+                                                    <strong class="marked">
+                                                        <big>Pague Online Ahora</big>
+                                                    </strong>
+                                                </span>
+                                                <span class="col-2">
+                                                    <span class="marked">
+                                                        <strong>
+                                                            <big>80.0 €</big>
+                                                        </strong>
+                                                    </span>
+                                                </span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <!------------------------- Fin  1  ------------------------------>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="espacio"></div>
+
+                        <div class="benefits-Container">
+                            <span class="benefits-Titulo">Incluido en el Precio</span>
+                            <ul class="interest">
+                                <li class="tooltipBenefits">
+                                    <img src="./img/svg/hecho.svg" alt="">
+                                    Cancelaciones Gratis
+                                </li>
+                                <li class="tooltipBenefits">
+                                    <img src="./img/svg/hecho.svg" alt="">
+                                    Modificaciones Gratis
+                                </li>
+                                <li class="tooltipBenefits">
+                                    <img src="./img/svg/hecho.svg" alt="">
+                                    Sillas y Elevadores de niños Gratis
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="espacio"></div>
+
+                        <div id="extrasForm" class="dataContentBox full-content">
+                            <h2 data-toggle="collapse" href="#extraSelector" class aria-expanded="true">
+                                <i class="ico-extra">
+
+                                </i>
+                                Asientos niños
+                            </h2>
+                            <div id="extraSelector" class="collapse in" aria-expanded="true">
+                                <div class="dataBox">
+                                    <div class="form-group">
+                                        <ul class="dataExtras">
+                                            <!----------  Inicio Asientos niños  ----->
+                                            <li class="extraLine">
+                                              ::marked
+                                                <img src="./img/svg/puerta.svg" alt="asiento niño">
+                                                <select id="child_seat" class="safariSelect" name="child_seat">
+                                                    <option value="0" selected="">0</option>
+                                                    <option value="1">1</option>
+                                                    <option value="2">2</option>
+                                                    <option value="3">3</option>
+                                                </select>
+                                                <a class="infoIco" align="justify" data-toggle="tooltip" title="" data-original-title="<strong>Asientos niños</strong> Gratis">
+                                                    <strong>info</strong>
+                                                </a>
+                                                <div class="details">
+                                                    <label for="Asientos niños"></label>
+                                                    <p>
+                                                        Los asientos de niños son para niños de 1 a 3 años
+                                                        <span class="text-nowrap">(con un peso entre 9-18Kg).</span>
+                                                    </p>
+                                                </div>
+                                            </li>
+                                            <!----------  Fin Asientos niños  ----->
+
+                                            <!----------  Inicio Elevadores  ----->
+                                            <li class="extraLine">
+                                                ::marked
+                                                  <img src="./img/svg/puerta.svg" alt="asiento niño">
+                                                  <select id="child_seat" class="safariSelect" name="child_seat">
+                                                      <option value="0" selected="">0</option>
+                                                      <option value="1">1</option>
+                                                      <option value="2">2</option>
+                                                      <option value="3">3</option>
+                                                  </select>
+                                                  <a class="infoIco" align="justify" data-toggle="tooltip" title="" data-original-title="<strong>Elevadores</strong> Gratis">
+                                                      <strong>info</strong>
+                                                  </a>
+                                                  <div class="details">
+                                                      <label for="Asientos niños"></label>
+                                                      <p>
+                                                          Los elevadores son recomendados para niños de 4-11 años
+                                                          <span class="text-nowrap">(con un peso entre 18-45Kg).</span>
+                                                      </p>
+                                                  </div>
+                                              </li>
+                                            <!----------  Fin Elevadores  ----->
+                                        </ul>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="espacio"></div>
+
+                        <div id="personalInfoForm" class="dataContentBox full-content" data-info-form="* Campos requeridos">
+                            ::before 
+                            <h2>
+                                <i class="ico ico-user"></i>
+                                Datos Conductor Principal
+                            </h2>
+                            <div class="databox">
+                                <!-----------   Inicio Título ------>
+                                <div class="form-group required">
+                                    <label for="titulo">
+                                        <!-- ::before -->
+                                        Título
+                                        <!-- ::after -->
+                                    </label>
+                                    <div class="radio-in-line">
+                                        <label for="Sr">
+                                            <input type="radio" id="Sr" value="Sr" name="titulo">
+                                            Sr
+                                            </input>
+                                        </label>
+                                        <label for="Sra">
+                                            <input type="radio" id="Sra" value="Sra" name="titulo">
+                                            Sr
+                                            </input>
+                                        </label>
+                                    </div>
+                                </div>
+                                <!-----------   Fin Título ------>
+
+                                <div class="form-group required valide">
+                                    <label for="nombre">
+                                        Nombre
+                                    </label>
+                                    <input id="nombre" type="text" name="nombre" size="65" value="" maxlength="50" placeholder="Nombre">
+                                </div>
+
+                                <div class="form-group required valide">
+                                    <label for="apellidos">
+                                        Apellidos
+                                    </label>
+                                    <input id="apellidos" type="text" name="apellidos" size="65" value="" maxlength="50" placeholder="Apellidos">
+                                </div>
+
+                                <div class="form-group required valide" info-error="Debe introducir un email en el formulario">
+                                    <label for="email">
+                                        E-mail
+                                    </label>
+                                    <input id="email" type="text" name="email" size="65" value="" onchange="" maxlength="50" placeholder="A este E-mail enviaremos su confirmación">
+                                </div>
+                                <div class="info-fieldcontainer">
+                                    <div class="info-fieldcontain">
+                                        Aqui es donde le enviaremos la confirmación de la reserva con toda la información para recoger tu coche
+                                    </div>
+                                </div>
+                                <style>
+                                    .info-fieldcontainer{margin-left:calc(31% + 4px);width: 40%;margin-bottom: 10px;}.info-fieldcontainer{background-color: green;background-image: url(./img/svg/velocimetro.png);background-repeat: no-repeat;background-position: 12px 12px;background-size: 18px;font-size: 13px;color: blue;position: relative;top: -5px;box-shadow: 0 0 0 1px rgb(134, 238, 134);border-radius: .15rem;padding: 8px;padding-left: 40px;}.info-fieldcontainer::before{content:"";border-bottom: 10px solid greenyellow;border-left: 10px solid transparent;border-right: 10px solid transparent;position: absolute;top: -10px;left: 15px;filter:drop-shadow(0 -1px 0 green);}.ok-val .info-fieldcontainer{display:none}.ok-val+.info-fieldcontainer{width: 45%;margin-bottom: 5px;}
+                                </style>
+
+                                <div id="suggestions"></div>
+                                <div class="form-group required">
+                                    <label for="telefono">
+                                        <!-- ::before -->
+                                        Teléfono
+                                        <!-- ::after -->
+                                    </label>
+                                    <input id="telefono" type="text" name="telefono" size="65" value="" maxlength="18" placeholder="Para poder contactar cuando sea necesario">
+                                <div>                                
+                                <div id="idTermsBox" class="form-group form-info-group valide">
+                                    <span class="label">&nbsp;</span>
+                                    <p class="chkDescription">
+                                        <input id="okTermsConditions"  type="checkbox" name="okTermsConditions" value="SI" onclick>
+
+                                        <label id="labelOkTermsConditions" for="okTermsConditions">He leído y acepto
+                                            <a id="labelokTermsConditionsTC" class="general_link iframe cboxElement" href="" onclick="">
+                                                Términos y condiciones
+                                            </a>
+                                            y
+                                            <a href="" id="labelokTermsConditionsPP" class="iframe cboxElement" onclick="">
+                                                política de privacidad
+                                            </a>
+                                        </label>
+                                    </p>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="espacio"></div>
+                        <div class="espacio-xxl"></div>
+                        <div class="espacio-xxl"></div>
+                        <div class="espacio-xxl"></div>
+
+                        <div class="container-fluid footer footer3">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-3">
+                                        <p>
+                                            Todas las marcas registradas y los derechos de autor son propiedad de RentCarMallorca.com
+                                        </p>
+                                        <p>
+                                            RentCarMallorca bla bla bla
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!--------------------- Fin Bloque de Contenido ------------------------->
+                </form>
+
             </div>
         </div>  
         <!----------------   Fin Contenido    ------------------->
