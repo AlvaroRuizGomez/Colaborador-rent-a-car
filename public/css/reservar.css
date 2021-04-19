@@ -63,15 +63,16 @@ strong {
 
 .espacio {
   display: block;
+  margin-bottom: 40px;
 }
 
-.blockContainer{
+.blockContainer {
   display: grid;
-  width: 1200px;
+  width: 1247px;
   position: relative;
   margin-top: 25px;
   margin-right: auto;
-  margin-left: 155px;
+  margin-left: 107px;
 }
 /*----------- Inicio Bloque Sidebar ----------- */
 .sidebarBlock{
@@ -82,15 +83,13 @@ strong {
 }
 
 .dataContentBox{
-  border-top-color: #e6e9f0;
-  box-shadow: 0 5px 0 #e6e9f0 inset;
   max-width: 100%;
   background-color: #fff;
-  border: 1px solid #ddd;
-  border-top-color: rgb(221, 221, 221);
+  /* border-top-color: rgb(221, 221, 221); */
   margin-bottom: 0;
   position: relative;
 }
+
 
 .dataContentBox .databox {
   font-size: 14px;
@@ -170,6 +169,8 @@ strong {
 .car-info-services2{
   display: grid;
   grid-template-rows: 32px 35px 30px 30px 30px 30px;
+  margin-top: 17px;
+  margin-left: 17px;
 }
 
 .servicios-kilometraje
@@ -334,7 +335,7 @@ strong {
 .dataBox {
   padding: 20px !important;
   font-size: 14px;
-  line-height: 16px;
+  line-height: 36px;
 }
 
 .row {
@@ -346,82 +347,222 @@ strong {
   padding-top: 0;
 }
 
-.data{
-  /* display: grid;
-  grid-template-rows: 35px 35px 35px 35px;
-  grid-template-columns:; */
-  margin-bottom: 0;
-  padding: 0 10px;
-  color: #333;
+.bookingDetails-1 {
+  display: grid;
+  grid-template-columns: repeat(5, 133px);
+  grid-auto-rows: 28px;
+  grid-template-areas:
+      "a a b b b"
+      "c c d d d"
+      "e e f f f";
+  align-items: start;
+  margin-bottom: 0px;
+  padding: 0px 10px;
+  color: rgb(51, 51, 51);
+  position: relative;
+}
+
+.localServiceCharges {
+  display: grid;
+  grid-template-columns: repeat(5, 133px);
+  grid-auto-rows: 28px;
+  grid-template-areas:
+      "g g h h h"
+      "i i j j j";
+  align-items: start;
+  margin-bottom: 0px;
+  padding: 0px 10px;
+  color: rgb(51, 51, 51);
+  position: relative;
+}
+
+.totalReserva {
+  display: grid;
+  grid-template-columns: repeat(5, 133px);
+  grid-auto-rows: 28px;
+  grid-template-areas:
+      "k k l l l"
+      "m m p p p";
+  align-items: start;
+  margin-bottom: 0px;
+  padding: 0px 10px;
+  color: rgb(51, 51, 51);
   position: relative;
 }
 
 .col-1 {
-  width: 33.3%;
-  float: left;
-  position: relative;
+  grid-area: a;
+  width: 55.3%;
   min-height: 1px;
-  padding-right: 15px;
-  padding-left: 15px;
+  margin-left: -57px;
 }
 
 .col-2 {
-  width: 66.6%;
-  float: left;
-  position: relative;
+  grid-area: b;
+  width: 60.6%;
   min-height: 1px;
-  padding-right: 15px;
-  padding-left: 15px;
+  margin-left: -8px;
 }
 
-.col-3{
-  width: 100%;
-  float: left;
+.col-33 {
+  grid-area: a;
+  width: 55.3%;
+  min-height: 1px;
 }
 
+.col-3 {
+  grid-area: c;
+  width: 60.6%;
+  min-height: 1px;
+  margin-left: -52px;
+}
 
-.dataFooter {
+.col-4 {
+  grid-area: d;
+  width: 55.3%;
+  min-height: 1px;
+  margin-left: -86px;
+}
+
+.col-5 {
+  grid-area: e;
+  width: 55.3%;
+  min-height: 1px;
+  margin-left: -48px;
+}
+
+.col-5-Total {
+  grid-area: j;
+  width: 55.3%;
+  min-height: 1px;
+  margin-left: -48px;
+}
+
+.col-6 {
+  grid-area: f;
+  width: 79.6%;
+  min-height: 1px;
+  margin-left: -7px;
+}
+
+.col-1-lsc {
+  grid-area: g;
+  width: 55.3%;
+  min-height: 1px;
+  margin-left: -14px;
+}
+
+.col-2-lsc {
+  grid-area: h;
+  width: 60.6%;
+  min-height: 1px;
+  margin-left: -98px;
+}
+
+.col-1-TotReserva {
+  grid-area: k;
+  width: 55.3%;
+  min-height: 1px;
+  margin-left: -56px;
+  
+}
+
+.col-2-TotReserva {
+  grid-area: l;
+  width: 55.3%;
+  min-height: 1px;
+  margin-left: -87px;
+}
+
+.col-1-pagoDestino {
+  grid-area: m;
+  width: 166.3%;
+  min-height: 1px;
+  margin-left: -165px;
+}
+
+.col-2-pagoDestino {
+  grid-area: p;
+  width: 55.3%;
+  min-height: 1px;
+  margin-left: -87px;
+}
+
+.pagoOnline {
+  display:flex;
   margin: 10px !important;
   padding: 20px 0 0;
   border-top: 1px solid #ddd;
 }
 
-#pagueOnline {
-  margin-right: 0;
+.col-1-PagoOnline {
+  margin-left: 0px;
+}
+
+.col-2-PagoOnline {
+  margin-left: 85px;
 }
 
 .marked {
-  padding: 3px;
+  padding: 7px;
   display: inline-block;
-  background-color: #ff0;
+  background-color: rgb(255, 255, 0);
 }
 
-.benefits-Container,
-.contentBlock {
-  background: #fff;
+.espacio-m {
+  display: block;
+  height: 30px;
+}
+
+/*-------- Inicio Beneficios --------- */
+.benefits-Container {
   border: 1px solid #ddd;
-  padding: 20px;
+  background: #fff;
+  font-size: 14px;
+  line-height: initial;
+  font-weight: 600;
+  color: #444444;
+  display: block;
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 40px;
 }
 
-.contentBlock, 
-.benefits-Container, 
 .benefits-Titulo {
   font-size: 18px;
   line-height: initial;
-  font-weight: 700;
-  color: green;
+  font-weight: 600;
+  color: #444444;
   display: block;
   text-align: center;
-  margin: 10px 0;
+  margin-bottom: 25px;
+  margin-top: 25px;
 }
 
-.contentBlock,
-.benefits-Container,
-ul.interest {
+.interest {
+  display:flex;
+  list-style: none;
+  max-width: 100%;
+}
+
+.tooltipBenefits {
+  margin-left: 50px;
+  margin-bottom: 20px;
+}
+
+.contentBlock {
+  font-size: 18px;
+  line-height: initial;
+  font-weight: 600;
+  color: #444444;
+  display: block;
+  text-align: center;
+}
+
+.contentBlock {
   list-style: none;
   text-align: center;
-  margin: 0;
-  max-width: 85%;
+  max-width: 100%;
 }
 
 .dataContentBox .full-content {
@@ -429,7 +570,7 @@ ul.interest {
 }
  
 .dataContentBox {
-  background-color: #fff;
+  /* background-color: #fff; */
   border: 1px solid #ddd;
   margin-bottom: 0;
   position: relative;
@@ -469,6 +610,7 @@ ul.interest {
 }
 
 .dataContentBox h2 {
+  display: flex;
   font-size: 17px;
   line-height: 1.3em;
   padding: 8px 10px;
@@ -476,6 +618,7 @@ ul.interest {
   margin: 0;
   font-weight: 700;
 }
+
 
 .dataContentBox [data-toggle=collapse]:after, .dataContentBox [data-toggle=collapse]:before {
   content: "";
@@ -542,7 +685,7 @@ li {
 }
 
 .dataExtras .extraLine {
-  margin: 25px 0;
+  margin: 25px 25px;
 }
 
 .dataExtras .extraLine>img {
@@ -557,6 +700,8 @@ li {
 
 img {
   border: 0;
+  width: 17px;
+  margin-bottom: -3px;
 }
 
 
@@ -646,7 +791,7 @@ option {
 .dataExtras a.infoIco, .dataExtras a.tooltipBlanco, .dataExtras a.tooltipMoreInfoChildSeat {
   width: 16px;
   height: 16px;
-  background: url(../img/svg/puerta.svg) no-repeat center;
+  background: url(../img/svg/informacion.svg) no-repeat center;
   font-size: 0;
   display: inline-block;
   margin-left: 10px;
@@ -685,11 +830,21 @@ p{
   white-space: nowrap;
 }
 
+
+/* ---------------------------- */
+.driverInfoForm {
+ display: flex;
+}
+
+.radio-in-line {
+  padding-left: 20px;
+}
+
 .dataContentBox .full-content > h2  i.ico-user {
   background-position: 0 -96px;
 }
 
-.dataContentBox.full-content > h2 i.ico {
+.dataContentBox .full-content > h2 i.ico {
   display: inline-block;
   vertical-align: bottom;
   width: 24px;
@@ -831,7 +986,21 @@ input[type=checkbox], input[type=radio] {
   height: 100px;
 }
 
+.container-fluid,
+.container-fluid::after {
+display: table;
+content: " ";
+clear: both;
+}
 
+.footer .footer3 {
+  padding: 20px 0;
+  color: #000;
+}
+
+.footer3 {
+  background-color: #eee;
+}
 
 /* ************ clearfix after *********** */
 .clearfix:after {

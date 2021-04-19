@@ -103,11 +103,11 @@
         
                                     <div class="servicios-trasmision">
                                         <img class="icon-24" src="img/svg/cambio_manual.svg" alt="cambio manual">
-                                    <div class="icon-number">M</div>
+                                        <div class="icon-number">M</div>
+                                    </div>
                                 </div>
                                 <!--------- Fin barra de servicios del Vehículo ----------->
 
-                                <!------> Inicio más servicios del Vehículo  y datos de recogida -->
                                 <div class="car-info-services2">
                                     <div class="servicios-kilometraje">
                                         <img class="icon-25" src="img/svg/velocimetro.png" alt="kilometraje">
@@ -154,9 +154,6 @@
                                             <h5>20:00</h5>
                                         </div>
                                     </div>
-
-                                    </div>
-                                    <!------> Fin más servicios del Vehículo  y datos de recogida -->
                                 </div>
                             </div>
                         </div>
@@ -165,104 +162,109 @@
 
                     <!--------------------- Inicio Bloque de Contenido ------------------------->
                     <div class="contentBlock">
-                        <div class="dataContentBox">
-                            <h2>Datos de la Reserva</h2>
+                        <div class="dataContentBox">                        
+                            <h2><img src="./img/svg/hechoSmall.svg" alt="">Datos de la Reserva</h2>
                             <div class="dataBox">
-                                ::before
+                                <!-- ::before -->
                                 <!------------------------- Inicio  1  ------------------------------>
                                 <div class="row">
-                                    ::before
-                                    <div class="bookingDetails">
-                                        ::before
-                                        <div class="data">
-                                            ::before
-                                            <span class="col-1">
+                                    <!-- ::before -->
+                                    <div id="bookingDetails" class="bookingDetails-1">
+                                        <!-- ::before -->
+                                        <!-- <div class="data"> -->
+                                            <!-- ::before -->
+                                            <div class="col-1">
                                                 <strong>Días</strong>
-                                            </span>
-                                            <span id="col-2">3 días (Dom 15 Sep - Mar 18 Sep)</span>
-
-                                            <span class="col-1">
-                                                <strong>Alquiler</strong>
-                                            </span>
-                                            <span id="col-2">80.0 €</span>
-
-                                            <span class="col-1">
-                                                <strong>Seguro</strong>
-                                            </span>
-                                            <span id="col-2">Todo Riesgo incluido en el precio de reserva</span>
-
-                                            <!------------- Inicio Cargos por suplementos ----------->
-                                            <div id="localServiceCharges">
-                                                <span class="col-1">
-                                                    <strong>Conductor Joven</strong>
-                                                </span>
-                                                <span class="clo-2">
-                                                    <strong>Gratis</strong>
-                                                </span>
                                             </div>
-                                            <!------------- Fin Cargos por suplementos ----------->
+                                            <div class="col-2">
+                                                3 días (Dom 15 Sep - Mar 18 Sep)
+                                            </div>
+                                        <!-- </div> -->
+
+                                        <!-- <div class="data"> -->
+                                            <div class="col-3">
+                                                <strong>Alquiler</strong>
+                                            </div>
+                                            <div class="col-4">80.0 €</div>
+                                        <!-- </div> -->
+                                            <div class="col-5">
+                                                <strong>Seguro</strong>
+                                            </div>
+                                            <div class="col-6">
+                                                <strong>Todo Riesgo incluido en el precio de reserva</strong>
+                                            </div>
+                                    </div>
+
+                                    <!------------- Inicio Cargos por suplementos ----------->
+                                    <div id="localServiceCharges" class="localServiceCharges">
+                                        <div class="col-1-lsc">
+                                            <strong>Conductor Joven</strong>
                                         </div>
-
-                                        <div class="data">
-                                            <span id="idTotalPrecio">
-                                                <span class="col-1">
-                                                    <strong>Total</strong>
-                                                </span>
-                                                <span id="totalPrecioSuple" class="col-2">
-                                                    <strong>
-                                                        <span id="sumarAccesorios">80.0 €</span>
-                                                    </strong>
-                                                </span>
-                                            </span>
-
-                                            <span id="totalPrecioDestino">
-                                                <span class="col-1">
-                                                    <strong>Pago en Destino</strong>
-                                                </span>
-                                                <span id="totalDestino" class="col-2">80.0 €</span>
-                                            </span>
-                                        </div>
-
-                                        <div class="dataFooter">
-                                            <span id="pagueOnline">
-                                                <span class="col-1">
-                                                    <strong class="marked">
-                                                        <big>Pague Online Ahora</big>
-                                                    </strong>
-                                                </span>
-                                                <span class="col-2">
-                                                    <span class="marked">
-                                                        <strong>
-                                                            <big>80.0 €</big>
-                                                        </strong>
-                                                    </span>
-                                                </span>
-                                            </span>
+                                        <div class="col-2-lsc">
+                                            <strong>Gratis</strong>
                                         </div>
                                     </div>
-                                    <!------------------------- Fin  1  ------------------------------>
+
+                                    <!------------- Fin Cargos por suplementos ----------->
+
+                                    <!---------------- Inicio Total Precio --------------->
+                                    <div id="totalReserva" class="totalReserva">
+                                        <div id="idTotalReserva" class="col-1-TotReserva">
+                                            <strong>Total</strong>
+                                        </div>
+
+                                        <div id="idTotReserva" class="col-2-TotReserva">
+                                            <strong id="valorTotReserva">80.0 €</strong>
+                                        </div>
+
+                                        <div class="col-1-pagoDestino">
+                                            <strong>Pago en Destino</strong>
+                                        </div>
+
+                                        <div id="valorPagoDestino" class="col-2-pagoDestino">
+                                            <strong>50.0 €</strong>
+                                        </div>
+                                    </div>
+
+                                    <!---------------- Fin Total Precio --------------->
+
+                                    <!---------------- Inicio Pague Online --------------->
+                                    <div id="PagoOnline" class="clearfix pagoOnline">
+                                        <div class="col-1-PagoOnline">
+                                            <strong class="marked">
+                                                <big>Pague Online Ahora</big>
+                                            </strong>
+                                        </div>
+                                        <div id="idPagoOnlineclass" class="col-2-PagoOnline">
+                                            <strong class="marked">
+                                                <big>30.0 €</big>
+                                            </strong>
+                                        </div>
+                                    </div>
+                                    <!---------------- Fin Pague Online --------------->
                                 </div>
+                                <!------------------------- Fin  1  ------------------------------>
                             </div>
                         </div>
 
                         <div class="espacio"></div>
 
                         <div class="benefits-Container">
-                            <span class="benefits-Titulo">Incluido en el Precio</span>
-                            <ul class="interest">
-                                <li class="tooltipBenefits">
-                                    <img src="./img/svg/hecho.svg" alt="">
+                            <span class="benefits-Titulo">Incluido en el Precio:</span>
+                            <div class="interest">
+                                <div class="tooltipBenefits">
+                                    <img src="./img/svg/hechoSmall.svg" alt="">
                                     Cancelaciones Gratis
-                                </li>
-                                <li class="tooltipBenefits">
-                                    <img src="./img/svg/hecho.svg" alt="">
+                                </div>
+                                <div class="tooltipBenefits">
+                                    <img src="./img/svg/hechoSmall.svg" alt="">
                                     Modificaciones Gratis
-                                </li>
-                                <li class="tooltipBenefits">
-                                    <img src="./img/svg/hecho.svg" alt="">
+                                </div>
+                                <div class="tooltipBenefits">
+                                    <img src="./img/svg/hechoSmall.svg" alt="">
                                     Sillas y Elevadores de niños Gratis
-                                </li>
-                            </ul>
+                                </div>
+                            </div>
                         </div>
 
                         <div class="espacio"></div>
@@ -274,14 +276,14 @@
                                 </i>
                                 Asientos niños
                             </h2>
-                            <div id="extraSelector" class="collapse in" aria-expanded="true">
+                            <div id="extraSelector" class="collapse" aria-expanded="false">
                                 <div class="dataBox">
                                     <div class="form-group">
                                         <ul class="dataExtras">
                                             <!----------  Inicio Asientos niños  ----->
                                             <li class="extraLine">
-                                              ::marked
-                                                <img src="./img/svg/puerta.svg" alt="asiento niño">
+                                              <!-- ::marked -->
+                                                <img src="./img/img-childSeat/baby-car-seat.jpeg" alt="asiento niño">
                                                 <select id="child_seat" class="safariSelect" name="child_seat">
                                                     <option value="0" selected="">0</option>
                                                     <option value="1">1</option>
@@ -303,8 +305,8 @@
 
                                             <!----------  Inicio Elevadores  ----->
                                             <li class="extraLine">
-                                                ::marked
-                                                  <img src="./img/svg/puerta.svg" alt="asiento niño">
+                                                <!-- ::marked -->
+                                                  <img src="./img/img-childSeat/boosterSeat.jpeg" alt="asiento niño">
                                                   <select id="child_seat" class="safariSelect" name="child_seat">
                                                       <option value="0" selected="">0</option>
                                                       <option value="1">1</option>
@@ -332,29 +334,29 @@
 
                         <div class="espacio"></div>
 
-                        <div id="personalInfoForm" class="dataContentBox full-content" data-info-form="* Campos requeridos">
-                            ::before 
+                        <div id="driverInfoForm" class="dataContentBox full-content" data-info-form="* Campos requeridos">
+                            <!-- ::before  -->
                             <h2>
                                 <i class="ico ico-user"></i>
                                 Datos Conductor Principal
                             </h2>
                             <div class="databox">
                                 <!-----------   Inicio Título ------>
-                                <div class="form-group required">
-                                    <label for="titulo">
+                                <div class="driverInfoForm">
+                                    <P for="titulo">
                                         <!-- ::before -->
                                         Título
                                         <!-- ::after -->
-                                    </label>
+                                    </P>
                                     <div class="radio-in-line">
                                         <label for="Sr">
-                                            <input type="radio" id="Sr" value="Sr" name="titulo">
+                                            <input type="checkbox" id="Sr" value="Sr" name="titulo">
                                             Sr
                                             </input>
                                         </label>
                                         <label for="Sra">
                                             <input type="radio" id="Sra" value="Sra" name="titulo">
-                                            Sr
+                                            Sra
                                             </input>
                                         </label>
                                     </div>
@@ -426,7 +428,7 @@
                         <div class="container-fluid footer footer3">
                             <div class="container">
                                 <div class="row">
-                                    <div class="col-3">
+                                    <div class="col-33">
                                         <p>
                                             Todas las marcas registradas y los derechos de autor son propiedad de RentCarMallorca.com
                                         </p>
