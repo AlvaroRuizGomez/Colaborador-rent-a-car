@@ -216,7 +216,7 @@
                     <div class="tablero_ofertas">
                         <h3>O F E R T A S</h3>
                     </div>
-                    <% if (it.formdata["conductor_con_experiencia"] === undefined )  { %>
+                    <% if (it.formdata["conductor_con_experiencia"] === "undefined" || it.formdata["conductor_con_experiencia"] === undefined )  { %>
                         <div class="aviso-edad">
                             <img class="icono-alerta-edad" src="./img/svg/alerta_edad.svg" alt="icono edad conductor">
                             <p class="texto-alerta-edad">Es posible que los conductores de <%= it.formdata.edad_conductor %> años deban abonar un cargo adicional cuando vayan a
@@ -232,9 +232,11 @@
                         <input type="hidden" name="vehiculo" value="<%= element.vehiculo %>" >
                         <!-- Zona Izquierda-->
                         <section class="rentacar-info">
-                            <img class="car-image"
-                                src="./img/Img-Vehiculos/rescambiada/png/<%= element.ImagenVehiclo %>"
-                                alt="<%= element.descripcion %>">
+                            <img class="car-image" src="./img/Img-Vehiculos/rescambiada/png/<%= element.ImagenVehiclo %>" alt="<%= element.descripcion %>">
+                            <button class="boton_modal" data-tooltip-location="top" data-tooltip="Condiciones generales">
+                                <img src="./img/svg/condiciones.svg" alt="icono condiciones">
+                                <span class="link-condiciones">Condiciones</span>
+                            </button>
                         </section>
                         <!-- Zona centro -->
                         <section class="car-info">
@@ -290,40 +292,53 @@
                                     <div class="icon-cancelaciones">Cancelación gratuita</div>
                                 </div>
                                 <div class="servicios-modificaciones" data-tooltip="vehiculo tiene modificaciones --- cambiar" data-tooltip-location="top">
-                                    <img class="icon-25" src="img/svg/hecho.svg" alt="modificaciones">
+                                    <img class="icon-25" src="img/svg/hecho.svg" alt="icono completado">
                                     <div class="icon-modificaciones">Modificación gratuita</div>
                                 </div>
                                 
-                                <% if (it.formdata.conductor_con_experiencia==="undefined" ) { %>
-                                    <div data-tooltip="Tiene un cargo adicional para conductores jovenes. Este cargo puede ser un simple suplemento o puede que le obliguen a contratar el seguro a todo riesgo en el mostrador." 
-                                        data-tooltip-location="top">
-                                        <i></i>Cargo Conductor Joven: 
+
+                                <% for (let k=0; k < element.suplementosgenericos.length; k++ ) { %>
+                                    <% if (element.suplementosgenericos[k].valor> 0) { %>
+                                        <div class="servicios-kilometraje">
+                                            <img class="icon-25" src="img/svg/hecho.svg" alt="icono completado">
+                                            <div class="icon-kilometro" data-tooltip="<%=element.suplementosgenericos[k]["tooltip"] %>">
+                                                <%=element.suplementosgenericos[k]["titulo"] %>
+                                            </div>
+                                        </div>
+                                    <% } else { %>
+                                        <div class="servicios-kilometraje">
+                                            <img class="icon-25" src="img/svg/hecho.svg" alt="icono completado">
+                                            <div class="icon-kilometro" data-tooltip="<%=element.suplementosgenericos[k]["tooltip"] %>" >
+                                                <%=element.suplementosgenericos[k]["titulo"] %>
+                                            </div>
+                                        </div>
+                                    <% } %>
+                                <% } %>
+
+                                <% for (let k=0; k < element.preciosSuplementoPorTipoChofer["no-oferta"].length; k++ ) { %>
+                                    <div class="servicios-conductor-novel">
+                                        <img class="icon-25" src="img/svg/hecho.svg" alt="icono completado">
+                                        <div class="icon-kilometro" data-tooltip="<%= element.preciosSuplementoPorTipoChofer["no-oferta"][k]["tooltip"] %>">
+                                            <%= element.preciosSuplementoPorTipoChofer["no-oferta"][k]["descripcion"] %>
+                                        </div>
                                     </div>
                                 <% } %>
 
-
-                                <% if (element.sumaSuplementosGenericos > 0) { %>
-                                    <h5 class="title-specials">Ofertas Especiales</h5>
-                                    <% for (const key of element.suplemento) { %>
-                                        <% if (element.suplementosgenericos[key] > 0) { %>
-                                            <div class="servicios-kilometraje">
-                                                <img class="icon-25" src="img/svg/velocimetro.png" alt="">
-                                                <div class="icon-kilometro"><%= element.suplementosgenericos[key]["descripcion_anadir_suplemento"] %></div>
-                                            </div>
-    
-                                        <% } else { %>
-                                            <div class="servicios-kilometraje" >
-                                                <img class="icon-25" src="img/svg/velocimetro.png" alt="">
-                                                <div class="icon-kilometro">
-                                                    <%= element.suplementosgenericos[key]["descripcion_no_anadir_suplemento"] %>
-                                                </div>
-                                            </div>
-    
-                                        <% } %>
-                                    <% } %>
+                                <% if (element.preciosSuplementoPorTipoChofer["oferta"].length > 0) { %>
+                                    <h5 class="title-specials">Ofertas Especiales:</h5>
                                 <% } %>
+                                <% for (let k=0; k < element.preciosSuplementoPorTipoChofer["oferta"].length; k++ ) { %>
+                                    <div class="servicios-conductor-novel">
+                                        <img class="icon-25" src="img/svg/hecho.svg" alt="icono completado">
+                                        <div class="icon-kilometro" data-tooltip="<%= element.preciosSuplementoPorTipoChofer["oferta"][k]["tooltip"] %>" >
+                                            <%= element.preciosSuplementoPorTipoChofer["oferta"][k]["descripcion"] %>
+                                        </div>
+                                    </div>
+                                <% } %>
+                                    
                                 
                             
+                                
                             </div>
                         </section>
 
@@ -360,12 +375,12 @@
 
                         <!-- Zona abajo -->
                         <section class="car-info-zones">
-                            <button class="boton_modal" data-tooltip-location="top" data-tooltip="Condiciones generales">
+                            <!-- <button class="boton_modal" data-tooltip-location="top" data-tooltip="Condiciones generales">
                                 <img src="./img/svg/condiciones.svg" alt="icono condiciones">
                                 <span class="link-condiciones">Condiciones</span>
-                            </button>
+                            </button> -->
 
-                            <div class="overlay-transparente modal-invisible">
+                            <div id="overlay" class="overlay-transparente modal-invisible">
                                 <ul class="details-modal ">
                                     <li class="details-modal-close">
                                         <button class="boton-cerrar-modal">
@@ -422,7 +437,7 @@
                                     <li class="subtitulo-contenido-modal">Pago:</li>
                                         <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic, enim!</li>
                                     <li class="subtitulo-contenido-modal">Seguro:</li>
-                                        <li >El precio de los coches incluye seguro a todo riesgo (pero no cubre pérdida o rotura de llaves).</li>
+                                        <li>El precio de los coches incluye seguro a todo riesgo (pero no cubre pérdida o rotura de llaves).</li>
                                         <li>El precio de las motos incluye una garantia (pero no cubre pérdida o rotura de llaves).</li>
                                     <li class="subtitulo-contenido-modal">Noche por fuera de entrega:</li>
                                         <li><b class="negrita">Coches:</b> <%= it.suplementogenerico_base["nocheCar"] %> € por dia </li>

@@ -1,17 +1,18 @@
 const express = require('express');
+const fetch = require("node-fetch");
 
 const formSchema = require("../schemas/formschema");
 const session = require('express-session');
 
 const URI_BACKEND = `${process.env.URL_BACKEND}:${process.env.PORT_BACKEND}/api`;
 
-exports.getHome = async (res, req) =>
+exports.getHome = async (req, res) =>
 {
     return res.render("inicio");
 
 };
 
-exports.postHome = async (res, req) =>
+exports.postHome = async (req, res) =>
 {
 
     const isSchemaValid = await ControlSchema(req.body);
@@ -159,7 +160,8 @@ const ControlSchema = async (body) => {
     if (tamanyoBody <= 0 || tamanyoBody > formSchema.length) return false;
 
     let isValid = false;
-    for (key in body) {
+    for (key in body) 
+    {
         if (body[key] === "" || body[key] === undefined) {
             return false;
         }

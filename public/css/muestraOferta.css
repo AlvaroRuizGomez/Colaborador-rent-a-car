@@ -456,9 +456,26 @@ background: red;
 
 .rentacar-info
 {
+
   grid-area: i;
-  justify-self: center;
-  align-self: flex-start;
+    /* justify-self: flex-start; */
+    /* align-self: flex-start; */
+  /* text-align: left; */
+
+  display: grid;
+  grid-template-columns: 0.2fr;
+  grid-template-rows: 20px 150px 25px 20px;
+  grid-template-areas:
+      "."
+      "imagen-coche"
+      "."
+      "condiciones"
+      ;
+  justify-items: flex-end;
+  align-items: center;
+  height: 100%;
+
+
 }
 
 .car-info
@@ -526,9 +543,17 @@ background: red;
 
 .car-image
 {
+  grid-area: imagen-coche;
   max-width: 243px;
   box-sizing: border-box;
   border-collapse: collapse;
+}
+
+.boton_modal
+{
+  grid-area: condiciones;
+  margin-left: 1.5em;
+  justify-self: flex-start;
 }
 
 .icon-24
@@ -602,7 +627,7 @@ background: red;
 
 .servicios-kilometraje
 {
-  margin-left: 2px;
+  
 }
 
 .icon-kilometro{
@@ -655,7 +680,7 @@ background: red;
 
 .servicios-cancelaciones
 {
-  margin-left: 2px;
+  /* margin-left: 2px; */
 
 }
 
@@ -667,7 +692,7 @@ background: red;
 
 .servicios-modificaciones
 {
-  margin-left: 2px;
+  
 }
 
 .icon-modificaciones{
@@ -741,10 +766,7 @@ background: red;
 
 }
 
-.boton_modal
-{
-  margin-left: 1.5em;
-}
+
 /* ----- Fin Ofertas --------------- */
 
 /* VENTANA MODAL */
