@@ -3,6 +3,7 @@ const botonesCerrar = document.getElementsByClassName("boton-cerrar-modal");
 const overlay = document.getElementsByClassName("overlay-transparente");
 
 
+
 for (let i = 0; i < botonCondiciones.length; i++)
 {
     
@@ -48,16 +49,19 @@ for (let i = 0; i < botonCondiciones.length; i++)
     botonCondiciones[i].addEventListener("click", async (evento)=> 
     {
         
-        const divOverlay = evento.target.parentElement.nextElementSibling;
+        // const divOverlay = evento.target.parentElement.nextElementSibling;
+        const divOverlay = evento.target.parentElement.parentElement.parentElement.lastElementChild.firstElementChild;
+
         if (divOverlay.classList[1] !== "modal-invisible")
         {
-            divOverlay = evento.target.parentElement.parentElement.nextElementSibling;
+            divOverlay = evento.target.parentElement.parentElement.parentElement.lastElementChild.firstElementChild;
         }
 
         if (divOverlay.classList[1] === "modal-invisible")
         {
             document.body.style.overflow = "hidden";
             document.querySelector("html").scrollTop = window.scrollY;
+            
             divOverlay.classList.remove("modal-invisible");
             divOverlay.classList.add("modal-visible");
         }
