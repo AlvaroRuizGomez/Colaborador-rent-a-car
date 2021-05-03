@@ -261,8 +261,8 @@ body{
 }
 
 .form-chequeo {
-  margin-left: 48px;
-  margin-top: -6px;
+  /* margin-left: 48px; */
+  /* margin-top: -6px; */
   font-size: 17px;
 }
 
@@ -522,4 +522,150 @@ body{
 #footer .info {
   margin-left: 20px;
   color: #444;
+}
+
+.elemento__inputradio
+{
+    display: none;
+}
+
+
+.elemento__circulo
+{
+  width: 25px;
+  height: 25px;
+
+  background: white;
+  position: relative;
+  left: 0.8%;
+
+  z-index: 2;
+}
+
+
+/* palito derecho */
+.elemento__circulo:after
+{
+    content: "";
+    position: absolute;
+    left: 20%;
+    top: 20%;
+    
+    width: 0px;
+    height: 3px;
+    
+    background: rgb(6, 0, 128);
+
+    transform: translate(4px, 11px) rotate(-45deg);
+    transform-origin: left;
+    transition: all 150ms;
+    transition-delay: 0ms;
+
+}
+
+/* palito izquierdo */
+.elemento__circulo:before
+{
+    content: "";
+    position: absolute;
+    left: 20%;
+    top: 20%;
+
+    width: 0px;
+    height: 3px;
+
+    background: rgb(6, 0, 128);
+
+    transform: translate(1px, 6px) rotate(45deg);
+    transform-origin: left;
+    transition: all 150ms;
+    transition-delay: 150ms;
+}
+
+.elemento__titulo 
+{
+  display: block;
+
+  border-radius: 5px;
+  
+  cursor: pointer;
+}
+
+
+/* pulsado el inpuradio */
+
+/* izquierdo */
+.elemento__inputradio:checked ~ .elemento__circulo:before
+{
+    width: 7px;
+    transition-delay: 0ms;
+}
+
+/* derecho */
+.elemento__inputradio:checked ~ .elemento__circulo:after
+{
+    width: 15px;
+    transition-delay: 160ms;
+}
+
+
+.elemento__inputradio:checked ~ .elemento__titulo
+{
+    transition: all 650ms;
+}
+
+
+
+
+.gap-10
+{
+  gap: 10px;
+
+}
+
+.columna-centrado
+{
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+}
+
+.centrado
+{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.edad_conductor
+{
+  width: 50px;
+
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+
+.invisible
+{
+  visibility: hidden;
+
+}
+
+
+.visible
+{
+  visibility: visible;
+
 }

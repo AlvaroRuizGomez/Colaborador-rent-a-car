@@ -4,6 +4,7 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Rent a Car Mallorca</title>
+        <!-- <link rel="stylesheet" href="./css/reset.css"> -->
         <!-- ------------------- jQuery------------------------- -->
         <link rel="stylesheet" href="jquery-ui-1.12.1.custom/jquery-ui.css">
         <script src="jquery/jquery-3.5.1.min.js"></script>
@@ -27,19 +28,12 @@
         <link href="https://fonts.googleapis.com/css2?family=Allura&family=Arizonia&family=Charmonman:wght@700&family=Damion&family=Faster+One&family=Galada&family=Gravitas+One&family=Montez&family=Sarina&family=Sonsie+One&display=swap" rel="stylesheet">  
         <!--------------------------------------------------------------------------------->
 
-
-        <!--------------------------------- Bootstrap --------------------------------------->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-
+        <!------------------- Bootstrap CSS ------------------------>
+        
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-        <!-------------------------------------------------------------------------------------------->
-
-
-        <!-------------------------------  Script Bootstrap  -------------------------------------->
-         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
-        <!------------------------------------------------------------------------------------------>
+        
+        <script async src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+        <!-- --------------------------------------------------- -->
         
     </head>
 
@@ -51,7 +45,7 @@
                 <%~ includeFile("parciallogo.html") %>
                 <div class="contacto">
                     <img src="./img/whatsapp-icon-hd-21.jpg"/>
-                    <h2>+34 651 722 345</h2>
+                    <h2>+34 999 999 999</h2>
                     <p id="reserva-telefono">Contacto reservas</p>
                 </div>
 
@@ -85,7 +79,6 @@
                                 </label>
                                 <% } %>
                             <div class="formDateRecogida">
-                                
                                     <div class="labelDate-form-recogida">
                                         <label>
                                                 Recogida:
@@ -107,7 +100,7 @@
                                         </span>
                                     </div>
                                 
-                            </div>    
+                            </div>
                         </div>
                         <!-- --------------------- Fin Fecha/Hora Recogida  --------------------------->
                         <!-- *********************************************************************** -->
@@ -140,10 +133,17 @@
                         </div>
                         <!--------------------------- Fin Fecha/Hora Devolucion  ---------------------->
 
-                        <div class="form-chequeo">
-                            <label>
-                                <input type="checkbox" name="conductor_con_experiencia" value="on" class="form-check-input mr-sm-2" checked>Conductor de entre 26 y 69 años
-                            </label>
+                        <div class="form-chequeo columna-centrado gap-10">
+                            <section class="centrado gap-10">
+                                <input id="rangoedad" type="checkbox" name="conductor_con_experiencia" value="on" class="elemento__inputradio" checked="checked">
+                                <label class="elemento__circulo" for="rangoedad"></label>
+                                <label class="elemento__titulo" for="rangoedad">Conductor tiene 23 años o mas</label>
+                            </section>
+
+                            <section id="desplegable_edad" class="centrado invisible gap-10">
+                                <label for="edad_conductor">Edad del conductor</label>
+                                <input id="edad_conductor" type="number" name="edad_conductor" value="22" min="18" max="22" class="edad_conductor">
+                            </section>
                         </div> 
                         <section class="btnBuscar">
                             <button type="submit" id="boton-VerPrecios" class="btn btn-primary btn-lg btn-block">
@@ -631,13 +631,13 @@
         <!-- Fin container -->
 
         
+        <script async src="./js/index.js"></script>
     </body>
     
     </html>
     
 <!--------------------------- Scripts ---------------------------->
 <!---------------------------------------------------------------->
-<script src="./js/index.js"></script>
 <!---------------------------------------------------------------->
 <script>
     $.datepicker.regional['es'] = {

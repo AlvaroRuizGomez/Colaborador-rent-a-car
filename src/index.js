@@ -50,7 +50,13 @@ app.use(userAgent.express());
 
 app.use(express.urlencoded({ extended: true, limit: '2mb' }));
 app.use(express.json({ limit: '2mb' }));
-app.use( cors(corsOptions) );
+// app.use( cors(corsOptions) );
+app.use(cors({
+    credentials: true,
+    origin: allowlist
+}));
+
+
 app.use(morgan('combined'));
 
 //registro de html como eta
@@ -73,3 +79,7 @@ app.listen(process.env.NODE_EXPRESS_PORT, (error) => {
     console.info(`[process ${process.pid}] Listening at port ${process.env.NODE_EXPRESS_PORT}`);
 }
 );
+
+
+
+
