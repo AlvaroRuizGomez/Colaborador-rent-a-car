@@ -225,23 +225,26 @@
                     <% } %>
 
                 <% } %>
-            
+                <form method="post"  action="/reservar">
                 <% it.data.forEach(function(element){ %>
                     <!-- Ofertas -->
                     <article class="oferta">
+                        <% 
+                        /*
                         <input type="hidden" name="vehiculo" value="<%= element.vehiculo %>" >
-
+                        */ 
+                        %>
 
                         
                         
                         <!-- Zona Izquierda-->
                         <section class="rentacar-info">
-                            <!-- <div class="ribbon check" style="--color: #57c443;"> -->
-                                <div class="marca-contenido">
-                                    <img class="icono-16px" src="./img/svg/ribbon-check.svg" alt="marca">
-                                    El mas solicitado 
-                                </div>
-                            <!-- </div> -->
+                            
+                            <div class="marca-contenido">
+                                <img class="icono-16px" src="./img/svg/ribbon-check.svg" alt="marca">
+                                El mas solicitado 
+                            </div>
+                            
                             <img class="car-image" src="./img/Img-Vehiculos/rescambiada/png/<%= element.ImagenVehiclo %>" alt="<%= element.descripcion %>">
                             <button class="boton_modal" data-tooltip-location="top" data-tooltip="Condiciones generales">
                                 <img src="./img/svg/condiciones.svg" alt="icono condiciones">
@@ -254,11 +257,7 @@
                             <h2 class="car-name">
                                 <%= element.descripcion %>
                             </h2>
-                            <% /* <h3>
-                                <%= element.clasevehiculo %>
-                                </h3>
-                                */
-                            %>
+                            
                             <div class="car-info-services">
                                 <div class="servicios-asientos" data-tooltip="vehiculo tiene <%= element.pax %> asientos" data-tooltip-location="top">
                                     <img class="icon-24" src="img/svg/person-fill.svg" alt="persona">
@@ -345,10 +344,7 @@
                                         </div>
                                     </div>
                                 <% } %>
-                                    
-                                
-                            
-                                
+
                             </div>
                         </section>
 
@@ -378,18 +374,14 @@
                                         data-tooltip="Precio total para <%= it.diasEntreRecogidaDevolucion %> día">Precio
                                         por <%= it.diasEntreRecogidaDevolucion %> día</span>
                                 <% } %>
-                                <button class="btn btn-xxl btn-success btn-reservar">Reservar</button>
+
+                                <button type="submit" name="vehiculo"  value="<%= element.vehiculo %>" class="btn btn-xxl btn-success btn-reservar">Reservar</button>
                             <% } %>
 
                         </section>
 
                         <!-- Zona abajo -->
                         <section class="car-info-zones">
-                            <!-- <button class="boton_modal" data-tooltip-location="top" data-tooltip="Condiciones generales">
-                                <img src="./img/svg/condiciones.svg" alt="icono condiciones">
-                                <span class="link-condiciones">Condiciones</span>
-                            </button> -->
-
                             <div id="overlay" class="overlay-transparente modal-invisible">
                                 <ul class="details-modal ">
                                     <li class="details-modal-close">
@@ -461,14 +453,11 @@
                         </section>
                     </article>
                 <% }) %>
+                </form>
             </div>
             <!--------------- Fin Ofertas ------------------------>
-
-
         </div>
-        
-        
-        
+
         <div class="footer">
             5 footer
         </div>

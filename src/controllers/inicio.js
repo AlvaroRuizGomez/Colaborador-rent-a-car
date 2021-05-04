@@ -1,7 +1,7 @@
 const express = require('express');
 const fetch = require("node-fetch");
+const Joi = require("joi");
 
-const formSchema = require("../schemas/formschema");
 const session = require('express-session');
 
 const URI_BACKEND = `${process.env.URL_BACKEND}:${process.env.PORT_BACKEND}/api`;
@@ -156,30 +156,30 @@ const OrdenarPorPrecioTotalDias = async (datosvehiculos) => {
 
 const ControlSchema = async (body) => {
 
-    const tamanyoBody = Object.keys(body).length;
-    if (tamanyoBody <= 0 || tamanyoBody > formSchema.length) return false;
 
+    const schema = Joi.object({
+        fechaDevolucion: Joi.string().required(),
+        horaDevolucion: Joi.string().required(),
+        fechaRecogida: Joi.string().required(),
+        horaRecogida: Joi.string().required(),
+        conductor_con_experiencia: Joi.string(),
+        edad_conductor: Joi.string().required(),
+    });
+
+
+    const options = {
+        abortEarly: false, // include all errors
+        allowUnknown: true, // ignore unknown props
+        stripUnknown: false // remove unknown props
+    };
+    const validation = schema.validate(body, options);
     let isValid = false;
-    for (key in body) 
+    
+    if (validation.error === undefined)
     {
-        if (body[key] === "" || body[key] === undefined) {
-            return false;
-        }
-
-        let schemaValid = isValid = false;
-        for (let i = 0; i < formSchema.length; i++) {
-            if (key === formSchema[i]) {
-                schemaValid = true;
-                isValid = true;
-                break;
-            }
-        }
-
-        if (schemaValid === false) {
-            return false;
-        }
-
-    }
-
+        isValid = true;
+    } 
+    
     return isValid;
+
 }
