@@ -23,7 +23,7 @@ exports.postHome = async (req, res) =>
     if (isSchemaValid === false) {
         //TODO: mejorar
         res.status(404).send("Not found");
-        console.error("schema invalido");
+        console.error("control schema invalido");
         return;
     }
 
@@ -166,6 +166,7 @@ const ControlSchema = async (body) => {
 
     const schema = Joi.object({
         "success": Joi.string().required(),
+        "fase": Joi.string().required(),
         fechaDevolucion: Joi.string().required(),
         horaDevolucion: Joi.string().required(),
         fechaRecogida: Joi.string().required(),
@@ -176,9 +177,9 @@ const ControlSchema = async (body) => {
 
 
     const options = {
-        abortEarly: false, // include all errors
-        allowUnknown: true, // ignore unknown props
-        stripUnknown: false // remove unknown props
+        abortEarly: false,
+        allowUnknown: false,
+        stripUnknown: false
     };
     const validation = schema.validate(body, options);
     let isValid = false;

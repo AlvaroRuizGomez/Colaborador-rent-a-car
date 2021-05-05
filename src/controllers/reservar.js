@@ -21,7 +21,7 @@ exports.postReservar = async (req, res ) =>
     if (isSchemaValid === false) {
         //TODO: mejorar
         res.status(404).send("Not found");
-        console.error("schema invalido");
+        console.error("control schema invalido");
         return;
     }
 
@@ -73,6 +73,7 @@ const ControlSchema = async (body) =>
 
     const schema = Joi.object({
         success: Joi.string().required(),
+        "fase": Joi.string().required(),
         vehiculo: Joi.string().required()
     });
 

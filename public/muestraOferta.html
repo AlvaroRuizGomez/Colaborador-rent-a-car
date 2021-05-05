@@ -228,6 +228,7 @@
                 <% } %>
                 <form method="post"  action="/reservar">
                     <input type="hidden" name="success" value="<%=it.success %>">
+                    <input type="hidden" name="fase" value="2">
                 <% it.data.forEach(function(element){ %>
                     <!-- Ofertas -->
                     <article class="oferta">
