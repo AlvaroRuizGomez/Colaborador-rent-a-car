@@ -7,12 +7,6 @@ const reservar = require("../controllers/reservar")
 const generar = require("../controllers/generar");
 
 // rutas
-// exports.getHome = async (res, req) =>
-// {
-//     return res.render("inicio");
-
-// };
-
 router.get("/", async (req, res) => await home.getHome(req, res));
 router.post("/", async (req, res) => await home.postHome(req, res));
 

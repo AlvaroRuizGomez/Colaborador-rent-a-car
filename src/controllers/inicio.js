@@ -1,6 +1,7 @@
 const express = require('express');
 const fetch = require("node-fetch");
 const Joi = require("joi");
+const nanoid = require("nanoid");
 
 const session = require('express-session');
 
@@ -8,7 +9,9 @@ const URI_BACKEND = `${process.env.URL_BACKEND}:${process.env.PORT_BACKEND}/api`
 
 exports.getHome = async (req, res) =>
 {
-    return res.render("inicio");
+
+    const id = nanoid.nanoid();
+    return res.render("inicio", {"success": id});
 
 };
 
@@ -47,7 +50,9 @@ exports.postHome = async (req, res) =>
 
     if (dataResponse.isOk === false) {
         if (dataResponse.errorFormulario !== "") {
-            return res.render("inicio", {
+            return res.render("inicio", 
+            {
+                "success": req.body.success,
                 "errorFormulario": dataResponse.errorFormulario
             });
         }
@@ -61,6 +66,7 @@ exports.postHome = async (req, res) =>
             "data": dataResponse.data,
             "formdata": req.body,
             "errorFormulario": dataResponse.errorFormulario,
+            "success": req.body.success,
             "diasEntreRecogidaDevolucion": dataResponse.diasEntreRecogidaDevolucion,
 
         });
@@ -77,6 +83,7 @@ exports.postHome = async (req, res) =>
             "data": dataResponse.data,
             "formdata": req.body,
             "errorFormulario": dataResponse.errorFormulario,
+            "success": req.body.success,
             "diasEntreRecogidaDevolucion": dataResponse.diasEntreRecogidaDevolucion,
             "suplementogenerico_base": dataResponse.suplementogenerico_base,
             "suplementotipochofer_base": dataResponse.suplementotipochofer_base,
@@ -158,6 +165,7 @@ const ControlSchema = async (body) => {
 
 
     const schema = Joi.object({
+        "success": Joi.string().required(),
         fechaDevolucion: Joi.string().required(),
         horaDevolucion: Joi.string().required(),
         fechaRecogida: Joi.string().required(),

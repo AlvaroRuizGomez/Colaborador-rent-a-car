@@ -76,6 +76,7 @@
                 <form id="formulario-index" class="form-inline" method="POST" action="/">
                     <input type="hidden" name="conductor_con_experiencia" value="<%= it.formdata.conductor_con_experiencia %>">
                     <input type="hidden" name="edad_conductor" value="<%= it.formdata.edad_conductor %>">
+                    <input type="hidden" name="success" value="<%=it.success %>">
                     <!-------------  Inicio  Fecha/Hora Recogida  ------------------------- -->
                     <div class="form-inline form-buscar">
                         <div class="formDateRecogida">
@@ -226,6 +227,7 @@
 
                 <% } %>
                 <form method="post"  action="/reservar">
+                    <input type="hidden" name="success" value="<%=it.success %>">
                 <% it.data.forEach(function(element){ %>
                     <!-- Ofertas -->
                     <article class="oferta">

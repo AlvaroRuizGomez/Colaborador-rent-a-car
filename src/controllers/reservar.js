@@ -1,5 +1,6 @@
 const Joi = require('joi');
 const fetch = require("node-fetch");
+const geolocation = require("./geolocation");
 
 const session = require('express-session');
 
@@ -11,9 +12,10 @@ exports.getReservar = async (req, res) => {
 };
 
 
-exports.postReservar = async (req, res, ) => 
+exports.postReservar = async (req, res ) => 
 {
 
+    // console.log(req.useragent);
     const isSchemaValid = await ControlSchema(req.body);
 
     if (isSchemaValid === false) {
@@ -23,7 +25,19 @@ exports.postReservar = async (req, res, ) =>
         return;
     }
 
-    const body = { "token": process.env.TOKEN_FOR_BACKEND_ACCESS, ...req.body };
+    const location = await geolocation.GetIPTimeZone(req);
+    
+    // Bot check
+    if (location.agent && location.agent.isBot === true) {
+        return res.send({});
+    }
+
+    const body = { 
+        "token": process.env.TOKEN_FOR_BACKEND_ACCESS, 
+        "useragent": req.useragent,
+        "location": location,
+        ...req.body
+    };
 
     //enviamos al backedn la informacion
     const responseRaw = await fetch(URI_BACKEND, {
@@ -54,12 +68,11 @@ exports.postReservar = async (req, res, ) =>
 };
 
 
-
-
 const ControlSchema = async (body) => 
 {
 
     const schema = Joi.object({
+        success: Joi.string().required(),
         vehiculo: Joi.string().required()
     });
 
@@ -78,4 +91,3 @@ const ControlSchema = async (body) =>
     return isValid;
 
 }
-
