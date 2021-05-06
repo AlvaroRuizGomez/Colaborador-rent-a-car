@@ -2,7 +2,6 @@
     text-decoration: none;
     margin: 0px;
     padding: 0px;
-    font-family: sans-serif;
   }
 
 body {
@@ -12,20 +11,10 @@ body {
 }
 
  /* -------------- BANNER --------------------*/
-.layout {
-  width: 100%;
-  height: 100vh;
-  margin: 0px auto;
-  display: grid;
-  grid-template-columns: 26% 1fr;
-  grid-template-rows: 186px;
-}
-
-.layout .banner {
+/* .container .banner {
   grid-column-start: 1;
   grid-column-end:3;
-  /* background: green; */
-}
+} */
 
 #header {
   display: grid;
@@ -157,3 +146,71 @@ body {
   font-style: oblique;
   text-shadow: 1px 6px 2px #222;
 }
+
+/* -------  Inicio Contenido ---------- */
+.container {
+  display: grid;
+  grid-template-columns: 20% 1fr;
+  align-items: start;
+  justify-items: space-between;
+  grid-column-gap: 7px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+#contenido {
+  display: grid;
+  width: 30%;
+}
+
+#aside {
+  width: 283px;
+  float: left;
+  background-color: #fff;
+  border: 1px solid #ddd;
+}
+.boxaside {
+  margin-bottom: 0;
+  position: relative;
+}
+
+.contentBoxAside {
+  padding: 20px;
+  font-size: 14px;
+  line-height: 16px;
+}
+
+#contentAside {
+  background-color: #fafafa;
+  display: block;
+}
+
+#contentBlock {
+  width: ;
+}
+
+.contentBlock {
+  border: 1px solid #d8d8d8;
+}
+
+.contentBlock h2 {
+  display: block;
+  font-size: 17px;
+  line-height: 1.3em;
+  font-size: 15px;
+  padding: 8px 10px;
+  line-height: 20px;
+  margin: 0;
+  font-weight: 700;
+}
+
+#icon-Mundi {
+  width: 2%;
+}
+
+#imgCarReserva {
+  width: 50%;
+}
+
+
+/* -------   Fin Contenido   ---------- */
