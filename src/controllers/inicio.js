@@ -1,17 +1,55 @@
-const express = require('express');
+// const express = require('express');
 const fetch = require("node-fetch");
 const Joi = require("joi");
 const nanoid = require("nanoid");
-
 const session = require('express-session');
+const geolocation = require("./geolocation");
 
-const URI_BACKEND = `${process.env.URL_BACKEND}:${process.env.PORT_BACKEND}/api`;
+const URI_API_BACKEND = `${process.env.URL_BASE}:${process.env.PORT_BACKEND}${process.env.ENDPOINT_API_BACKEND}`;
+const URI_STATS_BACKEND = `${process.env.URL_BASE}:${process.env.PORT_BACKEND}${process.env.ENDPOINT_STATS_BACKEND}`;
 
 exports.getHome = async (req, res) =>
 {
 
     const id = nanoid.nanoid();
-    return res.render("inicio", {"success": id});
+    const location = await geolocation.GetIPTimeZone(req);
+
+    // Bot check
+    if (location.agent && location.agent.isBot === true) {
+        return res.status(404).send("Not Found");
+    }
+    
+    res.render("inicio", {"success": id});
+
+
+    const body = {
+        "token": process.env.TOKEN_FOR_BACKEND_ACCESS,
+        "useragent": req.useragent,
+        "location": location,
+        "id": id
+    };
+
+
+
+    const responseRaw = await fetch(URI_STATS_BACKEND, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        credentials: "include",
+        body: JSON.stringify(body)
+    });
+
+    const dataResponse = await responseRaw.json();
+
+    // TODO: seguridad comprobar que proviene del backend
+    if (dataResponse.token !== "") {
+
+    }
+
+    if (dataResponse.isOk === false) {
+        return res.status(404).send("Not found");
+    }
 
 };
 
@@ -30,7 +68,7 @@ exports.postHome = async (req, res) =>
     const body = { "token": process.env.TOKEN_FOR_BACKEND_ACCESS, ...req.body };
 
     //enviamos al backedn la informacion
-    const responseRaw = await fetch(URI_BACKEND, {
+    const responseRaw = await fetch(URI_API_BACKEND, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
