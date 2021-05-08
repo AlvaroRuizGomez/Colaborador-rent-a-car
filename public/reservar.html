@@ -19,20 +19,15 @@
 
 </head>
 <body>
-    <!------- Inicio Cabecera ---->
     <div class="banner">
+        <!------- Inicio Cabecera ---->
         <header id="header">
-            <div class="logo">
-                <div class="logo_r">
-                    R
-                </div>
-                <h1>entCar Mallorca</h1>
-                <p>¡ El mejor precio y servicio !</p>
-            </div>
+            <%~ includeFile("parciallogo.html") %>
+            <!-- <html-include src="parciallogo.html"></html-include> -->
 
             <div class="contacto">
                 <img src="./img/whatsapp-icon-hd-21.jpg"/>
-                <h2>+34 651 722 345</h2>
+                <h2>+34 999 999 999</h2>
                 <p id="reserva-telefono">Contacto reservas</p>
             </div>
 
@@ -58,24 +53,98 @@
             <aside id="aside">
                 <div class="boxAside">
                     <div class="contentBoxAside">
-                        <img id="imgCarReserva" src="./img/Img-Vehiculos/Coches/Peugeot_108.png" alt="">
+                        <section class="rentacar-info">
+
+                            <!-- <img class="car-image" src="./img/Img-Vehiculos/rescambiada/png/<%= element.ImagenVehiclo %>" alt="<%= element.descripcion %>"> -->
+                            <img class="car-image" src="./img/Img-Vehiculos/rescambiada/png/Peugeot_108.png" alt="Coche">
+
+                            <h2 class="car-name">
+                                <!-- <%= element.descripcion %> -->
+                                </p>Peugueot 108</p>
+                            </h2>
+
+                            <p class="similar">o similar</p>
+
+                            <div class="car-info-services">
+                                <div class="servicios-asientos" data-tooltip="vehiculo tiene <%= element.pax %> asientos" data-tooltip-location="top">
+                                    <img class="icon-24" src="img/svg/person-fill.svg" alt="persona">
+                                    <div class="icon-number">
+                                        <!-- <%= element.pax %> -->
+                                        4
+                                    </div>
+                                </div>
+
+                                <!-- <% if (element.puertas> 0) { %> -->
+                                    <div class="servicios-puertas" data-tooltip="vehiculo tiene <%= element.puertas %> puertas" data-tooltip-location="top">
+                                        <img class="icon-24" src="img/svg/puerta.svg" alt="puertas">
+                                        <div class="icon-number">
+                                            <!-- <%= element.puertas %> -->
+                                            4
+                                        </div>
+                                    </div>
+                                <!-- <% } %> -->
+                                <!-- <% if (element.aireacondicionado===1) { %> -->
+                                    <div class="servicios-aire" data-tooltip="vehiculo tiene aire acondicionado" data-tooltip-location="top">
+                                        <img class="icon-24" src="img/svg/aire.svg" alt="aire">
+                                    </div>
+                                <!-- <% } %> -->
+
+                                <!-- <% if  (element.transmision === "M" ) { %> -->
+                                    <div class="servicios-trasmision" data-tooltip="vehiculo tiene cambio manual" data-tooltip-location="top">
+                                    <img class="icon-24" src="img/svg/cambio_manual.svg" alt="cambio manual">
+                                    <div class="icon-number">M</div>
+                                <!-- <% } else if (element.transmision === "A" ) { %> -->
+                                    <!-- <div class="servicios-trasmision" data-tooltip="vehiculo tiene cambio automatico" data-tooltip-location="top">
+                                    <img class="icon-24" src="img/svg/cambio_automatico.svg" alt="cambio automatico">
+                                    <div class="icon-number">A</div> -->
+                                <!-- <% } %> -->
+                                </div>
+                            </div>
+
+                            <div class="car-info-services-2">
+                                <div class="servicios-kilometraje" data-tooltip="vehiculo tiene kilometraje --- cambiar" data-tooltip-location="top">
+                                    <img class="icon-25" src="img/svg/velocimetro.png" alt="kilometraje">
+                                    <p class="icon-kilometro">Kilometraje Ilimitado</p>
+                                </div>
+
+                                <div class="geoLoc">
+                                    <img class="icon-25" src="img/svg/mapaMundi.svg" alt="icono completado">
+                                    <p class="icon-locate">Mallorca | Can Pastilla  España</p>
+                                </div>      
+                            </div>
+
+                            <div class="bookRecogida">
+                                <img src="./img/img-Calendar/calendar.jpg" alt="Icono calendario" class="icon-25">
+                                <p class="icon-dateRecogida">Dom 9 Mayo</p>
+
+                                <img src="./img/Img-Clock/clock.png" alt="Icono calendario" class="icon-25">
+                                <p class="icon-clockRecogida">09:00</p>
+                            </div>
+
+                            <div class="puntos">
+                                <p class="">e</p>
+                            </div>
+
+                            <div class="bookDevolucion">
+                                <img src="./img/img-Calendar/calendar.jpg" alt="Icono calendario" class="icon-25">
+                                <p class="icon-dateDevolucion">Dom 9 Mayo</p>
+
+                                <img src="./img/Img-Clock/clock.png" alt="Icono calendario" class="icon-25">
+                                <p class="icon-clockDevolucion">09:00</p>
+                            </div>
+                        </section>
                     </div>
                 </div>
             </aside>
+
             <aside id="aside">
                 <div class="boxAside">
                     <div class="contentBoxAside">
-                        <img id="imgCarReserva" src="./img/Img-Vehiculos/Coches/Peugeot_108.png" alt="">
+                        <img id="imgCarReserva" src="" alt="">
+                        <p>Segundo SIDEBAR</p>
                     </div>
                 </div>
-            </aside>
-            <aside id="aside">
-                <div class="boxAside">
-                    <div class="contentBoxAside">
-                        <img id="imgCarReserva" src="./img/Img-Vehiculos/Coches/Peugeot_108.png" alt="">
-                    </div>
-                </div>
-            </aside>      
+            </aside>   
         </section>
         <div id="contentBlock">
             <article class="contentBlock">

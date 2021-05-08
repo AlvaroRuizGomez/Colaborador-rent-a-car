@@ -28,54 +28,8 @@ body {
 }
   
  /* -------------- LOGO --------------------*/
-
-.logo {
-  display: grid;
-  grid-template-columns: 10% 60%;
-  grid-template-rows: 95px;
-  font-weight: 900px;
-  font-size: 15px;
-  padding: 10px;
-  margin-left: 43px;
-  text-shadow: 1px 1px 0px #ccc;
-}
-  
-.logo_r {
-  font-family: 'Faster One', cursive;
-  font-size: 70px;
-  color: #ff0000;
-  text-shadow: 1px 6px 2px #222;
-  grid-column-start: 1;
-  grid-column-end:2;
-  grid-row-start: 1;
-  grid-row-end: 1;
-  margin-top: 17px;
-}
-  
-.logo h1 {
-  width: 100%;
-  margin-top: 46px;
-  margin-left: -3px;
-  font-size: 40px;
-  color: #000080;
-  text-shadow: 1px 1px 2px;
-  grid-column-start: 2;
-  grid-column-end:3;
-  grid-row-start: 1;
-  grid-row-end: 1;
-  text-align: left;
-}
-  
-.logo > p {
-  color: red;
-  font-family: 'Caveat', cursive;
-  font-size: 22px;
-  font-style: oblique;
-  grid-column-start: 1;
-  grid-column-end: 3;
-  grid-row-start: 2;
-  grid-row-end: 2;
-  margin-left: -94px;
+.logo img {
+  width: 280px;
 }
   
 .contacto {
@@ -163,13 +117,19 @@ body {
   width: 30%;
 }
 
+/* -------- Iinicio  Aside  ------------ */
+#contentAside {
+  background-color: #fafafa;
+  display: block;
+}
+
 #aside {
   width: 283px;
   float: left;
   background-color: #fff;
   border: 1px solid #ddd;
 }
-.boxaside {
+.boxAside {
   margin-bottom: 0;
   position: relative;
 }
@@ -180,14 +140,194 @@ body {
   line-height: 16px;
 }
 
-#contentAside {
-  background-color: #fafafa;
-  display: block;
+.rentacar-info {
+  display: grid;
+  grid-template-columns: 260px;
+  grid-template-rows: 150px 30px 25px 35px 23px 20px 20px 20px 20px;
+  grid-template-areas:
+    "imagen-coche"
+    "marca"
+    "similar"
+    "servicios"
+    "combustible"
+    "location"
+    "recogida"
+    "puntos"
+    "devolucion"
+    ;
+  justify-items: flex-start;
+  align-items: center;
+  height: 100%;
 }
 
-#contentBlock {
-  width: ;
+.car-image {
+  grid-area: imagen-coche;
+  max-width: 243px;
+  box-sizing: border-box;
+  border-collapse: collapse;
 }
+
+.car-name {
+  grid-area: marca;
+  color: #333333;
+  font-size: 1.8em;
+  font-weight: 700;
+  text-size-adjust: none;
+  line-height: 1.3em;
+  align-self: flex-end;
+  margin-bottom: 0px;
+}
+
+.similar {
+  grid-area: similar;
+}
+
+/* --   Barra de Iconos de Servicios -- */
+.car-info-services {
+  grid-area: servicios;
+  display: grid;
+  grid-template-columns: repeat(4, 39px);
+  grid-template-rows: 31px;
+  grid-template-areas: 
+  "a a a a"
+  "l l . o"
+  ;
+
+  justify-items: flex-start;
+}
+
+.icon-24 {
+  width: 16px;
+  margin-top: 7px;
+}
+
+.servicios-asientos{
+  width: 82%;
+  border: 1px solid #ccc;
+  margin-left: 2px;
+  margin-top: 4px;
+}
+
+.icon-number{
+  display: inline;
+  font-size: 13px;
+  color: #787878;
+}
+
+.servicios-puertas{
+  border: 1px solid #ccc;
+  width: 82%;
+  margin-left: 2px;
+  margin-top: 4px;
+}
+
+.servicios-aire{
+  border: 1px solid #ccc;
+  width: 82%;
+  margin-left: 2px;
+  margin-top: 4px;
+}
+
+.servicios-trasmision{
+  border: 1px solid #ccc;
+  width: 97%;
+  margin-left: 2px;
+  margin-top: 4px;
+}
+/* - Fin Barra de Iconos de Servicios - */
+
+
+/* -- Combustible / Lugar de recogida --- */
+.car-info-services-2 {
+  margin-top: 5px;
+}
+
+.servicios-kilometraje {
+  margin-top: 38px;
+  grid-area: combustible;
+  padding: 2px;
+}
+
+.icon-kilometro {
+  display: inline;
+  font-size: 13px;
+  color: #787878;
+}
+
+.icon-25 {
+  width: 20px;
+  margin-bottom: -3px;
+}
+
+.geoLoc {
+  grid-area: location;  
+}
+
+.icon-locate{
+  display: inline;
+  font-size: 13px;
+  color: #787878;
+  width: 142px;
+  margin-left: 14px;
+  margin-top: -21px;
+}
+/* -- Fin Combustible / Lugar de recogida --- */
+
+
+/*  -- Fechas/Horas - Recogida/Devolución -- */
+.bookRecogida {
+  grid-area: recogida;
+  margin-top: 40px;
+}
+
+.icon-dateRecogida {
+  display: inline;
+  font-size: 13px;
+  color: #787878;
+  width: 142px;
+  margin-left: 14px;
+  margin-top: -21px;
+}
+
+.icon-clockRecogida {
+  display: inline;
+  font-size: 13px;
+  color: #787878;
+  width: 142px;
+  margin-left: 4px;
+  margin-top: -21px;
+}
+
+.puntos {
+  grid-area: puntos;
+}
+
+.bookDevolucion {
+  grid-area: devolucion;
+  margin-top: 40px;
+}
+
+.icon-dateDevolucion {
+  display: inline;
+  font-size: 13px;
+  color: #787878;
+  width: 142px;
+  margin-left: 14px;
+  margin-top: -21px;
+}
+
+.icon-clockDevolucion {
+  display: inline;
+  font-size: 13px;
+  color: #787878;
+  width: 142px;
+  margin-left: 4px;
+  margin-top: -21px;
+}
+
+/*- Fin Fechas/Horas Recogida/Devolución - */
+
+/* -------- Fin  Aside  ------------ */
 
 .contentBlock {
   border: 1px solid #d8d8d8;
