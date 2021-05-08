@@ -5,8 +5,8 @@ const nanoid = require("nanoid");
 const session = require('express-session');
 const geolocation = require("./geolocation");
 
-const URI_API_BACKEND = `${process.env.URL_BASE}:${process.env.PORT_BACKEND}${process.env.ENDPOINT_API_BACKEND}`;
-const URI_STATS_BACKEND = `${process.env.URL_BASE}:${process.env.PORT_BACKEND}${process.env.ENDPOINT_STATS_BACKEND}`;
+const URI_API_BACKEND = `${process.env.URL_BACKEND_BASE}:${process.env.PORT_BACKEND}${process.env.ENDPOINT_API_BACKEND}`;
+const URI_STATS_BACKEND = `${process.env.URL_BACKEND_BASE}:${process.env.PORT_BACKEND}${process.env.ENDPOINT_STATS_BACKEND}`;
 
 exports.getHome = async (req, res) =>
 {
@@ -203,14 +203,14 @@ const ControlSchema = async (body) => {
 
 
     const schema = Joi.object({
-        "success": Joi.string().required(),
-        "fase": Joi.string().required(),
+        conductor_con_experiencia: Joi.string(),
+        edad_conductor: Joi.number().required(),
+        "fase": Joi.number().required(),
         fechaDevolucion: Joi.string().required(),
         horaDevolucion: Joi.string().required(),
         fechaRecogida: Joi.string().required(),
         horaRecogida: Joi.string().required(),
-        conductor_con_experiencia: Joi.string(),
-        edad_conductor: Joi.string().required(),
+        "success": Joi.string().required(),
     });
 
 
