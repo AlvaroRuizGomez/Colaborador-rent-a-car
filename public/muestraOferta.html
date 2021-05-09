@@ -234,22 +234,14 @@
                 <% it.data.forEach(function(element){ %>
                     <!-- Ofertas -->
                     <article class="oferta">
-                        <% 
-                        /*
-                        <input type="hidden" name="vehiculo" value="<%= element.vehiculo %>" >
-                        */ 
-                        %>
-
-                        
-                        
                         <!-- Zona Izquierda-->
                         <section class="rentacar-info">
-                            
+                            <% if (element.masvalorado === true) { %>
                             <div class="marca-contenido">
                                 <img class="icono-16px" src="./img/svg/ribbon-check.svg" alt="marca">
-                                El mas solicitado 
+                                El mas valorado 
                             </div>
-                            
+                            <% } %>
                             <img class="car-image" src="./img/Img-Vehiculos/rescambiada/png/<%= element.ImagenVehiclo %>" alt="<%= element.descripcion %>">
                             <button class="boton_modal" data-tooltip-location="top" data-tooltip="Condiciones generales">
                                 <img src="./img/svg/condiciones.svg" alt="icono condiciones">
