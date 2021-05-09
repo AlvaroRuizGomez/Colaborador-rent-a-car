@@ -60,9 +60,8 @@ exports.postHome = async (req, res) =>
 
     if (isSchemaValid === false) {
         //TODO: mejorar
-        res.status(404).send("Not found");
         console.error("control schema invalido");
-        return;
+        return res.status(404).send("Not found");
     }
 
     const body = { "token": process.env.TOKEN_FOR_BACKEND_ACCESS, ...req.body };
