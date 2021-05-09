@@ -66,7 +66,7 @@ exports.postReservar = async (req, res ) =>
     }
 
 
-    let data = {};
+    let data = {"test": "test"};
     if (dataResponse.data.length <= 0)
     {
         data = {};

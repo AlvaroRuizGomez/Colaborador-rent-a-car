@@ -773,7 +773,6 @@ background: red;
   grid-area: marca;
   align-self: flex-end;
   color: white;
-  background: var(--color, #2ca7d8) linear-gradient(45deg, rgba(0, 0, 0, 0) 0%, rgba(255, 255, 255, 0.25) 100%);
   width: 70%;
   height: 25px;
   clip-path: polygon(0% 0%, 95% 0%, 100% 50%, 95% 100%, 0% 100%);
@@ -784,9 +783,22 @@ background: red;
   align-items: center;
   gap: 5px;
   padding: 0px 0px 0px 10px;
+  
+  
+}
 
+.marca-contenido-azul
+{
+  background: rgb(44, 167, 216) linear-gradient(45deg, rgba(0, 0, 0, 0) 0%, rgba(255, 255, 255, 0.25) 100%);
 
 }
+
+.marca-contenido-naranja
+{
+  background: rgb(193, 23, 39) linear-gradient(45deg, rgba(0, 0, 0, 0) 0%, rgba(255, 255, 255, 0.25) 100%);
+
+}
+
 
 
 /* ----- Fin Ofertas --------------- */

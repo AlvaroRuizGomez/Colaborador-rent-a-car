@@ -232,16 +232,23 @@
                     <input type="hidden" name="fase" value="2">
                     <input type="hidden" name="conductor_con_experiencia" value="<%= it.formdata.conductor_con_experiencia %>">
                     
-                <% it.data.forEach(function(element){ %>
+                
+                <% for (let j = 0; j < it.data.length; j++) { %>
+                    <% const element = it.data[j] %> 
                     <!-- Ofertas -->
                     <article class="oferta">
                         <!-- Zona Izquierda-->
                         <section class="rentacar-info">
-                            <% if (element.masvalorado === true) { %>
-                            <div class="marca-contenido">
+                            <% if (element.masvalorado === true && j !== 0) { %>
+                            <div class="marca-contenido marca-contenido-azul">
                                 <img class="icono-16px" src="./img/svg/ribbon-check.svg" alt="marca">
                                 El mas valorado 
                             </div>
+                            <% } else if (j === 0) { %>
+                                <div class="marca-contenido marca-contenido-naranja">
+                                    <img class="icono-16px" src="./img/svg/ribbon-check.svg" alt="marca">
+                                    El mas barato
+                                </div>
                             <% } %>
                             <img class="car-image" src="./img/Img-Vehiculos/rescambiada/png/<%= element.ImagenVehiclo %>" alt="<%= element.descripcion %>">
                             <button class="boton_modal" data-tooltip-location="top" data-tooltip="Condiciones generales">
@@ -450,7 +457,7 @@
 
                         </section>
                     </article>
-                <% }) %>
+                <% } %>
                 </form>
             </div>
             <!--------------- Fin Ofertas ------------------------>
