@@ -4,11 +4,13 @@ const Joi = require("joi");
 const nanoid = require("nanoid");
 const session = require('express-session');
 const geolocation = require("./geolocation");
+const locations = require("./locations");
 
-const URI_API_BACKEND = `${process.env.URL_BACKEND_BASE}:${process.env.PORT_BACKEND}${process.env.ENDPOINT_API_BACKEND}`;
-const URI_STATS_BACKEND = `${process.env.URL_BACKEND_BASE}:${process.env.PORT_BACKEND}${process.env.ENDPOINT_STATS_BACKEND}`;
+//variables
+const URI_API_BACKEND = `${process.env.URL_BACKEND}:${process.env.PORT_BACKEND}${process.env.ENDPOINT_API_BACKEND}`;
+const URI_STATS_BACKEND = `${process.env.URL_BACKEND}:${process.env.PORT_BACKEND}${process.env.ENDPOINT_STATS_BACKEND}`;
 
-exports.getHome = async (req, res) =>
+exports.getHome = async (req, res, languageBrowser) =>
 {
 
     const id = nanoid.nanoid();
@@ -19,8 +21,15 @@ exports.getHome = async (req, res) =>
         return res.status(404).send("Not Found");
     }
     
-    res.render("inicio", {"success": id});
+    //lang = es, it, en, de
+    if (languageBrowser === undefined)
+    {
+        languageBrowser = await CheckLanguage( req.headers["accept-language"].split(",")[1].split(";")[0]);
+    }
+    
+    const lenguaje = await locations.GetVarLocales();
 
+    res.render("inicio", { "success": id, "locations": lenguaje[languageBrowser] });
 
     const body = {
         "token": process.env.TOKEN_FOR_BACKEND_ACCESS,
@@ -28,8 +37,6 @@ exports.getHome = async (req, res) =>
         "location": location,
         "id": id
     };
-
-
 
     const responseRaw = await fetch(URI_STATS_BACKEND, {
         method: "POST",
@@ -50,6 +57,24 @@ exports.getHome = async (req, res) =>
     if (dataResponse.isOk === false) {
         return res.status(404).send("Not found");
     }
+
+};
+
+const CheckLanguage = async (lang) =>
+{
+
+    if (lang !== "es" && lang !== "en" && lang !== "it" && lang !== "de") {
+        lang = "en";
+    }
+
+    return lang;
+
+};
+
+exports.getHomeEspanol = async (req, res) =>
+{
+
+
 
 };
 

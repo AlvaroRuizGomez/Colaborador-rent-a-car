@@ -4,7 +4,7 @@ const geolocation = require("./geolocation");
 
 const session = require('express-session');
 
-const URI_RESERVAR_BACKEND = `${process.env.URL_BACKEND_BASE}:${process.env.PORT_BACKEND}${process.env.ENDPOINT_RESERVAR_BACKEND}`;
+const URI_RESERVAR_BACKEND = `${process.env.URL_BACKEND}:${process.env.PORT_BACKEND}${process.env.ENDPOINT_RESERVAR_BACKEND}`;
 
 exports.getReservar = async (req, res) => {
     return res.redirect("/");

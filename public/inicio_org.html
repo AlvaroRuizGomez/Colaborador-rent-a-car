@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title><%=it.locations.titulo%></title>
+        <title>Rent a Car Mallorca</title>
         <!-- <link rel="stylesheet" href="./css/reset.css"> -->
         <!-- ------------------- jQuery------------------------- -->
         <link rel="stylesheet" href="jquery-ui-1.12.1.custom/jquery-ui.css">
@@ -41,33 +41,13 @@
                 <div class="contacto">
                     <img src="./img/whatsapp-icon-hd-21.jpg"/>
                     <h2>+34 999 999 999</h2>
-                    <p id="reserva-telefono"><%=it.locations.contacto_reservas%></p>
+                    <p id="reserva-telefono">Contacto reservas</p>
                 </div>
 
                 <nav id="idioma">
                     <ul>
                         <li>
-                            <%=it.locations.idiomas%>
-                        </li>
-                        <li>
-                            <a href="/autonoleggio">
-                                <img src="./img/banderas/it.png" class="bandera" alt="<%=it.locations.bandera_italiana%>">
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/alquiler-coches">
-                                <img src="./img/banderas/es.png" class="bandera" alt="<%=it.locations.bandera_espanola%>">
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/mietwagen">
-                                <img src="./img/banderas/de.png" class="bandera" alt="<%=it.locations.bandera_alemana%>">
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/rentacar">
-                                <img src="./img/banderas/en.png" class="bandera"  alt="<%=it.locations.bandera_inglesa%>">
-                            </a>
+                            <a href="#">Idioma</a>
                         </li>
                     </ul>
                 </nav>
@@ -75,7 +55,7 @@
             <!-- Fin Cabecera -->
 
             <section id="eslogan">
-                <%=it.locations.eslogan%>
+                Conozca Mallorca...
             </section>
             
             <!------------ Inicio contenido ------------------------->
@@ -86,7 +66,7 @@
                 <input type="hidden" name="fase" value="1">
                 <div class="aside-box">
                         <div class="titulo-form">
-                            <label><%=it.locations.titulo_form%></label>
+                            <label>Alquiler de Coches</label>
                         </div>
                         <!-------------  Inicio  Fecha/Hora Recogida  ------------------------- -->
                         <div class="form-inline form-buscar">
@@ -98,7 +78,7 @@
                             <div class="formDateRecogida">
                                     <div class="labelDate-form-recogida">
                                         <label>
-                                            <%= it.locations.recogida %>
+                                                Recogida:
                                         </label>
                                     </div>
 
@@ -107,7 +87,7 @@
 
                                     <div class="labelClock-form-recogida">
                                         <label>
-                                            <%= it.locations.hora %>
+                                                Hora :
                                         </label>
                                     </div>
                                     <div class="input-group clockpicker" data-placement="bottom" data-align="top" data-autoclose="true">
@@ -127,7 +107,7 @@
                                 
                                     <div class="labelDate-form-devolucion">
                                         <label>
-                                            <%=it.locations.devolucion %>
+                                                Devolucion :
                                         </label>
                                     </div>
 
@@ -136,7 +116,7 @@
 
                                     <div class="labelClock-form-devolucion">
                                         <label>
-                                                <%=it.locations.hora %>
+                                                Hora :
                                         </label>
                                     </div>
                                     <div class="input-group clockpicker" data-placement="bottom" data-align="top" data-autoclose="true">
@@ -154,17 +134,17 @@
                             <section class="centrado gap-10">
                                 <input id="rangoedad" type="checkbox" name="conductor_con_experiencia" value="on" class="elemento__inputradio" checked="checked">
                                 <label class="elemento__circulo" for="rangoedad"></label>
-                                <label class="elemento__titulo" for="rangoedad"><%=it.locations.conductor_experiencia %></label>
+                                <label class="elemento__titulo" for="rangoedad">Conductor tiene 23 años o mas</label>
                             </section>
 
                             <section id="desplegable_edad" class="centrado invisible gap-10">
-                                <label for="edad_conductor"><%=it.locations.edad_conductor %></label>
+                                <label for="edad_conductor">Edad del conductor</label>
                                 <input id="edad_conductor" type="number" name="edad_conductor" value="22" min="18" max="22" class="edad_conductor">
                             </section>
                         </div> 
                         <section class="btnBuscar">
                             <button type="submit" id="boton-VerPrecios" class="btn btn-primary btn-lg btn-block">
-                                <%=it.locations.edad_conductor %>
+                                Ver precios
                             </button>
                         </section>
                     </div>         
@@ -641,8 +621,8 @@
         <!-- Fin contenido -->
 
             <footer id="footer">
-                <div class="pie"><%=it.locations.informacion%></div>
-                <div class="info"><%=it.locations.copyright%>&copy;</div>
+                <div class="pie">Información</div>
+                <div class="info">@lvaro Ruiz WEB &copy;</div>
             </footer>
         </div>
         <!-- Fin container -->
