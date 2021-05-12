@@ -10,6 +10,10 @@ const locations = require("./locations");
 const URI_API_BACKEND = `${process.env.URL_BACKEND}:${process.env.PORT_BACKEND}${process.env.ENDPOINT_API_BACKEND}`;
 const URI_STATS_BACKEND = `${process.env.URL_BACKEND}:${process.env.PORT_BACKEND}${process.env.ENDPOINT_STATS_BACKEND}`;
 
+
+const eta = require("eta");
+
+
 exports.getHome = async (req, res, languageBrowser) =>
 {
 
@@ -21,15 +25,12 @@ exports.getHome = async (req, res, languageBrowser) =>
         return res.status(404).send("Not Found");
     }
     
-    //lang = es, it, en, de
-    if (languageBrowser === undefined)
-    {
-        languageBrowser = await CheckLanguage( req.headers["accept-language"].split(",")[1].split(";")[0]);
-    }
-    
-    const lenguaje = await locations.GetVarLocales();
+    const locationLanguage = await GenerateLocationBrowser(
+        languageBrowser, 
+        req.headers["accept-language"].split(",")[1].split(";")[0]
+    );
 
-    res.render("inicio", { "success": id, "locations": lenguaje[languageBrowser] });
+    res.render("inicio", { "success": id, "locations": locationLanguage });
 
     const body = {
         "token": process.env.TOKEN_FOR_BACKEND_ACCESS,
@@ -60,6 +61,26 @@ exports.getHome = async (req, res, languageBrowser) =>
 
 };
 
+const GenerateLocationBrowser = async (languageBrowser, reqHeadersLocation) =>
+{
+
+    //lang = es, it, en, de
+    if (languageBrowser === undefined) 
+    {
+        languageBrowser = await CheckLanguage(reqHeadersLocation);
+    }
+
+    const lenguaje = await locations.GetVarLocales();
+
+    // todo: mejorar comprobacion
+    // if (lenguaje[languageBrowser] === undefined)
+    // {
+    //     return lenguaje[en];
+    // }
+    return lenguaje[languageBrowser];
+
+};
+
 const CheckLanguage = async (lang) =>
 {
 
@@ -68,13 +89,6 @@ const CheckLanguage = async (lang) =>
     }
 
     return lang;
-
-};
-
-exports.getHomeEspanol = async (req, res) =>
-{
-
-
 
 };
 
@@ -109,13 +123,18 @@ exports.postHome = async (req, res) =>
     {
 
     }
+    // const languageBrowser = await CheckLanguage(req.body.idioma);
+    // const lenguaje = await locations.GetVarLocales();
+
+    const locationLanguage = await GenerateLocationBrowser(req.body.idioma);
 
     if (dataResponse.isOk === false) {
         if (dataResponse.errorFormulario !== "") {
             return res.render("inicio", 
             {
                 "success": req.body.success,
-                "errorFormulario": dataResponse.errorFormulario
+                "errorFormulario": dataResponse.errorFormulario,
+                "locations": locationLanguage
             });
         }
 
@@ -130,6 +149,7 @@ exports.postHome = async (req, res) =>
             "errorFormulario": dataResponse.errorFormulario,
             "success": req.body.success,
             "diasEntreRecogidaDevolucion": dataResponse.diasEntreRecogidaDevolucion,
+            "locations": locationLanguage
 
         });
     }
@@ -150,7 +170,8 @@ exports.postHome = async (req, res) =>
             "suplementogenerico_base": dataResponse.suplementogenerico_base,
             "suplementotipochofer_base": dataResponse.suplementotipochofer_base,
             "preciosPorClase": dataResponse.preciosPorClase,
-            "condicionesgenerales": dataResponse.condicionesgenerales
+            "condicionesgenerales": dataResponse.condicionesgenerales,
+            "locations": locationLanguage
         });
 
     }
@@ -228,6 +249,7 @@ const ControlSchema = async (body) => {
 
     const schema = Joi.object({
         conductor_con_experiencia: Joi.string(),
+        "idioma": Joi.string().required(),
         edad_conductor: Joi.number().required(),
         "fase": Joi.number().required(),
         fechaDevolucion: Joi.string().required(),

@@ -6,7 +6,6 @@ const URI_LOCATIONS = `${process.env.URL_BACKEND}:${process.env.PORT_BACKEND}${p
 
 exports.Frontend_TO_Backend = async (req, res) =>
 {
-    // if (res === undefined) return;
 
     const responseRaw = await fetch(URI_LOCATIONS, {
         method: "GET",
@@ -18,15 +17,9 @@ exports.Frontend_TO_Backend = async (req, res) =>
 
     const dataResponse = await responseRaw.json();
     locales = dataResponse.datos;
-
-    // next;
     console.log("seteado los locales");
 
-    // res.statusCode = 302;
-    // res.setHeader('Content-Type', 'text/plain');
-    // res.end('Cannot ' + req.method + ' ' + req.url);
-    // res.end({"isOk": true});
-    // res.send({"isOk": true});
+    res.send({"isOk": true});
 
 };
 

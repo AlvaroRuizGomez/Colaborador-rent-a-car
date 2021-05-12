@@ -228,6 +228,11 @@ background: red;
  
 }
 
+.bandera
+{
+  width: 50px;
+  border: 1px solid black;
+}
 
 /*---- Inicio Formulario busqueda (aside) -------------------*/
 
@@ -773,7 +778,7 @@ background: red;
   grid-area: marca;
   align-self: flex-end;
   color: white;
-  width: 70%;
+  width: 80%;
   height: 25px;
   clip-path: polygon(0% 0%, 95% 0%, 100% 50%, 95% 100%, 0% 100%);
   /* clip-path: polygon(100% 1%, 86% 48%, 100% 100%, 0% 100%, 0 45%, 0% 0%); */

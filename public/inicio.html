@@ -83,6 +83,7 @@
                 <!-------- Inicio Formulario de Busqueda ------------>
                 <form id="formulario-index" class="form-inline" method="POST" action="/">
                 <input type="hidden" name="success" value="<%=it.success %>">
+                <input type="hidden" name="idioma" value="<%=it.locations.idioma_web%>">
                 <input type="hidden" name="fase" value="1">
                 <div class="aside-box">
                         <div class="titulo-form">
@@ -164,7 +165,7 @@
                         </div> 
                         <section class="btnBuscar">
                             <button type="submit" id="boton-VerPrecios" class="btn btn-primary btn-lg btn-block">
-                                <%=it.locations.edad_conductor %>
+                                <%=it.locations.ver_precios %>
                             </button>
                         </section>
                     </div>         
