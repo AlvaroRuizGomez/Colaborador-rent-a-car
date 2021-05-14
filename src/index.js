@@ -72,11 +72,11 @@ app.use("/", apiLimiter);
 app.use("/", router);
 
 // escucha puerto servidor
-app.listen(process.env.NODE_EXPRESS_PORT, (error) => {
+app.listen(process.env.PORT_FRONTEND, (error) => {
     if (error) {
-        console.error(`[process ${process.pid}] Error ${error} ${process.env.NODE_EXPRESS_PORT}`);
+        console.error(`[process ${process.pid}] Error ${error} ${process.env.PORT_FRONTEND}`);
     }
-    console.info(`[process ${process.pid}] Listening at port ${process.env.NODE_EXPRESS_PORT}`);
+    console.info(`[process ${process.pid}] Listening at port ${process.env.PORT_FRONTEND}`);
 }
 );
 

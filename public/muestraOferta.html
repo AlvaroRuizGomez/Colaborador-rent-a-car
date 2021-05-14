@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="<%=it.locations.idioma_web %>">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -38,19 +38,41 @@
         <div class="banner">
             <header id="header">
                 <%~ includeFile("parciallogo.html") %>
-                <div class="contacto">
-                    <img src="./img/whatsapp-icon-hd-21.jpg"/>
-                    <h2>+34 999 999 999</h2>
-                    <p id="reserva-telefono">Contacto reservas</p>
-                </div>
-
-                <nav id="idioma">
-                    <ul>
-                        <li>    
-                            <a href="#">Idioma</a>
-                        </li>
-                    </ul>
-                </nav>
+                    <div class="contacto">
+                        <img src="./img/whatsapp-icon-hd-21.jpg" />
+                        <h2>+34 999 999 999</h2>
+                        <p id="reserva-telefono">
+                            <%=it.locations.contacto_reservas%>
+                        </p>
+                    </div>
+            
+                    <nav id="idioma">
+                        <ul>
+                            <li>
+                                <%=it.locations.idiomas%>
+                            </li>
+                            <li>
+                                <a href="/autonoleggio">
+                                    <img src="./img/banderas/it.png" class="bandera" alt="<%=it.locations.bandera_italiana%>">
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/alquiler-coches">
+                                    <img src="./img/banderas/es.png" class="bandera" alt="<%=it.locations.bandera_espanola%>">
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/mietwagen">
+                                    <img src="./img/banderas/de.png" class="bandera" alt="<%=it.locations.bandera_alemana%>">
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/rentacar">
+                                    <img src="./img/banderas/en.png" class="bandera" alt="<%=it.locations.bandera_inglesa%>">
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
             </header>
             <!------- Fin Cabecera ---->
 
@@ -60,28 +82,30 @@
             </section> -->
             <!------- Fin Slogan  ------------>
         </div>
-
         <!------- Inicio formulario de Busqueda ----------------->
         <div class="form-container">
             <!-------- Inicio Formulario de Busqueda ------------>
             <div class="aside-box">
                 <div class="titulos">
                     <div class="titulo-form">
-                        <label>Datos busqueda</label>
+                        <label><%=it.locations.datos_busqueda %></label>
                         <div class="titulo-form-cambiar">
-                            <a href="/">Cambiar</a>
+                            <a href="/"><%=it.locations.cambiar %></a>
                         </div>
                     </div>
                 </div>
                 <form id="formulario-index" class="form-inline" method="POST" action="/">
                     <input type="hidden" name="conductor_con_experiencia" value="<%= it.formdata.conductor_con_experiencia %>">
                     <input type="hidden" name="edad_conductor" value="<%= it.formdata.edad_conductor %>">
+                    <input type="hidden" name="idioma" value="<%=it.locations.idioma_web %>">
+                    <input type="hidden" name="success" value="<%=it.success %>">
+                    <input type="hidden" name="fase" value="2">
                     <!-------------  Inicio  Fecha/Hora Recogida  ------------------------- -->
                     <div class="form-inline form-buscar">
                         <div class="formDateRecogida">
                             <div class="labelDate-form-recogida">
                                 <label>
-                                        Recogida:
+                                        <%= it.locations.recogida %>
                                 </label>
                             </div>
 
@@ -89,7 +113,7 @@
                             <img src="./img/img-Calendar/calendar.jpg" alt="Calendario recogida" class="img-calendar triggerRec">
 
                             <div class="labelClock-form-recogida">
-                                <label>Hora :</label>
+                                <label><%= it.locations.hora %></label>
                             </div>
                             <div class="input-group clockpicker" data-placement="bottom" data-align="top" data-autoclose="true">
                                 <input type="text" class="form-control form-control-clock" name="horaRecogida" value="<%= it.formdata.horaRecogida %>" readonly=""/>
@@ -108,7 +132,7 @@
                         <div class="formDateDevolucion">
                             <div class="labelDate-form-devolucion">
                                 <label>
-                                        Devolucion :
+                                        <%=it.locations.devolucion %>
                                 </label>
                             </div>
                                 <input type="text" class="form-control form-control-date datepicker" id="fechaDevolucion" name="fechaDevolucion" value="<%= it.formdata.fechaDevolucion %>" data-placement="right" data-align="bottom" data-name="" readonly="">  
@@ -116,20 +140,20 @@
 
                                 <div class="labelClock-form-devolucion">
                                     <label>
-                                
+                                        <%=it.locations.hora %>
                                     </label>
                                 </div>
                                 <div class="input-group clockpicker" data-placement="bottom" data-align="top" data-autoclose="true">
                                     <input type="text" class="form-control form-control-clock" name="horaDevolucion" value="<%= it.formdata.horaDevolucion %>" readonly=""/>
                                     <span class="input-group-addon">
-                                    <img src="./img/Img-Clock/clock.png" alt="Reloj Recogida" class="img-clock">
+                                    <img src="./img/Img-Clock/clock.png" alt="<%=it.locations.alt_reloj_recogida%>" class="img-clock">
                                     </span>
                                 </div>
                         </div>    
                     </div>
                     <!--------------------------- Fin Fecha/Hora Devolucion  ---------------------->
                     <div class="btnMod">
-                        <button id="bt-enviar-index" type="submit" class="btn btn-primary btn-lg btn-block">Modificar</button>
+                        <button id="bt-enviar-index" type="submit" class="btn btn-primary btn-lg btn-block"><%=it.locations.modificar %></button>
                     </div>
                 </form>
             </div>         
@@ -144,7 +168,7 @@
             <div class="carruselSlider">
                 <div id="carousel" class="carousel slide " data-ride="carousel">
                     <a class="carrusel-control-prev carrusel-control" href="#carousel" role="button" data-slide="prev">
-                        <img src="img/svg/carrusel_control_previous.svg" class="icono-azul" alt="previous">
+                        <img src="img/svg/carrusel_control_previous.svg" class="icono-azul" alt="<%=it.locations.alt_anterior %>">
                     </a>
                     <div class="carousel-inner">
                         <div class="carousel-item active">
@@ -161,7 +185,7 @@
                                         </div>
                                         <div class="precio">
                                             <div class="precio-txt">
-                                                <p>desde</p>
+                                                <p><%=it.locations.desde %></p>
                                             </div>
                                             <div class="precio-p">
                                                 <p>
@@ -197,7 +221,7 @@
                         </div>
                     </div>
                     <a class=" carrusel-control-next carrusel-control" href="#carousel" role="button" data-slide="next">
-                        <img src="img/svg/carrusel_control_next.svg" class="icono-azul" alt="next">
+                        <img src="img/svg/carrusel_control_next.svg" class="icono-azul" alt="<%=it.locations.alt_siguiente %>">
                     </a>
                 </div>
             </div>
@@ -214,38 +238,43 @@
                     </article>
                 <% } else { %>
                     <div class="tablero_ofertas">
-                        <h3>O F E R T A S</h3>
+                        <h3><%=it.locations.titulo_ofertas %></h3>
                     </div>
                     <% if (it.formdata["conductor_con_experiencia"] === "undefined" || it.formdata["conductor_con_experiencia"] === undefined )  { %>
                         <div class="aviso-edad">
-                            <img class="icono-alerta-edad" src="./img/svg/alerta_edad.svg" alt="icono edad conductor">
-                            <p class="texto-alerta-edad">Es posible que los conductores de <%= it.formdata.edad_conductor %> años deban abonar un cargo adicional cuando vayan a
-                                retirar el vehículo. Si el vehículo seleccionado requiere un cargo por conductor joven, le informaremos de ello.</p> 
+                            <img class="icono-alerta-edad" src="./img/svg/alerta_edad.svg" alt="<%=it.locations.alt_icono_edad_conductor %>">
+                            <p class="texto-alerta-edad"><%=it.locations.aviso_edad1 %> <%= it.formdata.edad_conductor %> <%=it.locations.aviso_edad2 %></p> 
                         </div>
                     <% } %>
 
                 <% } %>
-            
-                <% it.data.forEach(function(element){ %>
+                <form method="post"  action="<%=it.locations.reserva %>">
+                    <input type="hidden" name="success" value="<%=it.success %>">
+                    <input type="hidden" name="fase" value="2">
+                    <input type="hidden" name="idioma" value="<%=it.locations.idioma_web %>">
+                    <input type="hidden" name="conductor_con_experiencia" value="<%= it.formdata.conductor_con_experiencia %>">
+                    
+                <% for (let j = 0; j < it.data.length; j++) { %>
+                    <% const element = it.data[j] %> 
                     <!-- Ofertas -->
                     <article class="oferta">
-                        <input type="hidden" name="vehiculo" value="<%= element.vehiculo %>" >
-
-
-                        
-                        
                         <!-- Zona Izquierda-->
                         <section class="rentacar-info">
-                            <!-- <div class="ribbon check" style="--color: #57c443;"> -->
-                                <div class="marca-contenido">
-                                    <img class="icono-16px" src="./img/svg/ribbon-check.svg" alt="marca">
-                                    El mas solicitado 
+                            <% if (element.masvalorado === true && j !== 0) { %>
+                            <div class="marca-contenido marca-contenido-azul">
+                                <img class="icono-16px" src="./img/svg/ribbon-check.svg" alt="<%=it.locations.alt_marca %>">
+                                <%=it.locations.elmasvalorado %>
+                            </div>
+                            <% } else if (j === 0) { %>
+                                <div class="marca-contenido marca-contenido-naranja">
+                                    <img class="icono-16px" src="./img/svg/ribbon-check.svg" alt="<%=it.locations.alt_marca %>">
+                                    <%=it.locations.elpreciomasbajo %>
                                 </div>
-                            <!-- </div> -->
+                            <% } %>
                             <img class="car-image" src="./img/Img-Vehiculos/rescambiada/png/<%= element.ImagenVehiclo %>" alt="<%= element.descripcion %>">
-                            <button class="boton_modal" data-tooltip-location="top" data-tooltip="Condiciones generales">
-                                <img src="./img/svg/condiciones.svg" alt="icono condiciones">
-                                <span class="link-condiciones">Condiciones</span>
+                            <button class="boton_modal" data-tooltip-location="top" data-tooltip="<%=it.locations.tooltip_condiciones%>">
+                                <img src="./img/svg/condiciones.svg" alt="<%=it.locations.alt_icono_condiciones %>">
+                                <span class="link-condiciones"><%=it.locations.condiciones %></span>
                             </button>
                         </section>
                         <!-- Zona centro -->
@@ -254,70 +283,66 @@
                             <h2 class="car-name">
                                 <%= element.descripcion %>
                             </h2>
-                            <% /* <h3>
-                                <%= element.clasevehiculo %>
-                                </h3>
-                                */
-                            %>
+                            
                             <div class="car-info-services">
-                                <div class="servicios-asientos" data-tooltip="vehiculo tiene <%= element.pax %> asientos" data-tooltip-location="top">
-                                    <img class="icon-24" src="img/svg/person-fill.svg" alt="persona">
+                                <div class="servicios-asientos" data-tooltip="<%=it.locations.tooltip_vehiculo_asientos1%> <%= element.pax %> <%=it.locations.tooltip_vehiculo_asientos2%>" data-tooltip-location="top">
+                                    <img class="icon-24" src="img/svg/person-fill.svg" alt="<%=it.locations.alt_persona%>">
                                     <div class="icon-number">
                                         <%= element.pax %>
                                     </div>
                                 </div>
 
                                 <% if (element.puertas> 0) { %>
-                                    <div class="servicios-puertas" data-tooltip="vehiculo tiene <%= element.puertas %> puertas" data-tooltip-location="top">
-                                        <img class="icon-24" src="img/svg/puerta.svg" alt="puertas">
+                                    <div class="servicios-puertas" data-tooltip="<%=it.locations.tooltip_vehiculo_tiene%>  <%= element.puertas %> <%=it.locations.tooltip_vehiculo_puertas%>" data-tooltip-location="top">
+                                        <img class="icon-24" src="img/svg/puerta.svg" alt="<%=it.locations.alt_puerta%>">
                                         <div class="icon-number">
                                             <%= element.puertas %>
                                         </div>
                                     </div>
                                 <% } %>
                                 <% if (element.aireacondicionado===1) { %>
-                                    <div class="servicios-aire" data-tooltip="vehiculo tiene aire acondicionado" data-tooltip-location="top">
-                                        <img class="icon-24" src="img/svg/aire.svg" alt="aire">
+                                    <div class="servicios-aire" data-tooltip="<%=it.locations.tooltip_vehiculo_tiene%> <%=it.locations.tooltip_aire_acondicionado%>" data-tooltip-location="top">
+                                        <img class="icon-24" src="img/svg/aire.svg" alt="<%=it.locations.alt_aire%>">
                                     </div>
                                 <% } %>
 
                                 <% if  (element.transmision === "M" ) { %>
-                                    <div class="servicios-trasmision" data-tooltip="vehiculo tiene cambio manual" data-tooltip-location="top">
-                                    <img class="icon-24" src="img/svg/cambio_manual.svg" alt="cambio manual">
+                                    <div class="servicios-trasmision" data-tooltip="<%=it.locations.tooltip_vehiculo_tiene%> <%=it.locations.tooltip_cambio_manual %>" data-tooltip-location="top">
+                                    <img class="icon-24" src="img/svg/cambio_manual.svg" alt="<%=it.locations.alt_cambio_manual%>">
                                     <div class="icon-number">M</div>
                                 <% } else if (element.transmision === "A" ) { %>
-                                    <div class="servicios-trasmision" data-tooltip="vehiculo tiene cambio automatico" data-tooltip-location="top">
-                                    <img class="icon-24" src="img/svg/cambio_automatico.svg" alt="cambio automatico">
+                                    <div class="servicios-trasmision" data-tooltip="<%=it.locations.tooltip_vehiculo_tiene%> <%=it.locations.tooltip_cambio_automatico %>" data-tooltip-location="top">
+                                    <img class="icon-24" src="img/svg/cambio_automatico.svg" alt="<%=it.locations.alt_cambio_auto%>">
                                     <div class="icon-number">A</div>
                                 <% } %>
                                 </div>
                             </div>
                             <div class="car-info-services-2">
-                                <div class="servicios-kilometraje" data-tooltip="vehiculo tiene kilometraje --- cambiar" data-tooltip-location="top">
-                                    <img class="icon-25" src="img/svg/velocimetro.png" alt="kilometraje">
-                                    <div class="icon-kilometro">Kilometraje Ilimitado</div>
+                                <div class="servicios-kilometraje" data-tooltip="<%=it.locations.tooltip_vehiculo_tiene%> <%=it.locations.tooltip_kilometraje %>" data-tooltip-location="top">
+                                    <img class="icon-25" src="img/svg/velocimetro.png" alt="<%=it.locations.alt_kilometraje%>">
+                                    <div class="icon-kilometro"><%=it.locations.kilometraje %></div>
                                 </div>
-                                <div class="servicios-cancelaciones" data-tooltip="vehiculo tiene cancelaciones ---- cambiar" data-tooltip-location="top">
-                                    <img class="icon-25" src="img/svg/hecho.svg" alt="cancelaciones">
-                                    <div class="icon-cancelaciones">Cancelación gratuita</div>
+                                <div class="servicios-cancelaciones" data-tooltip="<%=it.locations.tooltip_vehiculo_tiene%> <%=it.locations.tooltip_cancelaciones %>" data-tooltip-location="top">
+                                    <img class="icon-25" src="img/svg/hecho.svg" alt="<%=it.locations.alt_cancelaciones%>">
+                                    <div class="icon-cancelaciones"><%=it.locations.cancelaciones %></div>
                                 </div>
-                                <div class="servicios-modificaciones" data-tooltip="vehiculo tiene modificaciones --- cambiar" data-tooltip-location="top">
-                                    <img class="icon-25" src="img/svg/hecho.svg" alt="icono completado">
-                                    <div class="icon-modificaciones">Modificación gratuita</div>
+                                <div class="servicios-modificaciones" data-tooltip="<%=it.locations.tooltip_vehiculo_tiene%> <%=it.locations.tooltip_modificaciones %>" data-tooltip-location="top">
+                                    <img class="icon-25" src="img/svg/hecho.svg" alt="<%=it.locations.alt_modificacion%>">
+                                    <div class="icon-modificaciones"><%=it.locations.modificaciones %></div>
                                 </div>
                                 
 
                                 <% for (let k=0; k < element.suplementosgenericos.length; k++ ) { %>
                                     <% if (element.suplementosgenericos[k].valor> 0) { %>
                                         <div class="servicios-kilometraje">
-                                            <img class="icon-25" src="img/svg/hecho.svg" alt="icono completado">
+                                            <img class="icon-25" src="img/svg/hecho.svg" alt="<%=it.locations.alt_icono_hecho %>">
                                             <div class="icon-kilometro" data-tooltip="<%=element.suplementosgenericos[k]["tooltip"] %>">
                                                 <%=element.suplementosgenericos[k]["titulo"] %>
                                             </div>
                                         </div>
                                     <% } else { %>
                                         <div class="servicios-kilometraje">
-                                            <img class="icon-25" src="img/svg/hecho.svg" alt="icono completado">
+                                            <img class="icon-25" src="img/svg/hecho.svg" alt="<%=it.locations.alt_icono_hecho %>">
                                             <div class="icon-kilometro" data-tooltip="<%=element.suplementosgenericos[k]["tooltip"] %>" >
                                                 <%=element.suplementosgenericos[k]["titulo"] %>
                                             </div>
@@ -327,7 +352,7 @@
 
                                 <% for (let k=0; k < element.preciosSuplementoPorTipoChofer["no-oferta"].length; k++ ) { %>
                                     <div class="servicios-conductor-novel">
-                                        <img class="icon-25" src="img/svg/hecho.svg" alt="icono completado">
+                                        <img class="icon-25" src="img/svg/hecho.svg" alt="<%=it.locations.alt_icono_hecho %>">
                                         <div class="icon-kilometro" data-tooltip="<%= element.preciosSuplementoPorTipoChofer["no-oferta"][k]["tooltip"] %>">
                                             <%= element.preciosSuplementoPorTipoChofer["no-oferta"][k]["descripcion"] %>
                                         </div>
@@ -335,20 +360,17 @@
                                 <% } %>
 
                                 <% if (element.preciosSuplementoPorTipoChofer["oferta"].length > 0) { %>
-                                    <h5 class="title-specials">Ofertas Especiales:</h5>
+                                    <h5 class="title-specials"><%=it.locations.ofertas_especiales %></h5>
                                 <% } %>
                                 <% for (let k=0; k < element.preciosSuplementoPorTipoChofer["oferta"].length; k++ ) { %>
                                     <div class="servicios-conductor-novel">
-                                        <img class="icon-25" src="img/svg/hecho.svg" alt="icono completado">
+                                        <img class="icon-25" src="img/svg/hecho.svg" alt="<%=it.locations.alt_icono_hecho %>">
                                         <div class="icon-kilometro" data-tooltip="<%= element.preciosSuplementoPorTipoChofer["oferta"][k]["tooltip"] %>" >
                                             <%= element.preciosSuplementoPorTipoChofer["oferta"][k]["descripcion"] %>
                                         </div>
                                     </div>
                                 <% } %>
-                                    
-                                
-                            
-                                
+
                             </div>
                         </section>
 
@@ -366,30 +388,27 @@
                                 <% } %>
 
                             <% } else { %>
-                                <span class="current-price current-price-consultar">Consultar Precio</span>
+                                <span class="current-price current-price-consultar"><%=it.locations.consultar_precio %></span>
                             <% } %>
 
                             <% if (element.preciototaldias> 0) { %>
                                 <% if(it.diasEntreRecogidaDevolucion> 1) { %>
-                                    <span class="description-price" data-tooltip-location="top" data-tooltip="Precio total para <%= it.diasEntreRecogidaDevolucion %> días">
-                                        Precio por <%= it.diasEntreRecogidaDevolucion %> días</span>
+                                    <span class="description-price" data-tooltip-location="top" data-tooltip="<%=it.locations.alt_precio_total %> <%= it.diasEntreRecogidaDevolucion %> <%=it.locations.dias %>">
+                                        <%=it.locations.precio_por %> <%= it.diasEntreRecogidaDevolucion %> <%=it.locations.dias %>
+                                    </span>
                                 <% } else { %>
-                                    <span class="description-price" data-tooltip-location="top" 
-                                        data-tooltip="Precio total para <%= it.diasEntreRecogidaDevolucion %> día">Precio
-                                        por <%= it.diasEntreRecogidaDevolucion %> día</span>
+                                    <span class="description-price" data-tooltip-location="top" data-tooltip="<%=it.locations.alt_precio_total %> <%= it.diasEntreRecogidaDevolucion %> <%=it.locations.dia %>">
+                                        <%=it.locations.precio_por %> <%= it.diasEntreRecogidaDevolucion %> <%=it.locations.dia %>
+                                    </span>
                                 <% } %>
-                                <button class="btn btn-xxl btn-success btn-reservar">Reservar</button>
+
+                                <button type="submit" name="vehiculo"  value="<%= element.vehiculo %>" class="btn btn-xxl btn-success btn-reservar"><%=it.locations.boton_reservar %></button>
                             <% } %>
 
                         </section>
 
                         <!-- Zona abajo -->
                         <section class="car-info-zones">
-                            <!-- <button class="boton_modal" data-tooltip-location="top" data-tooltip="Condiciones generales">
-                                <img src="./img/svg/condiciones.svg" alt="icono condiciones">
-                                <span class="link-condiciones">Condiciones</span>
-                            </button> -->
-
                             <div id="overlay" class="overlay-transparente modal-invisible">
                                 <ul class="details-modal ">
                                     <li class="details-modal-close">
@@ -460,15 +479,12 @@
 
                         </section>
                     </article>
-                <% }) %>
+                <% } %>
+                </form>
             </div>
             <!--------------- Fin Ofertas ------------------------>
-
-
         </div>
-        
-        
-        
+
         <div class="footer">
             5 footer
         </div>

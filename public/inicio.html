@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="<%=it.locations.idioma_web%>">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Rent a Car Mallorca</title>
+        <title><%=it.locations.titulo%></title>
         <!-- <link rel="stylesheet" href="./css/reset.css"> -->
         <!-- ------------------- jQuery------------------------- -->
         <link rel="stylesheet" href="jquery-ui-1.12.1.custom/jquery-ui.css">
@@ -46,13 +46,33 @@
                 <div class="contacto">
                     <img src="./img/whatsapp-icon-hd-21.jpg"/>
                     <h2>+34 999 999 999</h2>
-                    <p id="reserva-telefono">Contacto reservas</p>
+                    <p id="reserva-telefono"><%=it.locations.contacto_reservas%></p>
                 </div>
 
                 <nav id="idioma">
                     <ul>
                         <li>
-                            <a href="#">Idioma</a>
+                            <%=it.locations.idiomas%>
+                        </li>
+                        <li>
+                            <a href="/autonoleggio">
+                                <img src="./img/banderas/it.png" class="bandera" alt="<%=it.locations.bandera_italiana%>">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/alquiler-coches">
+                                <img src="./img/banderas/es.png" class="bandera" alt="<%=it.locations.bandera_espanola%>">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/mietwagen">
+                                <img src="./img/banderas/de.png" class="bandera" alt="<%=it.locations.bandera_alemana%>">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/rentacar">
+                                <img src="./img/banderas/en.png" class="bandera"  alt="<%=it.locations.bandera_inglesa%>">
+                            </a>
                         </li>
                     </ul>
                 </nav>
@@ -60,16 +80,19 @@
             <!-- Fin Cabecera -->
 
             <section id="eslogan">
-                Conozca Mallorca...
+                <%=it.locations.eslogan%>
             </section>
             
             <!------------ Inicio contenido ------------------------->
             <section id="content">
                 <!-------- Inicio Formulario de Busqueda ------------>
                 <form id="formulario-index" class="form-inline" method="POST" action="/">
+                <input type="hidden" name="success" value="<%=it.success %>">
+                <input type="hidden" name="idioma" value="<%=it.locations.idioma_web%>">
+                <input type="hidden" name="fase" value="1">
                 <div class="aside-box">
                         <div class="titulo-form">
-                            <label>Alquiler de Coches</label>
+                            <label><%=it.locations.titulo_form%></label>
                         </div>
                         <!-------------  Inicio  Fecha/Hora Recogida  ------------------------- -->
                         <div class="form-inline form-buscar">
@@ -81,7 +104,7 @@
                             <div class="formDateRecogida">
                                     <div class="labelDate-form-recogida">
                                         <label>
-                                                Recogida:
+                                            <%= it.locations.recogida %>
                                         </label>
                                     </div>
 
@@ -90,7 +113,7 @@
 
                                     <div class="labelClock-form-recogida">
                                         <label>
-                                                Hora :
+                                            <%= it.locations.hora %>
                                         </label>
                                     </div>
                                     <div class="input-group clockpicker" data-placement="bottom" data-align="top" data-autoclose="true">
@@ -110,7 +133,7 @@
                                 
                                     <div class="labelDate-form-devolucion">
                                         <label>
-                                                Devolucion :
+                                            <%=it.locations.devolucion %>
                                         </label>
                                     </div>
 
@@ -119,7 +142,7 @@
 
                                     <div class="labelClock-form-devolucion">
                                         <label>
-                                                Hora :
+                                                <%=it.locations.hora %>
                                         </label>
                                     </div>
                                     <div class="input-group clockpicker" data-placement="bottom" data-align="top" data-autoclose="true">
@@ -137,17 +160,17 @@
                             <section class="centrado gap-10">
                                 <input id="rangoedad" type="checkbox" name="conductor_con_experiencia" value="on" class="elemento__inputradio" checked="checked">
                                 <label class="elemento__circulo" for="rangoedad"></label>
-                                <label class="elemento__titulo" for="rangoedad">Conductor tiene 23 años o mas</label>
+                                <label class="elemento__titulo" for="rangoedad"><%=it.locations.conductor_experiencia %></label>
                             </section>
 
                             <section id="desplegable_edad" class="centrado invisible gap-10">
-                                <label for="edad_conductor">Edad del conductor</label>
+                                <label for="edad_conductor"><%=it.locations.edad_conductor %></label>
                                 <input id="edad_conductor" type="number" name="edad_conductor" value="22" min="18" max="22" class="edad_conductor">
                             </section>
                         </div> 
                         <section class="btnBuscar">
                             <button type="submit" id="boton-VerPrecios" class="btn btn-primary btn-lg btn-block">
-                                Ver precios
+                                <%=it.locations.ver_precios %>
                             </button>
                         </section>
                     </div>         
@@ -193,7 +216,7 @@
                             
                                     <div class="DetailCarMotor_Feature">
                                         <div class="Icon__svgContainer">
-                                            <img src="./img/svg/tansmision.svg" alt="transmision">
+                                            <img src="./img/svg/cambio_manual.svg" alt="transmision">
                                         </div>
                                         <div class="DetailCar_Etiqueta">
                                             M
@@ -247,7 +270,7 @@
                             
                                     <div class="DetailCarMotor_Feature">
                                         <div class="Icon__svgContainer">
-                                            <img src="./img/svg/tansmision.svg" alt="transmision">
+                                            <img src="./img/svg/cambio_manual.svg" alt="transmision">
                                         </div>
                                         <div class="DetailCar_Etiqueta">
                                             M
@@ -300,7 +323,7 @@
                                 
                                     <div class="DetailCarMotor_Feature">
                                         <div class="Icon__svgContainer">
-                                            <img src="./img/svg/tansmision.svg" alt="transmision">
+                                            <img src="./img/svg/cambio_manual.svg" alt="transmision">
                                         </div>
                                         <div class="DetailCar_Etiqueta">
                                             M
@@ -353,7 +376,7 @@
                                 
                                     <div class="DetailCarMotor_Feature">
                                         <div class="Icon__svgContainer">
-                                            <img src="./img/svg/tansmision.svg" alt="transmision">
+                                            <img src="./img/svg/cambio_manual.svg" alt="transmision">
                                         </div>
                                         <div class="DetailCar_Etiqueta">
                                             M
@@ -406,7 +429,7 @@
                                 
                                     <div class="DetailCarMotor_Feature">
                                         <div class="Icon__svgContainer">
-                                            <img src="./img/svg/tansmision.svg" alt="transmision">
+                                            <img src="./img/svg/cambio_manual.svg" alt="transmision">
                                         </div>
                                         <div class="DetailCar_Etiqueta">
                                             M
@@ -459,7 +482,7 @@
                                 
                                     <div class="DetailCarMotor_Feature">
                                         <div class="Icon__svgContainer">
-                                            <img src="./img/svg/tansmision.svg" alt="transmision">
+                                            <img src="./img/svg/cambio_manual.svg" alt="transmision">
                                         </div>
                                         <div class="DetailCar_Etiqueta">
                                             M
@@ -512,7 +535,7 @@
                                 
                                     <div class="DetailCarMotor_Feature">
                                         <div class="Icon__svgContainer">
-                                            <img src="./img/svg/tansmision.svg" alt="transmision">
+                                            <img src="./img/svg/cambio_manual.svg" alt="transmision">
                                         </div>
                                         <div class="DetailCar_Etiqueta">
                                             M
@@ -565,7 +588,7 @@
                                 
                                     <div class="DetailCarMotor_Feature">
                                         <div class="Icon__svgContainer">
-                                            <img src="./img/svg/tansmision.svg" alt="transmision">
+                                            <img src="./img/svg/cambio_manual.svg" alt="transmision">
                                         </div>
                                         <div class="DetailCar_Etiqueta">
                                             M
@@ -624,8 +647,8 @@
         <!-- Fin contenido -->
 
             <footer id="footer">
-                <div class="pie">Información</div>
-                <div class="info">@lvaro Ruiz WEB &copy;</div>
+                <div class="pie"><%=it.locations.informacion%></div>
+                <div class="info"><%=it.locations.copyright%>&copy;</div>
             </footer>
         </div>
         <!-- Fin container -->
@@ -657,6 +680,25 @@
         showMonthAfterYear: false,
         yearSuffix: ''
     };
+
+    $.datepicker.regional['en'] = {
+            closeText: 'Close',
+            prevText: '< Ant',
+            nextText: 'Sig >',
+            currentText: 'Today',
+            monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+            monthNamesShort: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
+            dayNames: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
+            dayNamesShort: ['Dom', 'Lun', 'Mar', 'Mié', 'Juv', 'Vie', 'Sáb'],
+            dayNamesMin: ['Do', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sá'],
+            weekHeader: 'Sm',
+            dateFormat: 'dd/mm/yy',
+            firstDay: 1,
+            isRTL: false,
+            showMonthAfterYear: false,
+            yearSuffix: ''
+    };
+
     $.datepicker.setDefaults($.datepicker.regional['es']);
 </script>
 

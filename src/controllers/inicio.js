@@ -1,14 +1,97 @@
-const express = require('express');
+// const express = require('express');
 const fetch = require("node-fetch");
-
-const formSchema = require("../schemas/formschema");
+const Joi = require("joi");
+const nanoid = require("nanoid");
 const session = require('express-session');
+const geolocation = require("./geolocation");
+const locations = require("./locations");
 
-const URI_BACKEND = `${process.env.URL_BACKEND}:${process.env.PORT_BACKEND}/api`;
+//variables
+const URI_API_BACKEND = `${process.env.URL_BACKEND}:${process.env.PORT_BACKEND}${process.env.ENDPOINT_API_BACKEND}`;
+const URI_STATS_BACKEND = `${process.env.URL_BACKEND}:${process.env.PORT_BACKEND}${process.env.ENDPOINT_STATS_BACKEND}`;
 
-exports.getHome = async (req, res) =>
+
+const eta = require("eta");
+
+
+exports.getHome = async (req, res, languageBrowser) =>
 {
-    return res.render("inicio");
+
+    const id = nanoid.nanoid();
+    const location = await geolocation.GetIPTimeZone(req);
+
+    // Bot check
+    if (location.agent && location.agent.isBot === true) {
+        return res.status(404).send("Not Found");
+    }
+    
+    const locationLanguage = await GenerateLocationBrowser(
+        languageBrowser, 
+        req.headers["accept-language"].split(",")[1].split(";")[0]
+    );
+
+    res.render("inicio", { "success": id, "locations": locationLanguage });
+
+    const body = {
+        "token": process.env.TOKEN_FOR_BACKEND_ACCESS,
+        "useragent": req.useragent,
+        "location": location,
+        "id": id
+    };
+
+    const responseRaw = await fetch(URI_STATS_BACKEND, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        credentials: "include",
+        body: JSON.stringify(body)
+    });
+
+    const dataResponse = await responseRaw.json();
+
+    // TODO: seguridad comprobar que proviene del backend
+    if (dataResponse.token !== "") {
+
+    }
+
+    if (dataResponse.isOk === false) {
+        return res.status(404).send("Not found");
+    }
+
+};
+
+const GenerateLocationBrowser = async (languageBrowser, reqHeadersLocation) =>
+{
+
+    //lang = es, it, en, de
+    if (languageBrowser === undefined) 
+    {
+        languageBrowser = await CheckLanguage(reqHeadersLocation);
+    }
+
+    let lenguaje = await locations.GetVarLocales();
+
+    // todo: mejorar comprobacion
+    if (lenguaje === undefined)
+    {
+        console.log("lenguaje esta vacio");
+        //pedimos al backend que nos lo envie
+        await locations.Frontend_TO_Backend();
+        lenguaje = await locations.GetVarLocales();
+    }
+    return lenguaje[languageBrowser];
+
+};
+
+const CheckLanguage = async (lang) =>
+{
+
+    if (lang !== "es" && lang !== "en" && lang !== "it" && lang !== "de") {
+        lang = "en";
+    }
+
+    return lang;
 
 };
 
@@ -19,15 +102,14 @@ exports.postHome = async (req, res) =>
 
     if (isSchemaValid === false) {
         //TODO: mejorar
-        res.status(404).send("Not found");
-        console.error("schema invalido");
-        return;
+        console.error("control schema invalido");
+        return res.status(404).send("Not found");
     }
 
     const body = { "token": process.env.TOKEN_FOR_BACKEND_ACCESS, ...req.body };
 
     //enviamos al backedn la informacion
-    const responseRaw = await fetch(URI_BACKEND, {
+    const responseRaw = await fetch(URI_API_BACKEND, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -44,11 +126,18 @@ exports.postHome = async (req, res) =>
     {
 
     }
+    // const languageBrowser = await CheckLanguage(req.body.idioma);
+    // const lenguaje = await locations.GetVarLocales();
+
+    const locationLanguage = await GenerateLocationBrowser(req.body.idioma);
 
     if (dataResponse.isOk === false) {
         if (dataResponse.errorFormulario !== "") {
-            return res.render("inicio", {
-                "errorFormulario": dataResponse.errorFormulario
+            return res.render("inicio", 
+            {
+                "success": req.body.success,
+                "errorFormulario": dataResponse.errorFormulario,
+                "locations": locationLanguage
             });
         }
 
@@ -61,7 +150,9 @@ exports.postHome = async (req, res) =>
             "data": dataResponse.data,
             "formdata": req.body,
             "errorFormulario": dataResponse.errorFormulario,
+            "success": req.body.success,
             "diasEntreRecogidaDevolucion": dataResponse.diasEntreRecogidaDevolucion,
+            "locations": locationLanguage
 
         });
     }
@@ -77,11 +168,13 @@ exports.postHome = async (req, res) =>
             "data": dataResponse.data,
             "formdata": req.body,
             "errorFormulario": dataResponse.errorFormulario,
+            "success": req.body.success,
             "diasEntreRecogidaDevolucion": dataResponse.diasEntreRecogidaDevolucion,
             "suplementogenerico_base": dataResponse.suplementogenerico_base,
             "suplementotipochofer_base": dataResponse.suplementotipochofer_base,
             "preciosPorClase": dataResponse.preciosPorClase,
-            "condicionesgenerales": dataResponse.condicionesgenerales
+            "condicionesgenerales": dataResponse.condicionesgenerales,
+            "locations": locationLanguage
         });
 
     }
@@ -156,30 +249,33 @@ const OrdenarPorPrecioTotalDias = async (datosvehiculos) => {
 
 const ControlSchema = async (body) => {
 
-    const tamanyoBody = Object.keys(body).length;
-    if (tamanyoBody <= 0 || tamanyoBody > formSchema.length) return false;
 
+    const schema = Joi.object({
+        conductor_con_experiencia: Joi.string(),
+        "idioma": Joi.string().required(),
+        edad_conductor: Joi.number().required(),
+        "fase": Joi.number().required(),
+        fechaDevolucion: Joi.string().required(),
+        horaDevolucion: Joi.string().required(),
+        fechaRecogida: Joi.string().required(),
+        horaRecogida: Joi.string().required(),
+        "success": Joi.string().required(),
+    });
+
+
+    const options = {
+        abortEarly: false,
+        allowUnknown: false,
+        stripUnknown: false
+    };
+    const validation = schema.validate(body, options);
     let isValid = false;
-    for (key in body) 
+    
+    if (validation.error === undefined)
     {
-        if (body[key] === "" || body[key] === undefined) {
-            return false;
-        }
-
-        let schemaValid = isValid = false;
-        for (let i = 0; i < formSchema.length; i++) {
-            if (key === formSchema[i]) {
-                schemaValid = true;
-                isValid = true;
-                break;
-            }
-        }
-
-        if (schemaValid === false) {
-            return false;
-        }
-
-    }
-
+        isValid = true;
+    } 
+    
     return isValid;
+
 }

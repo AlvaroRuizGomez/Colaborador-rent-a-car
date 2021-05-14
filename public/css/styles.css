@@ -25,6 +25,18 @@ body{
   height: 185px;
   background-color: #e6e9f0;
   border-bottom: 1px solid rgba(225, 225, 226, 0.8);
+
+  grid-template-areas: 
+  "c d idioma"
+  ;
+
+
+}
+
+.bandera
+{
+  width: 50px;
+  border: 1px solid black;
 }
 
 .logo {
@@ -108,6 +120,7 @@ body{
 }
 
 #idioma {
+  grid-area: idioma;
   width: 100%;
   height: 100%;
   padding-right: 20px;
@@ -115,7 +128,7 @@ body{
 
 #idioma > ul {
   display: grid;
-  grid-template-columns: 1fr;
+  /* grid-template-columns: 1fr; */
   align-items: center;
   justify-content: center;
   text-align: right;
@@ -129,9 +142,9 @@ body{
   
   width: 100%;
   margin-top: -53px;
-  margin-left: 37px;
+  /* margin-left: 37px; */
 
-  position: absolute;
+  /* position: absolute; */
   z-index: 100;
   justify-items: center;
   
