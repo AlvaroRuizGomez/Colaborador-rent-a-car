@@ -273,10 +273,10 @@
                                 </div>
                             <% } %>
                             <img class="car-image" src="./img/Img-Vehiculos/rescambiada/png/<%= element.ImagenVehiclo %>" alt="<%= element.descripcion %>">
-                            <button class="boton_modal" data-tooltip-location="top" data-tooltip="<%=it.locations.tooltip_condiciones%>">
+                            <a class="boton_modal" role="button" data-tooltip-location="top" data-tooltip="<%=it.locations.tooltip_condiciones%>">
                                 <img src="./img/svg/condiciones.svg" alt="<%=it.locations.alt_icono_condiciones %>">
                                 <span class="link-condiciones"><%=it.locations.condiciones %></span>
-                            </button>
+                            </a>
                         </section>
                         <!-- Zona centro -->
                         <section class="car-info">
@@ -424,9 +424,9 @@
                             <div id="overlay" class="overlay-transparente modal-invisible">
                                 <ul class="details-modal ">
                                     <li class="details-modal-close">
-                                        <button class="boton-cerrar-modal">
+                                        <a class="boton-cerrar-modal" role="button">
                                             <img class="cerrar-modal" src="./img/svg/cerrar_modal.svg" alt="boton cerrar modal">
-                                        </button>
+                                        </a>
                                     </li>
                                     <li class="details-modal-title">
                                         <h5 class="details-modal-title-text">CONDICIONES GENERALES</h5>

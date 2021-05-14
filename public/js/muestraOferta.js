@@ -49,6 +49,7 @@ for (let i = 0; i < botonCondiciones.length; i++)
     botonCondiciones[i].addEventListener("click", async (evento)=> 
     {
         
+        evento.preventDefault;
         // const divOverlay = evento.target.parentElement.nextElementSibling;
         const divOverlay = evento.target.parentElement.parentElement.parentElement.lastElementChild.firstElementChild;
 

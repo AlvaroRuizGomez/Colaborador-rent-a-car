@@ -445,7 +445,7 @@ background: red;
   width: fit-content;
   display: grid;
   grid-template-columns: 250px 350px 185px;
-  grid-template-rows: auto 25px;
+  grid-template-rows: auto 20px;
   grid-template-areas: 
   "i c d"
   "z z d";
@@ -556,6 +556,10 @@ background: red;
   grid-area: condiciones;
   margin-left: 1.5em;
   justify-self: flex-start;
+
+  display: flex;
+  gap: 5px;
+
 }
 
 .icon-24
@@ -915,7 +919,7 @@ background: red;
 .boton-cerrar-modal
 {
   width: 100px;
-  height: 100px;
+  /* height: 100px; */
 }
 
 /* FIN VENTANA MODAL */
