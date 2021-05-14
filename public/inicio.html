@@ -91,11 +91,12 @@
                         </div>
                         <!-------------  Inicio  Fecha/Hora Recogida  ------------------------- -->
                         <div class="form-inline form-buscar">
-                            <% if (it.errorFormulario !== undefined ) { %>
+                            <% if (it.errorFormulario !== "undefined" || it.errorFormulario !== "" ) { %>
                                 <label>
-                                    <%= it.errorFormulario %>
+                                    <%= it.locations[it.errorFormulario] %>
+                                    
                                 </label>
-                                <% } %>
+                            <% } %>
                             <div class="formDateRecogida">
                                     <div class="labelDate-form-recogida">
                                         <label>

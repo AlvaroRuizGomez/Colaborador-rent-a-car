@@ -230,10 +230,11 @@
 
             <!--------------- Inicio Ofertas --------------------->
             <div class="ofertas">
-                <% if (it.data.length <=0) { %>
+                <% if (it.data.length <= 0) { %>
                     <article class="">
                         <h3 class="error-sinproductos">
                             <%= it.errorFormulario %>
+                            <%= it.locations[it.errorFormulario] %>
                         </h3>
                     </article>
                 <% } else { %>
@@ -336,15 +337,19 @@
                                     <% if (element.suplementosgenericos[k].valor> 0) { %>
                                         <div class="servicios-kilometraje">
                                             <img class="icon-25" src="img/svg/hecho.svg" alt="<%=it.locations.alt_icono_hecho %>">
-                                            <div class="icon-kilometro" data-tooltip="<%=element.suplementosgenericos[k]["tooltip"] %>">
-                                                <%=element.suplementosgenericos[k]["titulo"] %>
+                                            <% const localizacion = it.locations[element.suplementosgenericos[k]["tooltip"]] %>
+                                            <% const tooltipReplaced = localizacion.replace("X", element.suplementosgenericos[k]["valor"] ) %>
+                                            <div class="icon-kilometro" data-tooltip="<%=tooltipReplaced %>">
+                                                <%=it.locations[element.suplementosgenericos[k]["titulo"]] %>
                                             </div>
                                         </div>
                                     <% } else { %>
                                         <div class="servicios-kilometraje">
                                             <img class="icon-25" src="img/svg/hecho.svg" alt="<%=it.locations.alt_icono_hecho %>">
-                                            <div class="icon-kilometro" data-tooltip="<%=element.suplementosgenericos[k]["tooltip"] %>" >
-                                                <%=element.suplementosgenericos[k]["titulo"] %>
+                                            <% const localizacion=it.locations[element.suplementosgenericos[k]["tooltip"]] %>
+                                            <% const tooltipReplaced=localizacion.replace("X", element.suplementosgenericos[k]["valor"] ) %>
+                                            <div class="icon-kilometro" data-tooltip="<%=tooltipReplaced %>" >
+                                                <%=it.locations[element.suplementosgenericos[k]["titulo"]] %>
                                             </div>
                                         </div>
                                     <% } %>
@@ -353,8 +358,13 @@
                                 <% for (let k=0; k < element.preciosSuplementoPorTipoChofer["no-oferta"].length; k++ ) { %>
                                     <div class="servicios-conductor-novel">
                                         <img class="icon-25" src="img/svg/hecho.svg" alt="<%=it.locations.alt_icono_hecho %>">
-                                        <div class="icon-kilometro" data-tooltip="<%= element.preciosSuplementoPorTipoChofer["no-oferta"][k]["tooltip"] %>">
-                                            <%= element.preciosSuplementoPorTipoChofer["no-oferta"][k]["descripcion"] %>
+                                        <% const localizacion=it.locations[element.preciosSuplementoPorTipoChofer["no-oferta"][k]["tooltip"]] %>
+                                        <% const tooltipReplaced=localizacion.replace("X", element.preciosSuplementoPorTipoChofer["no-oferta"][k]["valor"] ) %>
+                                        <div class="icon-kilometro" data-tooltip="<%=tooltipReplaced %>">
+                                            <% const localizacionDesc=it.locations[ element.preciosSuplementoPorTipoChofer["no-oferta"][k]["descripcion"]] %>
+                                            <% const descriptionReplaced=localizacionDesc.replace("X", element.preciosSuplementoPorTipoChofer["no-oferta"][k]["valor"] ) %>
+
+                                            <%= descriptionReplaced %>
                                         </div>
                                     </div>
                                 <% } %>
@@ -365,8 +375,10 @@
                                 <% for (let k=0; k < element.preciosSuplementoPorTipoChofer["oferta"].length; k++ ) { %>
                                     <div class="servicios-conductor-novel">
                                         <img class="icon-25" src="img/svg/hecho.svg" alt="<%=it.locations.alt_icono_hecho %>">
-                                        <div class="icon-kilometro" data-tooltip="<%= element.preciosSuplementoPorTipoChofer["oferta"][k]["tooltip"] %>" >
-                                            <%= element.preciosSuplementoPorTipoChofer["oferta"][k]["descripcion"] %>
+
+                                        
+                                        <div class="icon-kilometro" data-tooltip="<%=tooltipReplaced %>" >
+                                            <%=it.locations[ element.preciosSuplementoPorTipoChofer["oferta"][k]["descripcion"]] %>
                                         </div>
                                     </div>
                                 <% } %>

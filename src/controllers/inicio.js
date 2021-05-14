@@ -152,6 +152,9 @@ exports.postHome = async (req, res) =>
 
     req.session.data = dataResponse.data;
 
+    // dataResponse.data = [];
+    // dataResponse.errorFormulario = "error_formulario1";
+
     if (dataResponse.data.length <= 0) {
         res.render("muestraOferta", {
             "data": dataResponse.data,
