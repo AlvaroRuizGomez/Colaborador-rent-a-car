@@ -19,7 +19,10 @@ exports.Frontend_TO_Backend = async (req, res) =>
     locales = dataResponse.datos;
     console.log("seteado los locales");
 
-    res.send({"isOk": true});
+    if (res !== undefined)
+    {
+        res.send({"isOk": true});
+    }
 
 };
 

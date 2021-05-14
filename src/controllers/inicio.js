@@ -70,13 +70,16 @@ const GenerateLocationBrowser = async (languageBrowser, reqHeadersLocation) =>
         languageBrowser = await CheckLanguage(reqHeadersLocation);
     }
 
-    const lenguaje = await locations.GetVarLocales();
+    let lenguaje = await locations.GetVarLocales();
 
     // todo: mejorar comprobacion
-    // if (lenguaje[languageBrowser] === undefined)
-    // {
-    //     return lenguaje[en];
-    // }
+    if (lenguaje === undefined)
+    {
+        console.log("lenguaje esta vacio");
+        //pedimos al backend que nos lo envie
+        await locations.Frontend_TO_Backend();
+        lenguaje = await locations.GetVarLocales();
+    }
     return lenguaje[languageBrowser];
 
 };

@@ -272,7 +272,7 @@
                                 </div>
                             <% } %>
                             <img class="car-image" src="./img/Img-Vehiculos/rescambiada/png/<%= element.ImagenVehiclo %>" alt="<%= element.descripcion %>">
-                            <button class="boton_modal" data-tooltip-location="top" data-tooltip="Condiciones generales">
+                            <button class="boton_modal" data-tooltip-location="top" data-tooltip="<%=it.locations.tooltip_condiciones%>">
                                 <img src="./img/svg/condiciones.svg" alt="<%=it.locations.alt_icono_condiciones %>">
                                 <span class="link-condiciones"><%=it.locations.condiciones %></span>
                             </button>
@@ -397,7 +397,7 @@
                                         <%=it.locations.precio_por %> <%= it.diasEntreRecogidaDevolucion %> <%=it.locations.dias %>
                                     </span>
                                 <% } else { %>
-                                    <span class="description-price" data-tooltip-location="top" data-tooltip="Precio total para <%= it.diasEntreRecogidaDevolucion %> <%=it.locations.dia %>">
+                                    <span class="description-price" data-tooltip-location="top" data-tooltip="<%=it.locations.alt_precio_total %> <%= it.diasEntreRecogidaDevolucion %> <%=it.locations.dia %>">
                                         <%=it.locations.precio_por %> <%= it.diasEntreRecogidaDevolucion %> <%=it.locations.dia %>
                                     </span>
                                 <% } %>
