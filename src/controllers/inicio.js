@@ -131,8 +131,15 @@ exports.postHome = async (req, res) =>
 
     const locationLanguage = await GenerateLocationBrowser(req.body.idioma);
 
-    if (dataResponse.isOk === false) {
-        if (dataResponse.errorFormulario !== "") {
+    if (dataResponse.isOk === false)
+    {
+        if (dataResponse.errorFormulario === "")
+        {
+            // Blacklist?
+            return res.status(404).sender("Not found");
+        }
+        else
+        {
             return res.render("inicio", 
             {
                 "success": req.body.success,
