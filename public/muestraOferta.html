@@ -429,46 +429,50 @@
                                         </a>
                                     </li>
                                     <li class="details-modal-title">
-                                        <h5 class="details-modal-title-text">CONDICIONES GENERALES</h5>
+                                        <h5 class="details-modal-title-text"><%=it.locations.titulo_condiciones_generales %></h5>
                                     </li>
-                                    <li class="subtitulo-contenido-modal">Requisitos Conductor Plus:</li>
+                                    <li class="subtitulo-contenido-modal"><%=it.locations.requisitos_conductor_plus %></li>
                                         <li>
-                                            <b class="negrita">Conductor Plus Coche:</b> <%= it.condicionesgenerales["choferPlus232Cars"]["descripcion"] %>
+                                            <b class="negrita"><%=it.locations.conductor_plus_coche %></b> <%= it.condicionesgenerales["choferPlus232Cars"]["descripcion"] %>
                                         </li>
                                         <li>
-                                            <b class="negrita">Conductor Plus Moto:</b> <%= it.condicionesgenerales["choferPlus252Motos"]["descripcion"] %>
+                                            <b class="negrita"><%=it.locations.conductor_plus_moto %></b> <%= it.condicionesgenerales["choferPlus252Motos"]["descripcion"] %>
                                         </li>
-                                    <li class="subtitulo-contenido-modal">Suplemento Conductor Plus Coche:</li>
+                                    <li class="subtitulo-contenido-modal"><%=it.locations.suplemento_conductor_plus_coche %></li>
                                         <% for (let entrada of it.condicionesgenerales.choferPlus232Cars.datos ) { %>
                                             <li>
-                                                <b class="negrita">Coche <%= entrada["descripcion_vehiculo"] %>:</b> <%= entrada["valor"] %> € por día.
+                                                <% const localizationDesc = it.locations[entrada["descripcion_vehiculo"]]   %>
+                                                <b class="negrita"><%= localizationDesc %> :</b> <%= entrada["valor"] %> € <%= it.locations.pordia %>
                                             </li>
                                         <% } %>
-                                    <li class="subtitulo-contenido-modal">Suplemento Conductor Plus Motos:</li>
+                                    <li class="subtitulo-contenido-modal"><%=it.locations.suplemento_conductor_plus_moto %></li>
                                         <% for (let entrada of it.condicionesgenerales.choferPlus252Motos.datos ) { %>
-                                            <li><b class="negrita"><%= entrada["descripcion_vehiculo"] %>:</b> <%= entrada["valor"] %> € por día.</li>
+                                            <% const localizationDesc=it.locations[entrada["descripcion_vehiculo"]] %>
+                                            <li><b class="negrita"><%= localizationDesc %>:</b> <%= entrada["valor"] %> € <%= it.locations.pordia %></li>
                                         <% } %>
                                     <li class="subtitulo-contenido-modal">
-                                        Edad conductor joven:
+                                        <%=it.locations.edad_conductor_joven %>
                                     </li>
                                         <li>
-                                            <b class="negrita">Conductor joven de Coches:</b> de 18 años a <%= it.condicionesgenerales.edad_minima_para_conductor_plus_coche - 1 %> años.
+                                            <b class="negrita"><%=it.locations.conductor_joven_coche %></b> <%=it.locations.from_deciocho_a %> <%= it.condicionesgenerales.edad_minima_para_conductor_plus_coche - 1 %> <%=it.locations.anos_final %>
                                         </li>
                                         <li>
-                                            <b class="negrita">Conductor joven de Motos:</b> de 18 años a <%= it.condicionesgenerales.edad_minima_para_conductor_plus_motos - 1 %> años.
+                                            <b class="negrita"><%=it.locations.conductor_joven_moto %></b> <%=it.locations.from_deciocho_a %> <%= it.condicionesgenerales.edad_minima_para_conductor_plus_motos - 1 %> <%=it.locations.anos_final %>
                                         </li>
                                     <li class="subtitulo-contenido-modal">
-                                        Suplemento conductor joven de Coches:
+                                        <%=it.locations.suplemento_conductor_joven_coches %>
                                     </li>
                                         <% for (let entrada of it.condicionesgenerales.choferPlusNovelCars.datos ) { %>
                                             <li>
-                                                <b class="negrita">Coche <%= entrada["descripcion_vehiculo"] %>:</b> <%= entrada["valor"] %> € por día.
+                                                <% const localizationDesc=it.locations[entrada["descripcion_vehiculo"]] %>
+                                                <b class="negrita"><%= localizationDesc %>:</b> <%= entrada["valor"] %> € <%= it.locations.pordia %>
                                             </li>
                                         <% } %>
                                     <li class="subtitulo-contenido-modal">
                                         Suplemento conductor joven de Motos:
                                     </li>
                                         <% for (let entrada of it.condicionesgenerales.choferPlusNovelMotos.datos ) { %>
+                                            <!-- quedado aqui -->
                                             <li><b class="negrita"><%= entrada["descripcion_vehiculo"] %>:</b> <%= entrada["valor"] %> € por día.</li>
                                         <% } %>
                                     <li class="subtitulo-contenido-modal">Permiso de conducir internacional:</li>
