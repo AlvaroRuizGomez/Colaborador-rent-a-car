@@ -469,27 +469,27 @@
                                             </li>
                                         <% } %>
                                     <li class="subtitulo-contenido-modal">
-                                        Suplemento conductor joven de Motos:
+                                        <%=it.locations.suplemento_conductor_joven_motos %>
                                     </li>
                                         <% for (let entrada of it.condicionesgenerales.choferPlusNovelMotos.datos ) { %>
-                                            <!-- quedado aqui -->
-                                            <li><b class="negrita"><%= entrada["descripcion_vehiculo"] %>:</b> <%= entrada["valor"] %> € por día.</li>
+                                            <% const localizationDesc=it.locations[entrada["descripcion_vehiculo"]] %>
+                                            <li><b class="negrita"><%= localizationDesc %>:</b> <%= entrada["valor"] %> € <%= it.locations.pordia %></li>
                                         <% } %>
-                                    <li class="subtitulo-contenido-modal">Permiso de conducir internacional:</li>
-                                        <li>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Mollitia, dicta.</li>
-                                    <li class="subtitulo-contenido-modal">Conductor adicional:</li>
-                                        <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae, repellat.</li>
-                                    <li class="subtitulo-contenido-modal">Pago:</li>
-                                        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic, enim!</li>
-                                    <li class="subtitulo-contenido-modal">Seguro:</li>
-                                        <li>El precio de los coches incluye seguro a todo riesgo (pero no cubre pérdida o rotura de llaves).</li>
-                                        <li>El precio de las motos incluye una garantia (pero no cubre pérdida o rotura de llaves).</li>
-                                    <li class="subtitulo-contenido-modal">Noche por fuera de entrega:</li>
-                                        <li><b class="negrita">Coches:</b> <%= it.suplementogenerico_base["nocheCar"] %> € por dia </li>
-                                        <li><b class="negrita">Motos:</b> <%= it.suplementogenerico_base["nocheMoto"] %> € por dia </li>
-                                    <li class="subtitulo-contenido-modal">Fuera de tiempo en la entrega:</li>
-                                        <li><b class="negrita">Coches:</b> <%= it.suplementogenerico_base["outTimeCar"] %> € por dia </li>
-                                        <li><b class="negrita">Motos:</b> <%= it.suplementogenerico_base["outTimeMoto"] %> € por dia </li>
+                                    <li class="subtitulo-contenido-modal"><%=it.locations.permiso_conducir_internacional %></li>
+                                        <li><%=it.locations.permiso_conducir_internacional_descripcion %></li>
+                                    <li class="subtitulo-contenido-modal"><%=it.locations.conductor_adicional %></li>
+                                        <li><%=it.locations.conductor_adicional_descripcion %></li>
+                                    <li class="subtitulo-contenido-modal"><%= it.locations.pago_condiciones %></li>
+                                        <li><%=it.locations.pago_condiciones_descripcion %></li>
+                                    <li class="subtitulo-contenido-modal"><%=it.locations.seguro_condiciones %></li>
+                                        <li><%= it.locations.seguro_precio_coches_condiciones %></li>
+                                        <li><%= it.locations.seguro_precio_motos_condiciones %></li>
+                                    <li class="subtitulo-contenido-modal"><%=it.locations.noche_fuera_condiciones %></li>
+                                        <li><b class="negrita"><%=it.locations.coches_condiciones %></b> <%= it.suplementogenerico_base["nocheCar"]["valor"] %> € <%=it.locations.pordia%></li>
+                                        <li><b class="negrita"><%=it.locations.motos_condiciones %></b> <%= it.suplementogenerico_base["nocheMoto"]["valor"] %> € <%=it.locations.pordia%></li>
+                                    <li class="subtitulo-contenido-modal"><%=it.locations.fuera_tiempo_entrega %></li>
+                                        <li><b class="negrita"><%=it.locations.coches_condiciones %></b> <%= it.suplementogenerico_base["outTimeCar"]["valor"] %> € <%=it.locations.pordia%></li>
+                                        <li><b class="negrita"><%=it.locations.motos_condiciones %></b> <%= it.suplementogenerico_base["outTimeMoto"]["valor"] %> € <%=it.locations.pordia%></li>
                                 </ul>
                             </div>
 
