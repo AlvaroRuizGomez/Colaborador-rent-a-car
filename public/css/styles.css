@@ -552,7 +552,7 @@ body{
   position: relative;
   left: 0.8%;
 
-  z-index: 2;
+  /* z-index: 2; */
 }
 
 
