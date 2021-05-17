@@ -1,0 +1,513 @@
+*{
+    /* width: 100%; */
+    text-decoration: none;
+    margin: 0px;
+    padding: 0px;
+    font-family: sans-serif;
+  }
+  
+  
+  body {
+    width:100%;
+    text-align: center;
+    background-color: #fafafa;
+  }
+
+  .header {
+    height: 190px;
+    background-color: #e6e9f0;
+  }
+  
+  .container {
+    width: 1200px;
+    /* position: relative; */
+    margin-left: 140px;
+    display: flex;
+  }
+  
+  .container a img {
+    width: 300px;
+    margin-top: 25px;
+  }
+  
+  .contacto{
+    width: 100%;
+    margin-top: 73px;
+  }
+  
+  .contacto img {
+    width: 150px;
+    vertical-align: middle;
+    border-style: none;
+  }
+
+  /* ------- Inicio Contenido ------ */
+
+#container {
+  width: 89%;
+  height: auto;
+  margin: 0px auto;
+  margin-bottom: 40px;
+  min-height: 600px;
+}
+  
+.espacio {
+  display: block;
+  margin-bottom: 2px;
+}
+
+#content {
+  display: grid;
+  grid-template-columns: 20% 963px;
+  align-items: start;
+  justify-items: space-between;
+  grid-column-gap: 60px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+  /*----------- Inicio Bloque Sidebar ----------- */
+#sidebarBlock{
+  padding: 15px;
+  border: 1px solid #ccc;
+  width: 270px;
+}
+
+#sidebarBlock small {
+  margin-left: 75px;
+}
+
+.dataContentBox {
+  max-width: 100%;
+  background-color: #fff;
+  margin-bottom: 0;
+  position: relative;
+}
+  
+.dataContentBox .databox {
+  font-size: 14px;
+  line-height: 16px;
+}
+  
+.databox {
+  padding: 20px;
+  font-size: 14px;
+  line-height: 16px;
+}
+
+.row {
+  overflow: visible;
+  clear: both;
+}
+  
+.bookingDetails {
+  padding-top: 0;
+}
+
+.bookingDetails-1 {
+  display: grid;
+  grid-template-columns: repeat(5, 190px);
+  grid-auto-rows: 28px;
+  grid-template-areas:
+      "a a b b b"
+      "c c d d d"
+      "e e f f f";
+  align-items: start;
+  margin-bottom: 0px;
+  color: rgb(51, 51, 51);
+  position: relative;
+}
+
+.localServiceCharges {
+  display: grid;
+  grid-template-columns: repeat(5, 133px);
+  grid-auto-rows: 28px;
+  grid-template-areas:
+      "g g h h h"
+      "i i j j j";
+  align-items: start;
+  margin-bottom: 0px;
+  padding: 0px 10px;
+  color: rgb(51, 51, 51);
+  position: relative;
+}
+
+.totalReserva {
+  display: grid;
+  grid-template-columns: repeat(5, 133px);
+  grid-auto-rows: 28px;
+  grid-template-areas:
+      "k k l l l"
+      "m m p p p";
+  align-items: start;
+  margin-bottom: 0px;
+  padding: 0px 10px;
+  color: rgb(51, 51, 51);
+  position: relative;
+}
+
+.col-1 {
+  grid-area: a;
+  width: 100%;
+  min-height: 1px;
+  margin-left: -21px;
+}
+
+.col-2 {
+  grid-area: b;
+  width: 100%;
+  /* min-height: 1px; */
+  /* margin-left: -8px; */
+}
+
+.col-3 {
+  grid-area: c;
+  width: 100%;
+  min-height: 1px;
+  margin-left: -21px;
+}
+
+.col-4 {
+  grid-area: d;
+  width: 55.3%;
+  min-height: 1px;
+  margin-left: -35px;
+}
+
+.col-5 {
+  grid-area: e;
+  width: 55.3%;
+  min-height: 1px;
+  margin-left: -48px;
+}
+
+.col-5-Total {
+  grid-area: j;
+  width: 55.3%;
+  min-height: 1px;
+  margin-left: -48px;
+}
+
+.col-6 {
+  grid-area: f;
+  width: 79.6%;
+  min-height: 1px;
+  margin-left: -7px;
+}
+
+.col-1-lsc {
+  grid-area: g;
+  width: 55.3%;
+  min-height: 1px;
+  margin-left: -14px;
+}
+
+.col-2-lsc {
+  grid-area: h;
+  width: 60.6%;
+  min-height: 1px;
+  margin-left: -98px;
+}
+
+.col-1-TotReserva {
+  grid-area: k;
+  width: 55.3%;
+  min-height: 1px;
+  margin-left: -56px;
+  
+}
+
+.col-2-TotReserva {
+  grid-area: l;
+  width: 55.3%;
+  min-height: 1px;
+  margin-left: -87px;
+}
+
+.col-1-pagoDestino {
+  grid-area: m;
+  width: 166.3%;
+  min-height: 1px;
+  margin-left: -165px;
+}
+
+.col-2-pagoDestino {
+  grid-area: p;
+  width: 55.3%;
+  min-height: 1px;
+  margin-left: -87px;
+}
+
+.pagoOnline {
+  display:flex;
+  margin: 10px !important;
+  padding: 20px 0 0;
+  border-top: 1px solid #ddd;
+}
+
+.col-1-PagoOnline {
+  margin-left: 0px;
+}
+
+.col-2-PagoOnline {
+  margin-left: 85px;
+}
+
+.marked {
+  padding: 7px;
+  display: inline-block;
+  background-color: rgb(255, 255, 0);
+}
+
+.espacio-m {
+  display: block;
+  height: 30px;
+}
+
+
+.imgDatabox{
+  width: 100%;
+}
+  
+.carName {
+  margin: 0px;
+  font-weight: bolder;
+  font-size: 15px;
+}
+  
+.car-info-services {
+  grid-area: info;
+  display: grid;
+  grid-template-columns: repeat(4, 20%);
+  grid-template-areas: 
+  "a a a a";
+  justify-items: flex-start;
+  margin-left: 20px;
+  margin-top: 15px;
+}
+  
+.servicios-asientos {
+  width: 82%;
+  border: 1px solid #ccc;
+  margin-left: 2px;
+  margin-top: 4px;
+}
+  
+.icon-number{
+  display: inline;
+  font-size: 13px;
+  color: #787878;
+}
+  
+.servicios-puertas{
+  border: 1px solid #ccc;
+  width: 82%;
+  margin-left: 2px;
+  margin-top: 4px;
+}
+  
+.icon-24 {
+  width: 16px;
+  margin-top: 7px;
+}
+  
+.servicios-aire {
+  border: 1px solid #ccc;
+  width: 82%;
+  margin-left: 2px;
+  margin-top: 4px;
+}
+  
+.servicios-trasmision {
+  border: 1px solid #ccc;
+  width: 97%;
+  margin-left: 2px;
+  margin-top: 4px;
+}
+
+/* --  Inicio más servicios del vehículo -- */
+.car-info-services2 {
+  display: grid;
+  grid-template-rows: 32px 35px 30px 30px 30px 30px;
+  margin-top: 10px;
+  margin-left: 17px;
+}
+  
+.servicios-kilometraje {
+  grid-row-start: 1;
+  display: block;
+  width: 70%;
+  margin-top: 4px;
+}
+  
+.icon-kilometro {
+  display: inline;
+  font-size: 13px;
+  color: #27960a;
+  margin-left: 5px;
+  margin-top: 5px;
+}
+  
+.icon-25 {
+  width: 20px;
+  margin-bottom: 1px;
+  margin-left: -12px;
+}
+  
+.recogida {
+  grid-row-start: 2;
+  display: flex;
+  margin-top: 17px;
+}
+
+.recogida h3 {
+  margin-left: -17px;
+  font-weight: bolder;
+  color: #444;
+  font-size: 20px;
+}
+
+.recogida a {
+  text-decoration: underline blue;        
+  font-family: sans-serif;
+  font-size: 12px;
+  margin-left: 73px;
+  color: blue;
+}
+  
+.location {
+  grid-row-start: 3;
+  display: block;
+  width: 158px;
+  margin-top: 12px;
+}
+  
+.imgLocation {
+  width: 12%;
+  margin-left: -18px;
+}
+  
+.locationText {
+  width: 117%;
+  margin-top: -18px;
+  margin-left: 10px;
+}
+  
+.locationText h5 {
+  font-size: 12px;
+}
+
+/* ------ Recogida ------ */
+.dateRecogida {
+  grid-row-start: 4;
+  display: flex;
+  width: 205px;
+  margin-top: 7px;
+  margin-left: -20px;
+} 
+
+.dateDevolucion {
+  grid-row-start: 6;
+  display: flex;
+  width: 205px;
+  margin-top: 7px;
+  margin-left: -20px;
+}
+
+.imgDateRecogida, .imgClockDevolucion {
+  width: 22px;
+}
+
+.textDateRecogida, .textDateDevolucion {
+  width: 40%;
+  margin-top: 4px;
+}
+
+.textDateRecogida h5, 
+.textDateDevolucion h5{
+  font-size: 12px;
+  font-weight: 500;
+  margin-left: 5px;
+}
+
+.imgClockRecogida,
+.imgClockDevolucion {
+  width: 22px;
+  margin-left: 37px;
+}
+
+.textClockRecogida,
+.textClockDevolucion {
+  width: 23%;
+  margin-top: 4px;
+}
+
+.textClockRecogida h5,
+.textClockDevolucion h5 {
+  font-size: 12px;
+  font-weight: 500;
+  margin-left: 5px;
+}
+
+/* ------ Flechas --------- */
+.flechas {
+  grid-row-start: 5;
+  display: flex;
+  margin-top: 2px;
+  margin-left: -17px;
+}
+
+.flechas img {
+  width: 7%;
+}
+
+.flechas p {
+  font-size: 12px;
+  margin-left: 10px;
+  margin-top: 7px;
+  color: #4c4a4acc;
+}
+/*----------- Fin Bloque Sidebar ----------- */
+
+/*-------- Inicio Bloque Contenido --------- */
+#contentBlock {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 20px;
+  align-items: start;
+
+  max-width: 100%;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  margin-bottom: 0;
+  position: relative;
+}
+
+
+.espacio {
+  display: block;
+}
+
+.dataContentBox{
+  
+}
+
+.dataContentBox > h2 {
+  font-size: 17px;
+  line-height: 1.3em;
+  padding: 8px 10px;
+  border-bottom: 1px solid #d8d8d8;
+  font-weight: 700;
+}
+
+.dataContentBox h2 img {
+  border: 0;
+  width: 17px;
+  margin-bottom: -3px;
+}
+
+.bookingDetails > col-2 > p {
+  width: 320px;
+}
+
+  

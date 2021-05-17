@@ -258,6 +258,8 @@
                     <% const element = it.data[j] %> 
                     <!-- Ofertas -->
                     <article class="oferta">
+                        <input type="hidden" name="vehiculo" value="<%= element.vehiculo %>" >
+
                         <!-- Zona Izquierda-->
                         <section class="rentacar-info">
                             <% if (element.masvalorado === true && j !== 0) { %>

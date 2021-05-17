@@ -19,41 +19,205 @@
 
 </head>
 <body>
-    <!-- COMENTARIO SE PUEDE BORRAR -->
-    <div class="layout">
-        <!-- Inicio Cabecera -->
-        <div class="banner">
-            <header id="header">
-                <div class="logo">
-                    <div class="logo_r">
-                        R
+    <div class="banner">
+        <!------- Inicio Cabecera ---->
+        <header id="header">
+            <%~ includeFile("parciallogo.html") %>
+            <!-- <html-include src="parciallogo.html"></html-include> -->
+
+            <div class="contacto">
+                <img src="./img/whatsapp-icon-hd-21.jpg"/>
+                <h2>+34 999 999 999</h2>
+                <p id="reserva-telefono">Contacto reservas</p>
+            </div>
+
+            <nav id="idioma">
+                <ul>
+                    <li>    
+                        <a href="#">Idioma</a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        <!------- Fin Cabecera ---->
+
+        <!------- Inicio Slogan  --------->
+        <!-- <section id="eslogan">
+            Conozca Mallorca...
+        </section> -->
+        <!------- Fin Slogan  ------------>
+    </div>
+    <div class="container">
+        <!----------- Inicio Contenido ----------->
+        <section id="contentAside">
+            <aside id="aside">
+                <div class="boxAside">
+                    <div class="contentBoxAside">
+                        <section class="rentacar-info">
+
+                            <!-- <img class="car-image" src="./img/Img-Vehiculos/rescambiada/png/<%= element.ImagenVehiclo %>" alt="<%= element.descripcion %>"> -->
+                            <img class="car-image" src="./img/Img-Vehiculos/rescambiada/png/Peugeot_108.png" alt="Coche">
+
+                            <h2 class="car-name">
+                                <!-- <%= element.descripcion %> -->
+                                </p>Peugueot 108</p>
+                            </h2>
+
+                            <p class="similar">o similar</p>
+
+                            <div class="car-info-services">
+                                <div class="servicios-asientos" data-tooltip="vehiculo tiene <%= element.pax %> asientos" data-tooltip-location="top">
+                                    <img class="icon-24" src="img/svg/person-fill.svg" alt="persona">
+                                    <div class="icon-number">
+                                        <!-- <%= element.pax %> -->
+                                        4
+                                    </div>
+                                </div>
+
+                                <!-- <% if (element.puertas> 0) { %> -->
+                                    <div class="servicios-puertas" data-tooltip="vehiculo tiene <%= element.puertas %> puertas" data-tooltip-location="top">
+                                        <img class="icon-24" src="img/svg/puerta.svg" alt="puertas">
+                                        <div class="icon-number">
+                                            <!-- <%= element.puertas %> -->
+                                            4
+                                        </div>
+                                    </div>
+                                <!-- <% } %> -->
+                                <!-- <% if (element.aireacondicionado===1) { %> -->
+                                    <div class="servicios-aire" data-tooltip="vehiculo tiene aire acondicionado" data-tooltip-location="top">
+                                        <img class="icon-24" src="img/svg/aire.svg" alt="aire">
+                                    </div>
+                                <!-- <% } %> -->
+
+                                <!-- <% if  (element.transmision === "M" ) { %> -->
+                                    <div class="servicios-trasmision" data-tooltip="vehiculo tiene cambio manual" data-tooltip-location="top">
+                                    <img class="icon-24" src="img/svg/cambio_manual.svg" alt="cambio manual">
+                                    <div class="icon-number">M</div>
+                                <!-- <% } else if (element.transmision === "A" ) { %> -->
+                                    <!-- <div class="servicios-trasmision" data-tooltip="vehiculo tiene cambio automatico" data-tooltip-location="top">
+                                    <img class="icon-24" src="img/svg/cambio_automatico.svg" alt="cambio automatico">
+                                    <div class="icon-number">A</div> -->
+                                <!-- <% } %> -->
+                                </div>
+                            </div>
+
+                            <div class="car-info-services-2">
+                                <div class="servicios-kilometraje" data-tooltip="vehiculo tiene kilometraje --- cambiar" data-tooltip-location="top">
+                                    <img class="icon-25" src="img/svg/velocimetro.png" alt="kilometraje">
+                                    <p class="icon-kilometro">Kilometraje Ilimitado</p>
+                                </div>
+
+                                <div class="geoLoc">
+                                    <img class="icon-25" src="img/svg/mapaMundi.svg" alt="icono completado">
+                                    <p class="icon-locate">Mallorca | Can Pastilla  España</p>
+                                </div>      
+                            </div>
+
+                            <div class="bookRecogida">
+                                <img src="./img/img-Calendar/calendar.jpg" alt="Icono calendario" class="icon-25">
+                                <p class="icon-dateRecogida">Dom 9 Mayo</p>
+
+                                <img src="./img/Img-Clock/clock.png" alt="Icono calendario" class="icon-25">
+                                <p class="icon-clockRecogida">09:00</p>
+                            </div>
+
+                            <div class="puntos">
+                                <img src="./img/svg/flecha.svg" alt="">
+                            </div>
+
+                            <div class="bookDevolucion">
+                                <img src="./img/img-Calendar/calendar.jpg" alt="Icono calendario" class="icon-25">
+                                <p class="icon-dateDevolucion">Lun 10 Mayo</p>
+
+                                <img src="./img/Img-Clock/clock.png" alt="Icono calendario" class="icon-25">
+                                <p class="icon-clockDevolucion">20:00</p>
+                            </div>
+                        </section>
                     </div>
-                    <h1>entCar Mallorca</h1>
-                    <p>¡ El mejor precio y servicio !</p>
+                </div>
+            </aside>
+            
+            <!-- <aside id="aside">
+                <div class="boxAside">
+                    <div class="contentBoxAside">
+                        <img id="imgCarReserva" src="" alt="">
+                        <p>Segundo SIDEBAR</p>
+                    </div>
+                </div>
+            </aside>    -->
+        </section>
+        <section class="contentBlock">
+            <div class="tituloReserva">
+                <!-- <img id="icon-Mundi" src="./img/svg/mapaMundi.svg" alt="icono reserva">
+                <h3>
+                    Datos de la Reserva
+                </h3> -->
+                
+                <h2><img id="icon-Mundi" src="./img/svg/mapaMundi.svg" alt="icono reserva"></img>Datos de la Reserva</h2>
+            </div>
+            <div class="infoReserva">
+                <!-- Inicio Datos Fijos de la reserva -->
+                <div class="titDiasReserva">
+                    Días
+                </div>
+                <div class="diasReserva">
+                    2 días(Mier 8 Sept  Vie 10 sep)
                 </div>
 
-                <div class="contacto">
-                    <img src="./img/whatsapp-icon-hd-21.jpg"/>
-                    <h2>+34 651 722 345</h2>
-                    <p id="reserva-telefono">Contacto reservas</p>
+                <div class="titValorReserva">
+                    Alquiler
+                </div>
+                <div class="valorReserva">
+                    32.50 €
                 </div>
 
-                <nav id="idioma">
-                    <ul>
-                        <li>    
-                            <a href="#">Idioma</a>
-                        </li>
-                    </ul>
-                </nav>
-            </header>
-            <!------- Fin Cabecera ---->
+                <div class="titSeguro">
+                    Seguro
+                </div>
+                <div class="valorseguro">
+                    El precio incluye seguro a todo riesgo
+                </div>
+                <!-- Fin Datos Fijos de la reserva -->
 
-            <!------- Inicio Slogan  --------->
-            <!-- <section id="eslogan">
-                Conozca Mallorca...
-            </section> -->
-            <!------- Fin Slogan  ------------>
-        </div>
+                <!--- Inicio Cargos de la reserva --->
+                <div class="titConductor">
+                    Conductor Joven
+                </div>
+                <div class="valorConductor">
+                  20.0 €  
+                </div>
+
+                <div class="titTotReserva">
+                    Total :
+                </div>
+                <div class="valorTotReserva">
+                  52.50 €  
+                </div>
+
+                <div class="titValorRecogida">
+                    Pago a la recogida
+                </div>
+                <div class="ValorRecogida">
+                  20.0 €  
+                </div>
+
+                <div class="titValorOnline">
+                    Pago Online
+                </div>
+                <div class="ValorOnline">
+                    32.50 €  
+                </div>
+                <!--- Fin Cargos de la reserva --->
+            </div>
+            
+        </section>
+
+        <section class="precioIncluye">
+            <span>Precio Incluye</span>
+        </section>
+        
+        
+        <!----------- Fin  Contenido ----------->
     </div>
 </body>
 </html>
