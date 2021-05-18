@@ -37,50 +37,34 @@
                 <div class="boxAside">
                     <div class="contentBoxAside">
                         <section class="rentacar-info">
-
-                            <!-- <img class="car-image" src="./img/Img-Vehiculos/rescambiada/png/<%= element.ImagenVehiclo %>" alt="<%= element.descripcion %>"> -->
-                            <img class="car-image" src="./img/Img-Vehiculos/rescambiada/png/Peugeot_108.png" alt="Coche">
-
+                            <img class="car-image" src="./img/Img-Vehiculos/rescambiada/png/<%=it.formdata.imagen_vehiculo %>" alt="<%=it.formdata.descripcion_vehiculo %>">
                             <h2 class="car-name">
-                                <!-- <%= element.descripcion %> -->
-                                </p>Peugueot 108</p>
+                                </p><%=it.formdata.descripcion_vehiculo %></p>
                             </h2>
 
-                            <p class="similar">o similar</p>
-
+                            <p class="similar"><%= it.locations.osimilar %></p>
                             <div class="car-info-services">
-                                <div class="servicios-asientos" data-tooltip="vehiculo tiene <%= element.pax %> asientos" data-tooltip-location="top">
+                                <div class="servicios-asientos" data-tooltip="vehiculo tiene <%= it.formdata.pax %> asientos" data-tooltip-location="top">
                                     <img class="icon-24" src="img/svg/person-fill.svg" alt="persona">
                                     <div class="icon-number">
-                                        <!-- <%= element.pax %> -->
                                         4
                                     </div>
                                 </div>
 
-                                <!-- <% if (element.puertas> 0) { %> -->
+
                                     <div class="servicios-puertas" data-tooltip="vehiculo tiene <%= element.puertas %> puertas" data-tooltip-location="top">
                                         <img class="icon-24" src="img/svg/puerta.svg" alt="puertas">
                                         <div class="icon-number">
-                                            <!-- <%= element.puertas %> -->
                                             4
                                         </div>
                                     </div>
-                                <!-- <% } %> -->
-                                <!-- <% if (element.aireacondicionado===1) { %> -->
                                     <div class="servicios-aire" data-tooltip="vehiculo tiene aire acondicionado" data-tooltip-location="top">
                                         <img class="icon-24" src="img/svg/aire.svg" alt="aire">
                                     </div>
-                                <!-- <% } %> -->
 
-                                <!-- <% if  (element.transmision === "M" ) { %> -->
                                     <div class="servicios-trasmision" data-tooltip="vehiculo tiene cambio manual" data-tooltip-location="top">
                                     <img class="icon-24" src="img/svg/cambio_manual.svg" alt="cambio manual">
                                     <div class="icon-number">M</div>
-                                <!-- <% } else if (element.transmision === "A" ) { %> -->
-                                    <!-- <div class="servicios-trasmision" data-tooltip="vehiculo tiene cambio automatico" data-tooltip-location="top">
-                                    <img class="icon-24" src="img/svg/cambio_automatico.svg" alt="cambio automatico">
-                                    <div class="icon-number">A</div> -->
-                                <!-- <% } %> -->
                                 </div>
                             </div>
 
