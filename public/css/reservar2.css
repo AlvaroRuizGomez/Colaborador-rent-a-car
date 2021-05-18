@@ -326,7 +326,6 @@ body {
 .contentReserva {
     grid-column: 4 / 8;
     grid-row: 2 / 4;
-    /* background: palevioletred; */
 }
 
 .contentBlock {
@@ -504,14 +503,42 @@ body {
     padding: 0;
     max-width: 85%;
 }
-
 /* ---- Fin Incluido en el precio ----- */
 
-.brown {
+/* ---- Inicio Sillas y Elevadores niños ----- */
+.sillasBox {
     grid-column: 4 / 8;
     grid-row: 5 / 7;
-    background: brown;
 }
+
+.sillasContent {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    margin-bottom: 0;
+    position: relative;
+}
+
+.sillasContent>h2 i.icoSillas {
+    display: inline-block;
+    vertical-align: bottom;
+    width: 24px;
+    height: 24px;
+    background: url(../img/svg/iconChildSeat.svg) no-repeat;
+    margin-right: 5px;
+}
+
+.sillasContent>h2 {
+    font-size: 18px;
+    line-height: initial;
+    font-weight: 700;
+    color: #444;
+    display: block;
+    text-align: center;
+    margin: 10px 0;
+}
+
+/* ---- Inicio Sillas y Elevadores niños ----- */
+
 
 .yellow {
     grid-column: 4 / 8;
