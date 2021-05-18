@@ -10,8 +10,8 @@ body {
     grid-gap: 15px;
     grid-template-columns: repeat(8, 1fr);
     grid-template-rows: repeat(9, 1fr);
+    background: #fafafa;
 }
-
 
 /* --------- Inicio Banner  ---------- */
 .blockBanner {
@@ -99,28 +99,28 @@ body {
 }
 
 #contentAside {
-    /* background-color: #fafafa; */
     display: block;
-  }
+}
   
-  #aside {
+#aside {
     width: 265px;
     float: left;
     background-color: #fff;
     border: 1px solid #ddd;
-  }
-  .boxAside {
+}
+
+.boxAside {
     margin-bottom: 0;
     position: relative;
-  }
+}
   
-  .contentBoxAside {
+.contentBoxAside {
     padding: 20px;
     font-size: 14px;
     line-height: 16px;
-  }
+}
   
-  .rentacar-info {
+.rentacar-info {
     display: grid;
     grid-template-columns: 225px;
     grid-template-rows: 150px 30px 25px 35px 35px 20px 20px 20px 20px;
@@ -138,16 +138,16 @@ body {
     justify-items: flex-start;
     align-items: center;
     height: 100%;
-  }
+}
   
-  .car-image {
+.car-image {
     grid-area: imagen-coche;
     max-width: 210px;
     box-sizing: border-box;
     border-collapse: collapse;
-  }
+}
   
-  .car-name {
+.car-name {
     grid-area: marca;
     color: #333333;
     font-size: 1.8em;
@@ -156,14 +156,14 @@ body {
     line-height: 1.3em;
     align-self: flex-end;
     margin-bottom: 0px;
-  }
+}
   
-  .similar {
+.similar {
     grid-area: similar;
-  }
+}
   
-  /* --   Barra de Iconos de Servicios -- */
-  .car-info-services {
+/* --   Barra de Iconos de Servicios -- */
+.car-info-services {
     grid-area: servicios;
     display: grid;
     grid-template-columns: repeat(4, 39px);
@@ -174,143 +174,143 @@ body {
     ;
   
     justify-items: flex-start;
-  }
+}
   
-  .icon-24 {
+.icon-24 {
     width: 16px;
     margin-top: 7px;
-  }
+}
   
-  .servicios-asientos{
+.servicios-asientos{
     width: 82%;
     border: 1px solid #ccc;
     margin-left: 2px;
     margin-top: 4px;
-  }
+}
   
-  .icon-number{
+.icon-number{
     display: inline;
     font-size: 13px;
     color: #787878;
-  }
+}
   
-  .servicios-puertas{
+.servicios-puertas{
     border: 1px solid #ccc;
     width: 82%;
     margin-left: 2px;
     margin-top: 4px;
-  }
+}
   
-  .servicios-aire{
+.servicios-aire{
     border: 1px solid #ccc;
     width: 82%;
     margin-left: 2px;
     margin-top: 4px;
-  }
+}
   
-  .servicios-trasmision{
+.servicios-trasmision{
     border: 1px solid #ccc;
     width: 97%;
     margin-left: 2px;
     margin-top: 4px;
-  }
-  /* - Fin Barra de Iconos de Servicios - */
+}
+/* - Fin Barra de Iconos de Servicios - */
   
   
-  /* -- Combustible / Lugar de recogida --- */
-  .car-info-services-2 {
+/* -- Combustible / Lugar de recogida --- */
+.car-info-services-2 {
     margin-top: 5px;
-  }
+}
   
-  .servicios-kilometraje {
+.servicios-kilometraje {
     margin-top: 25px;
     grid-area: combustible;
     padding: 2px;
-  }
+}
   
-  .icon-kilometro {
+.icon-kilometro {
     display: inline;
     font-size: 13px;
     color: #787878;
-  }
+}
   
-  .icon-25 {
+.icon-25 {
     width: 20px;
     margin-bottom: -3px;
-  }
+}
   
-  .geoLoc {
+.geoLoc {
     grid-area: location;  
-  }
+}
   
-  .icon-locate{
+.icon-locate{
     display: inline;
     font-size: 13px;
     color: #787878;
     width: 142px;
     margin-left: 14px;
     margin-top: -21px;
-  }
-  /* -- Fin Combustible / Lugar de recogida --- */
+}
+/* -- Fin Combustible / Lugar de recogida --- */
   
   
-  /*  -- Fechas/Horas - Recogida/Devolución -- */
-  .bookRecogida {
+/*  -- Fechas/Horas - Recogida/Devolución -- */
+.bookRecogida {
     grid-area: recogida;
     margin-top: 20px;
-  }
+}
   
-  .icon-dateRecogida {
+.icon-dateRecogida {
     display: inline;
     font-size: 13px;
     color: #787878;
     width: 142px;
     margin-left: 14px;
     margin-top: -21px;
-  }
+}
   
-  .icon-clockRecogida {
+.icon-clockRecogida {
     display: inline;
     font-size: 13px;
     color: #787878;
     width: 142px;
     margin-left: 4px;
     margin-top: -21px;
-  }
+}
   
-  .puntos {
+.puntos {
     grid-area: puntos;
-  }
+}
   
-  .puntos img {
+.puntos img {
     width: 10px;
     margin-left: 5px;
     margin-top: 32px;
-  }
+}
   
-  .bookDevolucion {
+.bookDevolucion {
     grid-area: devolucion;
     margin-top: 40px;
-  }
+}
   
-  .icon-dateDevolucion {
+.icon-dateDevolucion {
     display: inline;
     font-size: 13px;
     color: #787878;
     width: 142px;
     margin-left: 14px;
     margin-top: -21px;
-  }
+}
   
-  .icon-clockDevolucion {
+.icon-clockDevolucion {
     display: inline;
     font-size: 13px;
     color: #787878;
     width: 142px;
     margin-left: 4px;
     margin-top: -21px;
-  }
-  /*- Fin Fechas/Horas Recogida/Devolución - */
+}
+/*- Fin Fechas/Horas Recogida/Devolución - */
 /* -------- Fin sidebar1 --------- */
 
 /* ------ Inicio sidebar2 -------- */
@@ -326,7 +326,6 @@ body {
 .contentReserva {
     grid-column: 4 / 8;
     grid-row: 2 / 4;
-    /* background: palevioletred; */
 }
 
 .contentBlock {
@@ -341,14 +340,15 @@ body {
     width: 100%;
     border: 1px solid #d8d8d8;
     background-color: #fff;
-  }
-  .tituloReserva{
+}
+
+.tituloReserva{
     grid-area: titulo;
     width: 100%;
     border-bottom: 1px solid #d8d8d8;
-  }
+}
   
-  .tituloReserva h3 {
+.tituloReserva h3 {
     display: inline;
     color: #333333;
     line-height: 40px;
@@ -356,9 +356,9 @@ body {
     padding: 0px 1px;
     margin: 0;
     font-weight: 700;
-  }
+}
   
-  .infoReserva {
+.infoReserva {
     grid-area: info;
     display: grid;
     grid-template-columns: 200px 500px;
@@ -373,124 +373,172 @@ body {
         "titulo7 dato7";
     flex-direction: column;
     align-items: flex-start;
-  }
+}
   
-  .titDiasReserva {
+.titDiasReserva {
     grid-area: titulo1;
     display: inline;
-  }
+}
   
-  .diasReserva {
+.diasReserva {
     grid-area: dato1;
     display: inline;
     width: 100;
-  }
+}
   
-  .titValorReserva {
+.titValorReserva {
     grid-area: titulo2;
     display: inline;
-  }
+}
   
-  .valorReserva {
+.valorReserva {
     grid-area: dato2;
     display: inline;
     width: 250px;
-  }
+}
   
-  .titSeguro {
+.titSeguro {
     grid-area: titulo3;
     display: inline;
-  }
+}
   
-  .valorseguro {
+.valorseguro {
     grid-area: dato3;
     display: inline;
     width: 100%;
-  }
+}
   
-  .titConductor {
+.titConductor {
     grid-area: titulo4;
     display: inline;
-  }
+}
   
-  .valorConductor {
+.valorConductor {
     grid-area: dato4;
     display: inline;
     width: 250px;
-  }
+}
   
-  .titTotReserva {
+.titTotReserva {
     grid-area: titulo5;
     display: inline;
-  }
+}
   
-  .valorTotReserva {
+.valorTotReserva {
     grid-area: dato5;
     display: inline;
     width: 250px;
-  }
+}
   
-  .titValorRecogida {
+.titValorRecogida {
     grid-area: titulo6;
     display: inline;
-  }
+}
   
-  .ValorRecogida {
+.ValorRecogida {
     grid-area: dato6;
     display: inline;
     width: 250px;
-  }
+}
   
-  .titValorOnline {
+.titValorOnline {
     grid-area: titulo7;
     display: inline;
     border-top: 1px solid #ddd;
     background-color: #ff0;
     margin:0px 51px;
-  }
+}
   
-  .ValorOnline {
+.ValorOnline {
     grid-area: dato7;
     display: inline;
     width: 250px;
     border-top: 1px solid #ddd;
     background-color: #ff0;
-  }
+}
   
-  .precioIncluye {
+.precioIncluye {
     display: flex;
     width: 250px;
     background: #fff;
     border: 1px solid #ddd;
     padding: 20px;
-  }
+}
   
-  #icon-Mundi {
+#icon-Mundi {
     width: 3%;
-  }
+}
   
-  #imgCarReserva {
+#imgCarReserva {
     width: 50%;
-  }
+}
 /* -------   Fin Contenido   ---------- */
 
 /* --- Inicio Incluido en el precio ---- */
+.beneficios {
+    grid-column: 4 / 8;
+    grid-row: 4 / 5;
+}
+
 .includPrice-container {
     background: #fff;
     border: 1px solid #ddd;
     padding: 20px;
 }
-.orange {
-    grid-column: 4 / 8;
-    grid-row: 4 / 5;
-    background: orange;
+
+.tit-includPrice-container {
+    font-size: 18px;
+    line-height: initial;
+    font-weight: 700;
+    color: #444;
+    display: block;
+    text-align: center;
+    margin: 10px 0;
 }
 
-.brown {
+.beneficios .includPrice-container ul.includPrice-contenido {
+    list-style: none;
+    text-align: center;
+    margin: 10px auto;
+    padding: 0;
+    max-width: 85%;
+}
+/* ---- Fin Incluido en el precio ----- */
+
+/* ---- Inicio Sillas y Elevadores niños ----- */
+.sillasBox {
     grid-column: 4 / 8;
     grid-row: 5 / 7;
-    background: brown;
 }
+
+.sillasContent {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    margin-bottom: 0;
+    position: relative;
+}
+
+.sillasContent>h2 i.icoSillas {
+    display: inline-block;
+    vertical-align: bottom;
+    width: 24px;
+    height: 24px;
+    background: url(../img/svg/iconChildSeat.svg) no-repeat;
+    margin-right: 5px;
+}
+
+.sillasContent>h2 {
+    font-size: 18px;
+    line-height: initial;
+    font-weight: 700;
+    color: #444;
+    display: block;
+    text-align: center;
+    margin: 10px 0;
+}
+
+/* ---- Inicio Sillas y Elevadores niños ----- */
+
 
 .yellow {
     grid-column: 4 / 8;
