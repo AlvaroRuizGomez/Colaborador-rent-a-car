@@ -36,42 +36,7 @@
         <!-- Inicio container -->
         <div id="container">
             <!-- Inicio Cabecera -->
-            <header id="header">
-                <%~ includeFile("parciallogo.html") %>
-                <div class="contacto">
-                    <img src="./img/whatsapp-icon-hd-21.jpg"/>
-                    <h2>+34 999 999 999</h2>
-                    <p id="reserva-telefono"><%=it.locations.contacto_reservas%></p>
-                </div>
-
-                <nav id="idioma">
-                    <ul>
-                        <li>
-                            <%=it.locations.idiomas%>
-                        </li>
-                        <li>
-                            <a href="/autonoleggio">
-                                <img src="./img/banderas/it.png" class="bandera" alt="<%=it.locations.bandera_italiana%>">
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/alquiler-coches">
-                                <img src="./img/banderas/es.png" class="bandera" alt="<%=it.locations.bandera_espanola%>">
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/mietwagen">
-                                <img src="./img/banderas/de.png" class="bandera" alt="<%=it.locations.bandera_alemana%>">
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/rentacar">
-                                <img src="./img/banderas/en.png" class="bandera"  alt="<%=it.locations.bandera_inglesa%>">
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
-            </header>
+            <%~ includeFile("header.html", it) %>
             <!-- Fin Cabecera -->
 
             <section id="eslogan">

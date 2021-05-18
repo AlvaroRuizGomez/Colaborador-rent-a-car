@@ -1,20 +1,19 @@
 const Joi = require('joi');
 const fetch = require("node-fetch");
 const geolocation = require("./geolocation");
+const locations = require("./locations");
 
 const session = require('express-session');
 
 const URI_UPDATE_STATS_BACKEND = `${process.env.URL_BACKEND}:${process.env.PORT_BACKEND}${process.env.ENDPOINT_UPDATE_STATS_BACKEND}`;
 
-exports.getReservar = async (req, res) => {
+exports.getShowDetails = async (req, res, languageBrowser) => {
     return res.redirect("/");
-
 };
 
 
-exports.postReservar = async (req, res, language ) => 
+exports.postShowDetails = async (req, res, languageBrowser) =>
 {
-
     // console.log(req.useragent);
     const isSchemaValid = await ControlSchema(req.body);
 
@@ -25,20 +24,35 @@ exports.postReservar = async (req, res, language ) =>
     }
 
     const location = await geolocation.GetIPTimeZone(req);
-    
+
     // Bot check
     if (location.agent && location.agent.isBot === true) {
         return res.status(404).send("Not found");
     }
 
-    const body = { 
-        "token": process.env.TOKEN_FOR_BACKEND_ACCESS, 
+    const locationLanguage = await locations.GenerateLocationBrowser(
+        languageBrowser,
+        req.headers["accept-language"].split(",")[1].split(";")[0]
+    );
+
+    res.render("reservar2", {
+        "success": req.body.sucess,
+        "locations": locationLanguage,
+        "formdata": req.body,
+    });
+
+
+    const body = {
+        "token": process.env.TOKEN_FOR_BACKEND_ACCESS,
         "useragent": req.useragent,
         "location": location,
-        ...req.body
+        "id": req.body.success,
+        "fase": req.body.fase,
+        "conductor_con_experiencia": req.body.conductor_con_experiencia,
+
     };
 
-    //enviamos al backedn la informacion
+    // enviamos al backedn la informacion
     const responseRaw = await fetch(URI_UPDATE_STATS_BACKEND, {
         method: "POST",
         headers: {
@@ -50,43 +64,24 @@ exports.postReservar = async (req, res, language ) =>
 
     const dataResponse = await responseRaw.json();
 
-    if (dataResponse === undefined)
-    {
+    if (dataResponse === undefined) {
 
+    }
+    
+    if (dataResponse.isOk === false) {
+        return res.status(404).send("Not found");
     }
 
     // TODO: seguridad comprobar que proviene del backend
     if (dataResponse.token !== "") {
 
     }
-
-    if (dataResponse.isOk === false)
-    {
-        return res.status(404).send("Not found");
-    }
-
-
-    let data = {"test": "test"};
-    if (dataResponse.data.length <= 0)
-    {
-        data = {};
-    }
-    else
-    {
-        data = {
-            "data": dataResponse.data,
-            "formdata": req.body,
-            "success": req.body.success,
-        };
-    }
-
-    res.render("reservas", data );    
-
+    
 };
 
 
-const ControlSchema = async (body) => 
-{
+
+const ControlSchema = async (body) => {
 
     const schema = Joi.object({
         success: Joi.string().required(),
@@ -135,3 +130,4 @@ const ControlSchema = async (body) =>
     return isValid;
 
 }
+

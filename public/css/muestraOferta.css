@@ -516,13 +516,14 @@ background: red;
   justify-self: flex-start;
   display: grid;
   grid-template-columns: 0.2fr;
-  grid-template-rows: 20px 40px 40px 20px 40px;
-  grid-template-areas: 
-  "."
-  "precio"
-  "dias"
-  "."
-  "botonreservar";
+  grid-template-rows: 20px 40px 20px 20px 20px 40px;
+  grid-template-areas:
+    "."
+    "precio"
+    "precio-old"
+    "dias"
+    "."
+    "botonreservar";
   justify-items: flex-end;
   align-items: center;
   height: 100%;
@@ -737,10 +738,16 @@ background: red;
 
 .old-price
 {
+  grid-area: precio-old;
   text-decoration: line-through;
   font-size: 1.5em;
   color: rgb(189, 76, 66);
 
+}
+.old-price-min
+{
+  height: 1px;
+  
 }
 .error-sinproductos
 {

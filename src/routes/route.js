@@ -3,7 +3,8 @@ const router = express.Router();
 
 // controladores
 const home = require("../controllers/inicio");
-const reservar = require("../controllers/reservar")
+const reservar = require("../controllers/reservar");
+const details = require("../controllers/details");
 const generar = require("../controllers/generar");
 const locations = require("../controllers/locations");
 
@@ -19,12 +20,25 @@ router.get("/rentacar", async (req, res) => await home.getHome(req, res, "en"));
 router.get("/mietwagen", async (req, res) => await home.getHome(req, res, "de"));
 
 
+// rutas detalles
+router.post("/detalles", async (req, res) => await details.postShowDetails(req, res, "es"));
+router.post("/dettagli", async (req, res) => await details.postShowDetails(req, res, "it"));
+router.post("/details", async (req, res) => await details.postShowDetails(req, res, "en"));
+router.post("/einzelheiten", async (req, res) => await details.postShowDetails(req, res, "de")); 
+
+router.get("/detalles", async (req, res) => await details.getShowDetails(req, res, "es"));
+router.get("/dettagli", async (req, res) => await details.getShowDetails(req, res, "it"));
+router.get("/details", async (req, res) => await details.getShowDetails(req, res, "en"));
+router.get("/einzelheiten", async (req, res) => await details.getShowDetails(req, res, "de"));
+
+
+
 router.get("/reservar", async (req, res) => await reservar.getReservar(req, res));
 
-router.post("/reservar", async (req, res) => await reservar.postReservar(req, res));
-router.post("/reserve", async (req, res) => await reservar.postReservar(req, res));
-router.post("/riserva", async (req, res) => await reservar.postReservar(req, res));
-router.post("/reservieren", async (req, res) => await reservar.postReservar(req, res));
+router.post("/reservar", async (req, res) => await reservar.postReservar(req, res, "es"));
+router.post("/riserva", async (req, res) => await reservar.postReservar(req, res, "it"));
+router.post("/reserve", async (req, res) => await reservar.postReservar(req, res, "en" ));
+router.post("/reservieren", async (req, res) => await reservar.postReservar(req, res, "de"));
 
 
 router.get("/generar", async (req, res) => await generar.generarHTML(req, res));
