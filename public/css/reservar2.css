@@ -40,6 +40,12 @@ body {
 
 }
 
+.bandera
+{
+  width: 50px;
+  border: 1px solid black;
+}
+
 .contacto {
     display: grid;
     /* grid-template-columns: 15% 40%; */

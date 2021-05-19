@@ -112,6 +112,9 @@
                                     <img src="./img/Img-Clock/clock.png" alt="<%=it.locations.alt_reloj_recogida%>" class="img-clock">
                                     </span>
                                 </div>
+                                
+                                
+                                
                         </div>    
                     </div>
                     <!--------------------------- Fin Fecha/Hora Devolucion  ---------------------->
@@ -219,7 +222,10 @@
                         <input type="hidden" name="fase" value="2">
                         <input type="hidden" name="idioma" value="<%=it.locations.idioma_web %>">
                         <input type="hidden" name="conductor_con_experiencia" value="<%= it.formdata.conductor_con_experiencia %>">
-
+                        <input type="hidden" name="fechaRecogida" value="<%= it.formdata.fechaRecogida %>">
+                        <input type="hidden" name="horaRecogida" value="<%= it.formdata.horaRecogida %>">
+                        <input type="hidden" name="fechaDevolucion" value="<%= it.formdata.fechaDevolucion %>">
+                        <input type="hidden" name="horaDevolucion" value="<%= it.formdata.horaDevolucion %>">
                         <!-- Ofertas -->
                         <article class="oferta">
                             <!-- Zona Izquierda-->
@@ -280,10 +286,16 @@
                                     <% } %>
 
                                     <% if  (element.transmision === "M" ) { %>
+                                        <input type="hidden" name="tooltip_cambio" value="<%=it.locations.tooltip_cambio_manual %>">
+                                        <input type="hidden" name="alt_cambio" value="<%=it.locations.alt_cambio_manual%>">
+
                                         <div class="servicios-trasmision" data-tooltip="<%=it.locations.tooltip_vehiculo_tiene%> <%=it.locations.tooltip_cambio_manual %>" data-tooltip-location="top">
                                         <img class="icon-24" src="img/svg/cambio_manual.svg" alt="<%=it.locations.alt_cambio_manual%>">
                                         <div class="icon-number">M</div>
                                     <% } else if (element.transmision === "A" ) { %>
+                                        <input type="hidden" name="tooltip_cambio" value="<%=it.locations.tooltip_cambio_automatico %>">
+                                        <input type="hidden" name="alt_cambio" value="<%=it.locations.alt_cambio_auto%>">
+
                                         <div class="servicios-trasmision" data-tooltip="<%=it.locations.tooltip_vehiculo_tiene%> <%=it.locations.tooltip_cambio_automatico %>" data-tooltip-location="top">
                                         <img class="icon-24" src="img/svg/cambio_automatico.svg" alt="<%=it.locations.alt_cambio_auto%>">
                                         <div class="icon-number">A</div>
@@ -344,7 +356,7 @@
                                             </div>
                                         <% } %>
                                     <% } %>
-
+                                    <% let suplementoportipoChofer = 0 %>
                                     <% for (let k=0; k < element.preciosSuplementoPorTipoChofer["no-oferta"].length; k++ ) { %>
                                         <div class="servicios-conductor-novel">
                                             <img class="icon-25" src="img/svg/hecho.svg" alt="<%=it.locations.alt_icono_hecho %>">
@@ -353,17 +365,15 @@
                                             <div class="icon-kilometro" data-tooltip="<%=tooltipReplaced %>">
                                                 <% const localizacionDesc=it.locations[ element.preciosSuplementoPorTipoChofer["no-oferta"][k]["descripcion"]] %>
                                                 <% const descriptionReplaced=localizacionDesc.replace("X", element.preciosSuplementoPorTipoChofer["no-oferta"][k]["valor"] ) %>
-
+                                                <% suplementoportipoChofer = suplementoportipoChofer + (element.preciosSuplementoPorTipoChofer["no-oferta"][k]["valor"] - 0) %>
                                                 <%= descriptionReplaced %>
-
-                                                <input type="hidden" name="tooltip_preciosSuplementoPorTipoChofer_<%=element.preciosSuplementoPorTipoChofer["no-oferta"][k]["titulo"] %>" value="<%= tooltipReplaced %>">
-                                                <input type="hidden" name="location_preciosSuplementoPorTipoChofer_<%=element.preciosSuplementoPorTipoChofer["no-oferta"][k]["titulo"] %>" value="<%= descriptionReplaced %>">
-
+                                                
 
                                             </div>
                                         </div>
                                     <% } %>
-
+                                    <input type="hidden" name="suplementoportipoChofer" value="<%= suplementoportipoChofer %>">
+                                    
                                     <% if (element.preciosSuplementoPorTipoChofer["oferta"].length > 0) { %>
                                         <h5 class="title-specials"><%=it.locations.ofertas_especiales %></h5>
                                     <% } %>
@@ -372,8 +382,7 @@
                                             <img class="icon-25" src="img/svg/hecho.svg" alt="<%=it.locations.alt_icono_hecho %>">
                                             <div class="icon-kilometro" data-tooltip="<%=it.locations[element.preciosSuplementoPorTipoChofer["oferta"][k]["tooltip"]] %>">
                                                 <%=it.locations[ element.preciosSuplementoPorTipoChofer["oferta"][k]["descripcion"]] %>
-                                                <input type="hidden" name="tooltip_preciosSuplementoPorTipoChofer_<%=element.preciosSuplementoPorTipoChofer["oferta"][k]["titulo"] %>" value="<%=it.locations[element.preciosSuplementoPorTipoChofer["oferta"][k]["tooltip"]] %>">
-                                                <input type="hidden" name="location_preciosSuplementoPorTipoChofer_<%=element.preciosSuplementoPorTipoChofer["oferta"][k]["titulo"] %>" value="<%= it.locations[ element.preciosSuplementoPorTipoChofer["oferta"][k]["descripcion"]] %>">
+                                                
                                             </div>
                                         </div>
                                     <% } %>
