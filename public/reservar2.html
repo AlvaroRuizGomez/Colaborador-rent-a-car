@@ -159,10 +159,10 @@
                         </div>
         
                         <div class="titSeguro">
-                            Seguro
+                            <%it.locations.seguro_titulo %>
                         </div>
                         <div class="valorseguro">
-                            El precio incluye seguro a todo riesgo
+                            <%it.locations.seguro_descripcion %>
                         </div>
                         <!-- Fin Datos Fijos de la reserva -->
         
@@ -216,21 +216,19 @@
             <!-----------------  Inicio Beneficios ------------------------------------------>
             <div class="beneficios">
                 <div class="includPrice-container">
-                    <span class="tit-includPrice-container">Incluido en el Precio:
+                    <span class="tit-includPrice-container"><%it.locations.incluido_precio_titulo %>
                         <ul class="includPrice-contenido">
-
-                            <li class="tooltipBlanco" title="Oferta al mejor precio garantizado">
-                            <img src="./img/svg/hechoSmall.svg" alt="Icono hecho pequeño">Seguro todo riesgo
-
+                            <li class="tooltipBlanco" title="<%=it.locations.title_seguro_todoriesgo %>" data-tooltip="<%=it.locations.title_seguro_todoriesgo %>">
+                            <img src="./img/svg/hechoSmall.svg" class="icon-25" alt="<%=it.locations.alt_icono_reservar %>"><%=it.locations.seguro_incluido_titulo %>
                             </li>
-                            <li class="tooltipBlanco" title="La oferta incluye sillas y elevadores homologados CE">
-                                <img src="./img/svg/hechoSmall.svg" alt="Icono hecho pequeño">Sillas y Elevadores de niños
+                            <li class="tooltipBlanco" title="<%=it.locations.title_sillas %>" data-tooltip="<%=it.locations.title_sillas %>">
+                                <img src="./img/svg/hechoSmall.svg" class="icon-25"  alt="<%=it.locations.alt_icono_reservar %>"><%=it.locations.sillas_elevadores_titulo %>
                             </li>
-                            <li class="tooltipBlanco" title="Además la oferta incluye la posibilidad de cancelar la reserva 24 Horas antes de la recogida">
-                                <img src="./img/svg/hechoSmall.svg" alt="Icono hecho pequeño">Cancelación gratuita
+                            <li class="tooltipBlanco" title="<%=it.locations.title_cancelar %>" data-tooltip="<%=it.locations.title_cancelar %>">
+                                <img src="./img/svg/hechoSmall.svg" class="icon-25"  alt="<%=it.locations.alt_icono_reservar %>"><%=it.locations.cancelacion_titulo %>
                             </li>
-                            <li class="tooltipBlanco" title="la oferta incluye los impuestos locales">
-                                <img src="./img/svg/hechoSmall.svg" alt="Icono hecho pequeño">Impuestos locales
+                            <li class="tooltipBlanco" title="<%=it.locations.title_impuestos %>" data-tooltip="<%=it.locations.title_impuestos %>">
+                                <img src="./img/svg/hechoSmall.svg" class="icon-25" alt="<%=it.locations.alt_icono_reservar %>"><%=it.locations.impuestos_titulo %>
                             </li>
                         </ul>
                     </span>
