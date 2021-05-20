@@ -145,7 +145,6 @@
                             <%=it.locations.dias_titulo %>
                         </div>
                         <div class="diasReserva">
-                            <!-- 2 días(Mier 8 Sept  Vie 10 sep) -->
                             <% const dias = it.formdata.diasEntreRecogidaDevolucion - 0 %>
                             <% if (dias > 1) { %>
                                 <%=it.formdata.diasEntreRecogidaDevolucion %> <%= it.locations.dias %> (<%=it.formdata.fechaRecogida %> <%=it.formdata.fechaDevolucion %>)
@@ -162,14 +161,15 @@
                         </div>
         
                         <div class="titSeguro">
-                            <%it.locations.seguro_titulo %>
+                            <%=it.locations.seguro_titulo %>
                         </div>
                         <div class="valorseguro">
-                            <%it.locations.seguro_descripcion %>
+                            <%=it.locations.seguro_descripcion %>
                         </div>
                         <!-- Fin Datos Fijos de la reserva -->
         
                         <!--- Inicio Cargos de la reserva --->
+                        <%let mult = 0 %>
                         <% if (it.formdata.conductor_con_experiencia === "on") { %>
                             <div class="titConductor">
                                 <%=it.locations.conductor_joven_titulo %>
@@ -182,15 +182,23 @@
                                 <%=it.locations.conductor_joven_titulo %>
                             </div>
                             <div class="valorConductor">
-                                <%=it.formdata.suplementotipoChofer %> €
+                                <% if (dias> 1) { %>
+                                    <% mult = dias * (it.formdata.suplementoportipoChofer - 0 ) %>
+                                    <%= dias %> <%=it.locations.dias %> x <%=it.formdata.suplementoportipoChofer %> € <%=it.locations.pordia %>  = <%= mult %> €
+
+                                <% } else { %>
+                                    <%= dias %> <%=it.locations.dia %> x <%=it.formdata.suplementoportipoChofer %> € <%=it.locations.pordia %> = <%=it.formdata.suplementoportipoChofer %> €
+                                    <% mult = (it.formdata.suplementoportipoChofer - 0) %>
+                                <% } %>
+
                             </div>
                         <% } %>
                         <div class="titTotReserva">
                             <%=it.locations.total_titulo %>
                         </div>
                         <div class="valorTotReserva">
-                            <% if (it.formdata.suplementotipoChofer !== undefined) { %>
-                                <%let subtotal = (it.formdata.preciototaldias - 0) + (it.formdata.suplementotipoChofer - 0) %>
+                            <% if (it.formdata.suplementoportipoChofer !== undefined) { %>
+                                <%let subtotal = (it.formdata.preciototaldias - 0) + (mult) %>
                                 <%= subtotal %> €
                             <% } else { %>
                                 <%= it.formdata.preciototaldias %> €
