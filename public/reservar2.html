@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="<%=it.locations.idioma_web %>">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Reservar2</title>
-        <link rel="stylesheet" href="/public/css/reservar2.css"/>
+        <title><%= it.locations.reservar_titulopagina %></title>
+        <link rel="stylesheet" href="./css/reservar2.css"/>
     </head>
     <body>
 
@@ -12,26 +12,7 @@
             <div class="blockBanner">
                 <div class="banner">
                     <!------- Inicio Cabecera ---->
-                    <header id="header">
-                        <!-- <%~ includeFile("parciallogo.html") %> -->
-                        <!-- <html-include src="parciallogo.html"></html-include> -->
-                        <img src="./img/Img-Logo/logoRentCarSimpleBlue.svg" class="imgLogo">
-                        
-            
-                        <div class="contacto">
-                            <img src="./img/whatsapp-icon-hd-21.jpg"/>
-                            <h2>+34 999 999 999</h2>
-                            <p id="reserva-telefono">Contacto reservas</p>
-                        </div>
-            
-                        <nav id="idioma">
-                            <ul>
-                                <li>    
-                                    <a href="#">Idioma</a>
-                                </li>
-                            </ul>
-                        </nav>
-                    </header>
+                    <%~ includeFile("header.html", it) %>
                     <!------- Fin Cabecera ---->
             
                     <!------- Inicio Slogan  --------->
@@ -51,57 +32,45 @@
                         <div class="boxAside">
                             <div class="contentBoxAside">
                                 <section class="rentacar-info">
-        
-                                    <!-- <img class="car-image" src="./img/Img-Vehiculos/rescambiada/png/<%= element.ImagenVehiclo %>" alt="<%= element.descripcion %>"> -->
-                                    <img class="car-image" src="./img/Img-Vehiculos/rescambiada/png/Peugeot_108.png" alt="Coche">
-        
+                                    <img class="car-image" src="./img/Img-Vehiculos/rescambiada/png/<%=it.formdata.imagen_vehiculo %>" alt="<%=it.formdata.descripcion_vehiculo %>">
                                     <h2 class="car-name">
-                                        <!-- <%= element.descripcion %> -->
-                                        </p>Peugueot 108</p>
+                                        </p><%=it.formdata.descripcion_vehiculo %></p>
                                     </h2>
-        
-                                    <p class="similar">o similar</p>
-        
+                                    <p class="similar"><%= it.locations.osimilar %></p>
                                     <div class="car-info-services">
-                                        <div class="servicios-asientos" data-tooltip="vehiculo tiene <%= element.pax %> asientos" data-tooltip-location="top">
-                                            <img class="icon-24" src="img/svg/person-fill.svg" alt="persona">
+
+                                        <div class="servicios-asientos" data-tooltip="<%=it.locations.tooltip_vehiculo_asientos1%> <%= it.formdata.pax_vehiculo %> <%=it.locations.tooltip_vehiculo_asientos2%>" data-tooltip-location="top">
+                                            <img class="icon-24" src="img/svg/person-fill.svg" alt="<%=it.locations.alt_persona%>">
                                             <div class="icon-number">
-                                                <!-- <%= element.pax %> -->
-                                                4
+                                                <%= it.formdata.pax_vehiculo %>
                                             </div>
                                         </div>
-        
-                                        <!-- <% if (element.puertas> 0) { %> -->
-                                            <div class="servicios-puertas" data-tooltip="vehiculo tiene <%= element.puertas %> puertas" data-tooltip-location="top">
-                                                <img class="icon-24" src="img/svg/puerta.svg" alt="puertas">
-                                                <div class="icon-number">
-                                                    <!-- <%= element.puertas %> -->
-                                                    4
-                                                </div>
+                                        <% const puertas_vehiculo = it.formdata.puertas_vehiculo - 0 %>
+                                        <% if (puertas_vehiculo > 0) { %>
+                                        <div class="servicios-puertas" data-tooltip="<%=it.formdata.tooltip_vehiculo_tiene %> <%= it.formdata.puertas_vehiculo %> <%=it.locations.tooltip_vehiculo_puertas%>" data-tooltip-location="top">
+                                            <img class="icon-24" src="img/svg/puerta.svg" alt="<%=it.locations.alt_puerta%>">
+                                            <div class="icon-number">
+                                                <%= it.formdata.puertas_vehiculo %>
                                             </div>
-                                        <!-- <% } %> -->
-                                        <!-- <% if (element.aireacondicionado===1) { %> -->
-                                            <div class="servicios-aire" data-tooltip="vehiculo tiene aire acondicionado" data-tooltip-location="top">
-                                                <img class="icon-24" src="img/svg/aire.svg" alt="aire">
-                                            </div>
-                                        <!-- <% } %> -->
-        
-                                        <!-- <% if  (element.transmision === "M" ) { %> -->
-                                            <div class="servicios-trasmision" data-tooltip="vehiculo tiene cambio manual" data-tooltip-location="top">
-                                            <img class="icon-24" src="img/svg/cambio_manual.svg" alt="cambio manual">
-                                            <div class="icon-number">M</div>
-                                        <!-- <% } else if (element.transmision === "A" ) { %> -->
-                                            <!-- <div class="servicios-trasmision" data-tooltip="vehiculo tiene cambio automatico" data-tooltip-location="top">
-                                            <img class="icon-24" src="img/svg/cambio_automatico.svg" alt="cambio automatico">
-                                            <div class="icon-number">A</div> -->
-                                        <!-- <% } %> -->
+                                        </div>
+                                        <% } %>
+
+                                        <% const aireacondicionado = it.formdata.aireacondicionado - 0 %>
+                                        <% if (aireacondicionado === 1) { %>
+                                        <div class="servicios-aire" data-tooltip="<%=it.formdata.tooltip_vehiculo_tiene %> <%=it.locations.tooltip_aire_acondicionado%>" data-tooltip-location="top">
+                                            <img class="icon-24" src="img/svg/aire.svg" alt="<%=it.locations.alt_aire%>">
+                                        </div>
+                                        <% } %>
+                                        
+                                        <div class="servicios-trasmision" data-tooltip="<%=it.formdata.tooltip_vehiculo_tiene %> <%=it.formdata.tooltip_cambio %>" data-tooltip-location="top">
+                                            <img class="icon-24" src="img/svg/cambio_manual.svg" alt="<%=it.formdata.alt_cambio %>">
+                                            <div class="icon-number"><%=it.formdata.transmision_vehiculo %></div>
                                         </div>
                                     </div>
-        
                                     <div class="car-info-services-2">
-                                        <div class="servicios-kilometraje" data-tooltip="vehiculo tiene kilometraje --- cambiar" data-tooltip-location="top">
-                                            <img class="icon-25" src="img/svg/velocimetro.png" alt="kilometraje">
-                                            <p class="icon-kilometro">Kilometraje Ilimitado</p>
+                                        <div class="servicios-kilometraje" data-tooltip="<%=it.formdata.tooltip_vehiculo_tiene %> <%=it.formdata.tooltip_kilometraje %> " data-tooltip-location="top">
+                                            <img class="icon-25" src="img/svg/velocimetro.png" alt="<%=it.formdata.kilometraje %>">
+                                            <p class="icon-kilometro"><%=it.formdata.kilometraje %></p>
                                         </div>
         
                                         <div class="geoLoc">
@@ -112,10 +81,12 @@
         
                                     <div class="bookRecogida">
                                         <img src="./img/img-Calendar/calendar.jpg" alt="Icono calendario" class="icon-25">
-                                        <p class="icon-dateRecogida">Dom 9 Mayo</p>
+                                        <!-- <p class="icon-dateRecogida">Dom 9 Mayo</p> -->
+                                        <p class="icon-dateRecogida"><%= it.formdata.fechaRecogida %></p>
         
                                         <img src="./img/Img-Clock/clock.png" alt="Icono calendario" class="icon-25">
-                                        <p class="icon-clockRecogida">09:00</p>
+                                        <!-- <p class="icon-clockRecogida">09:00</p> -->
+                                        <p class="icon-clockRecogida"><%= it.formdata.horaRecogida %></p>
                                     </div>
         
                                     <div class="puntos">
@@ -124,10 +95,14 @@
         
                                     <div class="bookDevolucion">
                                         <img src="./img/img-Calendar/calendar.jpg" alt="Icono calendario" class="icon-25">
-                                        <p class="icon-dateDevolucion">Lun 10 Mayo</p>
+                                        <!-- <p class="icon-dateDevolucion">Lun 10 Mayo</p> -->
+                                        <p class="icon-dateDevolucion"><%= it.formdata.fechaDevolucion %></p>
+                                        
         
                                         <img src="./img/Img-Clock/clock.png" alt="Icono calendario" class="icon-25">
-                                        <p class="icon-clockDevolucion">20:00</p>
+                                        <!-- <p class="icon-clockDevolucion">20:00</p> -->
+                                        <p class="icon-clockDevolucion"><%= it.formdata.horaDevolucion %></p>
+                                        
                                     </div>
                                 </section>
                             </div>
@@ -159,59 +134,81 @@
                             Datos de la Reserva
                         </h3> -->
                         
-                        <h2><img id="icon-Mundi" src="./img/svg/mapaMundi.svg" alt="icono reserva"></img>Datos de la Reserva</h2>
+                        <h2>
+                            <img id="icon-Mundi" src="./img/svg/mapaMundi.svg" alt="<%=it.locations.icono_reserva %>"></img>
+                            <%=it.locations.datos_reserva %>
+                        </h2>
                     </div>
                     <div class="infoReserva">
                         <!-- Inicio Datos Fijos de la reserva -->
                         <div class="titDiasReserva">
-                            Días
+                            <%=it.locations.dias_titulo %>
                         </div>
                         <div class="diasReserva">
-                            2 días(Mier 8 Sept  Vie 10 sep)
+                            <!-- 2 días(Mier 8 Sept  Vie 10 sep) -->
+                            <% const dias = it.formdata.diasEntreRecogidaDevolucion - 0 %>
+                            <% if (dias > 1) { %>
+                                <%=it.formdata.diasEntreRecogidaDevolucion %> <%= it.locations.dias %> (<%=it.formdata.fechaRecogida %> <%=it.formdata.fechaDevolucion %>)
+                            <% } else { %>
+                                <%=it.formdata.diasEntreRecogidaDevolucion %> <%= it.locations.dia %> (<%=it.formdata.fechaRecogida %> <%=it.formdata.fechaDevolucion %>)
+                            <% } %>
                         </div>
         
                         <div class="titValorReserva">
-                            Alquiler
+                            <%=it.locations.alquiler_titulo %>
                         </div>
                         <div class="valorReserva">
-                            32.50 €
+                            <%=it.formdata.preciototaldias %> €
                         </div>
         
                         <div class="titSeguro">
-                            Seguro
+                            <%it.locations.seguro_titulo %>
                         </div>
                         <div class="valorseguro">
-                            El precio incluye seguro a todo riesgo
+                            <%it.locations.seguro_descripcion %>
                         </div>
                         <!-- Fin Datos Fijos de la reserva -->
         
                         <!--- Inicio Cargos de la reserva --->
-                        <div class="titConductor">
-                            Conductor Joven
-                        </div>
-                        <div class="valorConductor">
-                          20.0 €  
-                        </div>
-        
+                        <% if (it.formdata.conductor_con_experiencia === "on") { %>
+                            <div class="titConductor">
+                                <%=it.locations.conductor_joven_titulo %>
+                            </div>
+                            <div class="valorConductor">
+                            0 €
+                            </div>
+                        <% } else { %>
+                            <div class="titConductor">
+                                <%=it.locations.conductor_joven_titulo %>
+                            </div>
+                            <div class="valorConductor">
+                                <%=it.formdata.suplementotipoChofer %> €
+                            </div>
+                        <% } %>
                         <div class="titTotReserva">
-                            Total :
+                            <%=it.locations.total_titulo %>
                         </div>
                         <div class="valorTotReserva">
-                          52.50 €  
+                            <% if (it.formdata.suplementotipoChofer !== undefined) { %>
+                                <%let subtotal = (it.formdata.preciototaldias - 0) + (it.formdata.suplementotipoChofer - 0) %>
+                                <%= subtotal %> €
+                            <% } else { %>
+                                <%= it.formdata.preciototaldias %> €
+                            <% } %>
                         </div>
         
                         <div class="titValorRecogida">
-                            Pago a la recogida
+                            <%= it.locations.pago_recogida_titulo %>
                         </div>
                         <div class="ValorRecogida">
-                          20.0 €  
+                            20.0 €
                         </div>
         
                         <div class="titValorOnline">
-                            Pago Online
+                            <%= it.locations.pago_online_titulo %>
                         </div>
                         <div class="ValorOnline">
-                            32.50 €  
+                            <%=it.formdata.preciototaldias %> €
                         </div>
                         <!--- Fin Cargos de la reserva --->
                     </div>
@@ -222,35 +219,33 @@
             <!-----------------  Inicio Beneficios ------------------------------------------>
             <div class="beneficios">
                 <div class="includPrice-container">
-                    <span class="tit-includPrice-container">Incluido en el Precio:
+                    <span class="tit-includPrice-container"><%it.locations.incluido_precio_titulo %>
                         <ul class="includPrice-contenido">
-
-                            <li class="tooltipBlanco" title="Oferta al mejor precio garantizado">
-                            <img src="./img/svg/hechoSmall.svg" alt="Icono hecho pequeño">Seguro todo riesgo
-
+                            <li class="tooltipBlanco" title="<%=it.locations.title_seguro_todoriesgo %>" data-tooltip="<%=it.locations.title_seguro_todoriesgo %>">
+                            <img src="./img/svg/hechoSmall.svg" class="icon-25" alt="<%=it.locations.alt_icono_reservar %>"><%=it.locations.seguro_incluido_titulo %>
                             </li>
-                            <li class="tooltipBlanco" title="La oferta incluye sillas y elevadores homologados CE">
-                                <img src="./img/svg/hechoSmall.svg" alt="Icono hecho pequeño">Sillas y Elevadores de niños
+                            <li class="tooltipBlanco" title="<%=it.locations.title_sillas %>" data-tooltip="<%=it.locations.title_sillas %>">
+                                <img src="./img/svg/hechoSmall.svg" class="icon-25"  alt="<%=it.locations.alt_icono_reservar %>"><%=it.locations.sillas_elevadores_titulo %>
                             </li>
-                            <li class="tooltipBlanco" title="Además la oferta incluye la posibilidad de cancelar la reserva 24 Horas antes de la recogida">
-                                <img src="./img/svg/hechoSmall.svg" alt="Icono hecho pequeño">Cancelación gratuita
+                            <li class="tooltipBlanco" title="<%=it.locations.title_cancelar %>" data-tooltip="<%=it.locations.title_cancelar %>">
+                                <img src="./img/svg/hechoSmall.svg" class="icon-25"  alt="<%=it.locations.alt_icono_reservar %>"><%=it.locations.cancelacion_titulo %>
                             </li>
-                            <li class="tooltipBlanco" title="la oferta incluye los impuestos locales">
-                                <img src="./img/svg/hechoSmall.svg" alt="Icono hecho pequeño">Impuestos locales
+                            <li class="tooltipBlanco" title="<%=it.locations.title_impuestos %>" data-tooltip="<%=it.locations.title_impuestos %>">
+                                <img src="./img/svg/hechoSmall.svg" class="icon-25" alt="<%=it.locations.alt_icono_reservar %>"><%=it.locations.impuestos_titulo %>
                             </li>
                         </ul>
                     </span>
                 </div>
             </div>
             <!-----------------  Fin  Beneficios ------------------------------------------>
-
+            
             <!-----------------  Inicio sillas y elevadores para niños  ------------------->
             <div class="sillasBox">
                 <section class="sillasContent">
                     <div class="titSillas">
-                        <h2><i class="icoSillas"></i>Asientos niños</h2>
+                        <h2><i class="icoSillas"></i><%=it.locations.asientos_titulo %></h2>
                     </div>
-                    <div> 
+                    <div>
                         <div class="datBox">
                             <div class="form-group">
                                 <ul class="dataExtras">
@@ -261,18 +256,21 @@
                                             <option value="2">2</option>
                                             <option value="3">3</option>
                                         </select>
-                                        <a class="infoIco" align="justify" data-toggle="tooltip" title data-original-title="<strong>Asientos niños</strong>"
+                                        <a class="infoIco" align="justify" data-toggle="tooltip" title 
+                                        data-original-title="<strong><%=it.locations.asientos_titulo %></strong>">
                                             <strong>info</strong>
                                         </a>
                                         <div class="details">
-                                            <label>Asientos niños</label>
+                                            <label><%=it.locations.asientos_titulo %></label>
                                             <p>
-                                                Los asientos de niños, son para niños de 1 a 3 años
-                                                <span class="text-nowrap">(con un peso entre 9-18kg).</span>
+                                                <!-- Los asientos de niños, son para niños de 1 a 3 años
+                                                <span class="text-nowrap">(con un peso entre 9-18kg).</span> -->
+                                                <%=it.locations.descripcion_asientos %>
+                                                <span class="text-nowrap"><%=it.locations.descripcion_asientos_dos %></span>
                                             </p>
                                         </div>
                                     </li>
-
+                                    
                                     <li class="extraLine">
                                         <img src="./img/img-childSeat/boosterSeat.svg" alt="">
                                         <select name="" id="booster_seat" class="safariSelect">
@@ -280,14 +278,16 @@
                                             <option value="2">2</option>
                                             <option value="3">3</option>
                                         </select>
-                                        <a class="infoIco" align="justify" data-toggle="tooltip" title data-original-title="<strong>Elevadores niños</strong>"
-                                            <strong>info</strong>
+                                        <a class="infoIco" align="justify" data-toggle="tooltip" title
+                                        data-original-title="<strong><%=it.locations.elevadores_titulo %></strong>"> <strong>info</strong>
                                         </a>
+                                        <label><%=it.locations.elevadores_titulo %></label>
                                         <div class="details">
-                                            <label>Elevadores niños</label>
                                             <p>
-                                                Los elevadores son recomendados para niños de 4-11 años 
-                                                <span class="text-nowrap">(con un peso entre 18-45kg).</span>
+                                                <%=it.locations.elevadores_descripcion %>
+                                                <span class="text-nowrap"><%=it.locations.elevadores_descripcion_dos %></span>
+                                                <!-- Los elevadores son recomendados para niños de 4-11 años
+                                                <span class="text-nowrap">(con un peso entre 18-45kg).</span> -->
                                             </p>
                                         </div>
                                     </li>
@@ -298,7 +298,6 @@
                 </section>
             </div>
             <!-----------------  Fin sillas y elevadores para niños  ------------------->
-
             <div class="yellow">
                 <p>Septima caja</p>
             </div>

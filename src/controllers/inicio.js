@@ -25,7 +25,7 @@ exports.getHome = async (req, res, languageBrowser) =>
         return res.status(404).send("Not Found");
     }
     
-    const locationLanguage = await GenerateLocationBrowser(
+    const locationLanguage = await locations.GenerateLocationBrowser(
         languageBrowser, 
         req.headers["accept-language"].split(",")[1].split(";")[0]
     );
@@ -55,45 +55,12 @@ exports.getHome = async (req, res, languageBrowser) =>
 
     }
 
-    if (dataResponse.isOk === false) {
-        return res.status(404).send("Not found");
-    }
+    // if (dataResponse.isOk === false) {
+    //     return res.status(404).send("Not found");
+    // }
 
 };
 
-const GenerateLocationBrowser = async (languageBrowser, reqHeadersLocation) =>
-{
-
-    //lang = es, it, en, de
-    if (languageBrowser === undefined) 
-    {
-        languageBrowser = await CheckLanguage(reqHeadersLocation);
-    }
-
-    let lenguaje = await locations.GetVarLocales();
-
-    // todo: mejorar comprobacion
-    if (lenguaje === undefined)
-    {
-        console.log("lenguaje esta vacio");
-        //pedimos al backend que nos lo envie
-        await locations.Frontend_TO_Backend();
-        lenguaje = await locations.GetVarLocales();
-    }
-    return lenguaje[languageBrowser];
-
-};
-
-const CheckLanguage = async (lang) =>
-{
-
-    if (lang !== "es" && lang !== "en" && lang !== "it" && lang !== "de") {
-        lang = "en";
-    }
-
-    return lang;
-
-};
 
 exports.postHome = async (req, res) =>
 {
@@ -129,10 +96,17 @@ exports.postHome = async (req, res) =>
     // const languageBrowser = await CheckLanguage(req.body.idioma);
     // const lenguaje = await locations.GetVarLocales();
 
-    const locationLanguage = await GenerateLocationBrowser(req.body.idioma);
+    const locationLanguage = await locations.GenerateLocationBrowser(req.body.idioma);
 
-    if (dataResponse.isOk === false) {
-        if (dataResponse.errorFormulario !== "") {
+    if (dataResponse.isOk === false)
+    {
+        if (dataResponse.errorFormulario === "")
+        {
+            // Blacklist?
+            return res.status(404).sender("Not found");
+        }
+        else
+        {
             return res.render("inicio", 
             {
                 "success": req.body.success,
@@ -144,6 +118,9 @@ exports.postHome = async (req, res) =>
     }
 
     req.session.data = dataResponse.data;
+
+    // dataResponse.data = [];
+    // dataResponse.errorFormulario = "error_formulario1";
 
     if (dataResponse.data.length <= 0) {
         res.render("muestraOferta", {

@@ -641,3 +641,9 @@ body {
     grid-row: 7 / 10;
     background: yellow;
 }
+
+.bandera
+{
+  width: 50px;
+  border: 1px solid black;
+}
