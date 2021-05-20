@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Reservar2</title>
+        <title><%= it.locations.reservar_titulopagina %></title>
         <link rel="stylesheet" href="./css/reservar2.css"/>
     </head>
     <body>
@@ -134,7 +134,10 @@
                             Datos de la Reserva
                         </h3> -->
                         
-                        <h2><img id="icon-Mundi" src="./img/svg/mapaMundi.svg" alt="icono reserva"></img>Datos de la Reserva</h2>
+                        <h2>
+                            <img id="icon-Mundi" src="./img/svg/mapaMundi.svg" alt="<%=it.locations.icono_reserva %>"></img>
+                            <%=it.locations.datos_reserva %>
+                        </h2>
                     </div>
                     <div class="infoReserva">
                         <!-- Inicio Datos Fijos de la reserva -->
@@ -240,7 +243,7 @@
             <div class="sillasBox">
                 <section class="sillasContent">
                     <div class="titSillas">
-                        <h2><i class="icoSillas"></i>Asientos niños</h2>
+                        <h2><i class="icoSillas"></i><%=it.locations.asientos_titulo %></h2>
                     </div>
                     <div>
                         <div class="datBox">
@@ -253,14 +256,17 @@
                                             <option value="2">2</option>
                                             <option value="3">3</option>
                                         </select>
-                                        <a class="infoIco" align="justify" data-toggle="tooltip" title
-                                        data-original-title="<strong>Asientos niños</strong>" <strong>info</strong>
+                                        <a class="infoIco" align="justify" data-toggle="tooltip" title 
+                                        data-original-title="<strong><%=it.locations.asientos_titulo %></strong>">
+                                            <strong>info</strong>
                                         </a>
                                         <div class="details">
-                                            <label>Asientos niños</label>
+                                            <label><%=it.locations.asientos_titulo %></label>
                                             <p>
-                                                Los asientos de niños, son para niños de 1 a 3 años
-                                                <span class="text-nowrap">(con un peso entre 9-18kg).</span>
+                                                <!-- Los asientos de niños, son para niños de 1 a 3 años
+                                                <span class="text-nowrap">(con un peso entre 9-18kg).</span> -->
+                                                <%=it.locations.descripcion_asientos %>
+                                                <span class="text-nowrap"><%=it.locations.descripcion_asientos_dos %></span>
                                             </p>
                                         </div>
                                     </li>
@@ -273,13 +279,15 @@
                                             <option value="3">3</option>
                                         </select>
                                         <a class="infoIco" align="justify" data-toggle="tooltip" title
-                                        data-original-title="<strong>Elevadores niños</strong>" <strong>info</strong>
+                                        data-original-title="<strong><%=it.locations.elevadores_titulo %></strong>"> <strong>info</strong>
                                         </a>
-                                        <label>Elevadores niños</label>
+                                        <label><%=it.locations.elevadores_titulo %></label>
                                         <div class="details">
                                             <p>
-                                                Los elevadores son recomendados para niños de 4-11 años
-                                                <span class="text-nowrap">(con un peso entre 18-45kg).</span>
+                                                <%=it.locations.elevadores_descripcion %>
+                                                <span class="text-nowrap"><%=it.locations.elevadores_descripcion_dos %></span>
+                                                <!-- Los elevadores son recomendados para niños de 4-11 años
+                                                <span class="text-nowrap">(con un peso entre 18-45kg).</span> -->
                                             </p>
                                         </div>
                                     </li>
