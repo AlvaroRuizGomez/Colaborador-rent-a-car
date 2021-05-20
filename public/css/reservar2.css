@@ -516,9 +516,21 @@ body {
     border: 1px solid #ddd;
     margin-bottom: 0;
     position: relative;
+    display: block;
 }
 
-.sillasContent>h2 i.icoSillas {
+.titSillas {
+    border-bottom: 1px solid #ddd;
+}
+
+.titSillas h2 {
+    font-size: 19px;
+    line-height: initial;
+    font-weight: 700;
+    color: #444;
+}
+
+.titSillas>h2 i.icoSillas {
     display: inline-block;
     vertical-align: bottom;
     width: 24px;
@@ -537,8 +549,92 @@ body {
     margin: 10px 0;
 }
 
-/* ---- Inicio Sillas y Elevadores niños ----- */
+.dataBox {
+    padding: 20px;
+    font-size: 14px;
+    line-height: 16px;
+}
 
+.form-group {
+    min-height: 32px;
+    background-size: 16px;
+    font-size: 14px;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.dataExtras {
+    width: 60%;
+    list-style: none;
+    padding: 0;
+    width: 75%;
+    margin: 0 auto;
+}
+
+.dataExtras .extraLine>img {
+    width: 12%;
+    margin-right: 3%;
+}
+
+.dataExtras .extraLine>* {
+    display: inline;
+    vertical-align: middle;
+}
+
+.extraLine {
+    margin: 25px 0;
+}
+
+.safariSelect {
+    background: #fff;
+    border-radius: 3px;
+    -webkit-appearance: menulist;
+    -webkit-transition: all .2s;
+    -moz-transition: all .2s;
+    transition: all .2s;
+}
+
+.text-nowrap {
+    white-space: nowrap;
+}
+
+.dataExtras a.infoIco {
+    width: 16px;
+    height: 16px;
+    background: url(/public/img/svg/iconInfo.svg) no-repeat center;
+    font-size: 0;
+    display: inline-block;
+    margin-left: 10px;
+    vertical-align: middle;
+    line-height: 0;
+    text-indent: -3000px;
+}
+
+.details {
+    width: 64%;
+    margin-left: 3%;
+}
+
+.details label {
+    display: inline-block;
+    max-width: 100%;
+    margin-bottom: 45px;
+    font-weight: 700;
+}
+
+.details p {
+    display: block;
+    font-size: 1.03em;
+    line-height: 1.25em;
+    margin: 0 0 10px;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+
+/* ---- Inicio Sillas y Elevadores niños ----- */
 
 .yellow {
     grid-column: 4 / 8;
