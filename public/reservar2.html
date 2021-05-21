@@ -170,6 +170,7 @@
         
                         <!--- Inicio Cargos de la reserva --->
                         <%let mult = 0 %>
+                        <%let subtotal = 0 %>
                         <% if (it.formdata.conductor_con_experiencia === "on") { %>
                             <div class="titConductor">
                                 <%=it.locations.conductor_joven_titulo %>
@@ -184,10 +185,10 @@
                             <div class="valorConductor">
                                 <% if (dias> 1) { %>
                                     <% mult = dias * (it.formdata.suplementoportipoChofer - 0 ) %>
-                                    <%= dias %> <%=it.locations.dias %> x <%=it.formdata.suplementoportipoChofer %> € <%=it.locations.pordia %>  = <%= mult %> €
+                                    <%= dias %> <%=it.locations.dias %> x <%=it.formdata.suplementoportipoChofer %> € = <%= mult %> €
 
                                 <% } else { %>
-                                    <%= dias %> <%=it.locations.dia %> x <%=it.formdata.suplementoportipoChofer %> € <%=it.locations.pordia %> = <%=it.formdata.suplementoportipoChofer %> €
+                                    <%= dias %> <%=it.locations.dia %> x <%=it.formdata.suplementoportipoChofer %> € = <%=it.formdata.suplementoportipoChofer %> €
                                     <% mult = (it.formdata.suplementoportipoChofer - 0) %>
                                 <% } %>
 
@@ -198,10 +199,11 @@
                         </div>
                         <div class="valorTotReserva">
                             <% if (it.formdata.suplementoportipoChofer !== undefined) { %>
-                                <%let subtotal = (it.formdata.preciototaldias - 0) + (mult) %>
+                                <% subtotal = (it.formdata.preciototaldias - 0) + (mult) %>
                                 <%= subtotal %> €
                             <% } else { %>
-                                <%= it.formdata.preciototaldias %> €
+                                <% subtotal=(it.formdata.preciototaldias - 0) %>
+                                <%= subtotal %> €
                             <% } %>
                         </div>
         
@@ -209,14 +211,18 @@
                             <%= it.locations.pago_recogida_titulo %>
                         </div>
                         <div class="ValorRecogida">
-                            20.0 €
+                            
+                            <%=it.formdata.pagoRecogida %> €
+                        
                         </div>
         
                         <div class="titValorOnline">
                             <%= it.locations.pago_online_titulo %>
                         </div>
                         <div class="ValorOnline">
-                            <%=it.formdata.preciototaldias %> €
+                            <% let tota = subtotal - ( it.formdata.pagoRecogida - 0 )%>
+                            <%= tota %> €
+                            
                         </div>
                         <!--- Fin Cargos de la reserva --->
                     </div>

@@ -151,7 +151,8 @@ exports.postHome = async (req, res) =>
             "suplementotipochofer_base": dataResponse.suplementotipochofer_base,
             "preciosPorClase": dataResponse.preciosPorClase,
             "condicionesgenerales": dataResponse.condicionesgenerales,
-            "locations": locationLanguage
+            "locations": locationLanguage,
+            "pagoRecogida": dataResponse.pagoRecogida
         });
 
     }
