@@ -575,14 +575,12 @@ body {
 {
 
     display: grid;
-    grid-template-columns: 10% 10% 8.1% 11.9% 50%;
-    grid-template-rows: 0.2fr 0.2fr;
+    grid-template-columns: 10% 10% 10% 11% 50%;
+    grid-template-rows: 0.2fr 1fr;
     gap: 0px 0px;
     grid-template-areas:
-    "silla silla casilla info titulo"
-    "silla silla casilla info descripcion"
-    ;
-
+        "silla silla casilla info titulo"
+        "silla silla casilla info descripcion";
     justify-items: center;
     align-items: center;
     margin-bottom: 20px;
@@ -610,6 +608,7 @@ body {
 { 
     grid-area: descripcion;
     text-align: left;
+    /* margin-block: 0px; */
 }
 
 
@@ -658,14 +657,14 @@ body {
     margin-left: 3%;
 }
 
-.details label {
-    display: inline-block;
-    max-width: 100%;
-    margin-bottom: 45px;
+.titulo {
+    /* display: inline-block; */
+    /* max-width: 100%; */
+    /* margin-bottom: 45px; */
     font-weight: 700;
 }
 
-.details p {
+.descripcion {
     display: block;
     font-size: 1.03em;
     line-height: 1.25em;
