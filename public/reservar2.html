@@ -162,10 +162,10 @@
                         </div>
         
                         <div class="titSeguro">
-                            <%it.locations.seguro_titulo %>
+                            <%=it.locations.seguro_titulo %>
                         </div>
                         <div class="valorseguro">
-                            <%it.locations.seguro_descripcion %>
+                            <%=it.locations.seguro_descripcion %>
                         </div>
                         <!-- Fin Datos Fijos de la reserva -->
         
@@ -298,8 +298,63 @@
                 </section>
             </div>
             <!-----------------  Fin sillas y elevadores para niños  ------------------->
+            <!-- <div class="formDriver"> -->
             <div class="yellow">
-                <p>Septima caja</p>
+                <!-- <p>Septima Kaja</p> -->
+                <h2><i class="ico ico-user"></i>
+                    Datos Conductor Principal
+                </h2>
+                <div class="databox">
+                    <!---------   Inicio Sr / Sra ------------------------>
+                    <div class="form-group required">
+                        <label for="titulo">
+                            Título :
+                        </label>
+                        <div class="radio-inline">
+                            <label for="Sr">
+                                <input type="radio" value="Sr" name="titulo" id="Sr">
+                                Sr
+                            </label>
+                            <label for="Sr">
+                                <input type="radio" value="Sra" name="titulo" id="Sra">
+                                Sra
+                            </label>
+                        </div>
+                    </div>
+                    <!------------   Fin Sr / Sra ------------------------>
+
+                    <!---------   Nombre  -------------------------->
+                    <div class="form-group required valide">
+                        <label for="nombre">
+                            Nombre
+                        </label>
+                        <input type="text" id="nombre" name="nombre" size="65" value maxlength="50" placeholder="Nombre">
+                    </div>
+
+                    <!---------  Apellidos  ----------------------->
+                    <div class="form-group required valide">
+                        <label for="apellidos">
+                            Apellidos
+                        </label>
+                        <input type="text" id="apellidos" name="apellidos" size="65" value maxlength="50" placeholder="Apellidos">
+                    </div>
+
+                    <!---------   E-mail  ------------------------->
+                    <div class="form-group required valide">
+                        <label for="email">
+                            E-mail
+                        </label>
+                        <input type="text" id="email" name="email" size="65" value onchange maxlength="50" placeholder="A este E-mail es donde te enviaremos tu confirmación">
+                    </div>
+                    <div class="info-fieldcontainer">
+                        <div class="info-fieldcontain">
+                            Aquí es donde te enviaremos la confirmación de la reserva con toda la informacion para la recogida de tu coche
+                        </div>
+                    </div>
+
+
+
+                </div>
             </div>
         </div>
 
