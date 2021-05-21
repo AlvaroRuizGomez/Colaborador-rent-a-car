@@ -262,48 +262,46 @@
                     <div>
                         <div class="datBox">
                             <div class="form-group">
-                                <ul class="dataExtras">
-                                    <li class="extraLine">
-                                        <img src="./img/img-childSeat/img-childSeat.svg" alt="">
-                                        <select name="" id="child_seat" class="safariSelect">
+                                <ul class="">
+                                    <li class="sillas">
+                                        <img src="./img/img-childSeat/img-childSeat.svg" class="silla" alt="<%=it.locations.asientos_titulo %>">
+                                        <select name="child_seat" id="child_seat" class="safariSelect casilla">
+                                            <option value="0" selected>0</option>
                                             <option value="1">1</option>
                                             <option value="2">2</option>
                                             <option value="3">3</option>
                                         </select>
-                                        <a class="infoIco" align="justify" data-toggle="tooltip" title 
-                                        data-original-title="<strong><%=it.locations.asientos_titulo %></strong>">
+                                        <a class="info infoIco" data-tooltip-location="top" data-tooltip="<%=it.locations.asientos_titulo %>">
                                             <strong>info</strong>
                                         </a>
-                                        <div class="details">
-                                            <label><%=it.locations.asientos_titulo %></label>
-                                            <p>
-                                                <!-- Los asientos de niños, son para niños de 1 a 3 años
-                                                <span class="text-nowrap">(con un peso entre 9-18kg).</span> -->
-                                                <%=it.locations.descripcion_asientos %>
-                                                <span class="text-nowrap"><%=it.locations.descripcion_asientos_dos %></span>
-                                            </p>
-                                        </div>
+                                        
+                                        <label class="titulo"><%=it.locations.asientos_titulo %></label>
+                                        <p class="descripcion">
+                                            <%=it.locations.descripcion_asientos %>
+                                            <span class="text-nowrap"><%=it.locations.descripcion_asientos_dos %></span>
+                                        </p>
+                                        
                                     </li>
                                     
-                                    <li class="extraLine">
-                                        <img src="./img/img-childSeat/boosterSeat.svg" alt="">
-                                        <select name="" id="booster_seat" class="safariSelect">
+                                    <li class="sillas">
+                                        <img src="./img/img-childSeat/boosterSeat.svg" class="silla" alt="<%=it.locations.elevadores_titulo %>">
+                                        <select name="booster_seat" id="booster_seat" class="safariSelect casilla">
+                                            <option value="0" selected>0</option>
                                             <option value="1">1</option>
                                             <option value="2">2</option>
                                             <option value="3">3</option>
                                         </select>
-                                        <a class="infoIco" align="justify" data-toggle="tooltip" title
-                                        data-original-title="<strong><%=it.locations.elevadores_titulo %></strong>"> <strong>info</strong>
+
+                                        <a class="info infoIco" data-tooltip-location="top" data-tooltip="<%=it.locations.elevadores_titulo %>"> 
+                                            <strong>info</strong>
                                         </a>
-                                        <label><%=it.locations.elevadores_titulo %></label>
-                                        <div class="details">
-                                            <p>
-                                                <%=it.locations.elevadores_descripcion %>
-                                                <span class="text-nowrap"><%=it.locations.elevadores_descripcion_dos %></span>
-                                                <!-- Los elevadores son recomendados para niños de 4-11 años
-                                                <span class="text-nowrap">(con un peso entre 18-45kg).</span> -->
-                                            </p>
-                                        </div>
+                                        <label class="titulo"><%=it.locations.elevadores_titulo %></label>
+                                    
+                                        <p class="descripcion">
+                                            <%=it.locations.elevadores_descripcion %>
+                                            <span class="text-nowrap"><%=it.locations.elevadores_descripcion_dos %></span>
+                                        </p>
+                                        
                                     </li>
                                 </ul>
                             </div>
