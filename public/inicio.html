@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="<%=it.locations.idioma_web%>">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Rent a Car Mallorca</title>
+        <title><%=it.locations.titulo%></title>
         <!-- <link rel="stylesheet" href="./css/reset.css"> -->
         <!-- ------------------- jQuery------------------------- -->
         <link rel="stylesheet" href="jquery-ui-1.12.1.custom/jquery-ui.css">
@@ -17,11 +17,16 @@
         <!-- --------------------------------------------------- -->
 
         <link rel="stylesheet" href="css/styles.css" />
+
+        <!----------------------------------- Fonts --------------------------------------->
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Caveat&display=swap" rel="stylesheet ">
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+
+        <!------------------------------ Font Faster R ----------------------------------->
         <link href="https://fonts.googleapis.com/css2?family=Allura&family=Arizonia&family=Charmonman:wght@700&family=Damion&family=Faster+One&family=Galada&family=Gravitas+One&family=Montez&family=Sarina&family=Sonsie+One&display=swap" rel="stylesheet">  
+        <!--------------------------------------------------------------------------------->
 
         <!------------------- Bootstrap CSS ------------------------>
         
@@ -36,47 +41,35 @@
         <!-- Inicio container -->
         <div id="container">
             <!-- Inicio Cabecera -->
-            <header id="header">
-                <%~ includeFile("parciallogo.html") %>
-                <div class="contacto">
-                    <img src="./img/whatsapp-icon-hd-21.jpg"/>
-                    <h2>+34 999 999 999</h2>
-                    <p id="reserva-telefono">Contacto reservas</p>
-                </div>
-
-                <nav id="idioma">
-                    <ul>
-                        <li>
-                            <a href="#">Idioma</a>
-                        </li>
-                    </ul>
-                </nav>
-            </header>
+            <%~ includeFile("header.html", it) %>
             <!-- Fin Cabecera -->
 
             <section id="eslogan">
-                Conozca Mallorca...
+                <%=it.locations.eslogan%>
             </section>
             
             <!------------ Inicio contenido ------------------------->
             <section id="content">
                 <!-------- Inicio Formulario de Busqueda ------------>
                 <form id="formulario-index" class="form-inline" method="POST" action="/">
+                <input type="hidden" name="success" value="<%=it.success %>">
+                <input type="hidden" name="idioma" value="<%=it.locations.idioma_web%>">
+                <input type="hidden" name="fase" value="1">
                 <div class="aside-box">
                         <div class="titulo-form">
-                            <label>Alquiler de Coches</label>
+                            <label><%=it.locations.titulo_form%></label>
                         </div>
                         <!-------------  Inicio  Fecha/Hora Recogida  ------------------------- -->
                         <div class="form-inline form-buscar">
                             <% if (it.errorFormulario !== undefined ) { %>
                                 <label>
-                                    <%= it.errorFormulario %>
+                                    <%= it.locations[it.errorFormulario] %>
                                 </label>
-                                <% } %>
+                            <% } %>
                             <div class="formDateRecogida">
                                     <div class="labelDate-form-recogida">
                                         <label>
-                                                Recogida:
+                                            <%= it.locations.recogida %>
                                         </label>
                                     </div>
 
@@ -85,7 +78,7 @@
 
                                     <div class="labelClock-form-recogida">
                                         <label>
-                                                Hora :
+                                            <%= it.locations.hora %>
                                         </label>
                                     </div>
                                     <div class="input-group clockpicker" data-placement="bottom" data-align="top" data-autoclose="true">
@@ -105,7 +98,7 @@
                                 
                                     <div class="labelDate-form-devolucion">
                                         <label>
-                                                Devolucion :
+                                            <%=it.locations.devolucion %>
                                         </label>
                                     </div>
 
@@ -114,7 +107,7 @@
 
                                     <div class="labelClock-form-devolucion">
                                         <label>
-                                                Hora :
+                                                <%=it.locations.hora %>
                                         </label>
                                     </div>
                                     <div class="input-group clockpicker" data-placement="bottom" data-align="top" data-autoclose="true">
@@ -132,17 +125,17 @@
                             <section class="centrado gap-10">
                                 <input id="rangoedad" type="checkbox" name="conductor_con_experiencia" value="on" class="elemento__inputradio" checked="checked">
                                 <label class="elemento__circulo" for="rangoedad"></label>
-                                <label class="elemento__titulo" for="rangoedad">Conductor tiene 23 años o mas</label>
+                                <label class="elemento__titulo" for="rangoedad"><%=it.locations.conductor_experiencia %></label>
                             </section>
 
                             <section id="desplegable_edad" class="centrado invisible gap-10">
-                                <label for="edad_conductor">Edad del conductor</label>
+                                <label for="edad_conductor"><%=it.locations.edad_conductor %></label>
                                 <input id="edad_conductor" type="number" name="edad_conductor" value="22" min="18" max="22" class="edad_conductor">
                             </section>
                         </div> 
                         <section class="btnBuscar">
                             <button type="submit" id="boton-VerPrecios" class="btn btn-primary btn-lg btn-block">
-                                Ver precios
+                                <%=it.locations.ver_precios %>
                             </button>
                         </section>
                     </div>         
@@ -188,7 +181,7 @@
                             
                                     <div class="DetailCarMotor_Feature">
                                         <div class="Icon__svgContainer">
-                                            <img src="./img/svg/tansmision.svg" alt="transmision">
+                                            <img src="./img/svg/cambio_manual.svg" alt="transmision">
                                         </div>
                                         <div class="DetailCar_Etiqueta">
                                             M
@@ -242,7 +235,7 @@
                             
                                     <div class="DetailCarMotor_Feature">
                                         <div class="Icon__svgContainer">
-                                            <img src="./img/svg/tansmision.svg" alt="transmision">
+                                            <img src="./img/svg/cambio_manual.svg" alt="transmision">
                                         </div>
                                         <div class="DetailCar_Etiqueta">
                                             M
@@ -295,7 +288,7 @@
                                 
                                     <div class="DetailCarMotor_Feature">
                                         <div class="Icon__svgContainer">
-                                            <img src="./img/svg/tansmision.svg" alt="transmision">
+                                            <img src="./img/svg/cambio_manual.svg" alt="transmision">
                                         </div>
                                         <div class="DetailCar_Etiqueta">
                                             M
@@ -348,7 +341,7 @@
                                 
                                     <div class="DetailCarMotor_Feature">
                                         <div class="Icon__svgContainer">
-                                            <img src="./img/svg/tansmision.svg" alt="transmision">
+                                            <img src="./img/svg/cambio_manual.svg" alt="transmision">
                                         </div>
                                         <div class="DetailCar_Etiqueta">
                                             M
@@ -401,7 +394,7 @@
                                 
                                     <div class="DetailCarMotor_Feature">
                                         <div class="Icon__svgContainer">
-                                            <img src="./img/svg/tansmision.svg" alt="transmision">
+                                            <img src="./img/svg/cambio_manual.svg" alt="transmision">
                                         </div>
                                         <div class="DetailCar_Etiqueta">
                                             M
@@ -454,7 +447,7 @@
                                 
                                     <div class="DetailCarMotor_Feature">
                                         <div class="Icon__svgContainer">
-                                            <img src="./img/svg/tansmision.svg" alt="transmision">
+                                            <img src="./img/svg/cambio_manual.svg" alt="transmision">
                                         </div>
                                         <div class="DetailCar_Etiqueta">
                                             M
@@ -507,7 +500,7 @@
                                 
                                     <div class="DetailCarMotor_Feature">
                                         <div class="Icon__svgContainer">
-                                            <img src="./img/svg/tansmision.svg" alt="transmision">
+                                            <img src="./img/svg/cambio_manual.svg" alt="transmision">
                                         </div>
                                         <div class="DetailCar_Etiqueta">
                                             M
@@ -560,7 +553,7 @@
                                 
                                     <div class="DetailCarMotor_Feature">
                                         <div class="Icon__svgContainer">
-                                            <img src="./img/svg/tansmision.svg" alt="transmision">
+                                            <img src="./img/svg/cambio_manual.svg" alt="transmision">
                                         </div>
                                         <div class="DetailCar_Etiqueta">
                                             M
@@ -619,8 +612,8 @@
         <!-- Fin contenido -->
 
             <footer id="footer">
-                <div class="pie">Información</div>
-                <div class="info">@lvaro Ruiz WEB &copy;</div>
+                <div class="pie"><%=it.locations.informacion%></div>
+                <div class="info"><%=it.locations.copyright%>&copy;</div>
             </footer>
         </div>
         <!-- Fin container -->
@@ -636,15 +629,15 @@
 <!---------------------------------------------------------------->
 <script>
     $.datepicker.regional['es'] = {
-        closeText: 'Cerrar',
-        prevText: '< Ant',
-        nextText: 'Sig >',
-        currentText: 'Hoy',
-        monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
-        monthNamesShort: ['Ene','Feb','Mar','Abr', 'May','Jun','Jul','Ago','Sep', 'Oct','Nov','Dic'],
-        dayNames: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
-        dayNamesShort: ['Dom','Lun','Mar','Mié','Juv','Vie','Sáb'],
-        dayNamesMin: ['Do','Lu','Ma','Mi','Ju','Vi','Sá'],
+        closeText: '<%=it.locations.cerrar_clock%>',
+        prevText: '<%=it.locations.anterior_clock %>',
+        nextText: '<%=it.locations.siguiente_clock %>',
+        currentText: '<%=it.locations.hoy_clock %>',
+        monthNames: ['<%=it.locations.enero%>', '<%=it.locations.febrero%>', '<%=it.locations.marzo%>', '<%=it.locations.abril%>', '<%=it.locations.mayo%>', '<%=it.locations.junio%>', '<%=it.locations.julio%>', '<%=it.locations.agosto%>', '<%=it.locations.septiembre%>', '<%=it.locations.octubre%>', '<%=it.locations.noviembre%>', '<%=it.locations.diciembre%>'],
+        monthNamesShort: ['<%=it.locations.corto_enero%>', '<%=it.locations.corto_febrero%>', '<%=it.locations.corto_marzo%>', '<%=it.locations.corto_abril%>', '<%=it.locations.corto_mayo%>', '<%=it.locations.corto_junio%>', '<%=it.locations.corto_julio%>', '<%=it.locations.corto_agosto%>', '<%=it.locations.corto_septiembre%>', '<%=it.locations.corto_octubre%>', '<%=it.locations.corto_noviembre%>', '<%=it.locations.corto_diciembre%>'],
+        dayNames: ['<%=it.locations.domingo%>', '<%=it.locations.lunes%>', '<%=it.locations.martes%>', '<%=it.locations.miercoles%>', '<%=it.locations.jueves%>', '<%=it.locations.viernes%>', '<%=it.locations.sabado%>'],
+        dayNamesShort: ['<%=it.locations.corto_domingo%>', '<%=it.locations.corto_lunes%>', '<%=it.locations.corto_martes%>', '<%=it.locations.corto_miercoles%>', '<%=it.locations.corto_jueves%>', '<%=it.locations.corto_viernes%>', '<%=it.locations.corto_sabado%>'],
+        dayNamesMin: ['<%=it.locations.min_domingo%>', '<%=it.locations.min_lunes%>', '<%=it.locations.min_martes%>', '<%=it.locations.min_miercoles%>', '<%=it.locations.min_jueves%>', '<%=it.locations.min_viernes%>', '<%=it.locations.min_sabado%>'],
         weekHeader: 'Sm',
         dateFormat: 'dd/mm/yy',
         firstDay: 1,
@@ -652,6 +645,7 @@
         showMonthAfterYear: false,
         yearSuffix: ''
     };
+
     $.datepicker.setDefaults($.datepicker.regional['es']);
 </script>
 

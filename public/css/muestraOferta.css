@@ -97,60 +97,11 @@ background: red;
   background-color: #e6e9f0;
   border-bottom: 1px solid rgba(225, 225, 226, 0.8);
 }
-  
-/*  */
-.logo {
-  display: grid;
-  grid-template-columns: 10% 60%;
-  grid-template-rows: 95px;
-  font-weight: 900px;
-  font-size: 15px;
-  padding: 10px;
-  margin-left: 43px;
-  text-shadow: 1px 1px 0px #ccc;
-}
-  
-.logo_r {
-  font-family: 'Faster One', cursive;
-  font-size: 70px;
-  color: #ff0000;
-  text-shadow: 1px 6px 2px #222;
-  grid-column-start: 1;
-  grid-column-end:2;
-  grid-row-start: 1;
-  grid-row-end: 1;
-}
-  
-.logo h1 {
-  width: 100%;
-  margin-top: 46px;
-  margin-left: -9px;
-  font-size: 40px;
-  color: #000080;
-  text-shadow: 1px 1px 2px;
-  grid-column-start: 2;
-  grid-column-end:3;
-  grid-row-start: 1;
-  grid-row-end: 1;
-  text-align: left;
-}
-  
-.logo p {
-  color: red;
-  font-family: 'Caveat', cursive;
-  font-size: 22px;
-  font-style: oblique;
-  grid-column-start: 1;
-  grid-column-end: 3;
-  grid-row-start: 2;
-  grid-row-end: 2;
-  margin-left: -94px;
-}
-  
+
 .logo img {
   width: 280px;
 }
-  
+
 .contacto {
   display: grid;
   /* grid-template-columns: 15% 40%; */
@@ -228,6 +179,11 @@ background: red;
  
 }
 
+.bandera
+{
+  width: 50px;
+  border: 1px solid black;
+}
 
 /*---- Inicio Formulario busqueda (aside) -------------------*/
 
@@ -440,7 +396,7 @@ background: red;
   width: fit-content;
   display: grid;
   grid-template-columns: 250px 350px 185px;
-  grid-template-rows: auto 25px;
+  grid-template-rows: auto 20px;
   grid-template-areas: 
   "i c d"
   "z z d";
@@ -509,13 +465,14 @@ background: red;
   justify-self: flex-start;
   display: grid;
   grid-template-columns: 0.2fr;
-  grid-template-rows: 20px 40px 40px 20px 40px;
-  grid-template-areas: 
-  "."
-  "precio"
-  "dias"
-  "."
-  "botonreservar";
+  grid-template-rows: 20px 40px 20px 20px 20px 40px;
+  grid-template-areas:
+    "."
+    "precio"
+    "precio-old"
+    "dias"
+    "."
+    "botonreservar";
   justify-items: flex-end;
   align-items: center;
   height: 100%;
@@ -549,6 +506,10 @@ background: red;
   grid-area: condiciones;
   margin-left: 1.5em;
   justify-self: flex-start;
+
+  display: flex;
+  gap: 5px;
+
 }
 
 .icon-24
@@ -724,10 +685,16 @@ background: red;
 
 .old-price
 {
+  grid-area: precio-old;
   text-decoration: line-through;
   font-size: 1.5em;
   color: rgb(189, 76, 66);
 
+}
+.old-price-min
+{
+  height: 1px;
+  
 }
 .error-sinproductos
 {
@@ -769,8 +736,7 @@ background: red;
   grid-area: marca;
   align-self: flex-end;
   color: white;
-  background: var(--color, #2ca7d8) linear-gradient(45deg, rgba(0, 0, 0, 0) 0%, rgba(255, 255, 255, 0.25) 100%);
-  width: 70%;
+  width: 80%;
   height: 25px;
   clip-path: polygon(0% 0%, 95% 0%, 100% 50%, 95% 100%, 0% 100%);
   /* clip-path: polygon(100% 1%, 86% 48%, 100% 100%, 0% 100%, 0 45%, 0% 0%); */
@@ -780,9 +746,22 @@ background: red;
   align-items: center;
   gap: 5px;
   padding: 0px 0px 0px 10px;
+  
+  
+}
 
+.marca-contenido-azul
+{
+  background: rgb(44, 167, 216) linear-gradient(45deg, rgba(0, 0, 0, 0) 0%, rgba(255, 255, 255, 0.25) 100%);
 
 }
+
+.marca-contenido-naranja
+{
+  background: rgb(193, 23, 39) linear-gradient(45deg, rgba(0, 0, 0, 0) 0%, rgba(255, 255, 255, 0.25) 100%);
+
+}
+
 
 
 /* ----- Fin Ofertas --------------- */
@@ -892,7 +871,7 @@ background: red;
 .boton-cerrar-modal
 {
   width: 100px;
-  height: 100px;
+  /* height: 100px; */
 }
 
 /* FIN VENTANA MODAL */
