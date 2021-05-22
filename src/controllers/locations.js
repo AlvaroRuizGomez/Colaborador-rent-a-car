@@ -95,14 +95,10 @@ exports.GenerateLocationBrowser = async (languageBrowser, reqHeadersLocation) =>
 
 };
 
-const CheckLanguage = async (lang) => 
-{
-
-    if (lang.indexOf("-") >= 1)
-    {
-        lang = lang.split("-")[0];
+const CheckLanguage = async (lang) => {
+    if (lang.indexOf('-') >= 1) {
+        lang = lang.split('-')[0]
     }
-
     if (lang !== "es" && lang !== "en" && lang !== "it" && lang !== "de") {
         lang = "en";
     }
