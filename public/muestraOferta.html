@@ -226,6 +226,7 @@
                         <input type="hidden" name="horaRecogida" value="<%= it.formdata.horaRecogida %>">
                         <input type="hidden" name="fechaDevolucion" value="<%= it.formdata.fechaDevolucion %>">
                         <input type="hidden" name="horaDevolucion" value="<%= it.formdata.horaDevolucion %>">
+                        <input type="hidden" name="pagoRecogida" value="<%= it.pagoRecogida %>">
                         <!-- Ofertas -->
                         <article class="oferta">
                             <!-- Zona Izquierda-->
@@ -367,8 +368,6 @@
                                                 <% const descriptionReplaced=localizacionDesc.replace("X", element.preciosSuplementoPorTipoChofer["no-oferta"][k]["valor"] ) %>
                                                 <% suplementoportipoChofer = suplementoportipoChofer + (element.preciosSuplementoPorTipoChofer["no-oferta"][k]["valor"] - 0) %>
                                                 <%= descriptionReplaced %>
-                                                
-
                                             </div>
                                         </div>
                                     <% } %>
@@ -520,6 +519,7 @@
     <script src="./js/muestraOferta.js"></script>
 </body>
 </html>
+
 <script>
     $.datepicker.regional['es'] = {
         closeText: '<%=it.locations.cerrar_clock%>',

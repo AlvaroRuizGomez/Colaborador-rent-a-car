@@ -444,8 +444,6 @@ background: red;
   "iconos";
   justify-items: flex-start;
   align-items: flex-start;
-
-
 }
 
 .car-name {
@@ -528,10 +526,8 @@ background: red;
 
 .icono-azul
 {
-  
   width: 32px;
   height: 32px;
-  
 }
 
 .car-info-services
@@ -828,6 +824,7 @@ background: red;
 
   
 }
+
 .details-modal-close {
   position: absolute;
   
@@ -842,9 +839,6 @@ background: red;
   width: 4.5em;
   cursor: pointer;
 }
-
-
-
 
 .details-modal-title {
   color: rgb(17, 24, 39);

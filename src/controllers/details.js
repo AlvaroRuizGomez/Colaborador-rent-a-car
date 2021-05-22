@@ -96,7 +96,7 @@ const ControlSchema = async (body) => {
         descripcion_vehiculo: Joi.string().required(),
         pax_vehiculo: Joi.number().required(),
         puertas_vehiculo: Joi.number().required(),
-
+        pagoRecogida: Joi.number().required(),
         aireacondicionado_vehiculo: Joi.number().required(),
         transmision_vehiculo: Joi.string().required(),
         tooltip_cambio: Joi.string().required(),
