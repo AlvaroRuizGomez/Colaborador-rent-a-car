@@ -25,9 +25,12 @@ exports.getHome = async (req, res, languageBrowser) =>
         return res.status(404).send("Not Found");
     }
     
+    // if (req.headers)
+
     const locationLanguage = await locations.GenerateLocationBrowser(
         languageBrowser, 
-        req.headers["accept-language"].split(",")[1].split(";")[0]
+        // req.headers["accept-language"].split(",")[1].split(";")[0]
+        req.headers["accept-language"].split(",")[0].split("-")[0]
     );
 
     res.render("inicio", { "success": id, "locations": locationLanguage });
