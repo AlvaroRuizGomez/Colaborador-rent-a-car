@@ -29,7 +29,6 @@ exports.getHome = async (req, res, languageBrowser) =>
 
     const locationLanguage = await locations.GenerateLocationBrowser(
         languageBrowser, 
-        // req.headers["accept-language"].split(",")[1].split(";")[0]
         req.headers["accept-language"].split(",")[0].split("-")[0]
     );
 
