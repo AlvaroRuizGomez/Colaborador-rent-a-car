@@ -573,7 +573,6 @@ body {
 
 .sillas
 {
-
     display: grid;
     grid-template-columns: 10% 10% 10% 11% 50%;
     grid-template-rows: 0.2fr 1fr;
@@ -591,27 +590,29 @@ body {
 { 
     grid-area: silla;
 }
+
 .casilla
 { 
     grid-area: casilla; 
 }
+
 .info
 { 
     grid-area: info; 
 }
+
 .titulo 
 { 
     grid-area: titulo;
     justify-self: flex-start;
 }
+
 .descripcion
 { 
     grid-area: descripcion;
     text-align: left;
     /* margin-block: 0px; */
 }
-
-
 
 .dataExtras .extraLine>img {
     width: 12%;
@@ -675,14 +676,113 @@ body {
     margin-inline-end: 0px;
 }
 
+/* ---- Fin Sillas y Elevadores niños ----- */
 
-/* ---- Inicio Sillas y Elevadores niños ----- */
-
-.yellow {
+/* ---- Inicio datos conductor principal ----- */
+.formDriver {
     grid-column: 4 / 8;
     grid-row: 7 / 10;
-    background: yellow;
 }
+
+.formDriverContent {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    margin-bottom: 0;
+    position: relative;
+    display: block;
+}
+
+.formDriverContent .required>label:before {
+    content: "* ";
+    color: #f44336;
+}
+
+.formDriverContent>h2{
+    border-bottom: 1px solid #ddd;
+    
+}
+
+.formDriverContent>h2 i.ico {
+    display: inline-block;
+    vertical-align: bottom;
+    width: 24px;
+    height: 24px;
+    background-position: 0 -96px;
+    background: url(../img/svg/persona.svg) no-repeat;
+}
+
+.formDriverContent[data-info-form]:before{
+    content: attr(data-info-form);
+    font-size: 12px;
+    position: absolute;
+    top: 45px;
+    right: 5px;
+    color: red;
+}
+
+
+.databoxDriver {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 20% 20% 20% 20% 20% 20%;
+    gap: 0px 17px;
+    justify-items: center;
+    align-items: center;
+    grid-template-areas:
+      "titDriver titDataDriver"
+      "nomDriver nomDataDriver"
+      "apellDriver apellDataDriver"
+      "eMailDriver eMailDataDriver"
+      "telefDriver telefDataDriver"
+      "condiciones condiciones";
+}
+
+.titDriver { 
+    grid-area: titDriver; 
+}
+  
+.titDataDriver { 
+    grid-area: titDataDriver; 
+}
+  
+.nomDriver { 
+    grid-area: nomDriver; 
+}
+  
+.nomDataDriver {
+    grid-area: nomDataDriver; 
+}
+  
+.apellDriver { 
+    grid-area: apellDriver; 
+}
+  
+.apellDataDriver { 
+    grid-area: apellDataDriver; 
+}
+  
+.eMailDriver { 
+    grid-area: eMailDriver; 
+}
+  
+.eMailDataDriver { 
+    grid-area: eMailDataDriver; 
+}
+  
+.telefDriver { 
+    grid-area: telefDriver; 
+}
+  
+.telefDataDriver { 
+    grid-area: telefDataDriver; 
+}
+  
+.condiciones { 
+    grid-area: condiciones; 
+}
+  
+/* ---- Fin datos conductor principal ----- */
+
 
 .bandera
 {
