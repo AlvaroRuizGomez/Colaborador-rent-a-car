@@ -35,7 +35,7 @@ exports.postShowDetails = async (req, res, languageBrowser) =>
         req.headers["accept-language"].split(",")[1].split(";")[0]
     );
 
-    res.render("reservar2", {
+    res.render("reservar", {
         "success": req.body.sucess,
         "locations": locationLanguage,
         "formdata": req.body,

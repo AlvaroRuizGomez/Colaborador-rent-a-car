@@ -1,0 +1,484 @@
+*{
+    text-decoration: none;
+    margin: 0px;
+    padding: 0px;
+  }
+
+body {
+    width:100%;
+    text-align: center;
+    background-color: #fafafa;
+}
+
+ /* -------------- BANNER --------------------*/
+/* .container .banner {
+  grid-column-start: 1;
+  grid-column-end:3;
+} */
+
+#header {
+  display: grid;
+  grid-template-columns: 44% 20% 30%;
+  margin-bottom: 32px;
+  align-items: center;
+  width: 100%;
+  height: 185px;
+  background-color: #e6e9f0;
+  border-bottom: 1px solid rgba(225, 225, 226, 0.8);
+}
+  
+ /* -------------- LOGO --------------------*/
+.logo img {
+  width: 280px;
+}
+  
+.contacto {
+  display: grid;
+  /* grid-template-columns: 15% 40%; */
+  grid-template-columns: 1fr;
+  width: 100%;
+  padding-right: 10px;
+  margin-top: 2px;
+  font-family: Helvetica;
+  font-style: italic;
+  font-weight: 900px;
+  font-size: 15px;
+}
+  
+.contacto img {
+  width: 45px;
+}
+  
+.contacto h2 {
+  font-size: 20px;
+  margin-top: -39px;
+  margin-left: -63px;
+}
+
+.contacto p {
+  margin-right: 124px;
+}
+  
+#reserva-telefono {
+  font-family: "Open Sans", sans-serif;
+  margin-left: 66px;
+  margin-top: -15px;  
+}
+  
+#idioma {
+  width: 100%;
+  height: 100%;
+  padding-right: 20px;
+}
+  
+#idioma > ul {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  justify-content: center;
+  text-align: right;
+  height: 100%;
+  list-style: none;
+}
+  
+#eslogan {
+  display: grid;
+  grid-template-columns: 1fr;
+    
+  width: 100%;
+  margin-top: -53px;
+  margin-left: 37px;
+  
+  position: absolute;
+  z-index: 100;
+  justify-items: center;
+    
+  color: #0d6efd;
+  font-family: 'Lobster', cursive;
+  font-size: 63px;
+  font-weight: bold;
+  font-style: oblique;
+  text-shadow: 1px 6px 2px #222;
+}
+
+/* -------  Inicio Contenido ---------- */
+.container {
+  display: grid;
+  grid-template-columns: 22% 1fr;
+  grid-template-areas: 
+  "a b";
+  align-items: start;
+  justify-items: space-between;
+  grid-column-gap: 30px;
+  padding: 20px 70px;
+  margin-left: 80px;
+}
+
+#contenido {
+  display: grid;
+  width: 30%;
+}
+
+/* -------- Iinicio  Aside  ------------ */
+#contentAside {
+  /* background-color: #fafafa; */
+  display: block;
+}
+
+#aside {
+  width: 265px;
+  float: left;
+  background-color: #fff;
+  border: 1px solid #ddd;
+}
+.boxAside {
+  margin-bottom: 0;
+  position: relative;
+}
+
+.contentBoxAside {
+  padding: 20px;
+  font-size: 14px;
+  line-height: 16px;
+}
+
+.rentacar-info {
+  display: grid;
+  grid-template-columns: 225px;
+  grid-template-rows: 150px 30px 25px 35px 35px 20px 20px 20px 20px;
+  grid-template-areas:
+    "imagen-coche"
+    "marca"
+    "similar"
+    "servicios"
+    "combustible"
+    "location"
+    "recogida"
+    "puntos"
+    "devolucion"
+    ;
+  justify-items: flex-start;
+  align-items: center;
+  height: 100%;
+}
+
+.car-image {
+  grid-area: imagen-coche;
+  max-width: 210px;
+  box-sizing: border-box;
+  border-collapse: collapse;
+}
+
+.car-name {
+  grid-area: marca;
+  color: #333333;
+  font-size: 1.8em;
+  font-weight: 700;
+  text-size-adjust: none;
+  line-height: 1.3em;
+  align-self: flex-end;
+  margin-bottom: 0px;
+}
+
+.similar {
+  grid-area: similar;
+}
+
+/* --   Barra de Iconos de Servicios -- */
+.car-info-services {
+  grid-area: servicios;
+  display: grid;
+  grid-template-columns: repeat(4, 39px);
+  grid-template-rows: 31px;
+  grid-template-areas: 
+  "a a a a"
+  "l l . o"
+  ;
+
+  justify-items: flex-start;
+}
+
+.icon-24 {
+  width: 16px;
+  margin-top: 7px;
+}
+
+.servicios-asientos{
+  width: 82%;
+  border: 1px solid #ccc;
+  margin-left: 2px;
+  margin-top: 4px;
+}
+
+.icon-number{
+  display: inline;
+  font-size: 13px;
+  color: #787878;
+}
+
+.servicios-puertas{
+  border: 1px solid #ccc;
+  width: 82%;
+  margin-left: 2px;
+  margin-top: 4px;
+}
+
+.servicios-aire{
+  border: 1px solid #ccc;
+  width: 82%;
+  margin-left: 2px;
+  margin-top: 4px;
+}
+
+.servicios-trasmision{
+  border: 1px solid #ccc;
+  width: 97%;
+  margin-left: 2px;
+  margin-top: 4px;
+}
+/* - Fin Barra de Iconos de Servicios - */
+
+
+/* -- Combustible / Lugar de recogida --- */
+.car-info-services-2 {
+  margin-top: 5px;
+}
+
+.servicios-kilometraje {
+  margin-top: 25px;
+  grid-area: combustible;
+  padding: 2px;
+}
+
+.icon-kilometro {
+  display: inline;
+  font-size: 13px;
+  color: #787878;
+}
+
+.icon-25 {
+  width: 20px;
+  margin-bottom: -3px;
+}
+
+.geoLoc {
+  grid-area: location;  
+}
+
+.icon-locate{
+  display: inline;
+  font-size: 13px;
+  color: #787878;
+  width: 142px;
+  margin-left: 14px;
+  margin-top: -21px;
+}
+/* -- Fin Combustible / Lugar de recogida --- */
+
+
+/*  -- Fechas/Horas - Recogida/Devolución -- */
+.bookRecogida {
+  grid-area: recogida;
+  margin-top: 20px;
+}
+
+.icon-dateRecogida {
+  display: inline;
+  font-size: 13px;
+  color: #787878;
+  width: 142px;
+  margin-left: 14px;
+  margin-top: -21px;
+}
+
+.icon-clockRecogida {
+  display: inline;
+  font-size: 13px;
+  color: #787878;
+  width: 142px;
+  margin-left: 4px;
+  margin-top: -21px;
+}
+
+.puntos {
+  grid-area: puntos;
+}
+
+.puntos img {
+  width: 10px;
+  margin-left: 5px;
+  margin-top: 32px;
+}
+
+.bookDevolucion {
+  grid-area: devolucion;
+  margin-top: 40px;
+}
+
+.icon-dateDevolucion {
+  display: inline;
+  font-size: 13px;
+  color: #787878;
+  width: 142px;
+  margin-left: 14px;
+  margin-top: -21px;
+}
+
+.icon-clockDevolucion {
+  display: inline;
+  font-size: 13px;
+  color: #787878;
+  width: 142px;
+  margin-left: 4px;
+  margin-top: -21px;
+}
+/*- Fin Fechas/Horas Recogida/Devolución - */
+/* -------- Fin  Aside  ------------ */
+
+
+/* -------- Inicio Bloque contenido ------ */
+.contentBlock {
+  grid-area: b;
+  display: grid;
+  grid-template-rows: 31px, auto;
+  grid-template-areas:
+      "titulo"
+      "info";
+  justify-items: flex-start;
+  align-items: flex-start;
+  width: 80%;
+  border: 1px solid #d8d8d8;
+  background-color: #fff;
+}
+.tituloReserva{
+  grid-area: titulo;
+  width: 100%;
+  border-bottom: 1px solid #d8d8d8;
+}
+
+.tituloReserva h3 {
+  display: inline;
+  color: #333333;
+  line-height: 40px;
+  font-size: 22px;
+  padding: 0px 1px;
+  margin: 0;
+  font-weight: 700;
+}
+
+.infoReserva {
+  grid-area: info;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: repeat(7, 31px);
+  grid-template-areas:
+      "titulo1 dato1"
+      "titulo2 dato2"
+      "titulo3 dato3"
+      "titulo4 dato4"
+      "titulo5 dato5"
+      "titulo6 dato6"
+      "titulo7 dato7";
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.titDiasReserva {
+  grid-area: titulo1;
+  display: inline;
+}
+
+.diasReserva {
+  grid-area: dato1;
+  display: inline;
+  width: 100;
+}
+
+.titValorReserva {
+  grid-area: titulo2;
+  display: inline;
+}
+
+.valorReserva {
+  grid-area: dato2;
+  display: inline;
+  width: 250px;
+}
+
+.titSeguro {
+  grid-area: titulo3;
+  display: inline;
+}
+
+.valorseguro {
+  grid-area: dato3;
+  display: inline;
+  width: 250px;
+}
+
+.titConductor {
+  grid-area: titulo4;
+  display: inline;
+}
+
+.valorConductor {
+  grid-area: dato4;
+  display: inline;
+  width: 250px;
+}
+
+.titTotReserva {
+  grid-area: titulo5;
+  display: inline;
+}
+
+.valorTotReserva {
+  grid-area: dato5;
+  display: inline;
+  width: 250px;
+}
+
+.titValorRecogida {
+  grid-area: titulo6;
+  display: inline;
+}
+
+.ValorRecogida {
+  grid-area: dato6;
+  display: inline;
+  width: 250px;
+}
+
+.titValorOnline {
+  grid-area: titulo7;
+  display: inline;
+  border-top: 1px solid #ddd;
+  background-color: #ff0;
+  margin:0px 51px;
+}
+
+.ValorOnline {
+  grid-area: dato7;
+  display: inline;
+  width: 250px;
+  border-top: 1px solid #ddd;
+  background-color: #ff0;
+}
+
+.precioIncluye {
+  display: flex;
+  width: 250px;
+  background: #fff;
+  border: 1px solid #ddd;
+  padding: 20px;
+}
+
+#icon-Mundi {
+  width: 3%;
+}
+
+#imgCarReserva {
+  width: 50%;
+}
+
+/* -------   Fin Contenido   ---------- */
