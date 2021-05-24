@@ -742,14 +742,17 @@ body {
   
 .nomDataDriver {
     grid-area: nomDataDriver; 
+    width: 100%;
 }
   
 .apellDriver { 
     grid-area: apellDriver; 
+    
 }
   
 .apellDataDriver { 
-    grid-area: apellDataDriver; 
+    grid-area: apellDataDriver;
+    width: 100%;
 }
   
 .eMailDriver { 
@@ -758,6 +761,7 @@ body {
   
 .eMailDataDriver { 
     grid-area: eMailDataDriver; 
+    width: 100%;
 }
   
 .telefDriver { 
@@ -766,6 +770,7 @@ body {
   
 .telefDataDriver { 
     grid-area: telefDataDriver; 
+    width: 100%;
 }
   
 .condiciones { 
@@ -792,6 +797,11 @@ body {
     background-position: 0.1em 48%;
     background-repeat: no-repeat;
     background-size: 22px;
+}
+
+.color_rojo
+{
+    color: red;
 }
 
 .boton-terminos,
