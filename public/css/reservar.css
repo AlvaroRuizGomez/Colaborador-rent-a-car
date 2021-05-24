@@ -713,7 +713,7 @@ body {
 
 .databoxDriver {
     display: grid;
-    grid-template-columns:  25% 40% 1fr;
+    grid-template-columns:  25% 55% 1fr;
     grid-template-rows: repeat(5,27%) 29%;
     gap: 0px 17px;
     justify-items: flex-end;
@@ -783,6 +783,24 @@ body {
 {
     width: 100%;
     justify-self: flex-start;
+}
+
+.icono-20
+{
+    width: 20px;
+}
+
+.visible
+{
+    visibility: visible;
+    justify-self: flex-start;
+}
+
+.no-visible
+{
+    visibility: hidden;
+    justify-self: flex-start;
+
 }
 
 /* ---- Botón Reservar ---- */

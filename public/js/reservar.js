@@ -8,11 +8,16 @@ const overlayTerminos = document.getElementById("overlay-terminos");
 const overlayPrivacidad = document.getElementById("overlay-privacidad");
 
 
-///-------
+///------- formulario conductor
 
 const okTermsConditions = document.getElementById("okTermsConditions");
-
 const boton_reservar = document.getElementById("boton_reservar");
+
+const inputNombre = document.getElementById("nombre");
+const inputApellidos = document.getElementById("apellidos");
+const inputEmail = document.getElementById("email");
+const inputTelefono = document.getElementById("telefono");
+
 
 ///----
 
@@ -132,6 +137,93 @@ boton_reservar.addEventListener("click", (evento) =>
     const senyora = document.getElementById("Sr").value;
 
 
+
+
+});
+
+
+/// ---------- INPUTS
+
+inputNombre.addEventListener("change", async (evento) =>
+{
+
+    if (inputNombre.value !== "")
+    {
+        const tareaNombre = document.getElementById("tareaNombre");
+        if (tareaNombre.classList[1] === "no-visible")
+        {
+            tareaNombre.classList.remove("no-visible");
+            tareaNombre.classList.add("visible");
+        }
+
+    }
+    else
+    {
+        const tareaNombre = document.getElementById("tareaNombre");
+        if (tareaNombre.classList[1] === "visible") {
+            tareaNombre.classList.remove("visible");
+            tareaNombre.classList.add("no-visible");
+        }
+    }
+
+});
+
+inputApellidos.addEventListener("change", async (evento) => {
+    
+    if (inputApellidos.value !== "") {
+        const tareaApellidos = document.getElementById("tareaApellidos");
+        if (tareaApellidos.classList[1] === "no-visible") {
+            tareaApellidos.classList.remove("no-visible");
+            tareaApellidos.classList.add("visible");
+        }
+
+    }
+    else {
+        const tareaApellidos = document.getElementById("tareaApellidos");
+        if (tareaApellidos.classList[1] === "visible") {
+            tareaApellidos.classList.remove("visible");
+            tareaApellidos.classList.add("no-visible");
+        }
+    }
+
+});
+
+inputEmail.addEventListener("change", async (evento) => {
+    if (inputEmail.value !== "") {
+        const tareaEmail = document.getElementById("tareaEmail");
+        if (tareaEmail.classList[1] === "no-visible") {
+            tareaEmail.classList.remove("no-visible");
+            tareaEmail.classList.add("visible");
+        }
+
+    }
+    else {
+        const tareaEmail = document.getElementById("tareaEmail");
+        if (tareaEmail.classList[1] === "visible") {
+            tareaEmail.classList.remove("visible");
+            tareaEmail.classList.add("no-visible");
+        }
+    }
+
+
+});
+
+inputTelefono.addEventListener("change", async (evento) => {
+    if (inputTelefono.value !== "") {
+        const tareaTelefono = document.getElementById("tareaTelefono");
+        if (tareaTelefono.classList[1] === "no-visible") {
+            tareaTelefono.classList.remove("no-visible");
+            tareaTelefono.classList.add("visible");
+        }
+
+    }
+    else {
+        const tareaTelefono = document.getElementById("tareaTelefono");
+        if (tareaTelefono.classList[1] === "visible") {
+            tareaTelefono.classList.remove("visible");
+            tareaTelefono.classList.add("no-visible");
+        }
+    }
 
 
 });
