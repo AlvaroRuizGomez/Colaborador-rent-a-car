@@ -713,19 +713,19 @@ body {
 
 .databoxDriver {
     display: grid;
-    grid-template-columns:  25% 72.5%;
+    grid-template-columns:  25% 40% 1fr;
     grid-template-rows: repeat(5,27%) 29%;
     gap: 0px 17px;
-    justify-items: center;
+    justify-items: flex-end;
     align-items: center;
     height: 192px;
     grid-template-areas:
-      "titDriver titDataDriver"
-      "nomDriver nomDataDriver"
-      "apellDriver apellDataDriver"
-      "eMailDriver eMailDataDriver"
-      "telefDriver telefDataDriver"
-      "condiciones condiciones";
+      "titDriver titDataDriver titDataDriver"
+      "nomDriver nomDataDriver errorNombre"
+      "apellDriver apellDataDriver errorApell"
+      "eMailDriver eMailDataDriver errorEmail"
+      "telefDriver telefDataDriver errorTelf"
+      "condiciones condiciones condiciones";
 }
 
 .titDriver { 
@@ -733,7 +733,8 @@ body {
 }
   
 .titDataDriver { 
-    grid-area: titDataDriver; 
+    grid-area: titDataDriver;
+    display: flex;
 }
   
 .nomDriver { 
@@ -742,7 +743,7 @@ body {
   
 .nomDataDriver {
     grid-area: nomDataDriver; 
-    width: 100%;
+    
 }
   
 .apellDriver { 
@@ -752,7 +753,7 @@ body {
   
 .apellDataDriver { 
     grid-area: apellDataDriver;
-    width: 100%;
+
 }
   
 .eMailDriver { 
@@ -761,7 +762,7 @@ body {
   
 .eMailDataDriver { 
     grid-area: eMailDataDriver; 
-    width: 100%;
+
 }
   
 .telefDriver { 
@@ -770,11 +771,18 @@ body {
   
 .telefDataDriver { 
     grid-area: telefDataDriver; 
-    width: 100%;
+
 }
   
 .condiciones { 
-    grid-area: condiciones; 
+    grid-area: condiciones;
+    justify-self: center;
+}
+
+.mitad-izquierda
+{
+    width: 100%;
+    justify-self: flex-start;
 }
 
 /* ---- Botón Reservar ---- */
