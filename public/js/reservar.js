@@ -8,6 +8,16 @@ const overlayTerminos = document.getElementById("overlay-terminos");
 const overlayPrivacidad = document.getElementById("overlay-privacidad");
 
 
+///-------
+
+const okTermsConditions = document.getElementById("okTermsConditions");
+
+const boton_reservar = document.getElementById("boton_reservar");
+
+///----
+
+
+
 botonTerminosCondiciones.addEventListener("click", async (evento) =>
 {
     
@@ -95,5 +105,33 @@ overlayPrivacidad.addEventListener("click", async (evento) => {
         document.body.style.overflow = null;
 
     }
+
+});
+
+boton_reservar.addEventListener("click", (evento) =>
+{
+    evento.preventDefault();
+
+    if (okTermsConditions.value !== "SI")
+    {
+        return;
+    }
+
+    const descripcion_vehiculo = document.getElementById("descripcion_vehiculo").value;
+    const fechaRecogida = document.getElementById("fechaRecogida").value;
+    const horaRecogida = document.getElementById("horaRecogida").value;
+    const fechaDevolucion = document.getElementById("fechaDevolucion").value;
+    const horaDevolucion = document.getElementById("horaDevolucion").value;
+    const dias = document.getElementById("dias").value;
+    const alquiler = document.getElementById("alquiler").value;
+    const conductor_joven = document.getElementById("conductor_joven").value;
+    const pagoRecogida = document.getElementById("pagoRecogida").value;
+    const pago_online = document.getElementById("pago_online").value;
+
+    const senyor = document.getElementById("Sr").value;
+    const senyora = document.getElementById("Sr").value;
+
+
+
 
 });
