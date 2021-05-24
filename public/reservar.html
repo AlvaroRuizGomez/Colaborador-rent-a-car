@@ -372,17 +372,53 @@
                             <p class="chkDescription">
                                 <input type="checkbox" name="okTermsConditions" id="okTermsConditions" value="SI" onclick="">
                                     <label for="" id="labelOkTermsConditions">
-                                                    He leído y acepto 
-                                            <a id="" class="" href="" onclick="">
-                                                    Términos y condiciones
-                                            </a> 
-                                                    y 
-                                            <a href="" class="" onclick="" id="">
-                                                    política de privacidad
+                                                    <%=it.locations.leido_acepto %>
+                                            <a class="boton-terminos" id="boton-terminos" role="button">
+                                                    <%=it.locations.terminos_condiciones %>
+                                            </a>
+                                            <%=it.locations.and %>
+                                            <a class="boton-privacidad" id="boton-privacidad" role="button">
+                                                    <%=it.locations.politica_privacidad %>
                                             </a> 
                                     </label>
                                 <input type="hidden" name="recibir_info" value="SI">
                             </p>
+                            <div id="overlay-terminos" class="overlay-transparente modal-invisible">
+                                <ul class="details-modal ">
+                                    <li class="details-modal-close">
+                                        <a id="boton-cerrar-modal-terminos" class="boton-cerrar-modal" role="button">
+                                            <img class="cerrar-modal" src="./img/svg/cerrar_modal.svg" alt="boton cerrar modal">
+                                        </a>
+                                    </li>
+                                    <li class="details-modal-title">
+                                        <h5 class="details-modal-title-text">
+                                            <%=it.locations.titulo_terminos_condiciones %>
+                                        </h5>
+                                    </li>
+                                    <li>
+                                        terminos condicioens
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div id="overlay-privacidad" class="overlay-transparente modal-invisible">
+                                <ul class="details-modal ">
+                                    <li class="details-modal-close">
+                                        <a id="boton-cerrar-modal-privacidad" class="boton-cerrar-modal" role="button">
+                                            <img class="cerrar-modal" src="./img/svg/cerrar_modal.svg" alt="boton cerrar modal">
+                                        </a>
+                                    </li>
+                                    <li class="details-modal-title">
+                                        <h5 class="details-modal-title-text">
+                                            <%=it.locations.titulo_privacidad %>
+                                        </h5>
+                                    </li>
+                                    <li>
+                                        privacidad
+                                    </li>
+                                </ul>
+                            </div>
+
                         </div>
                     </div>     
                 </div>
@@ -395,5 +431,7 @@
             </div>
             <!-------------------------    Fin Botón reservar  ------------------------>
         </div>
+
+        <script src="./js/reservar.js"></script>
     </body>
 </html>
