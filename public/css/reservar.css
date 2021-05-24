@@ -807,6 +807,7 @@ body {
 .boton-terminos,
 .boton-privacidad
 {
+    color: rgb(15, 99, 189);
     text-decoration: none;
 
 }
@@ -817,6 +818,12 @@ body {
 {
     text-decoration: underline;
     cursor: pointer;
+}
+
+.contenido_privacidad,
+.contenido_terminos
+{
+    text-align: left;
 }
 
 
@@ -885,6 +892,8 @@ body {
   align-items: flex-start;
   gap: 5px;
   padding-left: 25px;
+
+  list-style: none;
 
   
 }

@@ -683,7 +683,7 @@ background: red;
   line-height: 1em;
 }
 
-.old-price
+.precio-antiguo
 {
   grid-area: precio-old;
   text-decoration: line-through;
@@ -691,7 +691,7 @@ background: red;
   color: rgb(189, 76, 66);
 
 }
-.old-price-min
+.precio-antiguo-min
 {
   height: 1px;
   
