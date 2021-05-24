@@ -171,6 +171,7 @@
                         <!--- Inicio Cargos de la reserva --->
                         <%let mult = 0 %>
                         <%let subtotal = 0 %>
+                        <% let tota = 0 %>
                         <% if (it.formdata.conductor_con_experiencia === "on") { %>
                             <div class="titConductor">
                                 <%=it.locations.conductor_joven_titulo %>
@@ -220,7 +221,7 @@
                             <%= it.locations.pago_online_titulo %>
                         </div>
                         <div class="ValorOnline">
-                            <% let tota = subtotal - ( it.formdata.pagoRecogida - 0 )%>
+                            <% tota = subtotal - ( it.formdata.pagoRecogida - 0 )%>
                             <%= tota %> €
                             
                         </div>
@@ -314,7 +315,7 @@
             <!-----Inicio formulario conductor principal y condiciones y términos ------>
             <div class="formDriver">
                 <!-- <div class="formDriverContent"> -->
-                <div class="formDriverContent" id="personalInfoForm" data-info-form="* Campos requeridos">
+                <div class="formDriverContent" id="personalInfoForm" data-info-form="<%=it.locations.campos_requeridos %>">
                     <h2><i class="ico ico-user"></i>
                         <%=it.locations.datos_conductor_titulo %>
                     </h2>
@@ -337,19 +338,19 @@
                     
                         <!---------   Nombre  -------------------------->
                         <label for="nombre" class="nomDriver">
-                                <%=it.locations.nombre_titulo %>
+                                <span class="color_rojo">*</span> <%=it.locations.nombre_titulo %>
                         </label>
                         <input type="text" id="nombre" name="nombre" size="40" value maxlength="50" placeholder="<%=it.locations.nombre_titulo %>" class="nomDataDriver">
                     
                         <!---------  Apellidos  ----------------------->
                         <label for="apellidos" class="apellDriver">
-                            <%=it.locations.apellidos_titulo %>
+                            <span class="color_rojo">*</span> <%=it.locations.apellidos_titulo %>
                         </label>
                         <input type="text" id="apellidos" name="apellidos"  class="apellDataDriver" size="65" value maxlength="50" placeholder="<%=it.locations.apellidos_titulo %>">
                     
                         <!---------   E-mail  ------------------------->
                         <label for="email" class="eMailDriver">
-                                <%=it.locations.email_titulo %>
+                                <span class="color_rojo">*</span> <%=it.locations.email_titulo %>
                         </label>
                         <input type="text" id="email" name="email" class="eMailDataDriver" size="65" value onchange maxlength="50"
                                     placeholder="<%=it.locations.email_descripcion %>">
@@ -361,10 +362,10 @@
                         
                         <!---------   Teléfono  ----------------------->
                         <label for="telefono" class="telefDriver">
-                                Teléfono
+                            <span class="color_rojo">*</span> <%=it.locations.telefono %>
                         </label>
         
-                        <input type="text" id="telefono" name="telefono" class="telefDataDriver" size="50" value="" maxlength="18" placeholder="">
+                        <input type="text" id="telefono" name="telefono" class="telefDataDriver" size="50" value="" maxlength="18" placeholder="<%=it.locations.telefono %>">
                         <!---------- Fin datos Conductor Principal------------->
     
                         <!--------- Inicio Términos y Condiciones  ------------------->
@@ -372,17 +373,53 @@
                             <p class="chkDescription">
                                 <input type="checkbox" name="okTermsConditions" id="okTermsConditions" value="SI" onclick="">
                                     <label for="" id="labelOkTermsConditions">
-                                                    He leído y acepto 
-                                            <a id="" class="" href="" onclick="">
-                                                    Términos y condiciones
-                                            </a> 
-                                                    y 
-                                            <a href="" class="" onclick="" id="">
-                                                    política de privacidad
+                                            <%=it.locations.leido_acepto %>
+                                            <a class="boton-terminos" id="boton-terminos" role="button">
+                                                <%=it.locations.terminos_condiciones %>
+                                            </a>
+                                            <%=it.locations.and %>
+                                            <a class="boton-privacidad" id="boton-privacidad" role="button">
+                                                <%=it.locations.politica_privacidad %>
                                             </a> 
                                     </label>
                                 <input type="hidden" name="recibir_info" value="SI">
                             </p>
+                            <div id="overlay-terminos" class="overlay-transparente modal-invisible">
+                                <ul class="details-modal ">
+                                    <li class="details-modal-close">
+                                        <a id="boton-cerrar-modal-terminos" class="boton-cerrar-modal" role="button">
+                                            <img class="cerrar-modal" src="./img/svg/cerrar_modal.svg" alt="boton cerrar modal">
+                                        </a>
+                                    </li>
+                                    <li class="details-modal-title">
+                                        <h5 class="details-modal-title-text">
+                                            <%=it.locations.titulo_terminos_condiciones %>
+                                        </h5>
+                                    </li>
+                                    <li>
+                                        terminos condicioens
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div id="overlay-privacidad" class="overlay-transparente modal-invisible">
+                                <ul class="details-modal ">
+                                    <li class="details-modal-close">
+                                        <a id="boton-cerrar-modal-privacidad" class="boton-cerrar-modal" role="button">
+                                            <img class="cerrar-modal" src="./img/svg/cerrar_modal.svg" alt="boton cerrar modal">
+                                        </a>
+                                    </li>
+                                    <li class="details-modal-title">
+                                        <h5 class="details-modal-title-text">
+                                            <%=it.locations.titulo_privacidad %>
+                                        </h5>
+                                    </li>
+                                    <li>
+                                        privacidad
+                                    </li>
+                                </ul>
+                            </div>
+
                         </div>
                     </div>     
                 </div>
@@ -391,9 +428,13 @@
 
             <!-------------------------  Inicio Botón reservar ------------------------>
             <div class="boxBtnRevervar">
-                <input type="button" class="btnReserva    iframe new-btn new-btn-xxl new-btn-success cboxElement" onclick="" value="Reservar ahora : 35.00 €" id="" name="">
+                <button id="" name="" class="btnReserva    iframe new-btn new-btn-xxl new-btn-success cboxElement">
+                    <%=it.locations.reservar_ahora %> <%= tota %> €
+                </button>
             </div>
             <!-------------------------    Fin Botón reservar  ------------------------>
         </div>
+
+        <script src="./js/reservar.js"></script>
     </body>
 </html>
