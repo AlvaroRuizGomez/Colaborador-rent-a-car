@@ -236,16 +236,16 @@
                     <span class="tit-includPrice-container"><%it.locations.incluido_precio_titulo %>
                         <ul class="includPrice-contenido">
                             <li class="tooltipBlanco" title="<%=it.locations.title_seguro_todoriesgo %>" data-tooltip="<%=it.locations.title_seguro_todoriesgo %>">
-                            <img src="./img/svg/hechoSmall.svg" class="icon-25" alt="<%=it.locations.alt_icono_reservar %>"><%=it.locations.seguro_incluido_titulo %>
+                            <img src="./img/svg/hecho.svg" class="icon-25" alt="<%=it.locations.alt_icono_reservar %>"><%=it.locations.seguro_incluido_titulo %>
                             </li>
                             <li class="tooltipBlanco" title="<%=it.locations.title_sillas %>" data-tooltip="<%=it.locations.title_sillas %>">
-                                <img src="./img/svg/hechoSmall.svg" class="icon-25"  alt="<%=it.locations.alt_icono_reservar %>"><%=it.locations.sillas_elevadores_titulo %>
+                                <img src="./img/svg/hecho.svg" class="icon-25"  alt="<%=it.locations.alt_icono_reservar %>"><%=it.locations.sillas_elevadores_titulo %>
                             </li>
                             <li class="tooltipBlanco" title="<%=it.locations.title_cancelar %>" data-tooltip="<%=it.locations.title_cancelar %>">
-                                <img src="./img/svg/hechoSmall.svg" class="icon-25"  alt="<%=it.locations.alt_icono_reservar %>"><%=it.locations.cancelacion_titulo %>
+                                <img src="./img/svg/hecho.svg" class="icon-25"  alt="<%=it.locations.alt_icono_reservar %>"><%=it.locations.cancelacion_titulo %>
                             </li>
                             <li class="tooltipBlanco" title="<%=it.locations.title_impuestos %>" data-tooltip="<%=it.locations.title_impuestos %>">
-                                <img src="./img/svg/hechoSmall.svg" class="icon-25" alt="<%=it.locations.alt_icono_reservar %>"><%=it.locations.impuestos_titulo %>
+                                <img src="./img/svg/hecho.svg" class="icon-25" alt="<%=it.locations.alt_icono_reservar %>"><%=it.locations.impuestos_titulo %>
                             </li>
                         </ul>
                     </span>
@@ -318,92 +318,82 @@
                     <h2><i class="ico ico-user"></i>
                         <%=it.locations.datos_conductor_titulo %>
                     </h2>
-                    <div class="">
-                        <!--------- Inicio datos conductor principal --------->
-                        <div class="databoxDriver">
-                            <!---------   Inicio Sr / Sra ------------------------>
-                            <div class="form-group required">
-                                <label for="titulo" class="titDriver">
-                                    <%=it.locations.datos_titulo_titulo %>
-                                </label>
-                                <div class="radio-inline titDataDriver">
-                                    <label for="Sr">
-                                        <%=it.locations.sr_titulo %>
-                                        <input type="radio" value="Sr" name="titulo" id="Sr">
-                                    </label>
-                                    <label for="Sr">
-                                        <%=it.locations.sra_titulo %>
-                                        <input type="radio" value="Sra" name="titulo" id="Sra">
-                                    </label>
-                                </div>
-                            </div>
+                    <!----------- Inicio datos conductor principal ----------->
+                    <div class="databoxDriver">
+                        <!---------   Inicio Sr / Sra ------------------------>
+                        <label for="titulo" class="titDriver">
+                            <%=it.locations.datos_titulo_titulo %>
+                        </label>
+                        <div class="radio-inline titDataDriver">
+                            <label for="Sr">
+                                <%=it.locations.sr_titulo %>
+                                <input type="radio" value="Sr" name="titulo" id="Sr">
+                            </label>
+                            <label for="Sra">
+                                <%=it.locations.sra_titulo %>
+                                <input type="radio" value="Sra" name="titulo" id="Sra">
+                            </label>
+                        </div>
                     
-                            <!---------   Nombre  -------------------------->
-                            <div class="form-group required valide">
-                                <label for="nombre" class="nomDriver">
-                                    <%=it.locations.nombre_titulo %>
-                                </label>
-                                <input type="text" id="nombre" name="nombre" size="40" value maxlength="50" placeholder="<%=it.locations.nombre_titulo %>" class="nomDataDriver">
-                            </div>
+                        <!---------   Nombre  -------------------------->
+                        <label for="nombre" class="nomDriver">
+                                <%=it.locations.nombre_titulo %>
+                        </label>
+                        <input type="text" id="nombre" name="nombre" size="40" value maxlength="50" placeholder="<%=it.locations.nombre_titulo %>" class="nomDataDriver">
                     
-                            <!---------  Apellidos  ----------------------->
-                            <div class="form-group required valide">
-                                <label for="apellidos" class="apellDriver">
-                                    <%=it.locations.apellidos_titulo %>
-                                </label>
-                                <input type="text" id="apellidos" name="apellidos"  class="apellDataDriver" size="65" value maxlength="50" placeholder="<%=it.locations.apellidos_titulo %>">
-                            </div>
+                        <!---------  Apellidos  ----------------------->
+                        <label for="apellidos" class="apellDriver">
+                            <%=it.locations.apellidos_titulo %>
+                        </label>
+                        <input type="text" id="apellidos" name="apellidos"  class="apellDataDriver" size="65" value maxlength="50" placeholder="<%=it.locations.apellidos_titulo %>">
                     
-                            <!---------   E-mail  ------------------------->
-                            <div class="form-group required valide">
-                                <label for="email" class="eMailDriver">
-                                    <%=it.locations.email_titulo %>
-                                </label>
-                                <input type="text" id="email" name="email" class="eMailDataDriver" size="65" value onchange maxlength="50"
+                        <!---------   E-mail  ------------------------->
+                        <label for="email" class="eMailDriver">
+                                <%=it.locations.email_titulo %>
+                        </label>
+                        <input type="text" id="email" name="email" class="eMailDataDriver" size="65" value onchange maxlength="50"
                                     placeholder="<%=it.locations.email_descripcion %>">
+                        <!-- <div class="info-fieldcontainer">
+                            <div class="info-fieldcontain">
+                                 <%=it.locations.email_descripcion_dos %>
                             </div>
-                            <!-- <div class="info-fieldcontainer">
-                                <div class="info-fieldcontain">
-                                    <%=it.locations.email_descripcion_dos %>
-                                </div>
-                            </div> -->
+                        </div> -->
                         
-                            <!---------   Teléfono  ----------------------->
-                            <div class="form-group required">
-                                <label for="telefono" class="telefDriver">
-                                    Teléfono
-                                </label>
+                        <!---------   Teléfono  ----------------------->
+                        <label for="telefono" class="telefDriver">
+                                Teléfono
+                        </label>
         
-                                <input type="text" id="telefono" name="telefono" class="telefDataDriver" size="50" value="" maxlength="18" placeholder="Para poder entrgarle información de la reserva">
-                            </div>
-                            <!---------- Fin datos Conductor Principal------------->
+                        <input type="text" id="telefono" name="telefono" class="telefDataDriver" size="50" value="" maxlength="18" placeholder="">
+                        <!---------- Fin datos Conductor Principal------------->
     
-                            <!--------- Inicio Términos y Condiciones  ------------------->
-                            <div class="form-group form-info-group valide condiciones" id="idTermsBox">
-                                <!-- <span class="label">&nbsp;</span> -->
-                                <p class="chkDescription">
-                                    <input type="checkbox" name="okTermsConditions" id="okTermsConditions" value="SI" onclick="javascript:fPulsadoCheck()">
-                                        <label for="okTermsConditions" id="labelOkTermsConditions">
-                                                                        He leído y acepto 
-                                                                            <a id="labelOkTermsConditionsTC" class="general_link iframe cboxElement" href="javascript:void(0)" onclick="javascript:open_info2('/alert_prv_3.asp?stl=DyS&amp;d1=138133137&amp;d2=149167129&amp;d3=132120114127124120118130119116111120121126133117&amp;d4=&amp;d5=118121133127129132117121129117101136127134133115&amp;d6=DyS&amp;d7=130119115121121127119116123117112119118131116137127119122&amp;d8=130121119122127130119130127119122128&amp;d9=148146148132123&amp;d10=&amp;d11=142151&amp;d12=&amp;d14=162152175161164136142144146145159130133149148&amp;d15=&amp;d16=&amp;d17=131117133131123128126148123133119132133129134126152121132123140140127128133175150148117133133124127131145121133118132131124127128147121136119131133122129126143121152152', 800, '80%');return false;">
-                                                                                Términos y condiciones
-                                                                            </a> 
-        
-                                                                            y 
-        
-                                                                            <a href="javascript:void(0)" class="iframe cboxElement" onclick="javascript:open_info2('lopd.asp?idioma=ES', 800, '95%'); return false;" id="labelOkTermsConditionsPP">
-                                                                                política de privacidad
-                                                                            </a> 
-                                        </label>
-                                    <input type="hidden" name="recibir_info" value="SI">
-                                </p>
-                            </div>
-                        </div>     
-                    </div>
+                        <!--------- Inicio Términos y Condiciones  ------------------->
+                        <div class="condiciones" id="idTermsBox">
+                            <p class="chkDescription">
+                                <input type="checkbox" name="okTermsConditions" id="okTermsConditions" value="SI" onclick="">
+                                    <label for="" id="labelOkTermsConditions">
+                                                    He leído y acepto 
+                                            <a id="" class="" href="" onclick="">
+                                                    Términos y condiciones
+                                            </a> 
+                                                    y 
+                                            <a href="" class="" onclick="" id="">
+                                                    política de privacidad
+                                            </a> 
+                                    </label>
+                                <input type="hidden" name="recibir_info" value="SI">
+                            </p>
+                        </div>
+                    </div>     
                 </div>
-                
             </div>
-            <!-----Fin formulario conductor principal y condiciones y términos ------>
+            <!-----  Fin formulario conductor principal y condiciones y términos ------>
+
+            <!-------------------------  Inicio Botón reservar ------------------------>
+            <div class="boxBtnRevervar">
+                <input type="button" class="btnReserva    iframe new-btn new-btn-xxl new-btn-success cboxElement" onclick="" value="Reservar ahora : 35.00 €" id="" name="">
+            </div>
+            <!-------------------------    Fin Botón reservar  ------------------------>
         </div>
     </body>
 </html>
