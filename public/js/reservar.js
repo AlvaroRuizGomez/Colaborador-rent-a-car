@@ -140,7 +140,8 @@ boton_reservar.addEventListener("click", (evento) =>
     CheckInput(inputApellidos, iconoErrorApell, "tareaApellidos");
     CheckInput(inputNombre, iconoErrorNombre, "tareaNombre");
 
-    
+    CheckType(inputEmail, iconoErrorEmail, "tareaEmail");
+
     if (icono_error_formulario.classList.contains("visible") === true)
     {
         icono_error_formulario.classList.remove("visible");
@@ -213,15 +214,12 @@ const CheckInput = async (inputGeneric, iconoError, tareaString) =>
     else
     {
         const tarea = document.getElementById(tareaString);
-
-        // if (tarea.classList[0] === "visible" || tarea.classList[2] === "visible")
         if (tarea.classList.contains("visible") === true)
         {
             tarea.classList.remove("visible");
             tarea.classList.add("no-visible");
         }
 
-        // if (iconoError.classList[0] === "no-visible" || iconoError.classList[2] === "no-visible")
         if (iconoError.classList.contains("no-visible") === true)
         {
             iconoError.classList.remove("no-visible");
@@ -230,6 +228,52 @@ const CheckInput = async (inputGeneric, iconoError, tareaString) =>
         }
     
     }
+};
+
+
+
+
+
+const CheckType = async (inputGeneric, iconoError, tareaString, regex) =>
+{
+
+    
+    // const regex = /^((?!\.)[\w-_.]*[^.])(@\w+)(\.\w+(\.\w+)?[^.\W])$/gm;
+
+    const m = regex.exec(inputGeneric.value);
+
+    if (m === null)
+    {
+        const tarea = document.getElementById(tareaString);
+        if (tarea.classList.contains("visible") === true) {
+            tarea.classList.remove("visible");
+            tarea.classList.add("no-visible");
+        }
+
+        if (iconoError.classList.contains("no-visible") === true) {
+            iconoError.classList.remove("no-visible");
+            iconoError.classList.add("visible");
+
+        }
+
+    }
+    else
+    {
+        const tarea = document.getElementById(tareaString);
+        if (tarea.classList.contains("no-visible") === true) {
+            tarea.classList.remove("no-visible");
+            tarea.classList.add("visible");
+
+        }
+
+        if (iconoError.classList.contains("visible") === true) {
+            iconoError.classList.remove("visible");
+            iconoError.classList.add("no-visible");
+
+        }
+    }
+
+
 };
 
 inputNombre.addEventListener("change", async (evento) =>
@@ -242,85 +286,18 @@ inputApellidos.addEventListener("change", async (evento) => {
     
     CheckInput(inputApellidos, iconoErrorApell, "tareaApellidos");
 
-    
-
-    // if (inputApellidos.value !== "") {
-    //     const tareaApellidos = document.getElementById("tareaApellidos");
-    //     if (tareaApellidos.classList[1] === "no-visible") {
-    //         tareaApellidos.classList.remove("no-visible");
-    //         tareaApellidos.classList.add("visible");
-    //     }
-
-    //     if (iconoErrorApell.classList[1] === "visible") {
-    //         iconoErrorApell.classList.remove("visible");
-    //         iconoErrorApell.classList.add("no-visible");
-
-    //     }
-
-    // }
-    // else {
-    //     const tareaApellidos = document.getElementById("tareaApellidos");
-    //     if (tareaApellidos.classList[1] === "visible") {
-    //         tareaApellidos.classList.remove("visible");
-    //         tareaApellidos.classList.add("no-visible");
-    //     }
-    // }
 
 });
 
 inputEmail.addEventListener("change", async (evento) => {
+    const regex = /^((?!\.)[\w-_.]*[^.])(@\w+)(\.\w+(\.\w+)?[^.\W])$/gm;
     CheckInput(inputEmail, iconoErrorEmail, "tareaEmail");
-    
-    // if (inputEmail.value !== "") {
-    //     const tareaEmail = document.getElementById("tareaEmail");
-    //     if (tareaEmail.classList[1] === "no-visible") {
-    //         tareaEmail.classList.remove("no-visible");
-    //         tareaEmail.classList.add("visible");
-    //     }
-
-    //     if (iconoErrorEmail.classList[1] === "visible") {
-    //         iconoErrorEmail.classList.remove("visible");
-    //         iconoErrorEmail.classList.add("no-visible");
-
-    //     }
-
-    // }
-    // else {
-    //     const tareaEmail = document.getElementById("tareaEmail");
-    //     if (tareaEmail.classList[1] === "visible") {
-    //         tareaEmail.classList.remove("visible");
-    //         tareaEmail.classList.add("no-visible");
-    //     }
-    // }
-
+    CheckType(inputEmail, iconoErrorEmail, "tareaEmail", regex);
 
 });
 
 inputTelefono.addEventListener("change", async (evento) => {
+    const regex = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/gm;
     CheckInput(inputTelefono, iconoErrorTelf, "tareaTelefono");
-    
-    // if (inputTelefono.value !== "") {
-    //     const tareaTelefono = document.getElementById("tareaTelefono");
-    //     if (tareaTelefono.classList[1] === "no-visible") {
-    //         tareaTelefono.classList.remove("no-visible");
-    //         tareaTelefono.classList.add("visible");
-    //     }
-
-
-    //     if (iconoErrorTelf.classList[1] === "visible") {
-    //         iconoErrorTelf.classList.remove("visible");
-    //         iconoErrorTelf.classList.add("no-visible");
-
-    //     }
-
-    // }
-    // else {
-    //     const tareaTelefono = document.getElementById("tareaTelefono");
-    //     if (tareaTelefono.classList[1] === "visible") {
-    //         tareaTelefono.classList.remove("visible");
-    //         tareaTelefono.classList.add("no-visible");
-    //     }
-    // }
-
-
+    CheckType(inputTelefono, iconoErrorTelf, "tareaTelefono", regex);
 });
