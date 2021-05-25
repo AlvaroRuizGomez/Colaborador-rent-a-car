@@ -803,6 +803,27 @@ body {
 
 }
 
+.errorNombre
+{
+    grid-area: errorNombre;
+}
+
+.errorApell
+{
+    grid-area: errorApell;
+}
+
+.errorEmail
+{
+    grid-area: errorEmail;
+}
+
+.errorTelf
+{
+    grid-area: errorTelf;
+}
+
+
 /* ---- Botón Reservar ---- */
 .boxBtnRevervar {
     grid-column: 6 / 8;

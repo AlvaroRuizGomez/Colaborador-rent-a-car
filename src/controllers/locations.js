@@ -99,7 +99,7 @@ const CheckLanguage = async (lang) =>
 {
 
     //por si acaso hay residuos
-    if (lang.indexOf("-") >= 1)
+    if (lang.indexOf("-") !== -1)
     {
         lang = lang.split("-")[0];
     }
