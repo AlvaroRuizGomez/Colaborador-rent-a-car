@@ -297,7 +297,7 @@ inputEmail.addEventListener("change", async (evento) => {
 });
 
 inputTelefono.addEventListener("change", async (evento) => {
-    const regex = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/gm;
+    // const regex = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/gm;
     CheckInput(inputTelefono, iconoErrorTelf, "tareaTelefono");
-    CheckType(inputTelefono, iconoErrorTelf, "tareaTelefono", regex);
+    // CheckType(inputTelefono, iconoErrorTelf, "tareaTelefono", regex);
 });
