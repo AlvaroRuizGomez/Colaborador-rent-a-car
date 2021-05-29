@@ -71,7 +71,7 @@ exports.postHome = async (req, res) =>
 
     if (isSchemaValid === false) {
         //TODO: mejorar
-        console.error("control schema invalido");
+        console.error("inicio.js control schema invalido");
         return res.status(404).send("Not found");
     }
 
@@ -120,9 +120,6 @@ exports.postHome = async (req, res) =>
     }
 
     req.session.data = dataResponse.data;
-
-    // dataResponse.data = [];
-    // dataResponse.errorFormulario = "error_formulario1";
 
     if (dataResponse.data.length <= 0) {
         res.render("muestraOferta", {

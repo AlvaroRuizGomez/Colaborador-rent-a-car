@@ -19,7 +19,7 @@ exports.postShowDetails = async (req, res, languageBrowser) =>
 
     if (isSchemaValid === false) {
         //TODO: mejorar
-        console.error("control schema invalido");
+        console.error("details.js control schema invalido");
         return res.status(404).send("Not found");
     }
 
@@ -34,6 +34,7 @@ exports.postShowDetails = async (req, res, languageBrowser) =>
         languageBrowser,
         req.headers["accept-language"].split(",")[1].split(";")[0]
     );
+
 
     res.render("reservar", {
         "success": req.body.sucess,
@@ -96,13 +97,12 @@ const ControlSchema = async (body) => {
         descripcion_vehiculo: Joi.string().required(),
         pax_vehiculo: Joi.number().required(),
         puertas_vehiculo: Joi.number().required(),
-        pagoRecogida: Joi.number().required(),
+        // pagoRecogida: Joi.number().required(),
         aireacondicionado_vehiculo: Joi.number().required(),
         transmision_vehiculo: Joi.string().required(),
         tooltip_cambio: Joi.string().required(),
         alt_cambio: Joi.string().required(),
         tooltip_vehiculo_tiene: Joi.string().required(),
-
         tooltip_kilometraje: Joi.string().required(),
         alt_kilometraje: Joi.string().required(),
         kilometraje: Joi.string().required(),
@@ -112,6 +112,7 @@ const ControlSchema = async (body) => {
         tooltip_modificaciones: Joi.string().required(),
         alt_modificacion: Joi.string().required(),
         modificaciones: Joi.string().required(),
+        porcentaje: Joi.string().required(),
         tooltip_suplementogenerico_suplemento_noche_fuera_entrega: Joi.string().required(),
         location_suplementogenerico_suplemento_noche_fuera_entrega: Joi.string().required(),
         // tooltip_preciosSuplementoPorTipoChofer_undefined: Joi.string().required(),
@@ -123,7 +124,7 @@ const ControlSchema = async (body) => {
         location_dias: Joi.string().required(),
         vehiculo: Joi.string().required()
     });
-
+    
     const options = {
         abortEarly: false,
         allowUnknown: false,

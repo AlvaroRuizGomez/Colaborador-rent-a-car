@@ -46,4 +46,6 @@ router.get("/generar", async (req, res) => await generar.generarHTML(req, res));
 // router.post(process.env.ENDPOINT_LOCATION, async (req, res) => await locations.GenerarLocations(req, res));
 router.get("/location", async (req, res) => await locations.Frontend_TO_Backend(req, res) );
 
+
+
 module.exports = router;

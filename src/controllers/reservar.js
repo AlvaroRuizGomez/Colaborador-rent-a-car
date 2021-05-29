@@ -20,7 +20,7 @@ exports.postReservar = async (req, res, language ) =>
 
     if (isSchemaValid === false) {
         //TODO: mejorar
-        console.error("control schema invalido");
+        console.error("reservar.js control schema invalido");
         return res.status(404).send("Not found");
     }
 
