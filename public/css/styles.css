@@ -240,235 +240,277 @@ body{
 /* --------- Fin Formulario Busqueda -------------*/
 
 /* --------- Inicio Tarjetas ------------------- */
-.wrap {
+.page-content {
   display: grid;
-  grid-template-columns: repeat(auto-fill, 272px);
-  grid-gap: 13px;
-  align-items: start;
-  margin-top: 56px;
-  margin-left: 190px;
-  padding: 0 15px;
+  grid-gap: 1rem;
+  padding: 1rem;
+  max-width: 1024px;
+  margin: 0 auto;
+  font-family: var(--font-sans);
+}
+@media (min-width: 600px) {
+  .page-content {
+    grid-template-columns: repeat(2, 3fr);
+  }
+}
+@media (min-width: 800px) {
+  .page-content {
+    grid-template-columns: repeat(3, 3fr);
+  }
 }
 
-.tarjeta-wrap {
-  perspective: 800;
-  cursor: pointer;
-}
-
-.tarjeta {
-  width: 265px;
-  height: 150px;
-  transform-style: preserve-3d;
-  transition: 2s ease;
-  box-shadow: 0px 10px 15px -5px rgba(0, 0, 0, 0.65);
-}
-
-/* -----------------   Inicio Adelante y Atrás  ---------------- */
-.adelante,
-.atras {
+.card {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  padding: 1rem;
   width: 100%;
-  height: 100%;
+  text-align: center;
+  color: whitesmoke;
+  background-color: whitesmoke;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1), 0 2px 2px rgba(0, 0, 0, 0.1), 0 4px 4px rgba(0, 0, 0, 0.1), 0 8px 8px rgba(0, 0, 0, 0.1), 0 16px 16px rgba(0, 0, 0, 0.1);
+}
+@media (min-width: 600px) {
+  .card {
+    height: 350px;
+  }
+}
+.card:before {
+  content: "";
   position: absolute;
-  top: 0px;
-  left: 0px;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-}
-
-.adelante {
+  top: 0;
+  left: 0;
   width: 100%;
-  background: white;
+  height: 110%;
+  background-size: contain;
+  background-position-y: center;
+  background-repeat: no-repeat;
+  /* background-position: 0 0; */
+  transition: transform calc(var(--d) * 1.5) var(--e);
+  pointer-events: none;
+}
+.card:after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 200%;
+  pointer-events: none;
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.009) 11.7%, rgba(0, 0, 0, 0.034) 22.1%, rgba(0, 0, 0, 0.072) 31.2%, rgba(0, 0, 0, 0.123) 39.4%, rgba(0, 0, 0, 0.182) 46.6%, rgba(0, 0, 0, 0.249) 53.1%, rgba(0, 0, 0, 0.32) 58.9%, rgba(0, 0, 0, 0.394) 64.3%, rgba(0, 0, 0, 0.468) 69.3%, rgba(0, 0, 0, 0.54) 74.1%, rgba(0, 0, 0, 0.607) 78.8%, rgba(0, 0, 0, 0.668) 83.6%, rgba(0, 0, 0, 0.721) 88.7%, rgba(0, 0, 0, 0.762) 94.1%, rgba(0, 0, 0, 0.79) 100%);
+  transform: translateY(-50%);
+  transition: transform calc(var(--d) * 2) var(--e);
+}
+.card:nth-child(1):before {
+  background-image: url(/img/coches_jl/peugeout108/avif/peugeot108Blue_Card.avif);
+}
+.card:nth-child(2):before {
+  background-image: url(/img/coches_jl/toyota_aygo/avif/toyotaAygoRed_Card.avif);
+}
+.card:nth-child(3):before {
+  background-image: url(/img/coches_jl/citroenC1/avif/citroenC1White_Card.avif);
+}
+.card:nth-child(4):before {
+  background-image: url(/img/coches_jl/toyota_aygo_open/avif/toyotaAygoOpenWhite_Card.avif);
+}
+.card:nth-child(5):before {
+    background-image: url(/img/coches_jl/toyota_aygo_open/avif/toyotaAygoOpenWhite_Card.avif);
+}
+.card:nth-child(6):before {
+    background-image: url(/img/coches_jl/citroenC1_automatic/avif/citroenC1AutomaticPlata_Card.avif);
+}
+.card:nth-child(7):before {
+    background-image: url(/img/coches_jl/citroenC3/avif/citroenC3WhiteRed_Card.avif);
+}
+.card:nth-child(8):before {
+    background-image: url(/img/coches_jl/peugeot807/avif/peugeot807Grey_Card.avif);
+}
+.card:nth-child(9):before {
+    background-image: url(/img/Img-Vehiculos/Motos/PiaggioLiberty_125cc.png);
+}
+.card:nth-child(10):before {
+    background-image: url(/img/Img-Vehiculos/Motos/Suzuki-Burgman_125cc.png);
 }
 
-/* *********   Inicio Atras    ************** */
-.atras {
-  display: grid;
-  grid-template-columns: repeat(4, 25%);
-  grid-template-rows: 50%, 1fr;
-  transform: rotateY(180deg);
-  font-family: "open-sans";
-  background-color: #d4d6d9bd;
+.content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 1rem;
+  transition: transform var(--d) var(--e);
+  z-index: 1;
+}
+.content > * + * {
+  margin-top: 1rem;
 }
 
-.DetailCar_Vehiculo {
+.title {
+  font-size: 1.3rem;
   font-weight: bold;
-  font-size: 20px;
-  color: #1e1e1e;
-  padding: 20px;
-  margin-left: -17px;
-  margin-top: -12px;
-  grid-column-start: 2;
-  grid-column-end: 5;
+  line-height: 1.2;
 }
 
-.DetailCar_Vehiculo_logo{
-  margin-left: 47px;
-  margin-top: -33px;
-  grid-column-start: 2;
-  grid-column-end: 2;
-  grid-row-start: 2;
+.copy {
+  font-family: var(--font-serif);
+  font-size: 1.125rem;
+  font-style: italic;
+  line-height: 1.35;
 }
 
-.DetailCar_Feature{
-  display: flex;
-  margin-top: -3px;
-  margin-right: 10px;
-  grid-column-start: 1;
-  grid-column-end: 5;
-  grid-row-start: 2;
+/* ----------   Inicio Servicios ------------- */
+.page-content .card .content h2{
+    color: #ffff;
+}
+.imgLogo{
+    margin-left: -9px;
+    width: 10%;
 }
 
-.DetailCarPax_Feature,
-.DetailCarDoor_Feature,
-.DetailCarMotor_Feature,
-.DetailCarAir_Feature {
-  display: flex;
-  width: 58%;
-  height: 48%;
-  border: 2px solid #222;
+/* --   Barra de Iconos de Servicios -- */
+.car-info-services {
+    grid-area: servicios;
+    display: grid;
+    grid-template-columns: repeat(4, 39px);
+    grid-template-rows: 31px;
+    grid-template-areas: 
+    "a a a a"
+    "l l . o"
+    ;
+    justify-items: flex-start;
+}
+  
+.icon-24 {
+    width: 16px;
+    margin-top: 7px;
+}
+  
+.servicios-asientos{
+    width: 82%;
+    border: 1px solid white;
+    margin-left: 2px;
+    margin-top: 4px;
+}
+  
+.icon-number{
+    display: inline;
+    font-size: 13px;
+    color: white;
+}
+  
+.servicios-puertas{
+    border: 1px solid white;
+    width: 82%;
+    margin-left: 2px;
+    margin-top: 4px;
+}
+  
+.servicios-aire{
+    border: 1px solid white;
+    width: 82%;
+    margin-left: 2px;
+    margin-top: 4px;
+}
+  
+.servicios-trasmision{
+    border: 1px solid white;
+    width: 97%;
+    margin-left: 2px;
+    margin-top: 4px;
+}
+/* - Fin Barra de Iconos de Servicios - */
+
+.moto-info-services {
+    grid-area: servicios;
+    display: grid;
+    grid-template-columns: repeat(2, 39px);
+    grid-template-rows: 31px;
+    grid-template-areas: 
+    "a a"
+    "l l"
+    ;
+    justify-items: flex-start;
+}
+
+.servicios-topcase{
+    width: 82%;
+    border: 1px solid white;
+    margin-left: 2px;
+    margin-top: 4px;
+}
+
+/* ----------     Fin Servicios  ------------- */
+
+
+.btn {
+  cursor: pointer;
+  margin-top: 1.5rem;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.65rem;
+  font-weight: bold;
+  letter-spacing: 0.025rem;
+  text-transform: uppercase;
+  color: white;
+  background-color: rgb(46, 9, 186);
+  border: none;
   border-radius: 3px;
-  font-size: 20px;
-  color: #222;
-  margin-top: 15px;
-  margin-left: 15px;
+}
+.btn:hover {
+  background-color: rgb(65, 24, 216);;
+}
+.btn:focus {
+  outline: 1px dashed yellow;
+  outline-offset: 3px;
 }
 
-.atras > .DetailCarPax_Feature {
-  grid-column-start: 1;
-  grid-column-end:2;
-  grid-row-start: 2;
-  grid-row-end: 2;
+@media (hover: hover) and (min-width: 600px) {
+  .card:after {
+    transform: translateY(0);
+  }
+
+  .content {
+    transform: translateY(calc(100% - 4.5rem));
+  }
+  .content > *:not(.title) {
+    opacity: 1;
+    transform: translateY(1rem);
+    transition: transform var(--d) var(--e), opacity var(--d) var(--e);
+  }
+
+  .card:hover,
+.card:focus-within {
+    align-items: center;
+  }
+  .card:hover:before,
+.card:focus-within:before {
+    transform: translateY(-4%);
+  }
+  .card:hover:after,
+.card:focus-within:after {
+    transform: translateY(-50%);
+  }
+  .card:hover .content,
+.card:focus-within .content {
+    transform: translateY(0);
+  }
+  .card:hover .content > *:not(.title),
+.card:focus-within .content > *:not(.title) {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: calc(var(--d) / 8);
+  }
+
+  .card:focus-within:before, .card:focus-within:after,
+.card:focus-within .content,
+.card:focus-within .content > *:not(.title) {
+    transition-duration: 0s;
+  }
 }
 
-.atras > .DetailCarDoor_Feature {
-  grid-column-start: 2;
-  grid-column-end:3;
-  grid-row-start: 2;
-  grid-row-end: 2;
-}
 
-.atras > .DetailCarMotor_Feature {
-  grid-column-start: 3;
-  grid-column-end:4;
-  grid-row-start: 2;
-  grid-row-end: 2;
-}
-
-.atras > .DetailCarAir_Feature {
-  grid-column-start: 4;
-  grid-column-end:5;
-  grid-row-start: 2;
-  grid-row-end: 2;
-}
-
-.Icon__svgContainer{
-  margin-right: -17px;
-  margin-top: 10px;
-  width: 20px;
-}
-
-.DetailCar_Etiqueta {
-  font-size: 14px;
-  color: #201f1f;
-  margin-top: 1px;
-  margin-left: 12px;
-  margin-bottom: 10px;
-  padding: 14px 10px;
-}
-
-/* *********   Fin Atras    ************** */
-/* -----------------   Fin Adelante y Atrás  ---------------- */
-
-.tarjeta-wrap:hover .tarjeta {
-  transform: rotateY(180deg);
-}
-
-.card1 {
-  /* background-image: url("../img/Img-Vehiculos/Coches/Peugeot_108.png"); */
-  background-image: url("../img/Img-Vehiculos/Coches/Peugeot_108.png");
-  background-size: cover;
-}
-
-.card2 {
-  background-image: url("../img/Img-Vehiculos/Coches/ToyotaAygo.png");
-  background-size: cover;
-}
-
-.card3 {
-  background-image: url("../img/Img-Vehiculos/Coches/CitroenC1.png");
-  background-size: cover;
-}
-
-.card4 {
-  background-image: url("../img/Img-Vehiculos/Coches/CitroenC1_open.png");
-  background-size: cover;
-}
-
-.card5 {
-  background-image: url("../img/Img-Vehiculos/Coches/ToyotaAygoOpen.png");
-  background-size: cover;
-}
-.card6 {
-  background-image: url("../img/Img-Vehiculos/Coches/CitroenC1Automatic.png");
-  background-size: cover;
-}
-.card7 {
-  background-image: url("../img/Img-Vehiculos/Coches/CitroenC3.png");
-  background-size: cover;
-}
-.card8 {
-  background-image: url("../img/Img-Vehiculos/Coches/Peugeot_807.png");
-  background-size: cover;
-}
-.card9 {
-  background-image: url("../img/Img-Vehiculos/Motos/PiaggioLiberty_125cc.png");
-  background-size: cover;
-}
-.card10 {
-  background-image: url("../img/Img-Vehiculos/Motos/Suzuki-Burgman_125cc.png");
-  background-size: cover;
-}
-
-.tarjetas {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, 130px);
-  grid-gap: 20px;
-  align-items: start;
-  margin-top: 20px;
-  padding: 0 45px;
-}
-
-.tarjetaCoche {
-  font-family: sans-serif;
-  font-weight: bold;
-  font-size: 12px;
-  text-align: center;
-  width: 100px;
-  height: 100px;
-  margin-bottom: 25px;
-  margin-right: 20px;
-  border: 1px solid #ccc;
-  background: #ffffff;
-}
-
-.tarjetaCoche img {
-  width: 100%;
-  margin-top: 3px;
-}
-
-.tarjetaCoche h3 {
-  margin-top: 5px;
-  font-size: 10px;
-  text-align: center;
-}
-
-.project-info {
-  font-size: 10px;
-  padding: 2px;
-  font-family: sans-serif;
-  color: #1c1717;
-  background: white;
-}
 
 #aside {
   margin-right: 30px;

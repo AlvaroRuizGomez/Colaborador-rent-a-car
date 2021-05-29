@@ -52,10 +52,10 @@
             <section id="content">
                 <!-------- Inicio Formulario de Busqueda ------------>
                 <form id="formulario-index" class="form-inline" method="POST" action="/">
-                <input type="hidden" name="success" value="<%=it.success %>">
-                <input type="hidden" name="idioma" value="<%=it.locations.idioma_web%>">
-                <input type="hidden" name="fase" value="1">
-                <div class="aside-box">
+                    <input type="hidden" name="success" value="<%=it.success %>">
+                    <input type="hidden" name="idioma" value="<%=it.locations.idioma_web%>">
+                    <input type="hidden" name="fase" value="1">
+                    <div class="aside-box">
                         <div class="titulo-form">
                             <label><%=it.locations.titulo_form%></label>
                         </div>
@@ -142,471 +142,345 @@
                 <!-------------------------------- Fin Formulario de Busqueda --------------------------->
 
                 <!-------- Inicio Tarjetas --------->
-                <div class="wrap">
-
-                    <div class="tarjeta-wrap">
-                        <div class="tarjeta">
-                            <div class="adelante card1">
-
-                            </div>
-
-                            <div class="atras">
-                                <div class="DetailCar_Vehiculo">
-                                    Peugeot 107
-                                </div>
-
-                                <div class="DetailCar_Vehiculo_logo">
-                                    <img src="./img/Img-Logo/Logo-Marca-Coche/logo-peugeot.jpg" alt="logo Peugeot" width="40" height="40">
-                                </div>
-                                
-                                <div class="DetailCar_Feature">
-                                    <div class="DetailCarPax_Feature">
-                                        <div class="Icon__svgContainer">
-                                            <img src="./img/svg/persona.svg" alt="persona">
+                <main class="page-content">
+                    <div class="card">
+                      <div class="content">
+                        <img src="./img/Img-Logo/Logo-Marca-Coche/logo-peugeot.jpg" class="imgLogo" alt="">
+                        <h2 class="title">Peugeot 108</h2>
+                            <div class="content">
+                                <br>
+                                <br>
+                                <div class="car-info-services">
+                                    <div class="servicios-asientos">
+                                        <img class="icon-24" src="./img/svg/persona.svg" alt="">
+                                        <div class="icon-number">
+                                                4
                                         </div>
-                                        <div class="DetailCar_Etiqueta">
-                                            4
-                                        </div>  
                                     </div>
-                            
-                                    <div class="DetailCarDoor_Feature">
-                                        <div class="Icon__svgContainer">
-                                            <img src="./img/svg/puerta.svg" alt="puerta">
-                                        </div>
-                                        <div class="DetailCar_Etiqueta">
-                                            3
-                                        </div>  
-                                    </div>
-                            
-                                    <div class="DetailCarMotor_Feature">
-                                        <div class="Icon__svgContainer">
-                                            <img src="./img/svg/cambio_manual.svg" alt="transmision">
-                                        </div>
-                                        <div class="DetailCar_Etiqueta">
-                                            M
-                                        </div>  
-                                    </div>
-                            
-                                    <div class="DetailCarAir_Feature">
-                                        <div class="Icon__svgContainer">
-                                            <img src="./img/svg/aire.svg" alt="aire acondicionado">
-                                        </div>
-                                        <div class="DetailCar_Etiqueta">
-                                            A
-                                        </div>  
-                                    </div>
-                                </div>      
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="tarjeta-wrap">
-                        <div class="tarjeta">
-                            <div class="adelante card2"></div>
-
-                            <div class="atras">
-                                <div class="DetailCar_Vehiculo">
-                                    Toyota Aygo
-                                </div>
-
-                                <div class="DetailCar_Vehiculo_logo">
-                                    <img src="./img/Img-Logo/Logo-Marca-Coche/logo-toyota.png" alt="logo Peugeot" width="40" height="40">
-                                </div>
-                                
-                                <div class="DetailCar_Feature">
-                                    <div class="DetailCarPax_Feature">
-                                        <div class="Icon__svgContainer">
-                                            <img src="./img/svg/persona.svg" alt="">
-                                        </div>
-                                        <div class="DetailCar_Etiqueta">
-                                            4
-                                        </div>  
-                                    </div>
-                            
-                                    <div class="DetailCarDoor_Feature">
-                                        <div class="Icon__svgContainer">
-                                            <img src="./img/svg/puerta.svg" alt="puerta">
-                                        </div>
-                                        <div class="DetailCar_Etiqueta">
-                                            4
-                                        </div>  
-                                    </div>
-                            
-                                    <div class="DetailCarMotor_Feature">
-                                        <div class="Icon__svgContainer">
-                                            <img src="./img/svg/cambio_manual.svg" alt="transmision">
-                                        </div>
-                                        <div class="DetailCar_Etiqueta">
-                                            M
-                                        </div>  
-                                    </div>
-                            
-                                    <div class="DetailCarAir_Feature">
-                                        <div class="Icon__svgContainer">
-                                            <img src="./img/svg/aire.svg" alt="aire">
-                                        </div>
-                                        <div class="DetailCar_Etiqueta">
-                                            A
-                                        </div>  
-                                    </div>
-                                </div>      
-                            </div>
-                        </div>
-                    </div>
- 
-                    <div class="tarjeta-wrap">
-                        <div class="tarjeta">
-                            <div class="adelante card3"></div>
-                            <div class="atras">
-                                <div class="DetailCar_Vehiculo">
-                                    Citröen C1
-                                </div>
-
-                                <div class="DetailCar_Vehiculo_logo">
-                                    <img src="./img/Img-Logo/Logo-Marca-Coche/logo-citroen (1).png" alt="logo Peugeot" width="40" height="40">
-                                </div>
-                                
-                                <div class="DetailCar_Feature">
-                                    <div class="DetailCarPax_Feature">
-                                        <div class="Icon__svgContainer">
-                                            <img src="./img/svg/persona.svg" alt="persona">
-                                        </div>
-                                        <div class="DetailCar_Etiqueta">
+                                            
+                                    <div class="servicios-puertas"> 
+                                        <img class="icon-24" src="img/svg/puerta.svg" alt="">
+                                        <div class="icon-number">
                                             4
                                         </div>
                                     </div>
-                                
-                                    <div class="DetailCarDoor_Feature">
-                                        <div class="Icon__svgContainer">
-                                            <img src="./img/svg/puerta.svg" alt="puerta">
-                                        </div>
-                                        <div class="DetailCar_Etiqueta">
-                                            3
-                                        </div>
+                                            
+                                    <div class="servicios-aire">
+                                        <img class="icon-24" src="img/svg/aire.svg" alt="">
                                     </div>
-                                
-                                    <div class="DetailCarMotor_Feature">
-                                        <div class="Icon__svgContainer">
-                                            <img src="./img/svg/cambio_manual.svg" alt="transmision">
-                                        </div>
-                                        <div class="DetailCar_Etiqueta">
-                                            M
-                                        </div>
-                                    </div>
-                                
-                                    <div class="DetailCarAir_Feature">
-                                        <div class="Icon__svgContainer">
-                                            <img src="./img/svg/aire.svg" alt="aire acondicionado">
-                                        </div>
-                                        <div class="DetailCar_Etiqueta">
-                                            A
-                                        </div>
+                                            
+                                    <div class="servicios-trasmision">
+                                        <img class="icon-24" src="img/svg/cambio_manual.svg" alt="">
+                                        <div class="icon-number">M</div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        <button class="btn">Ver este</button>
+                      </div>
                     </div>
-
-                    <div class="tarjeta-wrap">
-                        <div class="tarjeta">
-                            <div class="adelante card4"></div>
-                            <div class="atras">
-                                <div class="DetailCar_Vehiculo">
-                                    Citröen C1 Open
-                                </div>
-
-                                <div class="DetailCar_Vehiculo_logo">
-                                    <img src="./img/Img-Logo/Logo-Marca-Coche/logo-citroen.png" alt="logo Citroen" width="40" height="40">
-                                </div>
-                                
-                                <div class="DetailCar_Feature">
-                                    <div class="DetailCarPax_Feature">
-                                        <div class="Icon__svgContainer">
-                                            <img src="./img/svg/persona.svg" alt="persona">
+                
+                    <div class="card">
+                      <div class="content">
+                        <img src="./img/Img-Logo/Logo-Marca-Coche/logo_toyota.svg" class="imgLogo" alt="">
+                        <h2 class="title">Toyota Aygo</h2>
+                            <div class="content">
+                                <br>
+                                <br>
+                                <div class="car-info-services">
+                                    <div class="servicios-asientos">
+                                        <img class="icon-24" src="./img/svg/persona.svg" alt="">
+                                        <div class="icon-number">
+                                                4
                                         </div>
-                                        <div class="DetailCar_Etiqueta">
+                                    </div>
+                                            
+                                    <div class="servicios-puertas"> 
+                                        <img class="icon-24" src="img/svg/puerta.svg" alt="">
+                                        <div class="icon-number">
                                             4
                                         </div>
                                     </div>
-                                
-                                    <div class="DetailCarDoor_Feature">
-                                        <div class="Icon__svgContainer">
-                                            <img src="./img/svg/puerta.svg" alt="puerta">
-                                        </div>
-                                        <div class="DetailCar_Etiqueta">
-                                            3
-                                        </div>
+                                            
+                                    <div class="servicios-aire">
+                                        <img class="icon-24" src="img/svg/aire.svg" alt="">
                                     </div>
-                                
-                                    <div class="DetailCarMotor_Feature">
-                                        <div class="Icon__svgContainer">
-                                            <img src="./img/svg/cambio_manual.svg" alt="transmision">
-                                        </div>
-                                        <div class="DetailCar_Etiqueta">
-                                            M
-                                        </div>
-                                    </div>
-                                
-                                    <div class="DetailCarAir_Feature">
-                                        <div class="Icon__svgContainer">
-                                            <img src="./img/svg/aire.svg" alt="aire acondicionado">
-                                        </div>
-                                        <div class="DetailCar_Etiqueta">
-                                            A
-                                        </div>
+                                            
+                                    <div class="servicios-trasmision">
+                                        <img class="icon-24" src="img/svg/cambio_manual.svg" alt="">
+                                        <div class="icon-number">M</div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        <button class="btn">Ver este</button>
+                      </div>
                     </div>
-
-                    <div class="tarjeta-wrap">
-                        <div class="tarjeta">
-                            <div class="adelante card5"></div>
-                            <div class="atras">
-                                <div class="DetailCar_Vehiculo">
-                                    Toyota Aygo Open
-                                </div>
-
-                                <div class="DetailCar_Vehiculo_logo">
-                                    <img src="./img/Img-Logo/Logo-Marca-Coche/logo-toyota.png" alt="logo Peugeot" width="40" height="40">
-                                </div>
-                                
-                                <div class="DetailCar_Feature">
-                                    <div class="DetailCarPax_Feature">
-                                        <div class="Icon__svgContainer">
-                                            <img src="./img/svg/persona.svg" alt="persona">
+                
+                    <div class="card">
+                      <div class="content">
+                        <img src="./img/Img-Logo/Logo-Marca-Coche/logo-citroen.png" class="imgLogo" alt="">
+                        <h2 class="title">Citröen C1</h2>
+                            <div class="content">
+                                <br>
+                                <br>
+                                <div class="car-info-services">
+                                    <div class="servicios-asientos">
+                                        <img class="icon-24" src="./img/svg/persona.svg" alt="">
+                                        <div class="icon-number">
+                                                4
                                         </div>
-                                        <div class="DetailCar_Etiqueta">
+                                    </div>
+                                            
+                                    <div class="servicios-puertas"> 
+                                        <img class="icon-24" src="img/svg/puerta.svg" alt="">
+                                        <div class="icon-number">
                                             4
                                         </div>
                                     </div>
-                                
-                                    <div class="DetailCarDoor_Feature">
-                                        <div class="Icon__svgContainer">
-                                            <img src="./img/svg/puerta.svg" alt="puerta">
-                                        </div>
-                                        <div class="DetailCar_Etiqueta">
-                                            3
-                                        </div>
+                                            
+                                    <div class="servicios-aire">
+                                        <img class="icon-24" src="img/svg/aire.svg" alt="">
                                     </div>
-                                
-                                    <div class="DetailCarMotor_Feature">
-                                        <div class="Icon__svgContainer">
-                                            <img src="./img/svg/cambio_manual.svg" alt="transmision">
-                                        </div>
-                                        <div class="DetailCar_Etiqueta">
-                                            M
-                                        </div>
-                                    </div>
-                                
-                                    <div class="DetailCarAir_Feature">
-                                        <div class="Icon__svgContainer">
-                                            <img src="./img/svg/aire.svg" alt="aire acondicionado">
-                                        </div>
-                                        <div class="DetailCar_Etiqueta">
-                                            A
-                                        </div>
+                                            
+                                    <div class="servicios-trasmision">
+                                        <img class="icon-24" src="img/svg/cambio_manual.svg" alt="">
+                                        <div class="icon-number">M</div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        <button class="btn">Ver este</button>
+                      </div>
                     </div>
-
-                    <div class="tarjeta-wrap">
-                        <div class="tarjeta">
-                            <div class="adelante card6"></div>
-                            <div class="atras">
-                                <div class="DetailCar_Vehiculo">
-                                    Citröen C1 Automático
-                                </div>
-
-                                <div class="DetailCar_Vehiculo_logo">
-                                    <img src="./img/Img-Logo/Logo-Marca-Coche/logo-citroen.png" alt="logo Peugeot" width="40" height="40">
-                                </div>
-                                
-                                <div class="DetailCar_Feature">
-                                    <div class="DetailCarPax_Feature">
-                                        <div class="Icon__svgContainer">
-                                            <img src="./img/svg/persona.svg" alt="persona">
+                
+                    <div class="card">
+                      <div class="content">
+                        <img src="./img/Img-Logo/Logo-Marca-Coche/logo-citroen.png" class="imgLogo" alt="">
+                        <h2 class="title">Citröen C1 Open</h2>
+                            <div class="content">
+                                <br>
+                                <br>
+                                <div class="car-info-services">
+                                    <div class="servicios-asientos">
+                                        <img class="icon-24" src="./img/svg/persona.svg" alt="">
+                                        <div class="icon-number">
+                                                4
                                         </div>
-                                        <div class="DetailCar_Etiqueta">
+                                    </div>
+                                            
+                                    <div class="servicios-puertas"> 
+                                        <img class="icon-24" src="img/svg/puerta.svg" alt="">
+                                        <div class="icon-number">
                                             4
                                         </div>
                                     </div>
-                                
-                                    <div class="DetailCarDoor_Feature">
-                                        <div class="Icon__svgContainer">
-                                            <img src="./img/svg/puerta.svg" alt="puerta">
-                                        </div>
-                                        <div class="DetailCar_Etiqueta">
-                                            3
-                                        </div>
+                                            
+                                    <div class="servicios-aire">
+                                        <img class="icon-24" src="img/svg/aire.svg" alt="">
                                     </div>
-                                
-                                    <div class="DetailCarMotor_Feature">
-                                        <div class="Icon__svgContainer">
-                                            <img src="./img/svg/cambio_manual.svg" alt="transmision">
-                                        </div>
-                                        <div class="DetailCar_Etiqueta">
-                                            M
-                                        </div>
-                                    </div>
-                                
-                                    <div class="DetailCarAir_Feature">
-                                        <div class="Icon__svgContainer">
-                                            <img src="./img/svg/aire.svg" alt="aire acondicionado">
-                                        </div>
-                                        <div class="DetailCar_Etiqueta">
-                                            A
-                                        </div>
+                                            
+                                    <div class="servicios-trasmision">
+                                        <img class="icon-24" src="img/svg/cambio_manual.svg" alt="">
+                                        <div class="icon-number">M</div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        <button class="btn">Ver este</button>
+                      </div>
                     </div>
-
-                    <div class="tarjeta-wrap">
-                        <div class="tarjeta">
-                            <div class="adelante card7"></div>
-                            <div class="atras">
-                                <div class="DetailCar_Vehiculo">
-                                    Citröen C3
-                                </div>
-
-                                <div class="DetailCar_Vehiculo_logo">
-                                    <img src="./img/Img-Logo/Logo-Marca-Coche/logo-citroen.png" alt="logo Peugeot" width="40" height="40">
-                                </div>
-                                
-                                <div class="DetailCar_Feature">
-                                    <div class="DetailCarPax_Feature">
-                                        <div class="Icon__svgContainer">
-                                            <img src="./img/svg/persona.svg" alt="persona">
+                
+                    <div class="card">
+                      <div class="content">
+                        <img src="./img/Img-Logo/Logo-Marca-Coche/logo_toyota.svg" class="imgLogo" alt="">
+                        <h2 class="title">Toyota Aygo Open</h2>
+                            <div class="content">
+                                <br>
+                                <br>
+                                <div class="car-info-services">
+                                    <div class="servicios-asientos">
+                                        <img class="icon-24" src="./img/svg/persona.svg" alt="">
+                                        <div class="icon-number">
+                                                4
                                         </div>
-                                        <div class="DetailCar_Etiqueta">
+                                    </div>
+                                            
+                                    <div class="servicios-puertas"> 
+                                        <img class="icon-24" src="img/svg/puerta.svg" alt="">
+                                        <div class="icon-number">
                                             4
                                         </div>
                                     </div>
-                                
-                                    <div class="DetailCarDoor_Feature">
-                                        <div class="Icon__svgContainer">
-                                            <img src="./img/svg/puerta.svg" alt="puerta">
-                                        </div>
-                                        <div class="DetailCar_Etiqueta">
-                                            3
-                                        </div>
+                                            
+                                    <div class="servicios-aire">
+                                        <img class="icon-24" src="img/svg/aire.svg" alt="">
                                     </div>
-                                
-                                    <div class="DetailCarMotor_Feature">
-                                        <div class="Icon__svgContainer">
-                                            <img src="./img/svg/cambio_manual.svg" alt="transmision">
-                                        </div>
-                                        <div class="DetailCar_Etiqueta">
-                                            M
-                                        </div>
-                                    </div>
-                                
-                                    <div class="DetailCarAir_Feature">
-                                        <div class="Icon__svgContainer">
-                                            <img src="./img/svg/aire.svg" alt="aire acondicionado">
-                                        </div>
-                                        <div class="DetailCar_Etiqueta">
-                                            A
-                                        </div>
+                                            
+                                    <div class="servicios-trasmision">
+                                        <img class="icon-24" src="img/svg/cambio_manual.svg" alt="">
+                                        <div class="icon-number">M</div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        <button class="btn">Ver este</button>
+                      </div>
                     </div>
-
-                    <div class="tarjeta-wrap">
-                        <div class="tarjeta">
-                            <div class="adelante card8"></div>
-                            <div class="atras">
-                                <div class="DetailCar_Vehiculo">
-                                    Peugueot 807
-                                </div>
-
-                                <div class="DetailCar_Vehiculo_logo">
-                                    <img src="./img/Img-Logo/Logo-Marca-Coche/logo-peugeot.jpg" alt="logo Peugeot" width="40" height="40">
-                                </div>
-                                
-                                <div class="DetailCar_Feature">
-                                    <div class="DetailCarPax_Feature">
-                                        <div class="Icon__svgContainer">
-                                            <img src="./img/svg/persona.svg" alt="persona">
+                
+                    <div class="card">
+                      <div class="content">
+                        <img src="./img/Img-Logo/Logo-Marca-Coche/logo-citroen.png" class="imgLogo" alt="">
+                        <h2 class="title">Citröen C1 Automatic</h2>
+                            <div class="content">
+                                <br>
+                                <br>
+                                <div class="car-info-services">
+                                    <div class="servicios-asientos">
+                                        <img class="icon-24" src="./img/svg/persona.svg" alt="">
+                                        <div class="icon-number">
+                                                4
                                         </div>
-                                        <div class="DetailCar_Etiqueta">
+                                    </div>
+                                            
+                                    <div class="servicios-puertas"> 
+                                        <img class="icon-24" src="img/svg/puerta.svg" alt="">
+                                        <div class="icon-number">
                                             4
                                         </div>
                                     </div>
-                                
-                                    <div class="DetailCarDoor_Feature">
-                                        <div class="Icon__svgContainer">
-                                            <img src="./img/svg/puerta.svg" alt="puerta">
-                                        </div>
-                                        <div class="DetailCar_Etiqueta">
-                                            3
-                                        </div>
+                                            
+                                    <div class="servicios-aire">
+                                        <img class="icon-24" src="img/svg/aire.svg" alt="">
                                     </div>
-                                
-                                    <div class="DetailCarMotor_Feature">
-                                        <div class="Icon__svgContainer">
-                                            <img src="./img/svg/cambio_manual.svg" alt="transmision">
-                                        </div>
-                                        <div class="DetailCar_Etiqueta">
-                                            M
-                                        </div>
-                                    </div>
-                                
-                                    <div class="DetailCarAir_Feature">
-                                        <div class="Icon__svgContainer">
-                                            <img src="./img/svg/aire.svg" alt="aire acondicionado">
-                                        </div>
-                                        <div class="DetailCar_Etiqueta">
-                                            A
-                                        </div>
+                                            
+                                    <div class="servicios-trasmision">
+                                        <img class="icon-24" src="img/svg/cambio_manual.svg" alt="">
+                                        <div class="icon-number">A</div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        <button class="btn">Ver este</button>
+                      </div>
                     </div>
-
-                    <div class="tarjeta-wrap">
-                        <div class="tarjeta">
-                            <div class="adelante card9"></div>
-                            <div class="atras">
-
-                                <div class="DetailCar_Vehiculo">
-                                    Piaggio Liberty 125cc
+                
+                    <div class="card">
+                      <div class="content">
+                        <img src="./img/Img-Logo/Logo-Marca-Coche/logo-citroen.png" class="imgLogo" alt="">
+                        <h2 class="title">Citröen C3</h2>
+                            <div class="content">
+                                <br>
+                                <br>
+                                <div class="car-info-services">
+                                    <div class="servicios-asientos">
+                                        <img class="icon-24" src="./img/svg/persona.svg" alt="">
+                                        <div class="icon-number">
+                                                5
+                                        </div>
+                                    </div>
+                                            
+                                    <div class="servicios-puertas"> 
+                                        <img class="icon-24" src="img/svg/puerta.svg" alt="">
+                                        <div class="icon-number">
+                                            4
+                                        </div>
+                                    </div>
+                                            
+                                    <div class="servicios-aire">
+                                        <img class="icon-24" src="img/svg/aire.svg" alt="">
+                                    </div>
+                                            
+                                    <div class="servicios-trasmision">
+                                        <img class="icon-24" src="img/svg/cambio_manual.svg" alt="">
+                                        <div class="icon-number">M</div>
+                                    </div>
                                 </div>
-
-                                <div class="DetailCar_Vehiculo_logo">
-                                    <img src="./img/Img-Logo/Logo-Marca-Coche/logo-piaggio.png" alt="logo Peugeot" width="40" height="40">
-                                </div>
-
                             </div>
-                        </div>
+                        <button class="btn">Ver este</button>
+                      </div>
                     </div>
-
-                    <div class="tarjeta-wrap">
-                        <div class="tarjeta">
-                            <div class="adelante card10"></div>
-                            <div class="atras">
-
-                                <div class="DetailCar_Vehiculo">
-                                    Suzuky Burgman 125cc
+                
+                    <div class="card">
+                      <div class="content">
+                        <img src="./img/Img-Logo/Logo-Marca-Coche/logo-peugeot.jpg" class="imgLogo" alt="">
+                        <h2 class="title">Peugeot 807</h2>
+                            <div class="content">
+                                <br>
+                                <br>
+                                <div class="car-info-services">
+                                    <div class="servicios-asientos">
+                                        <img class="icon-24" src="./img/svg/persona.svg" alt="">
+                                        <div class="icon-number">
+                                                7
+                                        </div>
+                                    </div>
+                                            
+                                    <div class="servicios-puertas"> 
+                                        <img class="icon-24" src="img/svg/puerta.svg" alt="">
+                                        <div class="icon-number">
+                                            4
+                                        </div>
+                                    </div>
+                                            
+                                    <div class="servicios-aire">
+                                        <img class="icon-24" src="img/svg/aire.svg" alt="">
+                                    </div>
+                                            
+                                    <div class="servicios-trasmision">
+                                        <img class="icon-24" src="img/svg/cambio_manual.svg" alt="">
+                                        <div class="icon-number">M</div>
+                                    </div>
                                 </div>
-                                
-                                <div class="DetailCar_Vehiculo_logo">
-                                    <img src="./img/Img-Logo/Logo-Marca-Coche/logo-suzuki.jpg" alt="logo Peugeot" width="40" height="40">
-                                </div>
-
                             </div>
-                        </div>
+                        <button class="btn">Ver este</button>
+                      </div>
                     </div>
-                </div>
-
+                
+                    <div class="card">
+                      <div class="content">
+                        <img src="./img/Img-Logo/Logo-Marca-Coche/logo-piaggio.png" class="imgLogo" alt="">
+                        <h2 class="title">
+                          Piaggio Liberty 125
+                        </h2>
+                            <div class="content">
+                                <br>
+                                <div class="moto-info-services">
+                                  <div class="servicios-topcase">
+                                      <img class="icon-24" src="./img/svg/iconTopcase.svg" alt="">
+                                      <div class="icon-number">1</div>     
+                                  </div>
+                                           
+                                  <div class="servicios-trasmision">
+                                      <img class="icon-24" src="img/svg/cambio_manual.svg" alt="">
+                                      <div class="icon-number">A</div>
+                                  </div>
+                              </div>
+                            </div>
+                        <button class="btn">Ver este</button>
+                      </div>
+                    </div>
+                
+                    <div class="card">
+                      <div class="content">
+                        <img src="./img/Img-Logo/Logo-Marca-Coche/logo-suzuki.jpg" class="imgLogo" alt="">
+                        <h2 class="title">
+                          Suzuki Burgman 125
+                        </h2>
+                            <div class="content">
+                                <br>
+                                <div class="moto-info-services">
+                                  <div class="servicios-topcase">
+                                      <img class="icon-24" src="./img/svg/iconTopcase.svg" alt="">
+                                      <div class="icon-number">1</div>     
+                                  </div>
+                                           
+                                  <div class="servicios-trasmision">
+                                      <img class="icon-24" src="img/svg/cambio_manual.svg" alt="">
+                                      <div class="icon-number">A</div>
+                                  </div>
+                              </div>
+                            </div>
+                        <button class="btn">Ver este</button>
+                      </div>
+                    </div>
+                
+                  </main>
+                
             </section>
         <!-- Fin contenido -->
 
