@@ -130,12 +130,13 @@ body{
   width: 96%;
   height: 405px;
   margin: 0px auto;
-  margin-top: 55px;
+  margin-top: 16px;
   margin-left: 67px;
   padding-top: 2px;
-  background: #c3d2f2;
-  box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.3), 0px 3px 7px rgba(0, 0, 0, 0.3),
-    0px 0px 1px white inset, 0px -3px 2px rgba(0, 0, 0, 0.3) inset;
+  background: #fff;
+  border: 1px solid #ddd;
+  /* box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.3), 0px 3px 7px rgba(0, 0, 0, 0.3),
+    0px 0px 1px white inset, 0px -3px 2px rgba(0, 0, 0, 0.3) inset; */
   position: relative;  
 }
 
@@ -148,7 +149,7 @@ body{
 }
 
 .form-buscar {
-  padding: 41px;
+  padding: 20px;
 }
 
 .formDateRecogida {
@@ -164,7 +165,7 @@ body{
   margin-left: -16px;
   margin-right: 25px;
   font-size: 20px;
-  font-weight: bolder;
+  /* font-weight: bolder; */
 }
 
 .labelDate-form-devolucion {
@@ -192,7 +193,7 @@ body{
 .img-calendar {
   width: 24px;
   margin-right: 37px;
-  margin-left: 3px;
+  margin-left: -38px;
   background-color: #e9ecef;
   box-shadow: 0px 0px 2px #1e1c1c;
   cursor: pointer;
@@ -235,6 +236,72 @@ body{
 .btnBuscar {
   margin: 35px 45px;
   margin-left: 28px;
+}
+
+/* ******************************************** */
+.formContainer {
+    display: grid;
+    grid-template-rows: 31px, auto;
+    grid-template-areas:
+        "titulo"
+        "data";
+    justify-items: flex-start;
+    align-items: flex-start;
+    padding: 5px;
+    width: 100%;
+    border: 1px solid #d8d8d8;
+    background-color: #fff;
+}
+
+.formTit{
+  grid-area: titulo;
+  width: 100%;
+  border-bottom: 1px solid #d8d8d8;
+}
+
+.formTit h2 {
+  display: block;
+  font-size: 1.5em;
+  margin-block-start: 0.83em;
+  margin-block-end: 0.83em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
+}
+
+.formData {
+  grid-area: data;
+  display: grid;
+  grid-template-columns: 12% repeat(3, 200px);
+  grid-template-rows: repeat(5, 31px);
+  grid-template-areas:
+      "recogidaDateTit recogidaDateData recogidaClockTit recogidaClockData"
+      "driverNovel driverNovel driverNovel driverNovel"
+      "driverAge driverAge driverAge driverAge "
+      "verPrecio verPrecio verPrecio verPrecio "; 
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/*------  Recogida Fecha -------*/
+.recogidaBox {
+    grid-area: recogidaDateTit;
+    display: inline;
+}
+
+.recogidaBoxData{
+  grid-area: recogidaDateData;
+  display: inline;
+}
+/*------  Recogida hora -------*/
+.recogidaBoxClock {
+  grid-area: recogidaClockTit;
+  display: inline;
+}
+
+.recogidaBoxClockData{
+grid-area: recogidaClockData;
+display: inline;
 }
 
 /* --------- Fin Formulario Busqueda -------------*/

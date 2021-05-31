@@ -328,7 +328,7 @@ body {
 }
 
 .contentBlock {
-    grid-area: b;
+    /* grid-area: b; */
     display: grid;
     grid-template-rows: 31px, auto;
     grid-template-areas:
