@@ -42,7 +42,7 @@ body{
 .bandera
 {
   width: 50px;
-  border: 1px solid black;
+
 }
 
 .logo img {
@@ -125,7 +125,7 @@ body{
 
   padding-top: 20px;
   padding-bottom: 20px;
-  background-image: url("../img/Img-Banner/FaroSoller.jpeg");
+  background-image: url("../img/Img-Banner/FaroSoller.avif");
   background-position: center;
   background-size: cover;
   position: relative;
