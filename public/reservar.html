@@ -32,7 +32,12 @@
                         <div class="boxAside">
                             <div class="contentBoxAside">
                                 <section class="rentacar-info">
-                                    <img class="car-image" src="./img/Img-Vehiculos/rescambiada/png/<%=it.formdata.imagen_vehiculo %>" alt="<%=it.formdata.descripcion_vehiculo %>">
+                                    <picture class="d-block img-ta">
+                                        <source srcset="./img/Img-Vehiculos/<%= it.formdata.imagen_vehiculo %>_Card.avif">
+                                        <source srcset="./img/Img-Vehiculos/<%= it.formdata.imagen_vehiculo %>_Card.webp">
+                                        <img class="car-image" src="./img/Img-Vehiculos/<%=it.formdata.imagen_vehiculo %>_Card.png" alt="<%=it.formdata.descripcion_vehiculo %>">
+                                    </picture>
+                                    
                                     <h2 class="car-name">
                                         </p><%=it.formdata.descripcion_vehiculo %></p>
                                     </h2>
