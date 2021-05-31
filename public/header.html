@@ -1,7 +1,12 @@
 <header id="header">
     <%~ includeFile("parciallogo.html") %>
     <div class="contacto">
-        <img src="./img/whatsapp-icon-hd-21.jpg"/>
+        <picture class="">
+            <source srcset="./img/whatsapp-icon.avif">
+            <source srcset="./img/whatsapp-icon.webp">
+            <img src="./img/whatsapp-icon.png" alt="whatsapp">
+        </picture>
+        
         <h2>+34 999 999 999</h2>
         <p id="reserva-telefono"><%=it.locations.contacto_reservas%></p>
     </div>
@@ -13,22 +18,38 @@
             </li>
             <li>
                 <a href="/autonoleggio">
-                    <img src="./img/banderas/it.png" class="bandera" alt="<%=it.locations.bandera_italiana%>">
+                    <picture class="bandera">
+                        <source srcset="./img/banderas/it.avif">
+                        <source srcset="./img/banderas/it.webp">
+                        <img src="./img/banderas/it.png" class="bandera" alt="<%=it.locations.bandera_italiana%>">
+                    </picture>
                 </a>
             </li>
             <li>
                 <a href="/alquiler-coches">
-                    <img src="./img/banderas/es.png" class="bandera" alt="<%=it.locations.bandera_espanola%>">
+                    <picture class="bandera">
+                        <source srcset="./img/banderas/es.avif">
+                        <source srcset="./img/banderas/es.webp">
+                        <img src="./img/banderas/es.png" class="bandera" alt="<%=it.locations.bandera_espanola%>">
+                    </picture>
                 </a>
             </li>
             <li>
                 <a href="/mietwagen">
-                    <img src="./img/banderas/de.png" class="bandera" alt="<%=it.locations.bandera_alemana%>">
+                    <picture class="bandera">
+                        <source srcset="./img/banderas/de.avif">
+                        <source srcset="./img/banderas/de.webp">
+                        <img src="./img/banderas/de.png" class="bandera" alt="<%=it.locations.bandera_alemana%>">
+                    </picture>
                 </a>
             </li>
             <li>
                 <a href="/rentacar">
-                    <img src="./img/banderas/en.png" class="bandera"  alt="<%=it.locations.bandera_inglesa%>">
+                    <picture class="bandera">
+                        <source srcset="./img/banderas/en.avif">
+                        <source srcset="./img/banderas/en.webp">
+                        <img src="./img/banderas/en.png" class="bandera"  alt="<%=it.locations.bandera_inglesa%>">
+                    </picture>
                 </a>
             </li>
         </ul>

@@ -182,7 +182,7 @@ background: red;
 .bandera
 {
   width: 50px;
-  border: 1px solid black;
+
 }
 
 /*---- Inicio Formulario busqueda (aside) -------------------*/
@@ -325,6 +325,7 @@ background: red;
 
 .carruselSlider{
   width: 100%;
+  margin-bottom: 20px;
   /* width: 1222px; */
   /* margin-left: 13px; */
 }
@@ -336,18 +337,19 @@ background: red;
 }
 
 .row-p {
-  width: 77%;
+  width: 100%;
 }
 
+
 .col-p {
-  height: 183px;
-    border: 1px solid #000000;
-    margin-left: 30px;
-    margin-right: -18px;
-    border: 1px solid #e9e7e7;
-    border-radius: 3px;
-    margin-top: 11px;
-    background-color: #ffffff;
+  height: 193px;
+  border: 1px solid #000000;
+  margin-left: 20px;
+  margin-right: -18px;
+  border: 1px solid #e9e7e7;
+  border-radius: 3px;
+  /* margin-top: 11px; */
+  background-color: #ffffff;
 }
 
 .img-ta {

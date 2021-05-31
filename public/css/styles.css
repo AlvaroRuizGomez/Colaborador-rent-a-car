@@ -1,3 +1,9 @@
+:root {
+--d: 700ms;
+--e: cubic-bezier(0.19, 1, 0.22, 1);
+} 
+
+
 * {
   text-decoration: none;
   margin: 0px;
@@ -36,7 +42,7 @@ body{
 .bandera
 {
   width: 50px;
-  border: 1px solid black;
+
 }
 
 .logo img {
@@ -119,7 +125,7 @@ body{
 
   padding-top: 20px;
   padding-bottom: 20px;
-  background-image: url("../img/Img-Banner/FaroSoller.jpeg");
+  background-image: url("../img/Img-Banner/FaroSoller.avif");
   background-position: center;
   background-size: cover;
   position: relative;

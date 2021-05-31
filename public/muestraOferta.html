@@ -146,8 +146,14 @@
                                             <%= it.data[i].descripcion %>
                                         </h5>
                                         <div class="py-4 text-black text-center">
-                                            <img class="d-block w-100 img-ta" src="img/Img-Vehiculos/rescambiada/png/<%= it.data[i].ImagenVehiclo %>"
-                                                alt="<%= it.data[i].descripcion %>">
+                                            <picture class="d-block img-ta">
+                                                <source srcset="./img/Img-Vehiculos/<%= it.data[i].ImagenVehiclo %>_Slider.avif">
+                                                <source srcset="./img/Img-Vehiculos/<%= it.data[i].ImagenVehiclo %>_Slider.webp">
+                                                <img class="d-block img-ta" src="img/Img-Vehiculos/<%= it.data[i].ImagenVehiclo %>_Slider.png" alt="<%= it.data[i].descripcion %>">
+                                            </picture>
+
+
+                                                
                                         </div>
                                         <div class="precio">
                                             <div class="precio-txt">
@@ -171,7 +177,12 @@
                                     <div class="col col-p">
                                         <h5><%= it.data[i].descripcion %></h5>
                                         <div class="py-4 text-black text-center">
-                                            <img class="d-block w-100 img-ta" src="img/Img-Vehiculos/rescambiada/png/<%= it.data[i].ImagenVehiclo %>" alt="<%= it.data[i].descripcion %>">
+                                            <picture class="d-block img-ta">
+                                                <source srcset="./img/Img-Vehiculos/<%= it.data[i].ImagenVehiclo %>_Slider.avif">
+                                                <source srcset="./img/Img-Vehiculos/<%= it.data[i].ImagenVehiclo %>_Slider.webp">
+                                                <img class="d-block  img-ta" src="img/Img-Vehiculos/<%= it.data[i].ImagenVehiclo %>_Slider.png"
+                                                    alt="<%= it.data[i].descripcion %>">
+                                            </picture>
                                         </div>
                                         <div class="precio">
                                             <div class="precio-txt">
@@ -244,8 +255,13 @@
                                 <% } %>
                                 <input type="hidden" name="imagen_vehiculo" value="<%= element.ImagenVehiclo %>">
                                 <input type="hidden" name="descripcion_vehiculo" value="<%= element.descripcion %>">
-
-                                <img class="car-image" src="./img/Img-Vehiculos/rescambiada/png/<%= element.ImagenVehiclo %>" alt="<%= element.descripcion %>">
+                                
+                                <picture class="car-image">
+                                    <source srcset="./img/Img-Vehiculos/<%= element.ImagenVehiclo %>_Card.avif" >
+                                    <source srcset="./img/Img-Vehiculos/<%= element.ImagenVehiclo %>_Card.webp">
+                                    <img  src="./img/Img-Vehiculos/<%= element.ImagenVehiclo %>_Card.png" alt="<%= element.descripcion %>">
+                                </picture>
+                                
                                 <a class="boton_modal" role="button" data-tooltip-location="top" data-tooltip="<%=it.locations.tooltip_condiciones%>">
                                     <img src="./img/svg/condiciones.svg" alt="<%=it.locations.alt_icono_condiciones %>">
                                     <span class="link-condiciones"><%=it.locations.condiciones %></span>
