@@ -27,7 +27,6 @@
             
             <!-----------------  Inicio Sidebar1  ------------------------------------------>
             <div class="sidebar1">
-                <!-- <p>Segunda caja</p> -->
                 <section id="contentAside">
                     <aside id="aside">
                         <div class="boxAside">
@@ -41,7 +40,7 @@
                                     <div class="car-info-services">
 
                                         <div class="servicios-asientos" data-tooltip="<%=it.locations.tooltip_vehiculo_asientos1%> <%= it.formdata.pax_vehiculo %> <%=it.locations.tooltip_vehiculo_asientos2%>" data-tooltip-location="top">
-                                            <img class="icon-24" src="img/svg/person-fill.svg" alt="<%=it.locations.alt_persona%>">
+                                            <img class="icon-24" src="img/svg/persona-black.svg" alt="<%=it.locations.alt_persona%>">
                                             <div class="icon-number">
                                                 <%= it.formdata.pax_vehiculo %>
                                             </div>
@@ -49,22 +48,21 @@
                                         <% const puertas_vehiculo = it.formdata.puertas_vehiculo - 0 %>
                                         <% if (puertas_vehiculo > 0) { %>
                                         <div class="servicios-puertas" data-tooltip="<%=it.formdata.tooltip_vehiculo_tiene %> <%= it.formdata.puertas_vehiculo %> <%=it.locations.tooltip_vehiculo_puertas%>" data-tooltip-location="top">
-                                            <img class="icon-24" src="img/svg/puerta.svg" alt="<%=it.locations.alt_puerta%>">
+                                            <img class="icon-24" src="img/svg/puerta-black.svg" alt="<%=it.locations.alt_puerta%>">
                                             <div class="icon-number">
                                                 <%= it.formdata.puertas_vehiculo %>
                                             </div>
                                         </div>
                                         <% } %>
 
-                                        <% const aireacondicionado = it.formdata.aireacondicionado - 0 %>
-                                        <% if (aireacondicionado === 1) { %>
+                                        <% if (it.formdata.aireacondicionado !== "0") { %>
                                         <div class="servicios-aire" data-tooltip="<%=it.formdata.tooltip_vehiculo_tiene %> <%=it.locations.tooltip_aire_acondicionado%>" data-tooltip-location="top">
-                                            <img class="icon-24" src="img/svg/aire.svg" alt="<%=it.locations.alt_aire%>">
+                                            <img class="icon-24" src="img/svg/aire-black.svg" alt="<%=it.locations.alt_aire%>">
                                         </div>
                                         <% } %>
                                         
                                         <div class="servicios-trasmision" data-tooltip="<%=it.formdata.tooltip_vehiculo_tiene %> <%=it.formdata.tooltip_cambio %>" data-tooltip-location="top">
-                                            <img class="icon-24" src="img/svg/cambio_manual.svg" alt="<%=it.formdata.alt_cambio %>">
+                                            <img class="icon-24" src="img/svg/cambio_manual-black.svg" alt="<%=it.formdata.alt_cambio %>">
                                             <div class="icon-number"><%=it.formdata.transmision_vehiculo %></div>
                                         </div>
                                     </div>
@@ -170,9 +168,9 @@
                         <!-- Fin Datos Fijos de la reserva -->
         
                         <!--- Inicio Cargos de la reserva --->
-                        <%let mult = 0 %>
-                        <%let subtotal = 0 %>
-                        <% let tota = 0 %>
+                        <%let total_suplmento_tipo_conductor = 0 %>
+                        <%let total = 0 %>
+                        <% let pago_online = 0 %>
                         <% if (it.formdata.conductor_con_experiencia === "on") { %>
                             <div class="titConductor">
                                 <%=it.locations.conductor_joven_titulo %>
@@ -186,12 +184,12 @@
                             </div>
                             <div class="valorConductor">
                                 <% if (dias> 1) { %>
-                                    <% mult = dias * (it.formdata.suplementoportipoChofer - 0 ) %>
-                                    <%= dias %> <%=it.locations.dias %> x <%=it.formdata.suplementoportipoChofer %> € = <%= mult %> €
+                                    <% total_suplmento_tipo_conductor = dias * (it.formdata.suplementoportipoChofer - 0 ) %>
+                                    <%= dias %> <%=it.locations.dias %> x <%=it.formdata.suplementoportipoChofer %> € = <%= total_suplmento_tipo_conductor %> €
 
                                 <% } else { %>
                                     <%= dias %> <%=it.locations.dia %> x <%=it.formdata.suplementoportipoChofer %> € = <%=it.formdata.suplementoportipoChofer %> €
-                                    <% mult = (it.formdata.suplementoportipoChofer - 0) %>
+                                    <% total_suplmento_tipo_conductor = (it.formdata.suplementoportipoChofer - 0) %>
                                 <% } %>
 
                             </div>
@@ -201,11 +199,11 @@
                         </div>
                         <div class="valorTotReserva">
                             <% if (it.formdata.suplementoportipoChofer !== undefined) { %>
-                                <% subtotal = (it.formdata.preciototaldias - 0) + (mult) %>
-                                <%= subtotal %> €
+                                <% total = (it.formdata.preciototaldias - 0) + (total_suplmento_tipo_conductor) %>
+                                <%= total %> €
                             <% } else { %>
-                                <% subtotal=(it.formdata.preciototaldias - 0) %>
-                                <%= subtotal %> €
+                                <% total=(it.formdata.preciototaldias - 0) %>
+                                <%= total %> €
                             <% } %>
                         </div>
         
@@ -213,18 +211,16 @@
                             <%= it.locations.pago_recogida_titulo %>
                         </div>
                         <div class="ValorRecogida">
-                            
-                            <%=it.formdata.pagoRecogida %> €
-                        
+                            <%let pago_recogida = ((it.formdata.porcentaje - 0) * total) / 100  %>
+                            <%= pago_recogida %> €
                         </div>
         
                         <div class="titValorOnline">
                             <%= it.locations.pago_online_titulo %>
                         </div>
                         <div class="ValorOnline">
-                            <% tota = subtotal - ( it.formdata.pagoRecogida - 0 )%>
-                            <%= tota %> €
-                            
+                            <% pago_online = total - pago_recogida%>
+                            <%= pago_online %> €
                         </div>
                         <!--- Fin Cargos de la reserva --->
                     </div>
@@ -323,9 +319,9 @@
                 <input type="hidden" id="dias" name="dias" value="<%= it.formdata.diasEntreRecogidaDevolucion %>">
 
                 <input type="hidden" id="alquiler" name="alquiler" value="<%=it.formdata.preciototaldias %>">
-                <input type="hidden" id="conductor_joven" name="conductor_joven" value="<%= mult %>">
+                <input type="hidden" id="conductor_joven" name="conductor_joven" value="<%= total_suplmento_tipo_conductor %>">
                 <input type="hidden" id="pagoRecogida" name="pagoRecogida" value="<%=it.formdata.pagoRecogida %>">
-                <input type="hidden" id="pago_online" name="pago_online" value="<%= tota %>">
+                <input type="hidden" id="pago_online" name="pago_online" value="<%= pago_online %>">
 
                 <div class="formDriver">
                     <div class="formDriverContent" id="personalInfoForm" data-info-form="<%=it.locations.campos_requeridos %>">
@@ -448,7 +444,7 @@
                 <!-------------------------  Inicio Botón reservar ------------------------>
                 <div class="boxBtnRevervar">
                     <button id="boton_reservar" name="" class="btnReserva    iframe new-btn new-btn-xxl new-btn-success cboxElement">
-                        <%=it.locations.reservar_ahora %> <%= tota %> €
+                        <%=it.locations.reservar_ahora %> <%= pago_online %> €
                     </button>
                 </div>
                 <!-------------------------    Fin Botón reservar  ------------------------>

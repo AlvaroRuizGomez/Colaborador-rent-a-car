@@ -8,6 +8,7 @@ const locations = require("./locations");
 
 //variables
 const URI_API_BACKEND = `${process.env.URL_BACKEND}:${process.env.PORT_BACKEND}${process.env.ENDPOINT_API_BACKEND}`;
+const URI_GETALL_BACKEND = `${process.env.URL_BACKEND}:${process.env.PORT_BACKEND}${process.env.ENDPOINT_GETALL_BACKEND}`;
 const URI_STATS_BACKEND = `${process.env.URL_BACKEND}:${process.env.PORT_BACKEND}${process.env.ENDPOINT_STATS_BACKEND}`;
 
 
@@ -25,15 +26,12 @@ exports.getHome = async (req, res, languageBrowser) =>
         return res.status(404).send("Not Found");
     }
     
-    // if (req.headers)
-
     const locationLanguage = await locations.GenerateLocationBrowser(
         languageBrowser, 
         req.headers["accept-language"].split(",")[0].split("-")[0]
     );
 
-    res.render("inicio", { "success": id, "locations": locationLanguage });
-
+    
     const body = {
         "token": process.env.TOKEN_FOR_BACKEND_ACCESS,
         "useragent": req.useragent,
@@ -41,7 +39,8 @@ exports.getHome = async (req, res, languageBrowser) =>
         "id": id
     };
 
-    const responseRaw = await fetch(URI_STATS_BACKEND, {
+    //enviamos al backedn la informacion
+    const responseRaw = await fetch(URI_GETALL_BACKEND, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -50,12 +49,71 @@ exports.getHome = async (req, res, languageBrowser) =>
         body: JSON.stringify(body)
     });
 
+
     const dataResponse = await responseRaw.json();
 
     // TODO: seguridad comprobar que proviene del backend
     if (dataResponse.token !== "") {
 
     }
+
+    if (dataResponse.isOk === false)
+    {
+        return res.status(404).sender("Not found");
+    }
+
+
+    if (dataResponse.data.length <= 0) {
+        res.render("inicio", {
+            "data": dataResponse.data,
+            "formdata": req.body,
+            "errorFormulario": dataResponse.errorFormulario,
+            "success": id,
+            "diasEntreRecogidaDevolucion": dataResponse.diasEntreRecogidaDevolucion,
+            "locations": locationLanguage
+
+        });
+    }
+    else {
+        // res.render("inicio", { "success": id, "locations": locationLanguage });
+
+        //ordenar por clase vehiculos
+        dataResponse.data = await OrdenaPorClaseVehiculos(dataResponse.datosOrdenacion, dataResponse.data)
+
+        res.render("inicio", {
+            "data": dataResponse.data,
+            "success": id,
+            "preciosPorClase": dataResponse.preciosPorClase,
+            "locations": locationLanguage,
+            // "pagoRecogida": dataResponse.pagoRecogida
+            // "formdata": req.body,
+            // "errorFormulario": dataResponse.errorFormulario,
+            // "diasEntreRecogidaDevolucion": dataResponse.diasEntreRecogidaDevolucion,
+            // "suplementogenerico_base": dataResponse.suplementogenerico_base,
+            // "suplementotipochofer_base": dataResponse.suplementotipochofer_base,
+            // "condicionesgenerales": dataResponse.condicionesgenerales,
+        });
+
+
+    }
+
+
+    // enviar stats al backend
+    // const responseRaw = await fetch(URI_STATS_BACKEND, {
+    //     method: "POST",
+    //     headers: {
+    //         "Content-Type": "application/json",
+    //     },
+    //     credentials: "include",
+    //     body: JSON.stringify(body)
+    // });
+
+    // const dataResponse = await responseRaw.json();
+
+    // // TODO: seguridad comprobar que proviene del backend
+    // if (dataResponse.token !== "") {
+
+    // }
 
     // if (dataResponse.isOk === false) {
     //     return res.status(404).send("Not found");
@@ -71,7 +129,7 @@ exports.postHome = async (req, res) =>
 
     if (isSchemaValid === false) {
         //TODO: mejorar
-        console.error("control schema invalido");
+        console.error("inicio.js control schema invalido");
         return res.status(404).send("Not found");
     }
 
@@ -119,10 +177,7 @@ exports.postHome = async (req, res) =>
 
     }
 
-    req.session.data = dataResponse.data;
-
-    // dataResponse.data = [];
-    // dataResponse.errorFormulario = "error_formulario1";
+    // req.session.data = dataResponse.data;
 
     if (dataResponse.data.length <= 0) {
         res.render("muestraOferta", {
@@ -154,7 +209,7 @@ exports.postHome = async (req, res) =>
             "preciosPorClase": dataResponse.preciosPorClase,
             "condicionesgenerales": dataResponse.condicionesgenerales,
             "locations": locationLanguage,
-            "pagoRecogida": dataResponse.pagoRecogida
+            // "pagoRecogida": dataResponse.pagoRecogida
         });
 
     }

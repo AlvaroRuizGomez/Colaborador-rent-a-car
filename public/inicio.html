@@ -76,31 +76,30 @@
                                                     <input type="text" class="form-control form-control-date datepicker" id="fechaRecogida" name="fechaRecogida" value="" data-placement="right" data-align="bottom" data-name="" readonly="">  
                                                     <img src="./img/img-Calendar/calendar.jpg" alt="Calendario recogida" class="img-calendar triggerRec">
 
-                                                    <div class="labelClock-form-recogida">
-                                                        <label>
-                                                            <%= it.locations.hora %>
-                                                        </label>
-                                                    </div>
-                                                    <div class="input-group clockpicker" data-placement="bottom" data-align="top" data-autoclose="true">
-                                                        <input type="text" class="form-control form-control-clock" name="horaRecogida" value="09:00" readonly=""/>
-                                                        <span class="input-group-addon">
-                                                        <img src="./img/Img-Clock/clock.png" alt="Reloj Recogida" class="img-clock">
-                                                        </span>
-                                                    </div>
-                                                
-                                            </div>
-                                        </div>
-                                        <!------------------------ Fin Fecha/Hora Recogida  --------------------------->
-                                        <!-- *********************************************************************** -->
-                                        <!----------------------- Inicio Fecha/Hora Devolucion  ----------------------->
-                                        <div class="form-inline form-buscar">
-                                            <div class="formDateDevolucion">
-                                                
-                                                    <div class="labelDate-form-devolucion">
-                                                        <label>
-                                                            <%=it.locations.devolucion %>
-                                                        </label>
-                                                    </div>
+                                    <div class="labelClock-form-recogida">
+                                        <label>
+                                            <%= it.locations.hora %>
+                                        </label>
+                                    </div>
+                                    <div class="input-group clockpicker" data-placement="bottom" data-align="top" data-autoclose="true">
+                                        <input type="text" class="form-control form-control-clock" name="horaRecogida" value="09:00" readonly=""/>
+                                        <span class="input-group-addon">
+                                        <img src="./img/Img-Clock/clock.png" alt="Reloj Recogida" class="img-clock">
+                                        </span>
+                                    </div>
+                            </div>
+                        </div>
+                        <!-- --------------------- Fin Fecha/Hora Recogida  --------------------------->
+                        <!-- *********************************************************************** -->
+                        <!-- ------------------ Inicio Fecha/Hora Devolucion -------------------------->
+                        <div class="form-inline form-buscar">
+                            <div class="formDateDevolucion">
+                                
+                                    <div class="labelDate-form-devolucion">
+                                        <label>
+                                            <%=it.locations.devolucion %>
+                                        </label>
+                                    </div>
 
                                                     <input type="text" class="form-control form-control-date datepicker" id="fechaDevolucion" name="fechaDevolucion" value="" data-placement="right" data-align="bottom" data-name="" readonly="">  
                                                     <img src="./img/img-Calendar/calendar.jpg" alt="Calendario devolucion" class="img-calendar triggerDev">
@@ -148,43 +147,70 @@
                 <!------------------------------- Inicio Tarjetas ------------------------------------->
 
                 <main class="page-content">
-                    <div class="card">
-                      <div class="content">
-                        <img src="./img/Img-Logo/Logo-Marca-Coche/logo-peugeot.jpg" class="imgLogo" alt="">
-                        <h2 class="title">Peugeot 108</h2>
+
+                    <% for (let i = 0; i < it.data.length; i++) { %>
+                    <form action="<%=it.locations.detalles %>" method="post">
+                    <input type="hidden" name="success" value="<%=it.success %>">
+                    <input type="hidden" name="fase" value="3">
+                    <input type="hidden" name="idioma" value="<%=it.locations.idioma_web %>">
+                    <input type="hidden" name="imagen_vehiculo" value="<%= it.data[i].ImagenVehiclo %>">
+                    <input type="hidden" name="descripcion_vehiculo" value="<%= it.data[i].descripcion %>">
+                    <input type="hidden" name="pax_vehiculo" value="<%= it.data[i].pax %>">
+                    <input type="hidden" name="puertas_vehiculo" value="<%= it.data[i].puertas %>">
+                    <input type="hidden" name="aireacondicionado_vehiculo" value="<%= it.data[i].aireacondicionado %>">
+                    <input type="hidden" name="transmision_vehiculo" value="<%= it.data[i].transmision %>">
+                    <input type="hidden" name="porcentaje" value="<%= it.data[i].porcentaje %>">
+
+                    <div class="card <%=it.data[i]["ImagenVehiclo"] %>">
+                        <div class="content">
+                            <picture>
+                                <source srcset="./img/Img-Logo/Logo-Marca-Coche/<%=it.data[i]["logoMarcaCoche"] %>.avif" >
+                                <img src="./img/Img-Logo/Logo-Marca-Coche/<%=it.data[i]["logoMarcaCoche"] %>.webp" class="imgLogo logo-<%=it.data[i]["ImagenVehiclo"] %>" alt="alt-<%=it.locations[it.data[i]["logoMarcaCoche"]]%>">
+                            </picture>
+                            <h2 class="title title-<%=it.data[i]["ImagenVehiclo"] %>"><%=it.data[i]["descripcion"]%></h2>
                             <div class="content">
                                 <br>
                                 <br>
                                 <div class="car-info-services">
                                     <div class="servicios-asientos">
-                                        <img class="icon-24" src="./img/svg/persona.svg" alt="">
+                                        <img class="icon-24" src="./img/svg/persona.svg" alt="<%=it.locations.alt_persona%>">
                                         <div class="icon-number">
-                                                4
+                                            <%=it.data[i]["pax"]%>
                                         </div>
                                     </div>
-                                            
+                                    <% if (it.data[i]["puertas"] > 0 ) { %>
+
                                     <div class="servicios-puertas"> 
-                                        <img class="icon-24" src="img/svg/puerta.svg" alt="">
+                                        <img class="icon-24" src="img/svg/puerta.svg" alt="<%=it.locations.alt_puerta%>">
                                         <div class="icon-number">
-                                            4
+                                            <%=it.data[i]["puertas"]%>
                                         </div>
                                     </div>
-                                            
+                                    <% } %>
+                                    <% if (it.data[i].aireacondicionado === 1) { %>
                                     <div class="servicios-aire">
-                                        <img class="icon-24" src="img/svg/aire.svg" alt="">
+                                        <img class="icon-24" src="img/svg/aire.svg" alt="<%=it.locations.alt_aire %>">
                                     </div>
-                                            
+                                    <% } %>
+                                    <% if (it.data[i].transmision==="M" ) { %>
                                     <div class="servicios-trasmision">
-                                        <img class="icon-24" src="img/svg/cambio_manual.svg" alt="">
+                                        <img class="icon-24" src="img/svg/cambio_manual.svg" alt="<%=it.locations.alt_cambio_manual%>">
                                         <div class="icon-number">M</div>
                                     </div>
+                                    <%} else if (it.data[i].transmision==="A" ) { %>
+                                    <div class="servicios-trasmision">
+                                        <img class="icon-24" src="img/svg/cambio_automatico.svg" alt="<%=it.locations.alt_cambio_auto%>">
+                                        <div class="icon-number">A</div>
+                                    </div>
+                                    <% } %>
                                 </div>
                             </div>
-                        <button class="btn">Ver este</button>
-                      </div>
+                            <button class="btn" type="submit" name="vehiculo"  value="<%= it.data[i].vehiculo %>"><%=it.locations.vereste%></button>
+                        </div>
                     </div>
-                
-                    <div class="card">
+                    </form>
+                    <% } %>
+                    <!-- <div class="card">
                       <div class="content">
                         <img src="./img/Img-Logo/Logo-Marca-Coche/logo_toyota.svg" class="imgLogo" alt="">
                         <h2 class="title">Toyota Aygo</h2>
@@ -482,8 +508,10 @@
                             </div>
                         <button class="btn">Ver este</button>
                       </div>
-                    </div>
+                    </div> -->
+                
                 </main>
+                
             </section>
             <!------------ Fin  contenido ------------------------->
 
