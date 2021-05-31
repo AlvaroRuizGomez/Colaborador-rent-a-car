@@ -286,7 +286,6 @@ body{
   background-size: contain;
   background-position-y: center;
   background-repeat: no-repeat;
-  /* background-position: 0 0; */
   transition: transform calc(var(--d) * 1.5) var(--e);
   pointer-events: none;
 }
@@ -302,8 +301,103 @@ body{
   background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.009) 11.7%, rgba(0, 0, 0, 0.034) 22.1%, rgba(0, 0, 0, 0.072) 31.2%, rgba(0, 0, 0, 0.123) 39.4%, rgba(0, 0, 0, 0.182) 46.6%, rgba(0, 0, 0, 0.249) 53.1%, rgba(0, 0, 0, 0.32) 58.9%, rgba(0, 0, 0, 0.394) 64.3%, rgba(0, 0, 0, 0.468) 69.3%, rgba(0, 0, 0, 0.54) 74.1%, rgba(0, 0, 0, 0.607) 78.8%, rgba(0, 0, 0, 0.668) 83.6%, rgba(0, 0, 0, 0.721) 88.7%, rgba(0, 0, 0, 0.762) 94.1%, rgba(0, 0, 0, 0.79) 100%);
   transform: translateY(-50%);
   transition: transform calc(var(--d) * 2) var(--e);
+  
 }
-.card:nth-child(1):before {
+
+.card:hover > .content > .title
+{
+  color: white;
+}
+
+.peugeot108Blue:before {
+  background-image: url(/img/Img-Vehiculos/peugeot108Blue_Card.avif);
+}
+.toyotaAygoRed:before {
+  background-image: url(/img/Img-Vehiculos/toyotaAygoRed_Card.avif);
+}
+.CitroenC1_open:before {
+  background-image: url(/img/Img-Vehiculos/CitroenC1_open_Card.avif);
+}
+.citroenC1AutomaticPlata:before {
+  background-image: url(/img/Img-Vehiculos/citroenC1AutomaticPlata_Card.avif);
+}
+
+.citroenC1White:before {
+  background-image: url(/img/Img-Vehiculos/citroenC1White_Card.avif);
+}
+
+.toyotaAygoOpenWhite:before {
+    background-image: url(/img/Img-Vehiculos/toyotaAygoOpenWhite_Card.avif);
+}
+.citroenC3WhiteRed:before {
+  background-image: url(/img/Img-Vehiculos/citroenC3WhiteRed_Card.avif);
+}
+.peugeot807Grey:before {
+  background-image: url(/img/Img-Vehiculos/peugeot807Grey_Card.avif);
+}
+.PiaggioLiberty_125cc:before {
+  background-image: url(/img/Img-Vehiculos/PiaggioLiberty_125cc_Card.avif);
+}
+.Suzuki-Burgman_125cc:before {
+  background-image: url(/img/Img-Vehiculos/Suzuki-Burgman_125cc_Card.avif);
+}
+
+.title-peugeot108Blue {
+  
+}
+.title-toyotaAygoRed {
+ 
+}
+.title-CitroenC1_open {
+ 
+}
+.title-citroenC1AutomaticPlata {
+  transform: translateY(-40px);
+}
+
+.title-citroenC1White {
+ 
+}
+
+.title-toyotaAygoOpenWhite {
+ 
+}
+.title-citroenC3WhiteRed {
+ 
+}
+.title-peugeot807Grey {
+ 
+}
+.title-PiaggioLiberty_125cc {
+  transform: translateY(-40px);
+}
+.title-Suzuki-Burgman_125cc {
+  transform: translateY(-35px);
+}
+
+.logo-PiaggioLiberty_125cc {
+  transform: translateY(-30px);
+}
+
+.logo-citroenC1AutomaticPlata {
+  transform: translateY(-25px);
+}
+
+.logo-Suzuki-Burgman_125cc
+{
+  transform: translateY(-25px);
+}
+
+/* @media (hover: hover)
+{
+  .content
+  {
+    transform: translateY(calc(100% - 21.5rem));
+  }
+
+} */
+
+/* .card:nth-child(1):before {
   background-image: url(/img/coches_jl/peugeout108/avif/peugeot108Blue_Card.avif);
 }
 .card:nth-child(2):before {
@@ -332,13 +426,12 @@ body{
 }
 .card:nth-child(10):before {
     background-image: url(/img/Img-Vehiculos/Motos/Suzuki-Burgman_125cc.png);
-}
+} */
 
 .content {
   position: relative;
   display: flex;
   flex-direction: column;
-  align-items: center;
   width: 100%;
   padding: 1rem;
   transition: transform var(--d) var(--e);
@@ -348,11 +441,18 @@ body{
   margin-top: 1rem;
 }
 
+.coche-card
+{
+  width: 100%;
+}
+
 .title {
   font-size: 1.3rem;
   font-weight: bold;
   line-height: 1.2;
+  color: black;
 }
+
 
 .copy {
   font-family: var(--font-serif);
@@ -363,11 +463,12 @@ body{
 
 /* ----------   Inicio Servicios ------------- */
 .page-content .card .content h2{
-    color: #ffff;
+    
 }
+
+
 .imgLogo{
-    margin-left: -9px;
-    width: 10%;
+  width: 25px;
 }
 
 /* --   Barra de Iconos de Servicios -- */
@@ -476,38 +577,41 @@ body{
   }
   .content > *:not(.title) {
     opacity: 1;
-    transform: translateY(1rem);
+    /* transform: translateY(1rem); */
     transition: transform var(--d) var(--e), opacity var(--d) var(--e);
   }
 
   .card:hover,
-.card:focus-within {
+  .card:focus-within {
     align-items: center;
   }
   .card:hover:before,
-.card:focus-within:before {
+  .card:focus-within:before {
     transform: translateY(-4%);
   }
   .card:hover:after,
-.card:focus-within:after {
+  .card:focus-within:after {
     transform: translateY(-50%);
   }
   .card:hover .content,
-.card:focus-within .content {
+  .card:focus-within .content {
     transform: translateY(0);
   }
   .card:hover .content > *:not(.title),
-.card:focus-within .content > *:not(.title) {
+  .card:focus-within .content > *:not(.title) {
     opacity: 1;
     transform: translateY(0);
     transition-delay: calc(var(--d) / 8);
   }
 
   .card:focus-within:before, .card:focus-within:after,
-.card:focus-within .content,
-.card:focus-within .content > *:not(.title) {
+  .card:focus-within .content,
+  .card:focus-within .content > *:not(.title) {
     transition-duration: 0s;
   }
+
+ 
+
 }
 
 

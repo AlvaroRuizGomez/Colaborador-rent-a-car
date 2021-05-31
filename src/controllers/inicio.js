@@ -64,11 +64,11 @@ exports.getHome = async (req, res, languageBrowser) =>
 
 
     if (dataResponse.data.length <= 0) {
-        res.render("muestraOferta", {
+        res.render("inicio", {
             "data": dataResponse.data,
             "formdata": req.body,
             "errorFormulario": dataResponse.errorFormulario,
-            "success": req.body.success,
+            "success": id,
             "diasEntreRecogidaDevolucion": dataResponse.diasEntreRecogidaDevolucion,
             "locations": locationLanguage
 
@@ -80,12 +80,12 @@ exports.getHome = async (req, res, languageBrowser) =>
         //ordenar por clase vehiculos
         dataResponse.data = await OrdenaPorClaseVehiculos(dataResponse.datosOrdenacion, dataResponse.data)
 
-        res.render("muestraOferta", {
+        res.render("inicio", {
             "data": dataResponse.data,
-            "success": dataResponse.success,
+            "success": id,
             "preciosPorClase": dataResponse.preciosPorClase,
             "locations": locationLanguage,
-            "pagoRecogida": dataResponse.pagoRecogida
+            // "pagoRecogida": dataResponse.pagoRecogida
             // "formdata": req.body,
             // "errorFormulario": dataResponse.errorFormulario,
             // "diasEntreRecogidaDevolucion": dataResponse.diasEntreRecogidaDevolucion,
@@ -209,7 +209,7 @@ exports.postHome = async (req, res) =>
             "preciosPorClase": dataResponse.preciosPorClase,
             "condicionesgenerales": dataResponse.condicionesgenerales,
             "locations": locationLanguage,
-            "pagoRecogida": dataResponse.pagoRecogida
+            // "pagoRecogida": dataResponse.pagoRecogida
         });
 
     }
