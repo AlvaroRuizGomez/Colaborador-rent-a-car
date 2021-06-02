@@ -1,8 +1,7 @@
 :root {
---d: 700ms;
---e: cubic-bezier(0.19, 1, 0.22, 1);
-} 
-
+  --d: 700ms;
+  --e: cubic-bezier(0.19, 1, 0.22, 1);
+}
 
 * {
   text-decoration: none;
@@ -15,6 +14,7 @@ body{
   width:100%;
   overflow-x:hidden;
   }
+
 
 #container {
   width: 100%;
@@ -132,116 +132,324 @@ body{
 }
 
 /* --------- Inicio Formulario busqueda ----------*/
-.aside-box {
-  width: 96%;
-  height: 405px;
-  margin: 0px auto;
-  margin-top: 55px;
-  margin-left: 67px;
-  padding-top: 2px;
-  background: #c3d2f2;
-  box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.3), 0px 3px 7px rgba(0, 0, 0, 0.3),
-    0px 0px 1px white inset, 0px -3px 2px rgba(0, 0, 0, 0.3) inset;
-  position: relative;  
+/**** Inicio CSS formulario Buscar Ofertas ****/
+.formContainer {
+  display: grid;
+  grid-template-rows: 31px, auto;
+  grid-template-areas:
+      "titulo"
+      "data";
+  justify-items: flex-start;
+  align-items: flex-start;
+  /* padding: 5px; */
+  width: 100%;
+  padding: 1rem;
+  margin-top: 17px;
+  margin-left: 13px;
+  border: 1px solid #ddd;
+  background-color: #fff;
 }
 
-.titulo-form {
-  margin-left: 26px;
-  margin-top: 13px;
-  font-family: inherit;
-  font-size: 26px;
+.formTit{
+  grid-area: titulo;
+  width: 100%;
+}
+
+.formTit h2 {
+  display: block;
+  font-size: 1.5em;
+  margin-block-start: 0.83em;
+  margin-block-end: 0.83em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
   font-weight: bold;
 }
 
-.form-buscar {
-  padding: 41px;
+.grid-container {
+  grid-area: data;
+  display: grid;
+  grid-template-columns: 19% 138px 7% 12% 9% 65px 8%;
+  grid-template-rows: repeat(5, 38px) 20px repeat(2, 38px);
+  width: 100%;
+  /* background-color: #fff; */
+  /* gap: 0px 0px; */
+  grid-template-areas:
+    "recogidaDateTit recogidaDateData recogidaDateIcon . recogidaClockTit recogidaClockData recogidaClockIcon"
+    ". . . . . . ."
+    "devolucionDateTit devolucionDateData  devolucionDateIcon . devolucionClockTit devolucionClockData devolucionClockIcon"
+    ". . . . . . ."
+    ". driverNovel driverNovel driverNovel driverNovel . ."
+    ". . . . . . ."
+    ". driverAge driverAge driverAge . . ."
+    ". . . . . . ."
+    ". verPrecio verPrecio verPrecio . . .";
 }
 
-.formDateRecogida {
-  margin-bottom: -45px;
+/* -------  Recogida ---------- */
+.recogidaDateTit { 
+  grid-area: recogidaDateTit; 
 }
 
-.formDateDevolucion{
-/*  */
+.recogidaDateData { 
+  grid-area: recogidaDateData; 
 }
 
+.recogidaDateIcon { 
+  grid-area: recogidaDateIcon; 
+}
 
-.labelDate-form-recogida {
-  margin-left: -16px;
-  margin-right: 25px;
-  font-size: 20px;
+/* ----------------------- */
+
+.recogidaClockTit { 
+  grid-area: recogidaClockTit; 
+}
+
+.recogidaClockData { 
+  grid-area: recogidaClockData; 
+}
+
+.recogidaClockIcon { 
+  grid-area: recogidaClockIcon; 
+}
+/* -------  Devolución ---------- */
+.devolucionDateTit { 
+    grid-area: devolucionDateTit; 
+}
+
+.devolucionDateData { 
+  grid-area: devolucionDateData; 
+}
+
+.devolucionDateIcon { 
+  grid-area: devolucionDateIcon; 
+}
+
+/* ----------------------- */
+
+.devolucionClockTit { 
+  grid-area: devolucionClockTit; 
+}
+
+.devolucionClockData { 
+  grid-area: devolucionClockData; 
+}
+
+.devolucionClockIcon { 
+  grid-area: devolucionClockIcon; 
+}
+
+/* -------  Conductor Novel ---------- */
+.driverNovel { 
+  grid-area: driverNovel; 
+}
+
+/* -------  Edad del Conductor ------- */
+.driverAge { 
+  grid-area: driverAge; 
+}
+
+/* ------  Botón buscar ofertas ------ */
+.verPrecio { 
+  grid-area: verPrecio; 
+}
+
+.recogidaDateTit,
+.recogidaClockTit,
+.devolucionDateTit,
+.devolucionClockTit p {
+  font-size: 17px;
   font-weight: bolder;
+  margin-top: 6px;
 }
-
+  
 .labelDate-form-devolucion {
   margin-left: -16px;
   margin-right: 3px;
   font-size: 20px;
   font-weight: bolder;
 }
-
+  
 .form-control-date {
-  width: 153px !important;
-  margin-left: 2px;
-  box-shadow: 0px 0px 2px #1e1c1c;
+  width: 153px;
   cursor: pointer;
 }
-
+  
 .form-control-clock {
-  width: 68px !important;
-  margin-left: 2px;
+  width: 70px;
   margin-right: -4px;
-  box-shadow: 0px 0px 2px #1e1c1c;
   cursor: pointer;
 }
-
+  
 .img-calendar {
-  width: 24px;
-  margin-right: 37px;
+  width: 37px;
+  cursor: pointer;
   margin-left: 3px;
   /* background-color: #e9ecef; */
   /* box-shadow: 0px 0px 2px #1e1c1c; */
-  cursor: pointer;
 }
-
+  
 .img-clock{
-  width: 26px;
-  margin-top: 5px;  
+  width: 33px;
+  margin-top: 3px;  
   margin-right: -11px;
   margin-left: 7px;
   /* background-color: #e9ecef; */
   /* box-shadow: 0px 0px 2px #1e1c1c; */
   cursor: pointer;
 }
-
-.labelClock-form-recogida{
-  margin-right:2px;
-  font-size: 20px;
-  font-weight: bolder;
-}
-
-.labelClock-form-devolucion{
-  margin-right:2px;
-  font-size: 20px;
-  font-weight: bolder;
-}
-
+  
 .form-contol-clock {
   width: 68px !important;
   box-shadow: 0px 0px 2px #1e1c1c;
   cursor: pointer;
 }
-
+  
 .form-chequeo {
-  /* margin-left: 48px; */
-  /* margin-top: -6px; */
   font-size: 17px;
 }
 
-.btnBuscar {
-  margin: 35px 45px;
-  margin-left: 28px;
+.gap-10
+{
+  gap: 10px;
+
 }
+
+.columna-centrado
+{
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+}
+
+.centrado
+{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.driverAge label {
+  width: 57%;
+  margin-left: -13px;
+}
+
+.edad_conductor
+{
+  width: 30px;
+  height: 30px;
+  margin-top: -7px;
+  border: 1px solid #ddd;
+  background: #e9ecef;
+
+}
+
+.elemento__inputradio
+{
+    display: none;
+}
+
+
+.elemento__circulo
+{
+  width: 25px;
+  height: 25px;
+  background: #e9ecef;
+  position: relative;
+  left: 0.8%;
+  /* z-index: 2; */
+}
+
+
+/* palito derecho */
+.elemento__circulo:after
+{
+    content: "";
+    position: absolute;
+    left: 20%;
+    top: 20%;
+    
+    width: 0px;
+    height: 3px;
+    
+    background: rgb(6, 0, 128);
+
+    transform: translate(4px, 11px) rotate(-45deg);
+    transform-origin: left;
+    transition: all 150ms;
+    transition-delay: 0ms;
+
+}
+
+/* palito izquierdo */
+.elemento__circulo:before
+{
+    content: "";
+    position: absolute;
+    left: 20%;
+    top: 20%;
+
+    width: 0px;
+    height: 3px;
+
+    background: rgb(6, 0, 128);
+
+    transform: translate(1px, 6px) rotate(45deg);
+    transform-origin: left;
+    transition: all 150ms;
+    transition-delay: 150ms;
+}
+
+.elemento__titulo 
+{
+  display: block;
+
+  border-radius: 5px;
+  
+  cursor: pointer;
+}
+
+
+/* pulsado el inpuradio */
+
+/* izquierdo */
+.elemento__inputradio:checked ~ .elemento__circulo:before
+{
+    width: 7px;
+    transition-delay: 0ms;
+}
+
+/* derecho */
+.elemento__inputradio:checked ~ .elemento__circulo:after
+{
+    width: 15px;
+    transition-delay: 160ms;
+}
+
+
+.elemento__inputradio:checked ~ .elemento__titulo
+{
+    transition: all 650ms;
+}
+
+
+.invisible
+{
+  visibility: hidden;
+
+}
+
+.visible
+{
+  visibility: visible;
+
+}
+
+.btnBuscar {
+  /* margin: 35px 45px;
+  margin-left: 28px; */
+}
+/**** Fin   CSS formulario Buscar Ofertas ****/
 
 /* --------- Fin Formulario Busqueda -------------*/
 
@@ -394,46 +602,6 @@ body{
 {
   transform: translateY(-25px);
 }
-
-/* @media (hover: hover)
-{
-  .content
-  {
-    transform: translateY(calc(100% - 21.5rem));
-  }
-
-} */
-
-/* .card:nth-child(1):before {
-  background-image: url(/img/coches_jl/peugeout108/avif/peugeot108Blue_Card.avif);
-}
-.card:nth-child(2):before {
-  background-image: url(/img/coches_jl/toyota_aygo/avif/toyotaAygoRed_Card.avif);
-}
-.card:nth-child(3):before {
-  background-image: url(/img/coches_jl/citroenC1/avif/citroenC1White_Card.avif);
-}
-.card:nth-child(4):before {
-  background-image: url(/img/coches_jl/toyota_aygo_open/avif/toyotaAygoOpenWhite_Card.avif);
-}
-.card:nth-child(5):before {
-    background-image: url(/img/coches_jl/toyota_aygo_open/avif/toyotaAygoOpenWhite_Card.avif);
-}
-.card:nth-child(6):before {
-    background-image: url(/img/coches_jl/citroenC1_automatic/avif/citroenC1AutomaticPlata_Card.avif);
-}
-.card:nth-child(7):before {
-    background-image: url(/img/coches_jl/citroenC3/avif/citroenC3WhiteRed_Card.avif);
-}
-.card:nth-child(8):before {
-    background-image: url(/img/coches_jl/peugeot807/avif/peugeot807Grey_Card.avif);
-}
-.card:nth-child(9):before {
-    background-image: url(/img/Img-Vehiculos/Motos/PiaggioLiberty_125cc.png);
-}
-.card:nth-child(10):before {
-    background-image: url(/img/Img-Vehiculos/Motos/Suzuki-Burgman_125cc.png);
-} */
 
 .content {
   position: relative;
@@ -616,12 +784,7 @@ body{
   .card:focus-within .content > *:not(.title) {
     transition-duration: 0s;
   }
-
- 
-
 }
-
-
 
 #aside {
   margin-right: 30px;
@@ -647,20 +810,6 @@ body{
 {
     display: none;
 }
-
-
-.elemento__circulo
-{
-  width: 25px;
-  height: 25px;
-
-  background: white;
-  position: relative;
-  left: 0.8%;
-
-  /* z-index: 2; */
-}
-
 
 /* palito derecho */
 .elemento__circulo:after
@@ -733,9 +882,6 @@ body{
     transition: all 650ms;
 }
 
-
-
-
 .gap-10
 {
   gap: 10px;
@@ -757,11 +903,6 @@ body{
   align-items: center;
 }
 
-.edad_conductor
-{
-  width: 50px;
-
-}
 
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
