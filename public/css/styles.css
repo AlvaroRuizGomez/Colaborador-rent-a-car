@@ -135,7 +135,7 @@ body{
 /**** Inicio CSS formulario Buscar Ofertas ****/
 .formContainer {
   display: grid;
-  grid-template-rows: 31px, auto;
+  grid-template-rows: 1fr auto;
   grid-template-areas:
       "titulo"
       "data";
@@ -174,9 +174,9 @@ body{
   /* background-color: #fff; */
   /* gap: 0px 0px; */
   grid-template-areas:
-    "recogidaDateTit recogidaDateData recogidaDateIcon . recogidaClockTit recogidaClockData recogidaClockIcon"
+    "recogidaDateTit recogidaDateData recogidaDateIcon . recogidaClockTit recogidaClockData recogidaClockData"
     ". . . . . . ."
-    "devolucionDateTit devolucionDateData  devolucionDateIcon . devolucionClockTit devolucionClockData devolucionClockIcon"
+    "devolucionDateTit devolucionDateData  devolucionDateIcon . devolucionClockTit devolucionClockData devolucionClockData"
     ". . . . . . ."
     ". driverNovel driverNovel driverNovel driverNovel . ."
     ". . . . . . ."
@@ -205,7 +205,8 @@ body{
 }
 
 .recogidaClockData { 
-  grid-area: recogidaClockData; 
+  grid-area: recogidaClockData;
+  z-index: 1;
 }
 
 .recogidaClockIcon { 
@@ -231,7 +232,8 @@ body{
 }
 
 .devolucionClockData { 
-  grid-area: devolucionClockData; 
+  grid-area: devolucionClockData;
+  z-index: 1;
 }
 
 .devolucionClockIcon { 
