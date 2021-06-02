@@ -194,7 +194,7 @@ const CheckInput = async (inputGeneric, iconoError, tareaString) =>
     if (inputGeneric.value !== "")
     {
         const tarea = document.getElementById(tareaString);
-        // if (tarea.classList[0] === "no-visible" || tarea.classList[2] === "no-visible")
+        
         if (tarea.classList.contains("no-visible") === true)
         {
             tarea.classList.remove("no-visible");
@@ -202,7 +202,6 @@ const CheckInput = async (inputGeneric, iconoError, tareaString) =>
     
         }
         
-        // if (iconoError.classList[0] === "visible" || iconoError.classList[2] === "visible")
         if (iconoError.classList.contains("visible") === true)
         {
             iconoError.classList.remove("visible");

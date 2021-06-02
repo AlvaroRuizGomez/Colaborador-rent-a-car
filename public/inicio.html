@@ -143,21 +143,16 @@
 
                 <!-------- Inicio Tarjetas --------->
                 <main class="page-content">
+                    <input type="hidden" id="uri" name="uri" value="<%=it.locations.detalles %>">
+                    <input type="hidden" id="fase_directo" name="fase_directo" value="2">
+                    <input type="hidden" id="token_directo" name="token_directo" value="">
+                    <input type="hidden" id="success_directo" name="success_directo" value="<%=it.success %>">
+                    <input type="hidden" id="idioma_directo" name="idioma_directo" value="<%=it.locations.idioma_web %>">
 
                     <% for (let i = 0; i < it.data.length; i++) { %>
-                    <form action="<%=it.locations.detalles %>" method="post">
-                    <input type="hidden" name="success" value="<%=it.success %>">
-                    <input type="hidden" name="fase" value="3">
-                    <input type="hidden" name="idioma" value="<%=it.locations.idioma_web %>">
-                    <input type="hidden" name="imagen_vehiculo" value="<%= it.data[i].ImagenVehiclo %>">
-                    <input type="hidden" name="descripcion_vehiculo" value="<%= it.data[i].descripcion %>">
-                    <input type="hidden" name="pax_vehiculo" value="<%= it.data[i].pax %>">
-                    <input type="hidden" name="puertas_vehiculo" value="<%= it.data[i].puertas %>">
-                    <input type="hidden" name="aireacondicionado_vehiculo" value="<%= it.data[i].aireacondicionado %>">
-                    <input type="hidden" name="transmision_vehiculo" value="<%= it.data[i].transmision %>">
-                    <input type="hidden" name="porcentaje" value="<%= it.data[i].porcentaje %>">
 
                     <div class="card <%=it.data[i]["ImagenVehiclo"] %>">
+                        <input type="hidden" name="vehiculo" value="<%=it.data[i]["vehiculo"] %>">
                         <div class="content">
                             <picture>
                                 <source srcset="./img/Img-Logo/Logo-Marca-Coche/<%=it.data[i]["logoMarcaCoche"] %>.avif" >
@@ -175,7 +170,6 @@
                                         </div>
                                     </div>
                                     <% if (it.data[i]["puertas"] > 0 ) { %>
-
                                     <div class="servicios-puertas"> 
                                         <img class="icon-24" src="img/svg/puerta.svg" alt="<%=it.locations.alt_puerta%>">
                                         <div class="icon-number">
@@ -201,10 +195,10 @@
                                     <% } %>
                                 </div>
                             </div>
-                            <button class="btn" type="submit" name="vehiculo"  value="<%= it.data[i].vehiculo %>"><%=it.locations.vereste%></button>
+                            <button class="btn" name="vehiculo"  value="<%= it.data[i].vehiculo %>"><%=it.locations.vereste%></button>
                         </div>
                     </div>
-                    </form>
+                    
                     <% } %>
                 </main>
                 
@@ -220,61 +214,61 @@
 
         
         <script async src="./js/index.js"></script>
-    </body>
+        <!--------------------------- Scripts ---------------------------->
+        <!---------------------------------------------------------------->
+        <!---------------------------------------------------------------->
+        <script>
+            $.datepicker.regional['es'] = {
+                closeText: '<%=it.locations.cerrar_clock%>',
+                prevText: '<%=it.locations.anterior_clock %>',
+                nextText: '<%=it.locations.siguiente_clock %>',
+                currentText: '<%=it.locations.hoy_clock %>',
+                monthNames: ['<%=it.locations.enero%>', '<%=it.locations.febrero%>', '<%=it.locations.marzo%>', '<%=it.locations.abril%>', '<%=it.locations.mayo%>', '<%=it.locations.junio%>', '<%=it.locations.julio%>', '<%=it.locations.agosto%>', '<%=it.locations.septiembre%>', '<%=it.locations.octubre%>', '<%=it.locations.noviembre%>', '<%=it.locations.diciembre%>'],
+                monthNamesShort: ['<%=it.locations.corto_enero%>', '<%=it.locations.corto_febrero%>', '<%=it.locations.corto_marzo%>', '<%=it.locations.corto_abril%>', '<%=it.locations.corto_mayo%>', '<%=it.locations.corto_junio%>', '<%=it.locations.corto_julio%>', '<%=it.locations.corto_agosto%>', '<%=it.locations.corto_septiembre%>', '<%=it.locations.corto_octubre%>', '<%=it.locations.corto_noviembre%>', '<%=it.locations.corto_diciembre%>'],
+                dayNames: ['<%=it.locations.domingo%>', '<%=it.locations.lunes%>', '<%=it.locations.martes%>', '<%=it.locations.miercoles%>', '<%=it.locations.jueves%>', '<%=it.locations.viernes%>', '<%=it.locations.sabado%>'],
+                dayNamesShort: ['<%=it.locations.corto_domingo%>', '<%=it.locations.corto_lunes%>', '<%=it.locations.corto_martes%>', '<%=it.locations.corto_miercoles%>', '<%=it.locations.corto_jueves%>', '<%=it.locations.corto_viernes%>', '<%=it.locations.corto_sabado%>'],
+                dayNamesMin: ['<%=it.locations.min_domingo%>', '<%=it.locations.min_lunes%>', '<%=it.locations.min_martes%>', '<%=it.locations.min_miercoles%>', '<%=it.locations.min_jueves%>', '<%=it.locations.min_viernes%>', '<%=it.locations.min_sabado%>'],
+                weekHeader: 'Sm',
+                dateFormat: 'dd/mm/yy',
+                firstDay: 1,
+                isRTL: false,
+                showMonthAfterYear: false,
+                yearSuffix: ''
+            };
+        
+            $.datepicker.setDefaults($.datepicker.regional['es']);
+        </script>
+        
+        <!-- Scripts calendario Recogida/Devolucion ---------------------->
+        <script> 
+            $(function() {
+                $("#fechaRecogida").datepicker({ dateFormat: 'D,dd-mm-yy', minDate:'1d' });
+                $(".datepicker").datepicker("setDate", new Date());
+                $(".triggerRec").click(function(){
+                    $("#fechaRecogida").datepicker("show");
+                }); 
+            });
+        </script>
+        
+        <script>
+            $(function() {
+                $("#fechaDevolucion").datepicker({ dateFormat: 'D,dd-mm-yy', minDate:'1d' });
+                $(".datepicker").datepicker("setDate", new Date());
+                $(".triggerDev").click(function(){
+                    $("#fechaDevolucion").datepicker("show");
+                }); 
+            });
+        </script>
+        <!--------- Fin Bootstrap Calendario Cupertino themes ------------>
+        
+        
+        <!---------------------------- ClockPicker ----------------------->
+        <script type="text/javascript">
+            $('.clockpicker').clockpicker();
+        </script>
+        <!--------- --------------------------------------------------- -->
+
+    </body>    
     
     </html>
-    
-<!--------------------------- Scripts ---------------------------->
-<!---------------------------------------------------------------->
-<!---------------------------------------------------------------->
-<script>
-    $.datepicker.regional['es'] = {
-        closeText: '<%=it.locations.cerrar_clock%>',
-        prevText: '<%=it.locations.anterior_clock %>',
-        nextText: '<%=it.locations.siguiente_clock %>',
-        currentText: '<%=it.locations.hoy_clock %>',
-        monthNames: ['<%=it.locations.enero%>', '<%=it.locations.febrero%>', '<%=it.locations.marzo%>', '<%=it.locations.abril%>', '<%=it.locations.mayo%>', '<%=it.locations.junio%>', '<%=it.locations.julio%>', '<%=it.locations.agosto%>', '<%=it.locations.septiembre%>', '<%=it.locations.octubre%>', '<%=it.locations.noviembre%>', '<%=it.locations.diciembre%>'],
-        monthNamesShort: ['<%=it.locations.corto_enero%>', '<%=it.locations.corto_febrero%>', '<%=it.locations.corto_marzo%>', '<%=it.locations.corto_abril%>', '<%=it.locations.corto_mayo%>', '<%=it.locations.corto_junio%>', '<%=it.locations.corto_julio%>', '<%=it.locations.corto_agosto%>', '<%=it.locations.corto_septiembre%>', '<%=it.locations.corto_octubre%>', '<%=it.locations.corto_noviembre%>', '<%=it.locations.corto_diciembre%>'],
-        dayNames: ['<%=it.locations.domingo%>', '<%=it.locations.lunes%>', '<%=it.locations.martes%>', '<%=it.locations.miercoles%>', '<%=it.locations.jueves%>', '<%=it.locations.viernes%>', '<%=it.locations.sabado%>'],
-        dayNamesShort: ['<%=it.locations.corto_domingo%>', '<%=it.locations.corto_lunes%>', '<%=it.locations.corto_martes%>', '<%=it.locations.corto_miercoles%>', '<%=it.locations.corto_jueves%>', '<%=it.locations.corto_viernes%>', '<%=it.locations.corto_sabado%>'],
-        dayNamesMin: ['<%=it.locations.min_domingo%>', '<%=it.locations.min_lunes%>', '<%=it.locations.min_martes%>', '<%=it.locations.min_miercoles%>', '<%=it.locations.min_jueves%>', '<%=it.locations.min_viernes%>', '<%=it.locations.min_sabado%>'],
-        weekHeader: 'Sm',
-        dateFormat: 'dd/mm/yy',
-        firstDay: 1,
-        isRTL: false,
-        showMonthAfterYear: false,
-        yearSuffix: ''
-    };
-
-    $.datepicker.setDefaults($.datepicker.regional['es']);
-</script>
-
-<!-- Scripts calendario Recogida/Devolucion ---------------------->
-<script> 
-    $(function() {
-        $("#fechaRecogida").datepicker({ dateFormat: 'D,dd-mm-yy', minDate:'1d' });
-        $(".datepicker").datepicker("setDate", new Date());
-        $(".triggerRec").click(function(){
-            $("#fechaRecogida").datepicker("show");
-        }); 
-    });
-</script>
-
-<script>
-    $(function() {
-        $("#fechaDevolucion").datepicker({ dateFormat: 'D,dd-mm-yy', minDate:'1d' });
-        $(".datepicker").datepicker("setDate", new Date());
-        $(".triggerDev").click(function(){
-            $("#fechaDevolucion").datepicker("show");
-        }); 
-    });
-</script>
-<!--------- Fin Bootstrap Calendario Cupertino themes ------------>
-
-
-<!---------------------------- ClockPicker ----------------------->
-<script type="text/javascript">
-    $('.clockpicker').clockpicker();
-</script>
-<!--------- --------------------------------------------------- -->
-
+        
