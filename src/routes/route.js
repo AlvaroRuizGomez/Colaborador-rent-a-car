@@ -13,6 +13,7 @@ const locations = require("../controllers/locations");
 router.get("/", async (req, res) => await home.getHome(req, res));
 router.post("/", async (req, res) => await home.postHome(req, res));
 router.post("/direct", async (req, res) => await home.postHomeDirect(req, res));
+router.get("/direct", async (req, res) => await home.getHome(req, res));
 
 //rutas idiomas
 router.get("/alquiler-coches", async (req, res) => await home.getHome(req, res, "es"));

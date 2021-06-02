@@ -478,7 +478,8 @@ body{
 .card {
   position: relative;
   display: flex;
-  align-items: flex-end;
+  /* align-items: flex-end; */
+  align-items: center;
   overflow: hidden;
   padding: 1rem;
   width: 100%;
@@ -519,6 +520,12 @@ body{
   transform: translateY(-50%);
   transition: transform calc(var(--d) * 2) var(--e);
   
+}
+
+.form-line
+{
+  display: flex;
+  justify-content: center;
 }
 
 .card:hover > .content > .title

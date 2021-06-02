@@ -51,10 +51,14 @@
             <!------------ Inicio contenido ------------------------->
             <section id="content">
                 <!-------- Inicio Formulario de Busqueda ------------>
-                <form action="" class="formContainer">
+                
+                <form id="formulario-index" class="formContainer" method="POST" action="/">
+                    <input type="hidden" name="success" value="<%=it.success %>">
+                    <input type="hidden" name="idioma" value="<%=it.locations.idioma_web%>">
+                    <input type="hidden" name="fase" value="1">
                     <div class="formTit">
                         <h2>
-                            Alquiler de Coches
+                            <%=it.locations.titulo_form%>
                         </h2> 
                     </div>
                     <div class="grid-container">
@@ -152,7 +156,7 @@
                         <div class="verPrecio">
                             <section class="btnBuscar">
                                 <button type="submit" id="boton-VerPrecios" class="btn btn-primary btn-lg btn-block">
-                                    Ver precios 
+                                    <%=it.locations.ver_precios %>
                                 </button>
                             </section>
                         </div>
@@ -163,15 +167,13 @@
                 
                 <!-------- Inicio Tarjetas --------->
                 <main class="page-content">
-                    <input type="hidden" id="uri" name="uri" value="<%=it.locations.detalles %>">
-                    <input type="hidden" id="fase_directo" name="fase_directo" value="2">
-                    <input type="hidden" id="token_directo" name="token_directo" value="">
-                    <input type="hidden" id="success_directo" name="success_directo" value="<%=it.success %>">
-                    <input type="hidden" id="idioma_directo" name="idioma_directo" value="<%=it.locations.idioma_web %>">
                 
                     <% for (let i = 0; i < it.data.length; i++) { %>
-
                     <div class="card <%=it.data[i]["ImagenVehiclo"] %>">
+                        <form class="form-line" action="/direct" method="post" id="<%=it.data[i]["vehiculo"] %>">
+                        <input type="hidden" id="fase" name="fase" value="2">
+                        <input type="hidden" id="success" name="success" value="<%=it.success %>">
+                        <input type="hidden" id="idioma" name="idioma" value="<%=it.locations.idioma_web %>">
                         <input type="hidden" name="vehiculo" value="<%=it.data[i]["vehiculo"] %>">
                         <div class="content">
                             <picture>
@@ -215,8 +217,9 @@
                                     <% } %>
                                 </div>
                             </div>
-                            <button class="btn" name="vehiculo"  value="<%= it.data[i].vehiculo %>"><%=it.locations.vereste%></button>
+                            <button type="submit" class="btn" name="vehiculo"  value="<%= it.data[i].vehiculo %>"><%=it.locations.vereste%></button>
                         </div>
+                        </form>
                     </div>
                     
                     <% } %>

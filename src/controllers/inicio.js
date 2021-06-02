@@ -60,7 +60,7 @@ exports.getHome = async (req, res, languageBrowser) =>
 
     if (dataResponse.isOk === false)
     {
-        return res.status(404).sender("Not found");
+        return res.status(404).send("Not found");
     }
 
 
@@ -147,9 +147,10 @@ exports.postHomeDirect = async (req, res) =>
     const dataResponse = await responseRaw.json();
 
     // TODO: seguridad comprobar que proviene del backend
-    if (dataResponse.token !== process.env.TOKEN_FOR_BACKEND_ACCESS)
+    if (dataResponse.token !== `sdj&/k.(fk)j#.#$d.a#s%djf.l7).as!#%as/kue#$!.!.#.$!.#$`)
     {
-        return res.status(404).sender("Not found");
+        res.status(404).send("Not found");
+        return;
     }
     // const languageBrowser = await CheckLanguage(req.body.idioma);
     // const lenguaje = await locations.GetVarLocales();
@@ -159,7 +160,7 @@ exports.postHomeDirect = async (req, res) =>
     if (dataResponse.isOk === false) {
         if (dataResponse.errorFormulario === "") {
             // Blacklist?
-            return res.status(404).sender("Not found");
+            return res.status(404).send("Not found");
         }
         else {
             return res.render("inicio",
@@ -259,7 +260,7 @@ exports.postHome = async (req, res) =>
         if (dataResponse.errorFormulario === "")
         {
             // Blacklist?
-            return res.status(404).sender("Not found");
+            return res.status(404).send("Not found");
         }
         else
         {
@@ -313,11 +314,11 @@ exports.postHome = async (req, res) =>
 };
 
 
-const ResponseFromBackend = async (datosOrdenados, vehiculo) =>
+const ObtenerVehiculoSeleccionado = async (datosOrdenados, vehiculo) =>
 {
     for(let i = 0; i < datosOrdenados.length; i++)
     {
-        if (datosOrdenados[i]["vehiculos"] === vehiculo)
+        if (datosOrdenados[i]["vehiculo"] === vehiculo)
         {
             return datosOrdenados[i];
         }
