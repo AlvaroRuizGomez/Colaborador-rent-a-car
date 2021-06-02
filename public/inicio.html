@@ -50,105 +50,110 @@
             
             <!------------ Inicio contenido ------------------------->
             <section id="content">
-                <!-------- Inicio Formulario de Busqueda ------------>                
-                                <form id="formulario-index" class="form-inline" method="POST" action="/">
-                                    <input type="hidden" name="success" value="<%=it.success %>">
-                                    <input type="hidden" name="idioma" value="<%=it.locations.idioma_web%>">
-                                    <input type="hidden" name="fase" value="1">
-                                    <div class="aside-box">
-                                        <div class="titulo-form">
-                                            <label><%=it.locations.titulo_form%></label>
-                                        </div>
-                                        <!-------------  Inicio  Fecha/Hora Recogida  ------------------------- -->
-                                        <div class="form-inline form-buscar">
-                                            <% if (it.errorFormulario !== undefined ) { %>
-                                                <label>
-                                                    <%= it.locations[it.errorFormulario] %>
-                                                </label>
-                                            <% } %>
-                                            <div class="formDateRecogida">
-                                                    <div class="labelDate-form-recogida">
-                                                        <label>
-                                                            <%= it.locations.recogida %>
-                                                        </label>
-                                                    </div>
-
-                                    <input type="text" class="form-control form-control-date datepicker" id="fechaRecogida" name="fechaRecogida" value="" data-placement="right" data-align="bottom" data-name="" readonly="">  
-                                    <img src="./img/img-Calendar/calendar.webp" alt="Calendario recogida" class="img-calendar triggerRec">
-
-                                    <div class="labelClock-form-recogida">
-                                        <label>
-                                            <%= it.locations.hora %>
-                                        </label>
-                                    </div>
-                                    <div class="input-group clockpicker" data-placement="bottom" data-align="top" data-autoclose="true">
-                                        <input type="text" class="form-control form-control-clock" name="horaRecogida" value="09:00" readonly=""/>
-                                        <span class="input-group-addon">
-                                        <img src="./img/Img-Clock/clock.avif" alt="Reloj Recogida" class="img-clock">
-                                        </span>
-                                    </div>
-                            </div>
+                <!-------- Inicio Formulario de Busqueda ------------>
+                <form action="" class="formContainer">
+                    <div class="formTit">
+                        <h2>
+                            Alquiler de Coches
+                        </h2> 
+                    </div>
+                    <div class="grid-container">
+                        <!--------- Recogida Fecha y Hora -------->
+                        <div class="recogidaDateTit">
+                            <p>
+                                Recogida :
+                            </p>
                         </div>
-                        <!-- --------------------- Fin Fecha/Hora Recogida  --------------------------->
-                        <!-- *********************************************************************** -->
-                        <!-- ------------------ Inicio Fecha/Hora Devolucion -------------------------->
-                        <div class="form-inline form-buscar">
-                            <div class="formDateDevolucion">
-                                
-                                    <div class="labelDate-form-devolucion">
-                                        <label>
-                                            <%=it.locations.devolucion %>
-                                        </label>
-                                    </div>
-
-                                    <input type="text" class="form-control form-control-date datepicker" id="fechaDevolucion" name="fechaDevolucion" value="" data-placement="right" data-align="bottom" data-name="" readonly="">  
-                                    <img src="./img/img-Calendar/calendar.webp" alt="Calendario devolucion" class="img-calendar triggerDev">
-
-                                    <div class="labelClock-form-devolucion">
-                                        <label>
-                                                <%=it.locations.hora %>
-                                        </label>
-                                    </div>
-                                    <div class="input-group clockpicker" data-placement="bottom" data-align="top" data-autoclose="true">
-                                        <input type="text" class="form-control form-control-clock" name="horaDevolucion" value="20:00" readonly=""/>
-                                        <span class="input-group-addon">
-                                            <img src="./img/Img-Clock/clock.avif" alt="Reloj Recogida" class="img-clock">
-                                        </span>
-                                    </div>
-                                
-                            </div>    
+        
+                        <div class="recogidaDateData">
+                            <input type="text" class="form-control form-control-date datepicker" id="fechaRecogida" name="fechaRecogida" value="" data-placement="right" data-align="bottom" data-name="" readonly="">
                         </div>
-                        <!--------------------------- Fin Fecha/Hora Devolucion  ---------------------->
+        
+                        <div class="recogidaDateIcon">
+                            <img src="./img/img-Calendar/calendar.jpg" alt="Calendario recogida" class="img-calendar triggerRec">
+                        </div>
+        
+                        <!-- ------------------------------------- -->
+                        <div class="recogidaClockTit">
+                            <p>
+                                Hora :
+                            </p>
+                        </div>
+        
+                        <div class="recogidaClockData">
+                            <input type="text" class="form-control form-control-clock clockpicker" name="horaRecogida" value="09:00" readonly=""/>
+                        </div>
+        
+                        <div class="recogidaClockIcon">
+                            <img src="./img/Img-Clock/clock.png" alt="Reloj Recogida" class="img-clock ">
+                        </div>
 
-                                        <!------------------------- Fin Fecha/Hora Devolucio  ------------------------->
 
-                                        <div class="form-chequeo columna-centrado gap-10">
-                                            <section class="centrado gap-10">
-                                                <input id="rangoedad" type="checkbox" name="conductor_con_experiencia" value="on" class="elemento__inputradio" checked="checked">
-                                                <label class="elemento__circulo" for="rangoedad"></label>
-                                                <label class="elemento__titulo" for="rangoedad"><%=it.locations.conductor_experiencia %></label>
-                                            </section>
-
-                                            <section id="desplegable_edad" class="centrado invisible gap-10">
-                                                <label for="edad_conductor"><%=it.locations.edad_conductor %></label>
-                                                <input id="edad_conductor" type="number" name="edad_conductor" value="22" min="18" max="22" class="edad_conductor">
-                                            </section>
-                                        </div> 
-                                        <section class="btnBuscar">
-                                            <button type="submit" id="boton-VerPrecios" class="btn btn-primary btn-lg btn-block">
-                                                <%=it.locations.ver_precios %>
-                                            </button>
-                                        </section>
-                                    </div>         
-                                </form>
-                        <!-- **********************   Fin Template Form Old          ****************************-->
+                        <!------- Devolución Fecha y Hora  -------->
+                        <div class="devolucionDateTit">
+                            <p>
+                                Devolución :
+                            </p>
+                        </div>
+        
+                        <div class="devolucionDateData">
+                            <input type="text" class="form-control form-control-date datepicker" id="fechaDevolucion" name="fechaDevolucion" value="" data-placement="right" data-align="bottom" data-name="" readonly="">  
+                        </div>
+        
+                        <div class="devolucionDateIcon">
+                            <img src="./img/img-Calendar/calendar.jpg" alt="Calendario devolucion" class="img-calendar triggerDev">
+                        </div>
+        
+                        <!------- Devolución Hora ---------->
+                        <div class="devolucionClockTit">
+                            <p>
+                                Hora :
+                            </p>
+                        </div>
+                        <div class="devolucionClockData">
+                            <input type="text" class="form-control form-control-clock clockpicker" name="horaDevolucion" value="20:00" readonly=""/>
+                        </div>
+        
+                        <div class="devolucionClockIcon">
+                            <img src="./img/Img-Clock/clock.png" alt="Reloj Recogida" class="img-clock">
+                        </div>
+        
+                        <!------- Conductor Novel -------->
+                        <div class="driverNovel">
+                            <div class="form-chequeo columna-centrado gap-10">
+                                <section class="centrado gap-10">
+                                    <input id="rangoedad" type="checkbox" name="conductor_con_experiencia" value="on" class="elemento__inputradio" checked="checked">
+                                    <label class="elemento__circulo" for="rangoedad"></label>
+                                    <label class="elemento__titulo" for="rangoedad">Conductor tiene 23 años o más</label>
+                                </section>
+        
+                            </div> 
+                        </div>
+                    
+                        <!------- Edad Conductor --------->
+                        <div class="driverAge">
+                            <section id="desplegable_edad" class="centrado visible gap-10">
+                                <label for="edad_conductor">Edad del conductor</label>
+                                <input id="edad_conductor" type="number" name="edad_conductor" value="22" min="18" max="22" class="edad_conductor">
+                            </section>
+                        </div>
+        
+                        <!------- Boton Ver ofertas --------->
+                        <div class="verPrecio">
+                            <section class="btnBuscar">
+                                <button type="submit" id="boton-VerPrecios" class="btn btn-primary btn-lg btn-block">
+                                    Ver precios 
+                                </button>
+                            </section>
+                        </div>
+                    </div>
+                </form>
 
                 <!-------------------------- Fin Formulario de Busqueda ------------------------------->
 
                 <!------------------------------- Inicio Tarjetas ------------------------------------->
 
                 <main class="page-content">
-
                     <% for (let i = 0; i < it.data.length; i++) { %>
                     <form action="<%=it.locations.detalles %>" method="post">
                     <input type="hidden" name="success" value="<%=it.success %>">
@@ -211,16 +216,19 @@
                     </div>
                     </form>
                     <% } %>
+                    
                 </main>
                 
             </section>
             <!------------ Fin  contenido ------------------------->
 
-
+            <!------------ Inicio  Footer ------------------------->
             <footer id="footer">
                 <div class="pie"><%=it.locations.informacion%></div>
                 <div class="info"><%=it.locations.copyright%>&copy;</div>
             </footer>
+            <!------------ Fin     Footer ------------------------->
+
         </div>
         <!-- Fin container -->
 

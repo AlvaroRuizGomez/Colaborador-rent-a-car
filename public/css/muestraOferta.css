@@ -71,12 +71,6 @@ background: red;
 
 }
 
-.layout .ofertas {
-
-  /* grid-column-start: 2;
-  grid-column-end:3;
-  grid-row-start: 3; */
-}
 
 .layout .footer {
   grid-column-start: 1;
