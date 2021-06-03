@@ -135,12 +135,19 @@ boton_reservar.addEventListener("click", (evento) =>
         return;
     }
 
-    CheckInput(inputTelefono, iconoErrorTelf, "tareaTelefono");
-    CheckInput(inputEmail, iconoErrorEmail, "tareaEmail");
-    CheckInput(inputApellidos, iconoErrorApell, "tareaApellidos");
-    CheckInput(inputNombre, iconoErrorNombre, "tareaNombre");
+    const isValidTelefono = CheckInput(inputTelefono, iconoErrorTelf, "tareaTelefono");
+    const isValidEmail = CheckInput(inputEmail, iconoErrorEmail, "tareaEmail");
+    const isValidApellidos = CheckInput(inputApellidos, iconoErrorApell, "tareaApellidos");
+    const isValidNombre = CheckInput(inputNombre, iconoErrorNombre, "tareaNombre");
 
-    CheckType(inputEmail, iconoErrorEmail, "tareaEmail");
+    const regex = /^((?!\.)[\w-_.]*[^.])(@\w+)(\.\w+(\.\w+)?[^.\W])$/gm;
+    const isValidTypeEmail = CheckType(inputEmail, iconoErrorEmail, "tareaEmail", regex);
+
+    const isValid = checkIsAllValid(isValidTelefono, isValidEmail, isValidApellidos, isValidNombre, isValidTypeEmail);
+    if (isValid === false)
+    {
+        return;
+    }
 
     if (icono_error_formulario.classList.contains("visible") === true)
     {
@@ -162,10 +169,33 @@ boton_reservar.addEventListener("click", (evento) =>
     const senyor = document.getElementById("Sr").value;
     const senyora = document.getElementById("Sr").value;
 
+    const child_seat = document.getElementById("child_seat").value;
+    const booster_seat = document.getElementById("booster_seat").value;
+
+    const formulario_reservar = document.getElementById("formulario-reservar");
+
+    formulario_reservar.submit();
 
 
 
 });
+
+const checkIsAllValid = (isValidTelefono, isValidEmail, isValidApellidos, isValidNombre, isValidTypeEmail) =>
+{
+    let isValid = false;
+
+    if (isValidTelefono === true && 
+        isValidEmail === true &&
+        isValidApellidos === true &&
+        isValidNombre === true &&
+        isValidTypeEmail === true)
+    {
+        isValid = true;
+
+    }
+
+    return isValid;
+};
 
 okTermsConditions.addEventListener("click", (evento)=>
 {
@@ -191,24 +221,25 @@ okTermsConditions.addEventListener("click", (evento)=>
 const CheckInput = async (inputGeneric, iconoError, tareaString) =>
 {
 
+    let isValid = false;
     if (inputGeneric.value !== "")
     {
         const tarea = document.getElementById(tareaString);
-        
         if (tarea.classList.contains("no-visible") === true)
         {
             tarea.classList.remove("no-visible");
             tarea.classList.add("visible");
-    
+            isValid = false;
         }
         
         if (iconoError.classList.contains("visible") === true)
         {
             iconoError.classList.remove("visible");
             iconoError.classList.add("no-visible");
-    
+            isValid = true;
         }
     
+        
     }
     else
     {
@@ -217,16 +248,19 @@ const CheckInput = async (inputGeneric, iconoError, tareaString) =>
         {
             tarea.classList.remove("visible");
             tarea.classList.add("no-visible");
+            isValid = true;
         }
 
         if (iconoError.classList.contains("no-visible") === true)
         {
             iconoError.classList.remove("no-visible");
             iconoError.classList.add("visible");
-
+            isValid = false;
         }
     
     }
+
+    return isValid;
 };
 
 
@@ -240,19 +274,20 @@ const CheckType = async (inputGeneric, iconoError, tareaString, regex) =>
     // const regex = /^((?!\.)[\w-_.]*[^.])(@\w+)(\.\w+(\.\w+)?[^.\W])$/gm;
 
     const m = regex.exec(inputGeneric.value);
-
+    let isValid = false;
     if (m === null)
     {
         const tarea = document.getElementById(tareaString);
         if (tarea.classList.contains("visible") === true) {
             tarea.classList.remove("visible");
             tarea.classList.add("no-visible");
+            isValid = true;
         }
 
         if (iconoError.classList.contains("no-visible") === true) {
             iconoError.classList.remove("no-visible");
             iconoError.classList.add("visible");
-
+            isValid = false;
         }
 
     }
@@ -262,16 +297,16 @@ const CheckType = async (inputGeneric, iconoError, tareaString, regex) =>
         if (tarea.classList.contains("no-visible") === true) {
             tarea.classList.remove("no-visible");
             tarea.classList.add("visible");
-
+            isValid = false;
         }
 
         if (iconoError.classList.contains("visible") === true) {
             iconoError.classList.remove("visible");
             iconoError.classList.add("no-visible");
-
+            isValid = true;
         }
     }
-
+    return isValid;
 
 };
 
