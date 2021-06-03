@@ -215,21 +215,32 @@
                         </h3>
                     </article>
                 <% } else { %>
-                    <div class="tablero_ofertas">
-                        <h3><%=it.locations.titulo_ofertas %></h3>
-                    </div>
                     <% if (it.formdata["conductor_con_experiencia"] === "undefined" || it.formdata["conductor_con_experiencia"] === undefined )  { %>
                         <div class="aviso-edad">
                             <img class="icono-alerta-edad" src="./img/svg/alerta_edad.svg" alt="<%=it.locations.alt_icono_edad_conductor %>">
                             <p class="texto-alerta-edad"><%=it.locations.aviso_edad1 %> <%=it.locations.aviso_edad2 %></p> 
                         </div>
                     <% } %>
+                    <% if ( it.vehiculoSeleccionado === undefined) { %>
+                    <div class="tablero_ofertas">
+                        <h3><%=it.locations.titulo_ofertas %></h3>
+                    </div>
+                    <% } else { %>
+                        <div class="tablero_ofertas">
+                        <h3><%=it.locations.vehiculo_seleccionado %></h3>
+                    </div>
+                    <% } %>
+
 
                 <% } %>
 
                 <% if ( it.vehiculoSeleccionado !==undefined) { %>
                     <%~ includeFile("oferta.html", it, element=it.vehiculoSeleccionado, j=undefined ) %>
                 <% } %>
+
+                <div class="tablero_ofertas">
+                    <h3><%=it.locations.titulo_ofertas %></h3>
+                </div>
 
                 <% for (let x=0; x < it.data.length; x++) { %>
                     <%~ includeFile("oferta.html", it, element=it.data[x], j=x ) %>
