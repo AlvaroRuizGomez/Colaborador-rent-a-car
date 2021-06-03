@@ -395,6 +395,7 @@ const ControlDirectSchema = async (body) =>
         "vehiculo": Joi.string().required(),
         "idioma": Joi.string().required(),
         "success": Joi.string().required(),
+
     });
 
 
