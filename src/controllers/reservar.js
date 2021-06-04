@@ -56,31 +56,28 @@ exports.postRealizarReserva = async (req, res, language ) =>
     }
 
     // TODO: seguridad comprobar que proviene del backend
-    if (dataResponse.token !== "") {
-
-    }
-
-    if (dataResponse.isOk === false)
+    if (dataResponse.token !== "")
     {
         return res.status(404).send("Not found");
     }
 
+    const locationLanguage = await locations.GenerateLocationBrowser(req.body.idioma);
 
-    // let data = {"test": "test"};
-    // if (dataResponse.data.length <= 0)
-    // {
-    //     data = {};
-    // }
-    // else
-    // {
-    //     data = {
-    //         "data": dataResponse.data,
-    //         "formdata": req.body,
-    //         "success": req.body.success,
-    //     };
-    // }
+    if (dataResponse.isOk === false)
+    {
+        return res.render("inicio",
+        {
+            "success": req.body.success,
+            "errorFormulario": dataResponse.errorFormulario,
+            "locations": locationLanguage
+        });
+    }
 
-    res.render("completadareserva", data );    
+    res.render("reservacompletada", {
+        "success": req.body.success,
+        "errorFormulario": dataResponse.errorFormulario,
+        "locations": locationLanguage
+    });    
 
 };
 
@@ -103,6 +100,7 @@ const ControlSchema = async (body) =>
         titulo: Joi.string().required(),
         child_seat: Joi.number().required(),
         booster_seat: Joi.number().required(),
+        conductor_con_experiencia: Joi.string().required(),
         
 
         // success: Joi.string().required(),
