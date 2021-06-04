@@ -392,9 +392,14 @@ const ControlDirectSchema = async (body) =>
 
     const schema = Joi.object({
         "fase": Joi.number().required(),
-        "vehiculo": Joi.string().required(),
+        "fechaDevolucion": Joi.string().required(),
+        "fechaRecogida": Joi.string().required(),
+        "horaDevolucion": Joi.string().required(),
+        "horaRecogida": Joi.string().required(),
         "idioma": Joi.string().required(),
         "success": Joi.string().required(),
+        "vehiculo": Joi.string().required(),
+        "conductor_con_experiencia": Joi.string().required(),
 
     });
 

@@ -118,7 +118,7 @@ overlayPrivacidad.addEventListener("click", async (evento) => {
 
 });
 
-boton_reservar.addEventListener("click", (evento) =>
+boton_reservar.addEventListener("click", async (evento) =>
 {
     evento.preventDefault();
     
@@ -135,13 +135,13 @@ boton_reservar.addEventListener("click", (evento) =>
         return;
     }
 
-    const isValidTelefono = CheckInput(inputTelefono, iconoErrorTelf, "tareaTelefono");
-    const isValidEmail = CheckInput(inputEmail, iconoErrorEmail, "tareaEmail");
-    const isValidApellidos = CheckInput(inputApellidos, iconoErrorApell, "tareaApellidos");
-    const isValidNombre = CheckInput(inputNombre, iconoErrorNombre, "tareaNombre");
+    const isValidTelefono = await CheckInput(inputTelefono, iconoErrorTelf, "tareaTelefono");
+    const isValidEmail = await CheckInput(inputEmail, iconoErrorEmail, "tareaEmail");
+    const isValidApellidos = await CheckInput(inputApellidos, iconoErrorApell, "tareaApellidos");
+    const isValidNombre = await CheckInput(inputNombre, iconoErrorNombre, "tareaNombre");
 
     const regex = /^((?!\.)[\w-_.]*[^.])(@\w+)(\.\w+(\.\w+)?[^.\W])$/gm;
-    const isValidTypeEmail = CheckType(inputEmail, iconoErrorEmail, "tareaEmail", regex);
+    const isValidTypeEmail = await CheckType(inputEmail, iconoErrorEmail, "tareaEmail", regex);
 
     const isValid = checkIsAllValid(isValidTelefono, isValidEmail, isValidApellidos, isValidNombre, isValidTypeEmail);
     if (isValid === false)
@@ -155,22 +155,19 @@ boton_reservar.addEventListener("click", (evento) =>
         icono_error_formulario.classList.add("no-visible");
     }
 
-    const descripcion_vehiculo = document.getElementById("descripcion_vehiculo").value;
-    const fechaRecogida = document.getElementById("fechaRecogida").value;
-    const horaRecogida = document.getElementById("horaRecogida").value;
-    const fechaDevolucion = document.getElementById("fechaDevolucion").value;
-    const horaDevolucion = document.getElementById("horaDevolucion").value;
-    const dias = document.getElementById("dias").value;
-    const alquiler = document.getElementById("alquiler").value;
-    const conductor_joven = document.getElementById("conductor_joven").value;
-    const pagoRecogida = document.getElementById("pagoRecogida").value;
-    const pago_online = document.getElementById("pago_online").value;
+    if (document.getElementById("Sr").checked === true)
+    {
+        document.getElementById("sr_input").value = "Sr";
 
-    const senyor = document.getElementById("Sr").value;
-    const senyora = document.getElementById("Sr").value;
+    }
+    else if (document.getElementById("Sra").checked === true)
+    {
+        document.getElementById("sr_input").value = "Sra";
+    }
+    
+    document.getElementById("child_seat_input").value = document.getElementById("child_seat").value;
+    document.getElementById("booster_seat_input").value = document.getElementById("booster_seat").value;
 
-    const child_seat = document.getElementById("child_seat").value;
-    const booster_seat = document.getElementById("booster_seat").value;
 
     const formulario_reservar = document.getElementById("formulario-reservar");
 
@@ -225,18 +222,17 @@ const CheckInput = async (inputGeneric, iconoError, tareaString) =>
     if (inputGeneric.value !== "")
     {
         const tarea = document.getElementById(tareaString);
+        isValid = true;
         if (tarea.classList.contains("no-visible") === true)
         {
             tarea.classList.remove("no-visible");
             tarea.classList.add("visible");
-            isValid = false;
         }
         
         if (iconoError.classList.contains("visible") === true)
         {
             iconoError.classList.remove("visible");
             iconoError.classList.add("no-visible");
-            isValid = true;
         }
     
         
@@ -248,14 +244,12 @@ const CheckInput = async (inputGeneric, iconoError, tareaString) =>
         {
             tarea.classList.remove("visible");
             tarea.classList.add("no-visible");
-            isValid = true;
         }
 
         if (iconoError.classList.contains("no-visible") === true)
         {
             iconoError.classList.remove("no-visible");
             iconoError.classList.add("visible");
-            isValid = false;
         }
     
     }
@@ -294,6 +288,7 @@ const CheckType = async (inputGeneric, iconoError, tareaString, regex) =>
     else
     {
         const tarea = document.getElementById(tareaString);
+        isValid = true;
         if (tarea.classList.contains("no-visible") === true) {
             tarea.classList.remove("no-visible");
             tarea.classList.add("visible");

@@ -81,7 +81,7 @@
                         </div>
         
                         <div class="recogidaDateIcon">
-                            <img src="./img/img-Calendar/calendar.webp" alt="<%=it.locations.calendariorecogida %>" class="img-calendar triggerRec">
+                            <img src="./img/img-Calendar/calendar.svg" alt="<%=it.locations.calendariorecogida %>" class="img-calendar triggerRec">
                             
                         </div>
         
@@ -93,7 +93,7 @@
                         </div>
 
                         <div class="recogidaClockData input-group clockpicker" data-placement="bottom" data-align="top" data-autoclose="true">
-                            <input type="text" class="input-color  form-control-clock  " name="horaRecogida" value="09:00" readonly="" />
+                            <input type="text" class="input-color  form-control-clock  " id="horaRecogida" name="horaRecogida" value="09:00" readonly="" />
                             <span class="input-group-addon">
                                 <img src="./img/Img-Clock/clock.avif" alt="<%=it.locations.relojrecogida %>" class="img-clock">
                             </span>
@@ -111,7 +111,7 @@
                         </div>
         
                         <div class="devolucionDateIcon">
-                            <img src="./img/img-Calendar/calendar.jpg" alt="<%=it.locations.calendariodevolucion %>" class="img-calendar triggerDev">
+                            <img src="./img/img-Calendar/calendar.svg" alt="<%=it.locations.calendariodevolucion %>" class="img-calendar triggerDev">
                         </div>
         
                         <!------- Devolución Hora ---------->
@@ -121,7 +121,7 @@
                             </p>
                         </div>
                         <div class="devolucionClockData input-group clockpicker" data-placement="bottom" data-align="top" data-autoclose="true">
-                            <input type="text" class="input-color form-control-clock " name="horaDevolucion" value="20:00" readonly="" />
+                            <input type="text" class="input-color form-control-clock " id="horaDevolucion" name="horaDevolucion" value="20:00" readonly="" />
                             <span class="input-group-addon">
                                 <img src="./img/Img-Clock/clock.avif" alt="<%=it.locations.relojdevolucion %>" class="img-clock">
                             </span>
@@ -170,6 +170,13 @@
                         <input type="hidden" id="success" name="success" value="<%=it.success %>">
                         <input type="hidden" id="idioma" name="idioma" value="<%=it.locations.idioma_web %>">
                         <input type="hidden" name="vehiculo" value="<%=it.data[i]["vehiculo"] %>">
+
+                        <input type="hidden" id="fechaRecogida_input" name="fechaRecogida" value="">
+                        <input type="hidden" id="horaRecogida_input" name="horaRecogida" value="">
+                        <input type="hidden" id="fechaDevolucion_input" name="fechaDevolucion" value="">
+                        <input type="hidden" id="horaDevolucion_input" name="horaDevolucion" value="">
+                        <input type="hidden" id="conductor_con_experiencia_input" name="conductor_con_experiencia" value="">
+                        
 
                         <div class="content">
                             <picture>

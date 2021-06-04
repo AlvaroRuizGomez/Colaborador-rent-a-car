@@ -12,6 +12,7 @@ const locations = require("../controllers/locations");
 // rutas
 router.get("/", async (req, res) => await home.getHome(req, res));
 router.post("/", async (req, res) => await home.postHome(req, res));
+
 router.post("/direct", async (req, res) => await home.postHomeDirect(req, res));
 router.get("/direct", async (req, res) => await home.getHome(req, res));
 
@@ -34,13 +35,15 @@ router.get("/details", async (req, res) => await details.getShowDetails(req, res
 router.get("/einzelheiten", async (req, res) => await details.getShowDetails(req, res, "de"));
 
 
+router.get("/reservar", async (req, res) => await reservar.getReservar(req, res, "es"));
+router.get("/prenotazione", async (req, res) => await reservar.getReservar(req, res, "it"));
+router.get("/reserve", async (req, res) => await reservar.getReservar(req, res, "en"));
+router.get("/buchen", async (req, res) => await reservar.getReservar(req, res, "de"));
 
-router.get("/reservar", async (req, res) => await reservar.getReservar(req, res));
-
-router.post("/reservar", async (req, res) => await reservar.postReservar(req, res, "es"));
-router.post("/riserva", async (req, res) => await reservar.postReservar(req, res, "it"));
-router.post("/reserve", async (req, res) => await reservar.postReservar(req, res, "en" ));
-router.post("/reservieren", async (req, res) => await reservar.postReservar(req, res, "de"));
+router.post("/reservar", async (req, res) => await reservar.postRealizarReserva(req, res, "es"));
+router.post("/prenotazione", async (req, res) => await reservar.postRealizarReserva(req, res, "it"));
+router.post("/reserve", async (req, res) => await reservar.postRealizarReserva(req, res, "en" ));
+router.post("/buchen", async (req, res) => await reservar.postRealizarReserva(req, res, "de"));
 
 
 router.get("/generar", async (req, res) => await generar.generarHTML(req, res));

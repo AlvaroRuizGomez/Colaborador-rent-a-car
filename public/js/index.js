@@ -13,6 +13,20 @@ for (let i = 0; i < cards.length; i++)
         evento.preventDefault();
         
         const selectedVehiculo = cards[i].lastElementChild.lastElementChild.lastElementChild.value;
+
+        document.getElementById("fechaRecogida_input").value = document.getElementById("fechaRecogida").value;
+        document.getElementById("fechaDevolucion_input").value = document.getElementById("fechaDevolucion").value;
+        document.getElementById("horaRecogida_input").value = document.getElementById("horaRecogida").value;
+        document.getElementById("horaDevolucion_input").value = document.getElementById("horaDevolucion").value;
+        if (document.getElementById("rangoedad").checked === true)
+        {
+            document.getElementById("conductor_con_experiencia_input").value = "on";
+        }
+        else
+        {
+            document.getElementById("conductor_con_experiencia_input").value = "off";
+        }
+        
         const formulario = document.getElementById(selectedVehiculo);
         formulario.submit();
 
