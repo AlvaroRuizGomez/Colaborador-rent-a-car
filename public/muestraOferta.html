@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="<%=it.locations.idioma_web %>">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,39 +12,44 @@
     <script src="jquery/jquery-3.5.1.min.js"></script>
     <script src="jquery-ui-1.12.1.custom/jquery-ui.js"></script>
     <!-- --------------------------------------------------- -->
-    
+
     <!-- ------------- Clock Picker jQuery ----------------- -->
     <link rel="stylesheet" href="clockpicker.css">
     <script src="clockpicker.js"></script>
     <!-- --------------------------------------------------- -->
-    
-    <link rel="preconnect" href = "https://fonts.gstatic.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Caveat&display=swap" rel="stylesheet ">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Allura&family=Arizonia&family=Charmonman:wght@700&family=Damion&family=Faster+One&family=Galada&family=Gravitas+One&family=Montez&family=Sarina&family=Sonsie+One&display=swap" rel="stylesheet">  
-    
+    <link
+        href="https://fonts.googleapis.com/css2?family=Allura&family=Arizonia&family=Charmonman:wght@700&family=Damion&family=Faster+One&family=Galada&family=Gravitas+One&family=Montez&family=Sarina&family=Sonsie+One&display=swap"
+        rel="stylesheet">
+
     <!------------------- Bootstrap CSS ------------------------>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-        
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+        crossorigin="anonymous"></script>
     <!-- --------------------------------------------------- -->
     <link rel="stylesheet" href="css/muestraOferta.css" />
 </head>
+
 <body>
     <div class="layout">
         <div class="banner">
             <!-- Inicio Cabecera -->
             <%~ includeFile("header.html", it) %>
-            <!------- Fin Cabecera ---->
+                <!------- Fin Cabecera ---->
 
-            <!------- Inicio Slogan  --------->
-            <!-- <section id="eslogan">
+                <!------- Inicio Slogan  --------->
+                <!-- <section id="eslogan">
                 Conozca Mallorca...
             </section> -->
-            <!------- Fin Slogan  ------------>
+                <!------- Fin Slogan  ------------>
         </div>
         <!------- Inicio formulario de Busqueda ----------------->
         <div class="form-container">
@@ -51,14 +57,19 @@
             <div class="aside-box">
                 <div class="titulos">
                     <div class="titulo-form">
-                        <label><%=it.locations.datos_busqueda %></label>
+                        <label>
+                            <%=it.locations.datos_busqueda %>
+                        </label>
                         <div class="titulo-form-cambiar">
-                            <a href="/"><%=it.locations.cambiar %></a>
+                            <a href="/">
+                                <%=it.locations.cambiar %>
+                            </a>
                         </div>
                     </div>
                 </div>
                 <form id="formulario-index" class="form-inline" method="POST" action="/">
-                    <input type="hidden" name="conductor_con_experiencia" value="<%= it.formdata.conductor_con_experiencia %>">
+                    <input type="hidden" name="conductor_con_experiencia"
+                        value="<%= it.formdata.conductor_con_experiencia %>">
                     <input type="hidden" name="edad_conductor" value="<%= it.formdata.edad_conductor %>">
                     <input type="hidden" name="idioma" value="<%=it.locations.idioma_web %>">
                     <input type="hidden" name="success" value="<%=it.success %>">
@@ -72,22 +83,29 @@
                                 </label>
                             </div>
 
-                            <input type="text" class="form-control form-control-date datepicker" id="fechaRecogida" name="fechaRecogida" value="<%= it.formdata.fechaRecogida %>" data-placement="right" data-align="bottom" data-name="" readonly="">  
-                            <img src="./img/img-Calendar/calendar.jpg" alt="Calendario recogida" class="img-calendar triggerRec">
+                            <input type="text" class="form-control form-control-date datepicker" id="fechaRecogida"
+                                name="fechaRecogida" value="<%= it.formdata.fechaRecogida %>" data-placement="right"
+                                data-align="bottom" data-name="" readonly="">
+                            <img src="./img/img-Calendar/calendar.webp" alt="Calendario recogida"
+                                class="img-calendar triggerRec">
 
                             <div class="labelClock-form-recogida">
-                                <label><%= it.locations.hora %></label>
+                                <label>
+                                    <%= it.locations.hora %>
+                                </label>
                             </div>
-                            <div class="input-group clockpicker" data-placement="bottom" data-align="top" data-autoclose="true">
-                                <input type="text" class="form-control form-control-clock" name="horaRecogida" value="<%= it.formdata.horaRecogida %>" readonly=""/>
+                            <div class="input-group clockpicker" data-placement="bottom" data-align="top"
+                                data-autoclose="true">
+                                <input type="text" class="form-control form-control-clock" name="horaRecogida"
+                                    value="<%= it.formdata.horaRecogida %>" readonly="" />
                                 <span class="input-group-addon">
-                                <img src="./img/Img-Clock/clock.png" alt="Reloj Recogida" class="img-clock">
+                                    <img src="./img/Img-Clock/clock.avif" alt="Reloj Recogida" class="img-clock">
                                 </span>
                             </div>
-                            
+
                         </div>
                     </div>
-                    
+
                     <!-- --------------------- Fin Fecha/Hora Recogida  --------------------------->
                     <!-- *********************************************************************** -->
                     <!-- ------------------ Inicio Fecha/Hora Devolucion -------------------------->
@@ -95,158 +113,208 @@
                         <div class="formDateDevolucion">
                             <div class="labelDate-form-devolucion">
                                 <label>
-                                        <%=it.locations.devolucion %>
+                                    <%=it.locations.devolucion %>
                                 </label>
                             </div>
-                                <input type="text" class="form-control form-control-date datepicker" id="fechaDevolucion" name="fechaDevolucion" value="<%= it.formdata.fechaDevolucion %>" data-placement="right" data-align="bottom" data-name="" readonly="">  
-                                <img src="./img/img-Calendar/calendar.jpg" alt="Calendario devolucion" class="img-calendar triggerDev">
+                            <input type="text" class="form-control form-control-date datepicker" id="fechaDevolucion"
+                                name="fechaDevolucion" value="<%= it.formdata.fechaDevolucion %>" data-placement="right"
+                                data-align="bottom" data-name="" readonly="">
+                            <img src="./img/img-Calendar/calendar.webp" alt="Calendario devolucion"
+                                class="img-calendar triggerDev">
 
-                                <div class="labelClock-form-devolucion">
-                                    <label>
-                                        <%=it.locations.hora %>
-                                    </label>
-                                </div>
-                                <div class="input-group clockpicker" data-placement="bottom" data-align="top" data-autoclose="true">
-                                    <input type="text" class="form-control form-control-clock" name="horaDevolucion" value="<%= it.formdata.horaDevolucion %>" readonly=""/>
-                                    <span class="input-group-addon">
-                                    <img src="./img/Img-Clock/clock.png" alt="<%=it.locations.alt_reloj_recogida%>" class="img-clock">
-                                    </span>
-                                </div>
-                                
-                                
-                                
-                        </div>    
+                            <div class="labelClock-form-devolucion">
+                                <label>
+                                    <%=it.locations.hora %>
+                                </label>
+                            </div>
+                            <div class="input-group clockpicker" data-placement="bottom" data-align="top"
+                                data-autoclose="true">
+                                <input type="text" class="form-control form-control-clock" name="horaDevolucion"
+                                    value="<%= it.formdata.horaDevolucion %>" readonly="" />
+                                <span class="input-group-addon">
+                                    <img src="./img/Img-Clock/clock.avif" alt="<%=it.locations.alt_reloj_recogida%>"
+                                        class="img-clock">
+                                </span>
+                            </div>
+
+
+
+                        </div>
                     </div>
                     <!--------------------------- Fin Fecha/Hora Devolucion  ---------------------->
                     <div class="btnMod">
-                        <button id="bt-enviar-index" type="submit" class="btn btn-primary btn-lg btn-block"><%=it.locations.modificar %></button>
+                        <button id="bt-enviar-index" type="submit" class="btn btn-primary btn-lg btn-block">
+                            <%=it.locations.modificar %>
+                        </button>
                     </div>
                 </form>
-            </div>         
+            </div>
             <!-------------------------------- Fin Formulario de Busqueda --------------------------->
         </div>
         <!------- Fin formulario de Busqueda ----------------->
-        
+
         <div class="contenido">
-            
+
             <!--------------- Inicio Slider ---------------------->
-            <% if (it.data.length > 0) { %>
-            <div class="carruselSlider">
-                <div id="carousel" class="carousel slide " data-ride="carousel">
-                    <a class="carrusel-control-prev carrusel-control" href="#carousel" role="button" data-slide="prev">
-                        <img src="img/svg/carrusel_control_previous.svg" class="icono-azul" alt="<%=it.locations.alt_anterior %>">
-                    </a>
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <div class="row ">
-                                <% for (let i= 0; i < 5; i++) { %>
-                                    <% if (it.data[i]===undefined ) continue; %>
-                                    <div class="col col-p">
-                                        <h5>
-                                            <%= it.data[i].descripcion %>
-                                        </h5>
-                                        <div class="py-4 text-black text-center">
-                                            <img class="d-block w-100 img-ta" src="img/Img-Vehiculos/rescambiada/png/<%= it.data[i].ImagenVehiclo %>"
-                                                alt="<%= it.data[i].descripcion %>">
-                                        </div>
-                                        <div class="precio">
-                                            <div class="precio-txt">
-                                                <p><%=it.locations.desde %></p>
+            <% if (it.data.length> 0) { %>
+                <div class="carruselSlider">
+                    <div id="carousel" class="carousel slide " data-ride="carousel">
+                        <a class="carrusel-control-prev carrusel-control" href="#carousel" role="button"
+                            data-slide="prev">
+                            <img src="img/svg/carrusel_control_previous.svg" class="icono-azul"
+                                alt="<%=it.locations.alt_anterior %>">
+                        </a>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <div class="row ">
+                                    <% for (let i=0; i < 5; i++) { %>
+                                        <% if (it.data[i]===undefined ) continue; %>
+                                            <div class="col col-p">
+                                                <h5>
+                                                    <%= it.data[i].descripcion %>
+                                                </h5>
+                                                <div class="py-4 text-black text-center">
+                                                    <picture class="d-block img-ta">
+                                                        <source
+                                                            srcset="./img/Img-Vehiculos/<%= it.data[i].ImagenVehiclo %>_Slider.avif">
+                                                        <source
+                                                            srcset="./img/Img-Vehiculos/<%= it.data[i].ImagenVehiclo %>_Slider.webp">
+                                                        <img class="d-block img-ta"
+                                                            src="img/Img-Vehiculos/<%= it.data[i].ImagenVehiclo %>_Slider.png"
+                                                            alt="<%= it.data[i].descripcion %>">
+                                                    </picture>
+
+
+
+                                                </div>
+                                                <div class="precio">
+                                                    <div class="precio-txt">
+                                                        <p>
+                                                            <%=it.locations.desde %>
+                                                        </p>
+                                                    </div>
+                                                    <div class="precio-p">
+                                                        <p>
+                                                            <%= it.data[i].preciopordiasindescuento %>€
+                                                        </p>
+                                                    </div>
+                                                </div>
                                             </div>
-                                            <div class="precio-p">
-                                                <p>
-                                                    <%= it.data[i].preciopordiasindescuento %>€
-                                                </p>
+                                            <% } %>
+                                </div>
+                            </div>
+
+                            <div class="carousel-item">
+                                <div class="row row-p">
+                                    <% for (let i=5; i < 10; i++) { %>
+                                        <% if (it.data[i]===undefined ) continue; %>
+                                            <div class="col col-p">
+                                                <h5>
+                                                    <%= it.data[i].descripcion %>
+                                                </h5>
+                                                <div class="py-4 text-black text-center">
+                                                    <picture class="d-block img-ta">
+                                                        <source
+                                                            srcset="./img/Img-Vehiculos/<%= it.data[i].ImagenVehiclo %>_Slider.avif">
+                                                        <source
+                                                            srcset="./img/Img-Vehiculos/<%= it.data[i].ImagenVehiclo %>_Slider.webp">
+                                                        <img class="d-block  img-ta"
+                                                            src="img/Img-Vehiculos/<%= it.data[i].ImagenVehiclo %>_Slider.png"
+                                                            alt="<%= it.data[i].descripcion %>">
+                                                    </picture>
+                                                </div>
+                                                <div class="precio">
+                                                    <div class="precio-txt">
+                                                        <p>desde</p>
+                                                    </div>
+                                                    <div class="precio-p">
+                                                        <p>
+                                                            <%= it.data[i].preciopordiasindescuento %>€
+                                                        </p>
+                                                    </div>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </div>
-                                <% } %>
+                                            <% } %>
+                                </div>
                             </div>
                         </div>
-                        
-                        <div class="carousel-item">
-                            <div class="row row-p">
-                                <% for (let i = 5; i < 10; i++) { %>
-                                    <% if (it.data[i] === undefined ) continue; %>
-                                    <div class="col col-p">
-                                        <h5><%= it.data[i].descripcion %></h5>
-                                        <div class="py-4 text-black text-center">
-                                            <img class="d-block w-100 img-ta" src="img/Img-Vehiculos/rescambiada/png/<%= it.data[i].ImagenVehiclo %>" alt="<%= it.data[i].descripcion %>">
-                                        </div>
-                                        <div class="precio">
-                                            <div class="precio-txt">
-                                                <p>desde</p>
-                                            </div>
-                                            <div class="precio-p">
-                                                <p><%= it.data[i].preciopordiasindescuento %>€</p>
-                                            </div>
-                                        </div> 
+                        <a class=" carrusel-control-next carrusel-control" href="#carousel" role="button"
+                            data-slide="next">
+                            <img src="img/svg/carrusel_control_next.svg" class="icono-azul"
+                                alt="<%=it.locations.alt_siguiente %>">
+                        </a>
+                    </div>
+                </div>
+                <% } %>
+                    <!--------------- Fin Slider ------------------------->
+
+                    <!--------------- Inicio Ofertas --------------------->
+                    <div class="ofertas">
+                        <% if (it.data.length <=0) { %>
+                            <article class="">
+                                <h3 class="error-sinproductos">
+                                    <%= it.errorFormulario %>
+                                        <%= it.locations[it.errorFormulario] %>
+                                </h3>
+                            </article>
+                            <% } else { %>
+                                <% if (it.formdata["conductor_con_experiencia"]==="undefined" ||
+                                    it.formdata["conductor_con_experiencia"]===undefined ) { %>
+                                    <div class="aviso-edad">
+                                        <img class="icono-alerta-edad" src="./img/svg/alerta_edad.svg"
+                                            alt="<%=it.locations.alt_icono_edad_conductor %>">
+                                        <p class="texto-alerta-edad">
+                                            <%=it.locations.aviso_edad1 %>
+                                                <%=it.locations.aviso_edad2 %>
+                                        </p>
                                     </div>
-                                <% } %>
-                            </div>
-                        </div>
+                                    <% } %>
+                                        <% if ( it.vehiculoSeleccionado===undefined) { %>
+                                            <div class="tablero_ofertas">
+                                                <h3>
+                                                    <%=it.locations.titulo_ofertas %>
+                                                </h3>
+                                            </div>
+                                            <% } else { %>
+                                                <div class="tablero_ofertas">
+                                                    <h3>
+                                                        <%=it.locations.vehiculo_seleccionado %>
+                                                    </h3>
+                                                </div>
+                                                <% } %>
+
+
+                                                    <% } %>
+
+                                                        <% if ( it.vehiculoSeleccionado !==undefined) { %>
+                                                            <%~ includeFile("oferta.html", it,
+                                                                element=it.vehiculoSeleccionado, j=undefined ) %>
+                                                                <% } %>
+
+                                                                    <div class="tablero_ofertas">
+                                                                        <h3>
+                                                                            <%=it.locations.titulo_ofertas %>
+                                                                        </h3>
+                                                                    </div>
+
+                                                                    <% for (let x=0; x < it.data.length; x++) { %>
+                                                                        <%~ includeFile("oferta.html", it,
+                                                                            element=it.data[x], j=x ) %>
+                                                                            <% } %>
+
+
                     </div>
-                    <a class=" carrusel-control-next carrusel-control" href="#carousel" role="button" data-slide="next">
-                        <img src="img/svg/carrusel_control_next.svg" class="icono-azul" alt="<%=it.locations.alt_siguiente %>">
-                    </a>
-                </div>
-            </div>
-            <% } %>
-            <!--------------- Fin Slider ------------------------->
-
-            <!--------------- Inicio Ofertas --------------------->
-            <div class="ofertas">
-                <% if (it.data.length <= 0) { %>
-                    <article class="">
-                        <h3 class="error-sinproductos">
-                            <%= it.errorFormulario %>
-                            <%= it.locations[it.errorFormulario] %>
-                        </h3>
-                    </article>
-                <% } else { %>
-                    <% if (it.formdata["conductor_con_experiencia"] === "undefined" || it.formdata["conductor_con_experiencia"] === undefined )  { %>
-                        <div class="aviso-edad">
-                            <img class="icono-alerta-edad" src="./img/svg/alerta_edad.svg" alt="<%=it.locations.alt_icono_edad_conductor %>">
-                            <p class="texto-alerta-edad"><%=it.locations.aviso_edad1 %> <%=it.locations.aviso_edad2 %></p> 
-                        </div>
-                    <% } %>
-                    <% if ( it.vehiculoSeleccionado === undefined) { %>
-                    <div class="tablero_ofertas">
-                        <h3><%=it.locations.titulo_ofertas %></h3>
-                    </div>
-                    <% } else { %>
-                        <div class="tablero_ofertas">
-                        <h3><%=it.locations.vehiculo_seleccionado %></h3>
-                    </div>
-                    <% } %>
-
-
-                <% } %>
-
-                <% if ( it.vehiculoSeleccionado !==undefined) { %>
-                    <%~ includeFile("oferta.html", it, element=it.vehiculoSeleccionado, j=undefined ) %>
-                <% } %>
-
-                <div class="tablero_ofertas">
-                    <h3><%=it.locations.titulo_ofertas %></h3>
-                </div>
-
-                <% for (let x=0; x < it.data.length; x++) { %>
-                    <%~ includeFile("oferta.html", it, element=it.data[x], j=x ) %>
-                <% } %>
-
-                
-            </div>
-            <!--------------- Fin Ofertas ------------------------>
+                    <!--------------- Fin Ofertas ------------------------>
         </div>
 
         <div class="footer">
             5 footer
         </div>
     </div>
-    
+
     <script src="./js/muestraOferta.js"></script>
 </body>
+
 </html>
 
 <script>
