@@ -103,7 +103,7 @@
 
                             <div class="car-info-services-2">
                                 <div class="servicios-kilometraje" data-tooltip="vehiculo tiene kilometraje --- cambiar" data-tooltip-location="top">
-                                    <img class="icon-25" src="img/svg/velocimetro.png" alt="kilometraje">
+                                    <img class="icon-25" src="img/velocimetro.webp" alt="kilometraje">
                                     <p class="icon-kilometro">Kilometraje Ilimitado</p>
                                 </div>
 

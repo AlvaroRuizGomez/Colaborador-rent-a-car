@@ -35,6 +35,7 @@ exports.getHome = async (req, res, languageBrowser) =>
     const body = {
         "token": process.env.TOKEN_FOR_BACKEND_ACCESS,
         "useragent": req.useragent,
+        "direct": false,
         "location": location,
         "id": id
     };
@@ -59,7 +60,7 @@ exports.getHome = async (req, res, languageBrowser) =>
 
     if (dataResponse.isOk === false)
     {
-        return res.status(404).sender("Not found");
+        return res.status(404).send("Not found");
     }
 
 
@@ -75,7 +76,6 @@ exports.getHome = async (req, res, languageBrowser) =>
         });
     }
     else {
-        // res.render("inicio", { "success": id, "locations": locationLanguage });
 
         //ordenar por clase vehiculos
         dataResponse.data = await OrdenaPorClaseVehiculos(dataResponse.datosOrdenacion, dataResponse.data)
@@ -121,11 +121,9 @@ exports.getHome = async (req, res, languageBrowser) =>
 
 };
 
-
-exports.postHome = async (req, res) =>
+exports.postHomeDirect = async (req, res) =>
 {
-
-    const isSchemaValid = await ControlSchema(req.body);
+    const isSchemaValid = await ControlDirectSchema(req.body);
 
     if (isSchemaValid === false) {
         //TODO: mejorar
@@ -133,10 +131,10 @@ exports.postHome = async (req, res) =>
         return res.status(404).send("Not found");
     }
 
-    const body = { "token": process.env.TOKEN_FOR_BACKEND_ACCESS, ...req.body };
+    const body = { "token": process.env.TOKEN_FOR_BACKEND_ACCESS, "direct":true, ...req.body };
 
     //enviamos al backedn la informacion
-    const responseRaw = await fetch(URI_API_BACKEND, {
+    const responseRaw = await fetch(URI_GETALL_BACKEND, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -149,30 +147,28 @@ exports.postHome = async (req, res) =>
     const dataResponse = await responseRaw.json();
 
     // TODO: seguridad comprobar que proviene del backend
-    if (dataResponse.token !== "")
+    if (dataResponse.token !== `sdj&/k.(fk)j#.#$d.a#s%djf.l7).as!#%as/kue#$!.!.#.$!.#$`)
     {
-
+        res.status(404).send("Not found");
+        return;
     }
     // const languageBrowser = await CheckLanguage(req.body.idioma);
     // const lenguaje = await locations.GetVarLocales();
 
     const locationLanguage = await locations.GenerateLocationBrowser(req.body.idioma);
 
-    if (dataResponse.isOk === false)
-    {
-        if (dataResponse.errorFormulario === "")
-        {
+    if (dataResponse.isOk === false) {
+        if (dataResponse.errorFormulario === "") {
             // Blacklist?
-            return res.status(404).sender("Not found");
+            return res.status(404).send("Not found");
         }
-        else
-        {
-            return res.render("inicio", 
-            {
-                "success": req.body.success,
-                "errorFormulario": dataResponse.errorFormulario,
-                "locations": locationLanguage
-            });
+        else {
+            return res.render("inicio",
+                {
+                    "success": req.body.success,
+                    "errorFormulario": dataResponse.errorFormulario,
+                    "locations": locationLanguage
+                });
         }
 
     }
@@ -198,6 +194,107 @@ exports.postHome = async (req, res) =>
         //ordenar por clase vehiculos
         dataResponse.data = await OrdenaPorClaseVehiculos(dataResponse.datosOrdenacion, dataResponse.data)
 
+        //obtener el vehiculo seleccionado
+        const vehiculoSeleccionado = await ObtenerVehiculoSeleccionado(dataResponse.data, body.vehiculo);
+
+        res.render("muestraOferta", {
+            "data": dataResponse.data,
+            "formdata": req.body,
+            "errorFormulario": dataResponse.errorFormulario,
+            "success": req.body.success,
+            "diasEntreRecogidaDevolucion": dataResponse.diasEntreRecogidaDevolucion,
+            "suplementogenerico_base": dataResponse.suplementogenerico_base,
+            "suplementotipochofer_base": dataResponse.suplementotipochofer_base,
+            "preciosPorClase": dataResponse.preciosPorClase,
+            "condicionesgenerales": dataResponse.condicionesgenerales,
+            "locations": locationLanguage,
+            "vehiculoSeleccionado": vehiculoSeleccionado
+        });
+
+    }
+
+
+
+
+};
+
+
+exports.postHome = async (req, res) =>
+{
+    
+    const isSchemaValid = await ControlSchema(req.body);
+    
+    if (isSchemaValid === false) {
+        //TODO: mejorar
+        console.error("inicio.js control schema invalido");
+        return res.status(404).send("Not found");
+    }
+    
+    const body = { "token": process.env.TOKEN_FOR_BACKEND_ACCESS, "direct": false, ...req.body };
+    
+    //enviamos al backedn la informacion
+    const responseRaw = await fetch(URI_API_BACKEND, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        credentials: "include",
+        body: JSON.stringify(body)
+    });
+    
+    
+    const dataResponse = await responseRaw.json();
+    
+    // TODO: seguridad comprobar que proviene del backend
+    if (dataResponse.token !== "")
+    {
+    
+    }
+    // const languageBrowser = await CheckLanguage(req.body.idioma);
+    // const lenguaje = await locations.GetVarLocales();
+    
+    const locationLanguage = await locations.GenerateLocationBrowser(req.body.idioma);
+    
+    if (dataResponse.isOk === false)
+    {
+        if (dataResponse.errorFormulario === "")
+        {
+            // Blacklist?
+            return res.status(404).send("Not found");
+        }
+        else
+        {
+            return res.render("inicio", 
+            {
+                "success": req.body.success,
+                "errorFormulario": dataResponse.errorFormulario,
+                "locations": locationLanguage
+            });
+        }
+    
+    }
+    
+    // req.session.data = dataResponse.data;
+    
+    if (dataResponse.data.length <= 0) {
+        res.render("muestraOferta", {
+            "data": dataResponse.data,
+            "formdata": req.body,
+            "errorFormulario": dataResponse.errorFormulario,
+            "success": req.body.success,
+            "diasEntreRecogidaDevolucion": dataResponse.diasEntreRecogidaDevolucion,
+            "locations": locationLanguage
+    
+        });
+    }
+    else {
+    
+        // ordenar por precio
+        dataResponse.data = await OrdenarPorPrecioTotalDias(dataResponse.data);
+    
+        //ordenar por clase vehiculos
+        dataResponse.data = await OrdenaPorClaseVehiculos(dataResponse.datosOrdenacion, dataResponse.data)
+    
         res.render("muestraOferta", {
             "data": dataResponse.data,
             "formdata": req.body,
@@ -211,10 +308,21 @@ exports.postHome = async (req, res) =>
             "locations": locationLanguage,
             // "pagoRecogida": dataResponse.pagoRecogida
         });
-
+    
     }
 
+};
 
+
+const ObtenerVehiculoSeleccionado = async (datosOrdenados, vehiculo) =>
+{
+    for(let i = 0; i < datosOrdenados.length; i++)
+    {
+        if (datosOrdenados[i]["vehiculo"] === vehiculo)
+        {
+            return datosOrdenados[i];
+        }
+    }
 
 };
 
@@ -279,7 +387,38 @@ const OrdenarPorPrecioTotalDias = async (datosvehiculos) => {
     return datosVehiculosOrdenados;
 }
 
+const ControlDirectSchema = async (body) =>
+{
 
+    const schema = Joi.object({
+        "fase": Joi.number().required(),
+        "fechaDevolucion": Joi.string().required(),
+        "fechaRecogida": Joi.string().required(),
+        "horaDevolucion": Joi.string().required(),
+        "horaRecogida": Joi.string().required(),
+        "idioma": Joi.string().required(),
+        "success": Joi.string().required(),
+        "vehiculo": Joi.string().required(),
+        "conductor_con_experiencia": Joi.string().required(),
+
+    });
+
+
+    const options = {
+        abortEarly: false,
+        allowUnknown: false,
+        stripUnknown: false
+    };
+    const validation = schema.validate(body, options);
+    let isValid = false;
+
+    if (validation.error === undefined) {
+        isValid = true;
+    }
+
+    return isValid;
+
+};
 
 
 const ControlSchema = async (body) => {

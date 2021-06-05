@@ -1,6 +1,13 @@
 :root {
   --d: 700ms;
   --e: cubic-bezier(0.19, 1, 0.22, 1);
+  --color-background-input: #e9ecef;
+  --color-texto-input: #495057;
+  --color-border-input: #ced4da;
+  --color-border-input-focus: #86b7fe;
+  --color-background-input-focus: #fff;
+  --color-box-shadow-input-focus: rgba(13, 110, 253, 0.25);
+  --color-texto-input-focus: #212529;
 }
 
 * {
@@ -135,7 +142,7 @@ body{
 /**** Inicio CSS formulario Buscar Ofertas ****/
 .formContainer {
   display: grid;
-  grid-template-rows: 31px, auto;
+  grid-template-rows: 1fr auto;
   grid-template-areas:
       "titulo"
       "data";
@@ -174,15 +181,42 @@ body{
   /* background-color: #fff; */
   /* gap: 0px 0px; */
   grid-template-areas:
-    "recogidaDateTit recogidaDateData recogidaDateIcon . recogidaClockTit recogidaClockData recogidaClockIcon"
+    "recogidaDateTit recogidaDateData recogidaDateIcon . recogidaClockTit recogidaClockData recogidaClockData"
     ". . . . . . ."
-    "devolucionDateTit devolucionDateData  devolucionDateIcon . devolucionClockTit devolucionClockData devolucionClockIcon"
+    "devolucionDateTit devolucionDateData  devolucionDateIcon . devolucionClockTit devolucionClockData devolucionClockData"
     ". . . . . . ."
     ". driverNovel driverNovel driverNovel driverNovel . ."
     ". . . . . . ."
     ". driverAge driverAge driverAge . . ."
     ". . . . . . ."
     ". verPrecio verPrecio verPrecio . . .";
+}
+
+.input-color[readonly]
+{
+  opacity: 1;
+  
+  display: block;
+  width: 100%;
+  padding: .375rem .75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--color-texto-input);
+  background-color: var(--color-background-input);
+  background-clip: padding-box;
+  border: 1px solid var(--color-border-input);
+  border-radius: .25rem;
+  transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+
+}
+
+.input-color:focus {
+  
+  color: var(--color-texto-input-focus);
+  background-color: var(--color-background-input-focus);
+  border-color: var(--color-border-input-focus);
+  outline: 0;
+  box-shadow: 0 0 0 0.25rem var(--color-box-shadow-input-focus);
 }
 
 /* -------  Recogida ---------- */
@@ -205,7 +239,8 @@ body{
 }
 
 .recogidaClockData { 
-  grid-area: recogidaClockData; 
+  grid-area: recogidaClockData;
+  z-index: 1;
 }
 
 .recogidaClockIcon { 
@@ -231,7 +266,8 @@ body{
 }
 
 .devolucionClockData { 
-  grid-area: devolucionClockData; 
+  grid-area: devolucionClockData;
+  z-index: 1;
 }
 
 .devolucionClockIcon { 
@@ -284,7 +320,8 @@ body{
   width: 37px;
   cursor: pointer;
   margin-left: 3px;
-  margin-top: 1px;
+  /* background-color: #e9ecef; */
+  /* box-shadow: 0px 0px 2px #1e1c1c; */
 }
   
 .img-clock{
@@ -475,7 +512,8 @@ body{
 .card {
   position: relative;
   display: flex;
-  align-items: flex-end;
+  /* align-items: flex-end; */
+  align-items: center;
   overflow: hidden;
   padding: 1rem;
   width: 100%;
@@ -483,6 +521,7 @@ body{
   color: whitesmoke;
   background-color: whitesmoke;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1), 0 2px 2px rgba(0, 0, 0, 0.1), 0 4px 4px rgba(0, 0, 0, 0.1), 0 8px 8px rgba(0, 0, 0, 0.1), 0 16px 16px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
 }
 @media (min-width: 600px) {
   .card {
@@ -515,6 +554,12 @@ body{
   transform: translateY(-50%);
   transition: transform calc(var(--d) * 2) var(--e);
   
+}
+
+.form-line
+{
+  display: flex;
+  justify-content: center;
 }
 
 .card:hover > .content > .title

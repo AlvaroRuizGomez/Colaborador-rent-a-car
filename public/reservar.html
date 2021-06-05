@@ -68,7 +68,7 @@
                                     </div>
                                     <div class="car-info-services-2">
                                         <div class="servicios-kilometraje" data-tooltip="<%=it.formdata.tooltip_vehiculo_tiene %> <%=it.formdata.tooltip_kilometraje %> " data-tooltip-location="top">
-                                            <img class="icon-25" src="img/svg/velocimetro.png" alt="<%=it.formdata.kilometraje %>">
+                                            <img class="icon-25" src="img/velocimetro.webp" alt="<%=it.formdata.kilometraje %>">
                                             <p class="icon-kilometro"><%=it.formdata.kilometraje %></p>
                                         </div>
         
@@ -79,12 +79,9 @@
                                     </div>
         
                                     <div class="bookRecogida">
-                                        <img src="./img/img-Calendar/calendar.jpg" alt="Icono calendario" class="icon-25">
-                                        <!-- <p class="icon-dateRecogida">Dom 9 Mayo</p> -->
+                                        <img src="./img/img-Calendar/calendar.webp" alt="Icono calendario" class="icon-25">
                                         <p class="icon-dateRecogida"><%= it.formdata.fechaRecogida %></p>
-        
-                                        <img src="./img/Img-Clock/clock.png" alt="Icono calendario" class="icon-25">
-                                        <!-- <p class="icon-clockRecogida">09:00</p> -->
+                                        <img src="./img/Img-Clock/clock.avif" alt="Icono calendario" class="icon-25">
                                         <p class="icon-clockRecogida"><%= it.formdata.horaRecogida %></p>
                                     </div>
         
@@ -93,13 +90,9 @@
                                     </div>
         
                                     <div class="bookDevolucion">
-                                        <img src="./img/img-Calendar/calendar.jpg" alt="Icono calendario" class="icon-25">
-                                        <!-- <p class="icon-dateDevolucion">Lun 10 Mayo</p> -->
+                                        <img src="./img/img-Calendar/calendar.webp" alt="Icono calendario" class="icon-25">
                                         <p class="icon-dateDevolucion"><%= it.formdata.fechaDevolucion %></p>
-                                        
-        
-                                        <img src="./img/Img-Clock/clock.png" alt="Icono calendario" class="icon-25">
-                                        <!-- <p class="icon-clockDevolucion">20:00</p> -->
+                                        <img src="./img/Img-Clock/clock.avif" alt="Icono calendario" class="icon-25">
                                         <p class="icon-clockDevolucion"><%= it.formdata.horaDevolucion %></p>
                                         
                                     </div>
@@ -107,15 +100,6 @@
                             </div>
                         </div>
                     </aside>
-
-                    <!-- <aside id="aside">
-                        <div class="boxAside">
-                            <div class="contentBoxAside">
-                                <img id="imgCarReserva" src="" alt="">
-                                <p>Segundo SIDEBAR</p>
-                            </div>
-                        </div>
-                    </aside>    -->
                 </section>
             </div>
             <!-----------------  Fin Sidebar1  ------------------------------------------>
@@ -128,11 +112,6 @@
             <div class="contentReserva">
                 <section class="contentBlock">
                     <div class="tituloReserva">
-                        <!-- <img id="icon-Mundi" src="./img/svg/mapaMundi.svg" alt="icono reserva">
-                        <h3>
-                            Datos de la Reserva
-                        </h3> -->
-                        
                         <h2>
                             <img id="icon-Mundi" src="./img/svg/mapaMundi.svg" alt="<%=it.locations.icono_reserva %>"></img>
                             <%=it.locations.datos_reserva %>
@@ -311,17 +290,7 @@
 
             <!-----Inicio formulario conductor principal y condiciones y términos ------>
             
-                <input type="hidden" id="descripcion_vehiculo" name="descripcion_vehiculo" value="<%=it.formdata.descripcion_vehiculo %>">
-                <input type="hidden" id="fechaRecogida" name="fechaRecogida" value="<%= it.formdata.fechaRecogida %>">
-                <input type="hidden" id="horaRecogida" name="horaRecogida" value="<%= it.formdata.horaRecogida %>">
-                <input type="hidden" id="fechaDevolucion" name="fechaDevolucion" value="<%= it.formdata.fechaDevolucion %>">
-                <input type="hidden" id="horaDevolucion" name="horaDevolucion" value="<%= it.formdata.horaDevolucion %>">
-                <input type="hidden" id="dias" name="dias" value="<%= it.formdata.diasEntreRecogidaDevolucion %>">
-
-                <input type="hidden" id="alquiler" name="alquiler" value="<%=it.formdata.preciototaldias %>">
-                <input type="hidden" id="conductor_joven" name="conductor_joven" value="<%= total_suplmento_tipo_conductor %>">
-                <input type="hidden" id="pagoRecogida" name="pagoRecogida" value="<%=it.formdata.pagoRecogida %>">
-                <input type="hidden" id="pago_online" name="pago_online" value="<%= pago_online %>">
+               
 
                 <div class="formDriver">
                     <div class="formDriverContent" id="personalInfoForm" data-info-form="<%=it.locations.campos_requeridos %>">
@@ -350,22 +319,22 @@
                                     <span class="color_rojo">*</span> <%=it.locations.nombre_titulo %>
                             </label>
                             <input type="text" id="nombre" name="nombre" size="40" value maxlength="50" placeholder="<%=it.locations.nombre_titulo %>" class="nomDataDriver mitad-izquierda">
-                            <img src="./img/svg/hecho.svg" id="tareaNombre" class="no-visible icono-20 errorNombre" alt="tarea validada">
-                            <img src="./img/svg/error_formulario_nombres.svg" id="iconoErrorNombre" class="no-visible icono-20 errorNombre" alt="tarea validada">
+                            <img src="./img/svg/hecho.svg" id="tareaNombre" class="no-visible icono-20 errorNombre" alt="<%=it.locations.alt_icono_hecho %>">
+                            <img src="./img/svg/error_formulario_nombres.svg" id="iconoErrorNombre" class="no-visible icono-20 errorNombre" alt="<%=it.locations.alt_icono_hecho %>">
                             <!---------  Apellidos  ----------------------->
                             <label for="apellidos" class="apellDriver">
                                 <span class="color_rojo">*</span> <%=it.locations.apellidos_titulo %>
                             </label>
                             <input type="text" id="apellidos" name="apellidos"  class="apellDataDriver mitad-izquierda" size="65" value maxlength="50" placeholder="<%=it.locations.apellidos_titulo %>">
-                            <img src="./img/svg/hecho.svg" id="tareaApellidos" class="icono-20 no-visible errorApell" alt="tarea validada">
-                            <img src="./img/svg/error_formulario_nombres.svg" id="iconoErrorApell" class="icono-20 no-visible errorApell" alt="tarea validada">
+                            <img src="./img/svg/hecho.svg" id="tareaApellidos" class="icono-20 no-visible errorApell" alt="<%=it.locations.alt_icono_hecho %>">
+                            <img src="./img/svg/error_formulario_nombres.svg" id="iconoErrorApell" class="icono-20 no-visible errorApell" alt="<%=it.locations.alt_icono_hecho %>">
                             <!---------   E-mail  ------------------------->
                             <label for="email" class="eMailDriver">
                                     <span class="color_rojo">*</span> <%=it.locations.email_titulo %>
                             </label>
                             <input type="text" id="email" name="email" class="eMailDataDriver mitad-izquierda" size="65" value="" maxlength="50" placeholder="<%=it.locations.email_descripcion %>">
-                            <img src="./img/svg/hecho.svg" id="tareaEmail" class="icono-20 no-visible errorEmail" alt="tarea validada">
-                            <img src="./img/svg/error_formulario_nombres.svg" id="iconoErrorEmail" class="icono-20 no-visible errorEmail" alt="tarea validada">
+                            <img src="./img/svg/hecho.svg" id="tareaEmail" class="icono-20 no-visible errorEmail" alt="<%=it.locations.alt_icono_hecho %>">
+                            <img src="./img/svg/error_formulario_nombres.svg" id="iconoErrorEmail" class="icono-20 no-visible errorEmail" alt="<%=it.locations.alt_icono_hecho %>">
                             <!-- <div class="info-fieldcontainer">
                                 <div class="info-fieldcontain">
                                     <%=it.locations.email_descripcion_dos %>
@@ -378,14 +347,14 @@
                             </label>
             
                             <input type="text" id="telefono" name="telefono" class="telefDataDriver mitad-izquierda" size="50" value="" maxlength="18" placeholder="<%=it.locations.telefono_placeholder %>">
-                            <img src="./img/svg/hecho.svg" id="tareaTelefono" class="icono-20 no-visible errorTelf" alt="tarea validada">
-                            <img src="./img/svg/error_formulario_nombres.svg" id="iconoErrorTelf" class="icono-20 no-visible errorTelf" alt="tarea validada">
+                            <img src="./img/svg/hecho.svg" id="tareaTelefono" class="icono-20 no-visible errorTelf" alt="<%=it.locations.alt_icono_hecho %>">
+                            <img src="./img/svg/error_formulario_nombres.svg" id="iconoErrorTelf" class="icono-20 no-visible errorTelf" alt="<%=it.locations.alt_icono_hecho %>">
                             <!---------- Fin datos Conductor Principal------------->
         
                             <!--------- Inicio Términos y Condiciones  ------------------->
                             <div class="condiciones" id="idTermsBox">
                                 <p class="chkDescription">
-                                    <img id="icono_error_formulario" class="no-visible" src="./img/svg/error_checkbox.svg" alt="error al no chequear el checkbox">
+                                    <img id="icono_error_formulario" class="no-visible" src="./img/svg/error_checkbox.svg" alt="<%=it.locations.alt_icono_no_chequeo_reserva %>">
                                     <input type="checkbox" name="okTermsConditions" id="okTermsConditions" value="SI">
                                         <label for="" id="labelOkTermsConditions">
                                                 <%=it.locations.leido_acepto %>
@@ -403,7 +372,7 @@
                                     <ul class="details-modal ">
                                         <li class="details-modal-close">
                                             <a id="boton-cerrar-modal-terminos" class="boton-cerrar-modal" role="button">
-                                                <img class="cerrar-modal" src="./img/svg/cerrar_modal.svg" alt="boton cerrar modal">
+                                                <img class="cerrar-modal" src="./img/svg/cerrar_modal.svg" alt="<%=it.locations.alt_cerrar_modal %>">
                                             </a>
                                         </li>
                                         <li class="details-modal-title">
@@ -421,7 +390,7 @@
                                     <ul class="details-modal ">
                                         <li class="details-modal-close">
                                             <a id="boton-cerrar-modal-privacidad" class="boton-cerrar-modal" role="button">
-                                                <img class="cerrar-modal" src="./img/svg/cerrar_modal.svg" alt="boton cerrar modal">
+                                                <img class="cerrar-modal" src="./img/svg/cerrar_modal.svg" alt="<%=it.locations.alt_cerrar_modal %>">
                                             </a>
                                         </li>
                                         <li class="details-modal-title">
@@ -444,7 +413,27 @@
                 <!-------------------------  Inicio Botón reservar ------------------------>
                 <div class="boxBtnRevervar">
                     <button id="boton_reservar" name="" class="btnReserva    iframe new-btn new-btn-xxl new-btn-success cboxElement">
-                        <%=it.locations.reservar_ahora %> <%= pago_online %> €
+                        <form id="formulario-reservar" action="<%=it.locations.reservar %>" method="post">
+                            <input type="hidden" id="descripcion_vehiculo" name="descripcion_vehiculo" value="<%=it.formdata.descripcion_vehiculo %>">
+                            <input type="hidden" id="fechaRecogida" name="fechaRecogida" value="<%= it.formdata.fechaRecogida %>">
+                            <input type="hidden" id="horaRecogida" name="horaRecogida" value="<%= it.formdata.horaRecogida %>">
+                            <input type="hidden" id="fechaDevolucion" name="fechaDevolucion" value="<%= it.formdata.fechaDevolucion %>">
+                            <input type="hidden" id="horaDevolucion" name="horaDevolucion" value="<%= it.formdata.horaDevolucion %>">
+                            <input type="hidden" id="dias" name="dias" value="<%= it.formdata.diasEntreRecogidaDevolucion %>">
+
+                            <input type="hidden" id="alquiler" name="alquiler" value="<%=it.formdata.preciototaldias %>">
+                            
+                            <input type="hidden" id="conductor_con_experiencia" name="conductor_con_experiencia" value="<%= it.formdata.conductor_con_experiencia %>">
+                            <input type="hidden" id="total_suplmento_tipo_conductor" name="total_suplmento_tipo_conductor" value="<%= total_suplmento_tipo_conductor %>">
+                            <input type="hidden" id="pagoRecogida" name="pagoRecogida" value="<%= pago_recogida %>">
+                            <input type="hidden" id="pago_online" name="pago_online" value="<%= pago_online %>">
+                            <input type="hidden" id="sr_input" name="titulo" value="no-especificado">
+                            <input type="hidden" id="child_seat_input" name="child_seat" value="">
+                            <input type="hidden" id="booster_seat_input" name="booster_seat" value="">
+
+
+                            <%=it.locations.reservar_ahora %> <%= pago_online %> €
+                        </form>
                     </button>
                 </div>
                 <!-------------------------    Fin Botón reservar  ------------------------>
