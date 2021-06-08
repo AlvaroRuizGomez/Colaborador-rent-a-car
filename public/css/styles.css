@@ -960,18 +960,6 @@ input[type=number] {
 }
 
 
-.invisible
-{
-  visibility: hidden;
-
-}
-
-
-.visible
-{
-  visibility: visible;
-
-}
 
 /* ---------------------------------------------------------------------------------- */
 /* ------------------------- FOOTER ------------------------------------------------- */
@@ -1176,6 +1164,19 @@ iframe
   height: max-content;
 
 }
+
+.contestacion
+{
+  position: relative;
+  top: -262px;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  height: 90%;
+}
+
+
 
 .newsletterFooter { 
     grid-area: newsletterFooter; 

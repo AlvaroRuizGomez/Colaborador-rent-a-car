@@ -1084,6 +1084,17 @@ background: red;
   
 }
 
+.visible
+{
+  visibility: visible;
+}
+
+
+.invisible
+{
+  visibility: hidden;
+}
+
 
 
 /* ---------------------------------------------------------------------------------- */
@@ -1295,6 +1306,20 @@ iframe
   height: max-content;
 
 }
+
+
+.contestacion
+{
+  position: relative;
+  top: -262px;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  height: 90%;
+}
+
+
 
 .newsletterFooter { 
     grid-area: newsletterFooter; 
