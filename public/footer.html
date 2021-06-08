@@ -1,0 +1,85 @@
+<footer class="footer_group" >
+<div class="footerContainer">
+    <div class="footerTop">
+
+        <div class="footerTop_container">
+            <div class="footerTop_menu_footer">
+                <div class="footerTop_info">
+                    <h5 class="titulo"><%=it.locations.informacion_footer %></h5>
+                    <ul class="listado">
+                        <li class="listado-li"><a class="interes-link" href="#"><%=it.locations.politica_anulacion_footer %></a></li>
+                        <li class="listado-li"><a class="interes-link" href="#"><%=it.locations.seguro_footer %></a></li>
+                        <li class="listado-li"><a class="interes-link" href="#"><%=it.locations.sillas_footer %></a></li>
+                        <li class="listado-li"><a class="interes-link" href="#"><%=it.locations.contacto_footer %></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="map">
+                <h5 class="titulo">
+                    <%=it.locations.donde_estamos %>
+                </h5>
+                <p class="p-Direccion">
+                    <a href="/" class="link-rentacar-logo">
+                        <picture>
+                            <source srcset="./img/Img-Logo/rentacar_logo_footer.avif">
+                            <img class="imagen-rentacar-logo" src="./img/Img-Logo/rentacar_logo_footer.png" alt="<%=it.locations.alt_logo_empresa %>">
+                        </picture>
+                    </a>
+                <p class="texto-rentacar-logo">
+                    <b>Camino de Can Pastilla, 51</b>
+                    <b>07610 Can Pastilla</b>
+                    <b>Palma de Mallorca</b>
+                    <b><a class="link-azul" href="mailto:correo@gmail.com">correo@gmail.com</a></b>
+                    <b>Tel.: 999999999</b>
+                </p>
+                </p>
+
+                <div class="">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3076.918963058379!2d2.7120860509069944!3d39.53888207937599!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1297941e14ebb901%3A0x269d00f6b5ad9230!2sCam%C3%AD%20de%20Can%20Pastilla%2C%2051%2C%2007610%20Can%20Pastilla%2C%20Illes%20Balears!5e0!3m2!1ses!2ses!4v1622800860336!5m2!1ses!2ses"
+                        width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+            <div class="redes">
+
+                <h5 class="titulo"><%=it.locations.siguenos %></h5>
+                <div class="instagram">
+                    <a href="https://www.instagram.com" class="icon link-azul centrado-vertical">
+                        <img class="icono-social" src="./img/svg/instagram.svg" alt="<%=it.locations.alt_icono_instagram %>">
+                        <span class="">Instagram</span>
+                    </a>
+                </div>
+                <div class="facebook">
+                    <a href="https://www.facebook.com" class="icon link-azul centrado-vertical">
+                        <img class="icono-social" src="./img/svg/facebook.svg" alt="<%=it.locations.alt_icono_facebook %>">
+                        <span class="">Facebook</span>
+                    </a>
+                </div>
+
+            </div>
+            <div class="newsletter">
+                <div class="widget widget_blog_subscription">
+                    <form class="formulario-newsletter" action="/newsletter" method="post" accept-charset="utf-8"
+                        id="subscribe-blog">
+                        <p class="formulario-newsletter-blanco"><%=it.locations.sucripcion_newsletter %></p>
+                        <p class="formulario-newsletter-blanco">
+                            <input type="text" name="email" placeholder="<%=it.locations.placeholder_email_newsletter %>" value="" id="subscribe-field">
+                        </p>
+                        <p class="formulario-newsletter-blanco">
+                            <button class="boton_suscripcion" type="submit"><%=it.locations.boton_enviar_suscripcion %></button>
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="footerBottomHolder">
+        <div class="footerBottomInner">
+            <a class="iconwidget-holder" href="">
+                <span>© 2021 RentCarMallorca</span>
+            </a>
+        </div>
+    </div>
+</div>
+</footer>

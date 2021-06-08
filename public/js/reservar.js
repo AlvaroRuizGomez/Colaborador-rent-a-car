@@ -168,6 +168,10 @@ boton_reservar.addEventListener("click", async (evento) =>
     document.getElementById("child_seat_input").value = document.getElementById("child_seat").value;
     document.getElementById("booster_seat_input").value = document.getElementById("booster_seat").value;
 
+    document.getElementById("nombre_input").value = document.getElementById("nombre").value;
+    document.getElementById("apellidos_input").value = document.getElementById("apellidos").value;
+    document.getElementById("email_input").value = document.getElementById("email").value;
+    document.getElementById("telefono_input").value = document.getElementById("telefono").value;
 
     const formulario_reservar = document.getElementById("formulario-reservar");
 

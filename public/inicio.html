@@ -165,7 +165,7 @@
                 
                     <% for (let i = 0; i < it.data.length; i++) { %>
                     <div class="card <%=it.data[i]["ImagenVehiclo"] %>">
-                        <form class="form-line" action="/direct" method="post" id="<%=it.data[i]["vehiculo"] %>">
+                    <form class="form-line" action="/direct" method="post" id="<%=it.data[i]["vehiculo"] %>">
                         <input type="hidden" id="fase" name="fase" value="2">
                         <input type="hidden" id="success" name="success" value="<%=it.success %>">
                         <input type="hidden" id="idioma" name="idioma" value="<%=it.locations.idioma_web %>">
@@ -233,10 +233,7 @@
             <!------------ Fin  contenido ------------------------->
 
             <!------------ Inicio  Footer ------------------------->
-            <footer id="footer">
-                <div class="pie"><%=it.locations.informacion%></div>
-                <div class="info"><%=it.locations.copyright%>&copy;</div>
-            </footer>
+            <%~ includeFile("footer.html", it) %>
             <!------------ Fin     Footer ------------------------->
 
         </div>

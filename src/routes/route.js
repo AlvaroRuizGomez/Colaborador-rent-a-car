@@ -7,6 +7,7 @@ const reservar = require("../controllers/reservar");
 const details = require("../controllers/details");
 const generar = require("../controllers/generar");
 const locations = require("../controllers/locations");
+const newsletter = require("../controllers/newsletter");
 
 
 // rutas
@@ -14,7 +15,7 @@ router.get("/", async (req, res) => await home.getHome(req, res));
 router.post("/", async (req, res) => await home.postHome(req, res));
 
 router.post("/direct", async (req, res) => await home.postHomeDirect(req, res));
-router.get("/direct", async (req, res) => await home.getHome(req, res));
+router.get("/direct", async (req, res) => await home.redirectToHome(req, res));
 
 //rutas idiomas
 router.get("/alquiler-coches", async (req, res) => await home.getHome(req, res, "es"));
@@ -44,6 +45,10 @@ router.post("/reservar", async (req, res) => await reservar.postRealizarReserva(
 router.post("/prenotazione", async (req, res) => await reservar.postRealizarReserva(req, res, "it"));
 router.post("/reserve", async (req, res) => await reservar.postRealizarReserva(req, res, "en" ));
 router.post("/buchen", async (req, res) => await reservar.postRealizarReserva(req, res, "de"));
+
+
+router.post("/newsletter", async (req, res) => await newsletter.ProcesarEmail(req, res));
+router.get("/newsletter", async (req, res) => await home.redirectToHome(req, res));
 
 
 router.get("/generar", async (req, res) => await generar.generarHTML(req, res));
