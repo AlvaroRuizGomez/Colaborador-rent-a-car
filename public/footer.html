@@ -55,21 +55,22 @@
                         <span class="">Facebook</span>
                     </a>
                 </div>
-
             </div>
             <div class="newsletter">
                 <div class="widget widget_blog_subscription">
-                    <div id="contestacion" class="contestacion invisible">
-                        <h3><%= it.locations.inscritook %></h3>
-                    </div>
                     <form class="formulario-newsletter visible" action="/newsletter" method="post" accept-charset="utf-8" id="subscribe-blog">
-                        <p class="formulario-newsletter-blanco"><%=it.locations.sucripcion_newsletter %></p>
-                        <p class="formulario-newsletter-blanco">
-                            <input type="text" name="email" placeholder="<%=it.locations.placeholder_email_newsletter %>" value="" id="subscribe-field">
+                        <div id="contestacion" class="contestacion invisible-sinocupar">
+                            <%= it.locations.inscritook %>
+                        </div>
+                        <p id="formulario-newsletter-titulo" class="formulario-newsletter-blanco titulo-formulario-newsletter"><%=it.locations.sucripcion_newsletter %></p>
+                        <p id="formulario-newsletter-email" class="formulario-newsletter-blanco">
+                            <input class="input-email-footer" type="text" name="email" placeholder="<%=it.locations.placeholder_email_newsletter %>" value="" id="subscribe-field">
                         </p>
-                        <p class="formulario-newsletter-blanco">
-                            <button id="boton_suscripcion" class="boton_suscripcion" type="submit"><%=it.locations.boton_enviar_suscripcion %></button>
-                        </p>
+                        <div id="formulario-newsletter-grupo" class="formulario-newsletter-grupo">
+                            <p class="formulario-newsletter-blanco">
+                                <button id="boton_suscripcion" class="boton_suscripcion" type="submit"><%=it.locations.boton_enviar_suscripcion %></button>
+                            </p>
+                        </div>
                     </form>
                 </div>
             </div>

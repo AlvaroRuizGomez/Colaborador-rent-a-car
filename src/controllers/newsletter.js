@@ -36,11 +36,13 @@ exports.ProcesarEmail = async (req, res) =>
 
     if (dataResponse.isOk === false)
     {
-        return res.status(404).send();
+        // res.status(404).send();
     }
-    
-    res.json({"isOk": true});
-    
+    else
+    {
+        res.json({"isOk": true});
+
+    }
 
 
 };

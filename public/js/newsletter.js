@@ -32,14 +32,34 @@ botonNews.addEventListener("click", async (evento) =>
 
     if (dataResponse.isOk === true)
     {
-        if (formularioNews.classList.contains("visible") === true)
+        const titulo = document.getElementById("formulario-newsletter-titulo");
+        const email = document.getElementById("formulario-newsletter-email");
+        const grupo = document.getElementById("formulario-newsletter-grupo");
+
+        const contestacion = document.getElementById("contestacion");
+
+        if (contestacion.classList.contains("invisible-sinocupar") === true)
         {
-            formularioNews.classList.remove("visible");
-            formularioNews.classList.add("invisible");
+            contestacion.classList.remove("invisible-sinocupar");
+            contestacion.classList.add("visible-ocupar");
+            contestacion.classList.add("formulario-newsletter-blanco");
+            contestacion.classList.add("titulo-formulario-newsletter");
+            
+        }
 
-            contestacion.classList.remove("invisible");
-            contestacion.classList.add("visible");
+        if (titulo.classList.contains("invisible-sinocupar") === false)
+        {
+            titulo.classList.add("invisible-sinocupar");
+        }
 
+        if (email.classList.contains("invisible-sinocupar") === false) {
+            email.classList.add("invisible-sinocupar");
+        }
+
+        if (grupo.classList.contains("invisible-sinocupar") === false) {
+            
+            grupo.classList.remove("formulario-newsletter-grupo");
+            grupo.classList.add("invisible-sinocupar");
         }
 
     }
