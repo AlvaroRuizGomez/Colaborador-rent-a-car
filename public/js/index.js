@@ -13,21 +13,28 @@ for (let i = 0; i < cards.length; i++)
         evento.preventDefault();
         
         const selectedVehiculo = cards[i].lastElementChild.lastElementChild.lastElementChild.value;
+        const formulario = document.getElementById(selectedVehiculo);
 
-        document.getElementById("fechaRecogida_input").value = document.getElementById("fechaRecogida").value;
-        document.getElementById("fechaDevolucion_input").value = document.getElementById("fechaDevolucion").value;
-        document.getElementById("horaRecogida_input").value = document.getElementById("horaRecogida").value;
-        document.getElementById("horaDevolucion_input").value = document.getElementById("horaDevolucion").value;
+        formulario[4].value = document.getElementById("fechaRecogida").value;
+        formulario[5].value = document.getElementById("fechaDevolucion").value;
+        formulario[6].value = document.getElementById("horaRecogida").value;
+        formulario[7].value = document.getElementById("horaDevolucion").value;
+
+        // document.getElementById("fechaRecogida_input").value = document.getElementById("fechaRecogida").value;
+        // document.getElementById("fechaDevolucion_input").value = document.getElementById("fechaDevolucion").value;
+        // document.getElementById("horaRecogida_input").value = document.getElementById("horaRecogida").value;
+        // document.getElementById("horaDevolucion_input").value = document.getElementById("horaDevolucion").value;
         if (document.getElementById("rangoedad").checked === true)
         {
-            document.getElementById("conductor_con_experiencia_input").value = "on";
+            // document.getElementById("conductor_con_experiencia_input").value = "on";
+            formulario[8].value = "on";
         }
         else
         {
-            document.getElementById("conductor_con_experiencia_input").value = "off";
+            // document.getElementById("conductor_con_experiencia_input").value = "off";
+            formulario[8].value = "off";
         }
         
-        const formulario = document.getElementById(selectedVehiculo);
         formulario.submit();
 
     });

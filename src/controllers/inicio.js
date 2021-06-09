@@ -121,6 +121,11 @@ exports.getHome = async (req, res, languageBrowser) =>
 
 };
 
+exports.redirectToHome = async (req, res) =>
+{
+    return res.redirect("/");
+};
+
 exports.postHomeDirect = async (req, res) =>
 {
     const isSchemaValid = await ControlDirectSchema(req.body);
