@@ -30,76 +30,107 @@ body{
   min-height: 600px;
 }
 
-#header {
-  display: grid;
-  grid-template-columns: 44% 20% 30%;
-  align-items: center;
-  width: 100%;
-  height: 185px;
-  background-color: #e6e9f0;
-  border-bottom: 1px solid rgba(225, 225, 226, 0.8);
 
-  grid-template-areas: 
-  "c d idioma"
-  ;
-
-
-}
-
-.bandera
+/* --------------- Header -------------- */
+.cabecera
 {
-  width: 50px;
-
-}
-
-.logo img {
-  width: 280px;
-}
-
-.contacto {
   display: grid;
-  /* grid-template-columns: 15% 40%; */
-  grid-template-columns: 1fr;
   width: 100%;
-  padding-right: 10px;
-  margin-top: 2px;
-  font-family: Helvetica;
-  font-style: italic;
-  font-weight: 900px;
-  font-size: 15px;
 }
 
-.contacto img {
-  width: 45px;
+.cabecera-container
+{
+    background: #eaf2fd;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
 }
 
-.contacto h2 {
-  font-size: 20px;
-  margin-top: -39px;
-  margin-left: 50px;
+.logo
+{
+  flex-basis: 200px;
+  margin-left: 20px;
 }
 
-#reserva-telefono {
-  font-family: "Open Sans", sans-serif;
-  margin-left: 66px;
-  margin-top: -15px;  
+.logo-imagen
+{
+    width: 200px;
 }
 
-#idioma {
-  grid-area: idioma;
-  width: 100%;
-  height: 100%;
-  padding-right: 20px;
+.idiomas
+{
+    margin-right: 20px;
+    margin-top: 5px;
 }
 
-#idioma > ul {
-  display: grid;
-  /* grid-template-columns: 1fr; */
+.h-car
+{
+    position: relative;
+    top: 25px;
+    /* left: 50%; */
+    display: none;
+}
+
+@media screen and (min-width: 480px)
+{
+    .h-car
+    {
+        display: inherit;
+    }
+}
+
+ /* pantallas super pequeñas menos de 320px */
+@media screen and (max-width: 343px)
+{
+    .logo
+    {
+        flex-basis: 160px;
+    }
+    .logo-imagen
+    {
+        width: 160px;
+    }
+    
+    .idiomas
+    {
+    margin-right: 5px;
+    }
+
+    .cabecera
+    {
+        height: 60px;
+    }
+}
+
+
+.nav-header
+{
+  display: flex;
   align-items: center;
-  justify-content: center;
-  text-align: right;
-  height: 100%;
-  list-style: none;
+  flex-direction: row;
+  height: 50px;
+}
+
+.nav-header_listado
+{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  column-gap: 40px;
+  margin-left: 20px;
+  list-style-type: none;
+}
+
+.menu-link
+{
+  text-decoration: none;
+}
+
+.menu-link:hover
+{
+  text-decoration: revert;
 }
 
 #eslogan {
@@ -121,6 +152,8 @@ body{
   font-style: oblique;
   text-shadow: 1px 6px 2px #222;
 }
+
+/* ------------- fin header */
 
 /* ------------- Inicio Contenido ------------- */
 #content {

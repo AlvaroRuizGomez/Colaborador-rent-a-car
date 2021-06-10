@@ -1,57 +1,42 @@
-<header id="header">
-    <%~ includeFile("parciallogo.html") %>
-    <div class="contacto">
-        <picture class="">
-            <source srcset="./img/whatsapp-icon.avif">
-            <source srcset="./img/whatsapp-icon.webp">
-            <img src="./img/whatsapp-icon.png" alt="whatsapp">
-        </picture>
-        
-        <h2>+34 999 999 999</h2>
-        <p id="reserva-telefono"><%=it.locations.contacto_reservas%></p>
+<header class="cabecera" id="header">
+    <div class="cabecera-container">
+        <div class="logo">
+            <a href="/" class="">
+                <img class="logo-imagen" src="./img/Img-Logo/rentacar_logo_modificado.webp" alt="logo rentacarmallorca">
+            </a>
+        </div>
+        <div class="h-car">
+            <picture>
+
+                <source media="(min-width:650px)" srcset="./img/Img-Vehiculos/CitroenC1_open_Card.avif">
+                <!-- <source media="(min-width:465px)" srcset="./img/Img-Vehiculos/Suzuki-Burgman_125cc_Card.avif"> -->
+
+                <!-- <source srcset="./img/Img-Vehiculos/toyotaAygoRed_Card.avif" media="(min-width:320px) and (max-width:450px)" /> -->
+                <img src="./img/Img-Vehiculos/CitroenC1_open_Card.webp" alt="citroen C1">
+            </picture>
+        </div>
+
+        <div class="btn-group lang-sel open btn-group-top idiomas">
+            <select class="selectpicker" data-width="fit">
+                <option data-content='<span class="flag-icon flag-icon-gb"> </span>&nbsp;&nbsp;English'>English</option>
+                <option data-content='<span class="flag-icon flag-icon-it"> </span>&nbsp;&nbsp;Italiano'>Italiano
+                </option>
+                <option data-content='<span class="flag-icon flag-icon-es"> </span>&nbsp;&nbsp;Español'>Español</option>
+                <option data-content='<span class="flag-icon flag-icon-de"> </span>&nbsp;&nbsp;Deutsche'>Deutsche
+                </option>
+            </select>
+        </div>
     </div>
 
-    <nav id="idioma">
-        <ul>
-            <li>
-                <%=it.locations.idiomas%>
+    <nav class="nav-header">
+        <ul class="nav-header_listado">
+            <li class="presentation">
+                <a class="menu-link" href="">Mapa del sitio</a>
             </li>
-            <li>
-                <a href="/autonoleggio">
-                    <picture class="bandera">
-                        <source srcset="./img/banderas/it.avif">
-                        <source srcset="./img/banderas/it.webp">
-                        <img src="./img/banderas/it.png" class="bandera" alt="<%=it.locations.bandera_italiana%>">
-                    </picture>
-                </a>
-            </li>
-            <li>
-                <a href="/alquiler-coches">
-                    <picture class="bandera">
-                        <source srcset="./img/banderas/es.avif">
-                        <source srcset="./img/banderas/es.webp">
-                        <img src="./img/banderas/es.png" class="bandera" alt="<%=it.locations.bandera_espanola%>">
-                    </picture>
-                </a>
-            </li>
-            <li>
-                <a href="/mietwagen">
-                    <picture class="bandera">
-                        <source srcset="./img/banderas/de.avif">
-                        <source srcset="./img/banderas/de.webp">
-                        <img src="./img/banderas/de.png" class="bandera" alt="<%=it.locations.bandera_alemana%>">
-                    </picture>
-                </a>
-            </li>
-            <li>
-                <a href="/rentacar">
-                    <picture class="bandera">
-                        <source srcset="./img/banderas/en.avif">
-                        <source srcset="./img/banderas/en.webp">
-                        <img src="./img/banderas/en.png" class="bandera"  alt="<%=it.locations.bandera_inglesa%>">
-                    </picture>
-                </a>
+            <li class="presentation">
+                <a class="menu-link" href="" rel="noopener" target="_blank">Ayuda</a>
             </li>
         </ul>
     </nav>
+
 </header>
