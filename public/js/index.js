@@ -71,7 +71,9 @@ boton.addEventListener("click", async () =>
 
 window.onclick = async (evento) => 
 {
-    if (evento.target.matches(".boton-idioma-seleccionado") === false)
+    if (evento.target.matches(".boton-idioma-seleccionado") === false && 
+        evento.target.matches(".bandera") === false
+    )
     {
         const listadoIdiomas = document.getElementById("idioma-contenido");
         if (listadoIdiomas.classList.contains("idioma-contenido-show"))
