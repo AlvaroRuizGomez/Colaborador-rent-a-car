@@ -1,3 +1,10 @@
+:root
+{
+  --background-color-tooltip: rgba(59, 72, 80, 0.9);
+  --border-color-tooltip: rgba(55, 64, 70, 0.9);
+  --gradiente-tooltip: rgba(59, 72, 80, 0.44);
+}
+
 *{
   text-decoration: none;
   margin: 0px;
@@ -42,9 +49,7 @@ body {
 
 .layout .banner {
   grid-area: banner;
-  /* grid-column-start: 1;
-  grid-column-end:3; */
-  /* background: green; */
+
 }
 
 .layout .form {
@@ -80,90 +85,7 @@ background: red;
   color: white;
   width:100%;
 }
- 
-#header {
-  display: grid;
-  grid-template-columns: 44% 20% 30%;
-  margin-bottom: 32px;
-  align-items: center;
-  width: 100%;
-  height: 185px;
-  background-color: #e6e9f0;
-  border-bottom: 1px solid rgba(225, 225, 226, 0.8);
-}
 
-.logo img {
-  width: 280px;
-}
-
-.contacto {
-  display: grid;
-  /* grid-template-columns: 15% 40%; */
-  grid-template-columns: 1fr;
-  width: 100%;
-  padding-right: 10px;
-  margin-top: 2px;
-  font-family: Helvetica;
-  font-style: italic;
-  font-weight: 900px;
-  font-size: 15px;
-}
-  
-.contacto img {
-  width: 45px;
-}
-  
-.contacto h2 {
-  font-size: 20px;
-  margin-top: -39px;
-  margin-left: -63px;
-}
-
-.contacto p {
-  margin-right: 124px;
-}
-  
-#reserva-telefono {
-  font-family: "Open Sans", sans-serif;
-  margin-left: 66px;
-  margin-top: -15px;  
-}
-  
-#idioma {
-  width: 100%;
-  height: 100%;
-  padding-right: 20px;
-}
-  
-#idioma > ul {
-  display: grid;
-  grid-template-columns: 1fr;
-  align-items: center;
-  justify-content: center;
-  text-align: right;
-  height: 100%;
-  list-style: none;
-}
-  
-#eslogan {
-  display: grid;
-  grid-template-columns: 1fr;
-    
-  width: 100%;
-  margin-top: -53px;
-  margin-left: 37px;
-  
-  position: absolute;
-  z-index: 100;
-  justify-items: center;
-    
-  color: #0d6efd;
-  font-family: 'Lobster', cursive;
-  font-size: 63px;
-  font-weight: bold;
-  font-style: oblique;
-  text-shadow: 1px 6px 2px #222;
-}
 /*---- Inicio Datos-busqueda/Vehículos-Ofertados encontrados ------- */
 .form-busca{
   margin-top: -32px;
@@ -896,6 +818,8 @@ background: red;
 }
 
 
+
+
 [data-tooltip]:before {
   content: attr(data-tooltip);
   padding: 10px 18px;
@@ -904,11 +828,12 @@ background: red;
   width: max-content;
   border-radius: 6px;
   font-size: 14px;
-  background-color: rgba(59, 72, 80, 0.9);
+  background-color: var(--background-color-tooltip);
   background-image: linear-gradient(30deg,
-    rgba(59, 72, 80, 0.44),
-    rgba(59, 68, 75, 0.44),
-    rgba(60, 82, 88, 0.44));
+    var(--gradiente-tooltip),
+    var(--gradiente-tooltip),
+    var(--gradiente-tooltip)
+    );
   box-shadow: 0px 0px 24px rgba(0, 0, 0, 0.2);
   color: #fff;
   text-align: center;
@@ -917,11 +842,12 @@ background: red;
 }
 
 
+
 [data-tooltip]:after {
   content: '';
   border-style: solid;
   border-width: 5px 5px 0px 5px;
-  border-color: rgba(55, 64, 70, 0.9) transparent transparent transparent;
+  border-color: var(--border-color-tooltip) transparent transparent transparent;
   transition-duration: 0s; 
   transform-origin: top;  
   transform: translateX(-50%) scaleY(0);
@@ -1001,7 +927,7 @@ background: red;
 [data-tooltip-location="right"]:after
 {
   border-width: 5px 5px 5px 0px;
-  border-color: transparent rgba(55, 64, 70, 0.9) transparent transparent;
+  border-color: transparent var(--background-color-tooltip) transparent transparent;
   transform-origin: right;
   transform: translateY(50%) scaleX(0);
 }
@@ -1162,6 +1088,11 @@ background: red;
     letter-spacing: 2px;
 }
 
+.footer_group
+{
+  grid-area: footer;
+}
+
 /* ----- INFORMACION --- */
 
 .footerTop_info
@@ -1234,6 +1165,11 @@ background: red;
   flex-basis: 300px;
 }
 
+.p-Direccion
+{
+  margin-left: -7px;
+}
+
 .imagen-rentacar-logo
 {
     width: 300px;
@@ -1244,7 +1180,8 @@ background: red;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 10px;
+  font-weight: 100;
+  /* gap: 10px; */
 
   /* line-height: 2; */
 }
@@ -1283,7 +1220,7 @@ iframe
   display: flex;
   flex-direction: column;
   row-gap: 20px;
-
+  align-items: center;
 }
 
 .icono-social
@@ -1308,6 +1245,7 @@ iframe
   flex-direction: row;
   justify-content: center;
   height: max-content;
+  width: min-content;
 
 }
 
@@ -1486,7 +1424,7 @@ iframe
   grid-area: footerBottom; 
   
   width: 100%;
-  height: 40px;
+  height: 70px;
   vertical-align: middle;
   background-color: #000;
   border-top: 0 solid #000;

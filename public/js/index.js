@@ -16,22 +16,16 @@ for (let i = 0; i < cards.length; i++)
         const formulario = document.getElementById(selectedVehiculo);
 
         formulario[4].value = document.getElementById("fechaRecogida").value;
-        formulario[5].value = document.getElementById("fechaDevolucion").value;
-        formulario[6].value = document.getElementById("horaRecogida").value;
+        formulario[5].value = document.getElementById("horaRecogida").value;
+        formulario[6].value = document.getElementById("fechaDevolucion").value;
         formulario[7].value = document.getElementById("horaDevolucion").value;
 
-        // document.getElementById("fechaRecogida_input").value = document.getElementById("fechaRecogida").value;
-        // document.getElementById("fechaDevolucion_input").value = document.getElementById("fechaDevolucion").value;
-        // document.getElementById("horaRecogida_input").value = document.getElementById("horaRecogida").value;
-        // document.getElementById("horaDevolucion_input").value = document.getElementById("horaDevolucion").value;
         if (document.getElementById("rangoedad").checked === true)
         {
-            // document.getElementById("conductor_con_experiencia_input").value = "on";
             formulario[8].value = "on";
         }
         else
         {
-            // document.getElementById("conductor_con_experiencia_input").value = "off";
             formulario[8].value = "off";
         }
         
@@ -56,6 +50,40 @@ const CheckRangoEdad = async () => {
 }
 
 checkboxRangoEdad.addEventListener("click", CheckRangoEdad );
+
+const boton = document.getElementById("boton-idioma-seleccionado");
+
+boton.addEventListener("click", async () =>
+{
+
+    const contenido = document.getElementById("idioma-contenido");
+    if (contenido.classList.contains("idioma-contenido-show") === true)
+    {
+
+        contenido.classList.remove("idioma-contenido-show");
+    }
+    else
+    {
+        contenido.classList.add("idioma-contenido-show");
+    }
+    
+});
+
+window.onclick = async (evento) => 
+{
+    if (evento.target.matches(".boton-idioma-seleccionado") === false)
+    {
+        const listadoIdiomas = document.getElementById("idioma-contenido");
+        if (listadoIdiomas.classList.contains("idioma-contenido-show"))
+        {
+            listadoIdiomas.classList.remove("idioma-contenido-show");
+        }
+    }
+}
+
+
+
+
 
 window.onload = function () {
     CheckRangoEdad();

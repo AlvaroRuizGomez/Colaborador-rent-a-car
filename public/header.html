@@ -2,7 +2,12 @@
     <div class="cabecera-container">
         <div class="logo">
             <a href="/" class="">
-                <img class="logo-imagen" src="./img/Img-Logo/rentacar_logo_modificado.webp" alt="logo rentacarmallorca">
+                <picture>
+                    <source srcset="./img/Img-Logo/rentacar_logo_header.avif">
+                    <!-- <source media="(min-width:465px)" srcset="./img/Img-Vehiculos/Suzuki-Burgman_125cc_Card.avif"> -->
+                    <!-- <source srcset="./img/Img-Vehiculos/toyotaAygoRed_Card.avif" media="(min-width:320px) and (max-width:450px)" /> -->
+                    <img class="logo-imagen" src="./img/Img-Logo/rentacar_logo_header.png" alt="logo rentacarmallorca">
+                </picture>
             </a>
         </div>
         <div class="h-car">
@@ -15,26 +20,69 @@
                 <img src="./img/Img-Vehiculos/CitroenC1_open_Card.webp" alt="citroen C1">
             </picture>
         </div>
+        
+        <div class="idiomas">
+            <div class="idiomas-seleccion">
+            
+                <% let idi = [ "en",  "es", "it", "de" ] %>
+                <% for (let i = 0; i < idi.length; i++) { %>
+                    
+                    <% if (it.locations.idioma_web === idi[i]) { %>
+                        <% const url_alquilercoches = "url_alquilercoches_" + idi[i] %>
+                        <% const bander = "bandera_" + idi[i] %>
+                        <% const idio = "idioma_" + idi[i] %>
+                        <button class="boton-idioma-seleccionado" id="boton-idioma-seleccionado">
+                            <picture>
+                                <source srcset="./img/banderas/<%= idi[i] %>.avif">
+                                <source srcset="./img/banderas/<%= idi[i] %>.webp">
+                                <img src="./img/banderas/<%= idi[i] %>.png" class="bandera" alt="<%=it.locations[bander]%>">
+                            </picture>
+                            <%=it.locations[idio] %>
+                            <span class="adorno-abajo"></span>
+                        </button>
+                    <% } %>
 
-        <div class="btn-group lang-sel open btn-group-top idiomas">
-            <select class="selectpicker" data-width="fit">
-                <option data-content='<span class="flag-icon flag-icon-gb"> </span>&nbsp;&nbsp;English'>English</option>
-                <option data-content='<span class="flag-icon flag-icon-it"> </span>&nbsp;&nbsp;Italiano'>Italiano
-                </option>
-                <option data-content='<span class="flag-icon flag-icon-es"> </span>&nbsp;&nbsp;Español'>Español</option>
-                <option data-content='<span class="flag-icon flag-icon-de"> </span>&nbsp;&nbsp;Deutsche'>Deutsche
-                </option>
-            </select>
+                <% } %>
+                
+
+                
+
+                <div class="idioma-contenido" id="idioma-contenido">
+                    <% for (let i = 0; i < idi.length; i++) { %>
+                        
+                        
+                            <% const url_alquilercoches="url_alquilercoches_" + idi[i] %>
+                            <% const bander="bandera_" + idi[i] %>
+                            <% const idio="idioma_" + idi[i] %>
+                                <a class="link-idiomas" href="<%= it.locations[url_alquilercoches]%>">
+                                    <picture>
+                                        <source srcset="./img/banderas/<%= idi[i] %>.avif">
+                                        <source srcset="./img/banderas/<%= idi[i] %>.webp">
+                                        <img src="./img/banderas/<%= idi[i] %>.png" class="bandera"
+                                            alt="<%=it.locations[bander]%>">
+                                    </picture>
+                                    <%=it.locations[idio] %>
+                                </a>
+                        
+                                
+                    <% } %> 
+                </div>
+    
+                    
+                </div>
+
+            </div>
         </div>
+
     </div>
 
     <nav class="nav-header">
         <ul class="nav-header_listado">
             <li class="presentation">
-                <a class="menu-link" href="">Mapa del sitio</a>
+                <a class="menu-link" href=""><%=it.locations.mapa_sitio%></a>
             </li>
             <li class="presentation">
-                <a class="menu-link" href="" rel="noopener" target="_blank">Ayuda</a>
+                <a class="menu-link" href="" rel="noopener" target="_blank"><%=it.locations.ayuda %></a>
             </li>
         </ul>
     </nav>

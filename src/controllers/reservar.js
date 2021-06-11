@@ -1,6 +1,7 @@
 const Joi = require('joi');
 const fetch = require("node-fetch");
 const geolocation = require("./geolocation");
+const locations = require("../controllers/locations");
 
 
 // const URI_UPDATE_STATS_BACKEND = `${process.env.URL_BACKEND}:${process.env.PORT_BACKEND}${process.env.ENDPOINT_UPDATE_STATS_BACKEND}`;
@@ -56,27 +57,30 @@ exports.postRealizarReserva = async (req, res, language ) =>
     }
 
     // TODO: seguridad comprobar que proviene del backend
-    if (dataResponse.token !== "")
-    {
-        return res.status(404).send("Not found");
-    }
+    // if (dataResponse.token !== "")
+    // {
+    //     return res.status(404).send("Not found");
+    // }
 
     const locationLanguage = await locations.GenerateLocationBrowser(req.body.idioma);
 
-    if (dataResponse.isOk === false)
-    {
-        return res.render("inicio",
-        {
-            "success": req.body.success,
-            "errorFormulario": dataResponse.errorFormulario,
-            "locations": locationLanguage
-        });
-    }
+    //{ isOk: resultadoInsercion.isInserted, numeroReserva: resultadoInsercion.numeroReserva }
+
+    // if (dataResponse.isOk === false)
+    // {
+    //     return res.render("inicio",
+    //     {
+    //         "success": req.body.success,
+    //         "errorFormulario": dataResponse.errorFormulario,
+    //         "locations": locationLanguage
+    //     });
+    // }
 
     res.render("reservacompletada", {
+        "isOk": dataResponse.isOk,
         "success": req.body.success,
-        "errorFormulario": dataResponse.errorFormulario,
-        "locations": locationLanguage
+        "locations": locationLanguage,
+        "numeroReserva": dataResponse.numeroReserva
     });    
 
 };
