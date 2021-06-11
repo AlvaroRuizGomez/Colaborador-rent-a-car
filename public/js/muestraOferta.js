@@ -4,6 +4,7 @@ const overlay = document.getElementsByClassName("overlay-transparente");
 
 
 
+
 for (let i = 0; i < botonCondiciones.length; i++)
 {
     
@@ -67,3 +68,33 @@ for (let i = 0; i < botonCondiciones.length; i++)
         }
     });
 }
+
+
+// idiomas
+const boton = document.getElementById("boton-idioma-seleccionado");
+
+boton.addEventListener("click", async () => {
+
+    const contenido = document.getElementById("idioma-contenido");
+    if (contenido.classList.contains("idioma-contenido-show") === true) {
+
+        contenido.classList.remove("idioma-contenido-show");
+    }
+    else {
+        contenido.classList.add("idioma-contenido-show");
+    }
+
+});
+
+window.onclick = async (evento) => {
+    if (evento.target.matches(".boton-idioma-seleccionado") === false &&
+        evento.target.matches(".bandera") === false
+    ) {
+        const listadoIdiomas = document.getElementById("idioma-contenido");
+        if (listadoIdiomas.classList.contains("idioma-contenido-show")) {
+            listadoIdiomas.classList.remove("idioma-contenido-show");
+        }
+    }
+}
+
+//---- fin idiomas

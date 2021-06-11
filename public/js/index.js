@@ -84,9 +84,6 @@ window.onclick = async (evento) =>
 }
 
 
-
-
-
 window.onload = function () {
     CheckRangoEdad();
 };
