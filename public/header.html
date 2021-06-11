@@ -50,7 +50,7 @@
                 <div class="idioma-contenido" id="idioma-contenido">
                     <% for (let i = 0; i < idi.length; i++) { %>
                         
-                        
+                        <% if (it.locations.idioma_web!==idi[i]) { %>
                             <% const url_alquilercoches="url_alquilercoches_" + idi[i] %>
                             <% const bander="bandera_" + idi[i] %>
                             <% const idio="idioma_" + idi[i] %>
@@ -63,7 +63,7 @@
                                     </picture>
                                     <%=it.locations[idio] %>
                                 </a>
-                        
+                        <% } %>
                                 
                     <% } %> 
                 </div>
