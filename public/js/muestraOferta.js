@@ -98,3 +98,5 @@ window.onclick = async (evento) => {
 }
 
 //---- fin idiomas
+
+

@@ -182,7 +182,9 @@
                 <main class="page-content">
                 
                     <% for (let i = 0; i < it.data.length; i++) { %>
-                    <div class="card <%=it.data[i]["ImagenVehiclo"] %>">
+                    
+                    <div class="card lazyload <%=it.data[i]["ImagenVehiclo"] %>">
+                        
                     <form class="form-line" action="/direct" method="post" id="<%=it.data[i]["vehiculo"] %>">
                         <input type="hidden"  name="fase" value="2">
                         <input type="hidden"  name="success" value="<%=it.success %>">
@@ -257,9 +259,11 @@
         </div>
         <!-- Fin container -->
 
+        <script async src="./js/lazysizes.min.js"></script>
         
         <script async src="./js/index.js"></script>
         <script async src="./js/newsletter.js"></script>
+        
         <!--------------------------- Scripts ---------------------------->
         <!---------------------------------------------------------------->
         <!---------------------------------------------------------------->

@@ -33,6 +33,25 @@
     <link rel="stylesheet" href="./css/muestraOferta.css" />
     <link rel="stylesheet" href="./css/header.css">
     <link rel="stylesheet" href="./css/footer.css">
+
+    <!-- Favicon -->
+    <link rel="icon" href="./img/Img-Logo/rentacar_favicon-32.png" sizes="32x32">
+    <link rel="icon" href="./img/Img-Logo/rentacar_favicon-57.png" sizes="57x57">
+    <link rel="icon" href="./img/Img-Logo/rentacar_favicon-76.png" sizes="76x76">
+    <link rel="icon" href="./img/Img-Logo/rentacar_favicon-96.png" sizes="96x96">
+    <link rel="icon" href="./img/Img-Logo/rentacar_favicon-128.png" sizes="128x128">
+    <link rel="icon" href="./img/Img-Logo/rentacar_favicon-192.png" sizes="192x192">
+    <link rel="icon" href="./img/Img-Logo/rentacar_favicon-228.png" sizes="228x228">
+    
+    <!-- Favicon Android -->
+    <link rel="shortcut icon" href=“./img/Img-Logo/rentacar_favicon-196.png" sizes="196x196">
+    
+    <!-- Favicon IOS -->
+    <link rel="apple-touch-icon" href="./img/Img-Logo/rentacar_favicon-120.png" sizes="120x120">
+    <link rel="apple-touch-icon" href="./img/Img-Logo/rentacar_favicon-152.png" sizes="152x152">
+    <link rel="apple-touch-icon" href="./img/Img-Logo/rentacar_favicon-180.png" sizes="180x180">
+
+
 </head>
 <body>
     <div class="layout">
@@ -40,12 +59,6 @@
             <!-- Inicio Cabecera -->
             <%~ includeFile("header.html", it) %>
             <!------- Fin Cabecera ---->
-
-            <!------- Inicio Slogan  --------->
-            <!-- <section id="eslogan">
-                Conozca Mallorca...
-            </section> -->
-            <!------- Fin Slogan  ------------>
         </div>
         <!------- Inicio formulario de Busqueda ----------------->
         <div class="form-container">
@@ -149,9 +162,9 @@
                                         </h5>
                                         <div class="py-4 text-black text-center">
                                             <picture class="d-block img-ta">
-                                                <source srcset="./img/Img-Vehiculos/<%= it.data[i].ImagenVehiclo %>_Slider.avif">
-                                                <source srcset="./img/Img-Vehiculos/<%= it.data[i].ImagenVehiclo %>_Slider.webp">
-                                                <img class="d-block img-ta" src="img/Img-Vehiculos/<%= it.data[i].ImagenVehiclo %>_Slider.png" alt="<%= it.data[i].descripcion %>">
+                                                <source data-srcset="./img/Img-Vehiculos/<%= it.data[i].ImagenVehiclo %>_Slider.avif">
+                                                <source data-srcset="./img/Img-Vehiculos/<%= it.data[i].ImagenVehiclo %>_Slider.webp">
+                                                <img class="d-block img-ta lazyload" data-src="img/Img-Vehiculos/<%= it.data[i].ImagenVehiclo %>_Slider.png" alt="<%= it.data[i].descripcion %>">
                                             </picture>
 
 
@@ -180,9 +193,9 @@
                                         <h5><%= it.data[i].descripcion %></h5>
                                         <div class="py-4 text-black text-center">
                                             <picture class="d-block img-ta">
-                                                <source srcset="./img/Img-Vehiculos/<%= it.data[i].ImagenVehiclo %>_Slider.avif">
-                                                <source srcset="./img/Img-Vehiculos/<%= it.data[i].ImagenVehiclo %>_Slider.webp">
-                                                <img class="d-block  img-ta" src="img/Img-Vehiculos/<%= it.data[i].ImagenVehiclo %>_Slider.png"
+                                                <source data-srcset="./img/Img-Vehiculos/<%= it.data[i].ImagenVehiclo %>_Slider.avif">
+                                                <source data-srcset="./img/Img-Vehiculos/<%= it.data[i].ImagenVehiclo %>_Slider.webp">
+                                                <img class="d-block  img-ta lazyload" data-src="img/Img-Vehiculos/<%= it.data[i].ImagenVehiclo %>_Slider.png"
                                                     alt="<%= it.data[i].descripcion %>">
                                             </picture>
                                         </div>
@@ -258,6 +271,7 @@
     </div>
     
     <script src="./js/muestraOferta.js"></script>
+    <script src="./js/lazysizes.min.js" async=""></script>
 </body>
 </html>
 
