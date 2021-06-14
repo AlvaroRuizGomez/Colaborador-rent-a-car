@@ -9,12 +9,14 @@
         <link rel="stylesheet" href="./css/footer.css">
     </head>
     <body>
+        <div class="container">
+            <%~ includeFile("header.html", it) %>
 
+        </div>
         <div class="layout">
-            <div class="blockBanner">
+            <!-- <div class="blockBanner">
                 <div class="banner">
                     <!------- Inicio Cabecera ---->
-                    <%~ includeFile("header.html", it) %>
                     <!------- Fin Cabecera ---->
             
                     <!------- Inicio Slogan  --------->
@@ -24,7 +26,7 @@
                     <!------- Fin Slogan  ------------>
                 </div>
                 
-            </div>
+            </div> -->
 
             
             <!-----------------  Inicio Sidebar1  ------------------------------------------>
@@ -442,7 +444,7 @@
                             <input type="hidden" id="apellidos_input" name="apellidos" value="">
                             <input type="hidden" id="email_input" name="email" value="">
                             <input type="hidden" id="telefono_input" name="telefono" value="">
-                            <input type="hidden" id="telefono" name="idioma" value="<%=it.locations.idioma_web %>">
+                            <input type="hidden" id="idioma" name="idioma" value="<%=it.locations.idioma_web %>">
                             
 
 
