@@ -1,100 +1,81 @@
 body {
     font-family: sans-serif;
     text-align: center;
+    overflow-x: hidden;
 }
 
 .layout {
     width: 100%;
-    min-height: 600px;
+    height: 100%;
+
+    
+
+    /* min-height: 600px;
     display: grid;
-    grid-gap: 15px;
-    grid-template-columns: repeat(8, 1fr);
-    grid-template-rows: repeat(8, 1fr) 0.5fr;
+    grid-template-rows: auto auto;
+    grid-template-areas: 
+    "header"
+    "contenido"
+    "footer"
+    ; */
+    /* grid-template-columns: repeat(8, 1fr); */
+    /* grid-template-rows: 10px repeat(7, 1fr) 0.5fr; */
+    /* grid-gap: 15px; */
+
+
+    
+  display: grid;
+  height: 100vh;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 0.2fr 1.5fr 1.2fr 0.8fr;
+  grid-template-areas:
+    "sidebar contentReserva"
+    "sidebar beneficios"
+    "sidebar sillasBox"
+    "sidebar formDriver"
+    "sidebar boxBtnRevervar"
+    ;
+  gap: 0.5rem;
+  font-weight: 800;
+  font-size: 12px;
+  color: #004d40;
+  text-align: center;
+
+
     background: #fafafa;
 }
 
-/* --------- Inicio Banner  ---------- */
-.blockBanner {
-    grid-column-start: 1;
-    grid-column-end:9;
-    /* background: red; */
-}
-
-#header {
-    display: grid;
-    grid-template-columns: 44% 20% 30%;
-    margin-bottom: 0px;
-    align-items: center;
-    width: 100%;
-    height: 185px;
-    background-color: #e6e9f0;
-    border-bottom: 1px solid rgba(225, 225, 226, 0.8);
-  }  
-
-#header img {
-    width: 50%;
-}
-
-.imgLogo {
-    width: 15%;
-}
-
-.contacto {
-    display: grid;
-    /* grid-template-columns: 15% 40%; */
+@media only screen and (max-width: 550px) {
+  .layout {
     grid-template-columns: 1fr;
-    width: 100%;
-    padding-right: 10px;
-    margin-top: 2px;
-    font-family: Helvetica;
-    font-style: italic;
-    font-weight: 900px;
-    font-size: 15px;
+    grid-template-rows: 0.4fr 0.4fr 2.2fr 1.2fr 1.2fr 1.2fr 1fr;
+    grid-template-areas:
+      "sidebar"
+      "main"
+      "about"
+      "contact"
+      "footer";
   }
-    
-  .contacto > img {
-    width: 15%;
-  }
-    
-  .contacto h2 {
-    font-size: 20px;
-    margin-top: -39px;
-    margin-left: -63px;
-  }
-  
-  .contacto p {
-    margin-right: 124px;
-  }
-    
-  #reserva-telefono {
-    font-family: "Open Sans", sans-serif;
-    margin-left: 66px;
-    margin-top: -15px;  
-  }
-    
-  #idioma {
-    width: 100%;
-    height: 100%;
-    padding-right: 20px;
-  }
-    
-  #idioma > ul {
-    display: grid;
-    grid-template-columns: 1fr;
-    align-items: center;
-    justify-content: center;
-    text-align: right;
-    height: 100%;
-    list-style: none;
-  }
-/* --------- Fin Banner  ---------- */
+}
+
+
+
+.banner
+{
+
+    grid-area: header;
+}
+
+
+
 
 /* ------ Inicio sidebar1 -------- */
 .sidebar1 {
-    grid-column-start: 2;
+    grid-area: sidebar;
+    /* grid-column-start: 2;
     grid-column-end:4;
     grid-row-start: 2;
-    grid-row-end: 5;
+    grid-row-end: 5; */
 }
 
 #contentAside {
@@ -314,17 +295,20 @@ body {
 
 /* ------ Inicio sidebar2 -------- */
 .blue {
-    grid-column-start: 2;
+    /* grid-column-start: 2;
     grid-column-end:4;
     grid-row-start: 5;
-    background: blue;
+    background: blue; */
 }
 /* ------   Fin sidebar2  ------- */
 
 /* -------- Inicio Bloque contenido ------ */
+
+
+
 .contentReserva {
-    grid-column: 4 / 8;
-    grid-row: 2 / 4;
+    /* grid-column: 4 / 8;
+    grid-row: 2 / 4; */
 }
 
 .contentBlock {
@@ -475,8 +459,8 @@ body {
 
 /* --- Inicio Incluido en el precio ---- */
 .beneficios {
-    grid-column: 4 / 8;
-    grid-row: 4 / 5;
+    /* grid-column: 4 / 8;
+    grid-row: 4 / 5; */
 }
 
 .includPrice-container {
@@ -506,8 +490,8 @@ body {
 
 /* ---- Inicio Sillas y Elevadores niños ----- */
 .sillasBox {
-    grid-column: 4 / 8;
-    grid-row: 5 / 7;
+    /* grid-column: 4 / 8;
+    grid-row: 5 / 7; */
 }
 
 .sillasContent {
@@ -670,8 +654,8 @@ body {
 
 /* ---- Inicio datos conductor principal ----- */
 .formDriver {
-    grid-column: 4 / 8;
-    grid-row: 7 / 9;
+    /* grid-column: 4 / 8;
+    grid-row: 7 / 9; */
 }
 
 .formDriverContent {
@@ -826,8 +810,8 @@ body {
 
 /* ---- Botón Reservar ---- */
 .boxBtnRevervar {
-    grid-column: 6 / 8;
-    grid-row: 9;
+    /* grid-column: 6 / 8;
+    grid-row: 9; */
 }  
 
 .btnReserva {

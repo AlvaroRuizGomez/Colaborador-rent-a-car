@@ -93,6 +93,15 @@
 .menu-link
 {
   text-decoration: none;
+  color: #007bff;
+  background-color: transparent;
+    
+
+}
+
+.menu-link:active
+{
+  color: #007bff;
 }
 
 .menu-link:hover
@@ -128,6 +137,7 @@
 .bandera
 {
   width: 20px;
+  vertical-align: middle;
 }
 
 .show {
