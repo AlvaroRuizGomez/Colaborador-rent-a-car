@@ -30,80 +30,6 @@ body{
   /* min-height: 600px; */
 }
 
-<<<<<<< HEAD
-#header {
-  display: grid;
-  grid-template-columns: 44% 20% 30%;
-  align-items: center;
-  width: 100%;
-  height: 185px;
-  background-color: #e6e9f0;
-  border-bottom: 1px solid rgba(225, 225, 226, 0.8);
-
-  grid-template-areas: 
-  "c d idioma"
-  ;
-
-
-}
-
-.bandera
-{
-  width: 50px;
-  border: 1px solid black;
-}
-
-.logo img {
-  width: 280px;
-}
-
-.contacto {
-  display: grid;
-  /* grid-template-columns: 15% 40%; */
-  grid-template-columns: 1fr;
-  width: 100%;
-  padding-right: 10px;
-  margin-top: 2px;
-  font-family: Helvetica;
-  font-style: italic;
-  font-weight: 900px;
-  font-size: 15px;
-}
-
-.contacto img {
-  width: 45px;
-}
-
-.contacto h2 {
-  font-size: 20px;
-  margin-top: -39px;
-  margin-left: 50px;
-}
-
-#reserva-telefono {
-  font-family: "Open Sans", sans-serif;
-  margin-left: 66px;
-  margin-top: -15px;  
-}
-
-#idioma {
-  grid-area: idioma;
-  width: 100%;
-  height: 100%;
-  padding-right: 20px;
-}
-
-#idioma > ul {
-  display: grid;
-  /* grid-template-columns: 1fr; */
-  align-items: center;
-  justify-content: center;
-  text-align: right;
-  height: 100%;
-  list-style: none;
-}
-=======
->>>>>>> dev-joseluis
 
 
 
@@ -117,11 +43,7 @@ body{
 
   padding-top: 20px;
   padding-bottom: 20px;
-<<<<<<< HEAD
-  background-image: url("../img/Img-Banner/FaroSoller.jpeg");
-=======
   background-image: url("../img/Img-Banner/FaroSoller.webp");
->>>>>>> dev-joseluis
   background-position: center;
   background-size: cover;
   position: relative;
