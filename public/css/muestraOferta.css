@@ -167,12 +167,12 @@ body {
 
 .form-Ofertas {
   display: grid;
+  grid-template-columns: 100%;
   flex-flow: row wrap;
   width: 89%;
   margin-top: 12px;
-  margin-left: 26px;
-  padding-top: 0px;
-  background: #ffff;
+  margin-left: 32px;
+  background: #eaf2fd;
   border: 1px solid rgb(192, 192, 192);
   border-radius: 2px;
   position: relative;
@@ -180,8 +180,8 @@ body {
 
 .form-container {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 39% 10% 20% 12%;
+  grid-template-rows: 0.5fr 0.5fr 0.5fr 0.5fr 0.5fr 1fr;
   gap: 0px 0px;
   grid-auto-flow: row;
   grid-template-areas:
@@ -190,7 +190,7 @@ body {
     "fechaRecoge iconCalendar horaRecoge iconClock"
     "titDevuelve titDevuelve titDevuelve titDevuelve"
     "fechaDevuelve iconCalendar2 horaDevuelve iconClock2"
-    ". modificar modificar .";
+    "modificar . . .";
 }
 
 .titRecoge { 
@@ -215,10 +215,12 @@ body {
 
 .horaRecoge { 
   grid-area: horaRecoge; 
+  margin-left: 45px;
 }
 
 .iconClock { 
   grid-area: iconClock; 
+  margin-left: 48px;
 }
 
 .titDevuelve { 
@@ -235,18 +237,47 @@ body {
 
 .horaDevuelve { 
   grid-area: horaDevuelve; 
+  margin-left: 45px;
 }
 
 .iconClock2 { 
   grid-area: iconClock2; 
+  margin-left: 48px;
 }
 
 .modificar { 
   grid-area: modificar; 
+  width: 100%;
 }
 
+/* ---------------------------------------- */
 
+.Cambiar>a {
+  margin-top: 16px;
+}
 
+.location>p {
+  margin-left: -35px;
+  font-weight: bolder;
+
+}
+
+.formDateRecogida {
+  margin-left: 21px;
+}
+
+.labelDate-form-recogida {
+  margin-left: -128px;
+  margin-right: 31px;
+  font-size: 15px;
+  margin-top: 15px;
+}
+  
+.labelDate-form-devolucion {
+  margin-left: -192px;
+  margin-top: 5px;
+  font-size: 15px;
+}
 /* ************************************************************ */
 /* ***********************   FIN NUEVO ************************ */
 /* ************************************************************ */
@@ -286,27 +317,11 @@ body {
   padding: 20px;
 }
   
-.formDateRecogida {
-  /* margin-bottom: -45px; */
-}
-  
 .formDateDevolucion{
   
 }
   
-.labelDate-form-recogida {
-  margin-left: -192px;
-  margin-right: 31px;
-  font-size: 15px;
-  font-weight: bolder;
-}
-  
-.labelDate-form-devolucion {
-  margin-left: -192px;
-  margin-right: 12px;
-  font-size: 15px;
-  font-weight: bolder;
-}
+
   
 .form-control-date {
   width: 132px !important;
@@ -327,6 +342,7 @@ body {
   width: 24px;
   margin-right: 37px;
   margin-left: 3px;
+  margin-top: 6px;
   background-color: #e9ecef;
   box-shadow: 0px 0px 2px #1e1c1c;
   cursor: pointer;
