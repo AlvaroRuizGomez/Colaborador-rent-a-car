@@ -1,7 +1,4 @@
 
-
-
-
 body {
   font-family: sans-serif;
   text-align: center;
@@ -97,7 +94,7 @@ select {
 
 .layout {
     width: 100%;
-    height: 100%;
+    /* height: 100%; */
 
     grid-area: contenido_main;
   display: grid;
@@ -152,8 +149,7 @@ select {
 
 .banner
 {
-
-    /* grid-area: header; */
+  width: 100vw;
 }
 
 
@@ -450,6 +446,8 @@ select {
         "titulo7 dato7";
     flex-direction: column;
     align-items: flex-start;
+
+    overflow-wrap: break-word;
 }
   
 .titDiasReserva {

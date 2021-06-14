@@ -67,6 +67,7 @@
 .footer_group
 {
   grid-area: footer;
+  width: 100vw;
 }
 
 /* ----- INFORMACION --- */
@@ -105,7 +106,8 @@
   padding-right: 8px;
   color: white;
   font-size: 30px;
-  margin-top: 13px;
+  /* margin-top: 13px; */
+  margin-top: 7%;
 
 }
 
@@ -399,7 +401,7 @@ iframe
 .footerBottomHolder {
   grid-area: footerBottom; 
   
-  width: 100%;
+  /* width: 100%; */
   height: 70px;
   vertical-align: middle;
   background-color: #000;
@@ -411,7 +413,7 @@ iframe
 .footerBottomInner
 {
   height: 100%;
-  width: 100%;
+  /* width: 100%; */
   display: flex;
   align-items: center;
   margin-left: 20px;
