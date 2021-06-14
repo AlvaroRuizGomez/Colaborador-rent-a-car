@@ -258,9 +258,9 @@ iframe
   display: block;
   /* margin: 84px auto; */
   margin-top: 40px;
-  width: 60%;
+  /* width: 60%; */
   max-width: 490px;
-  min-width: 320px;
+  min-width: 280px;
   position: relative;
   overflow: hidden;
   background-color: #F6F6F2;

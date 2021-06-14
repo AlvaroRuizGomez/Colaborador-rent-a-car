@@ -3,6 +3,10 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-15">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge;chrome=1">
+        
         <title><%= it.locations.reservar_titulopagina %></title>
 
         <link rel="stylesheet" href="./css/reset.css">
@@ -28,7 +32,7 @@
         <link rel="apple-touch-icon" href="./img/Img-Logo/rentacar_favicon-180.png" sizes="180x180">
 
     </head>
-    <body>
+    <body class="container">
         <div class="banner">
             <!-- Inicio Cabecera -->
             <%~ includeFile("header.html", it) %>
@@ -125,347 +129,345 @@
             </div> -->
 
             
-                <!--------------- Inicio Datos Reserva  --------------------->
-                <div class="contentReserva">
-                    <section class="contentBlock">
-                        <div class="tituloReserva">
-                            <h2>
-                                <img id="icon-Mundi" src="./img/svg/mapaMundi.svg" alt="<%=it.locations.icono_reserva %>"></img>
-                                <%=it.locations.datos_reserva %>
-                            </h2>
+            <!--------------- Inicio Datos Reserva  --------------------->
+            
+                <section class="contentBlock">
+                    <div class="tituloReserva">
+                        <h2>
+                            <img id="icon-Mundi" src="./img/svg/mapaMundi.svg" alt="<%=it.locations.icono_reserva %>"></img>
+                            <%=it.locations.datos_reserva %>
+                        </h2>
+                    </div>
+                    <div class="infoReserva">
+                        <!-- Inicio Datos Fijos de la reserva -->
+                        <div class="titDiasReserva">
+                            <%=it.locations.dias_titulo %>
                         </div>
-                        <div class="infoReserva">
-                            <!-- Inicio Datos Fijos de la reserva -->
-                            <div class="titDiasReserva">
-                                <%=it.locations.dias_titulo %>
-                            </div>
-                            <div class="diasReserva">
-                                <% const dias = it.formdata.diasEntreRecogidaDevolucion - 0 %>
-                                <% if (dias > 1) { %>
-                                    <%=it.formdata.diasEntreRecogidaDevolucion %> <%= it.locations.dias %> (<%=it.formdata.fechaRecogida %> <%=it.formdata.fechaDevolucion %>)
-                                <% } else { %>
-                                    <%=it.formdata.diasEntreRecogidaDevolucion %> <%= it.locations.dia %> (<%=it.formdata.fechaRecogida %> <%=it.formdata.fechaDevolucion %>)
-                                <% } %>
-                            </div>
-            
-                            <div class="titValorReserva">
-                                <%=it.locations.alquiler_titulo %>
-                            </div>
-                            <div class="valorReserva">
-                                <%=it.formdata.preciototaldias %> €
-                            </div>
-            
-                            <div class="titSeguro">
-                                <%=it.locations.seguro_titulo %>
-                            </div>
-                            <div class="valorseguro">
-                                <%=it.locations.seguro_descripcion %>
-                            </div>
-                            <!-- Fin Datos Fijos de la reserva -->
-            
-                            <!--- Inicio Cargos de la reserva --->
-                            <%let total_suplmento_tipo_conductor = 0 %>
-                            <%let total = 0 %>
-                            <% let pago_online = 0 %>
-                            <% if (it.formdata.conductor_con_experiencia === "on") { %>
-                                <div class="titConductor">
-                                    <%=it.locations.conductor_joven_titulo %>
-                                </div>
-                                <div class="valorConductor">
-                                0 €
-                                </div>
+                        <div class="diasReserva">
+                            <% const dias = it.formdata.diasEntreRecogidaDevolucion - 0 %>
+                            <% if (dias > 1) { %>
+                                <%=it.formdata.diasEntreRecogidaDevolucion %> <%= it.locations.dias %> (<%=it.formdata.fechaRecogida %> <%=it.formdata.fechaDevolucion %>)
                             <% } else { %>
-                                <div class="titConductor">
-                                    <%=it.locations.conductor_joven_titulo %>
-                                </div>
-                                <div class="valorConductor">
-                                    <% if (dias> 1) { %>
-                                        <% total_suplmento_tipo_conductor = dias * (it.formdata.suplementoportipoChofer - 0 ) %>
-                                        <%= dias %> <%=it.locations.dias %> x <%=it.formdata.suplementoportipoChofer %> € = <%= total_suplmento_tipo_conductor %> €
-    
-                                    <% } else { %>
-                                        <%= dias %> <%=it.locations.dia %> x <%=it.formdata.suplementoportipoChofer %> € = <%=it.formdata.suplementoportipoChofer %> €
-                                        <% total_suplmento_tipo_conductor = (it.formdata.suplementoportipoChofer - 0) %>
-                                    <% } %>
-    
-                                </div>
+                                <%=it.formdata.diasEntreRecogidaDevolucion %> <%= it.locations.dia %> (<%=it.formdata.fechaRecogida %> <%=it.formdata.fechaDevolucion %>)
                             <% } %>
-                            <div class="titTotReserva">
-                                <%=it.locations.total_titulo %>
+                        </div>
+        
+                        <div class="titValorReserva">
+                            <%=it.locations.alquiler_titulo %>
+                        </div>
+                        <div class="valorReserva">
+                            <%=it.formdata.preciototaldias %> €
+                        </div>
+        
+                        <div class="titSeguro">
+                            <%=it.locations.seguro_titulo %>
+                        </div>
+                        <div class="valorseguro">
+                            <%=it.locations.seguro_descripcion %>
+                        </div>
+                        <!-- Fin Datos Fijos de la reserva -->
+        
+                        <!--- Inicio Cargos de la reserva --->
+                        <%let total_suplmento_tipo_conductor = 0 %>
+                        <%let total = 0 %>
+                        <% let pago_online = 0 %>
+                        <% if (it.formdata.conductor_con_experiencia === "on") { %>
+                            <div class="titConductor">
+                                <%=it.locations.conductor_joven_titulo %>
                             </div>
-                            <div class="valorTotReserva">
-                                <% if (it.formdata.suplementoportipoChofer !== undefined) { %>
-                                    <% total = (it.formdata.preciototaldias - 0) + (total_suplmento_tipo_conductor) %>
-                                    <%= total %> €
+                            <div class="valorConductor">
+                            0 €
+                            </div>
+                        <% } else { %>
+                            <div class="titConductor">
+                                <%=it.locations.conductor_joven_titulo %>
+                            </div>
+                            <div class="valorConductor">
+                                <% if (dias> 1) { %>
+                                    <% total_suplmento_tipo_conductor = dias * (it.formdata.suplementoportipoChofer - 0 ) %>
+                                    <%= dias %> <%=it.locations.dias %> x <%=it.formdata.suplementoportipoChofer %> € = <%= total_suplmento_tipo_conductor %> €
+
                                 <% } else { %>
-                                    <% total=(it.formdata.preciototaldias - 0) %>
-                                    <%= total %> €
+                                    <%= dias %> <%=it.locations.dia %> x <%=it.formdata.suplementoportipoChofer %> € = <%=it.formdata.suplementoportipoChofer %> €
+                                    <% total_suplmento_tipo_conductor = (it.formdata.suplementoportipoChofer - 0) %>
                                 <% } %>
+
                             </div>
-            
-                            <div class="titValorRecogida">
-                                <%= it.locations.pago_recogida_titulo %>
-                            </div>
-                            <div class="ValorRecogida">
-                                <%let pago_recogida = ((it.formdata.porcentaje - 0) * total) / 100  %>
-                                <%= pago_recogida %> €
-                            </div>
-            
-                            <div class="titValorOnline">
-                                <%= it.locations.pago_online_titulo %>
-                            </div>
-                            <div class="ValorOnline">
-                                <% pago_online = total - pago_recogida%>
-                                <%= pago_online %> €
-                            </div>
-                            <!--- Fin Cargos de la reserva --->
+                        <% } %>
+                        <div class="titTotReserva">
+                            <%=it.locations.total_titulo %>
                         </div>
-                    </section>
-                </div>
-                <!----------------------- Fin Datos Reserva  ---------------------------->
-    
-                <!-----------------  Inicio Beneficios ------------------------------------------>
-                <div class="beneficios">
-                    <div class="includPrice-container">
-                        <span class="tit-includPrice-container"><%it.locations.incluido_precio_titulo %>
-                            <ul class="includPrice-contenido">
-                                <li class="tooltipBlanco" data-tooltip="<%=it.locations.title_seguro_todoriesgo %>">
-                                <img src="./img/svg/hecho.svg" class="icon-25" alt="<%=it.locations.alt_icono_reservar %>"><%=it.locations.seguro_incluido_titulo %>
-                                </li>
-                                <li class="tooltipBlanco" data-tooltip="<%=it.locations.title_sillas %>">
-                                    <img src="./img/svg/hecho.svg" class="icon-25"  alt="<%=it.locations.alt_icono_reservar %>"><%=it.locations.sillas_elevadores_titulo %>
-                                </li>
-                                <li class="tooltipBlanco" data-tooltip="<%=it.locations.title_cancelar %>">
-                                    <img src="./img/svg/hecho.svg" class="icon-25"  alt="<%=it.locations.alt_icono_reservar %>"><%=it.locations.cancelacion_titulo %>
-                                </li>
-                                <li class="tooltipBlanco" data-tooltip="<%=it.locations.title_impuestos %>">
-                                    <img src="./img/svg/hecho.svg" class="icon-25" alt="<%=it.locations.alt_icono_reservar %>"><%=it.locations.impuestos_titulo %>
-                                </li>
-                            </ul>
-                        </span>
+                        <div class="valorTotReserva">
+                            <% if (it.formdata.suplementoportipoChofer !== undefined) { %>
+                                <% total = (it.formdata.preciototaldias - 0) + (total_suplmento_tipo_conductor) %>
+                                <%= total %> €
+                            <% } else { %>
+                                <% total=(it.formdata.preciototaldias - 0) %>
+                                <%= total %> €
+                            <% } %>
+                        </div>
+        
+                        <div class="titValorRecogida">
+                            <%= it.locations.pago_recogida_titulo %>
+                        </div>
+                        <div class="ValorRecogida">
+                            <%let pago_recogida = ((it.formdata.porcentaje - 0) * total) / 100  %>
+                            <%= pago_recogida %> €
+                        </div>
+        
+                        <div class="titValorOnline">
+                            <%= it.locations.pago_online_titulo %>
+                        </div>
+                        <div class="ValorOnline">
+                            <% pago_online = total - pago_recogida%>
+                            <%= pago_online %> €
+                        </div>
+                        <!--- Fin Cargos de la reserva --->
                     </div>
-                </div>
-                <!-----------------  Fin  Beneficios ------------------------------------------>
-                
-                <!-----------------  Inicio sillas y elevadores para niños  ------------------->
-                <div class="sillasBox">
-                    <section class="sillasContent">
-                        <div class="titSillas">
-                            <h2><i class="icoSillas"></i><%=it.locations.asientos_titulo %></h2>
-                        </div>
-                        <div>
-                            <div class="dataBox">
-                                <div class="form-group">
-                                    <ul class="">
-                                        <li class="sillas">
-                                            <img src="./img/img-childSeat/img-childSeat.svg" class="silla" alt="<%=it.locations.asientos_titulo %>">
-                                            <select name="child_seat" id="child_seat" class="safariSelect casilla">
-                                                <option value="0" selected>0</option>
-                                                <option value="1">1</option>
-                                                <option value="2">2</option>
-                                                <option value="3">3</option>
-                                            </select>
-                                            <a class="info infoIco" data-tooltip-location="top" data-tooltip="<%=it.locations.asientos_titulo %>">
-                                                <strong>info</strong>
-                                            </a>
-                                            
-                                            <label class="titulo"><%=it.locations.asientos_titulo %></label>
-                                            <p class="descripcion">
-                                                <%=it.locations.descripcion_asientos %>
-                                                <span class="text-nowrap"><%=it.locations.descripcion_asientos_dos %></span>
-                                            </p>
-                                            
-                                        </li>
-                                        
-                                        <li class="sillas">
-                                            <img src="./img/img-childSeat/boosterSeat.svg" class="silla" alt="<%=it.locations.elevadores_titulo %>">
-                                            <select name="booster_seat" id="booster_seat" class="safariSelect casilla">
-                                                <option value="0" selected>0</option>
-                                                <option value="1">1</option>
-                                                <option value="2">2</option>
-                                                <option value="3">3</option>
-                                            </select>
-    
-                                            <a class="info infoIco" data-tooltip-location="top" data-tooltip="<%=it.locations.elevadores_titulo %>"> 
-                                                <strong>info</strong>
-                                            </a>
-                                            <label class="titulo"><%=it.locations.elevadores_titulo %></label>
-                                        
-                                            <p class="descripcion">
-                                                <%=it.locations.elevadores_descripcion %>
-                                                <span class="text-nowrap"><%=it.locations.elevadores_descripcion_dos %></span>
-                                            </p>
-                                            
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-                </div>
-                <!-----------------  Fin sillas y elevadores para niños  ------------------->
-    
-                <!-----Inicio formulario conductor principal y condiciones y términos ------>
-                
-                   
-    
-                    <div class="formDriver">
-                        <div class="formDriverContent" id="personalInfoForm" data-info-form="<%=it.locations.campos_requeridos %>">
-                            <h2><i class="ico ico-user"></i>
-                                <%=it.locations.datos_conductor_titulo %>
-                            </h2>
-                            <!----------- Inicio datos conductor principal ----------->
-                            <div class="databoxDriver">
-                                <!---------   Inicio Sr / Sra ------------------------>
-                                <label for="titulo" class="titDriver">
-                                    <%=it.locations.datos_titulo_titulo %>
-                                </label>
-                                <div class="radio-inline titDataDriver mitad-izquierda">
-                                    <label for="Sr">
-                                        <%=it.locations.sr_titulo %>
-                                        <input type="radio" value="Sr" name="titulo" id="Sr">
-                                    </label>
-                                    <label for="Sra">
-                                        <%=it.locations.sra_titulo %>
-                                        <input type="radio" value="Sra" name="titulo" id="Sra">
-                                    </label>
-                                </div>
-                            
-                                <!---------   Nombre  -------------------------->
-                                <label for="nombre" class="nomDriver">
-                                        <span class="color_rojo">*</span> <%=it.locations.nombre_titulo %>
-                                </label>
-                                <input type="text" id="nombre" name="nombre" size="40" value maxlength="50" placeholder="<%=it.locations.nombre_titulo %>" class="nomDataDriver mitad-izquierda">
-                                <img src="./img/svg/hecho.svg" id="tareaNombre" class="no-visible icono-20 errorNombre" alt="<%=it.locations.alt_icono_hecho %>">
-                                <img src="./img/svg/error_formulario_nombres.svg" id="iconoErrorNombre" class="no-visible icono-20 errorNombre" alt="<%=it.locations.alt_icono_hecho %>">
-                                <!---------  Apellidos  ----------------------->
-                                <label for="apellidos" class="apellDriver">
-                                    <span class="color_rojo">*</span> <%=it.locations.apellidos_titulo %>
-                                </label>
-                                <input type="text" id="apellidos" name="apellidos"  class="apellDataDriver mitad-izquierda" size="65" value maxlength="50" placeholder="<%=it.locations.apellidos_titulo %>">
-                                <img src="./img/svg/hecho.svg" id="tareaApellidos" class="icono-20 no-visible errorApell" alt="<%=it.locations.alt_icono_hecho %>">
-                                <img src="./img/svg/error_formulario_nombres.svg" id="iconoErrorApell" class="icono-20 no-visible errorApell" alt="<%=it.locations.alt_icono_hecho %>">
-                                <!---------   E-mail  ------------------------->
-                                <label for="email" class="eMailDriver">
-                                        <span class="color_rojo">*</span> <%=it.locations.email_titulo %>
-                                </label>
-                                <input type="text" id="email" name="email" class="eMailDataDriver mitad-izquierda" size="65" value="" maxlength="50" placeholder="<%=it.locations.email_descripcion %>">
-                                <img src="./img/svg/hecho.svg" id="tareaEmail" class="icono-20 no-visible errorEmail" alt="<%=it.locations.alt_icono_hecho %>">
-                                <img src="./img/svg/error_formulario_nombres.svg" id="iconoErrorEmail" class="icono-20 no-visible errorEmail" alt="<%=it.locations.alt_icono_hecho %>">
-                                <!-- <div class="info-fieldcontainer">
-                                    <div class="info-fieldcontain">
-                                        <%=it.locations.email_descripcion_dos %>
-                                    </div>
-                                </div> -->
-                                
-                                <!---------   Teléfono  ----------------------->
-                                <label for="telefono" class="telefDriver">
-                                    <span class="color_rojo">*</span> <%=it.locations.telefono %>
-                                </label>
-                
-                                <input type="text" id="telefono" name="telefono" class="telefDataDriver mitad-izquierda" size="50" value="" maxlength="18" placeholder="<%=it.locations.telefono_placeholder %>">
-                                <img src="./img/svg/hecho.svg" id="tareaTelefono" class="icono-20 no-visible errorTelf" alt="<%=it.locations.alt_icono_hecho %>">
-                                <img src="./img/svg/error_formulario_nombres.svg" id="iconoErrorTelf" class="icono-20 no-visible errorTelf" alt="<%=it.locations.alt_icono_hecho %>">
-                                <!---------- Fin datos Conductor Principal------------->
+                </section>
             
-                                <!--------- Inicio Términos y Condiciones  ------------------->
-                                <div class="condiciones" id="idTermsBox">
-                                    <p class="chkDescription">
-                                        <img id="icono_error_formulario" class="no-visible" src="./img/svg/error_checkbox.svg" alt="<%=it.locations.alt_icono_no_chequeo_reserva %>">
-                                        <input type="checkbox" name="okTermsConditions" id="okTermsConditions" value="SI">
-                                            <label for="" id="labelOkTermsConditions">
-                                                    <%=it.locations.leido_acepto %>
-                                                    <a class="boton-terminos" id="boton-terminos" role="button">
-                                                        <%=it.locations.terminos_condiciones %>
-                                                    </a>
-                                                    <%=it.locations.and %>
-                                                    <a class="boton-privacidad" id="boton-privacidad" role="button">
-                                                        <%=it.locations.politica_privacidad %>
-                                                    </a>
-                                            </label>
-                                        <input type="hidden" name="recibir_info" value="SI">
-                                    </p>
-                                    <div id="overlay-terminos" class="overlay-transparente modal-invisible">
-                                        <ul class="details-modal ">
-                                            <li class="details-modal-close">
-                                                <a id="boton-cerrar-modal-terminos" class="boton-cerrar-modal" role="button">
-                                                    <img class="cerrar-modal" src="./img/svg/cerrar_modal.svg" alt="<%=it.locations.alt_cerrar_modal %>">
-                                                </a>
-                                            </li>
-                                            <li class="details-modal-title">
-                                                <h5 class="details-modal-title-text">
-                                                    <%=it.locations.titulo_terminos_condiciones %>
-                                                </h5>
-                                            </li>
-                                            <li class="contenido_terminos">
-                                                <%~it.locations.terminos_contenido %>
-                                            </li>
-                                        </ul>
-                                    </div>
+            <!----------------------- Fin Datos Reserva  ---------------------------->
     
-                                    <div id="overlay-privacidad" class="overlay-transparente modal-invisible">
-                                        <ul class="details-modal ">
-                                            <li class="details-modal-close">
-                                                <a id="boton-cerrar-modal-privacidad" class="boton-cerrar-modal" role="button">
-                                                    <img class="cerrar-modal" src="./img/svg/cerrar_modal.svg" alt="<%=it.locations.alt_cerrar_modal %>">
-                                                </a>
-                                            </li>
-                                            <li class="details-modal-title">
-                                                <h5 class="details-modal-title-text">
-                                                    <%=it.locations.titulo_privacidad %>
-                                                </h5>
-                                            </li>
-                                            <li class="contenido_privacidad">
-                                                <%~it.locations.privacidad_contenido__1 %>
-                                            </li>
-                                        </ul>
-                                    </div>
-    
-                                </div>
-                            </div>     
+            <!-----------------  Inicio Beneficios ------------------------------------------>
+            <div class="beneficios">
+                <div class="includPrice-container">
+                    <span class="tit-includPrice-container"><%it.locations.incluido_precio_titulo %>
+                        <ul class="includPrice-contenido">
+                            <li class="tooltipBlanco" data-tooltip="<%=it.locations.title_seguro_todoriesgo %>">
+                            <img src="./img/svg/hecho.svg" class="icon-25" alt="<%=it.locations.alt_icono_reservar %>"><%=it.locations.seguro_incluido_titulo %>
+                            </li>
+                            <li class="tooltipBlanco" data-tooltip="<%=it.locations.title_sillas %>">
+                                <img src="./img/svg/hecho.svg" class="icon-25"  alt="<%=it.locations.alt_icono_reservar %>"><%=it.locations.sillas_elevadores_titulo %>
+                            </li>
+                            <li class="tooltipBlanco" data-tooltip="<%=it.locations.title_cancelar %>">
+                                <img src="./img/svg/hecho.svg" class="icon-25"  alt="<%=it.locations.alt_icono_reservar %>"><%=it.locations.cancelacion_titulo %>
+                            </li>
+                            <li class="tooltipBlanco" data-tooltip="<%=it.locations.title_impuestos %>">
+                                <img src="./img/svg/hecho.svg" class="icon-25" alt="<%=it.locations.alt_icono_reservar %>"><%=it.locations.impuestos_titulo %>
+                            </li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
+            <!-----------------  Fin  Beneficios ------------------------------------------>
+            
+            <!-----------------  Inicio sillas y elevadores para niños  ------------------->
+            <div class="sillasBox">
+                <section class="sillasContent">
+                    <div class="titSillas">
+                        <h2><i class="icoSillas"></i><%=it.locations.asientos_titulo %></h2>
+                    </div>
+                    <div>
+                        <div class="dataBox">
+                            <div class="form-group">
+                                <ul class="">
+                                    <li class="sillas">
+                                        <img src="./img/img-childSeat/img-childSeat.svg" class="silla" alt="<%=it.locations.asientos_titulo %>">
+                                        <select name="child_seat" id="child_seat" class="safariSelect casilla">
+                                            <option value="0" selected>0</option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                        </select>
+                                        <a class="info infoIco" data-tooltip-location="top" data-tooltip="<%=it.locations.asientos_titulo %>">
+                                            <strong>info</strong>
+                                        </a>
+                                        
+                                        <label class="titulo"><%=it.locations.asientos_titulo %></label>
+                                        <p class="descripcion">
+                                            <%=it.locations.descripcion_asientos %>
+                                            <span class="text-nowrap"><%=it.locations.descripcion_asientos_dos %></span>
+                                        </p>
+                                        
+                                    </li>
+                                    
+                                    <li class="sillas">
+                                        <img src="./img/img-childSeat/boosterSeat.svg" class="silla" alt="<%=it.locations.elevadores_titulo %>">
+                                        <select name="booster_seat" id="booster_seat" class="safariSelect casilla">
+                                            <option value="0" selected>0</option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                        </select>
+
+                                        <a class="info infoIco" data-tooltip-location="top" data-tooltip="<%=it.locations.elevadores_titulo %>"> 
+                                            <strong>info</strong>
+                                        </a>
+                                        <label class="titulo"><%=it.locations.elevadores_titulo %></label>
+                                    
+                                        <p class="descripcion">
+                                            <%=it.locations.elevadores_descripcion %>
+                                            <span class="text-nowrap"><%=it.locations.elevadores_descripcion_dos %></span>
+                                        </p>
+                                        
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
-                    <!-----  Fin formulario conductor principal y condiciones y términos ------>
+                </section>
+            </div>
+            <!-----------------  Fin sillas y elevadores para niños  ------------------->
+
+            <!-----Inicio formulario conductor principal y condiciones y términos ------>
+            <div class="formDriver">
+                <div class="formDriverContent" id="personalInfoForm" data-info-form="<%=it.locations.campos_requeridos %>">
+                    <h2><i class="ico ico-user"></i>
+                        <%=it.locations.datos_conductor_titulo %>
+                    </h2>
+                    <!----------- Inicio datos conductor principal ----------->
+                    <div class="databoxDriver">
+                        <!---------   Inicio Sr / Sra ------------------------>
+                        <label for="titulo" class="titDriver">
+                            <%=it.locations.datos_titulo_titulo %>
+                        </label>
+                        <div class="radio-inline titDataDriver mitad-izquierda">
+                            <label for="Sr">
+                                <%=it.locations.sr_titulo %>
+                                <input type="radio" value="Sr" name="titulo" id="Sr">
+                            </label>
+                            <label for="Sra">
+                                <%=it.locations.sra_titulo %>
+                                <input type="radio" value="Sra" name="titulo" id="Sra">
+                            </label>
+                        </div>
                     
-                    <!-------------------------  Inicio Botón reservar ------------------------>
-                    <div class="boxBtnRevervar">
-                        <button id="boton_reservar" name="" class="btnReserva    iframe new-btn new-btn-xxl new-btn-success cboxElement">
-                            <form id="formulario-reservar" action="<%=it.locations.reservar %>" method="post">
-                                <input type="hidden" id="descripcion_vehiculo" name="descripcion_vehiculo" value="<%=it.formdata.descripcion_vehiculo %>">
-                                <input type="hidden" id="fechaRecogida" name="fechaRecogida" value="<%= it.formdata.fechaRecogida %>">
-                                <input type="hidden" id="horaRecogida" name="horaRecogida" value="<%= it.formdata.horaRecogida %>">
-                                <input type="hidden" id="fechaDevolucion" name="fechaDevolucion" value="<%= it.formdata.fechaDevolucion %>">
-                                <input type="hidden" id="horaDevolucion" name="horaDevolucion" value="<%= it.formdata.horaDevolucion %>">
-                                <input type="hidden" id="dias" name="dias" value="<%= it.formdata.diasEntreRecogidaDevolucion %>">
+                        <!---------   Nombre  -------------------------->
+                        <label for="nombre" class="nomDriver">
+                            <span class="color_rojo">*</span> <%=it.locations.nombre_titulo %>
+                        </label>
+                        <input type="text" id="nombre" name="nombre" size="40" value maxlength="50" placeholder="<%=it.locations.nombre_titulo %>" class="nomDataDriver mitad-izquierda input-texto">
+                        <img src="./img/svg/hecho.svg" id="tareaNombre" class="no-visible icono-20 errorNombre" alt="<%=it.locations.alt_icono_hecho %>">
+                        <img src="./img/svg/error_formulario_nombres.svg" id="iconoErrorNombre" class="no-visible icono-20 errorNombre" alt="<%=it.locations.alt_icono_hecho %>">
+                        <!---------  Apellidos  ----------------------->
+                        <label for="apellidos" class="apellDriver">
+                            <span class="color_rojo">*</span> <%=it.locations.apellidos_titulo %>
+                        </label>
+                        <input type="text" id="apellidos" name="apellidos"  class="apellDataDriver mitad-izquierda input-texto" size="65" value maxlength="50" placeholder="<%=it.locations.apellidos_titulo %>">
+                        <img src="./img/svg/hecho.svg" id="tareaApellidos" class="icono-20 no-visible errorApell" alt="<%=it.locations.alt_icono_hecho %>">
+                        <img src="./img/svg/error_formulario_nombres.svg" id="iconoErrorApell" class="icono-20 no-visible errorApell" alt="<%=it.locations.alt_icono_hecho %>">
+                        <!---------   E-mail  ------------------------->
+                        <label for="email" class="eMailDriver">
+                                <span class="color_rojo">*</span> <%=it.locations.email_titulo %>
+                        </label>
+                        <input type="text" id="email" name="email" class="eMailDataDriver mitad-izquierda input-texto" size="65" value="" maxlength="50" placeholder="<%=it.locations.email_descripcion %>">
+                        <img src="./img/svg/hecho.svg" id="tareaEmail" class="icono-20 no-visible errorEmail" alt="<%=it.locations.alt_icono_hecho %>">
+                        <img src="./img/svg/error_formulario_nombres.svg" id="iconoErrorEmail" class="icono-20 no-visible errorEmail" alt="<%=it.locations.alt_icono_hecho %>">
+                        <!-- <div class="info-fieldcontainer">
+                            <div class="info-fieldcontain">
+                                <%=it.locations.email_descripcion_dos %>
+                            </div>
+                        </div> -->
+                        
+                        <!---------   Teléfono  ----------------------->
+                        <label for="telefono" class="telefDriver">
+                            <span class="color_rojo">*</span> <%=it.locations.telefono %>
+                        </label>
+        
+                        <input type="text" id="telefono" name="telefono" class="telefDataDriver mitad-izquierda input-texto" size="50" value="" maxlength="18" placeholder="<%=it.locations.telefono_placeholder %>">
+                        <img src="./img/svg/hecho.svg" id="tareaTelefono" class="icono-20 no-visible errorTelf" alt="<%=it.locations.alt_icono_hecho %>">
+                        <img src="./img/svg/error_formulario_nombres.svg" id="iconoErrorTelf" class="icono-20 no-visible errorTelf" alt="<%=it.locations.alt_icono_hecho %>">
+                        <!---------- Fin datos Conductor Principal------------->
     
-                                <input type="hidden" id="alquiler" name="alquiler" value="<%=it.formdata.preciototaldias %>">
-                                
-                                <input type="hidden" id="conductor_con_experiencia" name="conductor_con_experiencia" value="<%= it.formdata.conductor_con_experiencia %>">
-                                <input type="hidden" id="total_suplmento_tipo_conductor" name="total_suplmento_tipo_conductor" value="<%= total_suplmento_tipo_conductor %>">
-                                <input type="hidden" id="pagoRecogida" name="pagoRecogida" value="<%= pago_recogida %>">
-                                <input type="hidden" id="pago_online" name="pago_online" value="<%= pago_online %>">
-                                <input type="hidden" id="sr_input" name="titulo" value="no-especificado">
-                                <input type="hidden" id="child_seat_input" name="child_seat" value="">
-                                <input type="hidden" id="booster_seat_input" name="booster_seat" value="">
-    
-                                <input type="hidden" id="nombre_input" name="nombre" value="">
-                                <input type="hidden" id="apellidos_input" name="apellidos" value="">
-                                <input type="hidden" id="email_input" name="email" value="">
-                                <input type="hidden" id="telefono_input" name="telefono" value="">
-                                <input type="hidden" id="idioma" name="idioma" value="<%=it.locations.idioma_web %>">
-                                
-    
-    
-                                <%=it.locations.reservar_ahora %> <%= pago_online %> €
-                            </form>
-                        </button>
-                    </div>
-                    <!-------------------------    Fin Botón reservar  ------------------------>
+                        <!--------- Inicio Términos y Condiciones  ------------------->
+                        <div class="condiciones" id="idTermsBox">
+                            <p class="chkDescription">
+                                <img id="icono_error_formulario" class="no-visible" src="./img/svg/error_checkbox.svg" alt="<%=it.locations.alt_icono_no_chequeo_reserva %>">
+                                <input type="checkbox" name="okTermsConditions" id="okTermsConditions" value="SI">
+                                    <label for="" id="labelOkTermsConditions">
+                                            <%=it.locations.leido_acepto %>
+                                            <a class="boton-terminos" id="boton-terminos" role="button">
+                                                <%=it.locations.terminos_condiciones %>
+                                            </a>
+                                            <%=it.locations.and %>
+                                            <a class="boton-privacidad" id="boton-privacidad" role="button">
+                                                <%=it.locations.politica_privacidad %>
+                                            </a>
+                                    </label>
+                                <input type="hidden" name="recibir_info" value="SI">
+                            </p>
+                            <div id="overlay-terminos" class="overlay-transparente modal-invisible">
+                                <ul class="details-modal ">
+                                    <li class="details-modal-close">
+                                        <a id="boton-cerrar-modal-terminos" class="boton-cerrar-modal" role="button">
+                                            <img class="cerrar-modal" src="./img/svg/cerrar_modal.svg" alt="<%=it.locations.alt_cerrar_modal %>">
+                                        </a>
+                                    </li>
+                                    <li class="details-modal-title">
+                                        <h5 class="details-modal-title-text">
+                                            <%=it.locations.titulo_terminos_condiciones %>
+                                        </h5>
+                                    </li>
+                                    <li class="contenido_terminos">
+                                        <%~it.locations.terminos_contenido %>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div id="overlay-privacidad" class="overlay-transparente modal-invisible">
+                                <ul class="details-modal ">
+                                    <li class="details-modal-close">
+                                        <a id="boton-cerrar-modal-privacidad" class="boton-cerrar-modal" role="button">
+                                            <img class="cerrar-modal" src="./img/svg/cerrar_modal.svg" alt="<%=it.locations.alt_cerrar_modal %>">
+                                        </a>
+                                    </li>
+                                    <li class="details-modal-title">
+                                        <h5 class="details-modal-title-text">
+                                            <%=it.locations.titulo_privacidad %>
+                                        </h5>
+                                    </li>
+                                    <li class="contenido_privacidad">
+                                        <%~it.locations.privacidad_contenido__1 %>
+                                    </li>
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>     
+                </div>
+            </div>
+            <!-----  Fin formulario conductor principal y condiciones y términos ------>
                 
+            <!-------------------------  Inicio Botón reservar ------------------------>
+            <div class="boxBtnRevervar">
+                <button id="boton_reservar" name="" class="btnReserva    iframe new-btn new-btn-xxl new-btn-success cboxElement">
+                    <form id="formulario-reservar" action="<%=it.locations.reservar %>" method="post">
+                        <input type="hidden" id="descripcion_vehiculo" name="descripcion_vehiculo" value="<%=it.formdata.descripcion_vehiculo %>">
+                        <input type="hidden" id="fechaRecogida" name="fechaRecogida" value="<%= it.formdata.fechaRecogida %>">
+                        <input type="hidden" id="horaRecogida" name="horaRecogida" value="<%= it.formdata.horaRecogida %>">
+                        <input type="hidden" id="fechaDevolucion" name="fechaDevolucion" value="<%= it.formdata.fechaDevolucion %>">
+                        <input type="hidden" id="horaDevolucion" name="horaDevolucion" value="<%= it.formdata.horaDevolucion %>">
+                        <input type="hidden" id="dias" name="dias" value="<%= it.formdata.diasEntreRecogidaDevolucion %>">
+
+                        <input type="hidden" id="alquiler" name="alquiler" value="<%=it.formdata.preciototaldias %>">
+                        
+                        <input type="hidden" id="conductor_con_experiencia" name="conductor_con_experiencia" value="<%= it.formdata.conductor_con_experiencia %>">
+                        <input type="hidden" id="total_suplmento_tipo_conductor" name="total_suplmento_tipo_conductor" value="<%= total_suplmento_tipo_conductor %>">
+                        <input type="hidden" id="pagoRecogida" name="pagoRecogida" value="<%= pago_recogida %>">
+                        <input type="hidden" id="pago_online" name="pago_online" value="<%= pago_online %>">
+                        <input type="hidden" id="sr_input" name="titulo" value="no-especificado">
+                        <input type="hidden" id="child_seat_input" name="child_seat" value="">
+                        <input type="hidden" id="booster_seat_input" name="booster_seat" value="">
+
+                        <input type="hidden" id="nombre_input" name="nombre" value="">
+                        <input type="hidden" id="apellidos_input" name="apellidos" value="">
+                        <input type="hidden" id="email_input" name="email" value="">
+                        <input type="hidden" id="telefono_input" name="telefono" value="">
+                        <input type="hidden" id="idioma" name="idioma" value="<%=it.locations.idioma_web %>">
+                        
+
+
+                        <%=it.locations.reservar_ahora %> <%= pago_online %> €
+                    </form>
+                </button>
+            </div>
+            <!-------------------------    Fin Botón reservar  ------------------------>
+        
         </main>
                 
         <%~ includeFile("footer.html", it) %>
             
-        <script src="./js/reservar.js"></script>
+        <script async src="./js/reservar.js"></script>
+        <script async src="./js/lazysizes.min.js"></script>
     </body>
 </html>
