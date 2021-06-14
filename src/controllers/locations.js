@@ -5,23 +5,31 @@ const URI_LOCATIONS = `${process.env.URL_BACKEND}:${process.env.PORT_BACKEND}${p
 
 const Frontend_TO_Backend = async (req, res) =>
 {
-    
-    const responseRaw = await fetch(URI_LOCATIONS, {
-        method: "GET",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        credentials: "include"
-    });
-    
-    const dataResponse = await responseRaw.json();
-    locales = dataResponse.datos;
-    console.log("seteado los locales");
-    
-    if (res !== undefined)
+    try
     {
-        res.send({"isOk": true});
+        const responseRaw = await fetch(URI_LOCATIONS, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            credentials: "include"
+        });
+        
+        const dataResponse = await responseRaw.json();
+        locales = dataResponse.datos;
+        console.log("seteado los locales");
+        
+        if (res !== undefined)
+        {
+            res.send({"isOk": true});
+        }
+
     }
+    catch(error)
+    {
+        console.log("conexion perdida - locations.js Frontend_TO_Backend");
+    }
+    
 };
 
 exports.Frontend_TO_Backend = async (req, res) =>

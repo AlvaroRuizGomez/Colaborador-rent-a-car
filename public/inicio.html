@@ -2,7 +2,9 @@
 <html lang="<%=it.locations.idioma_web%>">
     <head>
         <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="HandheldFriendly" content="true">
         <title><%=it.locations.titulo%></title>
         <!-- <link rel="stylesheet" href="./css/reset.css"> -->
         <!-- ------------------- jQuery------------------------- -->
@@ -17,6 +19,8 @@
         <!-- --------------------------------------------------- -->
 
         <link rel="stylesheet" href="css/styles.css" />
+        <link rel="stylesheet" href="./css/header.css">
+        <link rel="stylesheet" href="./css/footer.css">
 
         <!----------------------------------- Fonts --------------------------------------->
         <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -31,7 +35,6 @@
         <!------------------- Bootstrap CSS ------------------------>
         
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-        
         <script async src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
         <!-- --------------------------------------------------- -->
 
@@ -179,18 +182,20 @@
                 <main class="page-content">
                 
                     <% for (let i = 0; i < it.data.length; i++) { %>
-                    <div class="card <%=it.data[i]["ImagenVehiclo"] %>">
+                    
+                    <div class="card lazyload <%=it.data[i]["ImagenVehiclo"] %>">
+                        
                     <form class="form-line" action="/direct" method="post" id="<%=it.data[i]["vehiculo"] %>">
-                        <input type="hidden" id="fase" name="fase" value="2">
-                        <input type="hidden" id="success" name="success" value="<%=it.success %>">
-                        <input type="hidden" id="idioma" name="idioma" value="<%=it.locations.idioma_web %>">
-                        <input type="hidden" name="vehiculo" value="<%=it.data[i]["vehiculo"] %>">
+                        <input type="hidden"  name="fase" value="2">
+                        <input type="hidden"  name="success" value="<%=it.success %>">
+                        <input type="hidden"  name="idioma" value="<%=it.locations.idioma_web %>">
+                        <input type="hidden"  name="vehiculo" value="<%=it.data[i]["vehiculo"] %>">
 
-                        <input type="hidden" id="fechaRecogida_input" name="fechaRecogida" value="">
-                        <input type="hidden" id="horaRecogida_input" name="horaRecogida" value="">
-                        <input type="hidden" id="fechaDevolucion_input" name="fechaDevolucion" value="">
-                        <input type="hidden" id="horaDevolucion_input" name="horaDevolucion" value="">
-                        <input type="hidden" id="conductor_con_experiencia_input" name="conductor_con_experiencia" value="">
+                        <input type="hidden"  name="fechaRecogida" value="">
+                        <input type="hidden"  name="horaRecogida" value="">
+                        <input type="hidden"  name="fechaDevolucion" value="">
+                        <input type="hidden"  name="horaDevolucion" value="">
+                        <input type="hidden"  name="conductor_con_experiencia" value="">
                         
 
                         <div class="content">
@@ -254,9 +259,11 @@
         </div>
         <!-- Fin container -->
 
+        <script async src="./js/lazysizes.min.js"></script>
         
         <script async src="./js/index.js"></script>
         <script async src="./js/newsletter.js"></script>
+        
         <!--------------------------- Scripts ---------------------------->
         <!---------------------------------------------------------------->
         <!---------------------------------------------------------------->

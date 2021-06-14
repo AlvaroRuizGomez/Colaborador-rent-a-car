@@ -44,6 +44,28 @@ botonNews.addEventListener("click", async (evento) =>
             contestacion.classList.add("visible-ocupar");
             contestacion.classList.add("formulario-newsletter-blanco");
             contestacion.classList.add("titulo-formulario-newsletter");
+
+            setTimeout(() => {
+                
+                contestacion.classList.add("invisible-sinocupar");
+
+                contestacion.classList.remove("visible-ocupar");
+                contestacion.classList.remove("formulario-newsletter-blanco");
+                contestacion.classList.remove("titulo-formulario-newsletter");
+
+                titulo.classList.remove("invisible-sinocupar");
+                titulo.classList.add("visible-ocupar");
+
+                email.classList.remove("invisible-sinocupar");
+                email.classList.add("visible-ocupar");
+
+                grupo.classList.remove("invisible-sinocupar");
+                grupo.classList.add("visible-ocupar");
+
+                emailInput.value = ""
+                subscribe-field
+
+            }, 2000);
             
         }
 
