@@ -303,10 +303,10 @@
                                                         <%=it.locations.vehiculo_seleccionado %>
                                                     </h3>
                                                 </div>
-                                                <% } %>
+                                            <% } %>
 
 
-                                                    <% } %>
+                                    <% } %>
 
                                                         <% if ( it.vehiculoSeleccionado !==undefined) { %>
                                                             <%~ includeFile("oferta.html", it,
@@ -320,9 +320,8 @@
                                                                     </div>
 
                                                                     <% for (let x=0; x < it.data.length; x++) { %>
-                                                                        <%~ includeFile("oferta.html", it,
-                                                                            element=it.data[x], j=x ) %>
-                                                                            <% } %>
+                                                                        <%~ includeFile("oferta.html", it, element=it.data[x], j=x ) %>
+                                                                    <% } %>
 
 
                     </div>
