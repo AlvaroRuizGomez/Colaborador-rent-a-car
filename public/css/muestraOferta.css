@@ -47,17 +47,8 @@ body {
   ;
 }
 
-.layout .banner {
+.banner {
   grid-area: banner;
-
-}
-
-.layout .form {
-grid-column-start: 1;
-grid-column-end:2;
-grid-row-start:2;
-grid-row-end: 3;
-background: red;
 }
 
 .layout .slider-ofertas {
@@ -76,7 +67,6 @@ background: red;
 
 }
 
-
 .layout .footer {
   grid-column-start: 1;
   grid-column-end:3;
@@ -86,14 +76,79 @@ background: red;
   width:100%;
 }
 
-/*---- Inicio Datos-busqueda/Vehículos-Ofertados encontrados ------- */
-.form-busca{
-  margin-top: -32px;
+.logo img {
+  width: 280px;
 }
 
-.form-container {
- 
+.contacto {
+  display: grid;
+  /* grid-template-columns: 15% 40%; */
+  grid-template-columns: 1fr;
+  width: 100%;
+  padding-right: 10px;
+  margin-top: 2px;
+  font-family: Helvetica;
+  font-style: italic;
+  font-weight: 900px;
+  font-size: 15px;
 }
+  
+.contacto img {
+  width: 45px;
+}
+  
+.contacto h2 {
+  font-size: 20px;
+  margin-top: -39px;
+  margin-left: -63px;
+}
+
+.contacto p {
+  margin-right: 124px;
+}
+  
+#reserva-telefono {
+  font-family: "Open Sans", sans-serif;
+  margin-left: 66px;
+  margin-top: -15px;  
+}
+  
+#idioma {
+  width: 100%;
+  height: 100%;
+  padding-right: 20px;
+}
+  
+#idioma > ul {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  justify-content: center;
+  text-align: right;
+  height: 100%;
+  list-style: none;
+}
+  
+#eslogan {
+  display: grid;
+  grid-template-columns: 1fr;
+    
+  width: 100%;
+  margin-top: -53px;
+  margin-left: 37px;
+  
+  position: absolute;
+  z-index: 100;
+  justify-items: center;
+    
+  color: #0d6efd;
+  font-family: 'Lobster', cursive;
+  font-size: 63px;
+  font-weight: bold;
+  font-style: oblique;
+  text-shadow: 1px 6px 2px #222;
+}
+
 
 .bandera
 {
@@ -101,21 +156,105 @@ background: red;
   border: 1px solid black;
 }
 
-/*---- Inicio Formulario busqueda (aside) -------------------*/
+/*---- Inicio Formulario Ofertas (aside) -------------------*/
 
-.aside-box {
-  display: flex;
+/* ************************************************************ */
+/* ***********************   INICIO NUEVO ********************* */
+/* ************************************************************ */
+.form {
+  grid-area: form;
+}
+
+.form-Ofertas {
+  display: grid;
   flex-flow: row wrap;
   width: 89%;
-  height: 299px;
   margin-top: 12px;
   margin-left: 26px;
   padding-top: 0px;
-  background: #c3d2f2;
-  box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.3), 0px 3px 7px rgba(0, 0, 0, 0.3), 0px 0px 1px white inset, 0px -3px 2px rgba(0, 0, 0, 0.3) inset;
+  background: #ffff;
+  border: 1px solid rgb(192, 192, 192);
+  border-radius: 2px;
   position: relative;
 }
+
+.form-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "titRecoge titRecoge titRecoge Cambiar"
+    "location location location location"
+    "fechaRecoge iconCalendar horaRecoge iconClock"
+    "titDevuelve titDevuelve titDevuelve titDevuelve"
+    "fechaDevuelve iconCalendar2 horaDevuelve iconClock2"
+    ". modificar modificar .";
+}
+
+.titRecoge { 
+  grid-area: titRecoge; 
+}
+
+.Cambiar { 
+  grid-area: Cambiar; 
+}
+
+.location { 
+  grid-area: location; 
+}
+
+.fechaRecoge { 
+  grid-area: fechaRecoge; 
+}
+
+.iconCalendar { 
+  grid-area: iconCalendar; 
+}
+
+.horaRecoge { 
+  grid-area: horaRecoge; 
+}
+
+.iconClock { 
+  grid-area: iconClock; 
+}
+
+.titDevuelve { 
+  grid-area: titDevuelve; 
+}
+
+.fechaDevuelve { 
+  grid-area: fechaDevuelve; 
+}
+
+.iconCalendar2 { 
+  grid-area: iconCalendar2; 
+}
+
+.horaDevuelve { 
+  grid-area: horaDevuelve; 
+}
+
+.iconClock2 { 
+  grid-area: iconClock2; 
+}
+
+.modificar { 
+  grid-area: modificar; 
+}
+
+
+
+
+
   
+
+/* ************************************************************ */
+/* ***********************   FIN NUEVO ************************ */
+/* ************************************************************ */
+
 .titulo-form {
   margin-left: 11px;
   margin-top: 13px;
