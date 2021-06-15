@@ -3,6 +3,7 @@
 {
   display: grid;
   width: 100%;
+  background-color: #fafafa;
 }
 
 .cabecera-container
@@ -112,25 +113,18 @@
 #eslogan {
   display: grid;
   grid-template-columns: 1fr;
-  
   width: 100%;
-  margin-top: -53px;
-  /* margin-left: 37px; */
-
   /* position: absolute; */
   z-index: 100;
   justify-items: center;
-  
   color: #0d6efd;
+  background-color: #fafafa;
   font-family: 'Lobster', cursive;
   font-size: 63px;
   font-weight: bold;
   font-style: oblique;
   text-shadow: 1px 6px 2px #222;
 }
-
-
-
 
 /* menu idiomas */
 

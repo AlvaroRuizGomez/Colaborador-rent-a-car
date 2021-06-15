@@ -20,6 +20,7 @@
 body{
   width:100%;
   overflow-x:hidden;
+  background-color: #fafafa;
   }
 
 
@@ -29,9 +30,6 @@ body{
   border: 1px solid rgba(255, 255, 256, 0.8);
   /* min-height: 600px; */
 }
-
-
-
 
 /* ------------- Inicio Contenido ------------- */
 #content {
@@ -43,7 +41,8 @@ body{
 
   padding-top: 20px;
   padding-bottom: 20px;
-  background-image: url("../img/Img-Banner/FaroSoller.webp");
+  /* background-image: url("../img/Img-Banner/FaroSoller.webp"); */
+  background-color: #fafafa;
   background-position: center;
   background-size: cover;
   position: relative;
@@ -92,9 +91,9 @@ body{
   /* background-color: #fff; */
   /* gap: 0px 0px; */
   grid-template-areas:
-    "recogidaDateTit recogidaDateData recogidaDateIcon . recogidaClockTit recogidaClockData recogidaClockData"
+    "recogidaDateTit recogidaDateData recogidaDateIcon . recogidaClockTit recogidaClockData recogidaClockIcon"
     ". . . . . . ."
-    "devolucionDateTit devolucionDateData  devolucionDateIcon . devolucionClockTit devolucionClockData devolucionClockData"
+    "devolucionDateTit devolucionDateData  devolucionDateIcon . devolucionClockTit devolucionClockData devolucionClockIcon"
     ". . . . . . ."
     ". driverNovel driverNovel driverNovel driverNovel . ."
     ". . . . . . ."
