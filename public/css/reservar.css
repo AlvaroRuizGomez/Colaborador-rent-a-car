@@ -99,7 +99,7 @@ select {
     grid-area: contenido_main;
   display: grid;
 
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, auto);
   grid-template-rows: repeat(5, auto);
   grid-template-areas:
     "sidebar contentReserva"
