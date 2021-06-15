@@ -74,7 +74,7 @@
             <input type="hidden" name="idioma" value="<%=it.locations.idioma_web %>">
             <input type="hidden" name="success" value="<%=it.success %>">
             <input type="hidden" name="fase" value="2">
-        
+
             <!-------- Inicio Formulario de Busqueda ------------>
             <div class="form-Ofertas">
                 <div class="form-container">
@@ -87,19 +87,19 @@
                             <%= it.locations.recogida %>
                         </label>
                     </div>
-        
+
                     <!---------- Opción Cambiar --------->
                     <div class="Cambiar">
                         <a href="/" class="link-cambiar">
                             <%=it.locations.cambiar %>
                         </a>
                     </div>
-        
+
                     <!---------- Lugar de recogida --------->
                     <p class="location">
                         Can Pastilla, Palma de Mallorca
                     </p>
-        
+
                     <!----------- Fecha de recogida -------->
                     <div class="fechaRecoge">
                         <div class="formDateRecogida">
@@ -108,24 +108,26 @@
                                 data-align="bottom" data-name="" readonly="">
                         </div>
                     </div>
-        
+
                     <div class="iconCalendar">
-                        <img src="./img/img-Calendar/calendar.webp" alt="Calendario recogida" class="img-calendar triggerRec">
+                        <img src="./img/img-Calendar/calendar.webp" alt="Calendario recogida"
+                            class="img-calendar triggerRec">
                     </div>
                     <!----------- Hora de recogida ----------->
-                    <div class="horaRecoge input-group clockpicker" data-placement="bottom" data-align="top" data-autoclose="true">
+                    <div class="horaRecoge input-group clockpicker" data-placement="bottom" data-align="top"
+                        data-autoclose="true">
                         <input type="text" class="input-color form-control-clock" name="horaRecogida" id="horaRecogida"
                             value="<%= it.formdata.horaRecogida %>" readonly="" />
                         <span class="iconClock input-group-addon">
                             <img src="./img/Img-Clock/clock.avif" alt="Reloj Recogida" class="img-clock">
                         </span>
                     </div>
-        
+
                     <!-- ************************************************ -->
                     <!-- ************     Devolución    ***************** -->
                     <!-- ************************************************ -->
                     <!---------- Título Devolución --------->
-        
+
                     <div class="titDevuelve">
                         <label>
                             <%=it.locations.devolucion %>
@@ -133,30 +135,33 @@
                         <!-- <div class="labelDate-form-devolucion">
                         </div> -->
                     </div>
-        
+
                     <!----------- Fecha de Devolución -------->
                     <div class="fechaDevuelve">
                         <div class="formDateRecogida">
-        
+
                             <input type="text" class="input-color form-control-date datepicker" id="fechaDevolucion"
                                 name="fechaDevolucion" value="<%= it.formdata.fechaDevolucion %>" data-placement="right"
                                 data-align="bottom" data-name="" readonly="">
                         </div>
                     </div>
-        
+
                     <div class="iconCalendar2">
-                        <img src="./img/img-Calendar/calendar.webp" alt="Calendario devolucion" class="img-calendar triggerDev">
+                        <img src="./img/img-Calendar/calendar.webp" alt="Calendario devolucion"
+                            class="img-calendar triggerDev">
                     </div>
-        
+
                     <!----------- Hora de Devolución ----------->
-                    <div class="horaDevuelve input-group clockpicker" data-placement="bottom" data-align="top" data-autoclose="true">
+                    <div class="horaDevuelve input-group clockpicker" data-placement="bottom" data-align="top"
+                        data-autoclose="true">
                         <input type="text" class="input-color form-control-clock" name="horaDevolucion"
                             value="<%= it.formdata.horaDevolucion %>" readonly="" />
                         <span class="iconClock2 input-group-addon">
-                            <img src="./img/Img-Clock/clock.avif" alt="<%=it.locations.alt_reloj_recogida%>" class="img-clock">
+                            <img src="./img/Img-Clock/clock.avif" alt="<%=it.locations.alt_reloj_recogida%>"
+                                class="img-clock">
                         </span>
                     </div>
-        
+
                     <!----------- Botón Modificar ----------->
                     <div class="modificar btnMod">
                         <!-- boton_modificar -->
@@ -165,7 +170,7 @@
                         </button>
                     </div>
                 </div>
-        
+
             </div>
             <!-------------------------------- Fin Formulario de Busqueda --------------------------->
         </form>
@@ -174,27 +179,33 @@
         <div class="contenido">
 
             <!--------------- Inicio Slider ---------------------->
-            <% if (it.data.length > 0) { %>
-            <div class="carruselSlider">
-                <div id="carousel" class="carousel slide " data-ride="carousel">
-                    <a class="carrusel-control-prev carrusel-control" href="#carousel" role="button" data-slide="prev">
-                        <img src="img/svg/carrusel_control_previous.svg" class="icono-azul" alt="<%=it.locations.alt_anterior %>">
-                    </a>
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <div class="row row-custom ">
-                                <% for (let i= 0; i < 5; i++) { %>
-                                    <% if (it.data[i]===undefined ) continue; %>
-                                    <div class="col col-p">
-                                        <h5 class="nombre-car-slider">
-                                            <%= it.data[i].descripcion %>
-                                        </h5>
-                                        <div class="py-4 text-black text-center">
-                                            <picture class="d-block img-ta">
-                                                <source data-srcset="./img/Img-Vehiculos/<%= it.data[i].ImagenVehiclo %>_Slider.avif">
-                                                <source data-srcset="./img/Img-Vehiculos/<%= it.data[i].ImagenVehiclo %>_Slider.webp">
-                                                <img class="d-block img-ta lazyload" data-src="img/Img-Vehiculos/<%= it.data[i].ImagenVehiclo %>_Slider.png" alt="<%= it.data[i].descripcion %>">
-                                            </picture>
+            <% if (it.data.length> 0) { %>
+                <div class="carruselSlider">
+                    <div id="carousel" class="carousel slide " data-ride="carousel">
+                        <a class="carrusel-control-prev carrusel-control" href="#carousel" role="button"
+                            data-slide="prev">
+                            <img src="img/svg/carrusel_control_previous.svg" class="icono-azul"
+                                alt="<%=it.locations.alt_anterior %>">
+                        </a>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <div class="row row-custom ">
+                                    <% for (let i=0; i < 5; i++) { %>
+                                        <% if (it.data[i]===undefined ) continue; %>
+                                            <div class="col col-p">
+                                                <h5 class="nombre-car-slider">
+                                                    <%= it.data[i].descripcion %>
+                                                </h5>
+                                                <div class="py-4 text-black text-center">
+                                                    <picture class="d-block img-ta">
+                                                        <source
+                                                            data-srcset="./img/Img-Vehiculos/<%= it.data[i].ImagenVehiclo %>_Slider.avif">
+                                                        <source
+                                                            data-srcset="./img/Img-Vehiculos/<%= it.data[i].ImagenVehiclo %>_Slider.webp">
+                                                        <img class="d-block img-ta lazyload"
+                                                            data-src="img/Img-Vehiculos/<%= it.data[i].ImagenVehiclo %>_Slider.png"
+                                                            alt="<%= it.data[i].descripcion %>">
+                                                    </picture>
 
 
 
@@ -215,26 +226,37 @@
                                             <% } %>
                                 </div>
                             </div>
-                        </div>
-                        
-                        <div class="carousel-item">
-                            <!--  row-p -->
-                            <div class="row row-custom">
-                                <% for (let i = 5; i < 10; i++) { %>
-                                    <% if (it.data[i] === undefined ) continue; %>
-                                    <div class="col col-p">
-                                        <h5 class="nombre-car-slider"><%= it.data[i].descripcion %></h5>
-                                        <div class="py-4 text-black text-center">
-                                            <picture class="d-block img-ta">
-                                                <source data-srcset="./img/Img-Vehiculos/<%= it.data[i].ImagenVehiclo %>_Slider.avif">
-                                                <source data-srcset="./img/Img-Vehiculos/<%= it.data[i].ImagenVehiclo %>_Slider.webp">
-                                                <img class="d-block  img-ta lazyload" data-src="img/Img-Vehiculos/<%= it.data[i].ImagenVehiclo %>_Slider.png"
-                                                    alt="<%= it.data[i].descripcion %>">
-                                            </picture>
-                                        </div>
-                                        <div class="precio">
-                                            <div class="precio-txt">
-                                                <p>desde</p>
+
+                            <div class="carousel-item">
+                                <!--  row-p -->
+                                <div class="row row-custom">
+                                    <% for (let i=5; i < 10; i++) { %>
+                                        <% if (it.data[i]===undefined ) continue; %>
+                                            <div class="col col-p">
+                                                <h5 class="nombre-car-slider">
+                                                    <%= it.data[i].descripcion %>
+                                                </h5>
+                                                <div class="py-4 text-black text-center">
+                                                    <picture class="d-block img-ta">
+                                                        <source
+                                                            data-srcset="./img/Img-Vehiculos/<%= it.data[i].ImagenVehiclo %>_Slider.avif">
+                                                        <source
+                                                            data-srcset="./img/Img-Vehiculos/<%= it.data[i].ImagenVehiclo %>_Slider.webp">
+                                                        <img class="d-block  img-ta lazyload"
+                                                            data-src="img/Img-Vehiculos/<%= it.data[i].ImagenVehiclo %>_Slider.png"
+                                                            alt="<%= it.data[i].descripcion %>">
+                                                    </picture>
+                                                </div>
+                                                <div class="precio">
+                                                    <div class="precio-txt">
+                                                        <p>desde</p>
+                                                    </div>
+                                                    <div class="precio-p">
+                                                        <p>
+                                                            <%= it.data[i].preciopordiasindescuento %>€
+                                                        </p>
+                                                    </div>
+                                                </div>
                                             </div>
                                             <% } %>
                                 </div>
