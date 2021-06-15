@@ -174,11 +174,11 @@
                     </a>
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <div class="row ">
+                            <div class="row row-custom ">
                                 <% for (let i= 0; i < 5; i++) { %>
                                     <% if (it.data[i]===undefined ) continue; %>
                                     <div class="col col-p">
-                                        <h5>
+                                        <h5 class="nombre-car-slider">
                                             <%= it.data[i].descripcion %>
                                         </h5>
                                         <div class="py-4 text-black text-center">
@@ -207,11 +207,12 @@
                         </div>
                         
                         <div class="carousel-item">
-                            <div class="row row-p">
+                            <!--  row-p -->
+                            <div class="row row-custom">
                                 <% for (let i = 5; i < 10; i++) { %>
                                     <% if (it.data[i] === undefined ) continue; %>
                                     <div class="col col-p">
-                                        <h5><%= it.data[i].descripcion %></h5>
+                                        <h5 class="nombre-car-slider"><%= it.data[i].descripcion %></h5>
                                         <div class="py-4 text-black text-center">
                                             <picture class="d-block img-ta">
                                                 <source data-srcset="./img/Img-Vehiculos/<%= it.data[i].ImagenVehiclo %>_Slider.avif">

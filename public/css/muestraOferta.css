@@ -514,10 +514,19 @@ body {
   /* margin-left: 13px; */
 }
 
-.col-p h5 {
+.row-custom
+{
+  margin: 0;
+}
+
+
+
+.nombre-car-slider {
   font-size: 12px;
   font-weight: bold;
   /* font-weight: 700px; */
+  margin:0;
+  height: 30px;
 }
 
 .row-p {
@@ -526,13 +535,20 @@ body {
 
 .col-p {
   height: 183px;
-    border: 1px solid #000000;
-    margin-left: 30px;
-    margin-right: -18px;
-    border: 1px solid #e9e7e7;
-    border-radius: 3px;
-    margin-top: 11px;
-    background-color: #ffffff;
+  border: 1px solid #000000;
+  /* margin-left: 30px; */
+  /* margin-right: -18px; */
+  
+  border: 1px solid #e9e7e7;
+  border-radius: 3px;
+  /* margin-top: 11px; */
+  background-color: #ffffff;
+
+  /* display: flex;
+  flex-direction: column; */
+
+
+
 }
 
 .img-ta {
@@ -1241,7 +1257,7 @@ body {
   /* position: relative; */
 
   display: grid;
-  grid-template-columns: 60px auto 60px;
+  grid-template-columns: 40px auto 40px;
   grid-template-areas: "izq carrusel der";
 
 
