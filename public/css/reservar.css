@@ -1,33 +1,106 @@
+
 body {
-    font-family: sans-serif;
-    text-align: center;
-    overflow-x: hidden;
+  font-family: sans-serif;
+  text-align: center;
+  margin: 0px;
+  padding: 0px;
+  overflow-x: hidden;
+
+  width: 100vw;
+  height: 100vh;
+
+}
+
+input[type="radio" i] {
+    background-color: initial;
+    cursor: default;
+    appearance: auto;
+    box-sizing: border-box;
+    margin: 3px 3px 0px 5px;
+    padding: initial;
+    border: initial;
+}
+
+input {
+    -webkit-writing-mode: horizontal-tb !important;
+    text-rendering: auto;
+    color: -internal-light-dark(black, white);
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: start;
+    appearance: auto;
+    background-color: -internal-light-dark(rgb(255, 255, 255), rgb(59, 59, 59));
+    -webkit-rtl-ordering: logical;
+    cursor: text;
+    margin: 0em;
+    font: 400 13.3333px Arial;
+    padding: 1px 2px;
+    border-width: 2px;
+    border-style: inset;
+    border-color: -internal-light-dark(rgb(118, 118, 118), rgb(133, 133, 133));
+    border-image: initial;
+}
+
+select {
+    -webkit-writing-mode: horizontal-tb !important;
+    text-rendering: auto;
+    color: -internal-light-dark(black, white);
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: start;
+    appearance: auto;
+    box-sizing: border-box;
+    align-items: center;
+    white-space: pre;
+    -webkit-rtl-ordering: logical;
+    background-color: -internal-light-dark(rgb(255, 255, 255), rgb(59, 59, 59));
+    cursor: default;
+    margin: 0em;
+    font: 400 13.3333px Arial;
+    border-radius: 0px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: -internal-light-dark(rgb(118, 118, 118), rgb(133, 133, 133));
+    border-image: initial;
+}
+
+
+
+.container
+{
+  /* display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(3, auto);
+  grid-template-areas: 
+  "header"
+  "contenido_main"
+  "footer"
+  ; */
+  display: flex;
+  flex-direction: column;
+
+  /* scrollbar-gutter: force; */
+  /* scrollbar-width: 0px; */
+
 }
 
 .layout {
     width: 100%;
-    height: 100%;
+    /* height: 100%; */
 
-    
-
-    /* min-height: 600px;
-    display: grid;
-    grid-template-rows: auto auto;
-    grid-template-areas: 
-    "header"
-    "contenido"
-    "footer"
-    ; */
-    /* grid-template-columns: repeat(8, 1fr); */
-    /* grid-template-rows: 10px repeat(7, 1fr) 0.5fr; */
-    /* grid-gap: 15px; */
-
-
-    
+    grid-area: contenido_main;
   display: grid;
-  height: 100vh;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: 0.2fr 1.5fr 1.2fr 0.8fr;
+
+  grid-template-columns: repeat(2, auto);
+  grid-template-rows: repeat(5, auto);
   grid-template-areas:
     "sidebar contentReserva"
     "sidebar beneficios"
@@ -35,6 +108,10 @@ body {
     "sidebar formDriver"
     "sidebar boxBtnRevervar"
     ;
+
+  /* display: flex; */
+  flex-direction: column;
+
   gap: 0.5rem;
   font-weight: 800;
   font-size: 12px;
@@ -47,14 +124,25 @@ body {
 
 @media only screen and (max-width: 550px) {
   .layout {
-    grid-template-columns: 1fr;
-    grid-template-rows: 0.4fr 0.4fr 2.2fr 1.2fr 1.2fr 1.2fr 1fr;
+    
+    grid-area: contenido_main;
+    grid-template-columns: 93vw;
+
     grid-template-areas:
-      "sidebar"
-      "main"
-      "about"
-      "contact"
-      "footer";
+    "sidebar"
+    "contentReserva"
+    "beneficios"
+    "sillasBox"
+    "formDriver"
+    "boxBtnRevervar";
+    background: border-box;
+    /* padding: 10px;  */
+
+
+    width: 100%;
+    max-width: 100vw;
+    justify-content: center;
+
   }
 }
 
@@ -62,8 +150,7 @@ body {
 
 .banner
 {
-
-    grid-area: header;
+  width: 100vw;
 }
 
 
@@ -314,13 +401,15 @@ body {
 .contentBlock {
     /* grid-area: b; */
     display: grid;
-    grid-template-rows: 31px, auto;
+    box-sizing: content-box;
+    grid-template-rows: 20px auto;
+    grid-template-columns: 100%;
     grid-template-areas:
         "titulo"
         "info";
-    justify-items: flex-start;
-    align-items: flex-start;
-    width: 100%;
+    /* justify-items: flex-start;
+    align-items: flex-start; */
+    /* width: 100%; */
     border: 1px solid #d8d8d8;
     background-color: #fff;
 }
@@ -343,8 +432,10 @@ body {
   
 .infoReserva {
     grid-area: info;
+    justify-self: center;
+    box-sizing: content-box;
     display: grid;
-    grid-template-columns: 200px 500px;
+    grid-template-columns: auto auto;
     grid-template-rows: repeat(7, 31px);
     grid-template-areas:
         "titulo1 dato1"
@@ -356,72 +447,75 @@ body {
         "titulo7 dato7";
     flex-direction: column;
     align-items: flex-start;
+
+    overflow-wrap: break-word;
 }
   
 .titDiasReserva {
     grid-area: titulo1;
-    display: inline;
+    /* display: inline; */
 }
   
 .diasReserva {
     grid-area: dato1;
-    display: inline;
-    width: 100;
+    word-break: break-word;
+    /* display: inline; */
+    /* width: 100; */
 }
   
 .titValorReserva {
     grid-area: titulo2;
-    display: inline;
+    /* display: inline; */
 }
   
 .valorReserva {
     grid-area: dato2;
-    display: inline;
-    width: 250px;
+    /* display: inline; */
+    /* width: 250px; */
 }
   
 .titSeguro {
     grid-area: titulo3;
-    display: inline;
+    /* display: inline; */
 }
   
 .valorseguro {
     grid-area: dato3;
-    display: inline;
-    width: 100%;
+    /* display: inline; */
+    /* width: 100%; */
 }
   
 .titConductor {
     grid-area: titulo4;
-    display: inline;
+    /* display: inline; */
 }
   
 .valorConductor {
     grid-area: dato4;
-    display: inline;
-    width: 250px;
+    /* display: inline; */
+    /* width: 250px; */
 }
   
 .titTotReserva {
     grid-area: titulo5;
-    display: inline;
+    /* display: inline; */
 }
   
 .valorTotReserva {
     grid-area: dato5;
-    display: inline;
-    width: 250px;
+    /* display: inline; */
+    /* width: 250px; */
 }
   
 .titValorRecogida {
     grid-area: titulo6;
-    display: inline;
+    /* display: inline; */
 }
   
 .ValorRecogida {
     grid-area: dato6;
-    display: inline;
-    width: 250px;
+    /* display: inline; */
+    /* width: 250px; */
 }
   
 .titValorOnline {
@@ -434,15 +528,15 @@ body {
   
 .ValorOnline {
     grid-area: dato7;
-    display: inline;
-    width: 250px;
+    /* display: inline; */
+    /* width: 250px; */
     border-top: 1px solid #ddd;
     background-color: #ff0;
 }
   
 .precioIncluye {
     display: flex;
-    width: 250px;
+    /* width: 250px; */
     background: #fff;
     border: 1px solid #ddd;
     padding: 20px;
@@ -555,7 +649,7 @@ body {
     grid-template-areas:
         "silla silla casilla info titulo"
         "silla silla casilla info descripcion";
-    justify-items: center;
+    /* justify-items: center; */
     align-items: center;
     margin-bottom: 20px;
 }
@@ -573,10 +667,11 @@ body {
 
 .info
 { 
-    grid-area: info; 
+    grid-area: info;
+    justify-self: center;
 }
 
-.titulo 
+.titulo_asientos 
 { 
     grid-area: titulo;
     justify-self: flex-start;
@@ -633,7 +728,7 @@ body {
     margin-left: 3%;
 }
 
-.titulo {
+.titulo_asientos {
     /* display: inline-block; */
     /* max-width: 100%; */
     /* margin-bottom: 45px; */
@@ -767,6 +862,17 @@ body {
 {
     width: 100%;
     justify-self: flex-start;
+
+}
+
+
+
+
+.input-texto
+{
+  padding: 5px;
+  border: 1px solid #868680;
+
 }
 
 .icono-20

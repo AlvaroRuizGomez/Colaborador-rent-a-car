@@ -7,6 +7,14 @@ const botonCerrarPrivacidad = document.getElementById("boton-cerrar-modal-privac
 const overlayTerminos = document.getElementById("overlay-terminos");
 const overlayPrivacidad = document.getElementById("overlay-privacidad");
 
+function handleFullWidthSizing() {
+    const scrollbarWidth = window.innerWidth - document.body.clientWidth
+
+    
+    document.getElementsByClassName("container")[0].style.width = `calc(100vw - ${scrollbarWidth}px)`;
+}
+
+handleFullWidthSizing();
 
 ///------- formulario conductor
 
