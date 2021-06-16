@@ -192,35 +192,32 @@
                                 <div class="row row-custom ">
                                     <% for (let i=0; i < 5; i++) { %>
                                         <% if (it.data[i]===undefined ) continue; %>
-                                            <div class="col col-p">
+                                            <div class="columna col-p">
                                                 <h5 class="nombre-car-slider">
                                                     <%= it.data[i].descripcion %>
                                                 </h5>
-                                                <div class="py-4 text-black text-center">
-                                                    <picture class="d-block img-ta">
+                                                <!-- py-4 text-black text-center -->
+                                                
+                                                    <picture>
                                                         <source
                                                             data-srcset="./img/Img-Vehiculos/<%= it.data[i].ImagenVehiclo %>_Slider.avif">
                                                         <source
                                                             data-srcset="./img/Img-Vehiculos/<%= it.data[i].ImagenVehiclo %>_Slider.webp">
-                                                        <img class="d-block img-ta lazyload"
+                                                        <img class="img-ta lazyload"
                                                             data-src="img/Img-Vehiculos/<%= it.data[i].ImagenVehiclo %>_Slider.png"
                                                             alt="<%= it.data[i].descripcion %>">
                                                     </picture>
 
 
 
-                                                </div>
+                                                
                                                 <div class="precio">
-                                                    <div class="precio-txt">
-                                                        <p>
-                                                            <%=it.locations.desde %>
-                                                        </p>
-                                                    </div>
-                                                    <div class="precio-p">
-                                                        <p>
-                                                            <%= it.data[i].preciopordiasindescuento %>€
-                                                        </p>
-                                                    </div>
+                                                    <p class="precio-txt">
+                                                        <%=it.locations.desde %>
+                                                    </p>
+                                                    <p class="precio-p">
+                                                        <%= it.data[i].preciopordiasindescuento %>€
+                                                    </p>
                                                 </div>
                                             </div>
                                             <% } %>
@@ -232,30 +229,30 @@
                                 <div class="row row-custom">
                                     <% for (let i=5; i < 10; i++) { %>
                                         <% if (it.data[i]===undefined ) continue; %>
-                                            <div class="col col-p">
+                                            <div class="columna col-p">
                                                 <h5 class="nombre-car-slider">
                                                     <%= it.data[i].descripcion %>
                                                 </h5>
-                                                <div class="py-4 text-black text-center">
-                                                    <picture class="d-block img-ta">
+                                                <!-- py-4 text-black text-center -->
+                                                
+
+                                                    <picture>
                                                         <source
                                                             data-srcset="./img/Img-Vehiculos/<%= it.data[i].ImagenVehiclo %>_Slider.avif">
                                                         <source
                                                             data-srcset="./img/Img-Vehiculos/<%= it.data[i].ImagenVehiclo %>_Slider.webp">
-                                                        <img class="d-block  img-ta lazyload"
+                                                        <img class=" img-ta lazyload"
                                                             data-src="img/Img-Vehiculos/<%= it.data[i].ImagenVehiclo %>_Slider.png"
                                                             alt="<%= it.data[i].descripcion %>">
                                                     </picture>
-                                                </div>
+                                                
                                                 <div class="precio">
-                                                    <div class="precio-txt">
-                                                        <p>desde</p>
-                                                    </div>
-                                                    <div class="precio-p">
-                                                        <p>
-                                                            <%= it.data[i].preciopordiasindescuento %>€
-                                                        </p>
-                                                    </div>
+                                                    <p class="precio-txt">
+                                                        desde
+                                                    </p>
+                                                    <p class="precio-p">
+                                                        <%= it.data[i].preciopordiasindescuento %>€
+                                                    </p>
                                                 </div>
                                             </div>
                                             <% } %>
