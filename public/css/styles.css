@@ -8,6 +8,11 @@
   --color-background-input-focus: #fff;
   --color-box-shadow-input-focus: rgba(13, 110, 253, 0.25);
   --color-texto-input-focus: #212529;
+
+  /* cabecera */
+  --background-cabecera-container: #eaf2fd;
+  --background-cabecera: #fafafa;
+
 }
 
 * {

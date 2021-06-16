@@ -3,12 +3,12 @@
 {
   display: grid;
   width: 100%;
-  background-color: #fafafa;
+  background-color: var(--background-cabecera);
 }
 
 .cabecera-container
 {
-    background: #eaf2fd;
+    background: var(--background-cabecera-container);
     display: flex;
     flex-direction: row;
     align-items: center;
