@@ -8,6 +8,11 @@
   --color-background-input-focus: #fff;
   --color-box-shadow-input-focus: rgba(13, 110, 253, 0.25);
   --color-texto-input-focus: #212529;
+
+  /* cabecera */
+  --background-cabecera-container: #eaf2fd;
+  --background-cabecera: #fafafa;
+
 }
 
 * {
@@ -20,6 +25,7 @@
 body{
   width:100%;
   overflow-x:hidden;
+  background-color: #fafafa;
   }
 
 
@@ -30,20 +36,18 @@ body{
   /* min-height: 600px; */
 }
 
-
-
-
 /* ------------- Inicio Contenido ------------- */
 #content {
   display: grid;
-  grid-template-columns: .7fr 1fr;
+  grid-template-columns: .5fr 1fr;
   align-items: start;
   justify-items: space-between;
   grid-column-gap: 7px;
 
   padding-top: 20px;
   padding-bottom: 20px;
-  background-image: url("../img/Img-Banner/FaroSoller.webp");
+  /* background-image: url("../img/Img-Banner/FaroSoller.webp"); */
+  background-color: #fafafa;
   background-position: center;
   background-size: cover;
   position: relative;
@@ -53,19 +57,20 @@ body{
 /**** Inicio CSS formulario Buscar Ofertas ****/
 .formContainer {
   display: grid;
+  grid-template-columns: 0.9fr;
   grid-template-rows: 1fr auto;
+
   grid-template-areas:
       "titulo"
       "data";
   justify-items: flex-start;
   align-items: flex-start;
-  /* padding: 5px; */
-  width: 100%;
+  width: 86%;
   padding: 1rem;
   margin-top: 17px;
-  margin-left: 13px;
+  margin-left: 70px;
   border: 1px solid #ddd;
-  background-color: #fff;
+  background-color: #eaf2fd;
 }
 
 .formTit{
@@ -76,9 +81,9 @@ body{
 .formTit h2 {
   display: block;
   font-size: 1.5em;
-  margin-block-start: 0.83em;
+  /* margin-block-start: 0.83em; */
   margin-block-end: 0.83em;
-  margin-inline-start: 0px;
+  /* margin-inline-start: 2em; */
   margin-inline-end: 0px;
   font-weight: bold;
 }
@@ -86,9 +91,10 @@ body{
 .grid-container {
   grid-area: data;
   display: grid;
-  grid-template-columns: 19% 138px 7% 12% 9% 65px 8%;
-  grid-template-rows: repeat(5, 38px) 20px repeat(2, 38px);
+  grid-template-columns: 25% 115px 9% 7% 13% 46px 10%;
+  grid-template-rows: repeat(5, 38px) 20px 38px;
   width: 100%;
+  /* margin-left: 20px; */
   /* background-color: #fff; */
   /* gap: 0px 0px; */
   grid-template-areas:
@@ -96,11 +102,11 @@ body{
     ". . . . . . ."
     "devolucionDateTit devolucionDateData  devolucionDateIcon . devolucionClockTit devolucionClockData devolucionClockData"
     ". . . . . . ."
-    ". driverNovel driverNovel driverNovel driverNovel . ."
+    ". driverNovel driverNovel driverNovel driverNovel driverNovel ."
     ". . . . . . ."
-    ". driverAge driverAge driverAge . . ."
+    ". driverAge driverAge driverAge driverAge . ."
     ". . . . . . ."
-    ". verPrecio verPrecio verPrecio . . .";
+    ". verPrecio verPrecio verPrecio verPrecio . .";
 }
 
 .input-color[readonly]
@@ -109,11 +115,11 @@ body{
   
   display: block;
   width: 100%;
-  padding: .375rem .75rem;
+  /* padding: .375rem .75rem; */
   font-size: 1rem;
   line-height: 1.5;
   color: var(--color-texto-input);
-  background-color: var(--color-background-input);
+  /* background-color: var(--color-background-input); */
   background-clip: padding-box;
   border: 1px solid var(--color-border-input);
   border-radius: .25rem;
@@ -200,14 +206,17 @@ body{
   grid-area: verPrecio; 
 }
 
-.recogidaDateTit,
+/* ************************** */
 .recogidaClockTit,
 .devolucionDateTit,
-.devolucionClockTit p {
-  font-size: 17px;
-  font-weight: bolder;
-  margin-top: 6px;
+.devolucionClockTit,
+.recogidaDateTit p {
+  font-size: 14px;
+  /* font-weight: bolder; */
+  margin-top: 4px;
 }
+
+/* ************************** */
   
 .labelDate-form-devolucion {
   margin-left: -16px;
@@ -217,31 +226,29 @@ body{
 }
   
 .form-control-date {
-  width: 153px;
   cursor: pointer;
 }
   
 .form-control-clock {
-  width: 70px;
-  margin-right: -4px;
   cursor: pointer;
+  margin-top: -9px;
 }
   
 .img-calendar {
-  width: 37px;
+  width: 25px;
   cursor: pointer;
   margin-left: 3px;
   /* background-color: #e9ecef; */
   /* box-shadow: 0px 0px 2px #1e1c1c; */
 }
   
-.img-clock{
-  width: 33px;
-  margin-top: 3px;  
-  margin-right: -11px;
+.img-clock {
+  width: 24px;
+  margin-top: -9px;
+  /* margin-right: -11px; */
   margin-left: 7px;
-  /* background-color: #e9ecef; */
-  /* box-shadow: 0px 0px 2px #1e1c1c; */
+  background-color: #e9ecef;
+  box-shadow: 0px 0px 2px #1e1c1c;
   cursor: pointer;
 }
   
@@ -251,6 +258,17 @@ body{
   cursor: pointer;
 }
   
+.input-group2 {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: stretch;
+  -ms-flex-align: stretch;
+  /* align-items: stretch; */
+  align-items: center;
+}
+
 .form-chequeo {
   font-size: 17px;
 }
@@ -277,8 +295,8 @@ body{
 }
 
 .driverAge label {
-  width: 57%;
-  margin-left: -13px;
+  width: 73%;
+  margin-left: 15px;
 }
 
 .edad_conductor
@@ -286,8 +304,10 @@ body{
   width: 30px;
   height: 30px;
   margin-top: -7px;
+  margin-left: -24px;
   border: 1px solid #ddd;
-  background: #e9ecef;
+  /* background: #e9ecef; */
+  background: #fff;
 
 }
 
@@ -301,7 +321,9 @@ body{
 {
   width: 25px;
   height: 25px;
-  background: #e9ecef;
+  /* background: #e9ecef; */
+  border: 1px solid #ddd;
+  background: #fff;
   position: relative;
   left: 0.8%;
   /* z-index: 2; */
@@ -354,6 +376,8 @@ body{
   border-radius: 5px;
   
   cursor: pointer;
+
+  font-size: 14px;
 }
 
 
@@ -393,8 +417,7 @@ body{
 }
 
 .btnBuscar {
-  /* margin: 35px 45px;
-  margin-left: 28px; */
+  margin-top: -17px;
 }
 /**** Fin   CSS formulario Buscar Ofertas ****/
 

@@ -3,11 +3,12 @@
 {
   display: grid;
   width: 100%;
+  background-color: var(--background-cabecera);
 }
 
 .cabecera-container
 {
-    background: #eaf2fd;
+    background: var(--background-cabecera-container);
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -23,7 +24,7 @@
 
 .logo-imagen
 {
-    width: 200px;
+    width: 280px;
 }
 
 .idiomas
@@ -112,25 +113,18 @@
 #eslogan {
   display: grid;
   grid-template-columns: 1fr;
-  
   width: 100%;
-  margin-top: -53px;
-  /* margin-left: 37px; */
-
   /* position: absolute; */
   z-index: 100;
   justify-items: center;
-  
   color: #0d6efd;
+  background-color: #fafafa;
   font-family: 'Lobster', cursive;
   font-size: 63px;
   font-weight: bold;
   font-style: oblique;
   text-shadow: 1px 6px 2px #222;
 }
-
-
-
 
 /* menu idiomas */
 

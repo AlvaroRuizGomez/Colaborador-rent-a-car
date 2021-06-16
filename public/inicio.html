@@ -46,7 +46,7 @@
         <link rel="icon" href="./img/Img-Logo/rentacar_favicon-228.png" sizes="228x228">
         
         <!-- Favicon Android -->
-        <link rel="shortcut icon" href=“./img/Img-Logo/rentacar_favicon-196.png" sizes="196x196">
+        <link rel="shortcut icon" href="./img/Img-Logo/rentacar_favicon-196.png" sizes="196x196">
         
         <!-- Favicon IOS -->
         <link rel="apple-touch-icon" href="./img/Img-Logo/rentacar_favicon-120.png" sizes="120x120">
@@ -108,8 +108,8 @@
                             </p>
                         </div>
 
-                        <div class="recogidaClockData input-group clockpicker" data-placement="bottom" data-align="top" data-autoclose="true">
-                            <input type="text" class="input-color  form-control-clock  " id="horaRecogida" name="horaRecogida" value="09:00" readonly="" />
+                        <div class="recogidaClockData input-group2  clockpicker" data-placement="bottom" data-align="top" data-autoclose="true">
+                            <input type="text" class="input-color form-control-clock" id="horaRecogida" name="horaRecogida" value="09:00" readonly="" />
                             <span class="input-group-addon">
                                 <img src="./img/Img-Clock/clock.avif" alt="<%=it.locations.relojrecogida %>" class="img-clock">
                             </span>
@@ -136,7 +136,8 @@
                                 <%=it.locations.hora %>
                             </p>
                         </div>
-                        <div class="devolucionClockData input-group clockpicker" data-placement="bottom" data-align="top" data-autoclose="true">
+
+                        <div class="devolucionClockData input-group2 clockpicker" data-placement="bottom" data-align="top" data-autoclose="true">
                             <input type="text" class="input-color form-control-clock " id="horaDevolucion" name="horaDevolucion" value="20:00" readonly="" />
                             <span class="input-group-addon">
                                 <img src="./img/Img-Clock/clock.avif" alt="<%=it.locations.relojdevolucion %>" class="img-clock">
@@ -166,7 +167,7 @@
                         <!------- Boton Ver ofertas --------->
                         <div class="verPrecio">
                             <section class="btnBuscar">
-                                <button type="submit" id="boton-VerPrecios" class="btn btn-primary btn-lg btn-block">
+                                <button type="submit" id="boton-VerPrecios" class="btn btn-primary btn-sm btn-block">
                                     <%=it.locations.ver_precios %>
                                 </button>
                             </section>
