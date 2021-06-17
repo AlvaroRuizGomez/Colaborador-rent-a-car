@@ -24,7 +24,7 @@
 
 .logo-imagen
 {
-    width: 200px;
+    width: 280px;
 }
 
 .idiomas
@@ -123,6 +123,23 @@
 .menu-link:hover
 {
   text-decoration: revert;
+}
+
+.presentation
+{
+  position: relative;
+}
+
+.presentation:before
+{
+  background: #a7c8f5;
+  content: "";
+  display: block;
+  height: 70%;
+  left: -50%;
+  position: absolute;
+  top: 15%;
+  width: 2px;
 }
 
 #eslogan {

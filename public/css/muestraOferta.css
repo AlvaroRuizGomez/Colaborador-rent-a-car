@@ -85,9 +85,6 @@ body {
   width:100%;
 }
 
-.logo img {
-  width: 280px;
-}
 
 .contacto {
   display: grid;
@@ -517,6 +514,7 @@ body {
 .row-custom
 {
   margin: 0;
+  gap: 10px;
 }
 
 
@@ -533,46 +531,59 @@ body {
   width: 77%;
 }
 
-.col-p {
-  height: 183px;
-  border: 1px solid #000000;
-  /* margin-left: 30px; */
-  /* margin-right: -18px; */
+.columna
+{
+  position: relative;
+
+  flex-basis: 0;
   
-  border: 1px solid #e9e7e7;
+  flex-grow: 1;
+  max-width: 100%;
+
+  width: 100%;
+  min-height: 1px;
+
+}
+
+.col-p {
+
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: 40px 90px 60px;
+
+  width: 100%;
+  
+  /* border: 1px solid #7a7a7a; */
+  border: 1px solid #459dc6;
   border-radius: 3px;
-  /* margin-top: 11px; */
   background-color: #ffffff;
-
-  /* display: flex;
-  flex-direction: column; */
-
-
 
 }
 
 .img-ta {
-  margin-top:-20px;
-  width: 100%;
+
+  max-width: 115px;
 }
 
 .precio {
- width: 116%;
- background: #f2f2f2;
- margin-left: -11px;
+
+  background: #f2f2f2;
+  /* border-bottom: 1px solid #459dc6; */
+
 }
 
+
 .precio-txt {
-  margin-top: 0px;
-  margin-left: 15px;
+  margin: 0;
   color: #666;
   font-size: 11px;
 }
 
 .precio-p {
+  margin: 0;
+  font-size: 25px;
   font-weight: bold;
-  margin-top: -17px;
-  margin-left: 15px;
+  
 }
 
 /* ---------- Fin    Slider ----------- */
@@ -592,6 +603,12 @@ body {
 
 
 /* ----- Inicio Ofertas --------------- */
+
+.ofertas
+{
+  margin-top: 30px;
+}
+
 .oferta
 {
   width: fit-content;
@@ -608,6 +625,8 @@ body {
   margin-bottom: 20px;
   background-color: #ffffff;
   column-gap: 10px;
+
+
 
 }
 
