@@ -7,7 +7,7 @@ const eta = require("eta");
 const compression = require('compression');
 const userAgent = require('express-useragent')
 const rateLimit = require('express-rate-limit');
-const session = require('express-session');
+// const session = require('express-session');
 const router = require('./routes/route');
 const path = require("path");
 
@@ -43,8 +43,15 @@ const corsOptions = (req, callback) => {
 // })
 // );
 
+// const expressSession =  session({
+//     secret: Math.random().toString(36).substring(7),
+//     saveUninitialized: true,
+//     resave: true
+// });
+
 // configuracion
-app.use(session({ secret: process.env.SECRET_SESSION, resave: false, saveUninitialized: false }));
+// app.use(session({ secret: process.env.SECRET_SESSION, resave: false, saveUninitialized: false }));
+// app.use(expressSession);
 app.use(compression());
 app.use(userAgent.express());
 

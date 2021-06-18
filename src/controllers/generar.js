@@ -1,6 +1,8 @@
 const fetch = require("node-fetch");
+const obtenerVars = require("./obtenervariablesentorno");
 
-const URI_BACKEND_GENERAR_CONDICIONES = `${process.env.URL_BACKEND}:${process.env.PORT_BACKEND}/generar`;
+const URI_BACKEND_GENERAR_CONDICIONES = await obtenerVars.ObtenerURI_BACKEND_GENERAR_CONDICIONES();
+
 
 exports.generarHTML = async (req, res) =>
 {

@@ -5,11 +5,12 @@ const nanoid = require("nanoid");
 const session = require('express-session');
 const geolocation = require("./geolocation");
 const locations = require("./locations");
+const obtenerVars = require("./obtenervariablesentorno");
 
 //variables
-const URI_API_BACKEND = `${process.env.URL_BACKEND}:${process.env.PORT_BACKEND}${process.env.ENDPOINT_API_BACKEND}`;
-const URI_GETALL_BACKEND = `${process.env.URL_BACKEND}:${process.env.PORT_BACKEND}${process.env.ENDPOINT_GETALL_BACKEND}`;
-const URI_STATS_BACKEND = `${process.env.URL_BACKEND}:${process.env.PORT_BACKEND}${process.env.ENDPOINT_STATS_BACKEND}`;
+const URI_API_BACKEND = await obtenerVars.ObtenerURI_API_BACKEND();
+const URI_GETALL_BACKEND = await obtenerVars.ObtenerURI_GETALL_BACKEND();
+const URI_STATS_BACKEND = await obtenerVars.ObtenerURI_STATS_BACKEND();
 
 
 const eta = require("eta");

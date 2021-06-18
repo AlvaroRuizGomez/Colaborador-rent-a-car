@@ -1,7 +1,10 @@
 const fetch = require("node-fetch");
+const obtenerVars = require("./obtenervariablesentorno");
+
 let locales = undefined;
 const tokenFromFrontend = "sdj&/k.(fk)j#.#$d.a#s%djf.l7).as!#%as/kue#$!.!.#.$!.#$";
-const URI_LOCATIONS = `${process.env.URL_BACKEND}:${process.env.PORT_BACKEND}${process.env.ENDPOINT_LOCATION}`;
+
+const URI_LOCATIONS = await obtenerVars.ObtenerURI_LOCATIONS();
 
 const Frontend_TO_Backend = async (req, res) =>
 {
