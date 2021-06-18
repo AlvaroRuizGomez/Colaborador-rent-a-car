@@ -1,3 +1,20 @@
+:root {
+  --d: 700ms;
+  --e: cubic-bezier(0.19, 1, 0.22, 1);
+  --color-background-input: #e9ecef;
+  --color-texto-input: #495057;
+  --color-border-input: #ced4da;
+  --color-border-input-focus: #86b7fe;
+  --color-background-input-focus: #fff;
+  --color-box-shadow-input-focus: rgba(13, 110, 253, 0.25);
+  --color-texto-input-focus: #212529;
+
+  /* cabecera */
+  --background-cabecera-container: #eaf2fd;
+  --background-cabecera: #fafafa;
+
+}
+
 
 body {
   font-family: sans-serif;
