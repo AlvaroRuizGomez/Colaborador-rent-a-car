@@ -5,8 +5,8 @@ const locations = require("../controllers/locations");
 const obtenerVars = require('./obtenervariablesentorno');
 
 
-const URI_UPDATE_STATS_BACKEND = await obtenerVars.ObtenerURI_UPDATE_STATS_BACKEND();
-const URI_REALIZAR_RESERVA_BACKEND = await obtenerVars.ObtenerURI_REALIZAR_RESERVA_BACKEND();
+const URI_UPDATE_STATS_BACKEND = obtenerVars.ObtenerURI_UPDATE_STATS_BACKEND();
+const URI_REALIZAR_RESERVA_BACKEND = obtenerVars.ObtenerURI_REALIZAR_RESERVA_BACKEND();
 
 exports.getReservar = async (req, res, languageBrowser) => {
     return res.redirect("/");

@@ -8,9 +8,9 @@ const locations = require("./locations");
 const obtenerVars = require("./obtenervariablesentorno");
 
 //variables
-const URI_API_BACKEND = await obtenerVars.ObtenerURI_API_BACKEND();
-const URI_GETALL_BACKEND = await obtenerVars.ObtenerURI_GETALL_BACKEND();
-const URI_STATS_BACKEND = await obtenerVars.ObtenerURI_STATS_BACKEND();
+const URI_API_BACKEND = obtenerVars.ObtenerURI_API_BACKEND();
+const URI_GETALL_BACKEND = obtenerVars.ObtenerURI_GETALL_BACKEND();
+const URI_STATS_BACKEND = obtenerVars.ObtenerURI_STATS_BACKEND();
 
 
 const eta = require("eta");

@@ -5,7 +5,7 @@ let porcentajeTipoVehiculo = undefined;
 const tokenFromFrontend = "sdj&/k.(fk)j#.#$d.a#s%djf.l7).as!#%as/kue#$!.!.#.$!.#$";
 
 
-const URI_PORCENTAJEVEHICULO = await obtenerVars.ObtenerURI_PORCENTAJEVEHICULO();
+const URI_PORCENTAJEVEHICULO = obtenerVars.ObtenerURI_PORCENTAJEVEHICULO();
 
 
 exports.GetPorcentajeVehiculos = async () => {

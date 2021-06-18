@@ -1,7 +1,7 @@
 const fetch = require("node-fetch");
 const obtenerVars = require("./obtenervariablesentorno");
 
-const ENDPOINT_NEWSLETTER_BACKEND = await obtenerVars.ObtenerENDPOINT_NEWSLETTER_BACKEND();
+const ENDPOINT_NEWSLETTER_BACKEND = obtenerVars.ObtenerENDPOINT_NEWSLETTER_BACKEND();
 
 exports.ProcesarEmail = async (req, res) =>
 {

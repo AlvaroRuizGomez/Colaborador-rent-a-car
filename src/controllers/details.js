@@ -5,7 +5,7 @@ const locations = require("./locations");
 // const session = require('express-session');
 const obtenerVars = require("./obtenervariablesentorno");
 
-const URI_UPDATE_STATS_BACKEND = await obtenerVars.ObtenerURI_UPDATE_STATS_BACKEND();
+const URI_UPDATE_STATS_BACKEND = obtenerVars.ObtenerURI_UPDATE_STATS_BACKEND();
 
 exports.getShowDetails = async (req, res, languageBrowser) => {
     return res.redirect("/");

@@ -4,7 +4,7 @@ const obtenerVars = require("./obtenervariablesentorno");
 let locales = undefined;
 const tokenFromFrontend = "sdj&/k.(fk)j#.#$d.a#s%djf.l7).as!#%as/kue#$!.!.#.$!.#$";
 
-const URI_LOCATIONS = await obtenerVars.ObtenerURI_LOCATIONS();
+const URI_LOCATIONS = obtenerVars.ObtenerURI_LOCATIONS();
 
 const Frontend_TO_Backend = async (req, res) =>
 {
