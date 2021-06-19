@@ -1,9 +1,11 @@
 :root
 {
+  --SEPARACION_COLORES_TOOLTIP: white;
   --background-color-tooltip: rgba(59, 72, 80, 0.9);
   --border-color-tooltip: rgba(55, 64, 70, 0.9);
   --gradiente-tooltip: rgba(59, 72, 80, 0.44);
 
+  --SEPARACION_COLORES_BACKGROUND: white;
   --color-background-input: #e9ecef;
   --color-texto-input: #495057;
   --color-border-input: #ced4da;
@@ -12,6 +14,7 @@
   --color-box-shadow-input-focus: rgba(13, 110, 253, 0.25);
   --color-texto-input-focus: #212529;
 
+  --SEPARACION_COLORES_CABECERA: white;
     /* cabecera */
   --background-cabecera-container: #eaf2fd;
   --background-cabecera: #fafafa;
@@ -77,6 +80,7 @@ body {
 {
   grid-area: content;
   width:100%;
+  margin-top: 15px;
 
 }
 
