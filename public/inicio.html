@@ -86,7 +86,7 @@
                         </label>
                         <% } %>
                         <!--------- Recogida Fecha y Hora -------->
-                        <div class="recogidaDateTit">
+                        <div class="recogidaDateTit" data-tooltip-location="top" data-tooltip="<%=it.locations.tooltip_fecha_recogida_informacion%>">
                             <p>
                                 <%= it.locations.recogida %>
                             </p>
@@ -96,27 +96,26 @@
                             <input type="text" class="input-color form-control-date datepicker " id="fechaRecogida" name="fechaRecogida" value="" data-placement="right" data-align="bottom" data-name="" readonly="">
                         </div>
         
-                        <div class="recogidaDateIcon">
+                        <div class="recogidaDateIcon" data-tooltip-location="top" data-tooltip="<%=it.locations.tooltip_fecha_recogida_informacion%>">
                             <img src="./img/img-Calendar/calendar.svg" alt="<%=it.locations.calendariorecogida %>" class="img-calendar triggerRec">
-                            
                         </div>
         
                         <!-- ------------------------------------- -->
-                        <div class="recogidaClockTit">
+                        <div class="recogidaClockTit" data-tooltip-location="top" data-tooltip="<%=it.locations.tooltip_hora_recogida_informacion%>" >
                             <p>
                                 <%= it.locations.hora %>
                             </p>
                         </div>
 
                         <div class="recogidaClockData input-group2  clockpicker" data-placement="bottom" data-align="top" data-autoclose="true">
-                            <input type="text" class="input-color form-control-clock" id="horaRecogida" name="horaRecogida" value="09:00" readonly="" />
-                            <span class="input-group-addon">
+                            <input type="text" class="input-color form-control-clock"  id="horaRecogida" name="horaRecogida" value="09:00" readonly="" />
+                            <span class="input-group-addon" data-tooltip-location="top" data-tooltip="<%=it.locations.tooltip_hora_recogida_informacion%>">
                                 <img src="./img/Img-Clock/clock.avif" alt="<%=it.locations.relojrecogida %>" class="img-clock">
                             </span>
                         </div>
 
                         <!------- Devolución Fecha y Hora  -------->
-                        <div class="devolucionDateTit">
+                        <div class="devolucionDateTit" data-tooltip-location="top" data-tooltip="<%=it.locations.tooltip_fecha_devolucion_informacion%>">
                             <p>
                                 <%=it.locations.devolucion %>
                             </p>
@@ -126,12 +125,12 @@
                             <input type="text" class=" input-color  form-control-date datepicker " id="fechaDevolucion" name="fechaDevolucion" value="" data-placement="right" data-align="bottom" data-name="" readonly="">  
                         </div>
         
-                        <div class="devolucionDateIcon">
+                        <div class="devolucionDateIcon" data-tooltip-location="top" data-tooltip="<%=it.locations.tooltip_fecha_devolucion_informacion%>">
                             <img src="./img/img-Calendar/calendar.svg" alt="<%=it.locations.calendariodevolucion %>" class="img-calendar triggerDev">
                         </div>
         
                         <!------- Devolución Hora ---------->
-                        <div class="devolucionClockTit">
+                        <div class="devolucionClockTit" data-tooltip-location="top" data-tooltip="<%=it.locations.tooltip_hora_devolucion_informacion%>">
                             <p>
                                 <%=it.locations.hora %>
                             </p>
@@ -139,13 +138,13 @@
 
                         <div class="devolucionClockData input-group2 clockpicker" data-placement="bottom" data-align="top" data-autoclose="true">
                             <input type="text" class="input-color form-control-clock " id="horaDevolucion" name="horaDevolucion" value="20:00" readonly="" />
-                            <span class="input-group-addon">
+                            <span class="input-group-addon" data-tooltip-location="top" data-tooltip="<%=it.locations.tooltip_hora_devolucion_informacion%>">
                                 <img src="./img/Img-Clock/clock.avif" alt="<%=it.locations.relojdevolucion %>" class="img-clock">
                             </span>
                         </div>
                         
                         <!------- Conductor Novel -------->
-                        <div class="driverNovel">
+                        <div class="driverNovel" data-tooltip-location="top" data-tooltip="<%=it.locations.tooltip_edad_conductor_informacion%>">
                             <div class="form-chequeo columna-centrado gap-10">
                                 <section class="centrado gap-10">
                                     <input id="rangoedad" type="checkbox" name="conductor_con_experiencia" value="on" class="elemento__inputradio" checked="checked">
@@ -157,7 +156,7 @@
                         </div>
                     
                         <!------- Edad Conductor --------->
-                        <div class="driverAge">
+                        <div class="driverAge" data-tooltip-location="top" data-tooltip="<%=it.locations.tooltip_edad_conductor_informacion%>">
                             <section id="desplegable_edad" class="centrado visible gap-10">
                                 <label for="edad_conductor">Edad del conductor</label>
                                 <input id="edad_conductor" type="number" name="edad_conductor" value="22" min="18" max="22" class="edad_conductor">
@@ -165,7 +164,7 @@
                         </div>
         
                         <!------- Boton Ver ofertas --------->
-                        <div class="verPrecio">
+                        <div class="verPrecio" data-tooltip-location="top" data-tooltip="<%=it.locations.tooltip_boton_ver_precios_informacion%>">
                             <section class="btnBuscar">
                                 <button type="submit" id="boton-VerPrecios" class="btn btn-primary btn-sm btn-block">
                                     <%=it.locations.ver_precios %>

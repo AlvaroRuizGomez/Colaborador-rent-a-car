@@ -2,10 +2,10 @@ const Joi = require('joi');
 const fetch = require("node-fetch");
 const geolocation = require("./geolocation");
 const locations = require("./locations");
+// const session = require('express-session');
+const obtenerVars = require("./obtenervariablesentorno");
 
-const session = require('express-session');
-
-const URI_UPDATE_STATS_BACKEND = `${process.env.URL_BACKEND}:${process.env.PORT_BACKEND}${process.env.ENDPOINT_UPDATE_STATS_BACKEND}`;
+const URI_UPDATE_STATS_BACKEND = obtenerVars.ObtenerURI_UPDATE_STATS_BACKEND();
 
 exports.getShowDetails = async (req, res, languageBrowser) => {
     return res.redirect("/");

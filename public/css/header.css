@@ -260,10 +260,58 @@
 
 
   right: 12px;
-      position: static;
+  position: static;
   top: auto;
   margin-top: -1px;
 }
+
+.colaboracion 
+{
+  display: none;
+}
+
+
+/* colaboracion */
+@media screen and (min-width: 950px)
+{
+  .colaboracion 
+  {
+    display:initial;
+    position: relative;
+    width: 100px;
+    height: 100px;
+  }
+    
+  .logo-colaboracion
+  {
+    position: absolute;
+    top: 11px;
+    left: -19px;
+    
+  }
+  
+  @keyframes spin 
+  { 
+    100% { 
+      -webkit-transform: rotate(360deg);
+      transform:rotate(360deg); 
+    }
+  }
+    
+  .texto-circular
+  {
+    position: absolute;
+    animation: spin 20s linear infinite;
+    width: 200px;
+    top: -41px;
+    left: -52px;
+    z-index: 0;
+    
+  }
+}
+
+
+
 
 
 
