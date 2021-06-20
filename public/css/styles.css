@@ -103,7 +103,7 @@ body{
   grid-area: data;
   display: grid;
   grid-template-columns: 25% 115px 9% 7% 13% 46px 10%;
-  grid-template-rows: repeat(5, 38px) 20px 38px;
+  grid-template-rows: repeat(4, 38px) auto auto;
   width: 100%;
   /* margin-left: 20px; */
   /* background-color: #fff; */
@@ -118,6 +118,10 @@ body{
     ". driverAge driverAge driverAge driverAge . ."
     ". . . . . . ."
     ". verPrecio verPrecio verPrecio verPrecio . .";
+  /* place-items: center; */
+  place-content: center;
+
+
 }
 
 .input-color[readonly]
@@ -290,6 +294,14 @@ body{
 
 }
 
+.colapsable-content
+{
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+
+}
+
 .columna-centrado
 {
   display: flex;
@@ -315,10 +327,11 @@ body{
   width: 30px;
   height: 30px;
   margin-top: -7px;
-  margin-left: -24px;
   border: 1px solid #ddd;
-  /* background: #e9ecef; */
   background: #fff;
+  padding-left: 4px;
+
+}
 
 }
 
@@ -1078,3 +1091,6 @@ input[type=number] {
 
 
 /* FIN TOOLTIP*/
+
+
+
