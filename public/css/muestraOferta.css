@@ -1,9 +1,11 @@
 :root
 {
+  --SEPARACION_COLORES_TOOLTIP: white;
   --background-color-tooltip: rgba(59, 72, 80, 0.9);
   --border-color-tooltip: rgba(55, 64, 70, 0.9);
   --gradiente-tooltip: rgba(59, 72, 80, 0.44);
 
+  --SEPARACION_COLORES_BACKGROUND: white;
   --color-background-input: #e9ecef;
   --color-texto-input: #495057;
   --color-border-input: #ced4da;
@@ -11,6 +13,11 @@
   --color-background-input-focus: #fff;
   --color-box-shadow-input-focus: rgba(13, 110, 253, 0.25);
   --color-texto-input-focus: #212529;
+  --background-cabecera-container: #eaf2fd;
+  --background-cabecera: #fafafa;
+
+  --SEPARACION_COLORES_CABECERA: white;
+    /* cabecera */
   --background-cabecera-container: #eaf2fd;
   --background-cabecera: #fafafa;
 
@@ -75,6 +82,7 @@ body {
 {
   grid-area: content;
   width:100%;
+  margin-top: 15px;
 
 }
 
@@ -189,7 +197,7 @@ body {
 
 .form-container {
   display: grid;
-  grid-template-columns: 39% 13% 20% auto;
+  grid-template-columns: 133px 45px 100px auto;
   grid-template-rows: 40px 40px 0.5fr 40px 0.5fr auto;
   gap: 0px 0px;
   grid-auto-flow: row;
@@ -630,9 +638,10 @@ body {
 .nombre-car-slider {
   font-size: 12px;
   font-weight: bold;
-  /* font-weight: 700px; */
+  
   margin:0;
-  height: 30px;
+  /* height: 30px; */
+  align-self: center;
 }
 
 .row-p {
@@ -657,14 +666,16 @@ body {
 
   display: grid;
   grid-template-columns: auto;
-  grid-template-rows: 40px 90px 60px;
+  grid-template-rows: 30px 95px 60px;
 
-  width: 100%;
+  /* width: 100%; */
   
   /* border: 1px solid #7a7a7a; */
   border: 1px solid #459dc6;
   border-radius: 3px;
   background-color: #ffffff;
+  place-content: stretch;
+  align-items: center;
 
 }
 
@@ -690,6 +701,7 @@ body {
   margin: 0;
   font-size: 25px;
   font-weight: bold;
+  height: 43px;
   
 }
 

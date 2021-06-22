@@ -41,10 +41,14 @@ const CheckRangoEdad = async () => {
     if (checkboxRangoEdad.checked === true) {
         desplegable_edad.classList.remove("visible");
         desplegable_edad.classList.add("invisible");
+        desplegable_edad.style.maxHeight = null;
+
     }
     else {
         desplegable_edad.classList.remove("invisible");
         desplegable_edad.classList.add("visible");
+        desplegable_edad.style.maxHeight = "22px";
+
     }
 
 }

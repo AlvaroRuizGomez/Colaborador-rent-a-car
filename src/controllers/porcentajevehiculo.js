@@ -1,8 +1,11 @@
 const fetch = require("node-fetch");
+const obtenerVars = require("./obtenervariablesentorno");
 
 let porcentajeTipoVehiculo = undefined;
 const tokenFromFrontend = "sdj&/k.(fk)j#.#$d.a#s%djf.l7).as!#%as/kue#$!.!.#.$!.#$";
-const URI_PORCENTAJEVEHICULO = `${process.env.URL_BACKEND}:${process.env.PORT_BACKEND}${process.env.ENDPOINT_PORCENTAJE_VEHICULO}`;
+
+
+const URI_PORCENTAJEVEHICULO = obtenerVars.ObtenerURI_PORCENTAJEVEHICULO();
 
 
 exports.GetPorcentajeVehiculos = async () => {
