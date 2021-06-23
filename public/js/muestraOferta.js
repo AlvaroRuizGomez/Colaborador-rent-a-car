@@ -38,13 +38,7 @@ for (let i = 0; i < botonCondiciones.length; i++)
             document.body.style.overflow = null;
 
         }
-        else
-        {
-            
-
-        }
-
-
+        
     });
 
     botonCondiciones[i].addEventListener("click", async (evento)=> 
@@ -85,6 +79,62 @@ boton.addEventListener("click", async () => {
     }
 
 });
+
+
+// --- inicio colapse 
+// <!----------------------------- Informacion Collapse------------------------------->
+    
+const coll = document.getElementsByClassName("collapsable");
+for (let i = 0; i < coll.length; i++)
+{
+    coll[i].addEventListener("click", async (evento) =>
+    {
+
+        const flecha = coll[i].children[0].lastElementChild;
+        if (flecha.classList.contains("arrow_down") === false)
+        {
+            flecha.classList.add("arrow_down");
+
+        }
+        else
+        {
+            flecha.classList.remove("arrow_down");
+        }
+
+
+
+    });
+
+}
+
+//antiguo codigo
+        // const coll = document.getElementsByClassName("collapsable");
+        // var arr = document.querySelector('.arrow');
+        // var i;
+
+        // arr.addEventListener
+        // ('click', function(event)
+        // {
+        //     event.target.classList.toggle('down');
+        // for (i = 0; i < coll.length; i++)
+        // {
+        //     coll[i].addEventListener("click", function () {
+        //         this.classList.toggle("active");
+        //         var content = this.nextElementSibling;
+        //         if (content.style.display === "block") {
+        //             content.style.display = "none";
+        //         } else {
+        //             content.style.display = "block";
+        //         }
+        //     })
+        // }
+        //     }
+        // );
+    
+
+
+
+// --- fin colapse
 
 window.onclick = async (evento) => {
     if (evento.target.matches(".boton-idioma-seleccionado") === false &&
