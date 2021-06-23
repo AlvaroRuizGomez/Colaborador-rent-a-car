@@ -195,99 +195,89 @@
         <!----------------- Inicio Info colapse ------------------->
         <div class="infoColapseContainer">
 
-            <details class="collapsable" id="kilometros">
+            <details class="collapsable" data-tooltip-location="top" data-tooltip="<%=it.locations.tooltip_kilometros %>">
                 <summary class="header">
                     <img src="./img/velocimetro.avif" border="0" width="20px" height="20px" class="f-ico">
                     <p class="descCardCollapse">
-                        Kilometraje
+                        <%=it.locations.info_kilometraje %>
                     </p>
-                    <img src="./img/svg/iconInfo.svg" class="iconInfoColapse" border="0"
-                        title="<b>Kilometraje”</b>el kilometraje es ilimitado, no se cobran cargos por kilometraje">
-                    <div class="arrow" id="kilometros-flecha"></div>
+                    <img src="./img/svg/iconInfo.svg" class="iconInfoColapse" border="0">
+                    <div class="arrow"></div>
                 </summary>
                 <div class="content">
-                    <p>kilometraje ilimitado, No tiene cargos</p>
+                    <p><%=it.locations.contenido_kilometraje %></p>
                 </div>
 
             </details>
 
             <!-- ----------------------------------------------------->
 
-            <details class="collapsable" id="combustible">
+            <details class="collapsable" data-tooltip-location="top" data-tooltip="<%=it.locations.tooltip_combustible%>">
                 <summary class="header">
                     <img src="./img/svg/fuel_icon.svg" border="0" width="20px" height="20px" class="f-ico">
                     <p class="descCardCollapse">
-                        Combustible
+                        <%=it.locations.info_combustible %>
                     </p>
-                    <img src="./img/svg/iconInfo.svg" class="iconInfoColapse" border="0"
-                        title="<b>Kilometraje”</b>el kilometraje es ilimitado, no se cobran cargos por kilometraje">
-                    <div class="arrow" id="combustible-flecha"></div>
+                    <img src="./img/svg/iconInfo.svg" class="iconInfoColapse" border="0" >
+                    <div class="arrow"></div>
                 </summary>
                 <div class="content">
-                    <p>Sin política de Combustible</p>
+                    <p><%=it.locations.contenido_combustible %></p>
                 </div>
 
             </details>
 
             <!-- ----------------------------------------------------->
 
-            <details class="collapsable" id="conductor">
+            <details class="collapsable" data-tooltip-location="top" data-tooltip="<%=it.locations.tooltip_conductoradicional%>">
                 <summary class="header">
                     <img src="./img/svg/driver_Plus.svg" border="0" width="20px" height="20px" class="f-ico">
-                    <div class="descCardCollapse">
+                    
                         <p class="descCardCollapse">
-                            Conductor adicional
+                            <%=it.locations.info_conductor_adicional %>
                         </p>
-                    </div>
+                    
 
-                    <img src="./img/svg/iconInfo.svg" class="iconInfoColapse" border="0"
-                        title="<b>Kilometraje”</b>el kilometraje es ilimitado, no se cobran cargos por kilometraje">
-                    <div class="arrow" id="conductor-flecha"></div>
+                    <img src="./img/svg/iconInfo.svg" class="iconInfoColapse" border="0">
+                    <div class="arrow"></div>
                 </summary>
                 <div class="content">
-                    <p>Se cobra 99.99€ por conductor adicional</p>
+                    <p><%=it.locations.contenido_conductoradicional %></p>
                 </div>
 
             </details>
 
             <!-- ----------------------------------------------------->
 
-            <details class="collapsable" id="cancelacion">
+            <details class="collapsable" data-tooltip-location="top" data-tooltip="<%=it.locations.tooltip_cancelacionreserva%>">
                 <summary class="header">
                     <img src="./img/svg/cancelacion_Icon.svg" border="0" width="20px" height="20px" class="f-ico">
-                    <div class="descCardCollapse">
+                    
                         <p class="descCardCollapse">
-                            Cancelación Reserva
+                            <%=it.locations.info_cancelacionreserva %>
                         </p>
-                    </div>
+                    
 
-                    <img src="./img/svg/iconInfo.svg" class="iconInfoColapse" border="0"
-                        title="<b>Kilometraje”</b>el kilometraje es ilimitado, no se cobran cargos por kilometraje">
-                    <div class="arrow" id="cancelacion-flecha"></div>
+                    <img src="./img/svg/iconInfo.svg" class="iconInfoColapse" border="0">
+                    <div class="arrow"></div>
                 </summary>
                 <div class="content">
-                    <p>Cancelación de reserva Gratuita, no tiene cargos</p>
+                    <p><%=it.locations.contenido_cancelacionreserva %></p>
                 </div>
 
             </details>
 
             <!-- ----------------------------------------------------->
 
-            <details class="collapsable" id="lugar">
+            <details class="collapsable" id="lugar" data-tooltip-location="top" data-tooltip="<%=it.locations.tooltip_recogida%>">
                 <summary class="header">
                     <img src="./img/svg/recogida_Icon.svg" border="0" width="20px" height="20px" class="f-ico">
-                    <div class="descCardCollapse">
-                        <p class="descCardCollapse">
-                            Lugar de recogida
-                        </p>
-                    </div>
-
-                    <img src="./img/svg/iconInfo.svg" class="iconInfoColapse" border="0"
-                        title="<b>Kilometraje”</b>el kilometraje es ilimitado, no se cobran cargos por kilometraje">
-                    <div class="arrow" id="lugar-flecha"></div>
+                        <p class="descCardCollapse"><%=it.locations.info_recogida %></p>
+                    <img src="./img/svg/iconInfo.svg" class="iconInfoColapse" border="0">
+                    <div class="arrow"></div>
                 </summary>
                 <div class="content">
-                    <p>En nuestro garage, consulta localización</p>
+                    <p><%=it.locations.contenido_recogida %></p>
                 </div>
 
             </details>
@@ -304,9 +294,9 @@
                 </div>
                 <div class="enlacesAside">
                     <ul>
-                        <li onclick="" class="">Información soble Combustible</li>
-                        <li onclick="" class="">Información sobre Seguro</li>
-                        <li onclick="" class="">conductor adicional</li>
+                        <li class="">Información soble Combustible</li>
+                        <li class="">Información sobre Seguro</li>
+                        <li class="">conductor adicional</li>
                     </ul>
                 </div>
             </div>
