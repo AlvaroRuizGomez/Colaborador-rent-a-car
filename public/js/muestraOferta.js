@@ -2,7 +2,7 @@ const botonCondiciones = document.getElementsByClassName("boton_modal");
 const botonesCerrar = document.getElementsByClassName("boton-cerrar-modal");
 const overlay = document.getElementsByClassName("overlay-transparente");
 
-const botonesEnlacesInteres = document.getElementsByClassName("enlaces_interes");
+const botonesEnlacesInteres = document.getElementsByClassName("enlace_interes_modal");
 
 
 for (let i = 0; i < botonCondiciones.length; i++)
