@@ -49,6 +49,21 @@
     }
 }
 
+.vuelaCar {
+  position: relative;
+  display: inherit;
+}
+
+.vuelaCar picture p {
+  /* top: 25px; */
+  font-size: 1.2em;
+  /* font-weight: bold; */
+  font-family: 'Lobster';
+  color: blue;
+  margin-left: 16px;
+  margin-bottom: 2px;
+}
+
  /* pantallas super pequeñas menos de 320px */
 @media screen and (max-width: 343px)
 {

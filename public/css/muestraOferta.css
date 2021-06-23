@@ -13,6 +13,8 @@
   --color-background-input-focus: #fff;
   --color-box-shadow-input-focus: rgba(13, 110, 253, 0.25);
   --color-texto-input-focus: #212529;
+  --background-cabecera-container: #eaf2fd;
+  --background-cabecera: #fafafa;
 
   --SEPARACION_COLORES_CABECERA: white;
     /* cabecera */
@@ -222,7 +224,6 @@ body {
 }
 
 .location { 
-  
   grid-area: location;
   justify-content: flex-start;
   align-self: center;
@@ -291,11 +292,8 @@ body {
   padding-bottom: 15px;
 }
 
-
-
 .boton_modificar
 {
-
   font-weight: 400;
   text-align: center;
   white-space: nowrap;
@@ -306,7 +304,6 @@ body {
   font-size: 1rem;
   line-height: 1.5;
   border-radius: 0.25rem;
-
   color: #fff;
   background-color: #007bff;
   width: 120px;
@@ -328,8 +325,6 @@ body {
   margin: 0;
   /* margin-left: -35px; */
   
-
-} */
 
 .formDateRecogida {
   margin-left: 21px;
@@ -434,10 +429,6 @@ body {
   box-shadow: 0 0 0 0.25rem var(--color-box-shadow-input-focus);
 }
 
-
-
-
-
 .form-control-date {
   padding: 8px 10px 8px 6px;
   width: 132px;
@@ -509,7 +500,124 @@ body {
   /* margin: 13px 41px;   */
   /* margin-left: 111px; */
 }
-/*---- Fin Formulario busqueda (aside) -------------------*/
+
+/* ---- Inicio Informacion Collapse ------- */
+.collapsable {
+  background-color: #ffff;
+  font-size: 13px;
+  color: #787878;
+  /* cursor: pointer; */
+  /* padding: 3px; */
+  margin-top: 8px;
+  width: 100%;
+  border: 1px solid rgb(192, 192, 192);
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+}
+
+.active, .collapsable:hover {
+  background-color:#eaf2fd;
+}
+
+.header {
+  display: flex;
+  padding-left: 11px;  
+  align-items: center;
+}
+
+.descCardCollapse {
+  width: 100%;
+  margin-bottom: 0px;
+  /* margin-right: 202px; */
+  /* margin-left: 9px; */
+  font-weight: 800;
+}
+
+.iconInfoColapse {
+  align-items: flex-end;
+  margin-top: 5px;
+  margin-left: 5px;
+}
+
+.arrow {
+  margin: 1em;
+  margin-top: 3px;  
+}
+
+.arrow::before {
+  position: absolute;
+  content: '';
+  width: 0;
+  height: 0;
+  border: .5em solid transparent;
+  border-left-color: black;
+  transform-origin: 0 50%;
+  transition: transform .25s;
+}
+
+.arrow.down::before {
+  transform: rotate(90deg);
+  transition: transform .25s;
+}
+
+.content {
+  padding: 0 18px;
+  display: none;
+  overflow: hidden;
+  background-color: #fafafa;
+  border: 1px solid rgb(192, 192, 192);
+}
+
+.content p {
+  font-weight: 300;
+  font-size: 14px;
+  margin: 0;
+}
+
+/* ---- Fin    Informacion Collapse ------- */
+
+/* ----- Inicio Enlaces de Interés ------ */
+.enlacesInteres {
+  border: 1px solid #ddd;
+  border-radius: 2px;
+  /* margin-bottom: 10px; */
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: 50px;
+}
+
+.headerEnlaces {
+  display: flex;
+  padding-left: 11px;  
+  align-items: center;
+  border-bottom: 1px solid #ddd;
+  background: #eaf2fd;
+}
+ 
+.enlacesAside {
+    border-radius: 2px;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+.enlacesAside ul {
+  padding: 8px;
+  margin: 1px 0 0;
+  font-size: 13px;
+  text-align: left;
+  list-style-type: disc;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  padding-inline-start: 40px;
+}
+  
+
+/* ----- Fin    Enlaces de Interés ------ */
+
+/*------------ Fin Aside -------------------*/
 
 /* --------------- Inicio Slider --------------------------- */
 
@@ -583,7 +691,6 @@ body {
 
 }
 
-
 .precio-txt {
   margin: 0;
   color: #666;
@@ -599,9 +706,6 @@ body {
 }
 
 /* ---------- Fin    Slider ----------- */
-
-
-
 
 .tablero_ofertas{
   width: 100%;
@@ -619,6 +723,7 @@ body {
 .ofertas
 {
   margin-top: 30px;
+  margin-left: 40PX;
 }
 
 .oferta
@@ -977,8 +1082,6 @@ body {
   align-items: center;
   gap: 5px;
   padding: 0px 0px 0px 10px;
-  
-  
 }
 
 .marca-contenido-azul
