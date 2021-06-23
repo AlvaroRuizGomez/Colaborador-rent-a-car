@@ -41,6 +41,21 @@
     <link rel="stylesheet" href="./css/header.css">
     <link rel="stylesheet" href="./css/footer.css">
 
+
+    <!-- Sociales -->
+    <meta property="og:title" content="titulo" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="http://" />
+    <meta property="og:image" content="http://url_completa" />
+    
+    <meta property="og:image:width" content="250" />
+    <meta property="og:image:height" content="200" />
+    
+    <meta property="og:locale" content="es_ES" />
+    <meta property="og:locale:alternate" content="it_IT" />
+    <meta property="og:locale:alternate" content="en_GB" />
+    <meta property="og:locale:alternate" content="de_DE" />
+
     <!-- Favicon -->
     <link rel="icon" href="./img/Img-Logo/rentacar_favicon-32.png" sizes="32x32">
     <link rel="icon" href="./img/Img-Logo/rentacar_favicon-57.png" sizes="57x57">
@@ -172,120 +187,117 @@
                 </div>
 
             </div>
-            <!-- <div class="infoColapseContainer">
-                <div class="kilometroColapse">
-                    <div class="header" onclick="">
-                        <img src="./img/velocimetro.avif" border="0" width="20px" height="20px" class="f-ico">Kilometraje
-                        <img src="./img/svg/iconInfo.svg" class="f-nfo tooltipBlanco" border="0" title="<b>Kilometraje”</b>el kilometraje es ilimitado, no se cobran cargos por kilometraje">
-                    </div>
-                    <div id="tiene_km_total" class="collapse" style="display: block;">
-                        <ul>
-                            <li>
-                                <label for="tiene_km">Ilimitado</label>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div> -->
+        </form>
+        <!------------------------ Fin Formulario de Busqueda --------------------------->
+        
+        
+        <!-- *************************************************** -->
+        <!----------------- Inicio Info colapse ------------------->
+        <div class="infoColapseContainer">
 
-            <!-- *************************************************** -->
-            <!----------------- Inicio Info colapse ------------------->
-            <div class="collapsable">
-                <div class="header">
+            <details class="collapsable" id="kilometros">
+                <summary class="header">
                     <img src="./img/velocimetro.avif" border="0" width="20px" height="20px" class="f-ico">
-                        <p class="descCardCollapse">
-                            Kilometraje     
-                        </p>
-                    <img src="./img/svg/iconInfo.svg" class="iconInfoColapse" border="0" title="<b>Kilometraje”</b>el kilometraje es ilimitado, no se cobran cargos por kilometraje">
-                    <div class="arrow"></div>
+                    <p class="descCardCollapse">
+                        Kilometraje
+                    </p>
+                    <img src="./img/svg/iconInfo.svg" class="iconInfoColapse" border="0"
+                        title="<b>Kilometraje”</b>el kilometraje es ilimitado, no se cobran cargos por kilometraje">
+                    <div class="arrow" id="kilometros-flecha"></div>
+                </summary>
+                <div class="content">
+                    <p>kilometraje ilimitado, No tiene cargos</p>
                 </div>
 
-            </div>
-            <div class="content">
-                <p>kilometraje ilimitado, No tiene cargos</p>
-            </div>
+            </details>
 
             <!-- ----------------------------------------------------->
 
-            <div class="collapsable">
-                <div class="header">
+            <details class="collapsable" id="combustible">
+                <summary class="header">
                     <img src="./img/svg/fuel_icon.svg" border="0" width="20px" height="20px" class="f-ico">
-                        <p class="descCardCollapse">
-                            Combustible     
-                        </p>
-                    <img src="./img/svg/iconInfo.svg" class="iconInfoColapse" border="0" title="<b>Kilometraje”</b>el kilometraje es ilimitado, no se cobran cargos por kilometraje">
-                    <div class="arrow"></div>
+                    <p class="descCardCollapse">
+                        Combustible
+                    </p>
+                    <img src="./img/svg/iconInfo.svg" class="iconInfoColapse" border="0"
+                        title="<b>Kilometraje”</b>el kilometraje es ilimitado, no se cobran cargos por kilometraje">
+                    <div class="arrow" id="combustible-flecha"></div>
+                </summary>
+                <div class="content">
+                    <p>Sin política de Combustible</p>
                 </div>
 
-            </div>
-            <div class="content">
-                <p>Sin política de Combustible</p>
-            </div>
+            </details>
 
             <!-- ----------------------------------------------------->
 
-            <div class="collapsable">
-                <div class="header">
+            <details class="collapsable" id="conductor">
+                <summary class="header">
                     <img src="./img/svg/driver_Plus.svg" border="0" width="20px" height="20px" class="f-ico">
                     <div class="descCardCollapse">
                         <p class="descCardCollapse">
                             Conductor adicional
                         </p>
                     </div>
-                        
-                    <img src="./img/svg/iconInfo.svg" class="iconInfoColapse" border="0" title="<b>Kilometraje”</b>el kilometraje es ilimitado, no se cobran cargos por kilometraje">
-                    <div class="arrow"></div>
+
+                    <img src="./img/svg/iconInfo.svg" class="iconInfoColapse" border="0"
+                        title="<b>Kilometraje”</b>el kilometraje es ilimitado, no se cobran cargos por kilometraje">
+                    <div class="arrow" id="conductor-flecha"></div>
+                </summary>
+                <div class="content">
+                    <p>Se cobra 99.99€ por conductor adicional</p>
                 </div>
 
-            </div>
-            <div class="content">
-                <p>Se cobra 99.99€ por conductor adicional</p>
-            </div>
+            </details>
 
             <!-- ----------------------------------------------------->
 
-            <div class="collapsable">
-                <div class="header">
+            <details class="collapsable" id="cancelacion">
+                <summary class="header">
                     <img src="./img/svg/cancelacion_Icon.svg" border="0" width="20px" height="20px" class="f-ico">
                     <div class="descCardCollapse">
                         <p class="descCardCollapse">
                             Cancelación Reserva
                         </p>
                     </div>
-                        
-                    <img src="./img/svg/iconInfo.svg" class="iconInfoColapse" border="0" title="<b>Kilometraje”</b>el kilometraje es ilimitado, no se cobran cargos por kilometraje">
-                    <div class="arrow"></div>
+
+                    <img src="./img/svg/iconInfo.svg" class="iconInfoColapse" border="0"
+                        title="<b>Kilometraje”</b>el kilometraje es ilimitado, no se cobran cargos por kilometraje">
+                    <div class="arrow" id="cancelacion-flecha"></div>
+                </summary>
+                <div class="content">
+                    <p>Cancelación de reserva Gratuita, no tiene cargos</p>
                 </div>
 
-            </div>
-            <div class="content">
-                <p>Cancelación de reserva Gratuita, no tiene cargos</p>
-            </div>
+            </details>
 
             <!-- ----------------------------------------------------->
 
-            <div class="collapsable">
-                <div class="header">
+            <details class="collapsable" id="lugar">
+                <summary class="header">
                     <img src="./img/svg/recogida_Icon.svg" border="0" width="20px" height="20px" class="f-ico">
                     <div class="descCardCollapse">
                         <p class="descCardCollapse">
                             Lugar de recogida
                         </p>
                     </div>
-                        
-                    <img src="./img/svg/iconInfo.svg" class="iconInfoColapse" border="0" title="<b>Kilometraje”</b>el kilometraje es ilimitado, no se cobran cargos por kilometraje">
-                    <div class="arrow"></div>
+
+                    <img src="./img/svg/iconInfo.svg" class="iconInfoColapse" border="0"
+                        title="<b>Kilometraje”</b>el kilometraje es ilimitado, no se cobran cargos por kilometraje">
+                    <div class="arrow" id="lugar-flecha"></div>
+                </summary>
+                <div class="content">
+                    <p>En nuestro garage, consulta localización</p>
                 </div>
 
-            </div>
-            <div class="content">
-                <p>En nuestro garage, consulta localización</p>
-            </div>
-
+            </details>
+    
             <!----------------- Fin Info colapse ------------------->
             <!-- *************************************************** -->
+        </div>
 
-            <!---------- Inicio Bloque link de interés ------------->
+        <!---------- Inicio Bloque link de interés ------------->
+        <div class="enlacesInteresantes">
             <div class="enlacesInteres">
                 <div class="headerEnlaces">
                     Enlaces de interés
@@ -298,14 +310,12 @@
                     </ul>
                 </div>
             </div>
+        </div>
 
 
 
-            <!------------ Fin Bloque link de interés  ------------->
-
-
-        </form>
-        <!------------------------ Fin Formulario de Busqueda --------------------------->
+        <!------------ Fin Bloque link de interés  ------------->
+        
         <div class="contenido">
 
             <!--------------- Inicio Slider ---------------------->
@@ -525,32 +535,7 @@
 
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
-<!----------------------------- Informacion Collapse ------------------------------->
-<script>
-    var coll = document.getElementsByClassName("collapsable");
-    var arr = document.querySelector('.arrow');
-    var i;
-    
-        arr.addEventListener
-        ('click', function(event) 
-            {
-                event.target.classList.toggle('down');
-                for (i = 0; i < coll.length; i++)
-                {
-                    coll[i].addEventListener("click", function(){
-                        this.classList.toggle("active");
-                        var content = this.nextElementSibling;
-                        if (content.style.display === "block") 
-                        {
-                            content.style.display = "none";
-                            } else {
-                            content.style.display = "block";
-                        }
-                    })
-               }
-            }   
-        );
-</script>
+
 
 // <!-- <script>
 //     var arr = document.querySelector('.arrow');

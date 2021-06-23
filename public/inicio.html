@@ -36,6 +36,20 @@
         <script async src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
         <!-- --------------------------------------------------- -->
 
+        <!-- Sociales -->
+        <meta property="og:title" content="titulo" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="http://" />
+        <meta property="og:image" content="http://url_completa" />
+
+        <meta property="og:image:width" content="250" />
+        <meta property="og:image:height" content="200" />
+    
+        <meta property="og:locale" content="es_ES" />
+        <meta property="og:locale:alternate" content="it_IT" />
+        <meta property="og:locale:alternate" content="en_GB" />
+        <meta property="og:locale:alternate" content="de_DE" />
+
         <!-- Favicon -->
         <link rel="icon" href="./img/Img-Logo/rentacar_favicon-32.png" sizes="32x32">
         <link rel="icon" href="./img/Img-Logo/rentacar_favicon-57.png" sizes="57x57">
@@ -145,18 +159,17 @@
                         
                         <!------- Conductor Novel -------->
                         <div class="driverNovel" data-tooltip-location="top" data-tooltip="<%=it.locations.tooltip_edad_conductor_informacion%>">
-                            <div class="form-chequeo columna-centrado gap-10">
+                            <div class="form-chequeo columna-centrado">
                                 
-                                <section class="centrado gap-10">
+                                <section class="centrado columna-gap-10 margen-abajo">
                                     <input id="rangoedad" type="checkbox" name="conductor_con_experiencia" value="on" class="elemento__inputradio" checked="checked">
                                     <label class="elemento__circulo" for="rangoedad"></label>
-                                    <label class="elemento__titulo" for="rangoedad">Conductor tiene 23 años o más</label>
+                                    <label class="elemento__titulo" for="rangoedad"><%=it.locations.conductor_experiencia %></label>
                                 </section>
-                                
+
                                 <!------- Edad Conductor --------->
-                                
                                     <section id="desplegable_edad" class="centrado visible gap-10 colapsable-content">
-                                        <label for="edad_conductor">Edad del conductor</label>
+                                        <label for="edad_conductor" class="texto_edadconductor"><%=it.locations.edad_conductor %></label>
                                         <input id="edad_conductor" type="number" name="edad_conductor" value="22" min="18" max="22" class="edad_conductor">
                                     </section>
                                 
