@@ -116,7 +116,8 @@ select {
     grid-area: contenido_main;
   display: grid;
 
-  grid-template-columns: repeat(2, auto);
+  /* grid-template-columns: repeat(2, auto); */
+  grid-template-columns: 20% 0.7fr;
   grid-template-rows: repeat(5, auto);
   grid-template-areas:
     "sidebar contentReserva"
@@ -125,23 +126,19 @@ select {
     "sidebar formDriver"
     "sidebar boxBtnRevervar"
     ;
-
   /* display: flex; */
   flex-direction: column;
-
-  gap: 0.5rem;
+  gap: 1rem;
   font-weight: 800;
   font-size: 12px;
   color: #004d40;
   text-align: center;
-
-
-    background: #fafafa;
+  background: #fafafa;
+  margin-left: 200px;
 }
 
 @media only screen and (max-width: 550px) {
   .layout {
-    
     grid-area: contenido_main;
     grid-template-columns: 93vw;
 
@@ -169,9 +166,6 @@ select {
 {
   width: 100vw;
 }
-
-
-
 
 /* ------ Inicio sidebar1 -------- */
 .sidebar1 {
@@ -207,7 +201,7 @@ select {
 .rentacar-info {
     display: grid;
     grid-template-columns: 225px;
-    grid-template-rows: 150px 30px 25px 35px 35px 20px 20px 20px 20px;
+    grid-template-rows: 150px 30px 25px 35px 26px 46px 20px 20px 20px;
     grid-template-areas:
       "imagen-coche"
       "marca"
@@ -253,10 +247,7 @@ select {
     grid-template-columns: repeat(4, 39px);
     grid-template-rows: 31px;
     grid-template-areas: 
-    "a a a a"
-    "l l . o"
-    ;
-  
+    "a a a a";
     justify-items: flex-start;
 }
   
@@ -419,7 +410,7 @@ select {
     /* grid-area: b; */
     display: grid;
     box-sizing: content-box;
-    grid-template-rows: 20px auto;
+    grid-template-rows: 40px auto;
     grid-template-columns: 100%;
     grid-template-areas:
         "titulo"
@@ -435,9 +426,11 @@ select {
     grid-area: titulo;
     width: 100%;
     border-bottom: 1px solid #d8d8d8;
+    justify-self: start;
+
 }
   
-.tituloReserva h3 {
+.titReserva {
     display: inline;
     color: #333333;
     line-height: 40px;
@@ -449,7 +442,7 @@ select {
   
 .infoReserva {
     grid-area: info;
-    justify-self: center;
+    justify-self: left;
     box-sizing: content-box;
     display: grid;
     grid-template-columns: auto auto;
@@ -464,91 +457,117 @@ select {
         "titulo7 dato7";
     flex-direction: column;
     align-items: flex-start;
-
+    margin-left: 50px;
+    margin-top: 32px;
+    grid-column-gap: 65px;
     overflow-wrap: break-word;
+    font-size: 15px;
+    color: #504e4e;
 }
   
 .titDiasReserva {
     grid-area: titulo1;
     /* display: inline; */
+    justify-self: start;
 }
-  
+
+.titDiasReserva,
+.titValorReserva, 
+.titSeguro,
+.titConductor,
+.titTotReserva,
+.titValorRecogida,
+.titValorOnline {
+    color: #070101;
+}
+
 .diasReserva {
     grid-area: dato1;
     word-break: break-word;
     /* display: inline; */
     /* width: 100; */
+    justify-self: start;
 }
   
 .titValorReserva {
     grid-area: titulo2;
     /* display: inline; */
+    justify-self: start;
 }
   
 .valorReserva {
     grid-area: dato2;
     /* display: inline; */
     /* width: 250px; */
+    justify-self: start;
 }
   
 .titSeguro {
     grid-area: titulo3;
     /* display: inline; */
+    justify-self: start;
 }
   
 .valorseguro {
     grid-area: dato3;
     /* display: inline; */
     /* width: 100%; */
+    justify-self: start;
 }
   
 .titConductor {
     grid-area: titulo4;
     /* display: inline; */
+    justify-self: start;
 }
   
 .valorConductor {
     grid-area: dato4;
     /* display: inline; */
     /* width: 250px; */
+    justify-self: start;
 }
   
 .titTotReserva {
     grid-area: titulo5;
     /* display: inline; */
+    justify-self: start;
 }
   
 .valorTotReserva {
     grid-area: dato5;
     /* display: inline; */
     /* width: 250px; */
+    justify-self: start;
 }
   
 .titValorRecogida {
     grid-area: titulo6;
     /* display: inline; */
+    justify-self: start;
 }
   
 .ValorRecogida {
     grid-area: dato6;
     /* display: inline; */
     /* width: 250px; */
+    justify-self: start;
 }
-  
+
 .titValorOnline {
     grid-area: titulo7;
     display: inline;
-    border-top: 1px solid #ddd;
     background-color: #ff0;
-    margin:0px 51px;
+    /* margin:0px 51px; */
+    justify-self: start;
 }
   
 .ValorOnline {
     grid-area: dato7;
     /* display: inline; */
     /* width: 250px; */
-    border-top: 1px solid #ddd;
     background-color: #ff0;
+    justify-self: start;
 }
   
 .precioIncluye {
@@ -561,6 +580,7 @@ select {
   
 #icon-Mundi {
     width: 3%;
+    margin-top: 5px;
 }
   
 #imgCarReserva {
@@ -615,6 +635,7 @@ select {
 
 .titSillas {
     border-bottom: 1px solid #ddd;
+    padding: 8px;
 }
 
 .titSillas h2 {
@@ -699,6 +720,12 @@ select {
     grid-area: descripcion;
     text-align: left;
     /* margin-block: 0px; */
+}
+
+.titulo_asientos,
+.descripcion {
+    font-size: 15px;
+    color: #504e4e;
 }
 
 .dataExtras .extraLine>img {
@@ -786,16 +813,19 @@ select {
 
 .formDriverContent>h2{
     border-bottom: 1px solid #ddd;
-    
+    font-size: 19px;  
+    padding: 8px;
+    font-weight: 700;
+    color: #444;
 }
 
 .formDriverContent>h2 i.ico {
     display: inline-block;
-    vertical-align: bottom;
+    vertical-align: middle;
     width: 24px;
     height: 24px;
     background-position: 0 -96px;
-    background: url(../img/svg/persona.svg) no-repeat;
+    background: url(../img/svg/persona-black.svg) no-repeat;
 }
 
 .formDriverContent[data-info-form]:before{
@@ -822,6 +852,11 @@ select {
       "eMailDriver eMailDataDriver errorEmail"
       "telefDriver telefDataDriver errorTelf"
       "condiciones condiciones condiciones";
+}
+
+.databoxDriver label {
+    font-size: 1.2em;
+    color: #504e4e;
 }
 
 .titDriver { 
@@ -882,9 +917,6 @@ select {
 
 }
 
-
-
-
 .input-texto
 {
   padding: 5px;
@@ -935,6 +967,8 @@ select {
 .boxBtnRevervar {
     /* grid-column: 6 / 8;
     grid-row: 9; */
+    margin: 20px;
+    padding: 10px;
 }  
 
 .btnReserva {
