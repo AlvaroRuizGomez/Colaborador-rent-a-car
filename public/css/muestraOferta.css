@@ -520,44 +520,45 @@ body {
 /* ---- Inicio Informacion Collapse ------- */
 
 
-.collapsable { 
-  background-color: #ffff; 
-  font-size: 13px; 
-  color: #787878; 
-  /* cursor: pointer; */ 
-  /* padding: 3px; */ 
-  margin-top: 8px; 
-  width: 100%; 
-  border: 1px solid rgb(192, 192, 192); 
-  text-align: left; 
-  outline: none; 
-  font-size: 15px; 
-} 
  
-.active, .collapsable:hover { 
-  background-color:#eaf2fd; 
-} 
- 
-.header { 
-  display: flex; 
-  padding-left: 11px;   
-  align-items: center; 
-} 
- 
-.descCardCollapse { 
-  width: 100%; 
-  margin-bottom: 0px; 
-  /* margin-right: 202px; */ 
-  /* margin-left: 9px; */ 
-  font-weight: 800; 
-} 
- 
-.iconInfoColapse { 
-  align-items: flex-end; 
-  margin-top: 5px; 
-  margin-left: 5px; 
-} 
- 
+.collapsable {  
+  background-color: #ffff;  
+  font-size: 13px;  
+  color: #787878;  
+  /* cursor: pointer; */  
+  /* padding: 3px; */  
+  margin-top: 8px;  
+  width: 100%;  
+  border: 1px solid rgb(192, 192, 192);  
+  text-align: left;  
+  outline: none;  
+  font-size: 15px;  
+}  
+  
+.active, .collapsable:hover {  
+  background-color:#eaf2fd;  
+}  
+  
+.header {  
+  display: flex;  
+  padding-left: 11px;    
+  align-items: center;  
+}  
+  
+.descCardCollapse {  
+  width: 100%;  
+  margin-bottom: 0px;  
+  /* margin-right: 202px; */  
+  margin-left: 9px;  
+  font-weight: 800;  
+}  
+  
+.iconInfoColapse {  
+  align-items: flex-end;  
+  margin-top: 5px;  
+  margin-left: 5px;  
+}  
+
 .arrow { 
   margin: 1em; 
   margin-top: 3px;   
