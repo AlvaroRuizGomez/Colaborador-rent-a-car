@@ -290,15 +290,84 @@
         <div class="enlacesInteresantes">
             <div class="enlacesInteres">
                 <div class="headerEnlaces">
-                    Enlaces de interés
+                    <%=it.locations.titulo_enlaces_interes %>
                 </div>
                 <div class="enlacesAside">
                     <ul>
-                        <li class="">Información soble Combustible</li>
-                        <li class="">Información sobre Seguro</li>
-                        <li class="">conductor adicional</li>
+                        <li class="enlaces_interes">
+
+                            <a class="boton_modal" role="button">
+                                <%=it.locations.enlace_combustible %>
+                            </a>
+                            
+
+                            <div id="overlay-enlaces" class="overlay-transparente modal-invisible">
+                                <ul class="details-modal ">
+                                    <li class="details-modal-close">
+                                        <a class="boton-cerrar-modal" role="button">
+                                            <img class="cerrar-modal" src="./img/svg/cerrar_modal.svg" alt="boton cerrar modal">
+                                        </a>
+                                    </li>
+                                    <li class="details-modal-title">
+                                        <h5 class="details-modal-title-text">
+                                            <%=it.locations.titulo_enlace_combustible %>
+                                        </h5>
+                                    </li>
+                                    <li class="sub-contenido-modal">
+                                        <%=it.locations.contenido_enlace_combustible %>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="enlaces_interes">
+                            <a class="boton_modal" role="button">
+                                <%=it.locations.enlace_seguro %>
+                            </a>
+                            <div id="overlay-enlaces" class="overlay-transparente modal-invisible">
+                                <ul class="details-modal ">
+                                    <li class="details-modal-close">
+                                        <a class="boton-cerrar-modal" role="button">
+                                            <img class="cerrar-modal" src="./img/svg/cerrar_modal.svg" alt="boton cerrar modal">
+                                        </a>
+                                    </li>
+                                    <li class="details-modal-title">
+                                        <h5 class="details-modal-title-text">
+                                            <%=it.locations.titulo_enlace_seguro %>
+                                        </h5>
+                                    </li>
+                                    <li class="sub-contenido-modal">
+                                        <%=it.locations.contenido_enlace_seguro %>
+                                    </li>
+                                </ul>
+                            </div>
+                        
+                        </li>
+                        <li class="enlaces_interes">
+                            <a class="boton_modal" role="button">
+                                <%=it.locations.enlace_conductoradicional %>
+                            </a>
+                            <div id="overlay-enlaces" class="overlay-transparente modal-invisible">
+                                <ul class="details-modal ">
+                                    <li class="details-modal-close">
+                                        <a class="boton-cerrar-modal" role="button">
+                                            <img class="cerrar-modal" src="./img/svg/cerrar_modal.svg" alt="boton cerrar modal">
+                                        </a>
+                                    </li>
+                                    <li class="details-modal-title">
+                                        <h5 class="details-modal-title-text">
+                                            <%=it.locations.titulo_enlace_conductoradicional %>
+                                        </h5>
+                                    </li>
+                                    <li class="sub-contenido-modal">
+                                        <%=it.locations.contenido_enlace_conductoradicional %>
+                                    </li>
+                                </ul>
+                            </div>
+
+                        </li>
                     </ul>
                 </div>
+                
             </div>
         </div>
 
