@@ -519,6 +519,9 @@ body{
   
 }
 
+
+
+
 .form-line
 {
   display: flex;
@@ -528,6 +531,13 @@ body{
 .card:hover > .content > .title
 {
   color: white;
+}
+
+.imagen-vehiculo
+{
+  min-width: 125%;
+    /* max-width: fit-content; */
+    margin-left: -22px;
 }
 
 .peugeot108Blue:before {

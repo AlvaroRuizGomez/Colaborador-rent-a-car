@@ -195,7 +195,7 @@
                 
                     <% for (let i = 0; i < it.data.length; i++) { %>
                     
-                    <div class="card lazyload <%=it.data[i]["ImagenVehiclo"] %>">
+                    <div class="card lazyload ">
                         
                         <form class="form-line" action="/direct" method="post" id="<%=it.data[i]["vehiculo"] %>">
                             <input type="hidden"  name="fase" value="2">
@@ -210,7 +210,8 @@
                             <input type="hidden"  name="conductor_con_experiencia" value="">
                         
 
-                            <div class="content">
+                            <div class="">
+                                <!-- <div class="content"> -->
                                 <!-- Logo -->
                                 <picture>
                                     <source srcset="./img/Img-Logo/Logo-Marca-Coche/<%=it.data[i]["logoMarcaCoche"] %>.avif" >
@@ -223,7 +224,7 @@
                                 <picture>
                                     <source srcset="./img/Img-Vehiculos/<%=it.data[i]["ImagenVehiclo"] %>_Card.avif" >
                                     <source srcset="./img/Img-Logo/Logo-Marca-Coche/<%=it.data[i]["ImagenVehiclo"] %>_Card.webp" >
-                                    <img src="./img/Img-Logo/Logo-Marca-Coche/<%=it.data[i]["ImagenVehiclo"] %>_Card.png" class="" alt="<% it.data[i]["ImagenVehiclo"] %>">
+                                    <img src="./img/Img-Logo/Logo-Marca-Coche/<%=it.data[i]["ImagenVehiclo"] %>_Card.png" class="imagen-vehiculo" alt="<% it.data[i]["ImagenVehiclo"] %>">
                                 </picture>
 
                                 <div class="content">
