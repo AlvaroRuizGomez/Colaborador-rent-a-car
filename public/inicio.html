@@ -197,63 +197,73 @@
                     
                     <div class="card lazyload <%=it.data[i]["ImagenVehiclo"] %>">
                         
-                    <form class="form-line" action="/direct" method="post" id="<%=it.data[i]["vehiculo"] %>">
-                        <input type="hidden"  name="fase" value="2">
-                        <input type="hidden"  name="success" value="<%=it.success %>">
-                        <input type="hidden"  name="idioma" value="<%=it.locations.idioma_web %>">
-                        <input type="hidden"  name="vehiculo" value="<%=it.data[i]["vehiculo"] %>">
+                        <form class="form-line" action="/direct" method="post" id="<%=it.data[i]["vehiculo"] %>">
+                            <input type="hidden"  name="fase" value="2">
+                            <input type="hidden"  name="success" value="<%=it.success %>">
+                            <input type="hidden"  name="idioma" value="<%=it.locations.idioma_web %>">
+                            <input type="hidden"  name="vehiculo" value="<%=it.data[i]["vehiculo"] %>">
 
-                        <input type="hidden"  name="fechaRecogida" value="">
-                        <input type="hidden"  name="horaRecogida" value="">
-                        <input type="hidden"  name="fechaDevolucion" value="">
-                        <input type="hidden"  name="horaDevolucion" value="">
-                        <input type="hidden"  name="conductor_con_experiencia" value="">
+                            <input type="hidden"  name="fechaRecogida" value="">
+                            <input type="hidden"  name="horaRecogida" value="">
+                            <input type="hidden"  name="fechaDevolucion" value="">
+                            <input type="hidden"  name="horaDevolucion" value="">
+                            <input type="hidden"  name="conductor_con_experiencia" value="">
                         
 
-                        <div class="content">
-                            <picture>
-                                <source srcset="./img/Img-Logo/Logo-Marca-Coche/<%=it.data[i]["logoMarcaCoche"] %>.avif" >
-                                <img src="./img/Img-Logo/Logo-Marca-Coche/<%=it.data[i]["logoMarcaCoche"] %>.webp" class="imgLogo logo-<%=it.data[i]["ImagenVehiclo"] %>" alt="alt-<%=it.locations[it.data[i]["logoMarcaCoche"]]%>">
-                            </picture>
-                            <h2 class="title title-<%=it.data[i]["ImagenVehiclo"] %>"><%=it.data[i]["descripcion"]%></h2>
                             <div class="content">
-                                <br>
-                                <br>
-                                <div class="car-info-services">
-                                    <div class="servicios-asientos">
-                                        <img class="icon-24" src="./img/svg/persona.svg" alt="<%=it.locations.alt_persona%>">
-                                        <div class="icon-number">
-                                            <%=it.data[i]["pax"]%>
+                                <!-- Logo -->
+                                <picture>
+                                    <source srcset="./img/Img-Logo/Logo-Marca-Coche/<%=it.data[i]["logoMarcaCoche"] %>.avif" >
+                                    <source srcset="./img/Img-Logo/Logo-Marca-Coche/<%=it.data[i]["logoMarcaCoche"] %>.webp" >
+                                    <img src="./img/Img-Logo/Logo-Marca-Coche/<%=it.data[i]["logoMarcaCoche"] %>.png" class="imgLogo logo-<%=it.data[i]["ImagenVehiclo"] %>" alt="alt-<%=it.locations[it.data[i]["logoMarcaCoche"]]%>">
+                                </picture>
+
+                                <h2 class="title title-<%=it.data[i]["ImagenVehiclo"] %>"><%=it.data[i]["descripcion"]%></h2>
+                                <!-- Imagen vehiculo -->
+                                <picture>
+                                    <source srcset="./img/Img-Vehiculos/<%=it.data[i]["ImagenVehiclo"] %>_Card.avif" >
+                                    <source srcset="./img/Img-Logo/Logo-Marca-Coche/<%=it.data[i]["ImagenVehiclo"] %>_Card.webp" >
+                                    <img src="./img/Img-Logo/Logo-Marca-Coche/<%=it.data[i]["ImagenVehiclo"] %>_Card.png" class="" alt="<% it.data[i]["ImagenVehiclo"] %>">
+                                </picture>
+
+                                <div class="content">
+                                    <br>
+                                    <br>
+                                    <div class="car-info-services">
+                                        <div class="servicios-asientos">
+                                            <img class="icon-24" src="./img/svg/persona.svg" alt="<%=it.locations.alt_persona%>">
+                                            <div class="icon-number">
+                                                <%=it.data[i]["pax"]%>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <% if (it.data[i]["puertas"] > 0 ) { %>
-                                    <div class="servicios-puertas"> 
-                                        <img class="icon-24" src="img/svg/puerta.svg" alt="<%=it.locations.alt_puerta%>">
-                                        <div class="icon-number">
-                                            <%=it.data[i]["puertas"]%>
+                                        <% if (it.data[i]["puertas"] > 0 ) { %>
+                                        <div class="servicios-puertas"> 
+                                            <img class="icon-24" src="img/svg/puerta.svg" alt="<%=it.locations.alt_puerta%>">
+                                            <div class="icon-number">
+                                                <%=it.data[i]["puertas"]%>
+                                            </div>
                                         </div>
+                                        <% } %>
+                                        <% if (it.data[i].aireacondicionado === 1) { %>
+                                        <div class="servicios-aire">
+                                            <img class="icon-24" src="img/svg/aire.svg" alt="<%=it.locations.alt_aire %>">
+                                        </div>
+                                        <% } %>
+                                        <% if (it.data[i].transmision==="M" ) { %>
+                                        <div class="servicios-trasmision">
+                                            <img class="icon-24" src="img/svg/cambio_manual.svg" alt="<%=it.locations.alt_cambio_manual%>">
+                                            <div class="icon-number">M</div>
+                                        </div>
+                                        <%} else if (it.data[i].transmision==="A" ) { %>
+                                        <div class="servicios-trasmision">
+                                            <img class="icon-24" src="img/svg/cambio_automatico.svg" alt="<%=it.locations.alt_cambio_auto%>">
+                                            <div class="icon-number">A</div>
+                                        </div>
+                                        <% } %>
                                     </div>
-                                    <% } %>
-                                    <% if (it.data[i].aireacondicionado === 1) { %>
-                                    <div class="servicios-aire">
-                                        <img class="icon-24" src="img/svg/aire.svg" alt="<%=it.locations.alt_aire %>">
-                                    </div>
-                                    <% } %>
-                                    <% if (it.data[i].transmision==="M" ) { %>
-                                    <div class="servicios-trasmision">
-                                        <img class="icon-24" src="img/svg/cambio_manual.svg" alt="<%=it.locations.alt_cambio_manual%>">
-                                        <div class="icon-number">M</div>
-                                    </div>
-                                    <%} else if (it.data[i].transmision==="A" ) { %>
-                                    <div class="servicios-trasmision">
-                                        <img class="icon-24" src="img/svg/cambio_automatico.svg" alt="<%=it.locations.alt_cambio_auto%>">
-                                        <div class="icon-number">A</div>
-                                    </div>
-                                    <% } %>
                                 </div>
+                                <button type="submit" class="btn" name="vehiculo"  value="<%= it.data[i].vehiculo %>"><%=it.locations.vereste%></button>
                             </div>
-                            <button type="submit" class="btn" name="vehiculo"  value="<%= it.data[i].vehiculo %>"><%=it.locations.vereste%></button>
-                        </div>
                         </form>
                     </div>
                     

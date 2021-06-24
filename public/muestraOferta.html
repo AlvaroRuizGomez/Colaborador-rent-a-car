@@ -194,17 +194,18 @@
         <!-- *************************************************** -->
         <!----------------- Inicio Info colapse ------------------->
         <div class="infoColapseContainer">
-
-            <details class="collapsable" data-tooltip-location="top" data-tooltip="<%=it.locations.tooltip_kilometros %>">
+            <details class="collapsable" >
                 <summary class="header">
                     <img src="./img/velocimetro.avif" border="0" width="20px" height="20px" class="f-ico">
-                    <p class="descCardCollapse">
+                    <p class="descCardCollapse noselect">
                         <%=it.locations.info_kilometraje %>
                     </p>
-                    <img src="./img/svg/iconInfo.svg" class="iconInfoColapse" border="0">
+                    <div data-tooltip-location="top" data-tooltip="<%=it.locations.tooltip_kilometros %>">
+                        <img src="./img/svg/iconInfo.svg" class="iconInfoColapse" border="0">
+                    </div>
                     <div class="arrow"></div>
                 </summary>
-                <div class="content">
+                <div class="content noselect">
                     <p><%=it.locations.contenido_kilometraje %></p>
                 </div>
 
@@ -212,16 +213,18 @@
 
             <!-- ----------------------------------------------------->
 
-            <details class="collapsable" data-tooltip-location="top" data-tooltip="<%=it.locations.tooltip_combustible%>">
+            <details class="collapsable" >
                 <summary class="header">
                     <img src="./img/svg/fuel_icon.svg" border="0" width="20px" height="20px" class="f-ico">
-                    <p class="descCardCollapse">
+                    <p class="descCardCollapse noselect">
                         <%=it.locations.info_combustible %>
                     </p>
-                    <img src="./img/svg/iconInfo.svg" class="iconInfoColapse" border="0" >
+                    <div data-tooltip-location="top" data-tooltip="<%=it.locations.tooltip_combustible%>">
+                        <img src="./img/svg/iconInfo.svg" class="iconInfoColapse" border="0" >
+                    </div>
                     <div class="arrow"></div>
                 </summary>
-                <div class="content">
+                <div class="content noselect">
                     <p><%=it.locations.contenido_combustible %></p>
                 </div>
 
@@ -229,19 +232,19 @@
 
             <!-- ----------------------------------------------------->
 
-            <details class="collapsable" data-tooltip-location="top" data-tooltip="<%=it.locations.tooltip_conductoradicional%>">
+            <details class="collapsable" >
                 <summary class="header">
                     <img src="./img/svg/driver_Plus.svg" border="0" width="20px" height="20px" class="f-ico">
-                    
-                        <p class="descCardCollapse">
-                            <%=it.locations.info_conductor_adicional %>
-                        </p>
-                    
+                    <p class="descCardCollapse noselect">
+                        <%=it.locations.info_conductor_adicional %>
+                    </p>
+                    <div data-tooltip-location="top" data-tooltip="<%=it.locations.tooltip_conductoradicional%>">
+                        <img src="./img/svg/iconInfo.svg" class="iconInfoColapse" border="0">
 
-                    <img src="./img/svg/iconInfo.svg" class="iconInfoColapse" border="0">
+                    </div>
                     <div class="arrow"></div>
                 </summary>
-                <div class="content">
+                <div class="content noselect">
                     <p><%=it.locations.contenido_conductoradicional %></p>
                 </div>
 
@@ -249,19 +252,17 @@
 
             <!-- ----------------------------------------------------->
 
-            <details class="collapsable" data-tooltip-location="top" data-tooltip="<%=it.locations.tooltip_cancelacionreserva%>">
+            <details class="collapsable" >
                 <summary class="header">
                     <img src="./img/svg/cancelacion_Icon.svg" border="0" width="20px" height="20px" class="f-ico">
-                    
-                        <p class="descCardCollapse">
-                            <%=it.locations.info_cancelacionreserva %>
-                        </p>
-                    
+                    <p class="descCardCollapse noselect"><%=it.locations.info_cancelacionreserva %></p>
+                    <div data-tooltip-location="top" data-tooltip="<%=it.locations.tooltip_cancelacionreserva%>">
+                        <img src="./img/svg/iconInfo.svg" class="iconInfoColapse" border="0">
+                    </div>
 
-                    <img src="./img/svg/iconInfo.svg" class="iconInfoColapse" border="0">
                     <div class="arrow"></div>
                 </summary>
-                <div class="content">
+                <div class="content noselect">
                     <p><%=it.locations.contenido_cancelacionreserva %></p>
                 </div>
 
@@ -269,14 +270,16 @@
 
             <!-- ----------------------------------------------------->
 
-            <details class="collapsable" id="lugar" data-tooltip-location="top" data-tooltip="<%=it.locations.tooltip_recogida%>">
+            <details class="collapsable" id="lugar" >
                 <summary class="header">
                     <img src="./img/svg/recogida_Icon.svg" border="0" width="20px" height="20px" class="f-ico">
-                        <p class="descCardCollapse"><%=it.locations.info_recogida %></p>
-                    <img src="./img/svg/iconInfo.svg" class="iconInfoColapse" border="0">
+                        <p class="descCardCollapse noselect"><%=it.locations.info_recogida %></p>
+                    <div data-tooltip-location="top" data-tooltip="<%=it.locations.tooltip_recogida%>">
+                        <img src="./img/svg/iconInfo.svg" class="iconInfoColapse" border="0">
+                    </div>
                     <div class="arrow"></div>
                 </summary>
-                <div class="content">
+                <div class="content noselect">
                     <p><%=it.locations.contenido_recogida %></p>
                 </div>
 
@@ -296,9 +299,9 @@
                     <ul class="enlacesAsideul">
                         <li class="enlaces_interes">
 
-                            <a class="enlace_interes_modal" role="button">
+                            <button class="enlace_interes_modal" >
                                 <%=it.locations.enlace_combustible %>
-                            </a>
+                            </button>
                             
 
                             <div id="overlay-enlaces" class="overlay-transparente modal-invisible">
@@ -320,9 +323,9 @@
                             </div>
                         </li>
                         <li class="enlaces_interes">
-                            <a class="enlace_interes_modal" role="button">
+                            <button class="enlace_interes_modal">
                                 <%=it.locations.enlace_seguro %>
-                            </a>
+                            </button>
                             <div id="overlay-enlaces" class="overlay-transparente modal-invisible">
                                 <ul class="details-modal resetul">
                                     <li class="details-modal-close">
@@ -343,9 +346,9 @@
                         
                         </li>
                         <li class="enlaces_interes">
-                            <a class="enlace_interes_modal" role="button">
+                            <button class="enlace_interes_modal">
                                 <%=it.locations.enlace_conductoradicional %>
-                            </a>
+                            </button>
                             <div id="overlay-enlaces" class="overlay-transparente modal-invisible">
                                 <ul class="details-modal resetul ">
                                     <li class="details-modal-close">
@@ -592,25 +595,4 @@
 
 <!----------------------------------- Scripts ----------------------------------->
 
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-
-
-
-// <!-- <script>
-//     var arr = document.querySelector('.arrow');
-    
-//     arr.addEventListener
-//     ('click', function(event) 
-//     {
-//         event.target.classList.toggle('down');
-//     });   
-// </script> -->
-
-<!--
-    
-    <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script> 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-<script type="text/javascript" src="jquery/jquery-3.5.1.min.js"></script>
-<script type="text/javascript" src="jquery/popper.min.js"></script>
-
--->
+<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script> -->

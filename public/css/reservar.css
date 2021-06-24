@@ -13,6 +13,9 @@
   --background-cabecera-container: #eaf2fd;
   --background-cabecera: #fafafa;
 
+  /* margen izquierda titulos */
+  --margin-izquierda-titulo: 45px;
+
 }
 
 
@@ -426,20 +429,25 @@ select {
     grid-area: titulo;
     width: 100%;
     border-bottom: 1px solid #d8d8d8;
-    justify-self: start;
 
-}
-  
-.titReserva {
-    display: inline;
+    display: flex; 
+    justify-content: flex-start;
+    align-items: center;
+
+
     color: #333333;
     line-height: 40px;
     font-size: 22px;
     padding: 0px 1px;
     margin: 0;
     font-weight: 700;
+
+    column-gap: 10px;
+    
+
 }
   
+
 .infoReserva {
     grid-area: info;
     justify-self: left;
@@ -579,8 +587,9 @@ select {
 }
   
 #icon-Mundi {
-    width: 3%;
-    margin-top: 5px;
+    width: 25px;
+    margin-left: var(--margin-izquierda-titulo);
+    
 }
   
 #imgCarReserva {
@@ -610,12 +619,42 @@ select {
     margin: 10px 0;
 }
 
-.beneficios .includPrice-container ul.includPrice-contenido {
+.includPrice-contenido 
+{
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: stretch;
+
     list-style: none;
     text-align: center;
     margin: 10px auto;
     padding: 0;
     max-width: 85%;
+
+    /* //---- */
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    column-gap: 40px;
+    list-style: none;
+    /* text-align: center; */
+    /* margin: 10px auto; */
+    /* padding: 0; */
+    max-width: 100%;
+    flex-wrap: wrap;
+    place-content: center;
+
+}
+
+.tooltipBlanco
+{
+    flex-basis: 200px;
+    height: 65px;
+}
+
+
+
 }
 /* ---- Fin Incluido en el precio ----- */
 
@@ -636,6 +675,8 @@ select {
 .titSillas {
     border-bottom: 1px solid #ddd;
     padding: 8px;
+    display: flex;
+    margin-left: var(--margin-izquierda-titulo);
 }
 
 .titSillas h2 {
@@ -773,9 +814,7 @@ select {
 }
 
 .titulo_asientos {
-    /* display: inline-block; */
-    /* max-width: 100%; */
-    /* margin-bottom: 45px; */
+
     font-weight: 700;
 }
 
@@ -811,15 +850,24 @@ select {
     color: #f44336;
 }
 
-.formDriverContent>h2{
+.formdriver-titulo-caja
+{
     border-bottom: 1px solid #ddd;
+    display: flex;
+}
+
+
+
+.formdriver-titulo-texto{
+    
     font-size: 19px;  
     padding: 8px;
     font-weight: 700;
     color: #444;
+    margin-left: var(--margin-izquierda-titulo);
 }
 
-.formDriverContent>h2 i.ico {
+.formdriver-titulo-texto i.ico {
     display: inline-block;
     vertical-align: middle;
     width: 24px;
@@ -965,14 +1013,11 @@ select {
 
 /* ---- Botón Reservar ---- */
 .boxBtnRevervar {
-    /* grid-column: 6 / 8;
-    grid-row: 9; */
-    margin: 20px;
-    padding: 10px;
+    margin-bottom: 50px;
 }  
 
 .btnReserva {
-    width: 100%;
+    width: 290px;
     background-color: #2e09ba;
     color: #fff;
     border-radius: 10px;
@@ -981,10 +1026,29 @@ select {
     padding: 1em 0;
     -webkit-appearance: button;
     cursor: pointer;
-    background-image: url(data:image/x-icon;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAbBAMAAACUzVJlAAAAKlBMVEUAAAD///////////////////////////////////////////////////+Gu8ovAAAADXRSTlMARHe7Ee6IZjMi3cyZsOBa6AAAAH9JREFUGNNjAAH3ZLMSBihgir1796oChM1iexcILjuAOdx3wWADmKN7904Dx9m7l8CqYu8WMDCw373qwACiroHEckFCDGx3b4I4c+8mAEnmuxdAHN67BkRzOLXuXlICAt27iyYwsN6FgwCGXgTnBoMsgnNxYDi+CM4VBiYERwEA0smzosF+6ZwAAAAASUVORK5CYII=);
-    background-position: 0.1em 48%;
-    background-repeat: no-repeat;
-    background-size: 22px;
+
+}
+
+
+
+.formularioreservar
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 7px;
+}
+
+.input-terminos
+{
+    vertical-align: baseline;
+}
+
+.candado-imagen
+{
+    
+    width: 17px;
+    margin-bottom: 2px;
 }
 
 .color_rojo
