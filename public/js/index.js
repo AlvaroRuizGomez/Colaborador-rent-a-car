@@ -42,12 +42,14 @@ const CheckRangoEdad = async () => {
         desplegable_edad.classList.remove("visible");
         desplegable_edad.classList.add("invisible");
         desplegable_edad.style.maxHeight = null;
-
+        desplegable_edad.style.marginBottom = null;
     }
     else {
         desplegable_edad.classList.remove("invisible");
         desplegable_edad.classList.add("visible");
-        desplegable_edad.style.maxHeight = "22px";
+        desplegable_edad.style.maxHeight = "26px";
+        desplegable_edad.style.marginBottom = "15px";
+        
 
     }
 

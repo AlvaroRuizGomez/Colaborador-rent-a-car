@@ -42,6 +42,16 @@ ul
 }
 
 
+.resetul
+{
+  list-style: none;
+  margin-block-start: 0px;
+  margin-block-end: 0px;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  padding: 0px;
+}
+
 body {
   width:100%;
   text-align: center;
@@ -53,17 +63,22 @@ body {
   /* height:100vh; */
   margin : 0px auto;
   display : grid;
+  grid-auto-rows: max-content; 
   grid-template-columns: 30% 70%;
-  grid-template-rows: auto auto auto auto;
+  grid-template-rows: auto 325px minmax(100px, 19%) auto auto;
 
   grid-template-areas: 
   "banner banner"
   "form content"
-  "form content"
+  "info content"
+  "links content"
   "footer footer"
   
   ;
 }
+
+
+
 
 .banner {
   grid-area: banner;
@@ -502,118 +517,151 @@ body {
 }
 
 /* ---- Inicio Informacion Collapse ------- */
-.collapsable {
-  background-color: #ffff;
-  font-size: 13px;
-  color: #787878;
-  /* cursor: pointer; */
-  /* padding: 3px; */
-  margin-top: 8px;
-  width: 100%;
-  border: 1px solid rgb(192, 192, 192);
-  text-align: left;
-  outline: none;
-  font-size: 15px;
-}
 
-.active, .collapsable:hover {
-  background-color:#eaf2fd;
-}
 
-.header {
-  display: flex;
-  padding-left: 11px;  
-  align-items: center;
-}
-
-.descCardCollapse {
-  width: 100%;
-  margin-bottom: 0px;
-  /* margin-right: 202px; */
-  /* margin-left: 9px; */
-  font-weight: 800;
-}
-
-.iconInfoColapse {
-  align-items: flex-end;
-  margin-top: 5px;
-  margin-left: 5px;
-}
-
-.arrow {
-  margin: 1em;
-  margin-top: 3px;  
-}
-
-.arrow::before {
-  position: absolute;
-  content: '';
-  width: 0;
-  height: 0;
-  border: .5em solid transparent;
-  border-left-color: black;
-  transform-origin: 0 50%;
-  transition: transform .25s;
-}
-
-.arrow.down::before {
-  transform: rotate(90deg);
-  transition: transform .25s;
-}
-
-.content {
-  padding: 0 18px;
-  display: none;
-  overflow: hidden;
-  background-color: #fafafa;
-  border: 1px solid rgb(192, 192, 192);
-}
-
-.content p {
-  font-weight: 300;
-  font-size: 14px;
-  margin: 0;
-}
-
-/* ---- Fin    Informacion Collapse ------- */
-
-/* ----- Inicio Enlaces de Interés ------ */
-.enlacesInteres {
-  border: 1px solid #ddd;
-  border-radius: 2px;
-  /* margin-bottom: 10px; */
-  width: 100%;
-  box-sizing: border-box;
-  margin-top: 50px;
-}
-
-.headerEnlaces {
-  display: flex;
-  padding-left: 11px;  
-  align-items: center;
-  border-bottom: 1px solid #ddd;
-  background: #eaf2fd;
-}
  
-.enlacesAside {
-    border-radius: 2px;
-    margin-bottom: 10px;
-    width: 100%;
+.collapsable {  
+  background-color: #ffff;  
+  font-size: 13px;  
+  color: #787878;  
+  /* cursor: pointer; */  
+  /* padding: 3px; */  
+  margin-top: 8px;  
+  width: 100%;  
+  border: 1px solid rgb(192, 192, 192);  
+  text-align: left;  
+  outline: none;  
+  font-size: 15px;  
+}  
+  
+.active, .collapsable:hover {  
+  background-color:#eaf2fd;  
+}  
+  
+.header {  
+  display: flex;  
+  padding-left: 11px;    
+  align-items: center;  
+}  
+  
+.descCardCollapse {  
+  width: 100%;  
+  margin-bottom: 0px;  
+  /* margin-right: 202px; */  
+  margin-left: 9px;  
+  font-weight: 800;  
+}  
+  
+.iconInfoColapse {  
+  align-items: flex-end;  
+  margin-top: 5px;  
+  margin-left: 5px;  
+}  
+
+.arrow { 
+  margin: 1em; 
+  margin-top: 3px;   
+} 
+ 
+.arrow::before { 
+  position: absolute; 
+  content: ''; 
+  width: 0; 
+  height: 0; 
+  border: .5em solid transparent; 
+  border-left-color: black; 
+  transform-origin: 0 50%; 
+  transition: transform .25s; 
+} 
+ 
+.arrow_down::before { 
+  transform: rotate(90deg); 
+  transition: transform .25s;
+  transform-origin: 0px 5px;
+} 
+ 
+
+
+
+.content { 
+  padding: 0 18px; 
+  /* display: none; 
+  overflow: hidden;  */
+  background-color: #fafafa; 
+  border: 1px solid rgb(192, 192, 192); 
+} 
+ 
+.content p { 
+  font-weight: 300; 
+  font-size: 14px; 
+  margin: 0; 
+} 
+ 
+/* ---- Fin    Informacion Collapse ------- */ 
+ 
+/* ----- Inicio Enlaces de Interés ------ */ 
+
+.infoColapseContainer
+{
+  grid-area: info;
+  padding: 15px;
+  height: fit-content;
 }
 
-.enlacesAside ul {
-  padding: 8px;
-  margin: 1px 0 0;
-  font-size: 13px;
-  text-align: left;
-  list-style-type: disc;
-  margin-block-start: 1em;
-  margin-block-end: 1em;
-  margin-inline-start: 0px;
-  margin-inline-end: 0px;
-  padding-inline-start: 40px;
+.enlacesInteresantes
+{
+  grid-area: links;
+  padding: 15px;
 }
+
+
+.enlacesInteres { 
+  grid-area: ;
+  border: 1px solid #ddd; 
+  border-radius: 2px; 
+  /* margin-bottom: 10px; */ 
+  width: 100%; 
+  box-sizing: border-box; 
+  margin-top: 20px; 
+} 
+ 
+.headerEnlaces { 
+  display: flex; 
+  padding-left: 11px;   
+  align-items: center; 
+  border-bottom: 1px solid #ddd; 
+  background: #eaf2fd; 
+} 
   
+.enlacesAside { 
+    border-radius: 2px; 
+    margin-bottom: 10px; 
+    width: 100%; 
+} 
+ 
+.enlacesAsideul { 
+  padding: 8px; 
+  margin: 1px 0 0; 
+  font-size: 13px; 
+  text-align: left; 
+  list-style-type: disc; 
+  margin-block-start: 1em; 
+  margin-block-end: 1em; 
+  margin-inline-start: 0px; 
+  margin-inline-end: 0px; 
+  padding-inline-start: 40px; 
+} 
+
+.enlace_interes_modal
+{
+  cursor: pointer;
+}
+
+.enlaces_interes
+{
+  margin-bottom: 12px;
+}
+
 
 /* ----- Fin    Enlaces de Interés ------ */
 

@@ -2,7 +2,7 @@ const botonCondiciones = document.getElementsByClassName("boton_modal");
 const botonesCerrar = document.getElementsByClassName("boton-cerrar-modal");
 const overlay = document.getElementsByClassName("overlay-transparente");
 
-
+const botonesEnlacesInteres = document.getElementsByClassName("enlace_interes_modal");
 
 
 for (let i = 0; i < botonCondiciones.length; i++)
@@ -38,20 +38,14 @@ for (let i = 0; i < botonCondiciones.length; i++)
             document.body.style.overflow = null;
 
         }
-        else
-        {
-            
-
-        }
-
-
+        
     });
 
     botonCondiciones[i].addEventListener("click", async (evento)=> 
     {
         
         // const divOverlay = evento.target.parentElement.nextElementSibling;
-        const divOverlay = evento.target.parentElement.parentElement.parentElement.lastElementChild.firstElementChild;
+        let divOverlay = evento.target.parentElement.parentElement.parentElement.lastElementChild.firstElementChild;
 
         if (divOverlay.classList[1] !== "modal-invisible")
         {
@@ -71,9 +65,9 @@ for (let i = 0; i < botonCondiciones.length; i++)
 
 
 // idiomas
-const boton = document.getElementById("boton-idioma-seleccionado");
+const botonIdioma = document.getElementById("boton-idioma-seleccionado");
 
-boton.addEventListener("click", async () => {
+botonIdioma.addEventListener("click", async () => {
 
     const contenido = document.getElementById("idioma-contenido");
     if (contenido.classList.contains("idioma-contenido-show") === true) {
@@ -85,6 +79,90 @@ boton.addEventListener("click", async () => {
     }
 
 });
+
+
+// --- inicio colapse 
+// <!----------------------------- Informacion Collapse------------------------------->
+    
+const elementosColapsables = document.getElementsByClassName("collapsable");
+for (let i = 0; i < elementosColapsables.length; i++)
+{
+    elementosColapsables[i].addEventListener("click", async (evento) =>
+    {
+
+        const flecha = elementosColapsables[i].children[0].lastElementChild;
+        if (flecha.classList.contains("arrow_down") === false)
+        {
+            flecha.classList.add("arrow_down");
+
+        }
+        else
+        {
+            flecha.classList.remove("arrow_down");
+        }
+
+
+
+    });
+
+}
+
+//antiguo codigo
+        // const coll = document.getElementsByClassName("collapsable");
+        // var arr = document.querySelector('.arrow');
+        // var i;
+
+        // arr.addEventListener
+        // ('click', function(event)
+        // {
+        //     event.target.classList.toggle('down');
+        // for (i = 0; i < coll.length; i++)
+        // {
+        //     coll[i].addEventListener("click", function () {
+        //         this.classList.toggle("active");
+        //         var content = this.nextElementSibling;
+        //         if (content.style.display === "block") {
+        //             content.style.display = "none";
+        //         } else {
+        //             content.style.display = "block";
+        //         }
+        //     })
+        // }
+        //     }
+        // );
+    
+
+
+
+// --- fin colapse
+
+
+
+// enlaces de interes
+
+for (let i = 0; i < botonesEnlacesInteres.length; i++)
+{
+    botonesEnlacesInteres[i].addEventListener("click", (evento) =>
+    {
+
+        let divOverlay = evento.target.parentElement.lastElementChild;
+
+        if (divOverlay.classList.contains("modal-invisible") === true)
+        {
+
+            document.body.style.overflow = "hidden";
+            document.querySelector("html").scrollTop = window.scrollY;
+
+            divOverlay.classList.remove("modal-invisible");
+            divOverlay.classList.add("modal-visible");
+
+        }
+        
+
+
+    });
+
+}
 
 window.onclick = async (evento) => {
     if (evento.target.matches(".boton-idioma-seleccionado") === false &&

@@ -325,15 +325,20 @@ body{
 .edad_conductor
 {
   width: 30px;
-  height: 30px;
-  margin-top: -7px;
+  height: 26px;
+  /* margin-top: -7px; */
   border: 1px solid #ddd;
   background: #fff;
   padding-left: 4px;
 
 }
 
+.texto_edadconductor
+{
+  margin-bottom: 0px;
 }
+
+
 
 .elemento__inputradio
 {
@@ -345,12 +350,13 @@ body{
 {
   width: 25px;
   height: 25px;
-  /* background: #e9ecef; */
+  
   border: 1px solid #ddd;
   background: #fff;
   position: relative;
   left: 0.8%;
-  /* z-index: 2; */
+  
+  margin-bottom: 0;
 }
 
 
@@ -396,12 +402,11 @@ body{
 .elemento__titulo 
 {
   display: block;
-
   border-radius: 5px;
-  
   cursor: pointer;
-
   font-size: 14px;
+  margin: 0;
+
 }
 
 
@@ -887,6 +892,16 @@ body{
 {
   gap: 10px;
 
+}
+
+.columna-gap-10
+{
+  column-gap: 10px;
+}
+
+.margen-abajo
+{
+  margin-bottom: 12px;
 }
 
 .columna-centrado
