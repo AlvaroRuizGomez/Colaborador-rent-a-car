@@ -34,6 +34,25 @@ const iconoErrorTelf = document.getElementById("iconoErrorTelf");
 
 
 ///----
+const boton_reservar_overlay = document.getElementById("boton_reservar_overlay");
+boton_reservar_overlay.addEventListener("click", async (evento) =>
+{
+    let divOverlay = evento.target.parentElement.lastElementChild;
+
+    if (divOverlay.classList.contains("modal-invisible") === true) {
+
+        document.body.style.overflow = "hidden";
+        document.querySelector("html").scrollTop = window.scrollY;
+
+        divOverlay.classList.remove("modal-invisible");
+        divOverlay.classList.add("modal-visible");
+
+    }
+
+
+});
+
+//--
 
 
 
@@ -126,7 +145,7 @@ overlayPrivacidad.addEventListener("click", async (evento) => {
 
 });
 
-boton_reservar.addEventListener("click", async (evento) =>
+boton_reservar2.addEventListener("click", async (evento) =>
 {
     evento.preventDefault();
     
