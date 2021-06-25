@@ -534,8 +534,7 @@
         <!-------------------------  Inicio Botón reservar ------------------------>
         
         <div class="boxBtnRevervar">
------------
-
+            <button id="boton_reservar" name="" class="btnReserva    iframe new-btn new-btn-xxl new-btn-success cboxElement">
                 <form id="formulario-reservar" action="<%=it.locations.reservar %>" method="post" class="formularioreservar">
                     <input type="hidden" id="descripcion_vehiculo" name="descripcion_vehiculo"
                             value="<%=it.formdata.descripcion_vehiculo %>">
@@ -569,6 +568,13 @@
                         <%=it.locations.reservar_ahora %>
                             <%= pago_online %> €
                 </form>
+                <div class="barraPago">
+                    <img src="./img/svg/logo_Redsys.png" alt="">
+                    <a class="" role="button" data-tooltip-location="top"
+                        data-tooltip="Reservar ahora, le direcciona a una sesión segura donde puede pagar su reserva anticipada con toda seguridad, solo con los datos de una tarjeta de uso global">
+                        <span class="link-condiciones">Reservar ahora, Informacón</span>
+                    </a>
+                </div>
             </button>
             <div id="overlay-boton-reservar" class="overlay-transparente modal-invisible">
                 <ul class="details-modal resetul">
