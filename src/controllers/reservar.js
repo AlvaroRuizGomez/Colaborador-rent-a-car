@@ -57,6 +57,9 @@ exports.postRealizarReserva = async (req, res, language ) =>
 
     }
 
+
+
+    
     // TODO: seguridad comprobar que proviene del backend
     // if (dataResponse.token !== "")
     // {
