@@ -16,9 +16,10 @@ exports.GetBackendVars = async () => {
 
     let port_backend = "";
     let endpoint_variables_frontend = "";
+    
+    const host = process.env.URL_BACKEND || "localhost";
     const protocolo = "http://";
-    const host = "localhost";
-
+    
     if (process.env.LOCAL_SECRETS === "true") {
 
         port_backend = await readSecret("../../secrets/port_backend.txt");
