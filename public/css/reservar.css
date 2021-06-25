@@ -992,6 +992,32 @@ select {
     color: red;
 }
 
+/* -- barra de pago, (Bajo botón ) */
+.link-condiciones {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.barraPago {
+    display: block;
+    margin: 16px 2px;
+}
+
+.barraPago span {
+    font-size: 1.2em;
+    font-weight: 400;
+    color: #504e4e;
+    vertical-align: 4px;
+    margin-left: 25px;
+}
+
+.blockSpace {
+    display: block;
+    height: 100px;
+}
+
+/* -- fin barra de pago, (Bajo botón ) */
+
 .boton-terminos,
 .boton-privacidad
 {

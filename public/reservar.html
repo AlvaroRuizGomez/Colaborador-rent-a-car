@@ -43,7 +43,6 @@
             <!------- Fin Cabecera ---->
     </div>
     <main class="layout">
-
         <!-----------------  Inicio Sidebar1  ------------------------------------------>
         <div class="sidebar1">
             <section id="contentAside">
@@ -524,28 +523,28 @@
         <!-----  Fin formulario conductor principal y condiciones y términos ------>
 
         <!-------------------------  Inicio Botón reservar ------------------------>
+        
         <div class="boxBtnRevervar">
-            <div class="culo">
-                <button id="boton_reservar" name=""
-                class="btnReserva    iframe new-btn new-btn-xxl new-btn-success cboxElement">
+            <button id="boton_reservar" name=""
+                    class="btnReserva    iframe new-btn new-btn-xxl new-btn-success cboxElement">
                 <form id="formulario-reservar" action="<%=it.locations.reservar %>" method="post">
                     <input type="hidden" id="descripcion_vehiculo" name="descripcion_vehiculo"
-                        value="<%=it.formdata.descripcion_vehiculo %>">
+                            value="<%=it.formdata.descripcion_vehiculo %>">
                     <input type="hidden" id="fechaRecogida" name="fechaRecogida"
-                        value="<%= it.formdata.fechaRecogida %>">
+                            value="<%= it.formdata.fechaRecogida %>">
                     <input type="hidden" id="horaRecogida" name="horaRecogida" value="<%= it.formdata.horaRecogida %>">
                     <input type="hidden" id="fechaDevolucion" name="fechaDevolucion"
-                        value="<%= it.formdata.fechaDevolucion %>">
+                            value="<%= it.formdata.fechaDevolucion %>">
                     <input type="hidden" id="horaDevolucion" name="horaDevolucion"
-                        value="<%= it.formdata.horaDevolucion %>">
+                            value="<%= it.formdata.horaDevolucion %>">
                     <input type="hidden" id="dias" name="dias" value="<%= it.formdata.diasEntreRecogidaDevolucion %>">
 
                     <input type="hidden" id="alquiler" name="alquiler" value="<%=it.formdata.preciototaldias %>">
 
                     <input type="hidden" id="conductor_con_experiencia" name="conductor_con_experiencia"
-                        value="<%= it.formdata.conductor_con_experiencia %>">
+                            value="<%= it.formdata.conductor_con_experiencia %>">
                     <input type="hidden" id="total_suplmento_tipo_conductor" name="total_suplmento_tipo_conductor"
-                        value="<%= total_suplmento_tipo_conductor %>">
+                            value="<%= total_suplmento_tipo_conductor %>">
                     <input type="hidden" id="pagoRecogida" name="pagoRecogida" value="<%= pago_recogida %>">
                     <input type="hidden" id="pago_online" name="pago_online" value="<%= pago_online %>">
                     <input type="hidden" id="sr_input" name="titulo" value="no-especificado">
@@ -557,18 +556,24 @@
                     <input type="hidden" id="email_input" name="email" value="">
                     <input type="hidden" id="telefono_input" name="telefono" value="">
                     <input type="hidden" id="idioma" name="idioma" value="<%=it.locations.idioma_web %>">
-
-
-
-                    <%=it.locations.reservar_ahora %>
-                        <%= pago_online %> €
+                        <%=it.locations.reservar_ahora %>
+                            <%= pago_online %> €
                 </form>
             </button>
+            <div class="barraPago">
+                <img src="./img/svg/logo_Redsys.png" alt="">
+                <a class="" role="button" data-tooltip-location="top" data-tooltip="Reservar ahora, le direcciona a una sesión segura donde puede pagar su reserva anticipada con toda seguridad, solo con los datos de una tarjeta de uso global">
+                    <span class="link-condiciones">Reservar ahora, Informacón</span>
+                </a>
             </div>
-            
         </div>
+
         <!-------------------------    Fin Botón reservar  ------------------------>
 
+        <div class="blockSpace"></div>
+        <div class="blockSpace"></div>
+        <div class="blockSpace"></div>
+        <div class="blockSpace"></div>
     </main>
 
     <%~ includeFile("footer.html", it) %>
