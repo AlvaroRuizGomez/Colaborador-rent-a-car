@@ -185,12 +185,22 @@ select {
     float: left;
     background-color: #fff;
     border: 1px solid #ddd;
+    border-top: 11px solid deepskyblue;
 }
 
 .boxAside {
     margin-bottom: 0;
     position: relative;
 }
+
+.Cambiar a { 
+    display: grid;
+    justify-items: center;
+    margin-top: 10px;
+    font-size: 1em;
+    font-weight: 200;
+    color: blue;
+  }
   
 .contentBoxAside {
     padding: 20px;
@@ -201,7 +211,7 @@ select {
 .rentacar-info {
     display: grid;
     grid-template-columns: 225px;
-    grid-template-rows: 150px 30px 25px 35px 26px 46px 20px 20px 20px;
+    grid-template-rows: 150px 30px 25px 35px 32px 32px 31px 24px 31px;;
     grid-template-areas:
       "imagen-coche"
       "marca"
@@ -232,12 +242,14 @@ select {
     font-weight: 700;
     text-size-adjust: none;
     line-height: 1.3em;
-    align-self: flex-end;
+    margin-left: 33px;
     margin-bottom: 0px;
 }
   
 .similar {
     grid-area: similar;
+    margin-left: 75px;
+    font-weight: 300;
 }
   
 /* --   Barra de Iconos de Servicios -- */
@@ -248,7 +260,8 @@ select {
     grid-template-rows: 31px;
     grid-template-areas: 
     "a a a a";
-    justify-items: flex-start;
+    /* justify-items: flex-start; */
+    margin-left: 28px;
 }
   
 .icon-24 {
@@ -298,8 +311,9 @@ select {
 }
   
 .servicios-kilometraje {
-    margin-top: 25px;
     grid-area: combustible;
+    display: flex;
+    margin-top: 25px;
     padding: 2px;
 }
   
@@ -307,6 +321,7 @@ select {
     display: inline;
     font-size: 13px;
     color: #787878;
+    margin-left: 8px;
 }
   
 .icon-25 {
@@ -316,16 +331,19 @@ select {
   
 .geoLoc {
     grid-area: location;  
+    display: flex;
+    padding: 1px;
+    margin-top: 11px;
 }
   
 .icon-locate{
-    display: inline;
     font-size: 13px;
     color: #787878;
-    width: 142px;
-    margin-left: 14px;
-    margin-top: -21px;
+    margin-left: 9px;
+    margin-top: 2px;
 }
+
+
 /* -- Fin Combustible / Lugar de recogida --- */
   
   
@@ -340,7 +358,8 @@ select {
     font-size: 13px;
     color: #787878;
     width: 142px;
-    margin-left: 14px;
+    margin-left: 3px;
+    margin-right: 15px;
     margin-top: -21px;
 }
   
@@ -349,7 +368,7 @@ select {
     font-size: 13px;
     color: #787878;
     width: 142px;
-    margin-left: 4px;
+    /* margin-left: 4px; */
     margin-top: -21px;
 }
   
@@ -360,12 +379,12 @@ select {
 .puntos img {
     width: 10px;
     margin-left: 5px;
-    margin-top: 32px;
+    margin-top: 14px;
 }
   
 .bookDevolucion {
     grid-area: devolucion;
-    margin-top: 40px;
+    margin-top: 5px;
 }
   
 .icon-dateDevolucion {
@@ -373,7 +392,8 @@ select {
     font-size: 13px;
     color: #787878;
     width: 142px;
-    margin-left: 14px;
+    margin-left: 3px;
+    margin-right: 11px;
     margin-top: -21px;
 }
   
@@ -382,7 +402,7 @@ select {
     font-size: 13px;
     color: #787878;
     width: 142px;
-    margin-left: 4px;
+    /* margin-left: 4px; */
     margin-top: -21px;
 }
 /*- Fin Fechas/Horas Recogida/Devolución - */
