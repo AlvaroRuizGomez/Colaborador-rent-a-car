@@ -76,13 +76,20 @@ exports.postRealizarReserva = async (req, res, language ) =>
     //         "locations": locationLanguage
     //     });
     // }
-
-    res.render("reservacompletada", {
-        "isOk": dataResponse.isOk,
-        "success": req.body.success,
-        "locations": locationLanguage,
-        "numeroReserva": dataResponse.numeroReserva
-    });    
+    res.send(
+        {
+            "isOk": dataResponse.isOk,
+            "success": req.body.success,
+            "locations": locationLanguage,
+            "numeroReserva": dataResponse.numeroReserva
+        }
+    );
+    // res.render("reservacompletada", {
+    //     "isOk": dataResponse.isOk,
+    //     "success": req.body.success,
+    //     "locations": locationLanguage,
+    //     "numeroReserva": dataResponse.numeroReserva
+    // });    
 
 };
 

@@ -253,11 +253,8 @@ boton_reservar.addEventListener("click", async (evento) =>
 
     const datos = await responseRaw.json();
 
-    console.log("datos");
-
     // contestacion del servidor
-
-
+    console.log("datos");
 
 
 
