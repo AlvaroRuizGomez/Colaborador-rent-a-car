@@ -7,6 +7,9 @@ const botonCerrarPrivacidad = document.getElementById("boton-cerrar-modal-privac
 const overlayTerminos = document.getElementById("overlay-terminos");
 const overlayPrivacidad = document.getElementById("overlay-privacidad");
 
+
+const botonCerrarModal = document.getElementById("botonCerrarModal");
+
 function handleFullWidthSizing() {
     const scrollbarWidth = window.innerWidth - document.body.clientWidth
 
@@ -33,10 +36,6 @@ const iconoErrorTelf = document.getElementById("iconoErrorTelf");
 
 
 
-///----
-
-
-
 botonTerminosCondiciones.addEventListener("click", async (evento) =>
 {
     
@@ -55,7 +54,6 @@ botonTerminosCondiciones.addEventListener("click", async (evento) =>
 
 botonCerrarTerminos.addEventListener("click", async (evento) => {
 
-    console.log("dsdf");
     if (overlayTerminos.classList.contains("modal-visible") === true) {
         overlayTerminos.classList.remove("modal-visible");
         overlayTerminos.classList.add("modal-invisible");
@@ -126,6 +124,21 @@ overlayPrivacidad.addEventListener("click", async (evento) => {
 
 });
 
+
+botonCerrarModal.addEventListener("click", async (evento) =>
+{
+
+    const divOverlay = evento.target.parentElement.parentElement.parentElement.parentElement;
+
+    if (divOverlay.classList.contains("modal-visible") === true) {
+        divOverlay.classList.remove("modal-visible");
+        divOverlay.classList.add("modal-invisible");
+        document.body.style.overflow = null;
+
+    }
+
+});
+
 boton_reservar.addEventListener("click", async (evento) =>
 {
     evento.preventDefault();
@@ -173,17 +186,78 @@ boton_reservar.addEventListener("click", async (evento) =>
         document.getElementById("sr_input").value = "Sra";
     }
     
-    document.getElementById("child_seat_input").value = document.getElementById("child_seat").value;
-    document.getElementById("booster_seat_input").value = document.getElementById("booster_seat").value;
+    let datosFormulario = {};
+    
+// relleno
+    datosFormulario["descripcion_vehiculo"] = document.getElementById("descripcion_vehiculo").value;
+    datosFormulario["fechaRecogida"] = document.getElementById("fechaRecogida").value;
+    datosFormulario["horaRecogida"] = document.getElementById("horaRecogida").value;
+    datosFormulario["fechaDevolucion"] = document.getElementById("fechaDevolucion").value;
+    datosFormulario["horaDevolucion"] = document.getElementById("horaDevolucion").value;
+    datosFormulario["dias"] = document.getElementById("dias").value;
+    datosFormulario["alquiler"] = document.getElementById("alquiler").value;
+    datosFormulario["conductor_con_experiencia"] = document.getElementById("conductor_con_experiencia").value;
+    datosFormulario["total_suplmento_tipo_conductor"] = document.getElementById("total_suplmento_tipo_conductor").value;
+    datosFormulario["pagoRecogida"] = document.getElementById("pagoRecogida").value;
+    datosFormulario["pago_online"] = document.getElementById("pago_online").value;
+    datosFormulario["trato"] = document.getElementById("sr_input").value;
+    datosFormulario["numero_sillas_nino"] = document.getElementById("child_seat").value;
+    datosFormulario["numero_booster"] = document.getElementById("booster_seat").value;
+    datosFormulario["nombre"] = document.getElementById("nombre").value;
+    datosFormulario["apellidos"] = document.getElementById("apellidos").value;
+    datosFormulario["email"] = document.getElementById("email").value;
+    datosFormulario["telefono"] = document.getElementById("telefono").value;
+    datosFormulario["idioma"] = document.getElementById("idioma").value;
 
-    document.getElementById("nombre_input").value = document.getElementById("nombre").value;
-    document.getElementById("apellidos_input").value = document.getElementById("apellidos").value;
-    document.getElementById("email_input").value = document.getElementById("email").value;
-    document.getElementById("telefono_input").value = document.getElementById("telefono").value;
+//relleno
 
-    const formulario_reservar = document.getElementById("formulario-reservar");
 
-    formulario_reservar.submit();
+    // document.getElementById("child_seat_input").value = document.getElementById("child_seat").value;
+    // document.getElementById("booster_seat_input").value = document.getElementById("booster_seat").value;
+
+    // document.getElementById("nombre_input").value = document.getElementById("nombre").value;
+    // document.getElementById("apellidos_input").value = document.getElementById("apellidos").value;
+    // document.getElementById("email_input").value = document.getElementById("email").value;
+    // document.getElementById("telefono_input").value = document.getElementById("telefono").value;
+    
+    const uri = document.getElementById("formulario-reservar").attributes[1].nodeValue;
+    // const uri = formulario_reservar.;
+    // formulario_reservar.submit();
+
+    // mostrar animacion
+    let divOverlay = evento.target.parentElement.parentElement.children[2];
+
+    if (divOverlay.classList.contains("btnReserva") === false) {
+        divOverlay = evento.target.parentElement.children[2];
+    }
+
+    if (divOverlay.classList.contains("modal-invisible") === true) {
+
+        document.body.style.overflow = "hidden";
+        document.querySelector("html").scrollTop = window.scrollY;
+
+        divOverlay.classList.remove("modal-invisible");
+        divOverlay.classList.add("modal-visible");
+
+    }
+
+    // enviar el formulario
+    const responseRaw = await fetch(uri, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        credentials: "include",
+        body: JSON.stringify(datosFormulario)
+    });
+
+    const datos = await responseRaw.json();
+
+    console.log("datos");
+
+    // contestacion del servidor
+
+
 
 
 

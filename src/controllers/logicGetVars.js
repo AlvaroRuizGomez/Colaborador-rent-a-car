@@ -3,12 +3,7 @@ const dotenv = require("dotenv");
 const fs = require("fs");
 const path = require("path");
 const fetch = require("node-fetch");
-// let disponible = false;
 
-// exports.Disponible = async (req, res) =>
-// {
-//     disponible = req.body.disponible;
-// };
 
 exports.GetBackendVars = async () => {
 
@@ -16,9 +11,10 @@ exports.GetBackendVars = async () => {
 
     let port_backend = "";
     let endpoint_variables_frontend = "";
+    
+    const host = process.env.URL_BACKEND || "localhost";
     const protocolo = "http://";
-    const host = "localhost";
-
+    
     if (process.env.LOCAL_SECRETS === "true") {
 
         port_backend = await readSecret("../../secrets/port_backend.txt");
@@ -55,12 +51,6 @@ exports.GetBackendVars = async () => {
 };
 
 
-// const sleep = async (ms) => {
-//     return new Promise((resolve) => {
-//         setTimeout(resolve, ms);
-//     });
-
-// };
 
 
 function esperar() {

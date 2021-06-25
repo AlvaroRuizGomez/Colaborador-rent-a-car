@@ -91,7 +91,8 @@ const ControlSchema = async (body) =>
 {
 
     const schema = Joi.object({
-        
+        //--
+
         descripcion_vehiculo: Joi.string().required(),
         fechaRecogida: Joi.string().required(),
         horaRecogida: Joi.string().required(),
@@ -99,18 +100,40 @@ const ControlSchema = async (body) =>
         horaDevolucion: Joi.string().required(),
         dias: Joi.number().required(),
         alquiler: Joi.number().required(),
-        total_suplmento_tipo_conductor: Joi.number().required(),
-        pagoRecogida: Joi.string().required(),
-        pago_online: Joi.number().required(),
-        titulo: Joi.string().required(),
-        child_seat: Joi.number().required(),
-        booster_seat: Joi.number().required(),
         conductor_con_experiencia: Joi.string().required(),
-        email: Joi.string().required(),
+        total_suplmento_tipo_conductor: Joi.number().required(),
+        pagoRecogida: Joi.number().required(),
+        pago_online: Joi.number().required(),
+        trato: Joi.string().required(),
+        numero_sillas_nino: Joi.number().required(),
+        numero_booster: Joi.number().required(),
         nombre: Joi.string().required(),
         apellidos: Joi.string().required(),
+        email: Joi.string().required(),
         telefono: Joi.string().required(),
         idioma: Joi.string().required(),
+        
+
+        //----
+        // descripcion_vehiculo: Joi.string().required(),
+        // fechaRecogida: Joi.string().required(),
+        // horaRecogida: Joi.string().required(),
+        // fechaDevolucion: Joi.string().required(),
+        // horaDevolucion: Joi.string().required(),
+        // dias: Joi.number().required(),
+        // alquiler: Joi.number().required(),
+        // total_suplmento_tipo_conductor: Joi.number().required(),
+        // pagoRecogida: Joi.string().required(),
+        // pago_online: Joi.number().required(),
+        // titulo: Joi.string().required(),
+        // child_seat: Joi.number().required(),
+        // booster_seat: Joi.number().required(),
+        // conductor_con_experiencia: Joi.string().required(),
+        // email: Joi.string().required(),
+        // nombre: Joi.string().required(),
+        // apellidos: Joi.string().required(),
+        // telefono: Joi.string().required(),
+        // idioma: Joi.string().required(),
 
     });
 

@@ -1,5 +1,0 @@
-expose.ObtenerVars = async () =>
-{
-    
-
-}
