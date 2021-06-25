@@ -186,6 +186,8 @@ boton_reservar.addEventListener("click", async (evento) =>
 
     let divOverlay = evento.target.parentElement.parentElement.children[2];
 
+
+    
     if (divOverlay.classList.contains("modal-invisible") === true) {
 
         document.body.style.overflow = "hidden";
