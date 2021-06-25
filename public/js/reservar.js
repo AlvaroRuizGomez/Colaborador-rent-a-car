@@ -263,8 +263,6 @@ boton_reservar.addEventListener("click", async (evento) =>
 
     relleno.appendChild(trozoHtml);
     
-
-
 });
 
 const checkIsAllValid = (isValidTelefono, isValidEmail, isValidApellidos, isValidNombre, isValidTypeEmail) =>
