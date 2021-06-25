@@ -1,0 +1,42 @@
+version: "3.8"
+services:
+  frontend:
+    restart: always
+    image: sosan/frontend-rentacarmallorca:latest
+    container_name: frontend
+    ports:
+      - 80:8080
+    links:
+      - backend:backend
+    environment:
+      URL_BACKEND: backend
+      URL_FRONTEND: frontend
+      NODE_ENV: production
+    secrets:
+      - PORT_BACKEND
+      - ENDPOINT_VARIABLES_FRONTEND
+    depends_on:
+      - backend
+  # backend:
+  #   restart: always
+  #   image: sosan/backend-rentacarmallorca:latest
+  #   container_name: backend
+  #   ports:
+  #     - 3000:3000
+  #   secrets:
+  #     - PORT_FRONTEND
+  #     - PORT_BACKEND
+  #     - REDISDB_PORT
+  #     - REDISDB_HOST
+  #     - REDISDB_PASSWORD
+  #     - ENDPOINT_VARIABLES_FRONTEND
+  #   environment:
+  #     URL_BACKEND: backend
+  #     URL_FRONTEND: frontend
+  #     NODE_ENV: production
+
+secrets:
+  PORT_BACKEND:
+    file: "./secrets/port_backend.txt"
+  ENDPOINT_VARIABLES_FRONTEND:
+    file: "./secrets/endpoint_variables_frontend.txt"

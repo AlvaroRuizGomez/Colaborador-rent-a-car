@@ -655,11 +655,35 @@ body {
 .enlace_interes_modal
 {
   cursor: pointer;
+  color: #317bff;
+  text-decoration: underline;
+  font-size: 14px;
+}
+
+.enlace_interes_modal:hover
+{
+    text-decoration: none;
+}
+
+.enlace_interes_modal:focus
+{
+  outline: none;
 }
 
 .enlaces_interes
 {
   margin-bottom: 12px;
+}
+
+.noselect
+{
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
 }
 
 

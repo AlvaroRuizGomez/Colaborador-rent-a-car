@@ -174,10 +174,10 @@
 
         <section class="contentBlock">
             <div class="tituloReserva">
-                <div class="titReserva">
-                    <img id="icon-Mundi" src="./img/svg/mapaMundi.svg" alt="<%=it.locations.icono_reserva %>"></img>
-                    <%=it.locations.datos_reserva %>
-                </div>
+                <img id="icon-Mundi" src="./img/svg/mapaMundi.svg" alt="<%=it.locations.icono_reserva %>"></img>
+                <%=it.locations.datos_reserva %>
+                <!-- <div class="titReserva">
+                </div> -->
             </div>
             <div class="infoReserva">
                 <!-- Inicio Datos Fijos de la reserva -->
@@ -390,9 +390,13 @@
         <!-----Inicio formulario conductor principal y condiciones y términos ------>
         <div class="formDriver">
             <div class="formDriverContent" id="personalInfoForm" data-info-form="<%=it.locations.campos_requeridos %>">
-                <h2><i class="ico ico-user"></i>
-                    <%=it.locations.datos_conductor_titulo %>
-                </h2>
+                <div class="formdriver-titulo-caja">
+                    <h2 class="formdriver-titulo-texto">
+                        <i class="ico ico-user"></i>
+                        <%=it.locations.datos_conductor_titulo %>
+                    </h2>
+
+                </div>
                 <!----------- Inicio datos conductor principal ----------->
                 <div class="databoxDriver">
                     <!---------   Inicio Sr / Sra ------------------------>
@@ -470,7 +474,7 @@
                         <p class="chkDescription">
                             <img id="icono_error_formulario" class="no-visible" src="./img/svg/error_checkbox.svg"
                                 alt="<%=it.locations.alt_icono_no_chequeo_reserva %>">
-                            <input type="checkbox" name="okTermsConditions" id="okTermsConditions" value="SI">
+                            <input type="checkbox" name="okTermsConditions" id="okTermsConditions" class="input-terminos" value="SI">
                             <label for="" id="labelOkTermsConditions">
                                 <%=it.locations.leido_acepto %>
                                     <a class="boton-terminos" id="boton-terminos" role="button">
@@ -530,9 +534,9 @@
         <!-------------------------  Inicio Botón reservar ------------------------>
         
         <div class="boxBtnRevervar">
-            <button id="boton_reservar" name=""
-                    class="btnReserva    iframe new-btn new-btn-xxl new-btn-success cboxElement">
-                <form id="formulario-reservar" action="<%=it.locations.reservar %>" method="post">
+            <button id="boton_reservar" name="" class="btnReserva    iframe new-btn new-btn-xxl new-btn-success cboxElement">
+
+                <form id="formulario-reservar" action="<%=it.locations.reservar %>" method="post" class="formularioreservar">
                     <input type="hidden" id="descripcion_vehiculo" name="descripcion_vehiculo"
                             value="<%=it.formdata.descripcion_vehiculo %>">
                     <input type="hidden" id="fechaRecogida" name="fechaRecogida"
@@ -561,16 +565,11 @@
                     <input type="hidden" id="email_input" name="email" value="">
                     <input type="hidden" id="telefono_input" name="telefono" value="">
                     <input type="hidden" id="idioma" name="idioma" value="<%=it.locations.idioma_web %>">
+                    <img src="./img/svg/candado.svg" alt="padlock" class="candado-imagen">
                         <%=it.locations.reservar_ahora %>
                             <%= pago_online %> €
                 </form>
             </button>
-            <div class="barraPago">
-                <img src="./img/svg/logo_Redsys.png" alt="">
-                <a class="" role="button" data-tooltip-location="top" data-tooltip="Reservar ahora, le direcciona a una sesión segura donde puede pagar su reserva anticipada con toda seguridad, solo con los datos de una tarjeta de uso global">
-                    <span class="link-condiciones">Reservar ahora, Informacón</span>
-                </a>
-            </div>
         </div>
 
         <!-------------------------    Fin Botón reservar  ------------------------>
