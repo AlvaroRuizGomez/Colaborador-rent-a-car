@@ -13,7 +13,7 @@ COPY --from=0 /usr/src/app ./
 COPY ./src ./src
 COPY ./public ./public
 
-RUN adduser -D node
-USER node
+# RUN adduser -D node
+# USER node
 
 CMD ["node", "src/index.js"]
