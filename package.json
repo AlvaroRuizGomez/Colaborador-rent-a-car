@@ -26,7 +26,8 @@
   "scripts": {
     "start": "node src/index.js",
     "dev": "nodemon src/index.js",
-    "test": "mocha"
+    "devhub": "NODE_ENV=production LOCAL_SECRETS=true node src/index.js",
+    "test": ""
   },
   "repository": {
     "type": "git",
