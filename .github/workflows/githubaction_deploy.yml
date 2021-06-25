@@ -75,15 +75,15 @@ jobs:
             "PORT_BACKEND=${{ secrets.PORT_BACKEND }}"
             "ENDPOINT_VARIABLES_FRONTEND=${{ secrets.ENDPOINT_VARIABLES_FRONTEND }}"
       
-      - name: Comandos SSH Servidor
-        if: "contains(github.event.*.message, 'subir_despliegue')"
-        uses: JimCronqvist/action-ssh@master
-        with:
-          hosts: ${{ secrets.HOST_SERVIDOR }} # alvaro@ip
-          privateKey: ${{ secrets.SSH_PRIVATE_KEY }}
-          # export DOCKER_TAG=${{steps.date.outputs.DATE_NOW}}
-          # nerdctl pull sosan/backend-rentacarmallorca:${{steps.date.outputs.DATE_NOW}}
-          # nerdctl compose up -d
-          command: |
-            ls
+      # - name: Comandos SSH Servidor
+      #   if: "contains(github.event.*.message, 'subir_despliegue')"
+      #   uses: JimCronqvist/action-ssh@master
+      #   with:
+      #     hosts: ${{ secrets.HOST_SERVIDOR }} # alvaro@ip
+      #     privateKey: ${{ secrets.SSH_PRIVATE_KEY }}
+      #     # export DOCKER_TAG=${{steps.date.outputs.DATE_NOW}}
+      #     # nerdctl pull sosan/backend-rentacarmallorca:${{steps.date.outputs.DATE_NOW}}
+      #     # nerdctl compose up -d
+      #     command: |
+      #       ls
   

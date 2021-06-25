@@ -3,9 +3,12 @@ const dotenv = require("dotenv");
 const fs = require("fs");
 const path = require("path");
 const fetch = require("node-fetch");
+// let disponible = false;
 
-
-
+// exports.Disponible = async (req, res) =>
+// {
+//     disponible = req.body.disponible;
+// };
 
 exports.GetBackendVars = async () => {
 
@@ -27,9 +30,11 @@ exports.GetBackendVars = async () => {
         endpoint_variables_frontend = await readSecret("/run/secrets/ENDPOINT_VARIABLES_FRONTEND");
 
     }
-
+    
+    
+    await esperar(5);
+    
     const URI_VARIABLES = `${protocolo}${host}:${port_backend}${endpoint_variables_frontend}`;
-
     const responseRaw = await fetch(URI_VARIABLES, {
         method: "GET",
         headers: {
@@ -49,17 +54,26 @@ exports.GetBackendVars = async () => {
 
 };
 
-// function esperar() {
-//     return new Promise((resolve, reject) => {
-//         //here our function should be implemented 
-//         setTimeout(() => {
 
-//             resolve();
-//             ;
-//         }, 3000
-//         );
+// const sleep = async (ms) => {
+//     return new Promise((resolve) => {
+//         setTimeout(resolve, ms);
 //     });
-// }
+
+// };
+
+
+function esperar() {
+    return new Promise((resolve, reject) => {
+        //here our function should be implemented 
+        setTimeout(() => {
+
+            resolve();
+            ;
+        }, 3000
+        );
+    });
+}
 
 
 const readSecret = async (secretNameAndPath) => {

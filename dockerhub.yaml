@@ -12,9 +12,9 @@ services:
       URL_BACKEND: backend
       URL_FRONTEND: frontend
       NODE_ENV: production
-      PORT_FRONTEND: /run/secrets/port_frontend
-      PORT_BACKEND: /run/secrets/port_backend
-      ENDPOINT_VARIABLES_FRONTEND: /run/secrets/endpoint_variables_frontend
+    secrets:
+      - PORT_BACKEND
+      - ENDPOINT_VARIABLES_FRONTEND
     depends_on:
       - backend
   # backend:
@@ -36,14 +36,6 @@ services:
   #     NODE_ENV: production
 
 secrets:
-  REDISDB_PASSWORD:
-    file: "./secrets/redisdb_password.txt"
-  REDISDB_PORT:
-    file: "./secrets/redisdb_port.txt"
-  REDISDB_HOST:
-    file: "./secrets/redisdb_host.txt"
-  PORT_FRONTEND:
-    file: "./secrets/port_frontend.txt"
   PORT_BACKEND:
     file: "./secrets/port_backend.txt"
   ENDPOINT_VARIABLES_FRONTEND:
