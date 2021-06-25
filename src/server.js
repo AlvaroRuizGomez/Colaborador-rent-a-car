@@ -3,13 +3,6 @@ let app = undefined;
 exports.InitServer = async () => {
     require('dotenv').config();
     
-    // TODO: leer desde db
-    if (process.env.NODE_ENV === "production")
-    {
-    
-    }
-    
-    
     const cors = require('cors');
     const morgan = require('morgan');
     const helmet = require('helmet');
