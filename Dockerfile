@@ -13,19 +13,7 @@ COPY --from=0 /usr/src/app ./
 COPY ./src ./src
 COPY ./public ./public
 
+RUN adduser -D node
+USER node
 
 CMD ["node", "src/index.js"]
-
-# ----- funca
-# FROM node:15.14.0-alpine3.13
-# WORKDIR /usr/src/app
-# COPY package*.json ./
-# RUN npm ci --only=production
-
-# COPY ./src ./src
-# COPY ./public ./public
-
-# USER node
-# ENTRYPOINT ["npm", "run", "start"]
-
-
