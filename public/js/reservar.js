@@ -7,6 +7,9 @@ const botonCerrarPrivacidad = document.getElementById("boton-cerrar-modal-privac
 const overlayTerminos = document.getElementById("overlay-terminos");
 const overlayPrivacidad = document.getElementById("overlay-privacidad");
 
+
+const botonCerrarModal = document.getElementById("botonCerrarModal");
+
 function handleFullWidthSizing() {
     const scrollbarWidth = window.innerWidth - document.body.clientWidth
 
@@ -33,13 +36,6 @@ const iconoErrorTelf = document.getElementById("iconoErrorTelf");
 
 
 
-///----
-
-
-//--
-
-
-
 botonTerminosCondiciones.addEventListener("click", async (evento) =>
 {
     
@@ -58,7 +54,6 @@ botonTerminosCondiciones.addEventListener("click", async (evento) =>
 
 botonCerrarTerminos.addEventListener("click", async (evento) => {
 
-    console.log("dsdf");
     if (overlayTerminos.classList.contains("modal-visible") === true) {
         overlayTerminos.classList.remove("modal-visible");
         overlayTerminos.classList.add("modal-invisible");
@@ -129,6 +124,21 @@ overlayPrivacidad.addEventListener("click", async (evento) => {
 
 });
 
+
+botonCerrarModal.addEventListener("click", async (evento) =>
+{
+
+    const divOverlay = evento.target.parentElement.parentElement.parentElement.parentElement;
+
+    if (divOverlay.classList.contains("modal-visible") === true) {
+        divOverlay.classList.remove("modal-visible");
+        divOverlay.classList.add("modal-invisible");
+        document.body.style.overflow = null;
+
+    }
+
+});
+
 boton_reservar.addEventListener("click", async (evento) =>
 {
     evento.preventDefault();
@@ -186,7 +196,11 @@ boton_reservar.addEventListener("click", async (evento) =>
 
     let divOverlay = evento.target.parentElement.parentElement.children[2];
 
-
+    if (divOverlay.classList.contains("btnReserva") === false)
+    {
+        divOverlay = evento.target.parentElement.children[2];
+    }
+    
     
     if (divOverlay.classList.contains("modal-invisible") === true) {
 

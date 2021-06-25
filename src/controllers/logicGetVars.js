@@ -3,12 +3,7 @@ const dotenv = require("dotenv");
 const fs = require("fs");
 const path = require("path");
 const fetch = require("node-fetch");
-// let disponible = false;
 
-// exports.Disponible = async (req, res) =>
-// {
-//     disponible = req.body.disponible;
-// };
 
 exports.GetBackendVars = async () => {
 
@@ -56,12 +51,6 @@ exports.GetBackendVars = async () => {
 };
 
 
-// const sleep = async (ms) => {
-//     return new Promise((resolve) => {
-//         setTimeout(resolve, ms);
-//     });
-
-// };
 
 
 function esperar() {
