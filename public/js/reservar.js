@@ -34,23 +34,7 @@ const iconoErrorTelf = document.getElementById("iconoErrorTelf");
 
 
 ///----
-const boton_reservar_overlay = document.getElementById("boton_reservar_overlay");
-boton_reservar_overlay.addEventListener("click", async (evento) =>
-{
-    let divOverlay = evento.target.parentElement.lastElementChild;
 
-    if (divOverlay.classList.contains("modal-invisible") === true) {
-
-        document.body.style.overflow = "hidden";
-        document.querySelector("html").scrollTop = window.scrollY;
-
-        divOverlay.classList.remove("modal-invisible");
-        divOverlay.classList.add("modal-visible");
-
-    }
-
-
-});
 
 //--
 
@@ -145,7 +129,7 @@ overlayPrivacidad.addEventListener("click", async (evento) => {
 
 });
 
-boton_reservar2.addEventListener("click", async (evento) =>
+boton_reservar.addEventListener("click", async (evento) =>
 {
     evento.preventDefault();
     
@@ -200,9 +184,23 @@ boton_reservar2.addEventListener("click", async (evento) =>
     document.getElementById("email_input").value = document.getElementById("email").value;
     document.getElementById("telefono_input").value = document.getElementById("telefono").value;
 
-    const formulario_reservar = document.getElementById("formulario-reservar");
+    let divOverlay = evento.target.parentElement.parentElement.children[2];
 
-    formulario_reservar.submit();
+    if (divOverlay.classList.contains("modal-invisible") === true) {
+
+        document.body.style.overflow = "hidden";
+        document.querySelector("html").scrollTop = window.scrollY;
+
+        divOverlay.classList.remove("modal-invisible");
+        divOverlay.classList.add("modal-visible");
+
+    }
+
+
+    // const formulario_reservar = document.getElementById("formulario-reservar");
+
+    // formulario_reservar.submit();
+
 
 
 
