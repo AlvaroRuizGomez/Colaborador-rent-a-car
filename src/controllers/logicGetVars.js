@@ -55,16 +55,17 @@ exports.GetBackendVars = async () => {
         credentials: "include"
     });
 
-    const datos = await responseRaw.json();
+    let datos = await responseRaw.json();
     // console.log(datos);
 
-    datos.variables = sanitizar(datos.variables);
-
+    
     const buf = Buffer.from(datos.variables);
     const envConfig = dotenv.parse(buf);
-    for (const k in envConfig) {
-        process.env[k] = envConfig[k]
-        console.log(`texto sanitizado=${k}:${envConfig[k]}`);
+    for (const key in envConfig) {
+        
+        const variableSanitizada = await sanitizar(envConfig[key]);
+        process.env[key] = variableSanitizada;
+        console.log(`texto sanitizado=${key}:${variableSanitizada}`);
     }
 
 };
