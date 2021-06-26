@@ -696,10 +696,10 @@ select {
     border-bottom: 1px solid #ddd;
     padding: 8px;
     display: flex;
-    margin-left: var(--margin-izquierda-titulo);
 }
 
 .titSillas h2 {
+    margin-left: var(--margin-izquierda-titulo);
     font-size: 19px;
     line-height: initial;
     font-weight: 700;
