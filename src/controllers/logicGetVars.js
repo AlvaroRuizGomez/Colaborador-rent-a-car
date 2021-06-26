@@ -27,6 +27,7 @@ exports.GetBackendVars = async () => {
 
     }
     
+    endpoint_variables_frontend = endpoint_variables_frontend.trim().escape();
     
     await esperar(5);
     
@@ -41,6 +42,7 @@ exports.GetBackendVars = async () => {
     });
 
     const datos = await responseRaw.json();
+    console.log(datos);
 
     const buf = Buffer.from(datos.variables);
     const envConfig = dotenv.parse(buf);
