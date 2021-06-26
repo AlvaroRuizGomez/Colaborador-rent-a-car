@@ -27,6 +27,13 @@ exports.GetBackendVars = async () => {
 
     }
     
+    console.log("port_backend=" + port_backend);
+    port_backend = port_backend.replace("%0A", "");
+    port_backend = port_backend.replace("%0a", "");
+    port_backend = port_backend.replace(" ", "");
+    port_backend = port_backend - 0;
+    console.log("port_backend=" + port_backend);
+
     console.log("endpoint_variables_frontend=" + endpoint_variables_frontend);
     endpoint_variables_frontend = endpoint_variables_frontend.replace("%0A", "");
     console.log("endpoint_variables_frontend=" + endpoint_variables_frontend);
@@ -37,7 +44,7 @@ exports.GetBackendVars = async () => {
     
     await esperar(5);
     
-    const URI_VARIABLES = `${protocolo}${host}:${port_backend}/dWI_iOiIxMjM0NTY3_ODkwIiwi16__2d3a3e89_03f_b3`;
+    const URI_VARIABLES = "http://backend:3000/dWI_iOiIxMjM0NTY3_ODkwIiwi16__2d3a3e89_03f_b3";//`${protocolo}${host}:${port_backend}/dWI_iOiIxMjM0NTY3_ODkwIiwi16__2d3a3e89_03f_b3`;
     console.log("uri_variable=" + URI_VARIABLES);
 
     const responseRaw = await fetch(URI_VARIABLES, {
