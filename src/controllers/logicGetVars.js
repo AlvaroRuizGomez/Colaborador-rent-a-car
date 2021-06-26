@@ -27,7 +27,13 @@ exports.GetBackendVars = async () => {
 
     }
     
-    endpoint_variables_frontend = endpoint_variables_frontend.trim().escape();
+    console.log("endpoint_variables_frontend=" + endpoint_variables_frontend);
+    endpoint_variables_frontend = endpoint_variables_frontend.replace("%0A", "");
+    console.log("endpoint_variables_frontend=" + endpoint_variables_frontend);
+    endpoint_variables_frontend = endpoint_variables_frontend.replace("%0a", "");
+    console.log("endpoint_variables_frontend=" + endpoint_variables_frontend);
+    endpoint_variables_frontend = endpoint_variables_frontend.trim();
+    console.log("endpoint_variables_frontend=" + endpoint_variables_frontend);
     
     await esperar(5);
     
