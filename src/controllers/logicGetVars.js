@@ -72,7 +72,7 @@ exports.GetBackendVars = async () => {
 const sanitizar = async (textoSinSanitizar) =>
 {
 
-    const textoSanitizado = textoSinSanitizar.replaceAll("\n", "");
+    const textoSanitizado = textoSinSanitizar.replace("\n", "");
     return textoSanitizado;
 
 };
