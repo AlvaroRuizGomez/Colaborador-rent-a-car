@@ -17,8 +17,8 @@ exports.GetBackendVars = async () => {
     
     if (process.env.LOCAL_SECRETS === "true") {
 
-        port_backend = await readSecret("../../secrets/port_backend.txt");
-        endpoint_variables_frontend = await readSecret("../../secrets/endpoint_variables_frontend.txt");
+        port_backend = await readLocalSecret("../../secrets/port_backend.txt");
+        endpoint_variables_frontend = await readLocalSecret("../../secrets/endpoint_variables_frontend.txt");
 
     }
     else {
@@ -67,10 +67,26 @@ function esperar() {
 }
 
 
-const readSecret = async (secretNameAndPath) => {
+const readLocalSecret = async (secretNameAndPath) => {
     try {
         const t = path.resolve(__dirname, secretNameAndPath);
         return fs.readFileSync(t, "utf8");
+    }
+    catch (err) {
+        if (err.code !== "ENOENT") {
+            console.error(`An error occurred while trying to read the secret: ${secretNameAndPath}. Err: ${err}`);
+        } else {
+            console.debug(`Could not find the secret ${secretNameAndPath}. Err: ${err}`);
+        }
+    }
+};
+
+
+
+
+const readSecret = async (secretNameAndPath) => {
+    try {
+        return fs.readFileSync(secretNameAndPath, "utf8");
     }
     catch (err) {
         if (err.code !== "ENOENT") {
