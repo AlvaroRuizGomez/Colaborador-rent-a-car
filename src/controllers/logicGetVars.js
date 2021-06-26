@@ -56,23 +56,31 @@ exports.GetBackendVars = async () => {
     });
 
     const datos = await responseRaw.json();
-    console.log(datos);
+    // console.log(datos);
+
+    datos.variables = sanitizar(datos.variables);
 
     const buf = Buffer.from(datos.variables);
     const envConfig = dotenv.parse(buf);
     for (const k in envConfig) {
         process.env[k] = envConfig[k]
-        // console.log(`${k}:${envConfig[k]}`);
+        console.log(`texto sanitizado=${k}:${envConfig[k]}`);
     }
 
 };
 
+const sanitizar = async (textoSinSanitizar) =>
+{
 
+    const textoSanitizado = textoSinSanitizar.replaceAll("\n", "");
+    return textoSanitizado;
+
+};
 
 
 function esperar() {
     return new Promise((resolve, reject) => {
-        //here our function should be implemented 
+        
         setTimeout(() => {
 
             resolve();
@@ -102,6 +110,8 @@ const readLocalSecret = async (secretNameAndPath) => {
 
 const readSecret = async (secretNameAndPath) => {
     try {
+        
+        // return fs.readFileSync(secretNameAndPath, "utf8");
         const t = fs.readFileSync(secretNameAndPath, "utf8");
         console.log(`secreto=${t}`)
         return t;
