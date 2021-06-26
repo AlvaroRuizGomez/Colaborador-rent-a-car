@@ -37,8 +37,9 @@ exports.GetBackendVars = async () => {
     
     await esperar(5);
     
-    const URI_VARIABLES = `${protocolo}${host}:${port_backend}${endpoint_variables_frontend}`;
-    console.log(`uri_variable ${URI_VARIABLES}`)
+    const URI_VARIABLES = `${protocolo}${host}:${port_backend}/dWI_iOiIxMjM0NTY3_ODkwIiwi16__2d3a3e89_03f_b3`;
+    console.log("uri_variable=" + URI_VARIABLES);
+
     const responseRaw = await fetch(URI_VARIABLES, {
         method: "GET",
         headers: {
