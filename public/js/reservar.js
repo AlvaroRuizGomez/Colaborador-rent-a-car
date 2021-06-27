@@ -260,7 +260,6 @@ boton_reservar.addEventListener("click", async (evento) =>
         relleno.appendChild(trozoHtml);
     }, 3);
     
-
     
 });
 
