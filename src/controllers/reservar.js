@@ -68,7 +68,7 @@ exports.postRealizarReserva = async (req, res, language ) =>
 
     const locationLanguage = await locations.GenerateLocationBrowser(req.body.idioma);
 
-    //{ isOk: resultadoInsercion.isInserted, numeroReserva: resultadoInsercion.numeroReserva }
+    //{ isOk: resultadoInsercion.isInserted, numeroRegistro: resultadoInsercion.numeroRegistro }
 
     // if (dataResponse.isOk === false)
     // {
@@ -84,14 +84,14 @@ exports.postRealizarReserva = async (req, res, language ) =>
             "isOk": dataResponse.isOk,
             "success": req.body.success,
             "locations": locationLanguage,
-            "numeroReserva": dataResponse.numeroReserva
+            "numeroRegistro": dataResponse.numeroRegistro
         }
     );
     // res.render("reservacompletada", {
     //     "isOk": dataResponse.isOk,
     //     "success": req.body.success,
     //     "locations": locationLanguage,
-    //     "numeroReserva": dataResponse.numeroReserva
+    //     "numeroRegistro": dataResponse.numeroRegistro
     // });    
 
 };

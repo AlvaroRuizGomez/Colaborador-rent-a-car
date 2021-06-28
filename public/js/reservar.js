@@ -255,7 +255,7 @@ boton_reservar.addEventListener("click", async (evento) =>
         const relleno = document.getElementById("relleno-modal-reservar");
     
         const trozoHtml = document.createElement("p");
-        trozoHtml.innerHTML = "Su Reserva es el numero " + datos.numeroReserva;
+        trozoHtml.innerHTML = "Numero Registro:" + datos.numeroRegistro;
     
         relleno.appendChild(trozoHtml);
     }, 3);
