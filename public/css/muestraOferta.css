@@ -259,7 +259,7 @@ body {
 
 .horaRecoge { 
   grid-area: horaRecoge; 
-  /* margin-left: 45px; */
+  margin-left: 45px;
   display: flex;
   flex-direction: row;
   width: 95px;
@@ -288,8 +288,8 @@ body {
 
 .horaDevuelve { 
   grid-area: horaDevuelve; 
-  /* margin-left: 45px; */
-    display: flex;
+  margin-left: 45px;
+  display: flex;
   flex-direction: row;
   width: 95px;
 }
@@ -479,9 +479,9 @@ body {
   
 .img-clock{
   width: 26px;
-  margin-top: 5px;  
+  margin-top: 8px;
   margin-right: -11px;
-  margin-left: 7px;
+  margin-left: -5px;
   background-color: #e9ecef;
   box-shadow: 0px 0px 2px #1e1c1c;
   cursor: pointer;
@@ -1938,4 +1938,9 @@ vertical-align: middle;
 margin: 0;
 text-decoration: none;
 transition: color .2s ease-out;
+}
+
+.blockSpace {
+  display: block;
+  height: 100px;
 }
