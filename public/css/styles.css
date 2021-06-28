@@ -663,6 +663,21 @@ body{
 }
 
 /*  */
+@supports not (background-image: url("/img/Img-Vehiculos/peugeot_208_Card.avif")) {
+
+  .peugeot_208:before {
+    background-image: url(/img/Img-Vehiculos/peugeot_208_Card.webp);
+  }
+}
+
+@supports (background-image: url("/img/Img-Vehiculos/peugeot_208_Card.avif")) {
+  .peugeot_208:before {
+  background-image: url(/img/Img-Vehiculos/peugeot_208_Card.avif);
+}
+}
+
+
+/*  */
 @supports not (background-image: url("/img/Img-Vehiculos/PiaggioLiberty_125cc_Card.avif")) {
 
   .PiaggioLiberty_125cc:before {
