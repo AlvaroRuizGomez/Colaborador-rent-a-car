@@ -105,7 +105,7 @@ body{
   grid-template-columns: 25% 115px 9% 7% 13% 46px 10%;
   grid-template-rows: repeat(4, 38px) auto auto;
   width: 100%;
-  /* margin-left: 20px; */
+  margin-left: 20px;
   /* background-color: #fff; */
   /* gap: 0px 0px; */
   grid-template-areas:
@@ -1232,10 +1232,12 @@ input[type=number] {
   border-color: transparent transparent rgba(55, 64, 70, 0.9) transparent;
   transform-origin: bottom;
 }
-
-
-
 /* FIN TOOLTIP*/
+
+.blockSpace {
+  display: block;
+  height: 100px;
+}
 
 
 
