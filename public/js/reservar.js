@@ -258,7 +258,7 @@ boton_reservar.addEventListener("click", async (evento) =>
         trozoHtml.innerHTML = "Numero Registro:" + datos.numeroRegistro;
     
         relleno.appendChild(trozoHtml);
-    }, 3);
+    }, 3000);
     
     
 });
