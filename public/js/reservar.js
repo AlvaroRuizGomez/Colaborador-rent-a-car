@@ -261,6 +261,8 @@ boton_reservar.addEventListener("click", async (evento) =>
     }, 3000);
     
     
+
+    
 });
 
 
