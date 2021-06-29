@@ -24,13 +24,21 @@ exports.ProcesarEmail = async (req, res) =>
     }
 
     
+
+    const data = 
+    { 
+        "email": req.body.email,
+        "idioma": req.body.idioma
+    };
+    
+    
     const responseRaw = await fetch(ENDPOINT_NEWSLETTER_BACKEND, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
         },
         credentials: "include",
-        body: JSON.stringify({ "email": req.body.email })
+        body: JSON.stringify(data)
     });
 
     const dataResponse = await responseRaw.json();

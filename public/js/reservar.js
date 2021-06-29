@@ -142,6 +142,8 @@ botonCerrarModal.addEventListener("click", async (evento) =>
 boton_reservar.addEventListener("click", async (evento) =>
 {
     evento.preventDefault();
+
+    boton_reservar.disabled = true;
     
     const icono_error_formulario = document.getElementById("icono_error_formulario");
     
@@ -225,21 +227,7 @@ boton_reservar.addEventListener("click", async (evento) =>
     // formulario_reservar.submit();
 
     // mostrar animacion
-    let divOverlay = evento.target.parentElement.parentElement.children[2];
-
-    if (divOverlay.classList.contains("btnReserva") === false) {
-        divOverlay = evento.target.parentElement.children[2];
-    }
-
-    if (divOverlay.classList.contains("modal-invisible") === true) {
-
-        document.body.style.overflow = "hidden";
-        document.querySelector("html").scrollTop = window.scrollY;
-
-        divOverlay.classList.remove("modal-invisible");
-        divOverlay.classList.add("modal-visible");
-
-    }
+    await MostrarOverlayAnimacion(evento);
 
     // enviar el formulario
     const responseRaw = await fetch(uri, {
@@ -256,9 +244,94 @@ boton_reservar.addEventListener("click", async (evento) =>
     // contestacion del servidor
     console.log("datos");
 
+    
+    // ocultar overlay
+    setTimeout(async () => {
+        await OcultarOverlayAnimacion(evento);
+        // mostrar Formulario CC
+        await MostrarOverlayFormularioCC(evento);
+    
+    
+        const relleno = document.getElementById("relleno-modal-reservar");
+    
+        const trozoHtml = document.createElement("p");
+        trozoHtml.innerHTML = "Numero Registro:" + datos.numeroRegistro;
+    
+        relleno.appendChild(trozoHtml);
+    }, 3000);
+    
+    
 
-
+    
 });
+
+
+const MostrarOverlayAnimacion = async (evento) =>
+{
+    let divOverlay = evento.target.parentElement.parentElement.children[3];
+
+    if (divOverlay.classList.contains("btnReserva") === false) {
+        divOverlay = evento.target.parentElement.children[3];
+    }
+
+    if (divOverlay.classList.contains("modal-invisible") === true) {
+
+        document.body.style.overflow = "hidden";
+        document.querySelector("html").scrollTop = window.scrollY;
+
+        divOverlay.classList.remove("modal-invisible");
+        divOverlay.classList.add("modal-visible");
+
+    }
+
+};
+
+const OcultarOverlayAnimacion = async (evento) =>
+{
+
+    
+
+    let divOverlay = evento.target.parentElement.parentElement.children[3];
+
+    if (divOverlay.classList.contains("btnReserva") === false) {
+        divOverlay = evento.target.parentElement.children[3];
+    }
+
+    if (divOverlay.classList.contains("modal-visible") === true) {
+
+        document.body.style.overflow = null;
+
+        divOverlay.classList.remove("modal-visible");
+        divOverlay.classList.add("modal-invisible");
+
+    }
+
+
+};
+
+
+
+
+const MostrarOverlayFormularioCC = async (evento) => {
+    let divOverlay = evento.target.parentElement.parentElement.children[1];
+
+    if (divOverlay.classList.contains("btnReserva") === false) {
+        divOverlay = evento.target.parentElement.children[1];
+    }
+
+    if (divOverlay.classList.contains("modal-invisible") === true) {
+
+        document.body.style.overflow = "hidden";
+        document.querySelector("html").scrollTop = window.scrollY;
+
+        divOverlay.classList.remove("modal-invisible");
+        divOverlay.classList.add("modal-visible");
+
+    }
+
+};
+
+
 
 const checkIsAllValid = (isValidTelefono, isValidEmail, isValidApellidos, isValidNombre, isValidTypeEmail) =>
 {
