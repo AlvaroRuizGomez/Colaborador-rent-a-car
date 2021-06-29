@@ -23,6 +23,8 @@ exports.ProcesarEmail = async (req, res) =>
         return res.status(404).send();
     }
 
+    
+
     const data = 
     { 
         "email": req.body.email,
