@@ -1,5 +1,5 @@
 const urlbackend = process.env.URL_BACKEND || "localhost";
-const protocolo = "http://";
+const protocolo = process.env.PROTOCOLO || "http://";
 
 exports.ObtenerURI_API_BACKEND = () =>
 {
@@ -42,8 +42,6 @@ exports.ObtenerURI_REALIZAR_RESERVA_BACKEND = () => {
     return `${protocolo}${urlbackend}:${process.env.PORT_BACKEND}${process.env.ENDPOINT_REALIZAR_RESERVA_BACKEND}`;
 };
 
-
-`${process.env.URL_BACKEND}:${process.env.PORT_BACKEND}${process.env.ENDPOINT_REALIZAR_RESERVA_BACKEND}`
 
 
 

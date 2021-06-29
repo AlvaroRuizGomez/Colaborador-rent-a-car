@@ -31,13 +31,10 @@
         rel="stylesheet">
 
     <!------------------- Bootstrap CSS ------------------------>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script> -->
 
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
-        crossorigin="anonymous"></script>
     <!-- --------------------------------------------------- -->
     <link rel="stylesheet" href="./css/muestraOferta.css" />
     <link rel="stylesheet" href="./css/header.css">
@@ -382,96 +379,96 @@
         
         <div class="contenido">
 
-            <!--------------- Inicio Slider ---------------------->
-            <% if (it.data.length> 0) { %>
-                <div class="carruselSlider">
-                    <div id="carousel" class="carousel slide " data-ride="carousel">
-                        <a class="carrusel-control-prev carrusel-control" href="#carousel" role="button"
-                            data-slide="prev">
-                            <img src="img/svg/carrusel_control_previous.svg" class="icono-azul"
-                                alt="<%=it.locations.alt_anterior %>">
-                        </a>
-                        <div class="carousel-inner">
-                            <div class="carousel-item active">
-                                <div class="row row-custom ">
-                                    <% for (let i=0; i < 5; i++) { %>
-                                        <% if (it.data[i]===undefined ) continue; %>
-                                            <div class="columna col-p">
-                                                <h5 class="nombre-car-slider">
-                                                    <%= it.data[i].descripcion %>
-                                                </h5>
-                                                <!-- py-4 text-black text-center -->
-                                                
-                                                    <picture>
-                                                        <source
-                                                            data-srcset="./img/Img-Vehiculos/<%= it.data[i].ImagenVehiclo %>_Slider.avif">
-                                                        <source
-                                                            data-srcset="./img/Img-Vehiculos/<%= it.data[i].ImagenVehiclo %>_Slider.webp">
-                                                        <img class="img-ta lazyload"
-                                                            data-src="img/Img-Vehiculos/<%= it.data[i].ImagenVehiclo %>_Slider.png"
-                                                            alt="<%= it.data[i].descripcion %>">
-                                                    </picture>
+<% if (it.data.length> 0) { %>
+    <div class="carruselSlider">
+        <div id="carousel" class="carousel slide " data-ride="carousel">
+            <a class="carrusel-control-prev carrusel-control" href="#carousel" role="button" data-slide="prev">
+                <img src="img/svg/carrusel_control_previous.svg" class="icono-azul"
+                    alt="<%=it.locations.alt_anterior %>">
+            </a>
+            <div class="carousel-inner">
+                
+                <div class="carousel-item active">
+                    <div class="row row-custom ">
+                        <% for (let i=0; i < 5; i++) { %>
+                            <% if (it.data[i]===undefined ) continue; %>
+                                <div class="columna col-p">
+                                    <h5 class="nombre-car-slider">
+                                        <%= it.data[i].descripcion %>
+                                    </h5>
+                                    <!-- py-4 text-black text-center -->
+
+                                    <picture>
+                                        <source
+                                            data-srcset="./img/Img-Vehiculos/<%= it.data[i].ImagenVehiclo %>_Slider.avif">
+                                        <source
+                                            data-srcset="./img/Img-Vehiculos/<%= it.data[i].ImagenVehiclo %>_Slider.webp">
+                                        <img class="img-ta lazyload"
+                                            data-src="img/Img-Vehiculos/<%= it.data[i].ImagenVehiclo %>_Slider.png"
+                                            alt="<%= it.data[i].descripcion %>">
+                                    </picture>
 
 
 
-                                                
-                                                <div class="precio">
-                                                    <p class="precio-txt">
-                                                        <%=it.locations.desde %>
-                                                    </p>
-                                                    <p class="precio-p">
-                                                        <%= it.data[i].preciopordiasindescuento %>€
-                                                    </p>
-                                                </div>
-                                            </div>
-                                            <% } %>
+
+                                    <div class="precio">
+                                        <p class="precio-txt">
+                                            <%=it.locations.desde %>
+                                        </p>
+                                        <p class="precio-p">
+                                            <%= it.data[i].preciopordiasindescuento %>€
+                                        </p>
+                                    </div>
                                 </div>
-                            </div>
-
-                            <div class="carousel-item">
-                                <!--  row-p -->
-                                <div class="row row-custom">
-                                    <% for (let i=5; i < 10; i++) { %>
-                                        <% if (it.data[i]===undefined ) continue; %>
-                                            <div class="columna col-p">
-                                                <h5 class="nombre-car-slider">
-                                                    <%= it.data[i].descripcion %>
-                                                </h5>
-                                                <!-- py-4 text-black text-center -->
-                                                
-
-                                                    <picture>
-                                                        <source
-                                                            data-srcset="./img/Img-Vehiculos/<%= it.data[i].ImagenVehiclo %>_Slider.avif">
-                                                        <source
-                                                            data-srcset="./img/Img-Vehiculos/<%= it.data[i].ImagenVehiclo %>_Slider.webp">
-                                                        <img class=" img-ta lazyload"
-                                                            data-src="img/Img-Vehiculos/<%= it.data[i].ImagenVehiclo %>_Slider.png"
-                                                            alt="<%= it.data[i].descripcion %>">
-                                                    </picture>
-                                                
-                                                <div class="precio">
-                                                    <p class="precio-txt">
-                                                        desde
-                                                    </p>
-                                                    <p class="precio-p">
-                                                        <%= it.data[i].preciopordiasindescuento %>€
-                                                    </p>
-                                                </div>
-                                            </div>
-                                            <% } %>
-                                </div>
-                            </div>
-                        </div>
-                        <a class=" carrusel-control-next carrusel-control" href="#carousel" role="button"
-                            data-slide="next">
-                            <img src="img/svg/carrusel_control_next.svg" class="icono-azul"
-                                alt="<%=it.locations.alt_siguiente %>">
-                        </a>
+                        <% } %>
                     </div>
                 </div>
+                <% let cantidadRows=Math.ceil(it.data.length / 5); %>
+                <% let puntero=5 %>
+                
+                <% for (let rows=1; rows < 3; rows++) { %>
+                    
+                    <div class="carousel-item">
+                        <!--  row-p -->
+                        <div class="row row-custom">
+                            <% for (let x=0; x < 5; x++) { %>
+                            
+                                <% if (it.data[puntero]===undefined ) puntero= 5; %>
+                                    <div class="columna col-p">
+                                        <h5 class="nombre-car-slider">
+                                            <%= it.data[puntero].descripcion %>
+                                        </h5>
+                                        <picture>
+                                            <source data-srcset="./img/Img-Vehiculos/<%= it.data[puntero].ImagenVehiclo %>_Slider.avif">
+                                            <source data-srcset="./img/Img-Vehiculos/<%= it.data[puntero].ImagenVehiclo %>_Slider.webp">
+                                            <img class=" img-ta lazyload"
+                                                data-src="img/Img-Vehiculos/<%= it.data[puntero].ImagenVehiclo %>_Slider.png"
+                                                alt="<%= it.data[puntero].descripcion %>">
+                                        </picture>
+                            
+                                        <div class="precio">
+                                            <p class="precio-txt">
+                                                desde
+                                            </p>
+                                            <p class="precio-p">
+                                                <%= it.data[puntero].preciopordiasindescuento %>€
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <% puntero=puntero + 1; %>
+                                <% } %>
+                        </div>
+                    </div>
+                    
                 <% } %>
-                    <!--------------- Fin Slider ------------------------->
+
+            </div>
+            <a class=" carrusel-control-next carrusel-control" href="#carousel" role="button" data-slide="next">
+                <img src="img/svg/carrusel_control_next.svg" class="icono-azul" alt="<%=it.locations.alt_siguiente %>">
+            </a>
+        </div>
+    </div>
+    <% } %>
 
                     <!--------------- Inicio Ofertas --------------------->
                     <div class="ofertas">
@@ -541,11 +538,11 @@
 
     <script src="./js/muestraOferta.js"></script>
     <script src="./js/lazysizes.min.js" async=""></script>
+    <script async src="./js/newsletter.js"></script>
+    
 </body>
 
 </html>
-
-
 
 <!----------------------------------- Scripts -------------------------------------------->
 
@@ -584,7 +581,6 @@
 <script>
     $(function () {
         $("#fechaDevolucion").datepicker({ dateFormat: 'D,dd-mm-yy', minDate: '1d' });
-        $(".datepicker").datepicker("setDate", new Date());
         $(".triggerDev").click(function () {
             $("#fechaDevolucion").datepicker("show");
         });
@@ -599,7 +595,5 @@
 </script>
 <!--------- ----------------------------------------------------->
 
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
-<!----------------------------------- Scripts ----------------------------------->
-
-<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script> -->

@@ -1,12 +1,13 @@
-const formularioNews = document.getElementById("subscribe-blog");
 const botonNews = document.getElementById("boton_suscripcion");
-const emailInput = document.getElementById("subscribe-field");
-const contestacion = document.getElementById("contestacion");
 
 botonNews.addEventListener("click", async (evento) =>
 {
-
+    
     evento.preventDefault();
+    
+    const formularioNews = document.getElementById("subscribe-blog");
+    const emailInput = document.getElementById("subscribe-field");
+    const contestacion = document.getElementById("contestacion");
 
     const emailIsValid = await CheckEmail(emailInput);
 
@@ -14,8 +15,9 @@ botonNews.addEventListener("click", async (evento) =>
     {
         return;
     }
-
+    const idiomaInput = document.getElementById("idioma_newsletter");
     const body = {
+        "idioma": idiomaInput.value,
         "email": emailInput.value
     };
 
@@ -63,7 +65,7 @@ botonNews.addEventListener("click", async (evento) =>
                 grupo.classList.add("visible-ocupar");
 
                 emailInput.value = ""
-                subscribe-field
+                
 
             }, 2000);
             

@@ -823,11 +823,13 @@ body{
     "l l . o"
     ;
     justify-items: flex-start;
+    place-content: center;
+    place-items: center;
+    
 }
   
 .icon-24 {
     width: 16px;
-    margin-top: 7px;
 }
   
 .servicios-asientos{

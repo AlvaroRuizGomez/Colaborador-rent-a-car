@@ -1,6 +1,6 @@
 require("dotenv").config();
 const logicGetVars = require("./controllers/logicGetVars");
-const logicGetCache = require("./controllers/logicGetCache");
+const logicGetCache = require("./controllers/generar");
 
 const Init = async () => {
     // unificar el devlopment y production
@@ -9,7 +9,7 @@ const Init = async () => {
         //cargando las variables de entorno
 
         const resultado = await logicGetVars.GetBackendVars();
-        const resultadoCache = await logicGetCache.GetCache();
+        // const resultadoCache = await logicGetCache.GenerarWebCache();
 
         const servidor = require("./server");
         servidor.InitServer();

@@ -22,6 +22,7 @@
                     <a href="/" class="link-rentacar-logo">
                         <picture>
                             <source srcset="./img/Img-Logo/rentacar_logo_footer.avif">
+                            <source srcset="./img/Img-Logo/rentacar_logo_footer.webp">
                             <img class="imagen-rentacar-logo" src="./img/Img-Logo/rentacar_logo_footer.png" alt="<%=it.locations.alt_logo_empresa %>">
                         </picture>
                     </a>
@@ -29,7 +30,7 @@
                     <b>Camino de Can Pastilla, 51</b>
                     <b>07610 Can Pastilla</b>
                     <b>Palma de Mallorca</b>
-                    <b><a class="link-azul" href="mailto:correo@gmail.com">correo@gmail.com</a></b>
+                    <b><a class="link-azul" href="mailto:servicio@rentcarmallorca.es">servicios@rentcarmallorca.es</a></b>
                     <b>Tel.: 999999999</b>
                 </p>
                 </p>
@@ -59,6 +60,7 @@
             <div class="newsletter">
                 <div class="widget widget_blog_subscription">
                     <form class="formulario-newsletter visible" action="/newsletter" method="post" accept-charset="utf-8" id="subscribe-blog">
+                        <input id="idioma_newsletter" type="hidden" name="idioma" value="<%=it.locations.idioma_web %>">
                         <div id="contestacion" class="contestacion invisible-sinocupar">
                             <%= it.locations.inscritook %>
                         </div>
@@ -66,6 +68,8 @@
                         <p id="formulario-newsletter-email" class="formulario-newsletter-blanco">
                             <input class="input-email-footer" type="text" name="email" placeholder="<%=it.locations.placeholder_email_newsletter %>" value="" id="subscribe-field" required pattern="[^@]+@[^@]+\.[a-zA-Z]{2,6}">
                         </p>
+                        <!-- tERMINOS Y CONCIONES -->
+                        <!-- fin terminos y condiciones -->
                         <div id="formulario-newsletter-grupo" class="formulario-newsletter-grupo">
                             <p class="formulario-newsletter-blanco">
                                 <button id="boton_suscripcion" class="boton_suscripcion" type="submit"><%=it.locations.boton_enviar_suscripcion %></button>

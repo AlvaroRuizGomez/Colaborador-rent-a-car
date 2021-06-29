@@ -51,7 +51,7 @@ router.post("/newsletter", async (req, res) => await newsletter.ProcesarEmail(re
 router.get("/newsletter", async (req, res) => await home.redirectToHome(req, res));
 
 
-router.get("/generar", async (req, res) => await generar.generarHTML(req, res));
+router.get(process.env.ENDPOINT_CACHE, async (req, res) => await generar.GenerarWebCache(req, res));
 
 // router.post(process.env.ENDPOINT_LOCATION, async (req, res) => await locations.GenerarLocations(req, res));
 router.get("/location", async (req, res) => await locations.Frontend_TO_Backend(req, res) );
