@@ -2,6 +2,7 @@ const dotenv = require("dotenv");
 const fs = require("fs");
 const path = require("path");
 const fetch = require("node-fetch");
+const { token } = require("morgan");
 
 
 exports.GetBackendVars = async () => {
@@ -10,6 +11,7 @@ exports.GetBackendVars = async () => {
 
     let port_backend = "";
     let endpoint_variables_frontend = "";
+    let token_for_backend = "";
     
     const protocolo = process.env.PROTOCOLO || "http://";
     const host = process.env.URL_BACKEND || "localhost";
@@ -19,17 +21,19 @@ exports.GetBackendVars = async () => {
 
         port_backend = await readLocalSecret("../../secrets/port_backend.txt");
         endpoint_variables_frontend = await readLocalSecret("../../secrets/endpoint_variables_frontend.txt");
-
+        token_for_backend = await readLocalSecret("../../secrets/token_for_backend.txt");
     }
     else {
         port_backend = await readSecret("/run/secrets/PORT_BACKEND");
         endpoint_variables_frontend = await readSecret("/run/secrets/ENDPOINT_VARIABLES_FRONTEND");
-        console.log("endppoint=" + endpoint_variables_frontend);
+        token_for_backend = await readSecret("/run/secrets/TOKEN_FOR_BACKEND_ACCESS");
+        // console.log("endppoint=" + endpoint_variables_frontend);
         
     }
     
     
     port_backend = port_backend.replace(/[\n\t\r]/g, "");
+    token_for_backend = token_for_backend.replace(/[\n\t\r]/g, "");
     endpoint_variables_frontend = endpoint_variables_frontend.replace(/[\n\t\r]/g, "");
     // console.log("port_backend=" + port_backend);
     // port_backend = port_backend.replace("%0A", "");
@@ -55,7 +59,7 @@ exports.GetBackendVars = async () => {
         method: "GET",
         headers: {
             "Content-Type": "application/json",
-            "Authorization": `${process.env.TOKEN_FOR_BACKEND_ACCESS}`,
+            "Authorization": `${token_for_backend}`,
         },
         credentials: "include"
     });
