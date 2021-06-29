@@ -11,7 +11,6 @@ exports.InitServer = async () => {
     const compression = require('compression');
     const userAgent = require('express-useragent')
     const rateLimit = require('express-rate-limit');
-    // const session = require('express-session');
     const router = require('./routes/route');
     const path = require("path");
     

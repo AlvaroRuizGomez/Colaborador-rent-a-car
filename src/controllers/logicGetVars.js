@@ -1,4 +1,3 @@
-// const dbInterfaces = require("../database/dbInterfaceGetVar");
 const dotenv = require("dotenv");
 const fs = require("fs");
 const path = require("path");
@@ -51,6 +50,7 @@ exports.GetBackendVars = async () => {
         method: "GET",
         headers: {
             "Content-Type": "application/json",
+            "Authorization": `${process.env.TOKEN_FOR_BACKEND_ACCESS}`,
         },
         credentials: "include"
     });

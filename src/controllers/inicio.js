@@ -2,7 +2,6 @@
 const fetch = require("node-fetch");
 const Joi = require("joi");
 const nanoid = require("nanoid");
-const session = require('express-session');
 const geolocation = require("./geolocation");
 const locations = require("./locations");
 const obtenerVars = require("./obtenervariablesentorno");
