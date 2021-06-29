@@ -23,6 +23,8 @@ exports.GetBackendVars = async () => {
     else {
         port_backend = await readSecret("/run/secrets/PORT_BACKEND");
         endpoint_variables_frontend = await readSecret("/run/secrets/ENDPOINT_VARIABLES_FRONTEND");
+        console.log("endppoint=" + endpoint_variables_frontend);
+        endpoint_variables_frontend = endpoint_variables_frontend.replace("\n", "");
 
     }
     

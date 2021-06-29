@@ -86,4 +86,4 @@ jobs:
           port:  ${{ secrets.PORT_SERVIDOR }}
           script: |
             /home/alvaro/bin/docker pull sosan/frontend-rentacarmallorca:latest && \
-            docker tag sosan/frontend-rentacarmallorca:latest sosan/frontend-rentacarmallorca:${{steps.date.outputs.DATE_NOW}}
+            /home/alvaro/bin/docker tag sosan/frontend-rentacarmallorca:latest sosan/frontend-rentacarmallorca:${{steps.date.outputs.DATE_NOW}}
