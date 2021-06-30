@@ -1,7 +1,9 @@
-// const express = require('express');
+// const express = require("express");
 const fetch = require("node-fetch");
 const Joi = require("joi");
 const nanoid = require("nanoid");
+const querystring = require("querystring");
+
 const geolocation = require("./geolocation");
 const locations = require("./locations");
 const obtenerVars = require("./obtenervariablesentorno");
@@ -129,7 +131,15 @@ exports.redirectToHome = async (req, res) =>
 
 exports.postHomeDirect = async (req, res) =>
 {
-    const isSchemaValid = await ControlDirectSchema(req.query);
+
+    let query = req.query;
+    if (query.length === undefined)
+    {
+        query = await sanitizar(req.url);
+
+    }
+
+    const isSchemaValid = await ControlDirectSchema(query);
 
     if (isSchemaValid === false) {
         //TODO: mejorar
@@ -137,7 +147,7 @@ exports.postHomeDirect = async (req, res) =>
         return res.status(404).send("Not found");
     }
 
-    const body = { "token": process.env.TOKEN_FOR_BACKEND_ACCESS, "direct":true, ...req.query };
+    const body = { "token": process.env.TOKEN_FOR_BACKEND_ACCESS, "direct":true, ...query };
 
     //enviamos al backedn la informacion
     const responseRaw = await fetch(URI_GETALL_BACKEND, {
@@ -161,7 +171,7 @@ exports.postHomeDirect = async (req, res) =>
     // const languageBrowser = await CheckLanguage(req.query.idioma);
     // const lenguaje = await locations.GetVarLocales();
 
-    const locationLanguage = await locations.GenerateLocationBrowser(req.query.idioma);
+    const locationLanguage = await locations.GenerateLocationBrowser(query.idioma);
 
     if (dataResponse.isOk === false) {
         if (dataResponse.errorFormulario === "") {
@@ -171,7 +181,7 @@ exports.postHomeDirect = async (req, res) =>
         else {
             return res.render("inicio",
                 {
-                    "success": req.query.success,
+                    "success": query.success,
                     "errorFormulario": dataResponse.errorFormulario,
                     "locations": locationLanguage
                 });
@@ -184,9 +194,9 @@ exports.postHomeDirect = async (req, res) =>
     if (dataResponse.data.length <= 0) {
         res.render("muestraOferta", {
             "data": dataResponse.data,
-            "formdata": req.query,
+            "formdata": query,
             "errorFormulario": dataResponse.errorFormulario,
-            "success": req.query.success,
+            "success": query.success,
             "diasEntreRecogidaDevolucion": dataResponse.diasEntreRecogidaDevolucion,
             "locations": locationLanguage
 
@@ -205,9 +215,9 @@ exports.postHomeDirect = async (req, res) =>
 
         res.render("muestraOferta", {
             "data": dataResponse.data,
-            "formdata": req.query,
+            "formdata": query,
             "errorFormulario": dataResponse.errorFormulario,
-            "success": req.query.success,
+            "success": query.success,
             "diasEntreRecogidaDevolucion": dataResponse.diasEntreRecogidaDevolucion,
             "suplementogenerico_base": dataResponse.suplementogenerico_base,
             "suplementotipochofer_base": dataResponse.suplementotipochofer_base,
@@ -224,6 +234,41 @@ exports.postHomeDirect = async (req, res) =>
 
 };
 
+const sanitizar = async (query) =>
+{
+
+    let q = querystring.unescape(query).split("?")[1];
+    const queryParsed = querystring.parse(q, "&", "=", querystring.unescape());
+
+    const fechaActual = await ObtenerCurrentDate();
+
+    queryParsed["fechaRecogida"] = fechaActual;
+    queryParsed["horaRecogida"] = "09:00";
+
+    queryParsed["fechaDevolucion"] = fechaActual;
+    queryParsed["horaDevolucion"] = "20:00";
+    queryParsed["conductor_con_experiencia"] = "on";
+    queryParsed["edad_conductor"] = "25";
+
+    return queryParsed;
+
+} 
+
+
+
+//2020-01-07T11:28:03.588+00:00
+const ObtenerCurrentDate = async () => {
+    let date_ob = new Date();
+
+    const dia = date_ob.getUTCDate().toString().padStart(2, "00");
+    const mes = (date_ob.getUTCMonth() + 1).toString().padStart(2, "00");
+    const anyo = date_ob.getUTCFullYear();
+
+    const fechaActual = `${anyo}-${mes}-${dia}`;
+
+    return fechaActual;
+
+};
 
 exports.postHome = async (req, res) =>
 {
@@ -395,17 +440,17 @@ const ControlDirectSchema = async (body) =>
 {
 
     const schema = Joi.object({
-        "id": Joi.string().required(),
-        "edad_conductor": Joi.string().required(),
-        "fase": Joi.number().required(),
-        "fechaDevolucion": Joi.string().required(),
-        "fechaRecogida": Joi.string().required(),
-        "horaDevolucion": Joi.string().required(),
-        "horaRecogida": Joi.string().required(),
-        "idioma": Joi.string().required(),
-        "success": Joi.string().required(),
-        "vehiculo": Joi.string().required(),
-        "conductor_con_experiencia": Joi.string().required(),
+        "id": Joi.string(),
+        "edad_conductor": Joi.string(),
+        "fase": Joi.number(),
+        "fechaDevolucion": Joi.string(),
+        "fechaRecogida": Joi.string(),
+        "horaDevolucion": Joi.string(),
+        "horaRecogida": Joi.string(),
+        "idioma": Joi.string(),
+        "success": Joi.string(),
+        "vehiculo": Joi.string(),
+        "conductor_con_experiencia": Joi.string(),
 
     });
 
