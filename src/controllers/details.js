@@ -14,7 +14,7 @@ exports.getShowDetails = async (req, res, languageBrowser) => {
 exports.postShowDetails = async (req, res, languageBrowser) =>
 {
     // console.log(req.useragent);
-    const isSchemaValid = await ControlSchema(req.query);
+    const isSchemaValid = await ControlSchema(req.body);
 
     if (isSchemaValid === false) {
         //TODO: mejorar
@@ -36,9 +36,9 @@ exports.postShowDetails = async (req, res, languageBrowser) =>
 
 
     res.render("reservar", {
-        "success": req.query.sucess,
+        "success": req.body.sucess,
         "locations": locationLanguage,
-        "formdata": req.query,
+        "formdata": req.body,
     });
 
 
@@ -46,9 +46,9 @@ exports.postShowDetails = async (req, res, languageBrowser) =>
         "token": process.env.TOKEN_FOR_BACKEND_ACCESS,
         "useragent": req.useragent,
         "location": location,
-        "id": req.query.success,
-        "fase": req.query.fase,
-        "conductor_con_experiencia": req.query.conductor_con_experiencia,
+        "id": req.body.success,
+        "fase": req.body.fase,
+        "conductor_con_experiencia": req.body.conductor_con_experiencia,
 
     };
 

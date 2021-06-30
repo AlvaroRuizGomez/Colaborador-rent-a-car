@@ -996,6 +996,11 @@ body{
     display: none;
 }
 
+.form-inline:hover
+{
+  text-decoration: none;
+}
+
 /* palito derecho */
 .elemento__circulo:after
 {
