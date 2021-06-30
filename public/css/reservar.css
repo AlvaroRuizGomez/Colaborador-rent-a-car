@@ -742,12 +742,12 @@ select {
 .sillas
 {
     display: grid;
-    grid-template-columns: 10% 10% 10% 11% 50%;
+    grid-template-columns: 10% 7% 11% 50%;
     grid-template-rows: 0.2fr 1fr;
     gap: 0px 0px;
     grid-template-areas:
-        "silla silla casilla info titulo"
-        "silla silla casilla info descripcion";
+        "silla casilla info titulo"
+        "silla casilla info descripcion";
     /* justify-items: center; */
     align-items: center;
     margin-bottom: 20px;
@@ -757,11 +757,13 @@ select {
 .silla
 { 
     grid-area: silla;
+    margin-left: 18px;
 }
 
 .casilla
 { 
     grid-area: casilla; 
+    margin-left: 17px;
 }
 
 .info
@@ -1053,19 +1055,21 @@ select {
 .link-condiciones {
     text-decoration: underline;
     cursor: pointer;
-}
-
-.barraPago {
-    display: block;
-    margin: 16px 2px;
-}
-
-.barraPago span {
     font-size: 1.2em;
     font-weight: 400;
     color: #504e4e;
     vertical-align: 4px;
     margin-left: 25px;
+}
+
+.barraPago {
+    display: block;
+    margin-top: 40px;
+
+}
+
+.logoPayments {
+    width: 15%;
 }
 
 .blockSpace {
@@ -1090,9 +1094,9 @@ select {
 
 .candado-imagen
 {
-    
     width: 17px;
-    margin-bottom: 2px;
+    margin-bottom: -3px;
+    margin-right: 5px;
 }
 
 .color_rojo
@@ -1100,31 +1104,7 @@ select {
     color: red;
 }
 
-/* -- barra de pago, (Bajo botón ) */
-.link-condiciones {
-    text-decoration: underline;
-    cursor: pointer;
-}
 
-.barraPago {
-    display: block;
-    margin: 16px 2px;
-}
-
-.barraPago span {
-    font-size: 1.2em;
-    font-weight: 400;
-    color: #504e4e;
-    vertical-align: 4px;
-    margin-left: 25px;
-}
-
-.blockSpace {
-    display: block;
-    height: 100px;
-}
-
-/* -- fin barra de pago, (Bajo botón ) */
 
 .boton-terminos,
 .boton-privacidad
