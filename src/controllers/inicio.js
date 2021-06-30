@@ -2,7 +2,6 @@
 const fetch = require("node-fetch");
 const Joi = require("joi");
 const nanoid = require("nanoid");
-const session = require('express-session');
 const geolocation = require("./geolocation");
 const locations = require("./locations");
 const obtenerVars = require("./obtenervariablesentorno");
@@ -23,10 +22,11 @@ exports.getHome = async (req, res, languageBrowser) =>
     const location = await geolocation.GetIPTimeZone(req);
 
     // Bot check
-    if (location.agent && location.agent.isBot === true) {
+    if ((location.agent && location.agent.isBot === true) || (req.headers["accept-language"] === undefined)) {
+        // TODO: registrar los eventos en sitio separado
         return res.status(404).send("Not Found");
     }
-    
+
     const locationLanguage = await locations.GenerateLocationBrowser(
         languageBrowser, 
         req.headers["accept-language"].split(",")[0].split("-")[0]

@@ -101,6 +101,7 @@ exports.GenerateLocationBrowser = async (languageBrowser, reqHeadersLocation) =>
         //pedimos al backend que nos lo envie
         await Frontend_TO_Backend();
         lenguaje = await GetVarLocales();
+        
     }
     return lenguaje[languageBrowser];
 
