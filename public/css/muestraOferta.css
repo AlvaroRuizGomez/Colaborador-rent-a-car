@@ -1,11 +1,11 @@
 :root
 {
-  --SEPARACION_COLORES_TOOLTIP: white;
+  --___COLORES_TOOLTIP____: white;
   --background-color-tooltip: rgba(59, 72, 80, 0.9);
   --border-color-tooltip: rgba(55, 64, 70, 0.9);
   --gradiente-tooltip: rgba(59, 72, 80, 0.44);
 
-  --SEPARACION_COLORES_BACKGROUND: white;
+  --___COLORES_BACKGROUND____: white;
   --color-background-input: #e9ecef;
   --color-texto-input: #495057;
   --color-border-input: #ced4da;
@@ -16,7 +16,7 @@
   --background-cabecera-container: #eaf2fd;
   --background-cabecera: #fafafa;
 
-  --SEPARACION_COLORES_CABECERA: white;
+  --___COLORES_CABECERA____: white;
     /* cabecera */
   --background-cabecera-container: #eaf2fd;
   --background-cabecera: #fafafa;

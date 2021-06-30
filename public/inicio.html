@@ -198,27 +198,17 @@
                     <% for (let i=0; i < it.data.length; i++) { %>
                     
                         <div class="card lazyload <%=it.data[i]["ImagenVehiclo"] %>">
-                    
-                            <form class="form-line" action="/direct" method="post" id="<%=it.data[i]["vehiculo"] %>">
-                                <input type="hidden" name="fase" value="2">
-                                <input type="hidden" name="success" value="<%=it.success %>">
-                                <input type="hidden" name="idioma" value="<%=it.locations.idioma_web %>">
-                                <input type="hidden" name="vehiculo" value="<%=it.data[i]["vehiculo"] %>">
-                    
-                                <input type="hidden" name="fechaRecogida" value="">
-                                <input type="hidden" name="horaRecogida" value="">
-                                <input type="hidden" name="fechaDevolucion" value="">
-                                <input type="hidden" name="horaDevolucion" value="">
-                                <input type="hidden" name="conductor_con_experiencia" value="">
-                    
-                    
+                            
+                            <a class="form-inline" href="/car/?id=<%=it.data[i]["vehiculo"]%>&success=<%=it.success %>&fase=2&idioma=<%=it.locations.idioma_web %>&vehiculo=<%=it.data[i]["vehiculo"] %>&fechaRecogida=&horaRecogida=&fechaDevolucion=&horaDevolucion=&conductor_con_experiencia=&edad_conductor=&" id="<%=it.data[i]["vehiculo"] %>">
+                                
                                 <div class="content">
                                     <picture>
                                         <source srcset="./img/Img-Logo/Logo-Marca-Coche/<%=it.data[i]["logoMarcaCoche"] %>.avif">
                                         <source srcset="./img/Img-Logo/Logo-Marca-Coche/<%=it.data[i]["logoMarcaCoche"] %>.webp">
-                                        <img src="./img/Img-Logo/Logo-Marca-Coche/<%=it.data[i]["logoMarcaCoche"] %>.png" class="imgLogo logo-<%=it.data[i]["ImagenVehiclo"] %>" alt="alt-<%=it.locations[it.data[i]["logoMarcaCoche"]]%>">
+                                        <img src="./img/Img-Logo/Logo-Marca-Coche/<%=it.data[i]["logoMarcaCoche"] %>.png" class="imgLogo logo-
+                                        <%=it.data[i]["ImagenVehiclo"] %>" alt="alt-<%=it.locations[it.data[i]["logoMarcaCoche"]]%>">
                                     </picture>
-                                    <h2 class="title title-<%=it.data[i]["ImagenVehiclo"] %>"><%=it.data[i]["descripcion"]%>
+                                    <h2 class="title title-<%=it.data[i][" ImagenVehiclo"] %>"><%=it.data[i]["descripcion"]%>
                                     </h2>
                                     <div class="content-card">
                                         <br>
@@ -258,11 +248,13 @@
                                                                     <% } %>
                                         </div>
                                     </div>
-                                    <button type="submit" class="btn" name="vehiculo" value="<%= it.data[i].vehiculo %>">
+                                    <button class="btn" name="vehiculo" value="<%= it.data[i].vehiculo %>">
                                         <%=it.locations.vereste%>
                                     </button>
                                 </div>
-                            </form>
+                                
+                            </a>
+
                         </div>
                     
                         <% } %>
@@ -319,7 +311,9 @@
         <script> 
             $(function() {
                 $("#fechaRecogida").datepicker({ dateFormat: 'D,dd-mm-yy', minDate:'1d' });
+            //    comprobar que no machaque la fecha desde muestraoferta.html
                 $(".datepicker").datepicker("setDate", new Date());
+               
                 $(".triggerRec").click(function(){
                     $("#fechaRecogida").datepicker("show");
                 }); 

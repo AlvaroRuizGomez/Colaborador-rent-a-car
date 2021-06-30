@@ -1,6 +1,13 @@
 :root {
   --d: 700ms;
   --e: cubic-bezier(0.19, 1, 0.22, 1);
+
+  --___COLORES_TOOLTIP____: white;
+  --background-color-tooltip: rgba(59, 72, 80, 0.9);
+  --border-color-tooltip: rgba(55, 64, 70, 0.9);
+  --gradiente-tooltip: rgba(59, 72, 80, 0.44);
+
+  --___COLORES_BACKGROUND____: white;
   --color-background-input: #e9ecef;
   --color-texto-input: #495057;
   --color-border-input: #ced4da;
@@ -9,10 +16,11 @@
   --color-box-shadow-input-focus: rgba(13, 110, 253, 0.25);
   --color-texto-input-focus: #212529;
 
-  /* cabecera */
+  --___COLORES_CABECERA____: white;
   --background-cabecera-container: #eaf2fd;
   --background-cabecera: #fafafa;
 
+  --___MARGEN_TITULOS____: white;
   /* margen izquierda titulos */
   --margin-izquierda-titulo: 45px;
 
@@ -1060,6 +1068,7 @@ select {
     color: #504e4e;
     vertical-align: 4px;
     margin-left: 25px;
+    user-select: none;
 }
 
 .barraPago {
@@ -1392,7 +1401,10 @@ max-height: 520px; */
 
 
 
-/* ----------------------- TOOLTIP -------------------------------- */
+
+/* TOOLTIP */
+
+
 [data-tooltip]
 {
   position: relative;
@@ -1414,6 +1426,8 @@ max-height: 520px; */
 }
 
 
+
+
 [data-tooltip]:before {
   content: attr(data-tooltip);
   padding: 10px 18px;
@@ -1422,11 +1436,12 @@ max-height: 520px; */
   width: max-content;
   border-radius: 6px;
   font-size: 14px;
-  background-color: rgba(59, 72, 80, 0.9);
+  background-color: var(--background-color-tooltip);
   background-image: linear-gradient(30deg,
-    rgba(59, 72, 80, 0.44),
-    rgba(59, 68, 75, 0.44),
-    rgba(60, 82, 88, 0.44));
+    var(--gradiente-tooltip),
+    var(--gradiente-tooltip),
+    var(--gradiente-tooltip)
+    );
   box-shadow: 0px 0px 24px rgba(0, 0, 0, 0.2);
   color: #fff;
   text-align: center;
@@ -1435,11 +1450,12 @@ max-height: 520px; */
 }
 
 
+
 [data-tooltip]:after {
   content: '';
   border-style: solid;
   border-width: 5px 5px 0px 5px;
-  border-color: rgba(55, 64, 70, 0.9) transparent transparent transparent;
+  border-color: var(--border-color-tooltip) transparent transparent transparent;
   transition-duration: 0s; 
   transform-origin: top;  
   transform: translateX(-50%) scaleY(0);
@@ -1519,7 +1535,7 @@ max-height: 520px; */
 [data-tooltip-location="right"]:after
 {
   border-width: 5px 5px 5px 0px;
-  border-color: transparent rgba(55, 64, 70, 0.9) transparent transparent;
+  border-color: transparent var(--background-color-tooltip) transparent transparent;
   transform-origin: right;
   transform: translateY(50%) scaleX(0);
 }

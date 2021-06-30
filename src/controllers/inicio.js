@@ -68,7 +68,7 @@ exports.getHome = async (req, res, languageBrowser) =>
     if (dataResponse.data.length <= 0) {
         res.render("inicio", {
             "data": dataResponse.data,
-            "formdata": req.body,
+            "formdata": req.query,
             "errorFormulario": dataResponse.errorFormulario,
             "success": id,
             "diasEntreRecogidaDevolucion": dataResponse.diasEntreRecogidaDevolucion,
@@ -87,7 +87,7 @@ exports.getHome = async (req, res, languageBrowser) =>
             "preciosPorClase": dataResponse.preciosPorClase,
             "locations": locationLanguage,
             // "pagoRecogida": dataResponse.pagoRecogida
-            // "formdata": req.body,
+            // "formdata": req.query,
             // "errorFormulario": dataResponse.errorFormulario,
             // "diasEntreRecogidaDevolucion": dataResponse.diasEntreRecogidaDevolucion,
             // "suplementogenerico_base": dataResponse.suplementogenerico_base,
@@ -129,7 +129,7 @@ exports.redirectToHome = async (req, res) =>
 
 exports.postHomeDirect = async (req, res) =>
 {
-    const isSchemaValid = await ControlDirectSchema(req.body);
+    const isSchemaValid = await ControlDirectSchema(req.query);
 
     if (isSchemaValid === false) {
         //TODO: mejorar
@@ -137,7 +137,7 @@ exports.postHomeDirect = async (req, res) =>
         return res.status(404).send("Not found");
     }
 
-    const body = { "token": process.env.TOKEN_FOR_BACKEND_ACCESS, "direct":true, ...req.body };
+    const body = { "token": process.env.TOKEN_FOR_BACKEND_ACCESS, "direct":true, ...req.query };
 
     //enviamos al backedn la informacion
     const responseRaw = await fetch(URI_GETALL_BACKEND, {
@@ -158,10 +158,10 @@ exports.postHomeDirect = async (req, res) =>
         res.status(404).send("Not found");
         return;
     }
-    // const languageBrowser = await CheckLanguage(req.body.idioma);
+    // const languageBrowser = await CheckLanguage(req.query.idioma);
     // const lenguaje = await locations.GetVarLocales();
 
-    const locationLanguage = await locations.GenerateLocationBrowser(req.body.idioma);
+    const locationLanguage = await locations.GenerateLocationBrowser(req.query.idioma);
 
     if (dataResponse.isOk === false) {
         if (dataResponse.errorFormulario === "") {
@@ -171,7 +171,7 @@ exports.postHomeDirect = async (req, res) =>
         else {
             return res.render("inicio",
                 {
-                    "success": req.body.success,
+                    "success": req.query.success,
                     "errorFormulario": dataResponse.errorFormulario,
                     "locations": locationLanguage
                 });
@@ -184,9 +184,9 @@ exports.postHomeDirect = async (req, res) =>
     if (dataResponse.data.length <= 0) {
         res.render("muestraOferta", {
             "data": dataResponse.data,
-            "formdata": req.body,
+            "formdata": req.query,
             "errorFormulario": dataResponse.errorFormulario,
-            "success": req.body.success,
+            "success": req.query.success,
             "diasEntreRecogidaDevolucion": dataResponse.diasEntreRecogidaDevolucion,
             "locations": locationLanguage
 
@@ -205,9 +205,9 @@ exports.postHomeDirect = async (req, res) =>
 
         res.render("muestraOferta", {
             "data": dataResponse.data,
-            "formdata": req.body,
+            "formdata": req.query,
             "errorFormulario": dataResponse.errorFormulario,
-            "success": req.body.success,
+            "success": req.query.success,
             "diasEntreRecogidaDevolucion": dataResponse.diasEntreRecogidaDevolucion,
             "suplementogenerico_base": dataResponse.suplementogenerico_base,
             "suplementotipochofer_base": dataResponse.suplementotipochofer_base,
@@ -256,8 +256,6 @@ exports.postHome = async (req, res) =>
     {
     
     }
-    // const languageBrowser = await CheckLanguage(req.body.idioma);
-    // const lenguaje = await locations.GetVarLocales();
     
     const locationLanguage = await locations.GenerateLocationBrowser(req.body.idioma);
     
@@ -397,6 +395,8 @@ const ControlDirectSchema = async (body) =>
 {
 
     const schema = Joi.object({
+        "id": Joi.string().required(),
+        "edad_conductor": Joi.string().required(),
         "fase": Joi.number().required(),
         "fechaDevolucion": Joi.string().required(),
         "fechaRecogida": Joi.string().required(),
@@ -431,6 +431,7 @@ const ControlSchema = async (body) => {
 
 
     const schema = Joi.object({
+        
         conductor_con_experiencia: Joi.string(),
         "idioma": Joi.string().required(),
         edad_conductor: Joi.number().required(),
