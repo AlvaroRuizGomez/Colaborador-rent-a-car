@@ -1092,9 +1092,9 @@ select {
 
 .candado-imagen
 {
-    
     width: 17px;
-    margin-bottom: 2px;
+    margin-bottom: -3px;
+    margin-right: 5px;
 }
 
 .color_rojo
