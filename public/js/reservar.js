@@ -127,8 +127,8 @@ overlayPrivacidad.addEventListener("click", async (evento) => {
 
 botonCerrarModal.addEventListener("click", async (evento) =>
 {
-
-    const divOverlay = evento.target.parentElement.parentElement.parentElement.parentElement;
+    let divOverlay = document.getElementById("overlay-boton-reservar");
+    // const divOverlay = evento.target.parentElement.parentElement.parentElement.parentElement;
 
     if (divOverlay.classList.contains("modal-visible") === true) {
         divOverlay.classList.remove("modal-visible");
@@ -268,11 +268,12 @@ boton_reservar.addEventListener("click", async (evento) =>
 
 const MostrarOverlayAnimacion = async (evento) =>
 {
-    let divOverlay = evento.target.parentElement.parentElement.children[3];
+    let divOverlay = document.getElementById("overlay-animacion");
+    // let divOverlay = evento.target.parentElement.parentElement.children[3];
 
-    if (divOverlay.classList.contains("btnReserva") === false) {
-        divOverlay = evento.target.parentElement.children[3];
-    }
+    // if (divOverlay.classList.contains("btnReserva") === false) {
+    //     divOverlay = evento.target.parentElement.children[3];
+    // }
 
     if (divOverlay.classList.contains("modal-invisible") === true) {
 
@@ -290,12 +291,13 @@ const OcultarOverlayAnimacion = async (evento) =>
 {
 
     
+    let divOverlay = document.getElementById("overlay-animacion");
 
-    let divOverlay = evento.target.parentElement.parentElement.children[3];
+    // let divOverlay = evento.target.parentElement.parentElement.children[3];
 
-    if (divOverlay.classList.contains("btnReserva") === false) {
-        divOverlay = evento.target.parentElement.children[3];
-    }
+    // if (divOverlay.classList.contains("btnReserva") === false) {
+    //     divOverlay = evento.target.parentElement.children[3];
+    // }
 
     if (divOverlay.classList.contains("modal-visible") === true) {
 
@@ -313,12 +315,13 @@ const OcultarOverlayAnimacion = async (evento) =>
 
 
 const MostrarOverlayFormularioCC = async (evento) => {
-    let divOverlay = evento.target.parentElement.parentElement.children[1];
-
-    if (divOverlay.classList.contains("btnReserva") === false) {
-        divOverlay = evento.target.parentElement.children[1];
-    }
-
+    // let divOverlay = evento.target.parentElement.parentElement.children[1];
+    
+    // if (divOverlay.classList.contains("btnReserva") === false) {
+        //     divOverlay = evento.target.parentElement.children[1];
+        // }
+        
+    let divOverlay = document.getElementById("overlay-boton-reservar");
     if (divOverlay.classList.contains("modal-invisible") === true) {
 
         document.body.style.overflow = "hidden";
