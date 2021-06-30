@@ -567,12 +567,29 @@
                         <%= pago_online %> €
             </button>
 
+
             <div class="barraPago">
-                <img src="./img/svg/logo_Redsys.png" alt="">
-                <a class="" role="button" data-tooltip-location="top" data-tooltip="<%= it.locations.tooltip_masinformacion_reserva %>">
-                    <span class="link-condiciones"><%=it.locations.titulo_masinformacion_reserva %></span>
-                </a>
+                <!-- <img src="./img/svg/logo_Redsys.png" alt=""> -->
+            <img src="https://marketplace.avantio.com/wp-content/uploads/2020/08/marketplace-01-1.svg" alt="COMERCIA GLOBAL PAYMENTS" class="logoPayments">
+
+                <div>
+                    <img src="./img/svg/MiniCardCredit/visa.svg" alt="">
+                    <img src="./img/svg/MiniCardCredit/visaelectron.svg" alt="">
+                    <img src="./img/svg/MiniCardCredit/mastercard.svg" alt="">
+                    <img src="./img/svg/MiniCardCredit/maestro.svg" alt="">
+                    <img src="./img/svg/MiniCardCredit/jcb.svg" alt="">
+                    <img src="./img/svg/MiniCardCredit/dinersclub.svg" alt="">
+                    <img src="./img/svg/MiniCardCredit/americanexpress.svg" alt=""> 
+                </div>
+                
             </div>
+
+
+            <a class="" role="button" data-tooltip-location="top" data-tooltip="<%= it.locations.tooltip_masinformacion_reserva %>">
+                <span class="link-condiciones"><%=it.locations.titulo_masinformacion_reserva %></span>
+            </a>
+
+
 
             <div id="overlay-boton-reservar" class="overlay-transparente modal-invisible">
                 <ul class="details-modal resetul">
