@@ -742,12 +742,12 @@ select {
 .sillas
 {
     display: grid;
-    grid-template-columns: 10% 10% 10% 11% 50%;
+    grid-template-columns: 10% 7% 11% 50%;
     grid-template-rows: 0.2fr 1fr;
     gap: 0px 0px;
     grid-template-areas:
-        "silla silla casilla info titulo"
-        "silla silla casilla info descripcion";
+        "silla casilla info titulo"
+        "silla casilla info descripcion";
     /* justify-items: center; */
     align-items: center;
     margin-bottom: 20px;
@@ -757,11 +757,13 @@ select {
 .silla
 { 
     grid-area: silla;
+    margin-left: 18px;
 }
 
 .casilla
 { 
     grid-area: casilla; 
+    margin-left: 17px;
 }
 
 .info
@@ -804,6 +806,7 @@ select {
 }
 
 .safariSelect {
+    width: 50%;
     background: #fff;
     border-radius: 3px;
     -webkit-appearance: menulist;
