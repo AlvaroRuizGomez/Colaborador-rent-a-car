@@ -806,7 +806,6 @@ select {
 }
 
 .safariSelect {
-    width: 50%;
     background: #fff;
     border-radius: 3px;
     -webkit-appearance: menulist;
