@@ -11,7 +11,9 @@ const obtenerVars = require("./obtenervariablesentorno");
 //variables
 const URI_API_BACKEND = obtenerVars.ObtenerURI_API_BACKEND();
 const URI_GETALL_BACKEND = obtenerVars.ObtenerURI_GETALL_BACKEND();
+
 const URI_STATS_BACKEND = obtenerVars.ObtenerURI_STATS_BACKEND();
+const ENDPOINT_GETCAR_FROM_CARD_BACKEND = obtenerVars.ObtenerENDPOINT_GETCAR_FROM_CARD_BACKEND();
 
 
 const eta = require("eta");
@@ -150,7 +152,7 @@ exports.postHomeDirect = async (req, res) =>
     const body = { "token": process.env.TOKEN_FOR_BACKEND_ACCESS, "direct":true, ...query };
 
     //enviamos al backedn la informacion
-    const responseRaw = await fetch(URI_GETALL_BACKEND, {
+    const responseRaw = await fetch(ENDPOINT_GETCAR_FROM_CARD_BACKEND, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
