@@ -760,23 +760,23 @@ body{
  
 }
 .title-PiaggioLiberty_125cc {
-  transform: translateY(100%);
+  /* transform: translateY(100%); */
 }
 .title-Suzuki-Burgman_125cc {
-  transform: translateY(100%);
+  /* transform: translateY(100%); */
 }
 
 .logo-PiaggioLiberty_125cc {
-  transform: translateY(100%);
+  /* transform: translateY(100%); */
 }
 
 .logo-citroenC1AutomaticPlata {
-  transform: translateY(100%);
+  /* transform: translateY(100%); */
 }
 
 .logo-Suzuki-Burgman_125cc
 {
-  transform: translateY(100%);
+  /* transform: translateY(100%); */
 }
 
 .content {
@@ -787,6 +787,8 @@ body{
   padding: 1rem;
   transition: transform var(--d) var(--e);
   z-index: 1;
+  top: 17%;
+
 }
 .content > * + * {
   margin-top: 1rem;
@@ -920,7 +922,8 @@ body{
   outline-offset: 3px;
 }
 
-@media (hover: hover) and (min-width: 600px) {
+@media (hover: hover) and (min-width: 600px) 
+{
   .card:after {
     transform: translateY(0);
   }
@@ -933,7 +936,7 @@ body{
 
   .content > *:not(.title) {
     opacity: 1;
-    /* transform: translateY(1rem); */
+    transform: translateY(1rem);
     transition: transform var(--d) var(--e), opacity var(--d) var(--e);
   }
 
@@ -968,16 +971,30 @@ body{
   }
 
 }
+
+
+.card:hover > .form-line > .content > picture > .imgLogo
+{
+  /* background-color: red; */
+  transform: translateY(-47px);
+}
+
+.card:hover > .form-line > .content > .title
+{
+  /* background-color: red; */
+  transform: translateY(-55px);
+}
+
 .card:hover > .form-line > .content > .content-card
 {
   /* background-color: red; */
-  transform: translateY(85px);
+  transform: translateY(45px);
 }
 
 .card:hover > .form-line > .content > .btn
 {
   /* background-color: red; */
-  transform: translateY(75px);
+  transform: translateY(25px);
 }
 
 

@@ -199,16 +199,16 @@
                     
                         <div class="card lazyload <%=it.data[i]["ImagenVehiclo"] %>">
                             
-                            <a class="form-inline" href="/car/<%=it.data[i]["vehiculo"]%>?id=<%=it.data[i]["vehiculo"]%>&success=<%=it.success %>&fase=2&idioma=<%=it.locations.idioma_web %>&vehiculo=<%=it.data[i]["vehiculo"] %>&fechaRecogida=&horaRecogida=&fechaDevolucion=&horaDevolucion=&conductor_con_experiencia=&edad_conductor=&" id="<%=it.data[i]["vehiculo"] %>">
+                            <a class="form-line" href="/car/<%=it.data[i]["vehiculo"]%>?id=<%=it.data[i]["vehiculo"]%>&success=<%=it.success %>&fase=2&idioma=<%=it.locations.idioma_web %>&vehiculo=<%=it.data[i]["vehiculo"] %>&fechaRecogida=&horaRecogida=&fechaDevolucion=&horaDevolucion=&conductor_con_experiencia=&edad_conductor=&" id="<%=it.data[i]["vehiculo"] %>">
                                 
                                 <div class="content">
                                     <picture>
                                         <source srcset="./img/Img-Logo/Logo-Marca-Coche/<%=it.data[i]["logoMarcaCoche"] %>.avif">
                                         <source srcset="./img/Img-Logo/Logo-Marca-Coche/<%=it.data[i]["logoMarcaCoche"] %>.webp">
                                         <img src="./img/Img-Logo/Logo-Marca-Coche/<%=it.data[i]["logoMarcaCoche"] %>.png" class="imgLogo logo-
-                                        <%=it.data[i]["ImagenVehiclo"] %>" alt="alt-<%=it.locations[it.data[i]["logoMarcaCoche"]]%>">
+                                        <%=it.data[i]["ImagenVehiclo"] %>" alt="<%=it.data[i]["logoMarcaCoche"]%>">
                                     </picture>
-                                    <h2 class="title title-<%=it.data[i][" ImagenVehiclo"] %>"><%=it.data[i]["descripcion"]%>
+                                    <h2 class="title title-<%=it.data[i]["ImagenVehiclo"] %>"><%=it.data[i]["descripcion"]%>
                                     </h2>
                                     <div class="content-card">
                                         <br>
