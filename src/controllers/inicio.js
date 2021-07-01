@@ -133,7 +133,7 @@ exports.postHomeDirect = async (req, res) =>
 {
 
     let query = req.query;
-    if (query.length === undefined)
+    if (query["vehiculo"] === undefined)
     {
         query = await sanitizar(req.url);
 
@@ -240,15 +240,20 @@ const sanitizar = async (query) =>
     let q = querystring.unescape(query).split("?")[1];
     const queryParsed = querystring.parse(q, "&", "=", querystring.unescape());
 
-    const fechaActual = await ObtenerCurrentDate();
+    if (queryParsed.idioma !== undefined)
+    {
+        const fechaActual = await ObtenerCurrentDate(queryParsed.idioma);
+    
+        queryParsed["fechaRecogida"] = fechaActual;
+        queryParsed["horaRecogida"] = "09:00";
+    
+        queryParsed["fechaDevolucion"] = fechaActual;
+        queryParsed["horaDevolucion"] = "20:00";
+        queryParsed["conductor_con_experiencia"] = "on";
+        queryParsed["edad_conductor"] = "25";
 
-    queryParsed["fechaRecogida"] = fechaActual;
-    queryParsed["horaRecogida"] = "09:00";
+    }
 
-    queryParsed["fechaDevolucion"] = fechaActual;
-    queryParsed["horaDevolucion"] = "20:00";
-    queryParsed["conductor_con_experiencia"] = "on";
-    queryParsed["edad_conductor"] = "25";
 
     return queryParsed;
 
@@ -257,14 +262,16 @@ const sanitizar = async (query) =>
 
 
 //2020-01-07T11:28:03.588+00:00
-const ObtenerCurrentDate = async () => {
-    let date_ob = new Date();
+const ObtenerCurrentDate = async (idioma) => {
 
-    const dia = date_ob.getUTCDate().toString().padStart(2, "00");
+    let date_ob = new Date();
+    date_ob.setDate(date_ob.getDate() + 1);
+    const dia = (date_ob.getUTCDate()) .toString().padStart(2, "00");
     const mes = (date_ob.getUTCMonth() + 1).toString().padStart(2, "00");
     const anyo = date_ob.getUTCFullYear();
 
-    const fechaActual = `${anyo}-${mes}-${dia}`;
+    const textoDia = new Intl.DateTimeFormat(idioma, { weekday: 'short' }).format(date_ob);
+    const fechaActual = `${textoDia},${dia}-${mes}-${anyo}`;
 
     return fechaActual;
 
