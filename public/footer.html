@@ -7,10 +7,104 @@
                 <div class="footerTop_info">
                     <h5 class="titulo"><%=it.locations.informacion_footer %></h5>
                     <ul class="listado">
-                        <li class="listado-li"><a class="interes-link" href="#"><%=it.locations.politica_anulacion_footer %></a></li>
-                        <li class="listado-li"><a class="interes-link" href="#"><%=it.locations.seguro_footer %></a></li>
-                        <li class="listado-li"><a class="interes-link" href="#"><%=it.locations.sillas_footer %></a></li>
-                        <li class="listado-li"><a class="interes-link" href="#"><%=it.locations.nosotros_footer %></a></li>
+                        <li class="listado-li">
+                        
+                            <button class="interes-link-footer">
+                                <%=it.locations.politica_anulacion_footer %>
+                            </button>
+                            <div id="overlay-footer-interes-link" class="overlay-transparente modal-invisible">
+                                <ul class="details-modal resetul">
+                                    <li class="details-modal-close modal-heigh-75">
+                                        <a class="boton-cerrar-modal-footer" role="button">
+                                            <img class="cerrar-modal" src="./img/svg/cerrar_modal.svg" alt="boton cerrar modal">
+                                        </a>
+                                    </li>
+                                    <li class="details-modal-title title-footer">
+                                        <h5 class="details-modal-title-text">
+                                            <%=it.locations.titulo_politica_anulacion_footer %>
+                                        </h5>
+                                    </li>
+                                    <li class="sub-contenido-modal">
+                                        <%=it.locations.contenido_politica_anulacion_footer %>
+                                    </li>
+                                </ul>
+                            </div>
+
+                        </li>
+                        <li class="listado-li">
+                            
+                            <button class="interes-link-footer">
+                                <%=it.locations.seguro_footer %>
+                            </button>
+                            
+                            
+                            <div id="overlay-footer-interes-link" class="overlay-transparente modal-invisible">
+                                <ul class="details-modal resetul ">
+                                    <li class="details-modal-close modal-heigh-75">
+                                        <a class="boton-cerrar-modal-footer" role="button">
+                                            <img class="cerrar-modal" src="./img/svg/cerrar_modal.svg" alt="boton cerrar modal">
+                                        </a>
+                                    </li>
+                                    <li class="details-modal-title">
+                                        <h5 class="details-modal-title-text">
+                                            <%=it.locations.titulo_seguro_footer %>
+                                        </h5>
+                                    </li>
+                                    <li class="sub-contenido-modal">
+                                        <%=it.locations.contenido_seguro_footer %>
+                                    </li>
+                                </ul>
+                            </div>
+                        
+                        </li>
+                        <li class="listado-li">
+                            <button class="interes-link-footer">
+                                <%=it.locations.sillas_footer %>
+                            </button>
+                            
+                            <div id="overlay-footer-interes-link" class="overlay-transparente modal-invisible">
+                                <ul class="details-modal resetul">
+                                    <li class="details-modal-close modal-heigh-75">
+                                        <a class="boton-cerrar-modal-footer" role="button">
+                                            <img class="cerrar-modal" src="./img/svg/cerrar_modal.svg" alt="boton cerrar modal">
+                                        </a>
+                                    </li>
+                                    <li class="details-modal-title">
+                                        <h5 class="details-modal-title-text">
+                                            <%=it.locations.titulo_sillas_footer %>
+                                        </h5>
+                                    </li>
+                                    <li class="sub-contenido-modal">
+                                        <%=it.locations.contenido_sillas_footer %>
+                                    </li>
+                                </ul>
+                            </div>
+                        
+                        </li>
+                        <li class="listado-li">
+                        
+                            <button class="interes-link-footer">
+                                <%=it.locations.nosotros_footer %>
+                            </button>
+                            
+                            <div id="overlay-footer-interes-link" class="overlay-transparente modal-invisible">
+                                <ul class="details-modal resetul">
+                                    <li class="details-modal-close modal-heigh-75">
+                                        <a class="boton-cerrar-modal-footer" role="button">
+                                            <img class="cerrar-modal" src="./img/svg/cerrar_modal.svg" alt="boton cerrar modal">
+                                        </a>
+                                    </li>
+                                    <li class="details-modal-title">
+                                        <h5 class="details-modal-title-text">
+                                            <%=it.locations.titulo_nosotros_footer %>
+                                        </h5>
+                                    </li>
+                                    <li class="sub-contenido-modal">
+                                        <%=it.locations.contenido_nosotros_footer %>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
                     </ul>
                 </div>
             </div>

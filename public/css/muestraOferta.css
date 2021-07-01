@@ -1237,12 +1237,12 @@ body {
   align-items: center;
   color: rgb(17, 24, 39);
   display: flex;
-  height: 4.5em;
+  height: 60px;
   justify-content: center;
   
   right: 0;
   top: 0;
-  width: 4.5em;
+  width: 65px;
   cursor: pointer;
 }
 
@@ -1276,7 +1276,8 @@ body {
 
 .boton-cerrar-modal
 {
-  width: 100px;
+  display: flex;
+  /* width: 50px; */
   /* height: 100px; */
 }
 
