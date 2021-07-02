@@ -164,13 +164,17 @@
 
 .details-modal-title
 {
-  padding: 15px;
+  
 }
 
 .sub-contenido-modal
 {
-  padding: 15px;
+  
+  padding-left: 15px;
+  padding-right: 49px;
   color: black;
+  font-size: 18px;
+  user-select: none;
 }
 
 .modal-heigh-75
