@@ -1,5 +1,5 @@
 const botonCondiciones = document.getElementsByClassName("boton_modal");
-const botonesCerrar = document.getElementsByClassName("boton-cerrar-modal");
+let botonesCerrar = document.getElementsByClassName("boton-cerrar-modal");
 const overlay = document.getElementsByClassName("overlay-transparente");
 
 const botonesEnlacesInteres = document.getElementsByClassName("enlace_interes_modal");
@@ -24,20 +24,37 @@ for (let i = 0; i < botonCondiciones.length; i++)
 
     botonesCerrar[i].addEventListener("click", async (evento) =>
     {
-        let divOverlay = evento.target.parentElement.parentElement.parentElement;
 
-        if (divOverlay.classList[1] !== "modal-visible")
+        let divOverlay = document.getElementsByClassName("overlay-transparente");
+
+        let botonesCerrar = document.getElementsByClassName("details-modal-close");
+        for (let o = 0; o < divOverlay.length; o++)
         {
-            divOverlay = evento.target.parentElement.parentElement.parentElement.parentElement;
+
+            if (divOverlay[o].classList[1] === "modal-visible") {
+                divOverlay[o].classList.remove("modal-visible");
+                divOverlay[o].classList.add("modal-invisible");
+                document.body.style.overflow = null;
+
+            }
+
         }
 
-        if (divOverlay.classList[1] === "modal-visible")
-        {
-            divOverlay.classList.remove("modal-visible");
-            divOverlay.classList.add("modal-invisible");
-            document.body.style.overflow = null;
 
-        }
+        // let divOverlay = evento.target.parentElement.parentElement.parentElement;
+
+        // if (divOverlay.classList[1] !== "modal-visible")
+        // {
+        //     divOverlay = evento.target.parentElement.parentElement.parentElement.parentElement;
+        // }
+
+        // if (divOverlay.classList[1] === "modal-visible")
+        // {
+        //     divOverlay.classList.remove("modal-visible");
+        //     divOverlay.classList.add("modal-invisible");
+        //     document.body.style.overflow = null;
+
+        // }
         
     });
 
@@ -47,6 +64,7 @@ for (let i = 0; i < botonCondiciones.length; i++)
         // const divOverlay = evento.target.parentElement.nextElementSibling;
         let divOverlay = evento.target.parentElement.parentElement.parentElement.lastElementChild.firstElementChild;
 
+        let botonesCerrar = document.getElementsByClassName("details-modal-close");
         if (divOverlay.classList[1] !== "modal-invisible")
         {
             divOverlay = evento.target.parentElement.parentElement.parentElement.lastElementChild.firstElementChild;

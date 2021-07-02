@@ -69,18 +69,21 @@ exports.InitServer = async () => {
     
     app.use(morgan('combined'));
     
-    //registro de html como eta
-    // app.engine("html", eta.renderFile)
-    // app.set("view engine", "html")
-    // app.set("views", "./public")
+    //FUNcioa - registro de html como eta
+    // app.engine(".html", eta.renderFile);
+    // app.set("views", path.join(__dirname, "../public"));
+    // app.set("view engine", "html");
 
-    //registro de html como eta
+    // app.use("/", express.static('public'));
+    // app.use("/car/", express.static('public'));
+
     app.engine(".html", eta.renderFile);
     app.set("views", path.join(__dirname, "../public"));
     app.set("view engine", "html");
 
     app.use("/", express.static('public'));
     app.use("/car/", express.static('public'));
+    // app.use("/:car/", express.static('public'));
     
     // rutas
     app.use("/", apiLimiter);

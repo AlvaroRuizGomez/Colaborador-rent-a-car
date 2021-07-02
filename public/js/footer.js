@@ -1,6 +1,6 @@
 const botonesInformacionInteres = document.getElementsByClassName("interes-link-footer");
 const botonesCerrarModal = document.getElementsByClassName("modal-heigh-75");
-const overlay = document.getElementsByClassName("overlay-transparente");
+const overlayFooter = document.getElementsByClassName("overlay-transparente");
 
 for (let i = 0; i < botonesInformacionInteres.length; i++) {
     botonesInformacionInteres[i].addEventListener("click", (evento) => {
@@ -22,6 +22,7 @@ for (let i = 0; i < botonesInformacionInteres.length; i++) {
     });
 
     botonesCerrarModal[i].addEventListener("click", async (evento) => {
+        // let divOverlay = document.getElementById("");
         let divOverlay = evento.target.parentElement.parentElement;
 
         if (divOverlay.classList[1] !== "modal-visible") {
@@ -37,7 +38,8 @@ for (let i = 0; i < botonesInformacionInteres.length; i++) {
 
     });
 
-    overlay[i].addEventListener("click", async (evento) => {
+    overlayFooter[i].addEventListener("click", async (evento) => 
+    {
 
         const divOverlay = evento.target;
 

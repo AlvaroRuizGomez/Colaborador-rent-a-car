@@ -135,9 +135,11 @@ exports.postHomeDirect = async (req, res) =>
 {
 
     let query = req.query;
+    const idioma = req.headers["accept-language"].split(",")[0].split("-")[0];
+
     if (query["vehiculo"] === undefined)
     {
-        query = await sanitizar(req.url);
+        query = await sanitizar(req.url, idioma);
 
     }
 
@@ -236,39 +238,80 @@ exports.postHomeDirect = async (req, res) =>
 
 };
 
-const sanitizar = async (query) =>
+const sanitizar = async (query, idioma) =>
 {
 
+    idioma = await CheckLanguage(idioma);
     let q = querystring.unescape(query).split("?")[1];
-    const queryParsed = querystring.parse(q, "&", "=", querystring.unescape());
+    let queryParsed = undefined;
+    if (q === undefined)
+    {
+        let vehiculo = query.split("/")[2].split(".")[0];
+
+        queryParsed = {
+            id: `${vehiculo}`,
+            success: "EZOP3BCLSJz1NqGXwSZco",
+            fase: "2",
+            idioma: `${idioma}`,
+            vehiculo: `${vehiculo}`,
+            fechaRecogida: "",
+            horaRecogida: "09:00",
+            fechaDevolucion: "",
+            horaDevolucion: "20:00",
+            conductor_con_experiencia: "on",
+            edad_conductor: "25",
+        };
+
+        
+    }
+    else
+    {
+        queryParsed = querystring.parse(q, "&", "=", querystring.unescape());
+    }
 
     if (queryParsed.idioma !== undefined)
     {
-        const fechaActual = await ObtenerCurrentDate(queryParsed.idioma);
+        const fechaRecogida = await ObtenerCurrentDate(queryParsed.idioma, 1);
+        const fechaRetorno = await ObtenerCurrentDate(queryParsed.idioma, 4);
     
-        queryParsed["fechaRecogida"] = fechaActual;
+        queryParsed["fechaRecogida"] = fechaRecogida;
         queryParsed["horaRecogida"] = "09:00";
     
-        queryParsed["fechaDevolucion"] = fechaActual;
+        queryParsed["fechaDevolucion"] = fechaRetorno;
         queryParsed["horaDevolucion"] = "20:00";
         queryParsed["conductor_con_experiencia"] = "on";
         queryParsed["edad_conductor"] = "25";
 
     }
 
-
     return queryParsed;
 
-} 
+};
+
+
+const CheckLanguage = async (lang) => {
+
+    //por si acaso hay residuos
+    if (lang.indexOf("-") !== -1) {
+        lang = lang.split("-")[0];
+    }
+
+    if (lang !== "es" && lang !== "en" && lang !== "it" && lang !== "de") {
+        lang = "en";
+    }
+
+    return lang;
+
+};
 
 
 
 //2020-01-07T11:28:03.588+00:00
-const ObtenerCurrentDate = async (idioma) => {
+const ObtenerCurrentDate = async (idioma, diaMas) => {
 
     let date_ob = new Date();
-    date_ob.setDate(date_ob.getDate() + 1);
-    const dia = (date_ob.getUTCDate()) .toString().padStart(2, "00");
+    date_ob.setDate(date_ob.getDate() + diaMas);
+    const dia = (date_ob.getDate()) .toString().padStart(2, "00");
     const mes = (date_ob.getUTCMonth() + 1).toString().padStart(2, "00");
     const anyo = date_ob.getUTCFullYear();
 
