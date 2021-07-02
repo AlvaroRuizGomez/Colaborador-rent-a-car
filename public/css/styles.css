@@ -989,12 +989,14 @@ body{
 {
   /* background-color: red; */
   transform: translateY(45px);
+  /* transform: translateY(10%); */
 }
 
 .card:hover > .form-line > .content > .btn
 {
   /* background-color: red; */
   transform: translateY(25px);
+  /* transform: translateY(10%); */
 }
 
 
@@ -1023,7 +1025,7 @@ body{
     display: none;
 }
 
-.form-inline:hover
+.form-line:hover
 {
   text-decoration: none;
 }
