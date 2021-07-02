@@ -1266,7 +1266,8 @@ body {
   font-size: 15px;
   font-weight: 900;
   margin-top: 20px;
-  text-decoration: underline;
+  /* text-decoration: underline; */
+  text-align: left;
 }
 .negrita
 {
