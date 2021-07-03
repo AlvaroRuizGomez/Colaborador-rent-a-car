@@ -1,9 +1,8 @@
 const botonCondiciones = document.getElementsByClassName("boton_modal");
 let botonesCerrar = document.getElementsByClassName("details-modal-close");
 const overlay = document.getElementsByClassName("overlay-transparente");
-
 const botonesEnlacesInteres = document.getElementsByClassName("enlace_interes_modal");
-
+const overlayAnimacion = document.getElementById("overlay-animacion-contenido");
 
 for (let i = 0; i < botonCondiciones.length; i++)
 {
@@ -189,4 +188,13 @@ window.onclick = async (evento) => {
 
 //---- fin idiomas
 
+setTimeout(async () => {
+    const contenido = document.getElementById("contenido-ofertas");
+
+    overlayAnimacion.classList.remove("visible");
+    overlayAnimacion.classList.add("invisible");
+
+    contenido.classList.remove("invisible");
+    
+}, 4000);
 
