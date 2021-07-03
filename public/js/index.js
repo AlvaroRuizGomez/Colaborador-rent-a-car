@@ -10,26 +10,48 @@ for (let i = 0; i < cards.length; i++)
 {
     cards[i].addEventListener("click", async (evento) =>
     {
-        evento.preventDefault();
+        // evento.preventDefault();
         
         const selectedVehiculo = cards[i].lastElementChild.lastElementChild.lastElementChild.value;
         const formulario = document.getElementById(selectedVehiculo);
 
-        formulario[4].value = document.getElementById("fechaRecogida").value;
-        formulario[5].value = document.getElementById("horaRecogida").value;
-        formulario[6].value = document.getElementById("fechaDevolucion").value;
-        formulario[7].value = document.getElementById("horaDevolucion").value;
-
+        let link = formulario.href;
+        link = link.split("fechaRecogida=")[0] +  "fechaRecogida=" + document.getElementById("fechaRecogida").value + link.split("fechaRecogida=")[1];
+        link = link.split("horaRecogida=")[0] + "horaRecogida=" + document.getElementById("horaRecogida").value + link.split("horaRecogida=")[1];
+        link = link.split("fechaDevolucion=")[0] + "fechaDevolucion=" + document.getElementById("fechaDevolucion").value + link.split("fechaDevolucion=")[1];
+        link = link.split("horaDevolucion=")[0] + "horaDevolucion=" + document.getElementById("horaDevolucion").value + link.split("horaDevolucion=")[1];
         if (document.getElementById("rangoedad").checked === true)
         {
-            formulario[8].value = "on";
+            link = link.split("conductor_con_experiencia=")[0] + "conductor_con_experiencia=on" + link.split("conductor_con_experiencia=")[1];
+            // formulario[8].value = "on";
         }
         else
         {
-            formulario[8].value = "off";
+            link = link.split("conductor_con_experiencia=")[0] + "conductor_con_experiencia=off" + link.split("conductor_con_experiencia=")[1];
+            // formulario[8].value = "off";
         }
+
+        link = link.split("edad_conductor=")[0] + "edad_conductor=" + document.getElementById("edad_conductor").value + link.split("edad_conductor=")[1];
         
-        formulario.submit();
+        
+        formulario.href = link;
+
+        // link.split("?")[1].split("&")[6].split("=")[1] = document.getElementById("fechaRecogida").value;
+        // link.split("?")[1].split("&")[7].split("=")[1] = document.getElementById("horaRecogida").value;
+        // link.split("?")[1].split("&")[8].split("=")[1] = document.getElementById("fechaDevolucion").value;
+
+
+        //"http://localhost:8080/es/car.html?id=peugeot108&success=kjRubJJZL2LwIAHC9J2tJ&fase=2&&idioma=es&vehiculo=peugeot108&fechaRecogida=&horaRecogida=&fechaDevolucion=&horaDevolucion=&conductor_con_experiencia=&"
+
+
+        // formulario[4].value = document.getElementById("fechaRecogida").value;
+        // formulario[5].value = document.getElementById("horaRecogida").value;
+        // formulario[6].value = document.getElementById("fechaDevolucion").value;
+        // formulario[7].value = document.getElementById("horaDevolucion").value;
+
+
+        
+        // formulario.submit();
 
     });
 

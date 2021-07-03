@@ -1,11 +1,11 @@
 :root
 {
-  --SEPARACION_COLORES_TOOLTIP: white;
+  --___COLORES_TOOLTIP____: white;
   --background-color-tooltip: rgba(59, 72, 80, 0.9);
   --border-color-tooltip: rgba(55, 64, 70, 0.9);
   --gradiente-tooltip: rgba(59, 72, 80, 0.44);
 
-  --SEPARACION_COLORES_BACKGROUND: white;
+  --___COLORES_BACKGROUND____: white;
   --color-background-input: #e9ecef;
   --color-texto-input: #495057;
   --color-border-input: #ced4da;
@@ -16,7 +16,7 @@
   --background-cabecera-container: #eaf2fd;
   --background-cabecera: #fafafa;
 
-  --SEPARACION_COLORES_CABECERA: white;
+  --___COLORES_CABECERA____: white;
     /* cabecera */
   --background-cabecera-container: #eaf2fd;
   --background-cabecera: #fafafa;
@@ -1237,12 +1237,12 @@ body {
   align-items: center;
   color: rgb(17, 24, 39);
   display: flex;
-  height: 4.5em;
+  height: 60px;
   justify-content: center;
   
   right: 0;
   top: 0;
-  width: 4.5em;
+  width: 65px;
   cursor: pointer;
 }
 
@@ -1266,7 +1266,8 @@ body {
   font-size: 15px;
   font-weight: 900;
   margin-top: 20px;
-  text-decoration: underline;
+  text-align: left;
+  padding-right: 30px;
 }
 .negrita
 {
@@ -1276,7 +1277,8 @@ body {
 
 .boton-cerrar-modal
 {
-  width: 100px;
+  display: flex;
+  /* width: 50px; */
   /* height: 100px; */
 }
 
@@ -1510,6 +1512,133 @@ body {
   visibility: hidden;
 }
 
+/* -------------- fin carrusel */
+
+/* -------------------------- OLAS */
+
+
+.header-weaves {
+  width: 100%;
+  background: linear-gradient(60deg, rgba(84,58,183,1) 0%, rgba(0,172,193,1) 100%);
+
+}
+
+.contenedor-weaves{
+
+    border: 3px solid #cccc;
+    width: 80%;
+
+}
+
+
+
+.logo-weaves {
+  width: 36%;
+  fill: white;
+  margin-bottom: 15px;
+
+}
+
+.inner-header-weaves {
+  height:30vh;
+  width:100%;
+  margin: 0;
+  padding: 0;
+}
+
+.flex { /*Flexbox for containers*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+}
+
+.waves {
+  position:relative;
+  width: 100%;
+  height:15vh;
+  margin-bottom:-7px; /*Fix for safari gap*/
+  min-height:100px;
+  max-height:150px;
+}
+
+.content-weaves {
+  position:relative;
+  /* height: 9vh; */
+  text-align:center;
+  background-color: white;
+}
+
+.titulo-weaves
+{
+  font-weight:300;
+  letter-spacing: 2px;
+  font-size:48px;
+  color: white;
+
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.subtitulo-weaves
+{
+  font-weight:300;
+  letter-spacing: 2px;
+  font-size:14px;
+  color: white;
+
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Animation */
+
+.parallax > use {
+  animation: move-forever 25s cubic-bezier(.55,.5,.45,.5)     infinite;
+}
+.parallax > use:nth-child(1) {
+  animation-delay: -2s;
+  animation-duration: 7s;
+}
+.parallax > use:nth-child(2) {
+  animation-delay: -3s;
+  animation-duration: 10s;
+}
+.parallax > use:nth-child(3) {
+  animation-delay: -4s;
+  animation-duration: 13s;
+}
+.parallax > use:nth-child(4) {
+  animation-delay: -5s;
+  animation-duration: 20s;
+}
+@keyframes move-forever {
+  0% {
+   transform: translate3d(-90px,0,0);
+  }
+  100% { 
+    transform: translate3d(85px,0,0);
+  }
+}
+/*Shrinking for mobile*/
+@media (max-width: 768px) {
+  .waves {
+    height:40px;
+    min-height:40px;
+  }
+  .content {
+    height:30vh;
+  }
+  h1 {
+    font-size:24px;
+  }
+}
+/* ---------------- FIN OLAS----------------- */
 
 
 

@@ -110,8 +110,33 @@
 
 }
 
-.interes-link
+.interes-link-footer:focus
 {
+    appearance: none;
+    overflow: visible;
+    border: 0;
+    outline: 0;
+    
+}
+
+.interes-link-footer
+{
+
+      -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    overflow: visible;
+    border: 0;
+    outline: 0;
+    font: inherit;
+    -webkit-font-smoothing: inherit;
+    letter-spacing: inherit;
+    color: inherit;
+    background: none;
+    vertical-align: top;
+
+
+
   font-size: 1rem;
   color: #37bcf9;
   transition: all 300ms;
@@ -123,12 +148,39 @@
   width: 100%;
 }
 
-.interes-link:hover
+.interes-link-footer:hover
 {
     padding-left: 40px;
     color: white;
     width: 100%;
     text-decoration: none;
+    cursor: pointer;
+}
+
+.boton-cerrar-modal-footer
+{
+  display: flex;
+}
+
+.details-modal-title
+{
+  
+}
+
+.sub-contenido-modal
+{
+  
+  padding-left: 15px;
+  padding-right: 49px;
+  color: black;
+  font-size: 18px;
+  user-select: none;
+}
+
+.modal-heigh-75
+{
+  height: 75px;
+  width: 75px;
 }
 
 /* ------  Localización/Mapa ------- */
