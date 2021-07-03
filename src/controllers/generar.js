@@ -18,7 +18,7 @@ exports.GenerarWebCache = async (req, res) =>
 
 exports.generarHTML = async (req, res) =>
 {
-    // const body = { "token": process.env.TOKEN_FOR_BACKEND_ACCESS, ...req.body };
+    // const body = { "token": process.env.TOKEN_FOR_BACKEND_ACCESS, ...req.query };
     // //enviamos al backedn la informacion
     // const responseRaw = await fetch(URI_BACKEND_GENERAR_CONDICIONES, {
     //     method: "POST",

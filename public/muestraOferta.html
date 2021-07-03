@@ -183,6 +183,19 @@
                             <%=it.locations.modificar %>
                         </button>
                     </div>
+                    
+                    <!-- <img src="./img/svg/forma_cantidad_dias.svg" alt="" style="
+                        position: absolute;
+                        top: 30%;
+                        left: 37%;
+                        z-index: 0;
+                    ">
+                    <span style="
+                        position: absolute;
+                        top: 30%;
+                        left: 37%;
+                        z-index: 0;
+                    ">4</span> -->
                 </div>
 
             </div>
@@ -372,104 +385,60 @@
                 
             </div>
         </div>
-
-
-
         <!------------ Fin Bloque link de interés  ------------->
+
+
+        <div id="overlay-animacion-contenido" class="overlay-transparente flex modal-visible">
+            <div class="contenedor-weaves">
+                <div class="header-weaves">
+                    <!--Content before waves-->
+                    <div class="inner-header-weaves flex">
+                        <h1 class="titulo-weaves">Ya falta menos ....</h1>
+                        <h4 class="subtitulo-weaves">Buscando...</h4>
+                    </div>
         
-        <div class="contenido">
-
-<% if (it.data.length> 0) { %>
-    <div class="carruselSlider">
-        <div id="carousel" class="carousel slide " data-ride="carousel">
-            <a class="carrusel-control-prev carrusel-control" href="#carousel" role="button" data-slide="prev">
-                <img src="img/svg/carrusel_control_previous.svg" class="icono-azul"
-                    alt="<%=it.locations.alt_anterior %>">
-            </a>
-            <div class="carousel-inner">
-                
-                <div class="carousel-item active">
-                    <div class="row row-custom ">
-                        <% for (let i=0; i < 5; i++) { %>
-                            <% if (it.data[i]===undefined ) continue; %>
-                                <div class="columna col-p">
-                                    <h5 class="nombre-car-slider">
-                                        <%= it.data[i].descripcion %>
-                                    </h5>
-                                    <!-- py-4 text-black text-center -->
-
-                                    <picture>
-                                        <source
-                                            data-srcset="./img/Img-Vehiculos/<%= it.data[i].ImagenVehiclo %>_Slider.avif">
-                                        <source
-                                            data-srcset="./img/Img-Vehiculos/<%= it.data[i].ImagenVehiclo %>_Slider.webp">
-                                        <img class="img-ta lazyload"
-                                            data-src="img/Img-Vehiculos/<%= it.data[i].ImagenVehiclo %>_Slider.png"
-                                            alt="<%= it.data[i].descripcion %>">
-                                    </picture>
-
-
-
-
-                                    <div class="precio">
-                                        <p class="precio-txt">
-                                            <%=it.locations.desde %>
-                                        </p>
-                                        <p class="precio-p">
-                                            <%= it.data[i].preciopordiasindescuento %>€
-                                        </p>
-                                    </div>
-                                </div>
-                        <% } %>
+                    <!--Waves Container-->
+                    <div>
+                        <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                            viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+                            <defs>
+                                <path id="gentle-wave"
+                                    d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+                            </defs>
+                            <g class="parallax">
+                                <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.7" />
+                                <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.5)" />
+                                <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.3)" />
+                                <use xlink:href="#gentle-wave" x="48" y="7" fill="#fff" />
+                            </g>
+                        </svg>
                     </div>
+                    <!--Waves end-->
                 </div>
-                <% let cantidadRows=Math.ceil(it.data.length / 5); %>
-                <% let puntero=5 %>
-                
-                <% for (let rows=1; rows < 3; rows++) { %>
-                    
-                    <div class="carousel-item">
-                        <!--  row-p -->
-                        <div class="row row-custom">
-                            <% for (let x=0; x < 5; x++) { %>
-                            
-                                <% if (it.data[puntero]===undefined ) puntero= 5; %>
-                                    <div class="columna col-p">
-                                        <h5 class="nombre-car-slider">
-                                            <%= it.data[puntero].descripcion %>
-                                        </h5>
-                                        <picture>
-                                            <source data-srcset="./img/Img-Vehiculos/<%= it.data[puntero].ImagenVehiclo %>_Slider.avif">
-                                            <source data-srcset="./img/Img-Vehiculos/<%= it.data[puntero].ImagenVehiclo %>_Slider.webp">
-                                            <img class=" img-ta lazyload"
-                                                data-src="img/Img-Vehiculos/<%= it.data[puntero].ImagenVehiclo %>_Slider.png"
-                                                alt="<%= it.data[puntero].descripcion %>">
-                                        </picture>
-                            
-                                        <div class="precio">
-                                            <p class="precio-txt">
-                                                desde
-                                            </p>
-                                            <p class="precio-p">
-                                                <%= it.data[puntero].preciopordiasindescuento %>€
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <% puntero=puntero + 1; %>
-                                <% } %>
-                        </div>
-                    </div>
-                    
-                <% } %>
-
+                <!--Header ends-->
+        
+                <!--Content starts-->
+                <div class="content-weaves flex">
+                    <picture>
+                        <source data-srcset="./img/Img-Logo/rentacar_logo_header.avif">
+                        <source data-srcset="./img/Img-Logo/rentacar_logo_header.webp">
+                        <img class="logo-weaves lazyload" data-src="./img/Img-Logo/rentacar_logo_header.png"
+                            alt="logo rentcarmallorca" />
+                    </picture>
+                </div>
+                <!--Content ends-->
             </div>
-            <a class=" carrusel-control-next carrusel-control" href="#carousel" role="button" data-slide="next">
-                <img src="img/svg/carrusel_control_next.svg" class="icono-azul" alt="<%=it.locations.alt_siguiente %>">
-            </a>
+        
         </div>
-    </div>
-    <% } %>
 
+
+
+        <div id="contenido-ofertas" class="contenido invisible">
+            <!------------ Inicio Carrusel  ------------->
+            <% if (it.data.length> 0) { %>
+                <%~ includeFile("slider.html", it) %>
+                <% } %>
+            <!------------ Fin Carrusel  ------------->
                     <!--------------- Inicio Ofertas --------------------->
                     <div class="ofertas">
                         <% if (it.data.length <=0) { %>
@@ -486,8 +455,7 @@
                                         <img class="icono-alerta-edad" src="./img/svg/alerta_edad.svg"
                                             alt="<%=it.locations.alt_icono_edad_conductor %>">
                                         <p class="texto-alerta-edad">
-                                            <%=it.locations.aviso_edad1 %>
-                                                <%=it.locations.aviso_edad2 %>
+                                            <%=it.locations.aviso_edad_ofertas %>
                                         </p>
                                     </div>
                                     <% } %>
@@ -533,12 +501,13 @@
 
         <!------------ Inicio  Footer ------------------------->
         <%~ includeFile("footer.html", it) %>
-            <!------------ Fin     Footer ------------------------->
+        <!------------ Fin     Footer ------------------------->
     </div>
 
     <script src="./js/muestraOferta.js"></script>
     <script src="./js/lazysizes.min.js" async=""></script>
     <script async src="./js/newsletter.js"></script>
+    <script async src="./js/footer.js"></script>
     
 </body>
 

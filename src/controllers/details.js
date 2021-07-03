@@ -114,6 +114,8 @@ const ControlSchema = async (body) => {
         porcentaje: Joi.string().required(),
         tooltip_suplementogenerico_suplemento_noche_fuera_entrega: Joi.string().required(),
         location_suplementogenerico_suplemento_noche_fuera_entrega: Joi.string().required(),
+        tooltip_suplementogenerico_sin_suplemento_tiempo_fuera_entrega: Joi.string(),
+        location_suplementogenerico_sin_suplemento_tiempo_fuera_entrega: Joi.string(),
         // tooltip_preciosSuplementoPorTipoChofer_undefined: Joi.string().required(),
         // location_preciosSuplementoPorTipoChofer_undefined: Joi.string().required(),
         suplementoportipoChofer: Joi.number().required(),

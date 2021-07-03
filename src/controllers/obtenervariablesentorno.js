@@ -11,6 +11,11 @@ exports.ObtenerURI_GETALL_BACKEND = () => {
     return `${protocolo}${urlbackend}:${process.env.PORT_BACKEND}${process.env.ENDPOINT_GETALL_BACKEND}`;
 };
 
+exports.ObtenerENDPOINT_GETCAR_FROM_CARD_BACKEND = () =>
+{
+    return `${protocolo}${urlbackend}:${process.env.PORT_BACKEND}${process.env.ENDPOINT_GETCAR_FROM_CARD_BACKEND}`;
+};
+
 exports.ObtenerURI_STATS_BACKEND = () => {
     return `${protocolo}${urlbackend}:${process.env.PORT_BACKEND}${process.env.ENDPOINT_STATS_BACKEND}`;
 };

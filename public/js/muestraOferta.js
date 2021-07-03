@@ -1,9 +1,8 @@
 const botonCondiciones = document.getElementsByClassName("boton_modal");
-const botonesCerrar = document.getElementsByClassName("boton-cerrar-modal");
+let botonesCerrar = document.getElementsByClassName("details-modal-close");
 const overlay = document.getElementsByClassName("overlay-transparente");
-
 const botonesEnlacesInteres = document.getElementsByClassName("enlace_interes_modal");
-
+const overlayAnimacion = document.getElementById("overlay-animacion-contenido");
 
 for (let i = 0; i < botonCondiciones.length; i++)
 {
@@ -22,24 +21,7 @@ for (let i = 0; i < botonCondiciones.length; i++)
 
     });
 
-    botonesCerrar[i].addEventListener("click", async (evento) =>
-    {
-        let divOverlay = evento.target.parentElement.parentElement.parentElement;
-
-        if (divOverlay.classList[1] !== "modal-visible")
-        {
-            divOverlay = evento.target.parentElement.parentElement.parentElement.parentElement;
-        }
-
-        if (divOverlay.classList[1] === "modal-visible")
-        {
-            divOverlay.classList.remove("modal-visible");
-            divOverlay.classList.add("modal-invisible");
-            document.body.style.overflow = null;
-
-        }
-        
-    });
+   
 
     botonCondiciones[i].addEventListener("click", async (evento)=> 
     {
@@ -47,6 +29,7 @@ for (let i = 0; i < botonCondiciones.length; i++)
         // const divOverlay = evento.target.parentElement.nextElementSibling;
         let divOverlay = evento.target.parentElement.parentElement.parentElement.lastElementChild.firstElementChild;
 
+        let botonesCerrar = document.getElementsByClassName("details-modal-close");
         if (divOverlay.classList[1] !== "modal-invisible")
         {
             divOverlay = evento.target.parentElement.parentElement.parentElement.lastElementChild.firstElementChild;
@@ -61,6 +44,31 @@ for (let i = 0; i < botonCondiciones.length; i++)
             divOverlay.classList.add("modal-visible");
         }
     });
+}
+
+
+for (let p = 0; p < botonesCerrar.length; p++ )
+{
+    botonesCerrar[p].addEventListener("click", (evento) => 
+    {
+
+        let divOverlay = document.getElementsByClassName("overlay-transparente");
+
+        let botonesCerrar = document.getElementsByClassName("details-modal-close");
+        for (let o = 0; o < divOverlay.length; o++) {
+
+            if (divOverlay[o].classList[1] === "modal-visible") {
+                divOverlay[o].classList.remove("modal-visible");
+                divOverlay[o].classList.add("modal-invisible");
+                document.body.style.overflow = null;
+
+            }
+
+        }
+
+    });
+
+
 }
 
 
@@ -180,4 +188,13 @@ window.onclick = async (evento) => {
 
 //---- fin idiomas
 
+setTimeout(async () => {
+    const contenido = document.getElementById("contenido-ofertas");
+
+    overlayAnimacion.classList.remove("visible");
+    overlayAnimacion.classList.add("invisible");
+
+    contenido.classList.remove("invisible");
+    
+}, 4000);
 

@@ -24,7 +24,7 @@
   },
   "scripts": {
     "start": "node src/index.js",
-    "dev": "nodemon src/index.js",
+    "dev": "NODE_ENV=production LOCAL_SECRETS=true nodemon src/index.js",
     "devhub": "NODE_ENV=production LOCAL_SECRETS=true node src/index.js",
     "test": ""
   },

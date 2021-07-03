@@ -226,67 +226,11 @@
                         </a>
                     </li>
                     <li class="details-modal-title">
-                        <h5 class="details-modal-title-text"><%=it.locations.titulo_condiciones_generales %></h5>
+                        <h5 class="details-modal-title-text"><%=it.locations.titulo_terminos_condiciones %></h5>
                     </li>
-                    <li class="subtitulo-contenido-modal"><%=it.locations.requisitos_conductor_plus %></li>
-                        <li>
-                            <b class="negrita"><%=it.locations.conductor_plus_coche %></b> <%= it.condicionesgenerales["choferPlus232Cars"]["descripcion"] %>
-                        </li>
-                        <li>
-                            <b class="negrita"><%=it.locations.conductor_plus_moto %></b> <%= it.condicionesgenerales["choferPlus252Motos"]["descripcion"] %>
-                        </li>
-                    <li class="subtitulo-contenido-modal"><%=it.locations.suplemento_conductor_plus_coche %></li>
-                        <% for (let entrada of it.condicionesgenerales.choferPlus232Cars.datos ) { %>
-                            <li>
-                                <% const localizationDesc = it.locations[entrada["descripcion_vehiculo"]]   %>
-                                <b class="negrita"><%= localizationDesc %> :</b> <%= entrada["valor"] %> € <%= it.locations.pordia %>
-                            </li>
-                        <% } %>
-                    <li class="subtitulo-contenido-modal"><%=it.locations.suplemento_conductor_plus_moto %></li>
-                        <% for (let entrada of it.condicionesgenerales.choferPlus252Motos.datos ) { %>
-                            <% const localizationDesc=it.locations[entrada["descripcion_vehiculo"]] %>
-                            <li><b class="negrita"><%= localizationDesc %>:</b> <%= entrada["valor"] %> € <%= it.locations.pordia %></li>
-                        <% } %>
                     <li class="subtitulo-contenido-modal">
-                        <%=it.locations.edad_conductor_joven %>
+                        <%~it.locations.condiciones_generales_texto %>
                     </li>
-                        <li>
-                            <b class="negrita"><%=it.locations.conductor_joven_coche %></b> <%=it.locations.from_deciocho_a %> <%= it.condicionesgenerales.edad_minima_para_conductor_plus_coche - 1 %> <%=it.locations.anos_final %>
-                        </li>
-                        <li>
-                            <b class="negrita"><%=it.locations.conductor_joven_moto %></b> <%=it.locations.from_deciocho_a %> <%= it.condicionesgenerales.edad_minima_para_conductor_plus_motos - 1 %> <%=it.locations.anos_final %>
-                        </li>
-                    <li class="subtitulo-contenido-modal">
-                        <%=it.locations.suplemento_conductor_joven_coches %>
-                    </li>
-                        <% for (let entrada of it.condicionesgenerales.choferPlusNovelCars.datos ) { %>
-                            <li>
-                                <% const localizationDesc=it.locations[entrada["descripcion_vehiculo"]] %>
-                                <b class="negrita"><%= localizationDesc %>:</b> <%= entrada["valor"] %> € <%= it.locations.pordia %>
-                            </li>
-                        <% } %>
-                    <li class="subtitulo-contenido-modal">
-                        <%=it.locations.suplemento_conductor_joven_motos %>
-                    </li>
-                        <% for (let entrada of it.condicionesgenerales.choferPlusNovelMotos.datos ) { %>
-                            <% const localizationDesc=it.locations[entrada["descripcion_vehiculo"]] %>
-                            <li><b class="negrita"><%= localizationDesc %>:</b> <%= entrada["valor"] %> € <%= it.locations.pordia %></li>
-                        <% } %>
-                    <li class="subtitulo-contenido-modal"><%=it.locations.permiso_conducir_internacional %></li>
-                        <li><%=it.locations.permiso_conducir_internacional_descripcion %></li>
-                    <li class="subtitulo-contenido-modal"><%=it.locations.conductor_adicional %></li>
-                        <li><%=it.locations.conductor_adicional_descripcion %></li>
-                    <li class="subtitulo-contenido-modal"><%= it.locations.pago_condiciones %></li>
-                        <li><%=it.locations.pago_condiciones_descripcion %></li>
-                    <li class="subtitulo-contenido-modal"><%=it.locations.seguro_condiciones %></li>
-                        <li><%= it.locations.seguro_precio_coches_condiciones %></li>
-                        <li><%= it.locations.seguro_precio_motos_condiciones %></li>
-                    <li class="subtitulo-contenido-modal"><%=it.locations.noche_fuera_condiciones %></li>
-                        <li><b class="negrita"><%=it.locations.coches_condiciones %></b> <%= it.suplementogenerico_base["nocheCar"]["valor"] %> € <%=it.locations.pordia%></li>
-                        <li><b class="negrita"><%=it.locations.motos_condiciones %></b> <%= it.suplementogenerico_base["nocheMoto"]["valor"] %> € <%=it.locations.pordia%></li>
-                    <li class="subtitulo-contenido-modal"><%=it.locations.fuera_tiempo_entrega %></li>
-                        <li><b class="negrita"><%=it.locations.coches_condiciones %></b> <%= it.suplementogenerico_base["outTimeCar"]["valor"] %> € <%=it.locations.pordia%></li>
-                        <li><b class="negrita"><%=it.locations.motos_condiciones %></b> <%= it.suplementogenerico_base["outTimeMoto"]["valor"] %> € <%=it.locations.pordia%></li>
                 </ul>
             </div>
 

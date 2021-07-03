@@ -1,7 +1,9 @@
-// const express = require('express');
+// const express = require("express");
 const fetch = require("node-fetch");
 const Joi = require("joi");
 const nanoid = require("nanoid");
+const querystring = require("querystring");
+
 const geolocation = require("./geolocation");
 const locations = require("./locations");
 const obtenerVars = require("./obtenervariablesentorno");
@@ -9,7 +11,9 @@ const obtenerVars = require("./obtenervariablesentorno");
 //variables
 const URI_API_BACKEND = obtenerVars.ObtenerURI_API_BACKEND();
 const URI_GETALL_BACKEND = obtenerVars.ObtenerURI_GETALL_BACKEND();
+
 const URI_STATS_BACKEND = obtenerVars.ObtenerURI_STATS_BACKEND();
+const ENDPOINT_GETCAR_FROM_CARD_BACKEND = obtenerVars.ObtenerENDPOINT_GETCAR_FROM_CARD_BACKEND();
 
 
 const eta = require("eta");
@@ -68,7 +72,7 @@ exports.getHome = async (req, res, languageBrowser) =>
     if (dataResponse.data.length <= 0) {
         res.render("inicio", {
             "data": dataResponse.data,
-            "formdata": req.body,
+            "formdata": req.query,
             "errorFormulario": dataResponse.errorFormulario,
             "success": id,
             "diasEntreRecogidaDevolucion": dataResponse.diasEntreRecogidaDevolucion,
@@ -87,7 +91,7 @@ exports.getHome = async (req, res, languageBrowser) =>
             "preciosPorClase": dataResponse.preciosPorClase,
             "locations": locationLanguage,
             // "pagoRecogida": dataResponse.pagoRecogida
-            // "formdata": req.body,
+            // "formdata": req.query,
             // "errorFormulario": dataResponse.errorFormulario,
             // "diasEntreRecogidaDevolucion": dataResponse.diasEntreRecogidaDevolucion,
             // "suplementogenerico_base": dataResponse.suplementogenerico_base,
@@ -129,7 +133,17 @@ exports.redirectToHome = async (req, res) =>
 
 exports.postHomeDirect = async (req, res) =>
 {
-    const isSchemaValid = await ControlDirectSchema(req.body);
+
+    let query = req.query;
+    const idioma = req.headers["accept-language"].split(",")[0].split("-")[0];
+
+    if (query["vehiculo"] === undefined)
+    {
+        query = await sanitizar(req.url, idioma);
+
+    }
+
+    const isSchemaValid = await ControlDirectSchema(query);
 
     if (isSchemaValid === false) {
         //TODO: mejorar
@@ -137,10 +151,10 @@ exports.postHomeDirect = async (req, res) =>
         return res.status(404).send("Not found");
     }
 
-    const body = { "token": process.env.TOKEN_FOR_BACKEND_ACCESS, "direct":true, ...req.body };
+    const body = { "token": process.env.TOKEN_FOR_BACKEND_ACCESS, "direct":true, ...query };
 
     //enviamos al backedn la informacion
-    const responseRaw = await fetch(URI_GETALL_BACKEND, {
+    const responseRaw = await fetch(ENDPOINT_GETCAR_FROM_CARD_BACKEND, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -158,10 +172,10 @@ exports.postHomeDirect = async (req, res) =>
         res.status(404).send("Not found");
         return;
     }
-    // const languageBrowser = await CheckLanguage(req.body.idioma);
+    // const languageBrowser = await CheckLanguage(req.query.idioma);
     // const lenguaje = await locations.GetVarLocales();
 
-    const locationLanguage = await locations.GenerateLocationBrowser(req.body.idioma);
+    const locationLanguage = await locations.GenerateLocationBrowser(query.idioma);
 
     if (dataResponse.isOk === false) {
         if (dataResponse.errorFormulario === "") {
@@ -171,7 +185,7 @@ exports.postHomeDirect = async (req, res) =>
         else {
             return res.render("inicio",
                 {
-                    "success": req.body.success,
+                    "success": query.success,
                     "errorFormulario": dataResponse.errorFormulario,
                     "locations": locationLanguage
                 });
@@ -184,9 +198,9 @@ exports.postHomeDirect = async (req, res) =>
     if (dataResponse.data.length <= 0) {
         res.render("muestraOferta", {
             "data": dataResponse.data,
-            "formdata": req.body,
+            "formdata": query,
             "errorFormulario": dataResponse.errorFormulario,
-            "success": req.body.success,
+            "success": query.success,
             "diasEntreRecogidaDevolucion": dataResponse.diasEntreRecogidaDevolucion,
             "locations": locationLanguage
 
@@ -205,9 +219,9 @@ exports.postHomeDirect = async (req, res) =>
 
         res.render("muestraOferta", {
             "data": dataResponse.data,
-            "formdata": req.body,
+            "formdata": query,
             "errorFormulario": dataResponse.errorFormulario,
-            "success": req.body.success,
+            "success": query.success,
             "diasEntreRecogidaDevolucion": dataResponse.diasEntreRecogidaDevolucion,
             "suplementogenerico_base": dataResponse.suplementogenerico_base,
             "suplementotipochofer_base": dataResponse.suplementotipochofer_base,
@@ -224,6 +238,89 @@ exports.postHomeDirect = async (req, res) =>
 
 };
 
+const sanitizar = async (query, idioma) =>
+{
+
+    idioma = await CheckLanguage(idioma);
+    let q = querystring.unescape(query).split("?")[1];
+    let queryParsed = undefined;
+    if (q === undefined)
+    {
+        let vehiculo = query.split("/")[2].split(".")[0];
+
+        queryParsed = {
+            id: `${vehiculo}`,
+            success: "EZOP3BCLSJz1NqGXwSZco",
+            fase: "2",
+            idioma: `${idioma}`,
+            vehiculo: `${vehiculo}`,
+            fechaRecogida: "",
+            horaRecogida: "09:00",
+            fechaDevolucion: "",
+            horaDevolucion: "20:00",
+            conductor_con_experiencia: "on",
+            edad_conductor: "25",
+        };
+
+        
+    }
+    else
+    {
+        queryParsed = querystring.parse(q, "&", "=", querystring.unescape());
+    }
+
+    if (queryParsed.idioma !== undefined)
+    {
+        const fechaRecogida = await ObtenerCurrentDate(queryParsed.idioma, 1);
+        const fechaRetorno = await ObtenerCurrentDate(queryParsed.idioma, 4);
+    
+        queryParsed["fechaRecogida"] = fechaRecogida;
+        queryParsed["horaRecogida"] = "09:00";
+    
+        queryParsed["fechaDevolucion"] = fechaRetorno;
+        queryParsed["horaDevolucion"] = "20:00";
+        queryParsed["conductor_con_experiencia"] = "on";
+        queryParsed["edad_conductor"] = "25";
+
+    }
+
+    return queryParsed;
+
+};
+
+
+const CheckLanguage = async (lang) => {
+
+    //por si acaso hay residuos
+    if (lang.indexOf("-") !== -1) {
+        lang = lang.split("-")[0];
+    }
+
+    if (lang !== "es" && lang !== "en" && lang !== "it" && lang !== "de") {
+        lang = "en";
+    }
+
+    return lang;
+
+};
+
+
+
+//2020-01-07T11:28:03.588+00:00
+const ObtenerCurrentDate = async (idioma, diaMas) => {
+
+    let date_ob = new Date();
+    date_ob.setDate(date_ob.getDate() + diaMas);
+    const dia = (date_ob.getDate()) .toString().padStart(2, "00");
+    const mes = (date_ob.getUTCMonth() + 1).toString().padStart(2, "00");
+    const anyo = date_ob.getUTCFullYear();
+
+    const textoDia = new Intl.DateTimeFormat(idioma, { weekday: 'short' }).format(date_ob);
+    const fechaActual = `${textoDia},${dia}-${mes}-${anyo}`;
+
+    return fechaActual;
+
+};
 
 exports.postHome = async (req, res) =>
 {
@@ -256,8 +353,6 @@ exports.postHome = async (req, res) =>
     {
     
     }
-    // const languageBrowser = await CheckLanguage(req.body.idioma);
-    // const lenguaje = await locations.GetVarLocales();
     
     const locationLanguage = await locations.GenerateLocationBrowser(req.body.idioma);
     
@@ -397,15 +492,17 @@ const ControlDirectSchema = async (body) =>
 {
 
     const schema = Joi.object({
-        "fase": Joi.number().required(),
-        "fechaDevolucion": Joi.string().required(),
-        "fechaRecogida": Joi.string().required(),
-        "horaDevolucion": Joi.string().required(),
-        "horaRecogida": Joi.string().required(),
-        "idioma": Joi.string().required(),
-        "success": Joi.string().required(),
-        "vehiculo": Joi.string().required(),
-        "conductor_con_experiencia": Joi.string().required(),
+        "id": Joi.string(),
+        "edad_conductor": Joi.string(),
+        "fase": Joi.number(),
+        "fechaDevolucion": Joi.string(),
+        "fechaRecogida": Joi.string(),
+        "horaDevolucion": Joi.string(),
+        "horaRecogida": Joi.string(),
+        "idioma": Joi.string(),
+        "success": Joi.string(),
+        "vehiculo": Joi.string(),
+        "conductor_con_experiencia": Joi.string(),
 
     });
 
@@ -431,6 +528,7 @@ const ControlSchema = async (body) => {
 
 
     const schema = Joi.object({
+        
         conductor_con_experiencia: Joi.string(),
         "idioma": Joi.string().required(),
         edad_conductor: Joi.number().required(),
