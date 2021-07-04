@@ -160,7 +160,7 @@
                         </div>
                         
                         <!------- Conductor Novel -------->
-                        <div class="driverNovel" data-tooltip-location="top" data-tooltip="<%=it.locations.tooltip_edad_conductor_informacion%>">
+                        <div class="driverNovel" >
                             <div class="form-chequeo columna-centrado">
                                 
                                 <section class="centrado columna-gap-10 margen-abajo">
@@ -170,11 +170,19 @@
                                 </section>
 
                                 <!------- Edad Conductor --------->
-                                    <section id="desplegable_edad" class="centrado visible gap-10 colapsable-content">
-                                        <label for="edad_conductor" class="texto_edadconductor"><%=it.locations.edad_conductor %></label>
-                                        <input id="edad_conductor" type="number" name="edad_conductor" value="22" min="18" max="22" class="edad_conductor">
+                                    <section id="desplegable_edad" class="columna-centrado visible gap-10 colapsable-content">
+                                        <div class="justificado-derecha" data-tooltip-location="top" data-tooltip="<%=it.locations.tooltip_edad_conductor_informacion%>">
+                                            <label for="edad_conductor" class="texto_edadconductor"><%=it.locations.edad_conductor %></label>
+                                            <input id="edad_conductor" type="number" name="edad_conductor" value="22" min="21" max="90" class="edad_conductor" required>
+
+                                        </div>
+                                        
+                                        <div class="justificado-derecha" data-tooltip-location="top" data-tooltip="<%=it.locations.tooltip_edad_anyos_carnet_informacion %>">
+                                            <label for="anyos_carnet" class="texto_edadconductor"><%=it.locations.anyos_carnet %></label>
+                                            <input id="anyos_carnet" type="number" name="anyos_carnet" value="2" min="2" max="100" class="edad_conductor extra-padding" required>
+
+                                        </div>
                                     </section>
-                                
                             </div> 
                         </div>
                     
@@ -282,10 +290,52 @@
         <script async src="./js/index.js"></script>
         <script async src="./js/newsletter.js"></script>
         <script async src="./js/footer.js"></script>
+
+        <script>
+            
+                const inputAnyosCar = document.getElementById('anyos_carnet');
+                const inputEdadCondu = document.getElementById('edad_conductor');
+
+
+                inputAnyosCar.addEventListener('invalid', function (event) {
+                    if (event.target.validity.valid === false) {
+                        event.target.setCustomValidity("<%=it.locations.error_validacion_anyos_car%>");
+                    }
+                })
+
+                inputAnyosCar.addEventListener('change', function (event) {
+
+                    event.target.setCustomValidity('');
+
+                    if (event.target.validity.valid === false) {
+                        event.target.setCustomValidity("<%=it.locations.error_validacion_anyos_car%>");
+                    }
+
+
+                })
+
+
+                inputEdadCondu.addEventListener('invalid', function (event) {
+                    if (event.target.validity.valid === false) {
+                        event.target.setCustomValidity("<%=it.locations.error_validacion_edad_conductor%>");
+                    }
+                });
+
+                inputEdadCondu.addEventListener('change', function (event) {
+                    event.target.setCustomValidity('');
+                    if (event.target.validity.valid === false) {
+                        event.target.setCustomValidity("<%=it.locations.error_validacion_edad_conductor%>");
+                    }
+                });
+
+        </script>
         
         <!--------------------------- Scripts ---------------------------->
         <!---------------------------------------------------------------->
         <!---------------------------------------------------------------->
+    
+
+
         <script>
             $.datepicker.regional['es'] = {
                 closeText: '<%=it.locations.cerrar_clock%>',

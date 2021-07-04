@@ -23,35 +23,18 @@ for (let i = 0; i < cards.length; i++)
         if (document.getElementById("rangoedad").checked === true)
         {
             link = link.split("conductor_con_experiencia=")[0] + "conductor_con_experiencia=on" + link.split("conductor_con_experiencia=")[1];
-            // formulario[8].value = "on";
+            link = link.split("edad_conductor=")[0] + "edad_conductor=25" + link.split("edad_conductor=")[1];
+            
         }
         else
         {
             link = link.split("conductor_con_experiencia=")[0] + "conductor_con_experiencia=off" + link.split("conductor_con_experiencia=")[1];
-            // formulario[8].value = "off";
+            link = link.split("edad_conductor=")[0] + "edad_conductor=" + document.getElementById("edad_conductor").value + link.split("edad_conductor=")[1];
         }
 
-        link = link.split("edad_conductor=")[0] + "edad_conductor=" + document.getElementById("edad_conductor").value + link.split("edad_conductor=")[1];
-        
+        link = link.split("anyos_carnet=")[0] + "anyos_carnet=" + document.getElementById("anyos_carnet").value + link.split("anyos_carnet=")[1];
         
         formulario.href = link;
-
-        // link.split("?")[1].split("&")[6].split("=")[1] = document.getElementById("fechaRecogida").value;
-        // link.split("?")[1].split("&")[7].split("=")[1] = document.getElementById("horaRecogida").value;
-        // link.split("?")[1].split("&")[8].split("=")[1] = document.getElementById("fechaDevolucion").value;
-
-
-        //"http://localhost:8080/es/car.html?id=peugeot108&success=kjRubJJZL2LwIAHC9J2tJ&fase=2&&idioma=es&vehiculo=peugeot108&fechaRecogida=&horaRecogida=&fechaDevolucion=&horaDevolucion=&conductor_con_experiencia=&"
-
-
-        // formulario[4].value = document.getElementById("fechaRecogida").value;
-        // formulario[5].value = document.getElementById("horaRecogida").value;
-        // formulario[6].value = document.getElementById("fechaDevolucion").value;
-        // formulario[7].value = document.getElementById("horaDevolucion").value;
-
-
-        
-        // formulario.submit();
 
     });
 
@@ -65,12 +48,17 @@ const CheckRangoEdad = async () => {
         desplegable_edad.classList.add("invisible");
         desplegable_edad.style.maxHeight = null;
         desplegable_edad.style.marginBottom = null;
+        desplegable_edad.style.overflow = "hidden";
     }
     else {
         desplegable_edad.classList.remove("invisible");
         desplegable_edad.classList.add("visible");
-        desplegable_edad.style.maxHeight = "26px";
+        desplegable_edad.style.maxHeight = "70px";
         desplegable_edad.style.marginBottom = "15px";
+
+        setTimeout(() => {
+            desplegable_edad.style.overflow = "visible";
+        }, 300);
         
 
     }
@@ -110,6 +98,7 @@ window.onclick = async (evento) =>
         }
     }
 }
+
 
 
 window.onload = function () {

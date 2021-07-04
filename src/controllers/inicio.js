@@ -332,6 +332,11 @@ exports.postHome = async (req, res) =>
         console.error("inicio.js control schema invalido");
         return res.status(404).send("Not found");
     }
+
+    if (req.body.edad_conductor - 0 < 21 || req.body.edad_conductor - 0 > 90 || req.body.anyos_carnet - 0 < 2)
+    {
+        return res.redirect("/");
+    }
     
     const body = { "token": process.env.TOKEN_FOR_BACKEND_ACCESS, "direct": false, ...req.body };
     
@@ -538,6 +543,7 @@ const ControlSchema = async (body) => {
         fechaRecogida: Joi.string().required(),
         horaRecogida: Joi.string().required(),
         "success": Joi.string().required(),
+        "anyos_carnet": Joi.number().required(),
     });
 
 
