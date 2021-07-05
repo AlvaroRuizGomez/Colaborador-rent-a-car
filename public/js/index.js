@@ -98,6 +98,60 @@ window.onclick = async (evento) =>
         }
     }
 }
+//---- set tiempo
+
+const inputFechaDevolucion = document.getElementById("fechaDevolucion");
+const inputFechaRecogida = document.getElementById("fechaRecogida");
+let intervalo = undefined;
+
+inputFechaDevolucion.addEventListener("focusout", async (evento) => {
+    const intervalo = setInterval(async (evento) => {
+        await ComprobarIntervaloFechas();
+
+    }, 500);
+
+});
+
+inputFechaRecogida.addEventListener("focusout", async (evento) => {
+    const intervalo = setInterval(async (evento) => {
+        await ComprobarIntervaloFechas();
+
+    }, 500);
+
+});
+
+
+const inputHoraRecogida = document.getElementById("horaRecogida");
+const inputHoraDevolucion = document.getElementById("horaDevolucion");
+const numerodiasInput = document.getElementById("numerodias");
+const inputHiddenNumeroDias = document.getElementById("numerodiasHidden");
+
+const ComprobarIntervaloFechas = async () => {
+
+    const fechaRecogida = await ObtenerFecha(inputFechaRecogida.value, inputHoraRecogida.value);
+    const fechaDevolucion = await ObtenerFecha(inputFechaDevolucion.value, inputHoraDevolucion.value);
+
+    const numerodias = (new Date(fechaDevolucion) - new Date(fechaRecogida)) / 86400000;
+    inputHiddenNumeroDias.value = Math.ceil(numerodias);
+    numerodiasInput.innerHTML = Math.ceil(numerodias);
+    clearInterval(intervalo);
+
+};
+
+const ObtenerFecha = async (fecha, hora) => {
+
+    const splited = fecha.split(",")[1].split("-");
+    const dia = splited[0];
+    const mes = splited[1];
+    const anyo = splited[2];
+
+    const fechaRecogida = new Date(`${anyo}-${mes}-${dia}T${hora}`);
+    return fechaRecogida;
+
+};
+
+
+///------
 
 
 

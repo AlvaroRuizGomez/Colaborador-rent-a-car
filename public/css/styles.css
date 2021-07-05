@@ -92,11 +92,13 @@ body{
   margin-left: 70px;
   border: 1px solid #ddd;
   background-color: #eaf2fd;
+  position: relative;
 }
 
 .formTit{
   grid-area: titulo;
   width: 100%;
+  position: relative;
 }
 
 .formTit h2 {
@@ -228,7 +230,8 @@ body{
 
 /* ------  Botón buscar ofertas ------ */
 .verPrecio { 
-  grid-area: verPrecio; 
+  grid-area: verPrecio;
+  position: relative;
 }
 
 /* ************************** */
@@ -364,6 +367,27 @@ body{
   user-select: none;
 }
 
+
+.forma_numerodias 
+{
+  position: absolute;
+  top: 147%;
+  left: 5%;
+  z-index: 0;
+}
+
+.numerodias
+{
+  position: absolute;
+  top: 169%;
+  left: 5%;
+  z-index: 0;
+  font-size: 25px;
+  text-align: center;
+  width: 55px;
+  font-weight: bolder;
+  color: sienna;
+}
 
 
 .elemento__inputradio

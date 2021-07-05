@@ -90,13 +90,7 @@ exports.getHome = async (req, res, languageBrowser) =>
             "success": id,
             "preciosPorClase": dataResponse.preciosPorClase,
             "locations": locationLanguage,
-            // "pagoRecogida": dataResponse.pagoRecogida
-            // "formdata": req.query,
-            // "errorFormulario": dataResponse.errorFormulario,
-            // "diasEntreRecogidaDevolucion": dataResponse.diasEntreRecogidaDevolucion,
-            // "suplementogenerico_base": dataResponse.suplementogenerico_base,
-            // "suplementotipochofer_base": dataResponse.suplementotipochofer_base,
-            // "condicionesgenerales": dataResponse.condicionesgenerales,
+            "numeroDias": 3
         });
 
 
@@ -544,6 +538,7 @@ const ControlSchema = async (body) => {
         horaRecogida: Joi.string().required(),
         "success": Joi.string().required(),
         "anyos_carnet": Joi.number().required(),
+        "numeroDias": Joi.number(),
     });
 
 

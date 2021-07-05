@@ -1,0 +1,8 @@
+<svg version="1.2" baseProfile="tiny-ps" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 57 59" width="57" height="59">
+	<title>Forma 1</title>
+	<style>
+		tspan { white-space:pre }
+		.shp0 { fill: #00c5ff } 
+	</style>
+	<path id="Forma 1" class="shp0" d="M28.64 58.99C12.95 59.13 0.15 46.06 0 29.74C-0.14 13.43 12.42 0.13 28.12 -0.01C43.81 -0.15 56.61 12.93 56.75 29.24C56.9 45.55 44.33 58.85 28.64 58.99Z" />
+</svg>

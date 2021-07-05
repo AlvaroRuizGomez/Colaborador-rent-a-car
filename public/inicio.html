@@ -86,11 +86,19 @@
             <section id="content">
                 <!-------- Inicio Formulario de Busqueda ------------>
                 
-                <form id="formulario-index" class="formContainer" method="POST" action="/">
+                <form id="formulario-index" class="formContainer" method="POST" action="/busqueda">
                     <input type="hidden" name="success" value="<%=it.success %>">
                     <input type="hidden" name="idioma" value="<%=it.locations.idioma_web%>">
                     <input type="hidden" name="fase" value="1">
                     <div class="formTit">
+                        <img src="./img/svg/form_cantidad_dias_inicio.svg" alt="numero dias" class="forma_numerodias">
+                        <% if ( it.numeroDias ) { %>
+                            <span id="numerodias" class="numerodias"><%=it.numeroDias %></span>
+                            <input type="hidden" id="numerodiasHidden" name="numeroDias" value="<%=it.numeroDias %>">
+                        <% } else { %>
+                            <span id="numerodias" class="numerodias">3</span>
+                            <input type="hidden" name="numeroDias" value="3">
+                        <% } %>
                         <h2>
                             <%=it.locations.titulo_form%>
                         </h2> 

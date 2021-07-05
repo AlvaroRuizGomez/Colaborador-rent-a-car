@@ -12,7 +12,8 @@ const newsletter = require("../controllers/newsletter");
 
 // rutas
 router.get("/", async (req, res) => await home.getHome(req, res));
-router.post("/", async (req, res) => await home.postHome(req, res));
+router.post("/busqueda", async (req, res) => await home.postHome(req, res));
+router.get("/busqueda", async (req, res) => await home.redirectToHome(req, res));
 
 router.get("/car/*", async (req, res) => await home.postHomeDirect(req, res));
 
