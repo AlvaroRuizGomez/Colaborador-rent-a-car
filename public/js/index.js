@@ -105,7 +105,7 @@ const inputFechaRecogida = document.getElementById("fechaRecogida");
 let intervalo = undefined;
 
 inputFechaDevolucion.addEventListener("focusout", async (evento) => {
-    const intervalo = setInterval(async (evento) => {
+    intervalo = setInterval(async (evento) => {
         await ComprobarIntervaloFechas();
 
     }, 500);
@@ -113,7 +113,7 @@ inputFechaDevolucion.addEventListener("focusout", async (evento) => {
 });
 
 inputFechaRecogida.addEventListener("focusout", async (evento) => {
-    const intervalo = setInterval(async (evento) => {
+    intervalo = setInterval(async (evento) => {
         await ComprobarIntervaloFechas();
 
     }, 500);

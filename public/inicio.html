@@ -181,13 +181,13 @@
                                     <section id="desplegable_edad" class="columna-centrado visible gap-10 colapsable-content">
                                         <div class="justificado-derecha" data-tooltip-location="top" data-tooltip="<%=it.locations.tooltip_edad_conductor_informacion%>">
                                             <label for="edad_conductor" class="texto_edadconductor"><%=it.locations.edad_conductor %></label>
-                                            <input id="edad_conductor" type="number" name="edad_conductor" value="22" min="21" max="90" class="edad_conductor" required>
+                                            <input id="edad_conductor" type="number" name="edad_conductor" value="22" min="21" max="70" class="edad_conductor" required>
 
                                         </div>
                                         
                                         <div class="justificado-derecha" data-tooltip-location="top" data-tooltip="<%=it.locations.tooltip_edad_anyos_carnet_informacion %>">
                                             <label for="anyos_carnet" class="texto_edadconductor"><%=it.locations.anyos_carnet %></label>
-                                            <input id="anyos_carnet" type="number" name="anyos_carnet" value="2" min="2" max="100" class="edad_conductor extra-padding" required>
+                                            <input id="anyos_carnet" type="number" name="anyos_carnet" value="2" min="2" max="70" class="edad_conductor extra-padding" required>
 
                                         </div>
                                     </section>
@@ -306,35 +306,58 @@
 
 
                 inputAnyosCar.addEventListener('invalid', function (event) {
-                    if (event.target.validity.valid === false) {
-                        event.target.setCustomValidity("<%=it.locations.error_validacion_anyos_car%>");
-                    }
+                    // if (event.target.validity.valid === false) 
+                    // {
+                        
+                    //     event.target.setCustomValidity("<%=it.locations.error_validacion_anyos_car%>");
+                    // }
+                    CheckCarnetEdad(inputEdadCondu.value - 0, inputAnyosCar.value - 0);
                 })
 
                 inputAnyosCar.addEventListener('change', function (event) {
 
                     event.target.setCustomValidity('');
-
-                    if (event.target.validity.valid === false) {
-                        event.target.setCustomValidity("<%=it.locations.error_validacion_anyos_car%>");
-                    }
+                    CheckCarnetEdad(inputEdadCondu.value - 0, inputAnyosCar.value - 0);
+                    // if (event.target.validity.valid === false) {
+                    //     event.target.setCustomValidity("<%=it.locations.error_validacion_anyos_car%>");
+                    // }
 
 
                 })
 
 
-                inputEdadCondu.addEventListener('invalid', function (event) {
-                    if (event.target.validity.valid === false) {
-                        event.target.setCustomValidity("<%=it.locations.error_validacion_edad_conductor%>");
-                    }
+                inputEdadCondu.addEventListener('invalid', function (event) 
+                {
+                    CheckCarnetEdad(inputEdadCondu.value - 0, inputAnyosCar.value - 0);
+
+                    // if (event.target.validity.valid === false) 
+                    // {
+                    //     event.target.setCustomValidity("<%=it.locations.error_validacion_edad_conductor%>");
+                    // }
                 });
 
-                inputEdadCondu.addEventListener('change', function (event) {
+                inputEdadCondu.addEventListener('change', function (event) 
+                {
                     event.target.setCustomValidity('');
-                    if (event.target.validity.valid === false) {
-                        event.target.setCustomValidity("<%=it.locations.error_validacion_edad_conductor%>");
-                    }
+                    CheckCarnetEdad(inputEdadCondu.value - 0, inputAnyosCar.value - 0);
+                    // if (event.target.validity.valid === false) {
+                    //     event.target.setCustomValidity("<%=it.locations.error_validacion_edad_conductor%>");
+                    // }
                 });
+
+                const CheckCarnetEdad = (edadConductor, edadCarnet) =>
+                {
+                    if (edadConductor > 70) {
+                        event.target.setCustomValidity("<%=it.locations.error_validacion_edad_conductor_mas_70%>");
+                    }
+                    else if (edadConductor <= 20) {
+                        event.target.setCustomValidity("<%=it.locations.error_validacion_edad_conductor_menos_20%>");
+                    }
+                    else if (edadConductor >= 21 && edadConductor <= 70 && edadCarnet < 2)
+                    {
+                        event.target.setCustomValidity("<%=it.locations.error_validacion_carnet_2_anyos %>");
+                    }
+                };
 
         </script>
         
