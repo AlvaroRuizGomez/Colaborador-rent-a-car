@@ -53,7 +53,7 @@ exports.GetBackendVars = async () => {
     await esperar(5);
     
     const URI_VARIABLES = `${protocolo}${host}:${port_backend}${endpoint_variables_frontend}`;
-    console.log("uri_variable=" + URI_VARIABLES);
+    // console.log("uri_variable=" + URI_VARIABLES);
 
     const responseRaw = await fetch(URI_VARIABLES, {
         method: "GET",
@@ -74,7 +74,7 @@ exports.GetBackendVars = async () => {
         
         const variableSanitizada = await sanitizar(envConfig[key]);
         process.env[key] = variableSanitizada;
-        console.log(`texto sanitizado=${key}:${variableSanitizada}`);
+        // console.log(`texto sanitizado=${key}:${variableSanitizada}`);
     }
 
 };

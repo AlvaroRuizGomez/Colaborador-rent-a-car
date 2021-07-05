@@ -1,11 +1,11 @@
-<svg version="1.2" baseProfile="tiny-ps" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 105 114" width="105" height="114">
-	<title>Forma 1</title>
+<svg version="1.2" baseProfile="tiny-ps" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 62 99" width="62" height="99">
+	<title>Forma 2</title>
 	<style>
 		tspan { white-space:pre }
 		.shp0 { fill: #00c5ff } 
 	</style>
-	<path id="Forma 2" class="shp0" d="M2 0L71 0L71 5L2 5L2 0Z" />
-	<path id="Forma 2 copy" class="shp0" d="M67.32 0.25L75.8 0.07L78.19 113.4L69.7 113.58L67.32 0.25Z" />
-	<path id="Forma 3" class="shp0" d="M0 109L71 109L71 114L0 114L0 109Z" />
-	<path id="Forma 1" class="shp0" d="M71 94C52.2 94 37 78.8 37 60C37 41.2 52.2 26 71 26C89.8 26 105 41.2 105 60C105 78.8 89.8 94 71 94Z" />
+	<path id="Forma 1" class="shp0" d="M2 0L36 0L36 10L2 10L2 0Z" />
+	<path id="Forma 1 copy" class="shp0" d="M2 90L36 90L36 100L2 100L2 90Z" />
+	<path id="Forma 1 copy 2" class="shp0" d="M26 3L36.3 3L36.3 97L26 97L26 3Z" />
+	<path id="Forma 2" class="shp0" d="M31 83C13.86 83 0 69.14 0 52C0 34.86 13.86 21 31 21C48.14 21 62 34.86 62 52C62 69.14 48.14 83 31 83Z" />
 </svg>
