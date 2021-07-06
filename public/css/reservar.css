@@ -145,7 +145,7 @@ select {
   color: #004d40;
   text-align: center;
   background: #fafafa;
-  margin-left: 200px;
+  place-content: center;
 }
 
 @media only screen and (max-width: 550px) {
