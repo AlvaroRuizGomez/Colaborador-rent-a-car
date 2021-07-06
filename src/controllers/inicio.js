@@ -254,6 +254,7 @@ const sanitizar = async (query, idioma) =>
             horaDevolucion: "20:00",
             conductor_con_experiencia: "on",
             edad_conductor: "25",
+            anyos_carnet: "2"
         };
 
         
@@ -502,6 +503,7 @@ const ControlDirectSchema = async (body) =>
         "success": Joi.string(),
         "vehiculo": Joi.string(),
         "conductor_con_experiencia": Joi.string(),
+        "anyos_carnet": Joi.number(),
 
     });
 
