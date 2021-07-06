@@ -504,6 +504,7 @@ const ControlDirectSchema = async (body) =>
         "vehiculo": Joi.string(),
         "conductor_con_experiencia": Joi.string(),
         "anyos_carnet": Joi.number(),
+        "numeroDias": Joi.number(),
 
     });
 

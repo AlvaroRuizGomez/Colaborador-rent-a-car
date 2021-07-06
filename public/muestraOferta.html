@@ -81,6 +81,8 @@
             <%~ includeFile("header.html", it) %>
                 <!------- Fin Cabecera ---->
         </div>
+        <input type="hidden" id="traDia" name="traDia" value="<%=it.locations.dia %>">
+        <input type="hidden" id="traDias" name="traDias" value="<%=it.locations.dias %>">
         <!------- Inicio formulario de Busqueda ----------------->
         <form id="formulario-index" class="form" method="POST" action="/busqueda">
             <input type="hidden" name="conductor_con_experiencia" value="<%= it.formdata.conductor_con_experiencia %>">
@@ -187,13 +189,29 @@
                     
                     <img src="./img/svg/forma_cantidad_dias.svg" alt="numero dias" class="forma_numerodias">
                     
+                    
+
+
                     <% if ( it.formdata.numeroDias ) { %>
-                        <span id="numerodias" class="numerodias"><%=it.formdata.numeroDias %></span>
-                        <input type="hidden" id="numerodiasHidden" name="numeroDias" value="<%=it.formdata.numeroDias %>">
+                        <% if (it.formdata.numeroDias - 0===1 ) { %>
+                            <span id="numerodias" class="numerodias">
+                                <%=it.formdata.numeroDias %>
+                                    <%=it.locations.dia %>
+                            </span>
+                            <input type="hidden" id="numerodiasHidden" name="numeroDias" value="<%=it.formdata.numeroDias %>">
+                        <% } else { %>
+                            <span id="numerodias" class="numerodias">
+                                <%=it.formdata.numeroDias %>
+                                    <%=it.locations.dias %>
+                            </span>
+                            <input type="hidden" id="numerodiasHidden" name="numeroDias" value="<%=it.formdata.numeroDias %>">
+                        <% } %>
+                                    <input type="hidden" id="numerodiasHidden" name="numeroDias" value="<%=it.numeroDias %>">
                     <% } else { %>
                         <span id="numerodias" class="numerodias">3</span>
                         <input type="hidden" name="numeroDias" value="3">
                     <% } %>
+
 
 
                 </div>
@@ -392,8 +410,8 @@
                 <div class="header-weaves">
                     <!--Content before waves-->
                     <div class="inner-header-weaves flex">
-                        <h1 class="titulo-weaves">Ya falta menos ....</h1>
-                        <h4 class="subtitulo-weaves">Buscando...</h4>
+                        <h1 class="titulo-weaves"><%=it.locations.yafalta %></h1>
+                        <h4 class="subtitulo-weaves"><%=it.locations.buscando %></h4>
                     </div>
         
                     <!--Waves Container-->

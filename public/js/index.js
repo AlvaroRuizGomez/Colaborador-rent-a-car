@@ -33,7 +33,8 @@ for (let i = 0; i < cards.length; i++)
         }
 
         link = link.split("anyos_carnet=")[0] + "anyos_carnet=" + document.getElementById("anyos_carnet").value + link.split("anyos_carnet=")[1];
-        
+        link += "numeroDias=" + document.getElementById("numerodiasHidden").value;
+
         formulario.href = link;
 
     });
@@ -107,6 +108,7 @@ let intervalo = undefined;
 inputFechaDevolucion.addEventListener("focusout", async (evento) => {
     intervalo = setInterval(async (evento) => {
         await ComprobarIntervaloFechas();
+        clearInterval(intervalo);
 
     }, 500);
 
@@ -115,7 +117,7 @@ inputFechaDevolucion.addEventListener("focusout", async (evento) => {
 inputFechaRecogida.addEventListener("focusout", async (evento) => {
     intervalo = setInterval(async (evento) => {
         await ComprobarIntervaloFechas();
-
+        clearInterval(intervalo);
     }, 500);
 
 });
@@ -126,15 +128,32 @@ const inputHoraDevolucion = document.getElementById("horaDevolucion");
 const numerodiasInput = document.getElementById("numerodias");
 const inputHiddenNumeroDias = document.getElementById("numerodiasHidden");
 
-const ComprobarIntervaloFechas = async () => {
+
+let idiomaDias = document.getElementById("");
+let idiomaDia = undefined;
+
+const ComprobarIntervaloFechas = async (idiomaDiaCurrent, idiomaDiasCurrent) => {
+
 
     const fechaRecogida = await ObtenerFecha(inputFechaRecogida.value, inputHoraRecogida.value);
     const fechaDevolucion = await ObtenerFecha(inputFechaDevolucion.value, inputHoraDevolucion.value);
 
-    const numerodias = (new Date(fechaDevolucion) - new Date(fechaRecogida)) / 86400000;
-    inputHiddenNumeroDias.value = Math.ceil(numerodias);
-    numerodiasInput.innerHTML = Math.ceil(numerodias);
-    clearInterval(intervalo);
+    const diasDecimales = (new Date(fechaDevolucion) - new Date(fechaRecogida)) / 86400000;
+    const numerodias = Math.ceil(diasDecimales);
+    let traDias = undefined;
+    if (numerodias === 1)
+    {
+        traDias = document.getElementById("traDia").value;
+    }
+    else
+    {
+        traDias = document.getElementById("traDias").value;
+        
+    }
+    inputHiddenNumeroDias.value = numerodias;
+    numerodiasInput.innerHTML = `${numerodias} ${traDias}`;
+    return true;
+    
 
 };
 
