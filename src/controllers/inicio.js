@@ -90,13 +90,7 @@ exports.getHome = async (req, res, languageBrowser) =>
             "success": id,
             "preciosPorClase": dataResponse.preciosPorClase,
             "locations": locationLanguage,
-            // "pagoRecogida": dataResponse.pagoRecogida
-            // "formdata": req.query,
-            // "errorFormulario": dataResponse.errorFormulario,
-            // "diasEntreRecogidaDevolucion": dataResponse.diasEntreRecogidaDevolucion,
-            // "suplementogenerico_base": dataResponse.suplementogenerico_base,
-            // "suplementotipochofer_base": dataResponse.suplementotipochofer_base,
-            // "condicionesgenerales": dataResponse.condicionesgenerales,
+            "numeroDias": 3
         });
 
 
@@ -260,6 +254,7 @@ const sanitizar = async (query, idioma) =>
             horaDevolucion: "20:00",
             conductor_con_experiencia: "on",
             edad_conductor: "25",
+            anyos_carnet: "2"
         };
 
         
@@ -331,6 +326,11 @@ exports.postHome = async (req, res) =>
         //TODO: mejorar
         console.error("inicio.js control schema invalido");
         return res.status(404).send("Not found");
+    }
+
+    if (req.body.edad_conductor - 0 < 21 || req.body.edad_conductor - 0 > 90 || req.body.anyos_carnet - 0 < 2)
+    {
+        return res.redirect("/");
     }
     
     const body = { "token": process.env.TOKEN_FOR_BACKEND_ACCESS, "direct": false, ...req.body };
@@ -503,6 +503,7 @@ const ControlDirectSchema = async (body) =>
         "success": Joi.string(),
         "vehiculo": Joi.string(),
         "conductor_con_experiencia": Joi.string(),
+        "anyos_carnet": Joi.number(),
 
     });
 
@@ -538,6 +539,8 @@ const ControlSchema = async (body) => {
         fechaRecogida: Joi.string().required(),
         horaRecogida: Joi.string().required(),
         "success": Joi.string().required(),
+        "anyos_carnet": Joi.number().required(),
+        "numeroDias": Joi.number(),
     });
 
 

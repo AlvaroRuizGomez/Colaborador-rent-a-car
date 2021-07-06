@@ -86,11 +86,19 @@
             <section id="content">
                 <!-------- Inicio Formulario de Busqueda ------------>
                 
-                <form id="formulario-index" class="formContainer" method="POST" action="/">
+                <form id="formulario-index" class="formContainer" method="POST" action="/busqueda">
                     <input type="hidden" name="success" value="<%=it.success %>">
                     <input type="hidden" name="idioma" value="<%=it.locations.idioma_web%>">
                     <input type="hidden" name="fase" value="1">
                     <div class="formTit">
+                        <img src="./img/svg/form_cantidad_dias_inicio.svg" alt="numero dias" class="forma_numerodias">
+                        <% if ( it.numeroDias ) { %>
+                            <span id="numerodias" class="numerodias"><%=it.numeroDias %></span>
+                            <input type="hidden" id="numerodiasHidden" name="numeroDias" value="<%=it.numeroDias %>">
+                        <% } else { %>
+                            <span id="numerodias" class="numerodias">3</span>
+                            <input type="hidden" name="numeroDias" value="3">
+                        <% } %>
                         <h2>
                             <%=it.locations.titulo_form%>
                         </h2> 
@@ -160,7 +168,7 @@
                         </div>
                         
                         <!------- Conductor Novel -------->
-                        <div class="driverNovel" data-tooltip-location="top" data-tooltip="<%=it.locations.tooltip_edad_conductor_informacion%>">
+                        <div class="driverNovel" >
                             <div class="form-chequeo columna-centrado">
                                 
                                 <section class="centrado columna-gap-10 margen-abajo">
@@ -170,11 +178,19 @@
                                 </section>
 
                                 <!------- Edad Conductor --------->
-                                    <section id="desplegable_edad" class="centrado visible gap-10 colapsable-content">
-                                        <label for="edad_conductor" class="texto_edadconductor"><%=it.locations.edad_conductor %></label>
-                                        <input id="edad_conductor" type="number" name="edad_conductor" value="22" min="18" max="22" class="edad_conductor">
+                                    <section id="desplegable_edad" class="columna-centrado visible gap-10 colapsable-content">
+                                        <div class="justificado-derecha" data-tooltip-location="top" data-tooltip="<%=it.locations.tooltip_edad_conductor_informacion%>">
+                                            <label for="edad_conductor" class="texto_edadconductor"><%=it.locations.edad_conductor %></label>
+                                            <input id="edad_conductor" type="number" name="edad_conductor" value="22" min="21" max="70" class="edad_conductor" required>
+
+                                        </div>
+                                        
+                                        <div class="justificado-derecha" data-tooltip-location="top" data-tooltip="<%=it.locations.tooltip_edad_anyos_carnet_informacion %>">
+                                            <label for="anyos_carnet" class="texto_edadconductor"><%=it.locations.anyos_carnet %></label>
+                                            <input id="anyos_carnet" type="number" name="anyos_carnet" value="2" min="2" max="70" class="edad_conductor extra-padding" required>
+
+                                        </div>
                                     </section>
-                                
                             </div> 
                         </div>
                     
@@ -199,7 +215,7 @@
                     
                         <div class="card lazyload <%=it.data[i]["ImagenVehiclo"] %>">
                             
-                            <a class="form-line" href="/car/<%=it.data[i]["vehiculo"]%>.html?id=<%=it.data[i]["vehiculo"]%>&success=<%=it.success %>&fase=2&idioma=<%=it.locations.idioma_web %>&vehiculo=<%=it.data[i]["vehiculo"] %>&fechaRecogida=&horaRecogida=&fechaDevolucion=&horaDevolucion=&conductor_con_experiencia=&edad_conductor=&" id="<%=it.data[i]["vehiculo"] %>">
+                            <a class="form-line" href="/car/<%=it.data[i]["vehiculo"]%>.html?id=<%=it.data[i]["vehiculo"]%>&success=<%=it.success %>&fase=2&idioma=<%=it.locations.idioma_web %>&vehiculo=<%=it.data[i]["vehiculo"] %>&fechaRecogida=&horaRecogida=&fechaDevolucion=&horaDevolucion=&conductor_con_experiencia=&edad_conductor=&anyos_carnet=&" id="<%=it.data[i]["vehiculo"] %>">
                                 
                                 <div class="content">
                                     <picture>
@@ -282,10 +298,75 @@
         <script async src="./js/index.js"></script>
         <script async src="./js/newsletter.js"></script>
         <script async src="./js/footer.js"></script>
+
+        <script>
+            
+                const inputAnyosCar = document.getElementById('anyos_carnet');
+                const inputEdadCondu = document.getElementById('edad_conductor');
+
+
+                inputAnyosCar.addEventListener('invalid', function (event) {
+                    // if (event.target.validity.valid === false) 
+                    // {
+                        
+                    //     event.target.setCustomValidity("<%=it.locations.error_validacion_anyos_car%>");
+                    // }
+                    CheckCarnetEdad(inputEdadCondu.value - 0, inputAnyosCar.value - 0);
+                })
+
+                inputAnyosCar.addEventListener('change', function (event) {
+
+                    event.target.setCustomValidity('');
+                    CheckCarnetEdad(inputEdadCondu.value - 0, inputAnyosCar.value - 0);
+                    // if (event.target.validity.valid === false) {
+                    //     event.target.setCustomValidity("<%=it.locations.error_validacion_anyos_car%>");
+                    // }
+
+
+                })
+
+
+                inputEdadCondu.addEventListener('invalid', function (event) 
+                {
+                    CheckCarnetEdad(inputEdadCondu.value - 0, inputAnyosCar.value - 0);
+
+                    // if (event.target.validity.valid === false) 
+                    // {
+                    //     event.target.setCustomValidity("<%=it.locations.error_validacion_edad_conductor%>");
+                    // }
+                });
+
+                inputEdadCondu.addEventListener('change', function (event) 
+                {
+                    event.target.setCustomValidity('');
+                    CheckCarnetEdad(inputEdadCondu.value - 0, inputAnyosCar.value - 0);
+                    // if (event.target.validity.valid === false) {
+                    //     event.target.setCustomValidity("<%=it.locations.error_validacion_edad_conductor%>");
+                    // }
+                });
+
+                const CheckCarnetEdad = (edadConductor, edadCarnet) =>
+                {
+                    if (edadConductor > 70) {
+                        event.target.setCustomValidity("<%=it.locations.error_validacion_edad_conductor_mas_70%>");
+                    }
+                    else if (edadConductor <= 20) {
+                        event.target.setCustomValidity("<%=it.locations.error_validacion_edad_conductor_menos_20%>");
+                    }
+                    else if (edadConductor >= 21 && edadConductor <= 70 && edadCarnet < 2)
+                    {
+                        event.target.setCustomValidity("<%=it.locations.error_validacion_carnet_2_anyos %>");
+                    }
+                };
+
+        </script>
         
         <!--------------------------- Scripts ---------------------------->
         <!---------------------------------------------------------------->
         <!---------------------------------------------------------------->
+    
+
+
         <script>
             $.datepicker.regional['es'] = {
                 closeText: '<%=it.locations.cerrar_clock%>',

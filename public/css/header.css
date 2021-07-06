@@ -301,7 +301,7 @@
   .logo-colaboracion
   {
     position: absolute;
-    top: 11px;
+    top: 21px;
     left: -19px;
     
   }
@@ -319,11 +319,9 @@
     position: absolute;
     animation: spin 20s linear infinite;
     width: 200px;
-    top: -41px;
+    top: -31px;
     left: -52px;
-    /* width: 180px;
-    top: -33px;
-    left: -42px; */
+
     z-index: 0;
     
   }

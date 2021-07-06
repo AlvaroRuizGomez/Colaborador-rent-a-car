@@ -42,7 +42,7 @@
     <div class="banner">
         <!-- Inicio Cabecera -->
         <%~ includeFile("header.html", it) %>
-            <!------- Fin Cabecera ---->
+        <!------- Fin Cabecera ---->
     </div>
     <main class="layout">
         <!-----------------  Inicio Sidebar1  ------------------------------------------>
@@ -75,9 +75,7 @@
                                 </p>
                                 <div class="car-info-services">
 
-                                    <div class="servicios-asientos"
-                                        data-tooltip="<%=it.locations.tooltip_vehiculo_asientos1%> <%= it.formdata.pax_vehiculo %> <%=it.locations.tooltip_vehiculo_asientos2%>"
-                                        data-tooltip-location="top">
+                                    <div class="servicios-asientos centrado-gap-4" data-tooltip="<%=it.locations.tooltip_vehiculo_asientos1%> <%= it.formdata.pax_vehiculo %> <%=it.locations.tooltip_vehiculo_asientos2%>" data-tooltip-location="top">
                                         <img class="icon-24" src="img/svg/persona-black.svg"
                                             alt="<%=it.locations.alt_persona%>">
                                         <div class="icon-number">
@@ -86,7 +84,7 @@
                                     </div>
                                     <% const puertas_vehiculo=it.formdata.puertas_vehiculo - 0 %>
                                         <% if (puertas_vehiculo> 0) { %>
-                                            <div class="servicios-puertas"
+                                            <div class="servicios-puertas centrado-gap-4"
                                                 data-tooltip="<%=it.formdata.tooltip_vehiculo_tiene %> <%= it.formdata.puertas_vehiculo %> <%=it.locations.tooltip_vehiculo_puertas%>"
                                                 data-tooltip-location="top">
                                                 <img class="icon-24" src="img/svg/puerta-black.svg"
@@ -106,7 +104,7 @@
                                                     </div>
                                                     <% } %>
 
-                                                        <div class="servicios-trasmision"
+                                                        <div class="servicios-trasmision centrado-gap-4"
                                                             data-tooltip="<%=it.formdata.tooltip_vehiculo_tiene %> <%=it.formdata.tooltip_cambio %>"
                                                             data-tooltip-location="top">
                                                             <img class="icon-24" src="img/svg/cambio_manual-black.svg"
@@ -167,10 +165,6 @@
         </div>
         <!-----------------  Fin Sidebar1  ------------------------------------------>
 
-        <!-- <div class="blue">
-                <p>Tercera caja</p>
-            </div> -->
-
 
         <!--------------- Inicio Datos Reserva  --------------------->
 
@@ -178,8 +172,6 @@
             <div class="tituloReserva">
                 <img id="icon-Mundi" src="./img/svg/mapaMundi.svg" alt="<%=it.locations.icono_reserva %>"></img>
                 <%=it.locations.datos_reserva %>
-                <!-- <div class="titReserva">
-                </div> -->
             </div>
             <div class="infoReserva">
                 <!-- Inicio Datos Fijos de la reserva -->
@@ -190,13 +182,13 @@
                     <% const dias=it.formdata.diasEntreRecogidaDevolucion - 0 %>
                         <% if (dias> 1) { %>
                             <%=it.formdata.diasEntreRecogidaDevolucion %>
-                                <%= it.locations.dias %> (<%=it.formdata.fechaRecogida %>
-                                        <%=it.formdata.fechaDevolucion %>)
-                                            <% } else { %>
-                                                <%=it.formdata.diasEntreRecogidaDevolucion %>
-                                                    <%= it.locations.dia %> (<%=it.formdata.fechaRecogida %>
-                                                            <%=it.formdata.fechaDevolucion %>)
-                                                                <% } %>
+                            <%= it.locations.dias %> (<%=it.formdata.fechaRecogida %>
+                            <%=it.formdata.fechaDevolucion %>)
+                        <% } else { %>
+                            <%=it.formdata.diasEntreRecogidaDevolucion %>
+                            <%= it.locations.dia %> (<%=it.formdata.fechaRecogida %>
+                            <%=it.formdata.fechaDevolucion %>)
+                        <% } %>
                 </div>
 
                 <div class="titValorReserva">
@@ -286,35 +278,42 @@
         <!----------------------- Fin Datos Reserva  ---------------------------->
 
         <!-----------------  Inicio Beneficios ------------------------------------------>
-        <div class="beneficios">
-            <div class="includPrice-container">
-                <span class="tit-includPrice-container">
-                    <%it.locations.incluido_precio_titulo %>
-                        <ul class="includPrice-contenido">
-                            <li class="tooltipBlanco" data-tooltip="<%=it.locations.title_seguro_todoriesgo %>">
-                                <img src="./img/svg/hecho.svg" class="icon-25"
-                                    alt="<%=it.locations.alt_icono_reservar %>">
-                                <%=it.locations.seguro_incluido_titulo %>
-                            </li>
-                            <li class="tooltipBlanco" data-tooltip="<%=it.locations.title_sillas %>">
-                                <img src="./img/svg/hecho.svg" class="icon-25"
-                                    alt="<%=it.locations.alt_icono_reservar %>">
-                                <%=it.locations.sillas_elevadores_titulo %>
-                            </li>
-                            <li class="tooltipBlanco" data-tooltip="<%=it.locations.title_cancelar %>">
-                                <img src="./img/svg/hecho.svg" class="icon-25"
-                                    alt="<%=it.locations.alt_icono_reservar %>">
-                                <%=it.locations.cancelacion_titulo %>
-                            </li>
-                            <li class="tooltipBlanco" data-tooltip="<%=it.locations.title_impuestos %>">
-                                <img src="./img/svg/hecho.svg" class="icon-25"
-                                    alt="<%=it.locations.alt_icono_reservar %>">
-                                <%=it.locations.impuestos_titulo %>
-                            </li>
-                        </ul>
-                </span>
+        <section class="contentBlock">
+            <div class="tituloReserva">
+                <img id="icon-Mundi" src="./img/svg/mapaMundi.svg" alt="<%=it.locations.icono_reserva %>"></img>
+                <%=it.locations.incluido_precio_titulo %>
             </div>
-        </div>
+
+            <div class="beneficios">
+                <div class="includPrice-container">
+                    <span class="tit-includPrice-container">
+                            <ul class="includPrice-contenido">
+                                <li class="tooltipBlanco" data-tooltip="<%=it.locations.title_seguro_todoriesgo %>">
+                                    <img src="./img/svg/hecho.svg" class="icon-25"
+                                        alt="<%=it.locations.alt_icono_reservar %>">
+                                    <%=it.locations.seguro_incluido_titulo %>
+                                </li>
+                                <li class="tooltipBlanco" data-tooltip="<%=it.locations.title_sillas %>">
+                                    <img src="./img/svg/hecho.svg" class="icon-25"
+                                        alt="<%=it.locations.alt_icono_reservar %>">
+                                    <%=it.locations.sillas_elevadores_titulo %>
+                                </li>
+                                <li class="tooltipBlanco" data-tooltip="<%=it.locations.title_cancelar %>">
+                                    <img src="./img/svg/hecho.svg" class="icon-25"
+                                        alt="<%=it.locations.alt_icono_reservar %>">
+                                    <%=it.locations.cancelacion_titulo %>
+                                </li>
+                                <li class="tooltipBlanco" data-tooltip="<%=it.locations.title_impuestos %>">
+                                    <img src="./img/svg/hecho.svg" class="icon-25"
+                                        alt="<%=it.locations.alt_icono_reservar %>">
+                                    <%=it.locations.impuestos_titulo %>
+                                </li>
+                            </ul>
+                    </span>
+                </div>
+            </div>
+
+        </section>
         <!-----------------  Fin  Beneficios ------------------------------------------>
 
         <!-----------------  Inicio sillas y elevadores para niños  ------------------->
@@ -340,7 +339,7 @@
                                         <option value="3">3</option>
                                     </select>
                                     <a class="info infoIco" data-tooltip-location="top"
-                                        data-tooltip="<%=it.locations.asientos_titulo %>">
+                                        data-tooltip="<%=it.locations.asientos_tooltip %>">
                                         <strong>info</strong>
                                     </a>
 
@@ -367,7 +366,7 @@
                                     </select>
 
                                     <a class="info infoIco" data-tooltip-location="top"
-                                        data-tooltip="<%=it.locations.elevadores_titulo %>">
+                                        data-tooltip="<%=it.locations.elevadores_tooltip %>">
                                         <strong>info</strong>
                                     </a>
                                     <label class="titulo_asientos">

@@ -82,11 +82,12 @@
                 <!------- Fin Cabecera ---->
         </div>
         <!------- Inicio formulario de Busqueda ----------------->
-        <form id="formulario-index" class="form" method="POST" action="/">
+        <form id="formulario-index" class="form" method="POST" action="/busqueda">
             <input type="hidden" name="conductor_con_experiencia" value="<%= it.formdata.conductor_con_experiencia %>">
             <input type="hidden" name="edad_conductor" value="<%= it.formdata.edad_conductor %>">
             <input type="hidden" name="idioma" value="<%=it.locations.idioma_web %>">
             <input type="hidden" name="success" value="<%=it.success %>">
+            <input type="hidden" name="anyos_carnet" value="<%=it.formdata.anyos_carnet %>">
             <input type="hidden" name="fase" value="2">
 
             <!-------- Inicio Formulario de Busqueda ------------>
@@ -168,7 +169,7 @@
                     <!----------- Hora de Devolución ----------->
                     <div class="horaDevuelve input-group clockpicker" data-placement="bottom" data-align="top"
                         data-autoclose="true">
-                        <input type="text" class="input-color form-control-clock" name="horaDevolucion"
+                        <input type="text" class="input-color form-control-clock" name="horaDevolucion" id="horaDevolucion"
                             value="<%= it.formdata.horaDevolucion %>" readonly="" />
                         <span class="iconClock2 input-group-addon">
                             <img src="./img/Img-Clock/clock.avif" alt="<%=it.locations.alt_reloj_recogida%>"
@@ -184,18 +185,17 @@
                         </button>
                     </div>
                     
-                    <!-- <img src="./img/svg/forma_cantidad_dias.svg" alt="" style="
-                        position: absolute;
-                        top: 30%;
-                        left: 37%;
-                        z-index: 0;
-                    ">
-                    <span style="
-                        position: absolute;
-                        top: 30%;
-                        left: 37%;
-                        z-index: 0;
-                    ">4</span> -->
+                    <img src="./img/svg/forma_cantidad_dias.svg" alt="numero dias" class="forma_numerodias">
+                    
+                    <% if ( it.formdata.numeroDias ) { %>
+                        <span id="numerodias" class="numerodias"><%=it.formdata.numeroDias %></span>
+                        <input type="hidden" id="numerodiasHidden" name="numeroDias" value="<%=it.formdata.numeroDias %>">
+                    <% } else { %>
+                        <span id="numerodias" class="numerodias">3</span>
+                        <input type="hidden" name="numeroDias" value="3">
+                    <% } %>
+
+
                 </div>
 
             </div>
@@ -310,8 +310,7 @@
                 <div class="enlacesAside">
                     <ul class="enlacesAsideul">
                         <li class="enlaces_interes">
-
-                            <button class="enlace_interes_modal" >
+                            <button class="enlace_interes_modal">
                                 <%=it.locations.enlace_combustible %>
                             </button>
                             

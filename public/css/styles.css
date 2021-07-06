@@ -92,11 +92,13 @@ body{
   margin-left: 70px;
   border: 1px solid #ddd;
   background-color: #eaf2fd;
+  position: relative;
 }
 
 .formTit{
   grid-area: titulo;
   width: 100%;
+  position: relative;
 }
 
 .formTit h2 {
@@ -123,7 +125,7 @@ body{
     ". . . . . . ."
     "devolucionDateTit devolucionDateData  devolucionDateIcon . devolucionClockTit devolucionClockData devolucionClockData"
     ". . . . . . ."
-    ". driverNovel driverNovel driverNovel driverNovel driverNovel ."
+    "driverNovel driverNovel driverNovel driverNovel driverNovel driverNovel ."
     ". . . . . . ."
     ". driverAge driverAge driverAge driverAge . ."
     ". . . . . . ."
@@ -228,7 +230,8 @@ body{
 
 /* ------  Botón buscar ofertas ------ */
 .verPrecio { 
-  grid-area: verPrecio; 
+  grid-area: verPrecio;
+  position: relative;
 }
 
 /* ************************** */
@@ -317,6 +320,7 @@ body{
   display: flex;
   flex-direction: column;
   justify-items: center;
+  align-items: center;
 }
 
 .centrado
@@ -343,11 +347,47 @@ body{
 
 }
 
+.justificado-derecha
+{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  column-gap: 6px;
+  width: 100%;
+}
+
+.extra-padding
+{
+  padding-left: 4px;
+}
+
 .texto_edadconductor
 {
   margin-bottom: 0px;
+  user-select: none;
 }
 
+
+.forma_numerodias 
+{
+  position: absolute;
+  top: 147%;
+  left: 5%;
+  z-index: 0;
+}
+
+.numerodias
+{
+  position: absolute;
+  top: 169%;
+  left: 5%;
+  z-index: 0;
+  font-size: 25px;
+  text-align: center;
+  width: 55px;
+  font-weight: bolder;
+  color: sienna;
+}
 
 
 .elemento__inputradio
@@ -358,7 +398,7 @@ body{
 
 .elemento__circulo
 {
-  width: 25px;
+  width: 33px;
   height: 25px;
   
   border: 1px solid #ddd;
@@ -1122,6 +1162,7 @@ body{
   display: flex;
   flex-direction: column;
   justify-items: center;
+  user-select: none;
 }
 
 .centrado
