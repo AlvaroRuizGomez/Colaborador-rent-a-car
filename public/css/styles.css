@@ -99,6 +99,10 @@ body{
   grid-area: titulo;
   width: 100%;
   position: relative;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .formTit h2 {
@@ -371,22 +375,26 @@ body{
 .forma_numerodias 
 {
   position: absolute;
-  top: 147%;
-  left: 5%;
+  top: -30%;
+  left: 90%;
   z-index: 0;
 }
 
 .numerodias
 {
   position: absolute;
-  top: 169%;
-  left: 5%;
+  top: 170%;
+  left: 0%;
   z-index: 0;
-  font-size: 25px;
+  font-size: 20px;
   text-align: center;
-  width: 55px;
+  width: fit-content;
+  height: 33px;
   font-weight: bolder;
-  color: sienna;
+  color: whitesmoke;
+  padding: 0px 8px 0px 8px;
+  background-color: black;
+  border-radius: 6px;
 }
 
 

@@ -85,23 +85,28 @@
             <!------------ Inicio contenido ------------------------->
             <section id="content">
                 <!-------- Inicio Formulario de Busqueda ------------>
-                
+                <input type="hidden" id="traDia" name="traDia" value="<%=it.locations.dia %>">
+                <input type="hidden" id="traDias" name="traDias" value="<%=it.locations.dias %>">
                 <form id="formulario-index" class="formContainer" method="POST" action="/busqueda">
                     <input type="hidden" name="success" value="<%=it.success %>">
                     <input type="hidden" name="idioma" value="<%=it.locations.idioma_web%>">
                     <input type="hidden" name="fase" value="1">
+                    
                     <div class="formTit">
-                        <img src="./img/svg/form_cantidad_dias_inicio.svg" alt="numero dias" class="forma_numerodias">
-                        <% if ( it.numeroDias ) { %>
-                            <span id="numerodias" class="numerodias"><%=it.numeroDias %></span>
-                            <input type="hidden" id="numerodiasHidden" name="numeroDias" value="<%=it.numeroDias %>">
-                        <% } else { %>
-                            <span id="numerodias" class="numerodias">3</span>
-                            <input type="hidden" name="numeroDias" value="3">
-                        <% } %>
                         <h2>
                             <%=it.locations.titulo_form%>
                         </h2> 
+                        <% if ( it.numeroDias ) { %>
+                            <% if (it.numeroDias - 0 === 1 ) { %>
+                            <span id="numerodias" class="numerodias"><%=it.numeroDias %> <%=it.locations.dia %></span>
+                            <% } else { %>
+                            <span id="numerodias" class="numerodias"><%=it.numeroDias %> <%=it.locations.dias %></span>
+                            <% } %>
+                            <input type="hidden" id="numerodiasHidden" name="numeroDias" value="<%=it.numeroDias %>">
+                        <% } else { %>
+                            <span id="numerodias" class="numerodias">3</span>
+                            <input type="hidden" id="numerodiasHidden" name="numeroDias" value="3">
+                        <% } %>
                     </div>
                     <div class="grid-container">
                         <% if (it.errorFormulario !==undefined ) { %>
@@ -303,46 +308,26 @@
             
                 const inputAnyosCar = document.getElementById('anyos_carnet');
                 const inputEdadCondu = document.getElementById('edad_conductor');
-
-
+                
                 inputAnyosCar.addEventListener('invalid', function (event) {
-                    // if (event.target.validity.valid === false) 
-                    // {
-                        
-                    //     event.target.setCustomValidity("<%=it.locations.error_validacion_anyos_car%>");
-                    // }
                     CheckCarnetEdad(inputEdadCondu.value - 0, inputAnyosCar.value - 0);
                 })
 
                 inputAnyosCar.addEventListener('change', function (event) {
-
                     event.target.setCustomValidity('');
                     CheckCarnetEdad(inputEdadCondu.value - 0, inputAnyosCar.value - 0);
-                    // if (event.target.validity.valid === false) {
-                    //     event.target.setCustomValidity("<%=it.locations.error_validacion_anyos_car%>");
-                    // }
-
-
                 })
 
 
                 inputEdadCondu.addEventListener('invalid', function (event) 
                 {
                     CheckCarnetEdad(inputEdadCondu.value - 0, inputAnyosCar.value - 0);
-
-                    // if (event.target.validity.valid === false) 
-                    // {
-                    //     event.target.setCustomValidity("<%=it.locations.error_validacion_edad_conductor%>");
-                    // }
                 });
 
                 inputEdadCondu.addEventListener('change', function (event) 
                 {
                     event.target.setCustomValidity('');
                     CheckCarnetEdad(inputEdadCondu.value - 0, inputAnyosCar.value - 0);
-                    // if (event.target.validity.valid === false) {
-                    //     event.target.setCustomValidity("<%=it.locations.error_validacion_edad_conductor%>");
-                    // }
                 });
 
                 const CheckCarnetEdad = (edadConductor, edadCarnet) =>
@@ -395,7 +380,6 @@
                 $("#fechaRecogida").datepicker({ dateFormat: 'D,dd-mm-yy', minDate:'1d' });
             //    comprobar que no machaque la fecha desde muestraoferta.html
                 $(".datepicker").datepicker("setDate", new Date());
-               
                 $(".triggerRec").click(function(){
                     $("#fechaRecogida").datepicker("show");
                 }); 
@@ -404,8 +388,9 @@
         
         <script>
             $(function() {
-                $("#fechaDevolucion").datepicker({ dateFormat: 'D,dd-mm-yy', minDate:'3d' });
-                $(".datepicker").datepicker("setDate", new Date());
+                $("#fechaDevolucion").datepicker({ dateFormat: 'D,dd-mm-yy', minDate:'1d' });
+                $("#fechaDevolucion").datepicker("setDate", new Date().getDate() - 3);
+                // $(".datepicker").datepicker("setDate", new Date().getDate() + 1 );
                 $(".triggerDev").click(function(){
                     $("#fechaDevolucion").datepicker("show");
                 }); 

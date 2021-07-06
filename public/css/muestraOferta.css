@@ -346,11 +346,15 @@ body {
   top: 45%;
   left: 45%;
   z-index: 0;
-  font-size: 25px;
+  font-size: 20px;
   text-align: center;
-  width: 55px;
+  width: fit-content;
+  height: 33px;
   font-weight: bolder;
-  color: sienna;
+  color: whitesmoke;
+  padding: 0px 8px 0px 8px;
+  background-color: black;
+  border-radius: 6px;
 }
 
 /* ---------------------------------------- */
