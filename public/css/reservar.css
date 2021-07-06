@@ -145,7 +145,8 @@ select {
   color: #004d40;
   text-align: center;
   background: #fafafa;
-  margin-left: 200px;
+  /* margin-left: 200px; */
+  place-content: center;
 }
 
 @media only screen and (max-width: 550px) {
@@ -272,7 +273,17 @@ select {
     grid-template-areas: 
     "a a a a";
     /* justify-items: flex-start; */
-    margin-left: 28px;
+    /* margin-left: 28px; */
+    place-content: center;
+    width: 100%;
+    
+}
+
+.centrado-gap-4
+{
+    display: flex;
+    align-items: center;
+    column-gap: 4px;
 }
   
 .icon-24 {
@@ -634,7 +645,8 @@ select {
 .includPrice-container {
     background: #fff;
     border: 1px solid #ddd;
-    padding: 20px;
+    /* padding: 20px; */
+    padding: 20px 20px 0px 20px;
 }
 
 .tit-includPrice-container {
@@ -708,10 +720,15 @@ select {
 
 .titSillas h2 {
     margin-left: var(--margin-izquierda-titulo);
-    font-size: 19px;
+
+    font-size: 22px;
     line-height: initial;
     font-weight: 700;
-    color: #444;
+    color: #333333;
+    line-height: 40px;
+    display: flex;
+    align-items: center;
+
 }
 
 .titSillas>h2 i.icoSillas {
