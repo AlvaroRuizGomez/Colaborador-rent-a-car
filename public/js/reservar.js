@@ -11,9 +11,7 @@ const overlayPrivacidad = document.getElementById("overlay-privacidad");
 const botonCerrarModal = document.getElementById("botonCerrarModal");
 
 function handleFullWidthSizing() {
-    const scrollbarWidth = window.innerWidth - document.body.clientWidth
-
-    
+    const scrollbarWidth = window.innerWidth - document.body.clientWidth   
     document.getElementsByClassName("container")[0].style.width = `calc(100vw - ${scrollbarWidth}px)`;
 }
 

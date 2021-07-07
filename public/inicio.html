@@ -83,7 +83,7 @@
             </section>
             
             <!------------ Inicio contenido ------------------------->
-            <section id="content">
+            <main id="content">
                 <!-------- Inicio Formulario de Busqueda ------------>
                 <input type="hidden" id="traDia" name="traDia" value="<%=it.locations.dia %>">
                 <input type="hidden" id="traDias" name="traDias" value="<%=it.locations.dias %>">
@@ -214,7 +214,7 @@
                 <!-------------------------- Fin Formulario de Busqueda ------------------------------->
                 
                 <!-------- Inicio Tarjetas --------->
-                <main class="page-content">
+                <section class="page-content">
                 
                     <% for (let i=0; i < it.data.length; i++) { %>
                     
@@ -281,14 +281,14 @@
                         <% } %>
 
                     
-                </main>
+                </section>
                 <div class="blockSpace"></div>
                 <div class="blockSpace"></div>
                 <div class="blockSpace"></div>
                 <div class="blockSpace"></div>
                 <div class="blockSpace"></div>
                 <div class="blockSpace"></div>
-            </section>
+            </main>
             <!------------ Fin  contenido ------------------------->
 
             <!------------ Inicio  Footer ------------------------->

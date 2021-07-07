@@ -64,8 +64,7 @@
   margin-left: 16px;
   margin-bottom: 2px;
 }
-
- /* pantallas super pequeñas menos de 320px */
+/* 
 @media screen and (max-width: 343px)
 {
     .logo
@@ -86,7 +85,7 @@
     {
         height: 60px;
     }
-}
+} */
 
 
 .nav-header
@@ -327,7 +326,100 @@
   }
 }
 
+@media screen and (max-width: 414px)
+{
 
+  .logo{
+    margin-left: 0px;
+  }
+
+  #eslogan
+  {
+     font-size: calc(3em + 1vw);
+    display: flex;
+    justify-content: center;
+  }
+
+  #content
+  {
+    display: grid;
+    grid-template-columns: 1fr;
+    place-content: center;
+    place-items: center;
+  }
+
+  .formContainer
+  {
+        display: grid;
+    grid-template-columns: 0.9fr;
+    grid-template-rows: 1fr auto;
+    grid-template-areas:
+        "titulo"
+        "data";
+
+    width: 90vmin;
+    padding: 0px;
+    margin-top: 0px;
+    margin-left: 0px;
+    border: 1px solid #ddd;
+    background-color: #eaf2fd;
+    
+  }
+
+  .colaboracion 
+  {
+    display:initial;
+    position: relative;
+    width: 100px;
+    height: 100px;
+  }
+    
+  .logo-colaboracion
+  {
+    position: absolute;
+    top: 32%;
+    left: 9%;
+    width: 69px;
+    
+  }
+  
+  @keyframes spin 
+  { 
+    100% { 
+      -webkit-transform: rotate(360deg);
+      transform:rotate(360deg); 
+    }
+  }
+    
+  .texto-circular
+  {
+    position: absolute;
+    animation: spin 20s linear infinite;
+    width: 122px;
+    top: -4%;
+    left: -16%;
+    z-index: 0;
+    
+  }
+
+  .idiomas
+  {
+    margin-right: 20px;
+    margin-top: 5px;
+    position: relative;
+  }
+
+  .idiomas-seleccion
+  {
+    position: absolute;
+    right: 0%;
+    top: 59px;
+  }
+
+
+
+
+}
 
 
 
