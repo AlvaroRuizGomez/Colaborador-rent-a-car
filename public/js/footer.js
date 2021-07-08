@@ -5,7 +5,7 @@ const overlayFooter = document.getElementsByClassName("overlay-transparente");
 for (let i = 0; i < botonesInformacionInteres.length; i++) {
     botonesInformacionInteres[i].addEventListener("click", (evento) => {
 
-        let divOverlay = evento.target.parentElement.lastElementChild;
+        let divOverlay = document.getElementById("overlay-footer-interes-link");
 
         if (divOverlay.classList.contains("modal-invisible") === true) {
 
@@ -23,11 +23,11 @@ for (let i = 0; i < botonesInformacionInteres.length; i++) {
 
     botonesCerrarModal[i].addEventListener("click", async (evento) => {
         // let divOverlay = document.getElementById("");
-        let divOverlay = evento.target.parentElement.parentElement;
+        let divOverlay = document.getElementById("overlay-footer-interes-link");
 
-        if (divOverlay.classList[1] !== "modal-visible") {
-            divOverlay = evento.target.parentElement.parentElement.parentElement.parentElement;
-        }
+        // if (divOverlay.classList[1] !== "modal-visible") {
+        //     divOverlay = evento.target.parentElement.parentElement.parentElement.parentElement;
+        // }
 
         if (divOverlay.classList[1] === "modal-visible") {
             divOverlay.classList.remove("modal-visible");
@@ -41,13 +41,19 @@ for (let i = 0; i < botonesInformacionInteres.length; i++) {
     overlayFooter[i].addEventListener("click", async (evento) => 
     {
 
-        const divOverlay = evento.target;
+        const divOverlay = document.getElementById("overlay-footer-interes-link");
 
-        if (divOverlay.classList[1] === "modal-visible") {
+        if (divOverlay.classList.contains("modal-visible") === true) {
             divOverlay.classList.remove("modal-visible");
             divOverlay.classList.add("modal-invisible");
             document.body.style.overflow = null;
 
+        }
+        else
+        {
+            divOverlay.classList.remove("modal-invisible");
+            divOverlay.classList.add("modal-invisible");
+            document.body.style.overflow = null;
         }
 
     });
