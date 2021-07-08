@@ -70,6 +70,18 @@
   width: 100vw;
 }
 
+@media screen and (max-width: 414px)
+{
+  .footer_group
+  {
+    margin-top: 100px;
+  }
+
+
+
+}
+
+
 /* ----- INFORMACION --- */
 
 .footerTop_info
@@ -250,6 +262,7 @@ iframe
   flex-direction: column;
   row-gap: 20px;
   align-items: center;
+  flex-basis: 130px;
 }
 
 .icono-social

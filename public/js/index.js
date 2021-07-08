@@ -2,6 +2,13 @@
 const checkboxRangoEdad = document.getElementById("rangoedad");
 const desplegable_edad = document.getElementById("desplegable_edad");
 
+// function handleFullWidthSizing() {
+//     const scrollbarWidth = window.innerWidth - document.body.clientWidth
+//     document.getElementById("container").style.width = `calc(100vw - ${scrollbarWidth}px)`;
+// }
+
+// handleFullWidthSizing();
+
 
 //cards
 const cards = document.getElementsByClassName("card");
@@ -128,11 +135,7 @@ const inputHoraDevolucion = document.getElementById("horaDevolucion");
 const numerodiasInput = document.getElementById("numerodias");
 const inputHiddenNumeroDias = document.getElementById("numerodiasHidden");
 
-
-let idiomaDias = document.getElementById("");
-let idiomaDia = undefined;
-
-const ComprobarIntervaloFechas = async (idiomaDiaCurrent, idiomaDiasCurrent) => {
+const ComprobarIntervaloFechas = async () => {
 
 
     const fechaRecogida = await ObtenerFecha(inputFechaRecogida.value, inputHoraRecogida.value);

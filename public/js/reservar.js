@@ -11,9 +11,7 @@ const overlayPrivacidad = document.getElementById("overlay-privacidad");
 const botonCerrarModal = document.getElementById("botonCerrarModal");
 
 function handleFullWidthSizing() {
-    const scrollbarWidth = window.innerWidth - document.body.clientWidth
-
-    
+    const scrollbarWidth = window.innerWidth - document.body.clientWidth   
     document.getElementsByClassName("container")[0].style.width = `calc(100vw - ${scrollbarWidth}px)`;
 }
 
@@ -227,7 +225,7 @@ boton_reservar.addEventListener("click", async (evento) =>
     // formulario_reservar.submit();
 
     // mostrar animacion
-    await MostrarOverlayAnimacion(evento);
+    // await MostrarOverlayAnimacion(evento);
 
     // enviar el formulario
     const responseRaw = await fetch(uri, {
@@ -242,23 +240,23 @@ boton_reservar.addEventListener("click", async (evento) =>
     const datos = await responseRaw.json();
 
     // contestacion del servidor
-    console.log("datos");
+    // console.log("datos");
 
+    await MostrarOverlayFormularioCC(evento);
+    const relleno = document.getElementById("relleno-modal-reservar");
+
+    const trozoHtml = document.createElement("p");
+    trozoHtml.innerHTML = "Numero Registro:" + datos.numeroRegistro;
+
+    relleno.appendChild(trozoHtml);
     
-    // ocultar overlay
-    setTimeout(async () => {
-        await OcultarOverlayAnimacion(evento);
-        // mostrar Formulario CC
-        await MostrarOverlayFormularioCC(evento);
+    // // ocultar overlay
+    // setTimeout(async () => {
+    //     // await OcultarOverlayAnimacion(evento);
+    //     // mostrar Formulario CC
     
     
-        const relleno = document.getElementById("relleno-modal-reservar");
-    
-        const trozoHtml = document.createElement("p");
-        trozoHtml.innerHTML = "Numero Registro:" + datos.numeroRegistro;
-    
-        relleno.appendChild(trozoHtml);
-    }, 3000);
+    // }, 3000);
     
     
 

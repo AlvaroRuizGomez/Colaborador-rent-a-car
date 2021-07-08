@@ -33,6 +33,12 @@
   font-family: sans-serif;
 }
 
+
+html
+{
+  overflow-x: hidden;
+}
+
 body{
   width:100%;
   overflow-x:hidden;
@@ -876,7 +882,7 @@ body{
 .car-info-services {
     grid-area: servicios;
     display: grid;
-    grid-template-columns: repeat(4, 39px);
+    grid-template-columns: repeat(auto-fit, minmax(39px, 50px));
     grid-template-rows: 31px;
     grid-template-areas: 
     "a a a a"
@@ -1020,6 +1026,10 @@ body{
 
 }
 
+.content-card
+{
+  width: 210px;
+}
 
 .card:hover > .form-line > .content > picture > .imgLogo
 {
@@ -1480,5 +1490,13 @@ input[type=number] {
   height: 100px;
 }
 
+@media screen and (max-width: 414px)
+{
+  .blockSpace
+  {
+    display: none;
+  }
+
+}
 
 
