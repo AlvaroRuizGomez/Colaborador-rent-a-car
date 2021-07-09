@@ -222,7 +222,7 @@ select {
   
 .rentacar-info {
     display: grid;
-    grid-template-columns: 225px;
+    grid-template-columns: 259px;
     grid-template-rows: 150px 30px 25px 35px 32px 32px 31px 24px 31px;;
     grid-template-areas:
       "imagen-coche"
@@ -254,7 +254,7 @@ select {
     font-weight: 700;
     text-size-adjust: none;
     line-height: 1.3em;
-    margin-left: 33px;
+    margin-left: 2px;
     margin-bottom: 0px;
 }
   

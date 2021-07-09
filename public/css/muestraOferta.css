@@ -454,7 +454,7 @@ body {
   font-size: 1rem;
   line-height: 1.5;
   color: var(--color-texto-input);
-  background-color: var(--color-background-input);
+  /* background-color: var(--color-background-input); */
   background-clip: padding-box;
   border: 1px solid var(--color-border-input);
   border-radius: .25rem;
@@ -475,7 +475,7 @@ body {
   padding: 8px 10px 8px 6px;
   width: 132px;
   box-shadow: 0px 0px 2px #1e1c1c;
-  background-color: #e9ecef;
+  background-color: #ffff;
   opacity: 1;
   cursor: pointer;
 }
@@ -484,7 +484,7 @@ body {
   padding: 8px 10px 8px 6px;
   width: 60px;
   box-shadow: 0px 0px 2px #1e1c1c;
-  background-color: #e9ecef;
+  background-color: #ffff;
   opacity: 1;
   cursor: pointer;
   /* width: 75px !important;
