@@ -33,6 +33,12 @@
   font-family: sans-serif;
 }
 
+
+html
+{
+  overflow-x: hidden;
+}
+
 body{
   width:100%;
   overflow-x:hidden;
@@ -99,6 +105,10 @@ body{
   grid-area: titulo;
   width: 100%;
   position: relative;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .formTit h2 {
@@ -262,6 +272,9 @@ body{
   margin-top: -9px;
 }
   
+
+
+
 .img-calendar {
   width: 25px;
   cursor: pointer;
@@ -269,7 +282,16 @@ body{
   /* background-color: #e9ecef; */
   /* box-shadow: 0px 0px 2px #1e1c1c; */
 }
-  
+
+@media screen and (max-width: 360px)
+{
+  .img-calendar, .img-clock
+  {
+    display: none;
+  }
+}
+
+
 .img-clock {
   width: 24px;
   margin-top: -9px;
@@ -371,22 +393,26 @@ body{
 .forma_numerodias 
 {
   position: absolute;
-  top: 147%;
-  left: 5%;
+  top: -30%;
+  left: 90%;
   z-index: 0;
 }
 
 .numerodias
 {
   position: absolute;
-  top: 169%;
-  left: 5%;
+  top: 170%;
+  left: 0%;
   z-index: 0;
-  font-size: 25px;
+  font-size: 20px;
   text-align: center;
-  width: 55px;
+  width: fit-content;
+  height: 33px;
   font-weight: bolder;
-  color: sienna;
+  color: whitesmoke;
+  padding: 0px 8px 0px 8px;
+  background-color: black;
+  border-radius: 6px;
 }
 
 
@@ -868,7 +894,7 @@ body{
 .car-info-services {
     grid-area: servicios;
     display: grid;
-    grid-template-columns: repeat(4, 39px);
+    grid-template-columns: repeat(auto-fit, minmax(39px, 50px));
     grid-template-rows: 31px;
     grid-template-areas: 
     "a a a a"
@@ -1012,6 +1038,10 @@ body{
 
 }
 
+.content-card
+{
+  width: 210px;
+}
 
 .card:hover > .form-line > .content > picture > .imgLogo
 {
@@ -1232,7 +1262,7 @@ input[type=number] {
   padding-right: 0px;
   overflow: auto;
   
-  width: 700px;
+  width: 100%;
   height: 400px;
   opacity: 1;
 
@@ -1472,5 +1502,13 @@ input[type=number] {
   height: 100px;
 }
 
+@media screen and (max-width: 414px)
+{
+  .blockSpace
+  {
+    display: none;
+  }
+
+}
 
 

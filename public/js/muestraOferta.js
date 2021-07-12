@@ -169,11 +169,11 @@ const inputFechaDevolucion = document.getElementById("fechaDevolucion");
 const inputFechaRecogida = document.getElementById("fechaRecogida");
 let intervalo = undefined;
 
-inputFechaDevolucion.addEventListener("focusout", async (evento) =>
-{
+inputFechaDevolucion.addEventListener("focusout", async (evento) => {
     intervalo = setInterval(async (evento) => {
         await ComprobarIntervaloFechas();
-        
+        clearInterval(intervalo);
+
     }, 500);
 
 });
@@ -181,7 +181,7 @@ inputFechaDevolucion.addEventListener("focusout", async (evento) =>
 inputFechaRecogida.addEventListener("focusout", async (evento) => {
     intervalo = setInterval(async (evento) => {
         await ComprobarIntervaloFechas();
-
+        clearInterval(intervalo);
     }, 500);
 
 });
@@ -192,32 +192,44 @@ const inputHoraDevolucion = document.getElementById("horaDevolucion");
 const numerodiasInput = document.getElementById("numerodias");
 const inputHiddenNumeroDias = document.getElementById("numerodiasHidden");
 
-const ComprobarIntervaloFechas = async () =>
-{
+
+let idiomaDias = document.getElementById("");
+let idiomaDia = undefined;
+
+const ComprobarIntervaloFechas = async (idiomaDiaCurrent, idiomaDiasCurrent) => {
+
 
     const fechaRecogida = await ObtenerFecha(inputFechaRecogida.value, inputHoraRecogida.value);
     const fechaDevolucion = await ObtenerFecha(inputFechaDevolucion.value, inputHoraDevolucion.value);
 
-    const numerodias = (new Date(fechaDevolucion) - new Date(fechaRecogida)) / 86400000;
-    inputHiddenNumeroDias.value = Math.ceil(numerodias);
-    numerodiasInput.innerHTML = Math.ceil(numerodias);
-    clearInterval(intervalo);
+    const diasDecimales = (new Date(fechaDevolucion) - new Date(fechaRecogida)) / 86400000;
+    const numerodias = Math.ceil(diasDecimales);
+    let traDias = undefined;
+    if (numerodias === 1) {
+        traDias = document.getElementById("traDia").value;
+    }
+    else {
+        traDias = document.getElementById("traDias").value;
+
+    }
+    inputHiddenNumeroDias.value = numerodias;
+    numerodiasInput.innerHTML = `${numerodias} ${traDias}`;
+    return true;
+
 
 };
 
-const ObtenerFecha = async (fecha, hora) =>
-{
-    
+const ObtenerFecha = async (fecha, hora) => {
+
     const splited = fecha.split(",")[1].split("-");
     const dia = splited[0];
     const mes = splited[1];
     const anyo = splited[2];
-    
+
     const fechaRecogida = new Date(`${anyo}-${mes}-${dia}T${hora}`);
     return fechaRecogida;
 
 };
-
 
 ///------
 

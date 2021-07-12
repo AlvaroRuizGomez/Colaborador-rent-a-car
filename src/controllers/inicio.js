@@ -1,5 +1,6 @@
 // const express = require("express");
 const fetch = require("node-fetch");
+const path = require("path");
 const Joi = require("joi");
 const nanoid = require("nanoid");
 const querystring = require("querystring");
@@ -70,7 +71,7 @@ exports.getHome = async (req, res, languageBrowser) =>
 
 
     if (dataResponse.data.length <= 0) {
-        res.render("inicio", {
+        res.render(path.join(__dirname, "../../public/inicio.html"), {
             "data": dataResponse.data,
             "formdata": req.query,
             "errorFormulario": dataResponse.errorFormulario,
@@ -85,7 +86,7 @@ exports.getHome = async (req, res, languageBrowser) =>
         //ordenar por clase vehiculos
         dataResponse.data = await OrdenaPorClaseVehiculos(dataResponse.datosOrdenacion, dataResponse.data)
 
-        res.render("inicio", {
+        res.render(path.join(__dirname, "../../public/inicio.html"), {
             "data": dataResponse.data,
             "success": id,
             "preciosPorClase": dataResponse.preciosPorClase,
@@ -177,7 +178,7 @@ exports.postHomeDirect = async (req, res) =>
             return res.status(404).send("Not found");
         }
         else {
-            return res.render("inicio",
+            return res.render(path.join(__dirname, "../../public/inicio.html"),
                 {
                     "success": query.success,
                     "errorFormulario": dataResponse.errorFormulario,
@@ -190,7 +191,7 @@ exports.postHomeDirect = async (req, res) =>
     // req.session.data = dataResponse.data;
 
     if (dataResponse.data.length <= 0) {
-        res.render("muestraOferta", {
+        res.render(path.join(__dirname, "../../public/muestraOferta.html"), {
             "data": dataResponse.data,
             "formdata": query,
             "errorFormulario": dataResponse.errorFormulario,
@@ -211,7 +212,7 @@ exports.postHomeDirect = async (req, res) =>
         //obtener el vehiculo seleccionado
         const vehiculoSeleccionado = await ObtenerVehiculoSeleccionado(dataResponse.data, body.vehiculo);
 
-        res.render("muestraOferta", {
+        res.render(path.join(__dirname, "../../public/muestraOferta.html"), {
             "data": dataResponse.data,
             "formdata": query,
             "errorFormulario": dataResponse.errorFormulario,
@@ -365,7 +366,7 @@ exports.postHome = async (req, res) =>
         }
         else
         {
-            return res.render("inicio", 
+            return res.render(path.join(__dirname, "../../public/inicio.html"),
             {
                 "success": req.body.success,
                 "errorFormulario": dataResponse.errorFormulario,
@@ -378,7 +379,7 @@ exports.postHome = async (req, res) =>
     // req.session.data = dataResponse.data;
     
     if (dataResponse.data.length <= 0) {
-        res.render("muestraOferta", {
+        res.render(path.join(__dirname, "../../public/muestraOferta.html"), {
             "data": dataResponse.data,
             "formdata": req.body,
             "errorFormulario": dataResponse.errorFormulario,
@@ -396,7 +397,7 @@ exports.postHome = async (req, res) =>
         //ordenar por clase vehiculos
         dataResponse.data = await OrdenaPorClaseVehiculos(dataResponse.datosOrdenacion, dataResponse.data)
     
-        res.render("muestraOferta", {
+        res.render(path.join(__dirname, "../../public/muestraOferta.html"), {
             "data": dataResponse.data,
             "formdata": req.body,
             "errorFormulario": dataResponse.errorFormulario,
@@ -504,6 +505,7 @@ const ControlDirectSchema = async (body) =>
         "vehiculo": Joi.string(),
         "conductor_con_experiencia": Joi.string(),
         "anyos_carnet": Joi.number(),
+        "numeroDias": Joi.number(),
 
     });
 
