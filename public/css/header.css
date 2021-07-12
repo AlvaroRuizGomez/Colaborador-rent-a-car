@@ -64,28 +64,19 @@
   margin-left: 16px;
   margin-bottom: 2px;
 }
-/* 
-@media screen and (max-width: 343px)
+
+
+@media screen and (max-width: 360px)
 {
-    .logo
-    {
-        flex-basis: 160px;
-    }
+  
     .logo-imagen
     {
-        width: 160px;
+        width: 210px;
     }
     
-    .idiomas
-    {
-    margin-right: 5px;
-    }
-
-    .cabecera
-    {
-        height: 60px;
-    }
-} */
+  
+  
+} 
 
 
 .nav-header
@@ -335,7 +326,7 @@
 
   #eslogan
   {
-     font-size: calc(3em + 1vw);
+     font-size: 46px;
     display: flex;
     justify-content: center;
   }
@@ -418,6 +409,22 @@
 
 
 
+
+}
+
+
+@media screen and (max-width: 360px)
+{
+
+  .texto-circular
+  {
+    left: 10%;
+  }
+
+  .logo-colaboracion
+  {
+    left: 35%;
+  }
 
 }
 
