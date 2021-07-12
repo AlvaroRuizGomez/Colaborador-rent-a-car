@@ -28,6 +28,26 @@
     "devhub": "NODE_ENV=production LOCAL_SECRETS=true node src/index.js",
     "test": ""
   },
+  "bin": "./src/index.js",
+  "pkg": {
+    "assets": [
+      "public/**/*",
+      "public/*",
+      "public/css/*",
+      "public/img/*",
+      "public/img/banderas/*",
+      "public/img/Img-Banner/*",
+      "public/img/img-Calendar/*",
+      "public/img/img-childSeat/*",
+      "public/img/img-Clock/*",
+      "public/img/img-Logo/*",
+      "public/img/img-Logo/Logo-Marca-Coche/*",
+      "public/img/Img-MiniCardCredit/*",
+      "public/img/Img-Vehiculos/*",
+      "public/img/svg/*",
+      "public/js/*"
+    ]
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/AlvaroRuizGomez/Colaborador-rent-a-car.git"

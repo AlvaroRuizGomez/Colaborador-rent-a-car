@@ -3,6 +3,7 @@ const fetch = require("node-fetch");
 const geolocation = require("./geolocation");
 const locations = require("./locations");
 const obtenerVars = require("./obtenervariablesentorno");
+const path = require("path");
 
 const URI_UPDATE_STATS_BACKEND = obtenerVars.ObtenerURI_UPDATE_STATS_BACKEND();
 
@@ -35,7 +36,7 @@ exports.postShowDetails = async (req, res, languageBrowser) =>
     );
 
 
-    res.render("reservar", {
+    res.render(path.join(__dirname, "../../public/reservar.html"), {
         "success": req.body.sucess,
         "locations": locationLanguage,
         "formdata": req.body,
