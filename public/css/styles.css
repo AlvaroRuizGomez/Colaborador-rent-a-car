@@ -272,6 +272,9 @@ body{
   margin-top: -9px;
 }
   
+
+
+
 .img-calendar {
   width: 25px;
   cursor: pointer;
@@ -279,7 +282,16 @@ body{
   /* background-color: #e9ecef; */
   /* box-shadow: 0px 0px 2px #1e1c1c; */
 }
-  
+
+@media screen and (max-width: 360px)
+{
+  .img-calendar, .img-clock
+  {
+    display: none;
+  }
+}
+
+
 .img-clock {
   width: 24px;
   margin-top: -9px;
@@ -1250,7 +1262,7 @@ input[type=number] {
   padding-right: 0px;
   overflow: auto;
   
-  width: 700px;
+  width: 100%;
   height: 400px;
   opacity: 1;
 
