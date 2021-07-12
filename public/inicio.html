@@ -220,7 +220,7 @@
                     
                         <div class="card lazyload <%=it.data[i]["ImagenVehiclo"] %>">
                             
-                            <a class="form-line" href="/car/<%=it.data[i]["vehiculo"]%>.html?id=<%=it.data[i]["vehiculo"]%>&success=<%=it.success %>&fase=2&idioma=<%=it.locations.idioma_web %>&vehiculo=<%=it.data[i]["vehiculo"] %>&fechaRecogida=&horaRecogida=&fechaDevolucion=&horaDevolucion=&conductor_con_experiencia=&edad_conductor=&anyos_carnet=&" id="<%=it.data[i]["vehiculo"] %>">
+                            <a class="form-line" href="/car/<%=it.data[i]["vehiculo"] %>.html?id=<%=it.data[i]["vehiculo"]%>&success=<%=it.success %>&fase=2&idioma=<%=it.locations.idioma_web %>&vehiculo=<%=it.data[i]["vehiculo"] %>&fechaRecogida=&horaRecogida=&fechaDevolucion=&horaDevolucion=&conductor_con_experiencia=&edad_conductor=&anyos_carnet=&" id="<%=it.data[i]["vehiculo"] %>">
                                 
                                 <div class="content">
                                     <picture>
@@ -379,7 +379,7 @@
             $(function() {
                 $("#fechaRecogida").datepicker({ dateFormat: 'D,dd-mm-yy', minDate:'1d' });
             //    comprobar que no machaque la fecha desde muestraoferta.html
-                $(".datepicker").datepicker("setDate", new Date());
+                $("#fechaRecogida").datepicker("setDate", new Date());
                 $(".triggerRec").click(function(){
                     $("#fechaRecogida").datepicker("show");
                 }); 
@@ -389,7 +389,10 @@
         <script>
             $(function() {
                 $("#fechaDevolucion").datepicker({ dateFormat: 'D,dd-mm-yy', minDate:'1d' });
-                $("#fechaDevolucion").datepicker("setDate", new Date().getDate() - 3);
+                let fecha = new Date();
+                fecha = fecha.getDate() - 9;
+                
+                $("#fechaDevolucion").datepicker("setDate", fecha );
                 // $(".datepicker").datepicker("setDate", new Date().getDate() + 1 );
                 $(".triggerDev").click(function(){
                     $("#fechaDevolucion").datepicker("show");

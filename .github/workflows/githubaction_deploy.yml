@@ -48,9 +48,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-        # with:
-        #   path: backend
-      
       - name: Get current date
         id: date
         run: echo ::set-output name=DATE_NOW::$(date +'%Y_%m_%dT%H_%M_%S')
@@ -61,6 +58,12 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       
+      - name: HTML/CSS/JS Minifier
+        uses: docker://devatherock/minify-js:latest
+        with:
+          directory: './public'
+          add_suffix: false
+
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
       

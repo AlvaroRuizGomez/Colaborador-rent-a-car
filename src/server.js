@@ -81,9 +81,12 @@ exports.InitServer = async () => {
     app.set("views", path.join(__dirname, "../public"));
     app.set("view engine", "html");
 
-    app.use("/", express.static('public'));
-    app.use("/car/", express.static('public'));
-    // app.use("/:car/", express.static('public'));
+    // app.use("/", express.static('public'));
+    // app.use("/car/", express.static('public'));
+
+    app.use("/", express.static(path.join(__dirname, "../public")));
+    app.use("/car/", express.static(path.join(__dirname, "../public")));
+    
     
     // rutas
     app.use("/", apiLimiter);
