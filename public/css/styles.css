@@ -531,11 +531,15 @@ body{
 /* --------- Inicio Tarjetas ------------------- */
 .page-content {
   display: grid;
+  /* grid-template-columns: repeat(auto-fit, minmax(1fr, 3fr)); */
+  /* grid-template-columns: repeat(auto-fill, minmax(min(300px,50vw), 1fr)); */
   grid-gap: 1rem;
   padding: 1rem;
   max-width: 1024px;
   margin: 0 auto;
   font-family: var(--font-sans);
+
+
 }
 @media (min-width: 600px) {
   .page-content {
@@ -881,6 +885,7 @@ body{
   .page-content
   {
     place-items: inherit;
+    margin-right: 40px;
   }
 
 
@@ -1001,7 +1006,9 @@ body{
   outline-offset: 3px;
 }
 
-@media (hover: hover) and (min-width: 600px) 
+
+/* and (min-width: 600px)  */
+@media (hover: hover) 
 {
   .card:after {
     transform: translateY(0);
@@ -1080,6 +1087,30 @@ body{
   /* background-color: red; */
   transform: translateY(25px);
   /* transform: translateY(10%); */
+}
+
+
+@media screen and (max-width: 414px) {
+  
+  .botonVehiculo
+  {
+    transform: translateY(20px);
+  }
+
+  .content-card
+  {
+    transform: translateY(38px);
+  }
+
+  .title
+  {
+    transform: translateY(-20px);
+  }
+  .imgLogo
+  {
+    transform: translateY(-20px);
+  }
+
 }
 
 
