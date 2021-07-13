@@ -1224,7 +1224,7 @@ select {
   padding-right: 0px;
   overflow: auto;
   
-  width: 100%;
+  width: 80%;
   height: 400px;
   opacity: 1;
 
@@ -1237,6 +1237,14 @@ select {
   list-style: none;
 
   
+}
+
+@media screen and (max-width: 414px) {
+  .details-modal
+  {
+    width: 100%;
+
+  }
 }
 
 .details-modal-close {
