@@ -872,6 +872,19 @@ body{
   color: black;
 }
 
+@media screen and (max-width: 414px) {
+
+  .title
+  {
+    color: white;
+  }
+  .page-content
+  {
+    place-items: inherit;
+  }
+
+
+}
 
 .copy {
   font-family: var(--font-serif);
