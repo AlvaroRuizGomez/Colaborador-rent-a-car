@@ -14,7 +14,6 @@ exports.InitServer = async () => {
     const router = require('./routes/route');
     const path = require("path");
     
-    
     const app = express();
     
     const apiLimiter = rateLimit({
