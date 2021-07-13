@@ -142,7 +142,6 @@ const ControlSchema = async (body) => {
         tooltip_kilometraje: Joi.string(),
         alt_kilometraje: Joi.string(),
         kilometraje: Joi.string(),
-        tooltip_cancelaciones: Joi.string(),
         alt_cancelaciones: Joi.string(),
         cancelaciones: Joi.string(),
         tooltip_modificaciones: Joi.string(),
