@@ -15,13 +15,13 @@ exports.getShowDetails = async (req, res, languageBrowser) => {
 exports.postShowDetails = async (req, res, languageBrowser) =>
 {
     // console.log(req.useragent);
-    const isSchemaValid = await ControlSchema(req.body);
+    // const isSchemaValid = await ControlSchema(req.body);
 
-    if (isSchemaValid === false) {
-        //TODO: mejorar
-        console.error("details.js control schema invalido");
-        return res.status(404).send("Not found");
-    }
+    // if (isSchemaValid === false) {
+    //     //TODO: mejorar
+    //     console.error("details.js control schema invalido");
+    //     return res.status(404).send("Not found");
+    // }
 
     const location = await geolocation.GetIPTimeZone(req);
 
@@ -142,6 +142,7 @@ const ControlSchema = async (body) => {
         tooltip_kilometraje: Joi.string(),
         alt_kilometraje: Joi.string(),
         kilometraje: Joi.string(),
+        // tooltip_cancelaciones: Joi
         alt_cancelaciones: Joi.string(),
         cancelaciones: Joi.string(),
         tooltip_modificaciones: Joi.string(),
