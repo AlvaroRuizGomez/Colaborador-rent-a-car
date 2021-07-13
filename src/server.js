@@ -14,7 +14,6 @@ exports.InitServer = async () => {
     const router = require('./routes/route');
     const path = require("path");
     
-    
     const app = express();
     
     const apiLimiter = rateLimit({
@@ -83,6 +82,7 @@ exports.InitServer = async () => {
 
     // app.use("/", express.static('public'));
     // app.use("/car/", express.static('public'));
+    
 
     app.use("/", express.static(path.join(__dirname, "../public")));
     app.use("/car/", express.static(path.join(__dirname, "../public")));
