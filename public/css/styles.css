@@ -987,7 +987,7 @@ body{
   /* transform: translateY(100%); */
 }
 .title-Suzuki-Burgman_125cc {
-  /* transform: translateY(100%); */
+  transform: translateY(-80%);
 }
 
 .logo-PiaggioLiberty_125cc {
@@ -1000,7 +1000,7 @@ body{
 
 .logo-Suzuki-Burgman_125cc
 {
-  /* transform: translateY(100%); */
+  transform: translateY(-185%);
 }
 
 .content {
@@ -1242,6 +1242,39 @@ body{
   transform: translateY(25px);
   /* transform: translateY(10%); */
 }
+
+.card:hover > #suzukyBurgman125 > .content > .title
+{
+
+  transform: translateY(-145%);
+  /* background-color: red; */
+
+}
+
+.card:hover > #suzukyBurgman125 > .content > picture > .logo-Suzuki-Burgman_125cc
+{
+
+  transform: translateY(-220%);
+  /* background-color: red; */
+
+}
+
+.card:hover > #suzukyBurgman125 > .content > .btn
+{
+
+  transform: translateY(-5px);
+  /* background-color: red; */
+
+}
+
+.card:hover > #suzukyBurgman125 > .content > .content-card > .car-info-services
+{
+
+  transform: translateY(-30px);
+  /* background-color: red; */
+
+}
+
 
 
 @media screen and (max-width: 414px) {
