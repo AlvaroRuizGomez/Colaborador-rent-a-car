@@ -86,7 +86,7 @@ body{
 /**** Inicio CSS formulario Buscar Ofertas ****/
 .formContainer {
   
-  width: 100%;
+  width: 84%;
   
   display: grid;
   grid-template-columns: 0.9fr;
