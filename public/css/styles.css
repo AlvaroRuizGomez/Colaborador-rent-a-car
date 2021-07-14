@@ -1231,23 +1231,22 @@ body{
 
 .card:hover > .form-line > .content > .content-card
 {
-  /* background-color: red; */
+
   transform: translateY(45px);
-  /* transform: translateY(10%); */
+
 }
 
 .card:hover > .form-line > .content > .btn
 {
-  /* background-color: red; */
+
   transform: translateY(25px);
-  /* transform: translateY(10%); */
+
 }
 
 .card:hover > #suzukyBurgman125 > .content > .title
 {
 
   transform: translateY(-145%);
-  /* background-color: red; */
 
 }
 
@@ -1255,7 +1254,6 @@ body{
 {
 
   transform: translateY(-220%);
-  /* background-color: red; */
 
 }
 
