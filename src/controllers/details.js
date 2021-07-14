@@ -3,6 +3,7 @@ const fetch = require("node-fetch");
 const geolocation = require("./geolocation");
 const locations = require("./locations");
 const obtenerVars = require("./obtenervariablesentorno");
+const logicDiferenciaFechas = require("./logicDiferenciaFechas");
 const path = require("path");
 
 const URI_UPDATE_STATS_BACKEND = obtenerVars.ObtenerURI_UPDATE_STATS_BACKEND();
@@ -15,13 +16,13 @@ exports.getShowDetails = async (req, res, languageBrowser) => {
 exports.postShowDetails = async (req, res, languageBrowser) =>
 {
     // console.log(req.useragent);
-    // const isSchemaValid = await ControlSchema(req.body);
+    const isSchemaValid = await ControlSchema(req.body);
 
-    // if (isSchemaValid === false) {
-    //     //TODO: mejorar
-    //     console.error("details.js control schema invalido");
-    //     return res.status(404).send("Not found");
-    // }
+    if (isSchemaValid === false) {
+        //TODO: mejorar
+        console.error("details.js control schema invalido");
+        return res.status(404).send("Not found");
+    }
 
     const location = await geolocation.GetIPTimeZone(req);
 
@@ -30,10 +31,17 @@ exports.postShowDetails = async (req, res, languageBrowser) =>
         return res.status(404).send("Not found");
     }
 
+    const diferenciaDias = await logicDiferenciaFechas.DiferenciaFechaRecogidaDevolucion(req.body);
+
+    if (req.body.edad_conductor - 0 < 21 || req.body.edad_conductor - 0 > 90 || req.body.anyos_carnet - 0 < 2 || diferenciaDias === false) {
+        return res.redirect("/");
+    }
+
     const locationLanguage = await locations.GenerateLocationBrowser(
         languageBrowser,
         req.headers["accept-language"].split(",")[1].split(";")[0]
     );
+
 
 
     res.render(path.join(__dirname, "../../public/reservar.html"), {
@@ -85,80 +93,44 @@ exports.postShowDetails = async (req, res, languageBrowser) =>
 const ControlSchema = async (body) => {
 
     const schema = Joi.object({
-        // success: Joi.string().required(),
-        // fase: Joi.number().required(),
-        // idioma: Joi.string().required(),
-        // conductor_con_experiencia: Joi.string().required(),
-        // fechaRecogida: Joi.string().required(),
-        // horaRecogida: Joi.string().required(),
-        // fechaDevolucion: Joi.string().required(),
-        // horaDevolucion: Joi.string().required(),
-        // imagen_vehiculo: Joi.string().required(),
-        // descripcion_vehiculo: Joi.string().required(),
-        // pax_vehiculo: Joi.number().required(),
-        // puertas_vehiculo: Joi.number().required(),
-        // aireacondicionado_vehiculo: Joi.number().required(),
-        // transmision_vehiculo: Joi.string().required(),
-        // tooltip_cambio: Joi.string().required(),
-        // alt_cambio: Joi.string().required(),
-        // tooltip_vehiculo_tiene: Joi.string().required(),
-        // tooltip_kilometraje: Joi.string().required(),
-        // alt_kilometraje: Joi.string().required(),
-        // kilometraje: Joi.string().required(),
-        // tooltip_cancelaciones: Joi.string().required(),
-        // alt_cancelaciones: Joi.string().required(),
-        // cancelaciones: Joi.string().required(),
-        // tooltip_modificaciones: Joi.string().required(),
-        // alt_modificacion: Joi.string().required(),
-        // modificaciones: Joi.string().required(),
-        // porcentaje: Joi.string().required(),
-        // tooltip_suplementogenerico_suplemento_noche_fuera_entrega: Joi.string().required(),
-        // location_suplementogenerico_suplemento_noche_fuera_entrega: Joi.string().required(),
-        // tooltip_suplementogenerico_sin_suplemento_tiempo_fuera_entrega: Joi.string(),
-        // location_suplementogenerico_sin_suplemento_tiempo_fuera_entrega: Joi.string(),
-        // suplementoportipoChofer: Joi.number().required(),
-        // preciototaldias: Joi.number().required(),
-        // tooltip_alt_precio_total: Joi.string().required(),
-        // diasEntreRecogidaDevolucion: Joi.number().required(),
-        // location_dias: Joi.string().required(),
-        // vehiculo: Joi.string().required()
-        success: Joi.string(),
-        fase: Joi.number(),
-        idioma: Joi.string(),
-        conductor_con_experiencia: Joi.string(),
-        fechaRecogida: Joi.string(),
-        horaRecogida: Joi.string(),
-        fechaDevolucion: Joi.string(),
-        horaDevolucion: Joi.string(),
-        imagen_vehiculo: Joi.string(),
-        descripcion_vehiculo: Joi.string(),
-        pax_vehiculo: Joi.number(),
-        puertas_vehiculo: Joi.number(),
-        aireacondicionado_vehiculo: Joi.number(),
-        transmision_vehiculo: Joi.string(),
-        tooltip_cambio: Joi.string(),
-        alt_cambio: Joi.string(),
-        tooltip_vehiculo_tiene: Joi.string(),
-        tooltip_kilometraje: Joi.string(),
-        alt_kilometraje: Joi.string(),
-        kilometraje: Joi.string(),
-        // tooltip_cancelaciones: Joi
-        alt_cancelaciones: Joi.string(),
-        cancelaciones: Joi.string(),
-        tooltip_modificaciones: Joi.string(),
-        alt_modificacion: Joi.string(),
-        modificaciones: Joi.string(),
-        porcentaje: Joi.string(),
-        tooltip_suplementogenerico_suplemento_noche_fuera_entrega: Joi.string(),
-        location_suplementogenerico_suplemento_noche_fuera_entrega: Joi.string(),
+        success: Joi.string().required(),
+        fase: Joi.number().required(),
+        idioma: Joi.string().required(),
+        conductor_con_experiencia: Joi.string().required(),
+        fechaRecogida: Joi.string().required(),
+        horaRecogida: Joi.string().required(),
+        fechaDevolucion: Joi.string().required(),
+        horaDevolucion: Joi.string().required(),
+        imagen_vehiculo: Joi.string().required(),
+        descripcion_vehiculo: Joi.string().required(),
+        pax_vehiculo: Joi.number().required(),
+        puertas_vehiculo: Joi.number().required(),
+        aireacondicionado_vehiculo: Joi.number().required(),
+        transmision_vehiculo: Joi.string().required(),
+        tooltip_cambio: Joi.string().required(),
+        alt_cambio: Joi.string().required(),
+        tooltip_vehiculo_tiene: Joi.string().required(),
+        tooltip_kilometraje: Joi.string().required(),
+        alt_kilometraje: Joi.string().required(),
+        kilometraje: Joi.string().required(),
+        tooltip_cancelaciones: Joi.string().required(),
+        alt_cancelaciones: Joi.string().required(),
+        cancelaciones: Joi.string().required(),
+        tooltip_modificaciones: Joi.string().required(),
+        alt_modificacion: Joi.string().required(),
+        modificaciones: Joi.string().required(),
+        porcentaje: Joi.string().required(),
+        tooltip_suplementogenerico_suplemento_noche_fuera_entrega: Joi.string().required(),
+        location_suplementogenerico_suplemento_noche_fuera_entrega: Joi.string().required(),
         tooltip_suplementogenerico_sin_suplemento_tiempo_fuera_entrega: Joi.string(),
         location_suplementogenerico_sin_suplemento_tiempo_fuera_entrega: Joi.string(),
-        suplementoportipoChofer: Joi.number(),
-        preciototaldias: Joi.number(),
-        tooltip_alt_precio_total: Joi.string(),
-        diasEntreRecogidaDevolucion: Joi.number(),
-        location_dias: Joi.string(),
-        vehiculo: Joi.string()
+        suplementoportipoChofer: Joi.number().required(),
+        preciototaldias: Joi.number().required(),
+        tooltip_alt_precio_total: Joi.string().required(),
+        diasEntreRecogidaDevolucion: Joi.number().required(),
+        location_dias: Joi.string().required(),
+        vehiculo: Joi.string().required()
+        
     });
     
     const options = {

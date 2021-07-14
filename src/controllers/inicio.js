@@ -8,6 +8,7 @@ const querystring = require("querystring");
 const geolocation = require("./geolocation");
 const locations = require("./locations");
 const obtenerVars = require("./obtenervariablesentorno");
+const logicDiferenciaFechas = require("./logicDiferenciaFechas");
 
 //variables
 const URI_API_BACKEND = obtenerVars.ObtenerURI_API_BACKEND();
@@ -144,6 +145,12 @@ exports.postHomeDirect = async (req, res) =>
         //TODO: mejorar
         console.error("inicio.js control schema invalido");
         return res.status(404).send("Not found");
+    }
+
+    const diferenciaDias = await logicDiferenciaFechas.DiferenciaFechaRecogidaDevolucion(query);
+
+    if (query.edad_conductor - 0 < 21 || query.edad_conductor - 0 > 90 || query.anyos_carnet - 0 < 2 || diferenciaDias === false) {
+        return res.redirect("/");
     }
 
     const body = { "token": process.env.TOKEN_FOR_BACKEND_ACCESS, "direct":true, ...query };
@@ -329,7 +336,9 @@ exports.postHome = async (req, res) =>
         return res.status(404).send("Not found");
     }
 
-    if (req.body.edad_conductor - 0 < 21 || req.body.edad_conductor - 0 > 90 || req.body.anyos_carnet - 0 < 2)
+    const diferenciaDias = await logicDiferenciaFechas.DiferenciaFechaRecogidaDevolucion(req.body);
+
+    if (req.body.edad_conductor - 0 < 21 || req.body.edad_conductor - 0 > 90 || req.body.anyos_carnet - 0 < 2 || diferenciaDias === false)
     {
         return res.redirect("/");
     }
