@@ -142,11 +142,16 @@ const ComprobarIntervaloFechas = async () => {
     const fechaDevolucion = await ObtenerFecha(inputFechaDevolucion.value, inputHoraDevolucion.value);
 
     const diasDecimales = (new Date(fechaDevolucion) - new Date(fechaRecogida)) / 86400000;
-    const numerodias = Math.ceil(diasDecimales);
+    let numerodias = Math.ceil(diasDecimales);
     let traDias = undefined;
     if (numerodias === 1)
     {
         traDias = document.getElementById("traDia").value;
+    }
+    else if (numerodias < 0) {
+        traDias = document.getElementById("traDias").value;
+        numerodias = 0;
+
     }
     else
     {

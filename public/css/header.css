@@ -339,23 +339,6 @@
     place-items: center;
   }
 
-  .formContainer
-  {
-        display: grid;
-    grid-template-columns: 0.9fr;
-    grid-template-rows: 1fr auto;
-    grid-template-areas:
-        "titulo"
-        "data";
-
-    width: 90vmin;
-    padding: 0px;
-    margin-top: 0px;
-    margin-left: 0px;
-    border: 1px solid #ddd;
-    background-color: #eaf2fd;
-    
-  }
 
   .colaboracion 
   {

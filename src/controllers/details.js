@@ -3,6 +3,7 @@ const fetch = require("node-fetch");
 const geolocation = require("./geolocation");
 const locations = require("./locations");
 const obtenerVars = require("./obtenervariablesentorno");
+const logicDiferenciaFechas = require("./logicDiferenciaFechas");
 const path = require("path");
 
 const URI_UPDATE_STATS_BACKEND = obtenerVars.ObtenerURI_UPDATE_STATS_BACKEND();
@@ -30,10 +31,17 @@ exports.postShowDetails = async (req, res, languageBrowser) =>
         return res.status(404).send("Not found");
     }
 
+    const diferenciaDias = await logicDiferenciaFechas.DiferenciaFechaRecogidaDevolucion(req.body);
+
+    if (req.body.edad_conductor - 0 < 21 || req.body.edad_conductor - 0 > 90 || req.body.anyos_carnet - 0 < 2 || diferenciaDias === false) {
+        return res.redirect("/");
+    }
+
     const locationLanguage = await locations.GenerateLocationBrowser(
         languageBrowser,
         req.headers["accept-language"].split(",")[1].split(";")[0]
     );
+
 
 
     res.render(path.join(__dirname, "../../public/reservar.html"), {
@@ -97,7 +105,6 @@ const ControlSchema = async (body) => {
         descripcion_vehiculo: Joi.string().required(),
         pax_vehiculo: Joi.number().required(),
         puertas_vehiculo: Joi.number().required(),
-        // pagoRecogida: Joi.number().required(),
         aireacondicionado_vehiculo: Joi.number().required(),
         transmision_vehiculo: Joi.string().required(),
         tooltip_cambio: Joi.string().required(),
@@ -117,14 +124,13 @@ const ControlSchema = async (body) => {
         location_suplementogenerico_suplemento_noche_fuera_entrega: Joi.string().required(),
         tooltip_suplementogenerico_sin_suplemento_tiempo_fuera_entrega: Joi.string(),
         location_suplementogenerico_sin_suplemento_tiempo_fuera_entrega: Joi.string(),
-        // tooltip_preciosSuplementoPorTipoChofer_undefined: Joi.string().required(),
-        // location_preciosSuplementoPorTipoChofer_undefined: Joi.string().required(),
         suplementoportipoChofer: Joi.number().required(),
         preciototaldias: Joi.number().required(),
         tooltip_alt_precio_total: Joi.string().required(),
         diasEntreRecogidaDevolucion: Joi.number().required(),
         location_dias: Joi.string().required(),
         vehiculo: Joi.string().required()
+        
     });
     
     const options = {
@@ -134,7 +140,7 @@ const ControlSchema = async (body) => {
     };
     const validation = schema.validate(body, options);
     let isValid = false;
-
+    console.log("validation=" + validation.error);
     if (validation.error === undefined) {
         isValid = true;
     }

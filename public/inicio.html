@@ -14,8 +14,8 @@
         <!-- --------------------------------------------------- -->
 
         <!-- ------------- Clock Picker jQuery ----------------- -->
-        <link rel="stylesheet" href="clockpicker.css">
-        <script src="clockpicker.js"></script>
+        <link rel="stylesheet" href="./css/clockpicker.css">
+        
         <!-- --------------------------------------------------- -->
 
         <link rel="stylesheet" href="css/styles.css" />
@@ -23,13 +23,13 @@
         <link rel="stylesheet" href="./css/footer.css">
 
         <!----------------------------------- Fonts --------------------------------------->
-        <link rel="preconnect" href="https://fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css2?family=Caveat&display=swap" rel="stylesheet ">
+        <!-- <link rel="preconnect" href="https://fonts.gstatic.com"> -->
+        <!-- <link href="https://fonts.googleapis.com/css2?family=Caveat&display=swap" rel="stylesheet "> -->
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
 
         <!------------------------------ Font Faster R ----------------------------------->
-        <link href="https://fonts.googleapis.com/css2?family=Allura&family=Arizonia&family=Charmonman:wght@700&family=Damion&family=Faster+One&family=Galada&family=Gravitas+One&family=Montez&family=Sarina&family=Sonsie+One&display=swap" rel="stylesheet">  
+        <!-- <link href="https://fonts.googleapis.com/css2?family=Allura&family=Arizonia&family=Charmonman:wght@700&family=Damion&family=Faster+One&family=Galada&family=Gravitas+One&family=Montez&family=Sarina&family=Sonsie+One&display=swap" rel="stylesheet">   -->
         <!--------------------------------------------------------------------------------->
 
         <!------------------- Bootstrap CSS ------------------------>
@@ -95,7 +95,8 @@
                     <div class="formTit">
                         <h2>
                             <%=it.locations.titulo_form%>
-                        </h2> 
+                        </h2>
+                        <img class="forma_rectangulo" src="./img/svg/forma_rectangulo.svg" alt="rectangulo dias">
                         <% if ( it.numeroDias ) { %>
                             <% if (it.numeroDias - 0 === 1 ) { %>
                             <span id="numerodias" class="numerodias"><%=it.numeroDias %> <%=it.locations.dia %></span>
@@ -303,6 +304,7 @@
         <script async src="./js/index.js"></script>
         <script async src="./js/newsletter.js"></script>
         <script async src="./js/footer.js"></script>
+        <script src="./js/clockpicker.js"></script>
 
         <script>
             

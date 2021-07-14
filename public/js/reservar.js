@@ -141,7 +141,7 @@ boton_reservar.addEventListener("click", async (evento) =>
 {
     evento.preventDefault();
 
-    boton_reservar.disabled = true;
+    
     
     const icono_error_formulario = document.getElementById("icono_error_formulario");
     
@@ -249,6 +249,8 @@ boton_reservar.addEventListener("click", async (evento) =>
     trozoHtml.innerHTML = "Numero Registro:" + datos.numeroRegistro;
 
     relleno.appendChild(trozoHtml);
+
+    boton_reservar.disabled = true;
     
     // // ocultar overlay
     // setTimeout(async () => {

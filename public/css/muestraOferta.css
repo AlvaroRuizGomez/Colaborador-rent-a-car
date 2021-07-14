@@ -786,6 +786,11 @@ body {
 
 }
 
+.col-p:hover
+{
+  border: 1px solid rgb(0, 0, 0);
+}
+
 .img-ta {
 
   max-width: 115px;
@@ -1253,7 +1258,7 @@ body {
   padding-right: 0px;
   overflow: auto;
   
-  width: 100%;
+  width: 80%;
   height: 400px;
   opacity: 1;
 
@@ -1264,6 +1269,14 @@ body {
   padding-left: 25px;
 
   
+}
+
+@media screen and (max-width: 414px) {
+  .details-modal
+  {
+    width: 100%;
+
+  }
 }
 
 .details-modal-close {

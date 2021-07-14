@@ -68,21 +68,26 @@ body{
   display: grid;
   grid-template-columns: .5fr 1fr;
   align-items: start;
-  justify-items: space-between;
   grid-column-gap: 7px;
 
   padding-top: 20px;
   padding-bottom: 20px;
-  /* background-image: url("../img/Img-Banner/FaroSoller.webp"); */
+
   background-color: #fafafa;
   background-position: center;
   background-size: cover;
   position: relative;
+
+  
+
 }
 
 /* --------- Inicio Formulario busqueda ----------*/
 /**** Inicio CSS formulario Buscar Ofertas ****/
 .formContainer {
+  
+  width: 100%;
+  
   display: grid;
   grid-template-columns: 0.9fr;
   grid-template-rows: 1fr auto;
@@ -90,15 +95,15 @@ body{
   grid-template-areas:
       "titulo"
       "data";
-  justify-items: flex-start;
   align-items: flex-start;
-  width: 86%;
   padding: 1rem;
   margin-top: 17px;
-  margin-left: 70px;
+  place-content: center;
   border: 1px solid #ddd;
   background-color: #eaf2fd;
   position: relative;
+  justify-self: center;
+
 }
 
 .formTit{
@@ -127,7 +132,7 @@ body{
   grid-template-columns: 25% 115px 9% 7% 13% 46px 10%;
   grid-template-rows: repeat(4, 38px) auto auto;
   width: 100%;
-  margin-left: 20px;
+  /* margin-left: 20px; */
   /* background-color: #fff; */
   /* gap: 0px 0px; */
   grid-template-areas:
@@ -143,8 +148,9 @@ body{
   /* place-items: center; */
   place-content: center;
 
-
 }
+
+
 
 .input-color[readonly]
 {
@@ -283,14 +289,6 @@ body{
   /* box-shadow: 0px 0px 2px #1e1c1c; */
 }
 
-@media screen and (max-width: 360px)
-{
-  .img-calendar, .img-clock
-  {
-    display: none;
-  }
-}
-
 
 .img-clock {
   width: 24px;
@@ -318,6 +316,10 @@ body{
   /* align-items: stretch; */
   align-items: center;
 }
+
+
+
+
 
 .form-chequeo {
   font-size: 17px;
@@ -485,6 +487,114 @@ body{
 
 }
 
+.forma_rectangulo
+{
+  display: none;
+}
+
+
+@media screen and (max-width: 414px)
+{
+
+  .img-calendar, 
+  .img-clock,
+  .recogidaDateIcon, 
+  .recogidaClockTit,
+  .devolucionDateIcon, 
+  .devolucionClockTit
+  {
+    display: none;
+  }
+
+
+  .formContainer
+  {
+    display: grid;
+    grid-template-columns: 0.9fr;
+    grid-template-rows: 1fr auto;
+    grid-template-areas:
+        "titulo"
+        "data";
+
+    width: 90vmin;
+    padding: 0px;
+    margin-top: 0px;
+    margin-left: 0px;
+    border: 1px solid #505159;
+    background-color: #bbcde7;
+    
+  }
+
+  .grid-container 
+  {
+    grid-area: data;
+
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 35px 50px 50px 50px auto auto auto 30px;
+    width: 100%;
+    
+    /* background-color: #fff; */
+    /* gap: 0px 0px; */
+    grid-template-areas:
+      "recogidaDateTit devolucionDateTit"
+      "recogidaDateData devolucionDateData"
+      "recogidaClockData devolucionClockData"
+      ". ."
+      "driverNovel driverNovel"
+      "driverAge driverAge"
+      "verPrecio verPrecio"
+      ". ."
+      ;
+    place-content: center;
+    
+
+  }
+
+  .recogidaDateTit, .devolucionDateTit,
+  .recogidaDateData, .devolucionDateData,
+  .recogidaClockData, .devolucionClockData
+  {
+
+    display: flex;
+    justify-content: center;
+  }
+
+  .input-color[readonly]
+  {
+    width: 130px;
+    height: 40px;
+    text-align: center;
+  }
+
+  .formTit
+  {
+    margin-top: 17px;
+  }
+
+  .popover
+  {
+    /* top: ; */
+  }
+
+  .numerodias
+  {
+    top: 390%;
+    left: 34%;
+  }
+
+  .forma_rectangulo
+  {
+    display: block;
+    top: 359%;
+    position: absolute;
+    left: 20%;
+    width: 153px;
+  }
+
+}
+
+
 
 /* pulsado el inpuradio */
 
@@ -611,6 +721,32 @@ body{
   transform: translateY(-50%);
   transition: transform calc(var(--d) * 2) var(--e);
   
+}
+
+@media screen and (max-width: 414px) {
+  .card:after
+  {
+    background-image: linear-gradient(to bottom, 
+      rgba(0, 0, 0, 0) 0%, 
+    rgba(0, 0, 0, 0.009) 11.7%,
+    rgba(0, 0, 0, 0.034) 22.1%, 
+    rgba(0, 0, 0, 0.072) 31.2%, 
+    rgba(0, 0, 0, 0.023) 39.4%, 
+    rgba(0, 0, 0, 0.082) 46.6%, 
+    rgba(0, 0, 0, 0.149) 53.1%, 
+    rgba(0, 0, 0, 0.12) 58.9%, 
+    rgba(0, 0, 0, 0.194) 64.3%, 
+    rgba(0, 0, 0, 0.268) 69.3%, 
+    rgba(0, 0, 0, 0.34) 74.1%, 
+    rgba(0, 0, 0, 0.407) 78.8%, 
+    rgba(0, 0, 0, 0.468) 83.6%,
+    rgba(0, 0, 0, 0.521) 88.7%, 
+    rgba(0, 0, 0, 0.562)  94.1%, 
+    rgba(0, 0, 0, 0.507) 100%);
+
+  }
+
+
 }
 
 
@@ -880,7 +1016,7 @@ body{
 
   .title
   {
-    color: white;
+    color: black;
   }
   .page-content
   {
@@ -1318,6 +1454,7 @@ input[type=number] {
 
   
 }
+
 
 @media screen and (max-width: 414px) {
   .details-modal

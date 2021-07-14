@@ -12,7 +12,7 @@ for (let i = 0; i < botonCondiciones.length; i++)
 
         const divOverlay = evento.target;
 
-        if (divOverlay.classList[1] === "modal-visible") {
+        if (divOverlay.classList.contains("modal-visible") === true) {
             divOverlay.classList.remove("modal-visible");
             divOverlay.classList.add("modal-invisible");
             document.body.style.overflow = null;
@@ -21,21 +21,28 @@ for (let i = 0; i < botonCondiciones.length; i++)
 
     });
 
-   
-
     botonCondiciones[i].addEventListener("click", async (evento)=> 
     {
         
-        // const divOverlay = evento.target.parentElement.nextElementSibling;
-        let divOverlay = evento.target.parentElement.parentElement.parentElement.lastElementChild.firstElementChild;
+        const divOverlay = document.getElementById(`overlay_${botonCondiciones[i].id.split("_")[1]}`);
+
+        divOverlay.addEventListener("click", async (evento) => {
+
+            const divOverlay = evento.target;
+
+            if (divOverlay.classList.contains("modal-visible") === true) {
+                divOverlay.classList.remove("modal-visible");
+                divOverlay.classList.add("modal-invisible");
+                document.body.style.overflow = null;
+
+            }
+
+        });
+
 
         let botonesCerrar = document.getElementsByClassName("details-modal-close");
-        if (divOverlay.classList[1] !== "modal-invisible")
-        {
-            divOverlay = evento.target.parentElement.parentElement.parentElement.lastElementChild.firstElementChild;
-        }
 
-        if (divOverlay.classList[1] === "modal-invisible")
+        if (divOverlay.classList.contains("modal-invisible") === true)
         {
             document.body.style.overflow = "hidden";
             document.querySelector("html").scrollTop = window.scrollY;
@@ -57,7 +64,7 @@ for (let p = 0; p < botonesCerrar.length; p++ )
         let botonesCerrar = document.getElementsByClassName("details-modal-close");
         for (let o = 0; o < divOverlay.length; o++) {
 
-            if (divOverlay[o].classList[1] === "modal-visible") {
+            if (divOverlay[o].classList.contains("modal-visible") === true) {
                 divOverlay[o].classList.remove("modal-visible");
                 divOverlay[o].classList.add("modal-invisible");
                 document.body.style.overflow = null;
@@ -203,10 +210,16 @@ const ComprobarIntervaloFechas = async (idiomaDiaCurrent, idiomaDiasCurrent) => 
     const fechaDevolucion = await ObtenerFecha(inputFechaDevolucion.value, inputHoraDevolucion.value);
 
     const diasDecimales = (new Date(fechaDevolucion) - new Date(fechaRecogida)) / 86400000;
-    const numerodias = Math.ceil(diasDecimales);
+    let numerodias = Math.ceil(diasDecimales);
     let traDias = undefined;
     if (numerodias === 1) {
         traDias = document.getElementById("traDia").value;
+    }
+    else if (numerodias < 0)
+    {
+        traDias = document.getElementById("traDias").value;
+        numerodias = 0;
+
     }
     else {
         traDias = document.getElementById("traDias").value;
