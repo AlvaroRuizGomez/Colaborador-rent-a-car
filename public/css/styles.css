@@ -55,16 +55,31 @@ body{
   padding: 0px;
 }
 
+.contenedor {
+  display: grid;
+  grid-template-columns: 1fr minmax(1000px, 1300px) 1fr;
+  grid-template-rows: 1fr;
+  grid-auto-rows: max-content;
+  gap: 0px 0px;
+  grid-auto-flow: column dense;
+  grid-template-areas:
+    ". contenido_fijo .";
+}
+
 
 #container {
   width: 100%;
   margin: 0px auto;
   border: 1px solid rgba(255, 255, 256, 0.8);
-  /* min-height: 600px; */
+  
+
 }
 
 /* ------------- Inicio Contenido ------------- */
 #content {
+
+  grid-area: contenido_fijo;
+
   display: grid;
   grid-template-columns: .5fr 1fr;
   align-items: start;
@@ -86,7 +101,7 @@ body{
 /**** Inicio CSS formulario Buscar Ofertas ****/
 .formContainer {
   
-  width: 100%;
+  width: 84%;
   
   display: grid;
   grid-template-columns: 0.9fr;
@@ -493,7 +508,7 @@ body{
 }
 
 
-@media screen and (max-width: 414px)
+@media screen and (max-width: 768px)
 {
 
   .img-calendar, 
@@ -506,6 +521,9 @@ body{
     display: none;
   }
 
+  .contenedor {
+    grid-template-columns: 1fr;
+  }
 
   .formContainer
   {
@@ -516,7 +534,7 @@ body{
         "titulo"
         "data";
 
-    width: 90vmin;
+    width: 94%;
     padding: 0px;
     margin-top: 0px;
     margin-left: 0px;
