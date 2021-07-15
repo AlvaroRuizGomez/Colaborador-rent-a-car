@@ -537,6 +537,7 @@ body{
     width: 94%;
     padding: 0px;
     margin-top: 0px;
+    border-radius: 10px;
     margin-left: 0px;
     border: 1px solid #505159;
     background-color: #bbcde7;
@@ -987,7 +988,7 @@ body{
   /* transform: translateY(100%); */
 }
 .title-Suzuki-Burgman_125cc {
-  /* transform: translateY(100%); */
+  transform: translateY(-80%);
 }
 
 .logo-PiaggioLiberty_125cc {
@@ -1000,7 +1001,7 @@ body{
 
 .logo-Suzuki-Burgman_125cc
 {
-  /* transform: translateY(100%); */
+  transform: translateY(-185%);
 }
 
 .content {
@@ -1231,17 +1232,48 @@ body{
 
 .card:hover > .form-line > .content > .content-card
 {
-  /* background-color: red; */
+
   transform: translateY(45px);
-  /* transform: translateY(10%); */
+
 }
 
 .card:hover > .form-line > .content > .btn
 {
-  /* background-color: red; */
+
   transform: translateY(25px);
-  /* transform: translateY(10%); */
+
 }
+
+.card:hover > #suzukyBurgman125 > .content > .title
+{
+
+  transform: translateY(-145%);
+
+}
+
+.card:hover > #suzukyBurgman125 > .content > picture > .logo-Suzuki-Burgman_125cc
+{
+
+  transform: translateY(-220%);
+
+}
+
+.card:hover > #suzukyBurgman125 > .content > .btn
+{
+
+  transform: translateY(-5px);
+  /* background-color: red; */
+
+}
+
+.card:hover > #suzukyBurgman125 > .content > .content-card > .car-info-services
+{
+
+  transform: translateY(-30px);
+  /* background-color: red; */
+
+}
+
 
 
 @media screen and (max-width: 414px) {

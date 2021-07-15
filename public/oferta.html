@@ -1,4 +1,4 @@
-<form method="post"  action="<%=it.locations.detalles %>">
+<form method="post"  class="formulario_oferta" action="<%=it.locations.detalles %>">
     <input type="hidden" name="success" value="<%=it.success %>">
     <input type="hidden" name="fase" value="2">
     <input type="hidden" name="idioma" value="<%=it.locations.idioma_web %>">
@@ -29,7 +29,7 @@
             <picture class="car-image">
                 <source data-srcset="./img/Img-Vehiculos/<%= element.ImagenVehiclo %>_Card.avif" >
                 <source data-srcset="./img/Img-Vehiculos/<%= element.ImagenVehiclo %>_Card.webp">
-                <img class="lazyload" data-src="./img/Img-Vehiculos/<%= element.ImagenVehiclo %>_Card.png" alt="<%= element.descripcion %>">
+                <img class="lazyload tamImagen" data-src="./img/Img-Vehiculos/<%= element.ImagenVehiclo %>_Card.png" alt="<%= element.descripcion %>">
             </picture>
             
             <a id="boton_<%=element.vehiculo %>" class="boton_modal" role="button" data-tooltip-location="top" data-tooltip="<%=it.locations.tooltip_condiciones%>">
