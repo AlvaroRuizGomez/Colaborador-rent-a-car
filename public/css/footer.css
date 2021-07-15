@@ -511,3 +511,20 @@ margin: 0;
 text-decoration: none;
 transition: color .2s ease-out;
 }
+
+.overlay-transparente-footer
+{
+  display: block;
+  background: rgba(0, 0, 0, 0.563);
+  
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  overflow: hidden;
+
+
+}
