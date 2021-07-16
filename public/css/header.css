@@ -95,7 +95,7 @@
 }
 
 
-@media screen and (max-width: 360px)
+@media screen and (max-width: 414px)
 {
   
     .logo-imagen
@@ -392,7 +392,8 @@
   {
     position: absolute;
     top: 32%;
-    left: 9%;
+    /* left: 9%; */
+    left: calc(max(22px, 63%));
     width: 69px;
     
   }
@@ -411,7 +412,8 @@
     animation: spin 20s linear infinite;
     width: 122px;
     top: -4%;
-    left: -16%;
+    /* left: -16%; */
+    left: calc(max(22px, 39%));
     z-index: 0;
     
   }
@@ -436,17 +438,49 @@
 }
 
 
-@media screen and (max-width: 360px)
+@media screen and (width: 360px)
 {
 
   .texto-circular
   {
-    left: 10%;
+    left: 21%;
   }
 
   .logo-colaboracion
   {
-    left: 35%;
+    left: 45%;
+  }
+
+}
+
+
+@media screen and (width: 375px)
+{
+
+  .texto-circular
+  {
+    left: 21%;
+  }
+
+  .logo-colaboracion
+  {
+    left: 45%;
+  }
+
+}
+
+
+@media screen and (width: 320px)
+{
+
+  .texto-circular
+  {
+    left: -11%;
+  }
+
+  .logo-colaboracion
+  {
+    left: 14%;
   }
 
 }

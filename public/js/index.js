@@ -2,13 +2,6 @@
 const checkboxRangoEdad = document.getElementById("rangoedad");
 const desplegable_edad = document.getElementById("desplegable_edad");
 
-// function handleFullWidthSizing() {
-//     const scrollbarWidth = window.innerWidth - document.body.clientWidth
-//     document.getElementById("container").style.width = `calc(100vw - ${scrollbarWidth}px)`;
-// }
-
-// handleFullWidthSizing();
-
 
 //cards
 const cards = document.getElementsByClassName("card");
@@ -43,6 +36,15 @@ for (let i = 0; i < cards.length; i++)
         link += "numeroDias=" + document.getElementById("numerodiasHidden").value;
 
         formulario.href = link;
+
+//"http://localhost:8080/car/
+// peugeot108.html?id=peugeot108&success=xIieCQdYG6eUpzg2nYf5L&fase=2&idioma=es&vehiculo=peugeot108
+// &fechaRecogida=Sab,17-07-2021&horaRecogida=09:00
+// &fechaDevolucion=Vie,23-07-2021&horaDevolucion=20:00
+// &conductor_con_experiencia=off
+// &edad_conductor=22
+// &anyos_carnet=2&numeroDias=7"
+
 
     });
 

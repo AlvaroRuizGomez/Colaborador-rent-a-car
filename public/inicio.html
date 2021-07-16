@@ -106,8 +106,8 @@
                         <% } %>
                         <input type="hidden" id="numerodiasHidden" name="numeroDias" value="<%=it.numeroDias %>">
                     <% } else { %>
-                        <span id="numerodias" class="numerodias">3</span>
-                        <input type="hidden" id="numerodiasHidden" name="numeroDias" value="3">
+                        <span id="numerodias" class="numerodias">7</span>
+                        <input type="hidden" id="numerodiasHidden" name="numeroDias" value="7">
                     <% } %>
                 </div>
                 <div class="grid-container">
@@ -391,10 +391,10 @@
         <script>
             $(function() {
                 $("#fechaDevolucion").datepicker({ dateFormat: 'D,dd-mm-yy', minDate:'1d' });
-                let fecha = new Date();
-                fecha = fecha.getDate() - 9;
+                $fecha = new Date();
+                $fecha = $fecha.getDate() - 9;
                 
-                $("#fechaDevolucion").datepicker("setDate", fecha );
+                $("#fechaDevolucion").datepicker("setDate", $fecha );
                 // $(".datepicker").datepicker("setDate", new Date().getDate() + 1 );
                 $(".triggerDev").click(function(){
                     $("#fechaDevolucion").datepicker("show");

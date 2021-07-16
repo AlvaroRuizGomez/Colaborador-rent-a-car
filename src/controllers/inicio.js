@@ -92,7 +92,7 @@ exports.getHome = async (req, res, languageBrowser) =>
             "success": id,
             "preciosPorClase": dataResponse.preciosPorClase,
             "locations": locationLanguage,
-            "numeroDias": 3
+            "numeroDias": 7
         });
 
 

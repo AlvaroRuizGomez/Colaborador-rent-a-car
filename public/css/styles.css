@@ -508,7 +508,7 @@ body{
 }
 
 
-@media screen and (max-width: 768px)
+@media screen and (max-width: 414px)
 {
 
   .img-calendar, 
@@ -523,6 +523,7 @@ body{
 
   .contenedor {
     grid-template-columns: 1fr;
+    grid-template-areas: "contenido_fijo";
   }
 
   .formContainer
