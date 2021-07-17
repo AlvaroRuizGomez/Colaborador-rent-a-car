@@ -592,10 +592,10 @@ body{
     margin-top: 17px;
   }
 
-  .popover
-  {
-    /* top: ; */
-  }
+ 
+ 
+
+ 
 
   .numerodias
   {
@@ -613,7 +613,6 @@ body{
   }
 
 }
-
 
 
 /* pulsado el inpuradio */
@@ -1446,6 +1445,75 @@ input::-webkit-inner-spin-button {
 input[type=number] {
   -moz-appearance: textfield;
 }
+
+
+
+@media screen and (width: 320px) {
+
+
+  .clockstrech
+  {
+    /* top: 68%!important; */
+    left: 26%!important;
+    
+  }
+}
+
+
+@media screen and (width: 360px) {
+  .clockstrech
+  {
+    /* top: 68%!important; */
+    left: 26%!important;
+    
+  }
+}
+
+@media screen and (width: 375px) {
+  .clockstrech
+  {
+    /* top: 68%!important; */
+    left: 26%!important;
+    
+  }
+}
+
+
+
+@media screen and (width: 414px) {
+  .clockstrech
+  {
+    /* top: 68%!important; */
+    left: 26%!important;
+    
+  }
+}
+
+
+@media screen and (height: 731px) {
+  
+  .clockstrech
+  {
+    top: 60%!important;
+    left: 32%!important;
+    
+  }
+
+
+}
+
+@media screen and (height: 823px) {
+  
+  .clockstrech
+  {
+    top: 53%!important;
+    left: 32%!important;
+  }
+
+
+}
+
+
 
 /* VENTANA MODAL */
 
