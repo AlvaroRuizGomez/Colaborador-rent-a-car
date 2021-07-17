@@ -457,45 +457,35 @@
             <!------------ Fin Carrusel  ------------->
                     <!--------------- Inicio Ofertas --------------------->
                     <div class="ofertas">
-                        <form id="formulario-index" class="formReserveData" method="POST" action="/busqueda">
-                            <input type="hidden" name="conductor_con_experiencia" value="<%= it.formdata.conductor_con_experiencia %>">
-                            <input type="hidden" name="edad_conductor" value="<%= it.formdata.edad_conductor %>">
-                            <input type="hidden" name="idioma" value="<%=it.locations.idioma_web %>">
-                            <input type="hidden" name="success" value="<%=it.success %>">
-                            <input type="hidden" name="anyos_carnet" value="<%=it.formdata.anyos_carnet %>">
-                            <input type="hidden" name="fase" value="2">
-                            <input type="hidden" name="fechaRecogida" value="<%= it.formdata.fechaRecogida %>">
-                            <input type="hidden" name="horaRecogida" value="<%= it.formdata.horaRecogida %>">
-                            <input type="hidden" name="fechaDevolucion" value="<%= it.formdata.fechaDevolucion %>">
-                            <input type="hidden" name="horaDevolucion" value="<%= it.formdata.horaDevolucion %>">
-                            <input type="hidden" name="numeroDias" value="<%=it.formdata.numeroDias %>">
-                            <div class="reserveData">
-                                <div class="reserveDateTime">
-                                    <div class="titReserve">
-                                        <img class="icon-25 arriba" src="./img/svg/mapaMundi.svg" alt="icono completado">
-                                        <div class="geoLoc arriba">
-                                            <p class="icon-locate">
-                                                <%=it.locations.reserveData_texto %>
-                                            </p>
-                                            <p class="dateTimeReserve">
-                                                <% let fechaReco = it.formdata.fechaRecogida.substring(0, it.formdata.fechaRecogida.length - 5) %> 
-                                                <%= fechaReco %> <%= it.formdata.horaRecogida %> - 
-                                                <% let fechaDevo=it.formdata.fechaDevolucion.substring(0, it.formdata.fechaDevolucion.length - 5) %>
-                                                <%= fechaDevo %>  <%= it.formdata.horaDevolucion %>
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="btnModReserve">
-                                    <div class="btnMod">
-                                        <button id="bt-enviar-index" type="submit" class="boton_modificar">
-                                            <%=it.locations.cambiar %>
-                                        </button>
+                        <div class="reserveData">
+                            <div class="reserveDateTime">
+                                <div class="titReserve">
+                                    <img class="icon-25 arriba" src="./img/svg/mapaMundi.svg" alt="icono completado">
+                                    <div class="geoLoc arriba">
+                                        <p class="icon-locate">
+                                            <%=it.locations.reserveData_texto %>
+                                        </p>
+                                        <p class="dateTimeReserve">
+                                            <% let fechaReco = it.formdata.fechaRecogida.substring(0, it.formdata.fechaRecogida.length - 5) %> 
+                                            <%= fechaReco %> <%= it.formdata.horaRecogida %>
+                                        </p>
+                                        <p class="dateTimeReserve">
+                                            <% let fechaDevo=it.formdata.fechaDevolucion.substring(0, it.formdata.fechaDevolucion.length - 5) %>
+                                            <%= fechaDevo %>  <%= it.formdata.horaDevolucion %>
+                                        </p>
                                     </div>
                                 </div>
                             </div>
-                        </form>
-
+                            <div class="btnModReserve">
+                                <div class="btnMod">
+                                    <a href="/">
+                                        <button id="bt-enviar-index" type="submit" class="boton_modificar">
+                                            <%=it.locations.cambiar %>
+                                        </button>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
 
 
                         <% if (it.data.length <=0) { %>
@@ -520,7 +510,7 @@
                                     <% } %>
                                         <% if ( it.vehiculoSeleccionado !==undefined) { %>
                                             <div class="tablero_ofertas">
-                                                <h3>
+                                                <h3 class="titulo_tablero_ofertas">
                                                     <%=it.locations.vehiculo_seleccionado %>
                                                 </h3>
                                             </div>

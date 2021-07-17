@@ -801,8 +801,9 @@ select {
 .sillas
 {
     display: grid;
-    grid-template-columns: 10% 7% 11% 50%;
-    grid-template-rows: 0.2fr 1fr;
+    /* grid-template-columns: 10% 7% 11% 50%; */
+    grid-template-columns: auto 54px 54px 50%;
+    grid-template-rows: 30px 1fr;
     gap: 0px 0px;
     grid-template-areas:
         "silla casilla info titulo"
@@ -810,18 +811,19 @@ select {
     /* justify-items: center; */
     align-items: center;
     margin-bottom: 20px;
+    place-content: center;
 }
 
 
 .silla
 { 
     grid-area: silla;
-    margin-left: 18px;
+    /* margin-left: 18px; */
 }
 
 @media screen and (max-width: 414px) {
     .silla {
-        display: none;
+        /* display: none; */
     }
 }
 
@@ -892,7 +894,7 @@ select {
 }
 
 .text-nowrap {
-    white-space: nowrap;
+    /* white-space: nowrap; */
 }
 
 .infoIco {
@@ -922,7 +924,7 @@ select {
     font-size: 1.03em;
     line-height: 1.25em;
     margin: 0 0 10px;
-    margin-block-start: 1em;
+    margin-block-start: 10px;
     margin-block-end: 1em;
     margin-inline-start: 0px;
     margin-inline-end: 0px;
