@@ -129,6 +129,7 @@ exports.redirectToHome = async (req, res) =>
 exports.postHomeDirect = async (req, res) =>
 {
 
+    
     let query = req.query;
     const idioma = req.headers["accept-language"].split(",")[0].split("-")[0];
 
