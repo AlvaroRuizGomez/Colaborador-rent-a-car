@@ -95,7 +95,6 @@ exports.getHome = async (req, res, languageBrowser) =>
             "numeroDias": 3
         });
 
-
     }
 
 
