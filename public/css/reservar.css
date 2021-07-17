@@ -1493,6 +1493,13 @@ max-height: 520px; */
 /* ---------------- FIN OLAS----------------- */
 
 
+@media screen and (max-width: 414px) {
+    .blockSpace
+    {
+        display: none;
+    }
+}
+
 
 
 

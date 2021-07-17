@@ -2376,3 +2376,10 @@ transition: color .2s ease-out;
   display: block;
   height: 100px;
 }
+
+@media screen and (max-width: 414px) {
+    .blockSpace
+    {
+        display: none;
+    }
+}
