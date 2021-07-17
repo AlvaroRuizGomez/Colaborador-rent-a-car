@@ -102,5 +102,5 @@ jobs:
           script: |
             export DOCKER_HOST=unix://$XDG_RUNTIME_DIR/docker.sock
             /home/alvaro/bin/docker pull sosan/frontend-rentacarmallorca:latest
-            /home/alvaro/bin/docker rmi $(docker images | grep "<none>" | awk '{print $3}') 2>/dev/null | echo "No hay images por borrar"
+            /home/alvaro/bin/docker rmi $(/home/alvaro/bin/docker images | /usr/bin/grep "<none>" | /usr/bin/awk '{print $3}') 2>/dev/null | echo "No hay images por borrar"
 
