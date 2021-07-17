@@ -106,8 +106,8 @@
                         <% } %>
                         <input type="hidden" id="numerodiasHidden" name="numeroDias" value="<%=it.numeroDias %>">
                     <% } else { %>
-                        <span id="numerodias" class="numerodias">3</span>
-                        <input type="hidden" id="numerodiasHidden" name="numeroDias" value="3">
+                        <span id="numerodias" class="numerodias">7</span>
+                        <input type="hidden" id="numerodiasHidden" name="numeroDias" value="7">
                     <% } %>
                 </div>
                 <div class="grid-container">
@@ -168,7 +168,7 @@
                     </div>
 
                     <div class="devolucionClockData input-group2 clockpicker" data-placement="bottom" data-align="top" data-autoclose="true">
-                        <input type="text" class="input-color form-control-clock " id="horaDevolucion" name="horaDevolucion" value="20:00" readonly="" />
+                        <input type="text" class="input-color form-control-clock" id="horaDevolucion" name="horaDevolucion" value="20:00" readonly="" />
                         <span class="input-group-addon" data-tooltip-location="top" data-tooltip="<%=it.locations.tooltip_hora_devolucion_informacion%>">
                             <img src="./img/Img-Clock/clock.avif" alt="<%=it.locations.relojdevolucion %>" class="img-clock">
                         </span>
@@ -391,10 +391,10 @@
         <script>
             $(function() {
                 $("#fechaDevolucion").datepicker({ dateFormat: 'D,dd-mm-yy', minDate:'1d' });
-                let fecha = new Date();
-                fecha = fecha.getDate() - 9;
+                $fecha = new Date();
+                $fecha = $fecha.getDate() - 9;
                 
-                $("#fechaDevolucion").datepicker("setDate", fecha );
+                $("#fechaDevolucion").datepicker("setDate", $fecha );
                 // $(".datepicker").datepicker("setDate", new Date().getDate() + 1 );
                 $(".triggerDev").click(function(){
                     $("#fechaDevolucion").datepicker("show");

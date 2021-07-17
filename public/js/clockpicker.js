@@ -173,6 +173,7 @@
 
 		popover.addClass(options.placement);
 		popover.addClass('clockpicker-align-' + options.align);
+		popover.addClass("clockstrech");
 
 		this.spanHours.click($.proxy(this.toggleView, this, 'hours'));
 		this.spanMinutes.click($.proxy(this.toggleView, this, 'minutes'));
@@ -397,7 +398,9 @@
 	};
 
 	// Set popover position
-	ClockPicker.prototype.locate = function(){
+	ClockPicker.prototype.locate = function()
+	{
+
 		var element = this.element,
 			popover = this.popover,
 			offset = element.offset(),
@@ -426,20 +429,29 @@
 				break;
 		}
 
+		
 		// Align the popover arrow
 		switch (align) {
 			case 'left':
 				styles.left = offset.left;
-				break;
+			break;
 			case 'right':
 				styles.left = offset.left + width - popover.outerWidth();
-				break;
+			break;
 			case 'top':
 				styles.top = offset.top;
-				break;
+			break;
 			case 'bottom':
 				styles.top = offset.top + height - popover.outerHeight();
 				break;
+		}
+						
+		if (this.element[0].classList.contains("devolucionClockData") === true) {
+			popover.addClass("clockstrech");
+		}
+		else
+		{
+			popover.removeClass("clockstrech");
 		}
 
 		popover.css(styles);
@@ -474,7 +486,7 @@
 		// Get the time
 		var value = ((this.input.prop('value') || this.options['default'] || '') + '').split(':');
 		if (value[0] === 'now') {
-			var now = new Date(+ new Date() + this.options.fromnow);
+			var now = new Date(new Date() + this.options.fromnow);
 			value = [
 				now.getHours(),
 				now.getMinutes()
