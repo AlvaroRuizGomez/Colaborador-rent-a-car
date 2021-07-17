@@ -2,7 +2,6 @@ const dotenv = require("dotenv");
 const fs = require("fs");
 const path = require("path");
 const fetch = require("node-fetch");
-const { token } = require("morgan");
 
 
 exports.GetBackendVars = async () => {

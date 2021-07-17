@@ -28,6 +28,7 @@
 .footerTop_container 
 {
 
+  grid-area: contenido_fijo_footer;
   /* con grid */
   /* display:grid;
   grid-template-columns: repeat(auto-fill, minmax(min(300px,50vw), 1fr));
@@ -67,8 +68,21 @@
 .footer_group
 {
   grid-area: footer;
-  width: 100vw;
+  /* width: 100vw; */
 }
+
+.tamanyo_fijo_footer
+{
+  display: grid;
+  grid-template-columns: 1fr minmax(1000px, 1300px) 1fr;
+  grid-template-rows: 1fr;
+  grid-template-areas:
+    "vacio_cabecera_1 contenido_fijo_footer vacio_cabecera_2";
+
+}
+
+
+
 
 @media screen and (max-width: 414px)
 {
@@ -77,6 +91,10 @@
     margin-top: 100px;
   }
 
+  .tamanyo_fijo_footer
+  {
+    display: block;
+  }
 
 
 }
@@ -87,6 +105,7 @@
 .footerTop_info
 {
     width: 300px;
+    
 }
 
 .listado
@@ -491,4 +510,21 @@ vertical-align: middle;
 margin: 0;
 text-decoration: none;
 transition: color .2s ease-out;
+}
+
+.overlay-transparente-footer
+{
+  display: block;
+  background: rgba(0, 0, 0, 0.563);
+  
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  overflow: hidden;
+
+
 }

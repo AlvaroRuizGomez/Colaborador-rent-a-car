@@ -14,7 +14,6 @@ exports.InitServer = async () => {
     const router = require('./routes/route');
     const path = require("path");
     
-    
     const app = express();
     
     const apiLimiter = rateLimit({
@@ -22,9 +21,8 @@ exports.InitServer = async () => {
         max: 20
     });
     
-    const allowlist = [ `${process.env.URL_FRONTEND}:${process.env.NODE_EXPRESS_PORT}`];
+    const allowlist = [`${process.env.URL_FRONTEND}:${process.env.PORT_FRONTEND}`];
     
-    // Habilitar Cors
     const corsOptions = (req, callback) => {
         let corsOptions;
         if (allowlist.indexOf(req.header('Origin')) !== -1) {
@@ -80,9 +78,6 @@ exports.InitServer = async () => {
     app.engine(".html", eta.renderFile);
     app.set("views", path.join(__dirname, "../public"));
     app.set("view engine", "html");
-
-    // app.use("/", express.static('public'));
-    // app.use("/car/", express.static('public'));
 
     app.use("/", express.static(path.join(__dirname, "../public")));
     app.use("/car/", express.static(path.join(__dirname, "../public")));

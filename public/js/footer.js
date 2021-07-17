@@ -2,7 +2,7 @@ const botonesInformacionInteres = document.getElementsByClassName("interes-link-
 const overlayInteres = document.getElementsByClassName("overlay-footer-interes-link");
 
 const botonesCerrarModal = document.getElementsByClassName("modal-heigh-75");
-const overlayFooter = document.getElementsByClassName("overlay-transparente");
+const overlayFooter = document.getElementsByClassName("overlay-transparente-footer");
 
 for (let i = 0; i < botonesInformacionInteres.length; i++) {
     botonesInformacionInteres[i].addEventListener("click", (evento) => {
@@ -40,7 +40,8 @@ for (let i = 0; i < botonesInformacionInteres.length; i++) {
     overlayFooter[i].addEventListener("click", async (evento) => 
     {
 
-        const divOverlay = document.getElementById(`${overlayFooter[i].id}`);
+        // const divOverlay = document.getElementById(`${overlayFooter[i].id}`);
+        const divOverlay = overlayFooter[i];
 
         if (divOverlay.classList.contains("modal-visible") === true) {
             divOverlay.classList.remove("modal-visible");

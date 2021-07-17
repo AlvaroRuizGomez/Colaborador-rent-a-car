@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="<%=it.locations.idioma_web %>">
-
 <head>
     <meta charset="UTF-8">
     <meta name="robots" content="nofollow">
@@ -18,8 +17,8 @@
     <!-- --------------------------------------------------- -->
 
     <!-- ------------- Clock Picker jQuery ----------------- -->
-    <link rel="stylesheet" href="clockpicker.css">
-    <script src="clockpicker.js"></script>
+    <link rel="stylesheet" href="./css/clockpicker.css">
+    
     <!-- --------------------------------------------------- -->
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -458,6 +457,47 @@
             <!------------ Fin Carrusel  ------------->
                     <!--------------- Inicio Ofertas --------------------->
                     <div class="ofertas">
+                        <form id="formulario-index" class="formReserveData" method="POST" action="/busqueda">
+                            <input type="hidden" name="conductor_con_experiencia" value="<%= it.formdata.conductor_con_experiencia %>">
+                            <input type="hidden" name="edad_conductor" value="<%= it.formdata.edad_conductor %>">
+                            <input type="hidden" name="idioma" value="<%=it.locations.idioma_web %>">
+                            <input type="hidden" name="success" value="<%=it.success %>">
+                            <input type="hidden" name="anyos_carnet" value="<%=it.formdata.anyos_carnet %>">
+                            <input type="hidden" name="fase" value="2">
+                            <input type="hidden" name="fechaRecogida" value="<%= it.formdata.fechaRecogida %>">
+                            <input type="hidden" name="horaRecogida" value="<%= it.formdata.horaRecogida %>">
+                            <input type="hidden" name="fechaDevolucion" value="<%= it.formdata.fechaDevolucion %>">
+                            <input type="hidden" name="horaDevolucion" value="<%= it.formdata.horaDevolucion %>">
+                            <input type="hidden" name="numeroDias" value="<%=it.formdata.numeroDias %>">
+                            <div class="reserveData">
+                                <div class="reserveDateTime">
+                                    <div class="titReserve">
+                                        <img class="icon-25 arriba" src="./img/svg/mapaMundi.svg" alt="icono completado">
+                                        <div class="geoLoc arriba">
+                                            <p class="icon-locate">
+                                                <%=it.locations.reserveData_texto %>
+                                            </p>
+                                            <p class="dateTimeReserve">
+                                                <% let fechaReco = it.formdata.fechaRecogida.substring(0, it.formdata.fechaRecogida.length - 5) %> 
+                                                <%= fechaReco %> <%= it.formdata.horaRecogida %> - 
+                                                <% let fechaDevo=it.formdata.fechaDevolucion.substring(0, it.formdata.fechaDevolucion.length - 5) %>
+                                                <%= fechaDevo %>  <%= it.formdata.horaDevolucion %>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="btnModReserve">
+                                    <div class="btnMod">
+                                        <button id="bt-enviar-index" type="submit" class="boton_modificar">
+                                            <%=it.locations.cambiar %>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+
+
+
                         <% if (it.data.length <=0) { %>
                             <article class="">
                                 <h3 class="error-sinproductos">
@@ -466,8 +506,10 @@
                                 </h3>
                             </article>
                             <% } else { %>
-                                <% if (it.formdata["conductor_con_experiencia"]==="undefined" ||
-                                    it.formdata["conductor_con_experiencia"]===undefined ) { %>
+                                <% if (it.formdata["conductor_con_experiencia"]==="undefined" || it.formdata["conductor_con_experiencia"]===undefined ||
+                                    it.formdata["conductor_con_experiencia"]==="off"
+                                
+                                ) { %>
                                     <div class="aviso-edad">
                                         <img class="icono-alerta-edad" src="./img/svg/alerta_edad.svg"
                                             alt="<%=it.locations.alt_icono_edad_conductor %>">
@@ -525,61 +567,63 @@
     <script src="./js/lazysizes.min.js" async=""></script>
     <script async src="./js/newsletter.js"></script>
     <script async src="./js/footer.js"></script>
+    <script src="./js/clockpicker.js"></script>
     
-</body>
+    <!----------------------------------- Scripts -------------------------------------------->
+    
+    <script>
+        $.datepicker.regional['es'] = {
+            closeText: '<%=it.locations.cerrar_clock%>',
+            prevText: '<%=it.locations.anterior_clock %>',
+            nextText: '<%=it.locations.siguiente_clock %>',
+            currentText: '<%=it.locations.hoy_clock %>',
+            monthNames: ['<%=it.locations.enero%>', '<%=it.locations.febrero%>', '<%=it.locations.marzo%>', '<%=it.locations.abril%>', '<%=it.locations.mayo%>', '<%=it.locations.junio%>', '<%=it.locations.julio%>', '<%=it.locations.agosto%>', '<%=it.locations.septiembre%>', '<%=it.locations.octubre%>', '<%=it.locations.noviembre%>', '<%=it.locations.diciembre%>'],
+            monthNamesShort: ['<%=it.locations.corto_enero%>', '<%=it.locations.corto_febrero%>', '<%=it.locations.corto_marzo%>', '<%=it.locations.corto_abril%>', '<%=it.locations.corto_mayo%>', '<%=it.locations.corto_junio%>', '<%=it.locations.corto_julio%>', '<%=it.locations.corto_agosto%>', '<%=it.locations.corto_septiembre%>', '<%=it.locations.corto_octubre%>', '<%=it.locations.corto_noviembre%>', '<%=it.locations.corto_diciembre%>'],
+            dayNames: ['<%=it.locations.domingo%>', '<%=it.locations.lunes%>', '<%=it.locations.martes%>', '<%=it.locations.miercoles%>', '<%=it.locations.jueves%>', '<%=it.locations.viernes%>', '<%=it.locations.sabado%>'],
+            dayNamesShort: ['<%=it.locations.corto_domingo%>', '<%=it.locations.corto_lunes%>', '<%=it.locations.corto_martes%>', '<%=it.locations.corto_miercoles%>', '<%=it.locations.corto_jueves%>', '<%=it.locations.corto_viernes%>', '<%=it.locations.corto_sabado%>'],
+            dayNamesMin: ['<%=it.locations.min_domingo%>', '<%=it.locations.min_lunes%>', '<%=it.locations.min_martes%>', '<%=it.locations.min_miercoles%>', '<%=it.locations.min_jueves%>', '<%=it.locations.min_viernes%>', '<%=it.locations.min_sabado%>'],
+            weekHeader: 'Sm',
+            dateFormat: 'dd/mm/yy',
+            firstDay: 1,
+            isRTL: false,
+            showMonthAfterYear: false,
+            yearSuffix: ''
+        };
+        $.datepicker.setDefaults($.datepicker.regional['es']);
+    </script>
+    
+    <!-- Scripts calendario Recogida/Devolucion ---------------------->
+    <script>
+        $(function () {
+            $("#fechaRecogida").datepicker({ dateFormat: 'D,dd-mm-yy', minDate: '1d' });
+            $(".datepicker").datepicker("setDate", new Date());
+            $(".triggerRec").click(function () {
+                $("#fechaRecogida").datepicker("show");
+            });
+        });
+    </script>
+    
+    <script>
+        $(function () {
+            $("#fechaDevolucion").datepicker({ dateFormat: 'D,dd-mm-yy', minDate: '1d' });
+            $(".triggerDev").click(function () {
+                $("#fechaDevolucion").datepicker("show");
+            });
+        });
+    </script>
+    <!--------- Fin Bootstrap Calendario Cupertino themes ------------>
+    
+    
+    <!---------------------------- ClockPicker ----------------------->
+    <script type="text/javascript">
+        $('.clockpicker').clockpicker();
+    </script>
+    <!--------- ----------------------------------------------------->
+    
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+
+    
+</body>    
 
 </html>
-
-<!----------------------------------- Scripts -------------------------------------------->
-
-<script>
-    $.datepicker.regional['es'] = {
-        closeText: '<%=it.locations.cerrar_clock%>',
-        prevText: '<%=it.locations.anterior_clock %>',
-        nextText: '<%=it.locations.siguiente_clock %>',
-        currentText: '<%=it.locations.hoy_clock %>',
-        monthNames: ['<%=it.locations.enero%>', '<%=it.locations.febrero%>', '<%=it.locations.marzo%>', '<%=it.locations.abril%>', '<%=it.locations.mayo%>', '<%=it.locations.junio%>', '<%=it.locations.julio%>', '<%=it.locations.agosto%>', '<%=it.locations.septiembre%>', '<%=it.locations.octubre%>', '<%=it.locations.noviembre%>', '<%=it.locations.diciembre%>'],
-        monthNamesShort: ['<%=it.locations.corto_enero%>', '<%=it.locations.corto_febrero%>', '<%=it.locations.corto_marzo%>', '<%=it.locations.corto_abril%>', '<%=it.locations.corto_mayo%>', '<%=it.locations.corto_junio%>', '<%=it.locations.corto_julio%>', '<%=it.locations.corto_agosto%>', '<%=it.locations.corto_septiembre%>', '<%=it.locations.corto_octubre%>', '<%=it.locations.corto_noviembre%>', '<%=it.locations.corto_diciembre%>'],
-        dayNames: ['<%=it.locations.domingo%>', '<%=it.locations.lunes%>', '<%=it.locations.martes%>', '<%=it.locations.miercoles%>', '<%=it.locations.jueves%>', '<%=it.locations.viernes%>', '<%=it.locations.sabado%>'],
-        dayNamesShort: ['<%=it.locations.corto_domingo%>', '<%=it.locations.corto_lunes%>', '<%=it.locations.corto_martes%>', '<%=it.locations.corto_miercoles%>', '<%=it.locations.corto_jueves%>', '<%=it.locations.corto_viernes%>', '<%=it.locations.corto_sabado%>'],
-        dayNamesMin: ['<%=it.locations.min_domingo%>', '<%=it.locations.min_lunes%>', '<%=it.locations.min_martes%>', '<%=it.locations.min_miercoles%>', '<%=it.locations.min_jueves%>', '<%=it.locations.min_viernes%>', '<%=it.locations.min_sabado%>'],
-        weekHeader: 'Sm',
-        dateFormat: 'dd/mm/yy',
-        firstDay: 1,
-        isRTL: false,
-        showMonthAfterYear: false,
-        yearSuffix: ''
-    };
-    $.datepicker.setDefaults($.datepicker.regional['es']);
-</script>
-
-<!-- Scripts calendario Recogida/Devolucion ---------------------->
-<script>
-    $(function () {
-        $("#fechaRecogida").datepicker({ dateFormat: 'D,dd-mm-yy', minDate: '1d' });
-        $(".datepicker").datepicker("setDate", new Date());
-        $(".triggerRec").click(function () {
-            $("#fechaRecogida").datepicker("show");
-        });
-    });
-</script>
-
-<script>
-    $(function () {
-        $("#fechaDevolucion").datepicker({ dateFormat: 'D,dd-mm-yy', minDate: '1d' });
-        $(".triggerDev").click(function () {
-            $("#fechaDevolucion").datepicker("show");
-        });
-    });
-</script>
-<!--------- Fin Bootstrap Calendario Cupertino themes ------------>
-
-
-<!---------------------------- ClockPicker ----------------------->
-<script type="text/javascript">
-    $('.clockpicker').clockpicker();
-</script>
-<!--------- ----------------------------------------------------->
-
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-

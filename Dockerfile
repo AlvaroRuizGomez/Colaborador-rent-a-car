@@ -10,7 +10,7 @@ COPY ./public ./public
 RUN npm install -g pkg && \
     pkg ./src/index.js --targets node16-linux-x64 --compress GZip --output /usr/src/app/frontend -c ./package.json
 
-FROM frolvlad/alpine-glibc
+FROM frolvlad/alpine-glibc:latest
 RUN apk update && \
     apk add --no-cache libstdc++ libgcc ca-certificates && \
     rm -rf /var/cache/apk/* && \
