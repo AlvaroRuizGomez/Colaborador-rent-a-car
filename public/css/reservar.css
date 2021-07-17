@@ -172,8 +172,6 @@ select {
   }
 }
 
-
-
 .banner
 {
   width: 100vw;
@@ -182,10 +180,12 @@ select {
 /* ------ Inicio sidebar1 -------- */
 .sidebar1 {
     grid-area: sidebar;
-    /* grid-column-start: 2;
-    grid-column-end:4;
-    grid-row-start: 2;
-    grid-row-end: 5; */
+}
+
+@media screen and (max-width: 414px) {
+    .sidebar1 {
+        justify-self: center;
+    }
 }
 
 #contentAside {
@@ -464,26 +464,42 @@ select {
     background-color: #fff;
 }
 
+.contentBlockBeneficios {
+    /* grid-area: b; */
+    display: grid;
+    box-sizing: content-box;
+    grid-template-rows: 40px auto;
+    grid-template-columns: 100%;
+    grid-template-areas:
+        "titulo"
+        "info";
+    /* justify-items: flex-start;
+    align-items: flex-start; */
+    /* width: 100%; */
+    border: 1px solid #d8d8d8;
+    background-color: #fff;
+}
+
 .tituloReserva{
     grid-area: titulo;
     width: 100%;
     border-bottom: 1px solid #d8d8d8;
-
     display: flex; 
     justify-content: flex-start;
     align-items: center;
-
-
     color: #333333;
     line-height: 40px;
     font-size: 22px;
     padding: 0px 1px;
     margin: 0;
     font-weight: 700;
-
     column-gap: 10px;
-    
+}
 
+@media screen and (max-width: 414px) {
+    .tituloReserva {
+      font-size: 16px;
+    }
 }
   
 
@@ -511,6 +527,17 @@ select {
     font-size: 15px;
     color: #504e4e;
 }
+
+@media screen and (max-width: 414px) {
+  .infoReserva
+  {
+    margin-left: 7px;
+    margin-top: 10px;
+    grid-column-gap: 14px;
+    font-size: 11px;
+  }
+}
+
   
 .titDiasReserva {
     grid-area: titulo1;
@@ -637,9 +664,11 @@ select {
 /* -------   Fin Contenido   ---------- */
 
 /* --- Inicio Incluido en el precio ---- */
-.beneficios {
-    /* grid-column: 4 / 8;
-    grid-row: 4 / 5; */
+
+@media screen and (max-width: 414px) {
+    .contentBlockBeneficios {
+        display: none;
+    }
 }
 
 .includPrice-container {
@@ -728,7 +757,12 @@ select {
     line-height: 40px;
     display: flex;
     align-items: center;
+}
 
+@media screen and (max-width: 360px) {
+    .titSillas h2 {
+      font-size: 16px;
+    }
 }
 
 .titSillas>h2 i.icoSillas {
@@ -785,10 +819,28 @@ select {
     margin-left: 18px;
 }
 
+@media screen and (max-width: 414px) {
+    .silla {
+        display: none;
+    }
+}
+
 .casilla
 { 
     grid-area: casilla; 
     margin-left: 17px;
+}
+
+/* @media screen and (max-width: 360px) {
+    .casilla {
+    margin-left: 0px;
+    }
+} */
+
+@media screen and (max-width: 414px) {
+    .casilla {
+    margin-left: 5px;
+    }
 }
 
 .info
@@ -906,12 +958,17 @@ select {
 
 
 .formdriver-titulo-texto{
-    
     font-size: 19px;  
     padding: 8px;
     font-weight: 700;
     color: #444;
     margin-left: var(--margin-izquierda-titulo);
+}
+
+@media screen and (max-width: 414px) {
+    .formdriver-titulo-texto {
+        font-size: 16px;  
+    }
 }
 
 .formdriver-titulo-texto i.ico {
@@ -1092,7 +1149,6 @@ select {
 .barraPago {
     display: block;
     margin-top: 40px;
-
 }
 
 .logoPayments {
@@ -1479,7 +1535,11 @@ max-height: 520px; */
   transform: translate(-50%, -5px) scale(0.5);
 }
 
-
+@media screen and (max-width: 414px) {
+    [data-tooltip]:before  {
+        width: auto;
+    }
+}
 
 [data-tooltip]:after {
   content: '';
