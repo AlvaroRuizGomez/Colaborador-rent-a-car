@@ -105,15 +105,15 @@
             <input type="hidden" name="porcentaje" value="<%= element.porcentaje %>">
 
             <div class="car-info-services-2">
-                <div class="servicios-kilometraje" data-tooltip="<%=it.locations.tooltip_vehiculo_tiene%> <%=it.locations.tooltip_kilometraje %>" data-tooltip-location="top">
+                <div class="servicios-kilometraje servicios-enlinea" data-tooltip="<%=it.locations.tooltip_vehiculo_tiene%> <%=it.locations.tooltip_kilometraje %>" data-tooltip-location="top">
                     <img class="icon-25" src="img/velocimetro.webp" alt="<%=it.locations.alt_kilometraje %>">
                     <div class="icon-kilometro"><%=it.locations.kilometraje %></div>
                 </div>
-                <div class="servicios-cancelaciones" data-tooltip="<%=it.locations.tooltip_cancelaciones %>" data-tooltip-location="top">
+                <div class="servicios-cancelaciones servicios-enlinea" data-tooltip="<%=it.locations.tooltip_cancelaciones %>" data-tooltip-location="top">
                     <img class="icon-25" src="img/svg/hecho.svg" alt="<%=it.locations.alt_cancelaciones%>">
                     <div class="icon-cancelaciones"><%=it.locations.cancelaciones %></div>
                 </div>
-                <div class="servicios-modificaciones" data-tooltip="<%=it.locations.tooltip_vehiculo_tiene%> <%=it.locations.tooltip_modificaciones %>" data-tooltip-location="top">
+                <div class="servicios-modificaciones servicios-enlinea" data-tooltip="<%=it.locations.tooltip_vehiculo_tiene%> <%=it.locations.tooltip_modificaciones %>" data-tooltip-location="top">
                     <img class="icon-25" src="img/svg/hecho.svg" alt="<%=it.locations.alt_modificacion%>">
                     <div class="icon-modificaciones"><%=it.locations.modificaciones %></div>
                 </div>
@@ -121,7 +121,7 @@
 
                 <% for (let k=0; k < element.suplementosgenericos.length; k++ ) { %>
                     <% if (element.suplementosgenericos[k].valor> 0) { %>
-                        <div class="servicios-kilometraje">
+                        <div class="servicios-kilometraje servicios-enlinea">
                             <img class="icon-25" src="img/svg/hecho.svg" alt="<%=it.locations.alt_icono_hecho %>">
                             <% const localizacion = it.locations[element.suplementosgenericos[k]["tooltip"]] %>
                             <% const tooltipReplaced = localizacion.replace("X", element.suplementosgenericos[k]["valor"] ) %>
@@ -132,7 +132,7 @@
                             </div>
                         </div>
                     <% } else { %>
-                        <div class="servicios-kilometraje">
+                        <div class="servicios-kilometraje servicios-enlinea">
                             <img class="icon-25" src="img/svg/hecho.svg" alt="<%=it.locations.alt_icono_hecho %>">
                             <% const localizacion=it.locations[element.suplementosgenericos[k]["tooltip"]] %>
                             <% const tooltipReplaced=localizacion.replace("X", element.suplementosgenericos[k]["valor"] ) %>
@@ -146,7 +146,7 @@
                 <% } %>
                 <% let suplementoportipoChofer = 0 %>
                 <% for (let k=0; k < element.preciosSuplementoPorTipoChofer["no-oferta"].length; k++ ) { %>
-                    <div class="servicios-conductor-novel">
+                    <div class="servicios-conductor-novel servicios-enlinea">
                         <img class="icon-25" src="img/svg/hecho.svg" alt="<%=it.locations.alt_icono_hecho %>">
                         <% const localizacion=it.locations[element.preciosSuplementoPorTipoChofer["no-oferta"][k]["tooltip"]] %>
                         <% const tooltipReplaced=localizacion.replace("X", element.preciosSuplementoPorTipoChofer["no-oferta"][k]["valor"] ) %>
@@ -161,10 +161,10 @@
                 <input type="hidden" name="suplementoportipoChofer" value="<%= suplementoportipoChofer %>">
                 
                 <% if (element.preciosSuplementoPorTipoChofer["oferta"].length > 0) { %>
-                    <h5 class="title-specials"><%=it.locations.ofertas_especiales %></h5>
+                    <h5 class="title-specials servicios-enlinea"><%=it.locations.ofertas_especiales %></h5>
                 <% } %>
                 <% for (let k=0; k < element.preciosSuplementoPorTipoChofer["oferta"].length; k++ ) { %>
-                    <div class="servicios-conductor-novel">
+                    <div class="servicios-conductor-novel servicios-enlinea">
                         <img class="icon-25" src="img/svg/hecho.svg" alt="<%=it.locations.alt_icono_hecho %>">
                         <div class="icon-kilometro" data-tooltip="<%=it.locations[element.preciosSuplementoPorTipoChofer["oferta"][k]["tooltip"]] %>">
                             <%=it.locations[ element.preciosSuplementoPorTipoChofer["oferta"][k]["descripcion"]] %>

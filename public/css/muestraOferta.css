@@ -829,6 +829,14 @@ body {
   background-color: #fbe8ec;
 }
 
+.titulo_tablero_ofertas
+{
+  margin: 0px;
+  font-size: 1.5rem;
+  padding: 8px;
+
+}
+
 
 /* ----- Inicio Ofertas --------------- */
 
@@ -964,7 +972,7 @@ body {
 .icon-24
 {
   width: 16px;
-  margin-top: 7px;
+  /* margin-top: 7px; */
 }
 
 .icon-25
@@ -982,12 +990,28 @@ body {
 .car-info-services
 {
   grid-area: info;
+  width: 100%;
+  /* 
   display: grid;
   grid-template-columns: repeat(4, 39px);
   grid-template-rows: 31px;
   grid-template-areas: 
   "a a a a"
+  "l l . o" 
+  */
+
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(39px, 50px));
+  grid-template-rows: 31px;
+  grid-template-areas: 
+  "a a a a"
   "l l . o"
+  ;
+  justify-items: flex-start;
+  place-content: flex-start;
+  place-items: center;
+
+
   ;
 
   justify-items: flex-start;
@@ -997,8 +1021,8 @@ body {
 .servicios-asientos{
   width: 82%;
   border: 1px solid #ccc;
-  margin-left: 2px;
-  margin-top: 4px;
+  /* margin-left: 2px;
+  margin-top: 4px; */
 }
 
 .icon-number{
@@ -1010,22 +1034,22 @@ body {
 .servicios-puertas{
   border: 1px solid #ccc;
   width: 82%;
-  margin-left: 2px;
-  margin-top: 4px;
+  /* margin-left: 2px;
+  margin-top: 4px; */
 }
 
 .servicios-aire{
   border: 1px solid #ccc;
   width: 82%;
-  margin-left: 2px;
-  margin-top: 4px;
+  /* margin-left: 2px;
+  margin-top: 4px; */
 }
 
 .servicios-trasmision{
   border: 1px solid #ccc;
   width: 97%;
-  margin-left: 2px;
-  margin-top: 4px;
+  /* margin-left: 2px;
+  margin-top: 4px; */
 }
 
 .servicios-kilometraje
@@ -1074,10 +1098,18 @@ body {
   grid-area: iconos;
   width: 100%;
 
-  /* text-align: justify; */
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  row-gap: 4px;
+
+}
+
+.servicios-enlinea
+{
+  display: flex;
+  flex-direction: row;
+  column-gap: 5px;
 
 }
 
@@ -1171,6 +1203,8 @@ body {
   font-size: 1.1em;
   font-weight: 800;
   color: rgb(217, 145, 38);
+  margin-bottom: 0px;
+  margin-top: 5px;
 
 }
 
@@ -1447,6 +1481,7 @@ body {
   {
     margin-top: 10px;
     padding-left: 10px;
+    width: 100%;
   }
 
   .car-info-prices
@@ -1471,12 +1506,14 @@ body {
     width: 280px;
   }
 
+
+
   /* ...... */
   .reserveData {
     width: 100%;
       display: grid;
       grid-template-columns: 2fr 1fr;
-      grid-template-rows: 1fr;
+      grid-template-rows: max-content;
       gap: 0px 0px;
       grid-auto-flow: row;
       grid-template-areas: "reserveDateTime btnModReserve";
@@ -1484,8 +1521,8 @@ body {
       border: 1px solid rgba(0,0,0,.125);
       box-shadow: 0px 0px 2px #00000017;
       background-color: #fafafa;
-      padding: 15px;
-      height: 70px;
+      padding: 8px;
+      /* height: 70px; */
       margin-bottom: 20px;
   }
 
@@ -1500,12 +1537,14 @@ body {
         display: flex;
         flex-direction: column;
         justify-content: center;
+        padding: 6px;
   }
     
   .btnModReserve { 
       grid-area: btnModReserve;
       justify-self: center;
       margin-top: 8px;
+      padding: 6px;
   }
 
   .btnMod {
@@ -1539,6 +1578,7 @@ body {
       color: #787878;
       padding: 0;
       margin: 0;
+      justify-self: flex-start;
       
   }
 
@@ -1884,6 +1924,23 @@ body {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+}
+
+@media screen and (max-width: 414px) {
+  
+  .titulo-weaves
+  {
+    font-weight:300;
+    letter-spacing: 2px;
+    font-size:25px;
+    color: white;
+
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
 }
 
 .subtitulo-weaves
