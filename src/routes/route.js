@@ -9,6 +9,8 @@ const generar = require("../controllers/generar");
 const locations = require("../controllers/locations");
 const newsletter = require("../controllers/newsletter");
 
+const templates = require("../controllers/getTemplate");
+
 
 // rutas
 router.get("/", async (req, res) => await home.getHome(req, res));
@@ -56,6 +58,8 @@ router.get(process.env.ENDPOINT_CACHE, async (req, res) => await generar.Generar
 
 // router.post(process.env.ENDPOINT_LOCATION, async (req, res) => await locations.GenerarLocations(req, res));
 router.get("/location", async (req, res) => await locations.Frontend_TO_Backend(req, res) );
+
+router.post(process.env.ENDPOINT_TEMPLATE_FRONTEND, async (req, res) => await templates.GetTemplate(req, res));
 
 
 
