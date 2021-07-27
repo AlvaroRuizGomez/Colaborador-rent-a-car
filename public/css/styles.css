@@ -852,10 +852,11 @@ background-image: url(/img/Img-Vehiculos/CitroenC1_open_Card.avif);
 
 
 
-  .toyotaAygoOpenWhite_safari:before {
+.toyotaAygoOpenWhite_safari:before {
     background-image: url(/img/Img-Vehiculos/toyotaAygoOpenWhite_Card.webp);
-  }
-  .toyotaAygoOpenWhite:before {
+}
+
+.toyotaAygoOpenWhite:before {
     background-image: url(/img/Img-Vehiculos/toyotaAygoOpenWhite_Card.avif);
 }
 
