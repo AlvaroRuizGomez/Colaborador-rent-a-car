@@ -65,9 +65,10 @@ exports.postRealizarReserva = async (req, res, language ) =>
 
     const locationLanguage = await locations.GenerateLocationBrowser(req.body.idioma);
 
-    const nombreNavegador = req.get('User-Agent').split("/")[0].toLowerCase();
+    const nombreNavegador = req.get("User-Agent").indexOf("Version/14.1.2 Safari");
+
     let safari = false;
-    if (nombreNavegador.toLowerCase() == "safari") {
+    if (nombreNavegador != -1) {
         safari = true;
     }
 

@@ -41,9 +41,10 @@ exports.postShowDetails = async (req, res, languageBrowser) =>
         req.headers["accept-language"].split(",")[1].split(";")[0]
     );
 
-    const nombreNavegador = req.get('User-Agent').split("/")[0].toLowerCase();
+    const nombreNavegador = req.get("User-Agent").indexOf("Version/14.1.2 Safari");
+
     let safari = false;
-    if (nombreNavegador.toLowerCase() == "safari") {
+    if (nombreNavegador != -1) {
         safari = true;
     }
 

@@ -61,10 +61,12 @@ exports.getHome = async (req, res, languageBrowser) =>
         req.headers["accept-language"].split(",")[0].split("-")[0]
     );
 
-    const nombreNavegador = req.get('User-Agent').split("/")[0].toLowerCase();
+    // Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.2 Safari/605.1.15
+    // const nombreNavegador = req.get('User-Agent').split("/")[3].split(" ")[1].toLowerCase();
+    const nombreNavegador = req.get("User-Agent").indexOf("Version/14.1.2 Safari");
+
     let safari = false;
-    if (nombreNavegador.toLowerCase() == "safari")
-    {
+    if (nombreNavegador != -1) {
         safari = true;
     }
     
@@ -223,9 +225,10 @@ exports.postHomeDirect = async (req, res) =>
 
     const locationLanguage = await locations.GenerateLocationBrowser(query.idioma);
 
-    const nombreNavegador = req.get('User-Agent').split("/")[0].toLowerCase();
+    const nombreNavegador = req.get("User-Agent").indexOf("Version/14.1.2 Safari");
+
     let safari = false;
-    if (nombreNavegador.toLowerCase() == "safari") {
+    if (nombreNavegador != -1) {
         safari = true;
     }
 
@@ -433,9 +436,10 @@ exports.postHome = async (req, res) =>
     
     }
     
-    const nombreNavegador = req.get('User-Agent').split("/")[0].toLowerCase();
+    const nombreNavegador = req.get("User-Agent").indexOf("Version/14.1.2 Safari");
+
     let safari = false;
-    if (nombreNavegador.toLowerCase() == "safari") {
+    if (nombreNavegador != -1) {
         safari = true;
     }
 
