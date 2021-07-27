@@ -61,6 +61,13 @@ exports.getHome = async (req, res, languageBrowser) =>
         req.headers["accept-language"].split(",")[0].split("-")[0]
     );
 
+    const nombreNavegador = req.get('User-Agent').split("/")[0].toLowerCase();
+    let safari = false;
+    if (nombreNavegador.toLowerCase() == "safari")
+    {
+        safari = true;
+    }
+    
     
     const body = {
         "token": process.env.TOKEN_FOR_BACKEND_ACCESS,
@@ -94,6 +101,7 @@ exports.getHome = async (req, res, languageBrowser) =>
     }
 
 
+
     if (dataResponse.data.length <= 0) {
         res.render(path.join(__dirname, "../../public/inicio.html"), {
             "data": dataResponse.data,
@@ -106,6 +114,7 @@ exports.getHome = async (req, res, languageBrowser) =>
             // "horaDevolucion": req.query.horaDevolucion,
             // "numeroDias": req.query.numeroDias,
             // "formdata": req.query,
+            "safari": safari,
             "errorFormulario": dataResponse.errorFormulario,
             "success": id,
             "diasEntreRecogidaDevolucion": dataResponse.diasEntreRecogidaDevolucion,
@@ -121,6 +130,7 @@ exports.getHome = async (req, res, languageBrowser) =>
         res.render(path.join(__dirname, "../../public/inicio.html"), {
             "data": dataResponse.data,
             "success": id,
+            "safari": safari,
             "preciosPorClase": dataResponse.preciosPorClase,
             "locations": locationLanguage,
             "numeroDias": 3
@@ -213,6 +223,12 @@ exports.postHomeDirect = async (req, res) =>
 
     const locationLanguage = await locations.GenerateLocationBrowser(query.idioma);
 
+    const nombreNavegador = req.get('User-Agent').split("/")[0].toLowerCase();
+    let safari = false;
+    if (nombreNavegador.toLowerCase() == "safari") {
+        safari = true;
+    }
+
     if (dataResponse.isOk === false) {
         if (dataResponse.errorFormulario === "") {
             // Blacklist?
@@ -221,6 +237,7 @@ exports.postHomeDirect = async (req, res) =>
         else {
             return res.render(path.join(__dirname, "../../public/inicio.html"),
                 {
+                    "safari": safari,
                     "success": query.success,
                     "errorFormulario": dataResponse.errorFormulario,
                     "locations": locationLanguage
@@ -233,6 +250,7 @@ exports.postHomeDirect = async (req, res) =>
 
     if (dataResponse.data.length <= 0) {
         res.render(path.join(__dirname, "../../public/muestraOferta.html"), {
+            "safari": safari,
             "data": dataResponse.data,
             "conductor_con_experiencia": query.conductor_con_experiencia,
             "edad_conductor": query.edad_conductor,
@@ -263,6 +281,7 @@ exports.postHomeDirect = async (req, res) =>
 
         res.render(path.join(__dirname, "../../public/muestraOferta.html"), {
             "data": dataResponse.data,
+            "safari": safari,
             "conductor_con_experiencia": query.conductor_con_experiencia ,
             "edad_conductor": query.edad_conductor ,
             "anyos_carnet": query.anyos_carnet ,
@@ -414,6 +433,12 @@ exports.postHome = async (req, res) =>
     
     }
     
+    const nombreNavegador = req.get('User-Agent').split("/")[0].toLowerCase();
+    let safari = false;
+    if (nombreNavegador.toLowerCase() == "safari") {
+        safari = true;
+    }
+
     const locationLanguage = await locations.GenerateLocationBrowser(req.body.idioma);
     
     if (dataResponse.isOk === false)
@@ -427,6 +452,7 @@ exports.postHome = async (req, res) =>
         {
             return res.render(path.join(__dirname, "../../public/inicio.html"),
             {
+                "safari": safari,
                 "success": req.body.success,
                 "errorFormulario": dataResponse.errorFormulario,
                 "locations": locationLanguage
@@ -440,6 +466,7 @@ exports.postHome = async (req, res) =>
     if (dataResponse.data.length <= 0) {
         res.render(path.join(__dirname, "../../public/muestraOferta.html"), {
             "data": dataResponse.data,
+            "safari": safari,
             "conductor_con_experiencia": req.body.conductor_con_experiencia,
             "edad_conductor": req.body.edad_conductor,
             "anyos_carnet": req.body.anyos_carnet,
@@ -466,6 +493,7 @@ exports.postHome = async (req, res) =>
     
         res.render(path.join(__dirname, "../../public/muestraOferta.html"), {
             "data": dataResponse.data,
+            "safari": safari,
             "conductor_con_experiencia": req.body.conductor_con_experiencia,
             "edad_conductor": req.body.edad_conductor,
             "anyos_carnet": req.body.anyos_carnet,

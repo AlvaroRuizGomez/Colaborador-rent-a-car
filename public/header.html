@@ -5,22 +5,25 @@
         <div class="logo">
             <a href="/" class="" title="RentCarMallorca.es">
                 <picture>
-                    
-                    <% /*
+                    <% if (it.safari===false) { %>
                     <source srcset="./img/Img-Logo/rentacar_logo_header.avif">
-                    */ %>
+                    <% } %>
                     <source srcset="./img/Img-Logo/rentacar_logo_header.webp">
                     <img width="280" height="55" class="logo-imagen" src="./img/Img-Logo/rentacar_logo_header.png" alt="logo rentcarmallorca.es">
                 </picture>
             </a>
         </div>
+
         <div class="h-car">
-            <picture>
-                <% /*
-                <source media="(min-width:650px)" srcset="./img/Img-Vehiculos/CitroenC1_open_Card.avif">
-                */ %>
+            <% if (it.safari===true) { %>
                 <img width="265" height="150" src="./img/Img-Vehiculos/CitroenC1_open_Card.webp" alt="citroen C1">
-            </picture>
+            <% } else { %>
+                    <picture>
+                        <source media="(min-width:650px)" srcset="./img/Img-Vehiculos/CitroenC1_open_Card.avif">
+                        <img width="265" height="150" src="./img/Img-Vehiculos/CitroenC1_open_Card.webp" alt="citroen C1">
+                    </picture>
+                    
+            <% } %>
         </div>
 
         <div class="colaboracion">
@@ -28,7 +31,7 @@
                 <source media="(min-width:650px)" srcset="./img/Img-Logo/texto_logo_vuelacar_<%=it.locations.idioma_web%>.webp">
                 <img class="texto-circular" src="./img/Img-Logo/texto_logo_vuelacar_<%=it.locations.idioma_web%>.png" alt="text vuelacar">
             </picture>
-
+            
             <img class="logo-colaboracion" src="./img/Img-Logo/logo_vuelacar.webp" alt="logo vuelacar">
         </div>
         
@@ -44,7 +47,9 @@
                         <% const idio = "idioma_" + idi[i] %>
                         <button class="boton-idioma-seleccionado" id="boton-idioma-seleccionado">
                             <picture>
+                                <% if (it.safari===false) { %>
                                 <source srcset="./img/banderas/<%= idi[i] %>.avif">
+                                <% } %>
                                 <source srcset="./img/banderas/<%= idi[i] %>.webp">
                                 <img width="20" height="14" src="./img/banderas/<%= idi[i] %>.png" class="bandera" alt="<%=it.locations[bander]%>">
                             </picture>
@@ -64,10 +69,11 @@
                             <% const idio="idioma_" + idi[i] %>
                                 <a class="link-idiomas" href="<%= it.locations[url_alquilercoches]%>">
                                     <picture>
+                                        <% if (it.safari === false) { %>
                                         <source srcset="./img/banderas/<%= idi[i] %>.avif">
+                                        <% } %>
                                         <source srcset="./img/banderas/<%= idi[i] %>.webp">
-                                        <img width="20" height="14" src="./img/banderas/<%= idi[i] %>.png" class="bandera"
-                                            alt="<%=it.locations[bander]%>">
+                                        <img width="20" height="14" src="./img/banderas/<%= idi[i] %>.png" class="bandera" alt="<%=it.locations[bander]%>">
                                     </picture>
                                     <%=it.locations[idio] %>
                                 </a>

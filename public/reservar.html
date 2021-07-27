@@ -58,7 +58,9 @@
                         <div class="contentBoxAside">
                             <section class="rentacar-info">
                                 <picture class="car-image">
+                                    <% if (it.safari === true) { %>
                                     <source srcset="./img/Img-Vehiculos/<%= it.formdata.imagen_vehiculo %>_Card.avif">
+                                    <% } %>
                                     <source srcset="./img/Img-Vehiculos/<%= it.formdata.imagen_vehiculo %>_Card.webp">
                                     <img class="car-image"
                                         src="./img/Img-Vehiculos/<%=it.formdata.imagen_vehiculo %>_Card.png"
@@ -136,7 +138,11 @@
                                     <p class="icon-dateRecogida">
                                         <%= it.formdata.fechaRecogida %>
                                     </p>
-                                    <img src="./img/Img-Clock/clock.avif" alt="Icono calendario" class="icon-25">
+                                    <% if (it.safari === true) { %>
+                                        <img src="./img/Img-Clock/clock.avif" alt="Icono calendario" class="icon-25">
+                                    <% } else {%>
+                                        <img src="./img/Img-Clock/clock.webp" alt="Icono calendario" class="icon-25">
+                                    <% } %>
                                     <p class="icon-clockRecogida">
                                         <%= it.formdata.horaRecogida %>
                                     </p>
@@ -151,7 +157,11 @@
                                     <p class="icon-dateDevolucion">
                                         <%= it.formdata.fechaDevolucion %>
                                     </p>
+                                    <% if (it.safari===false) { %>
                                     <img src="./img/Img-Clock/clock.avif" alt="Icono calendario" class="icon-25">
+                                    <% } else { %>
+                                        <img src="./img/Img-Clock/clock.webp" alt="Icono calendario" class="icon-25">
+                                    <% } %>
                                     <p class="icon-clockDevolucion">
                                         <%= it.formdata.horaDevolucion %>
                                     </p>
@@ -648,7 +658,9 @@
                     <!--Content starts-->
                     <div class="content-weaves flex">
                         <picture>
+                            <% if (it.safari === true) { %>
                             <source data-srcset="./img/Img-Logo/rentacar_logo_header.avif">
+                            <% } %>
                             <source data-srcset="./img/Img-Logo/rentacar_logo_header.webp">
                             <img class="logo-weaves lazyload" data-src="./img/Img-Logo/rentacar_logo_header.png" alt="logo rentcarmallorca" />
                         </picture>

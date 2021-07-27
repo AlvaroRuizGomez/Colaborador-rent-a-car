@@ -150,7 +150,11 @@
                     <div class="recogidaClockData input-group2  clockpicker" data-placement="bottom" data-align="top" data-autoclose="true">
                         <input type="text" class="input-color form-control-clock"  id="horaRecogida" name="horaRecogida" value="09:00" readonly="" />
                         <span class="input-group-addon" data-tooltip-location="top" data-tooltip="<%=it.locations.tooltip_hora_recogida_informacion%>">
-                            <img src="./img/Img-Clock/clock.avif" alt="<%=it.locations.relojrecogida %>" class="img-clock" width="25" height="25">
+                            <% if (it.safari===false) { %>
+                                <img src="./img/Img-Clock/clock.avif" alt="<%=it.locations.relojrecogida %>" class="img-clock" width="25" height="25">
+                            <% } else { %>
+                                <img src="./img/Img-Clock/clock.webp" alt="<%=it.locations.relojrecogida %>" class="img-clock" width="25" height="25">
+                            <% } %>
                         </span>
                     </div>
 
@@ -179,7 +183,11 @@
                     <div class="devolucionClockData input-group2 clockpicker" data-placement="bottom" data-align="top" data-autoclose="true">
                         <input type="text" class="input-color form-control-clock" id="horaDevolucion" name="horaDevolucion" value="20:00" readonly="" />
                         <span class="input-group-addon" data-tooltip-location="top" data-tooltip="<%=it.locations.tooltip_hora_devolucion_informacion%>">
-                            <img src="./img/Img-Clock/clock.avif" alt="<%=it.locations.relojdevolucion %>" class="img-clock" width="25" height="25">
+                            <% if (it.safari===false) { %>
+                                <img src="./img/Img-Clock/clock.avif" alt="<%=it.locations.relojdevolucion %>" class="img-clock" width="25" height="25">
+                            <% } else { %>
+                                <img src="./img/Img-Clock/clock.webp" alt="<%=it.locations.relojdevolucion %>" class="img-clock" width="25" height="25">
+                            <% } %>
                         </span>
                     </div>
                     
@@ -235,12 +243,10 @@
                             
                             <div class="content">
                                 <picture>
-                                    <% /*
-                                    
-                                    <source srcset="./img/Img-Logo/Logo-Marca-Coche/<%=it.data[i][" logoMarcaCoche"] %>.avif">
+                                    <% if (it.safari === false) { %>
+                                        <source srcset="./img/Img-Logo/Logo-Marca-Coche/<%=it.data[i][" logoMarcaCoche"] %>.avif">
+                                    <% } %> 
                                     <source srcset="./img/Img-Logo/Logo-Marca-Coche/<%=it.data[i][" logoMarcaCoche"] %>.webp">
-                                    
-                                    */%>
                                     <img width="25" height="25" src="./img/Img-Logo/Logo-Marca-Coche/<%=it.data[i]["logoMarcaCoche"] %>.png" class="imgLogo logo-<%=it.data[i]["ImagenVehiclo"] %>" alt="<%=it.data[i]["logoMarcaCoche"]%>">
                                 </picture>
                                 

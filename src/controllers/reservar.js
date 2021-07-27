@@ -65,6 +65,12 @@ exports.postRealizarReserva = async (req, res, language ) =>
 
     const locationLanguage = await locations.GenerateLocationBrowser(req.body.idioma);
 
+    const nombreNavegador = req.get('User-Agent').split("/")[0].toLowerCase();
+    let safari = false;
+    if (nombreNavegador.toLowerCase() == "safari") {
+        safari = true;
+    }
+
     //{ isOk: resultadoInsercion.isInserted, numeroRegistro: resultadoInsercion.numeroRegistro }
 
     // if (dataResponse.isOk === false)
@@ -78,6 +84,7 @@ exports.postRealizarReserva = async (req, res, language ) =>
     // }
     res.send(
         {
+            "safari": safari,
             "isOk": dataResponse.isOk,
             "success": req.body.success,
             "locations": locationLanguage,

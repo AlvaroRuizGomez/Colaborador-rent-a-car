@@ -171,7 +171,9 @@
                     <p class="p-Direccion">
                         <a href="/" class="link-rentacar-logo">
                             <picture>
+                                <% if (it.safari===false) { %>
                                 <source srcset="./img/Img-Logo/rentacar_logo_footer.avif">
+                                <% } %>
                                 <source srcset="./img/Img-Logo/rentacar_logo_footer.webp">
                                 <img width="300" height="59" class="imagen-rentacar-logo" src="./img/Img-Logo/rentacar_logo_footer.png" alt="<%=it.locations.alt_logo_empresa %>">
                             </picture>

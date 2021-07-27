@@ -41,9 +41,15 @@ exports.postShowDetails = async (req, res, languageBrowser) =>
         req.headers["accept-language"].split(",")[1].split(";")[0]
     );
 
+    const nombreNavegador = req.get('User-Agent').split("/")[0].toLowerCase();
+    let safari = false;
+    if (nombreNavegador.toLowerCase() == "safari") {
+        safari = true;
+    }
 
 
     res.render(path.join(__dirname, "../../public/reservar.html"), {
+        "safari": safari,
         "success": req.body.sucess,
         "locations": locationLanguage,
         "formdata": req.body,
