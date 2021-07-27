@@ -158,7 +158,7 @@
                         </span>
                     </div>
 
-                    <!------- Devoluci�n Fecha y Hora  -------->
+                    <!------- Devolucion Fecha y Hora  -------->
                     <div class="devolucionDateTit" data-tooltip-location="top" data-tooltip="<%=it.locations.tooltip_fecha_devolucion_informacion%>">
                         <p>
                             <%=it.locations.devolucion %>
@@ -173,7 +173,7 @@
                         <img src="./img/img-Calendar/calendar.svg" alt="<%=it.locations.calendariodevolucion %>" class="img-calendar triggerDev" width="25" height="25">
                     </div>
     
-                    <!------- Devoluci�n Hora ---------->
+                    <!------- Devolucion Hora ---------->
                     <div class="devolucionClockTit" data-tooltip-location="top" data-tooltip="<%=it.locations.tooltip_hora_devolucion_informacion%>">
                         <p>
                             <%=it.locations.hora %>
@@ -247,10 +247,9 @@
                             
                             <div class="content">
                                 <picture>
-                                    
                                     <% if (it.safari === false) { %>
+                                        <% } %> 
                                         <source type="image/avif" srcset="./img/Img-Logo/Logo-Marca-Coche/<%=it.data[i]["logoMarcaCoche"] %>.avif">
-                                    <% } %> 
                                     <source type="image/webp" srcset="./img/Img-Logo/Logo-Marca-Coche/<%=it.data[i]["logoMarcaCoche"] %>.webp">
                                     <img width="25" height="25" src="./img/Img-Logo/Logo-Marca-Coche/<%=it.data[i]["logoMarcaCoche"] %>.png" class="imgLogo logo-<%=it.data[i]["ImagenVehiclo"] %>" alt="<%=it.data[i]["logoMarcaCoche"]%>">
                                 </picture>
