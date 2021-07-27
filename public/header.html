@@ -6,9 +6,9 @@
             <a href="/" class="" title="RentCarMallorca.es">
                 <picture>
                     <% if (it.safari===false) { %>
-                    <source srcset="./img/Img-Logo/rentacar_logo_header.avif">
-                    <% } %>
-                    <source srcset="./img/Img-Logo/rentacar_logo_header.webp">
+                        <% } %>
+                    <source type="image/avif" srcset="./img/Img-Logo/rentacar_logo_header.avif">
+                    <source type="image/webp" srcset="./img/Img-Logo/rentacar_logo_header.webp">
                     <img width="280" height="55" class="logo-imagen" src="./img/Img-Logo/rentacar_logo_header.png" alt="logo rentcarmallorca.es">
                 </picture>
             </a>
@@ -19,7 +19,7 @@
                 <img width="265" height="150" src="./img/Img-Vehiculos/CitroenC1_open_Card.webp" alt="citroen C1">
             <% } else { %>
                     <picture>
-                        <source media="(min-width:650px)" srcset="./img/Img-Vehiculos/CitroenC1_open_Card.avif">
+                        <source type="image/avif" media="(min-width:650px)" srcset="./img/Img-Vehiculos/CitroenC1_open_Card.avif">
                         <img width="265" height="150" src="./img/Img-Vehiculos/CitroenC1_open_Card.webp" alt="citroen C1">
                     </picture>
                     
@@ -48,9 +48,9 @@
                         <button class="boton-idioma-seleccionado" id="boton-idioma-seleccionado">
                             <picture>
                                 <% if (it.safari===false) { %>
-                                <source srcset="./img/banderas/<%= idi[i] %>.avif">
+                                <source type="image/avif" srcset="./img/banderas/<%= idi[i] %>.avif">
                                 <% } %>
-                                <source srcset="./img/banderas/<%= idi[i] %>.webp">
+                                <source type="image/webp" srcset="./img/banderas/<%= idi[i] %>.webp">
                                 <img width="20" height="14" src="./img/banderas/<%= idi[i] %>.png" class="bandera" alt="<%=it.locations[bander]%>">
                             </picture>
                             <%=it.locations[idio] %>
@@ -70,9 +70,9 @@
                                 <a class="link-idiomas" href="<%= it.locations[url_alquilercoches]%>">
                                     <picture>
                                         <% if (it.safari === false) { %>
-                                        <source srcset="./img/banderas/<%= idi[i] %>.avif">
+                                        <source type="image/avif" srcset="./img/banderas/<%= idi[i] %>.avif">
                                         <% } %>
-                                        <source srcset="./img/banderas/<%= idi[i] %>.webp">
+                                        <source type="image/webp" srcset="./img/banderas/<%= idi[i] %>.webp">
                                         <img width="20" height="14" src="./img/banderas/<%= idi[i] %>.png" class="bandera" alt="<%=it.locations[bander]%>">
                                     </picture>
                                     <%=it.locations[idio] %>
