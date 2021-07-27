@@ -3,7 +3,7 @@ const fetch = require("node-fetch");
 const geolocation = require("./geolocation");
 const locations = require("../controllers/locations");
 const obtenerVars = require('./obtenervariablesentorno');
-
+const logicHelper = require("./logicHelper");
 
 exports.getReservar = async (req, res, languageBrowser) => {
     return res.redirect("/");
@@ -65,12 +65,7 @@ exports.postRealizarReserva = async (req, res, language ) =>
 
     const locationLanguage = await locations.GenerateLocationBrowser(req.body.idioma);
 
-    const nombreNavegador = req.get("User-Agent").indexOf("Version/14.1.2 Safari");
-
-    let safari = false;
-    if (nombreNavegador != -1) {
-        safari = true;
-    }
+    const safari = await logicHelper.IsSafari(req.get("User-Agent"));
 
     //{ isOk: resultadoInsercion.isInserted, numeroRegistro: resultadoInsercion.numeroRegistro }
 

@@ -9,6 +9,7 @@ const geolocation = require("./geolocation");
 const locations = require("./locations");
 const obtenerVars = require("./obtenervariablesentorno");
 const logicDiferenciaFechas = require("./logicDiferenciaFechas");
+const logicHelper = require("./logicHelper");
 
 const eta = require("eta");
 
@@ -62,15 +63,8 @@ exports.getHome = async (req, res, languageBrowser) =>
     );
 
     // Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.2 Safari/605.1.15
-    // const nombreNavegador = req.get('User-Agent').split("/")[3].split(" ")[1].toLowerCase();
-    const nombreNavegador = req.get("User-Agent").indexOf("Version/14.1.2 Safari");
-
-    let safari = false;
-    if (nombreNavegador != -1) {
-        safari = true;
-    }
-    
-    
+    const safari = await logicHelper.IsSafari(req.get("User-Agent"));
+        
     const body = {
         "token": process.env.TOKEN_FOR_BACKEND_ACCESS,
         "useragent": req.useragent,
@@ -225,12 +219,7 @@ exports.postHomeDirect = async (req, res) =>
 
     const locationLanguage = await locations.GenerateLocationBrowser(query.idioma);
 
-    const nombreNavegador = req.get("User-Agent").indexOf("Version/14.1.2 Safari");
-
-    let safari = false;
-    if (nombreNavegador != -1) {
-        safari = true;
-    }
+    const safari = await logicHelper.IsSafari(req.get("User-Agent"));
 
     if (dataResponse.isOk === false) {
         if (dataResponse.errorFormulario === "") {
@@ -436,12 +425,7 @@ exports.postHome = async (req, res) =>
     
     }
     
-    const nombreNavegador = req.get("User-Agent").indexOf("Version/14.1.2 Safari");
-
-    let safari = false;
-    if (nombreNavegador != -1) {
-        safari = true;
-    }
+    const safari = await logicHelper.IsSafari(req.get("User-Agent"));
 
     const locationLanguage = await locations.GenerateLocationBrowser(req.body.idioma);
     

@@ -4,6 +4,7 @@ const geolocation = require("./geolocation");
 const locations = require("./locations");
 const obtenerVars = require("./obtenervariablesentorno");
 const logicDiferenciaFechas = require("./logicDiferenciaFechas");
+const logicHelper = require("./logicHelper");
 const path = require("path");
 
 
@@ -41,12 +42,7 @@ exports.postShowDetails = async (req, res, languageBrowser) =>
         req.headers["accept-language"].split(",")[1].split(";")[0]
     );
 
-    const nombreNavegador = req.get("User-Agent").indexOf("Version/14.1.2 Safari");
-
-    let safari = false;
-    if (nombreNavegador != -1) {
-        safari = true;
-    }
+    const safari = await logicHelper.IsSafari(req.get("User-Agent"));
 
 
     res.render(path.join(__dirname, "../../public/reservar.html"), {
