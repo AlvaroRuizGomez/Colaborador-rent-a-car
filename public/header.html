@@ -5,16 +5,20 @@
         <div class="logo">
             <a href="/" class="" title="RentCarMallorca.es">
                 <picture>
+                    <% /*
                     <source srcset="./img/Img-Logo/rentacar_logo_header.avif">
                     <source srcset="./img/Img-Logo/rentacar_logo_header.webp">
-                    <img class="logo-imagen" src="./img/Img-Logo/rentacar_logo_header.png" alt="logo rentcarmallorca.es">
+                    */ %>
+                    <img width="280" height="55" class="logo-imagen" src="./img/Img-Logo/rentacar_logo_header.png" alt="logo rentcarmallorca.es">
                 </picture>
             </a>
         </div>
         <div class="h-car">
             <picture>
+                <% /*
                 <source media="(min-width:650px)" srcset="./img/Img-Vehiculos/CitroenC1_open_Card.avif">
-                <img src="./img/Img-Vehiculos/CitroenC1_open_Card.webp" alt="citroen C1">
+                */ %>
+                <img width="265" height="150" src="./img/Img-Vehiculos/CitroenC1_open_Card.webp" alt="citroen C1">
             </picture>
         </div>
 
@@ -41,7 +45,7 @@
                             <picture>
                                 <source srcset="./img/banderas/<%= idi[i] %>.avif">
                                 <source srcset="./img/banderas/<%= idi[i] %>.webp">
-                                <img src="./img/banderas/<%= idi[i] %>.png" class="bandera" alt="<%=it.locations[bander]%>">
+                                <img width="20" height="14" src="./img/banderas/<%= idi[i] %>.png" class="bandera" alt="<%=it.locations[bander]%>">
                             </picture>
                             <%=it.locations[idio] %>
                             <span class="adorno-abajo"></span>
@@ -61,7 +65,7 @@
                                     <picture>
                                         <source srcset="./img/banderas/<%= idi[i] %>.avif">
                                         <source srcset="./img/banderas/<%= idi[i] %>.webp">
-                                        <img src="./img/banderas/<%= idi[i] %>.png" class="bandera"
+                                        <img width="20" height="14" src="./img/banderas/<%= idi[i] %>.png" class="bandera"
                                             alt="<%=it.locations[bander]%>">
                                     </picture>
                                     <%=it.locations[idio] %>

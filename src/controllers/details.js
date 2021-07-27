@@ -6,7 +6,6 @@ const obtenerVars = require("./obtenervariablesentorno");
 const logicDiferenciaFechas = require("./logicDiferenciaFechas");
 const path = require("path");
 
-const URI_UPDATE_STATS_BACKEND = obtenerVars.ObtenerURI_UPDATE_STATS_BACKEND();
 
 exports.getShowDetails = async (req, res, languageBrowser) => {
     return res.redirect("/");
@@ -62,7 +61,7 @@ exports.postShowDetails = async (req, res, languageBrowser) =>
     };
 
     // enviamos al backedn la informacion
-    const responseRaw = await fetch(URI_UPDATE_STATS_BACKEND, {
+    const responseRaw = await fetch(obtenerVars.URI_UPDATE_STATS_BACKEND, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",

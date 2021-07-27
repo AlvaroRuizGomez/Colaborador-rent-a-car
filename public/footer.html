@@ -1,4 +1,62 @@
 <footer class="footer_group" >
+<input type="hidden" id="error_validacion_edad_conductor_mas_70" name="error_validacion_edad_conductor_mas_70" value="<%=it.locations.error_validacion_edad_conductor_mas_70%>">
+<input type="hidden" id="error_validacion_edad_conductor_menos_20" name="error_validacion_edad_conductor_menos_20" value="<%=it.locations.error_validacion_edad_conductor_menos_20%>">
+<input type="hidden" id="error_validacion_carnet_2_anyos" name="error_validacion_carnet_2_anyos" value="<%=it.locations.error_validacion_carnet_2_anyos %>">
+
+<input type="hidden" id="cerrar_clock" name="cerrar_clock" value="<%=it.locations.cerrar_clock %>">
+<input type="hidden" id="anterior_clock" name="anterior_clock" value="<%=it.locations.anterior_clock %>">
+<input type="hidden" id="siguiente_clock" name="siguiente_clock" value="<%=it.locations.siguiente_clock %>">
+<input type="hidden" id="hoy_clock" name="hoy_clock" value="<%=it.locations.hoy_clock %>">
+<input type="hidden" id="enero" name="enero" value="<%=it.locations.enero %>">
+<input type="hidden" id="febrero" name="febrero" value="<%=it.locations.febrero %>">
+<input type="hidden" id="marzo" name="marzo" value="<%=it.locations.marzo %>">
+<input type="hidden" id="abril" name="abril" value="<%=it.locations.abril %>">
+<input type="hidden" id="mayo" name="mayo" value="<%=it.locations.mayo %>">
+<input type="hidden" id="junio" name="junio" value="<%=it.locations.junio %>">
+<input type="hidden" id="julio" name="julio" value="<%=it.locations.julio %>">
+<input type="hidden" id="agosto" name="agosto" value="<%=it.locations.agosto %>">
+<input type="hidden" id="septiembre" name="septiembre" value="<%=it.locations.septiembre %>">
+<input type="hidden" id="octubre" name="octubre" value="<%=it.locations.octubre %>">
+<input type="hidden" id="noviembre" name="noviembre" value="<%=it.locations.noviembre %>">
+<input type="hidden" id="diciembre" name="diciembre" value="<%=it.locations.diciembre %>">
+
+<input type="hidden" id="corto_enero" name="corto_enero" value="<%=it.locations.corto_enero %>">
+<input type="hidden" id="corto_febrero" name="corto_febrero" value="<%=it.locations.corto_febrero %>">
+<input type="hidden" id="corto_marzo" name="corto_marzo" value="<%=it.locations.corto_marzo %>">
+<input type="hidden" id="corto_abril" name="corto_abril" value="<%=it.locations.corto_abril %>">
+<input type="hidden" id="corto_mayo" name="corto_mayo" value="<%=it.locations.corto_mayo %>">
+<input type="hidden" id="corto_junio" name="corto_junio" value="<%=it.locations.corto_junio %>">
+<input type="hidden" id="corto_julio" name="corto_julio" value="<%=it.locations.corto_julio %>">
+<input type="hidden" id="corto_agosto" name="corto_agosto" value="<%=it.locations.corto_agosto %>">
+<input type="hidden" id="corto_septiembre" name="corto_septiembre" value="<%=it.locations.corto_septiembre %>">
+<input type="hidden" id="corto_octubre" name="corto_octubre" value="<%=it.locations.corto_octubre %>">
+<input type="hidden" id="corto_noviembre" name="corto_noviembre" value="<%=it.locations.corto_noviembre %>">
+<input type="hidden" id="corto_diciembre" name="corto_diciembre" value="<%=it.locations.corto_diciembre %>">
+
+<input type="hidden" id="domingo" name="domingo" value="<%=it.locations.domingo %>">
+<input type="hidden" id="lunes" name="lunes" value="<%=it.locations.lunes %>">
+<input type="hidden" id="martes" name="martes" value="<%=it.locations.martes %>">
+<input type="hidden" id="miercoles" name="miercoles" value="<%=it.locations.miercoles %>">
+<input type="hidden" id="jueves" name="jueves" value="<%=it.locations.jueves %>">
+<input type="hidden" id="viernes" name="viernes" value="<%=it.locations.viernes %>">
+<input type="hidden" id="sabado" name="sabado" value="<%=it.locations.sabado %>">
+
+<input type="hidden" id="corto_domingo" name="corto_domingo" value="<%=it.locations.corto_domingo %>">
+<input type="hidden" id="corto_lunes" name="corto_lunes" value="<%=it.locations.corto_lunes %>">
+<input type="hidden" id="corto_martes" name="corto_martes" value="<%=it.locations.corto_martes %>">
+<input type="hidden" id="corto_miercoles" name="corto_miercoles" value="<%=it.locations.corto_miercoles %>">
+<input type="hidden" id="corto_jueves" name="corto_jueves" value="<%=it.locations.corto_jueves %>">
+<input type="hidden" id="corto_viernes" name="corto_viernes" value="<%=it.locations.corto_viernes %>">
+<input type="hidden" id="corto_sabado" name="corto_sabado" value="<%=it.locations.corto_sabado %>">
+
+<input type="hidden" id="min_domingo" name="min_domingo" value="<%=it.locations.min_domingo %>">
+<input type="hidden" id="min_lunes" name="min_lunes" value="<%=it.locations.min_lunes %>">
+<input type="hidden" id="min_martes" name="min_martes" value="<%=it.locations.min_martes %>">
+<input type="hidden" id="min_miercoles" name="min_miercoles" value="<%=it.locations.min_miercoles %>">
+<input type="hidden" id="min_jueves" name="min_jueves" value="<%=it.locations.min_jueves %>">
+<input type="hidden" id="min_viernes" name="min_viernes" value="<%=it.locations.min_viernes %>">
+<input type="hidden" id="min_sabado" name="min_sabado" value="<%=it.locations.min_sabado %>">
+
 <div class="footerContainer">
     <div class="footerTop">
         <div class="tamanyo_fijo_footer">
@@ -16,7 +74,7 @@
                                     <ul class="details-modal resetul">
                                         <li id="anulacion_footer" class="details-modal-close modal-heigh-75">
                                             <a class="boton-cerrar-modal-footer" role="button">
-                                                <img class="cerrar-modal" src="./img/svg/cerrar_modal.svg" alt="boton cerrar modal">
+                                                <img width="100" height="100" class="cerrar-modal" src="./img/svg/cerrar_modal.svg" alt="boton cerrar modal">
                                             </a>
                                         </li>
                                         <li class="details-modal-title title-footer">
@@ -40,7 +98,7 @@
                                     <ul class="details-modal resetul ">
                                         <li id="seguro_footer" class="details-modal-close modal-heigh-75">
                                             <a class="boton-cerrar-modal-footer" role="button">
-                                                <img class="cerrar-modal" src="./img/svg/cerrar_modal.svg" alt="boton cerrar modal">
+                                                <img width="100" height="100" class="cerrar-modal" src="./img/svg/cerrar_modal.svg" alt="boton cerrar modal">
                                             </a>
                                         </li>
                                         <li class="details-modal-title">
@@ -64,7 +122,7 @@
                                     <ul class="details-modal resetul">
                                         <li id="sillas_footer" class="details-modal-close modal-heigh-75">
                                             <a class="boton-cerrar-modal-footer" role="button">
-                                                <img class="cerrar-modal" src="./img/svg/cerrar_modal.svg" alt="boton cerrar modal">
+                                                <img width="100" height="100" class="cerrar-modal" src="./img/svg/cerrar_modal.svg" alt="boton cerrar modal">
                                             </a>
                                         </li>
                                         <li class="details-modal-title">
@@ -89,7 +147,7 @@
                                     <ul class="details-modal resetul">
                                         <li id="nosotros_footer" class="details-modal-close modal-heigh-75">
                                             <a class="boton-cerrar-modal-footer" role="button">
-                                                <img class="cerrar-modal" src="./img/svg/cerrar_modal.svg" alt="boton cerrar modal">
+                                                <img width="100" height="100" class="cerrar-modal" src="./img/svg/cerrar_modal.svg" alt="boton cerrar modal">
                                             </a>
                                         </li>
                                         <li class="details-modal-title">
@@ -115,7 +173,7 @@
                             <picture>
                                 <source srcset="./img/Img-Logo/rentacar_logo_footer.avif">
                                 <source srcset="./img/Img-Logo/rentacar_logo_footer.webp">
-                                <img class="imagen-rentacar-logo" src="./img/Img-Logo/rentacar_logo_footer.png" alt="<%=it.locations.alt_logo_empresa %>">
+                                <img width="300" height="59" class="imagen-rentacar-logo" src="./img/Img-Logo/rentacar_logo_footer.png" alt="<%=it.locations.alt_logo_empresa %>">
                             </picture>
                         </a>
                     <p class="texto-rentacar-logo">
@@ -127,23 +185,22 @@
                     </p>
 
                     <div class="">
-                        <iframe
-                            data-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3076.918963058379!2d2.7120860509069944!3d39.53888207937599!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1297941e14ebb901%3A0x269d00f6b5ad9230!2sCam%C3%AD%20de%20Can%20Pastilla%2C%2051%2C%2007610%20Can%20Pastilla%2C%20Illes%20Balears!5e0!3m2!1ses!2ses!4v1622800860336!5m2!1ses!2ses"
-                            width="100%" height="300" style="border:0;" allowfullscreen="" class="lazyload"></iframe>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3076.918963058379!2d2.7120860509069944!3d39.53888207937599!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1297941e14ebb901%3A0x269d00f6b5ad9230!2sCam%C3%AD%20de%20Can%20Pastilla%2C%2051%2C%2007610%20Can%20Pastilla%2C%20Illes%20Balears!5e0!3m2!1ses!2ses!4v1622800860336!5m2!1ses!2ses"
+                            width="100%" height="300"  allowfullscreen="" title="<%=it.locations.donde_estamos %>" ></iframe>
                     </div>
                 </div>
                 <div class="redes">
 
                     <h5 class="titulo"><%=it.locations.siguenos %></h5>
                     <div class="instagram">
-                        <a href="https://www.instagram.com/rentcarmallorca/" target="_blank" class="icon link-azul centrado-vertical">
-                            <img class="icono-social" src="./img/svg/instagram.svg" alt="<%=it.locations.alt_icono_instagram %>">
+                        <a href="https://www.instagram.com/rentcarmallorca/" target="_blank" rel="noreferrer" class="icon link-azul centrado-vertical">
+                            <img width="30" height="30" class="icono-social" src="./img/svg/instagram.svg" alt="<%=it.locations.alt_icono_instagram %>">
                             <span class="">Instagram</span>
                         </a>
                     </div>
                     <div class="facebook">
-                        <a href="https://www.facebook.com/Rent-Car-Mallorca-111099834576269" target="_blank" class="icon link-azul centrado-vertical">
-                            <img class="icono-social" src="./img/svg/facebook.svg" alt="<%=it.locations.alt_icono_facebook %>">
+                        <a href="https://www.facebook.com/Rent-Car-Mallorca-111099834576269" target="_blank" rel="noreferrer" class="icon link-azul centrado-vertical">
+                            <img width="30" height="30" class="icono-social" src="./img/svg/facebook.svg" alt="<%=it.locations.alt_icono_facebook %>">
                             <span class="">Facebook</span>
                         </a>
                     </div>

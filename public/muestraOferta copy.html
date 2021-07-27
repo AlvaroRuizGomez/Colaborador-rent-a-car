@@ -21,18 +21,17 @@
     
     <!-- --------------------------------------------------- -->
 
-    <!-- <link rel="preconnect" href="https://fonts.gstatic.com"> -->
-    <!-- <link href="https://fonts.googleapis.com/css2?family=Caveat&display=swap" rel="stylesheet ">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat&display=swap" rel="stylesheet ">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
     <link
         href="https://fonts.googleapis.com/css2?family=Allura&family=Arizonia&family=Charmonman:wght@700&family=Damion&family=Faster+One&family=Galada&family=Gravitas+One&family=Montez&family=Sarina&family=Sonsie+One&display=swap"
-        rel="stylesheet"> -->
+        rel="stylesheet">
 
     <!------------------- Bootstrap CSS ------------------------>
-    <link rel="stylesheet" href="./css/bootstrap4/bootstrap.min.css">
-    <script async src="./bootstrap/js/bootstrap.bundle.min.js"></script>
-    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    
     <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script> -->
 
     <!-- --------------------------------------------------- -->
@@ -83,15 +82,13 @@
         </div>
         <input type="hidden" id="traDia" name="traDia" value="<%=it.locations.dia %>">
         <input type="hidden" id="traDias" name="traDias" value="<%=it.locations.dias %>">
-
-
         <!------- Inicio formulario de Busqueda ----------------->
         <form id="formulario-index" class="form" method="POST" action="/busqueda">
-            <input type="hidden" name="conductor_con_experiencia" value="<%= it.conductor_con_experiencia %>">
-            <input type="hidden" id="edad_conductor" name="edad_conductor" value="<%= it.edad_conductor %>">
+            <input type="hidden" name="conductor_con_experiencia" value="<%= it.formdata.conductor_con_experiencia %>">
+            <input type="hidden" name="edad_conductor" value="<%= it.formdata.edad_conductor %>">
             <input type="hidden" name="idioma" value="<%=it.locations.idioma_web %>">
             <input type="hidden" name="success" value="<%=it.success %>">
-            <input type="hidden" id="anyos_carnet" name="anyos_carnet" value="<%= it.anyos_carnet %>">
+            <input type="hidden" name="anyos_carnet" value="<%= it.formdata.anyos_carnet %>">
             <input type="hidden" name="fase" value="2">
 
             <!-------- Inicio Formulario de Busqueda ------------>
@@ -123,7 +120,7 @@
                     <div class="fechaRecoge">
                         <div class="formDateRecogida">
                             <input type="text" class="input-color form-control-date datepicker" id="fechaRecogida"
-                                name="fechaRecogida" value="<%= it.fechaRecogida %>" data-placement="right"
+                                name="fechaRecogida" value="<%= it.formdata.fechaRecogida %>" data-placement="right"
                                 data-align="bottom" data-name="" readonly="">
                         </div>
                     </div>
@@ -136,7 +133,7 @@
                     <div class="horaRecoge input-group clockpicker" data-placement="bottom" data-align="top"
                         data-autoclose="true">
                         <input type="text" class="input-color form-control-clock" name="horaRecogida" id="horaRecogida"
-                            value="<%= it.horaRecogida %>" readonly="" />
+                            value="<%= it.formdata.horaRecogida %>" readonly="" />
                         <span class="iconClock input-group-addon">
                             <img src="./img/Img-Clock/clock.avif" alt="Reloj Recogida" class="img-clock">
                         </span>
@@ -160,7 +157,7 @@
                         <div class="formDateRecogida">
 
                             <input type="text" class="input-color form-control-date datepicker" id="fechaDevolucion"
-                                name="fechaDevolucion" value="<%= it.fechaDevolucion %>" data-placement="right"
+                                name="fechaDevolucion" value="<%= it.formdata.fechaDevolucion %>" data-placement="right"
                                 data-align="bottom" data-name="" readonly="">
                         </div>
                     </div>
@@ -174,7 +171,7 @@
                     <div class="horaDevuelve input-group clockpicker" data-placement="bottom" data-align="top"
                         data-autoclose="true">
                         <input type="text" class="input-color form-control-clock" name="horaDevolucion" id="horaDevolucion"
-                            value="<%= it.horaDevolucion %>" readonly="" />
+                            value="<%= it.formdata.horaDevolucion %>" readonly="" />
                         <span class="iconClock2 input-group-addon">
                             <img src="./img/Img-Clock/clock.avif" alt="<%=it.locations.alt_reloj_recogida%>"
                                 class="img-clock">
@@ -190,27 +187,32 @@
                     </div>
                     
                     <img src="./img/svg/forma_cantidad_dias.svg" alt="numero dias" class="forma_numerodias">
-<% /* cambio-inicio */ %>
-                    <% if ( it.numeroDias ) { %>
-                        <% if (it.numeroDias - 0===1 ) { %>
+                    
+                    
+
+
+                    <% if ( it.formdata.numeroDias ) { %>
+                        <% if (it.formdata.numeroDias - 0===1 ) { %>
                             <span id="numerodias" class="numerodias">
-                                <%= it.numeroDias %>
+                                <%= it.formdata.numeroDias %>
                                     <%=it.locations.dia %>
                             </span>
-                            <input type="hidden" id="numerodiasHidden" name="numeroDias" value="<%= it.numeroDias %>">
+                            <input type="hidden" id="numerodiasHidden" name="numeroDias" value="<%= it.formdata.numeroDias %>">
                         <% } else { %>
                             <span id="numerodias" class="numerodias">
-                                <%= it.numeroDias %>
+                                <%= it.formdata.numeroDias %>
                                     <%=it.locations.dias %>
                             </span>
-                            <input type="hidden" id="numerodiasHidden" name="numeroDias" value="<%= it.numeroDias %>">
+                            <input type="hidden" id="numerodiasHidden" name="numeroDias" value="<%= it.formdata.numeroDias %>">
                         <% } %>
                         
                     <% } else { %>
                         <span id="numerodias" class="numerodias">3</span>
                         <input type="hidden" name="numeroDias" value="3">
                     <% } %>
-<% /* cambio-fin */ %>
+
+
+
                 </div>
 
             </div>
@@ -449,13 +451,11 @@
 
         <div id="contenido-ofertas" class="contenido invisible">
             <!------------ Inicio Carrusel  ------------->
-<% /* cambio-inicio */ %>
             <% if (it.data.length> 0) { %>
                 <%~ includeFile("slider.html", it) %>
-            <% } %>
-<% /* cambio-fin */ %>
+                <% } %>
             <!------------ Fin Carrusel  ------------->
-            <!--------------- Inicio Ofertas --------------------->
+                    <!--------------- Inicio Ofertas --------------------->
                     <div class="ofertas">
                         <div class="reserveData">
                             <div class="reserveDateTime">
@@ -466,16 +466,12 @@
                                             <%=it.locations.reserveData_texto %>
                                         </p>
                                         <p class="dateTimeReserve">
-                                            <% /* cambio-inicio */ %>
-                                            <% let fechaReco = it.fechaRecogida.substring(0, it.fechaRecogida.length - 5) %> 
-                                            <%= fechaReco %> <%= it.horaRecogida %>
-                                            <% /* cambio-fin */ %>
+                                            <% let fechaReco = it.formdata.fechaRecogida.substring(0, it.formdata.fechaRecogida.length - 5) %> 
+                                            <%= fechaReco %> <%= it.formdata.horaRecogida %>
                                         </p>
                                         <p class="dateTimeReserve">
-                                            <% /* cambio-inicio */ %>
-                                            <% let fechaDevo=it.fechaDevolucion.substring(0, it.fechaDevolucion.length - 5) %>
-                                            <%= fechaDevo %>  <%= it.horaDevolucion %>
-                                            <% /* cambio-fin */ %>
+                                            <% let fechaDevo=it.formdata.fechaDevolucion.substring(0, it.formdata.fechaDevolucion.length - 5) %>
+                                            <%= fechaDevo %>  <%= it.formdata.horaDevolucion %>
                                         </p>
                                     </div>
                                 </div>
@@ -491,8 +487,7 @@
                             </div>
                         </div>
 
-                        
-<% /* cambio-inicio */ %>
+
                         <% if (it.data.length <=0) { %>
                             <article class="">
                                 <h3 class="error-sinproductos">
@@ -501,7 +496,10 @@
                                 </h3>
                             </article>
                             <% } else { %>
-                                <% if (it["conductor_con_experiencia"]==="undefined" || it["conductor_con_experiencia"]===undefined || it["conductor_con_experiencia"]==="off") { %>
+                                <% if (it.formdata["conductor_con_experiencia"]==="undefined" || it.formdata["conductor_con_experiencia"]===undefined ||
+                                    it.formdata["conductor_con_experiencia"]==="off"
+                                
+                                ) { %>
                                     <div class="aviso-edad">
                                         <img class="icono-alerta-edad" src="./img/svg/alerta_edad.svg"
                                             alt="<%=it.locations.alt_icono_edad_conductor %>">
@@ -509,32 +507,36 @@
                                             <%=it.locations.aviso_edad_ofertas %>
                                         </p>
                                     </div>
-                                <% } %>
-                                <% if ( it.vehiculoSeleccionado !==undefined) { %>
-                                    <div class="tablero_ofertas">
-                                        <h3 class="titulo_tablero_ofertas">
-                                            <%=it.locations.vehiculo_seleccionado %>
-                                        </h3>
-                                    </div>
+                                    <% } %>
+                                        <% if ( it.vehiculoSeleccionado !==undefined) { %>
+                                            <div class="tablero_ofertas">
+                                                <h3 class="titulo_tablero_ofertas">
+                                                    <%=it.locations.vehiculo_seleccionado %>
+                                                </h3>
+                                            </div>
 
-                                <% } else { %>
-                                <% } %>
-                            <% } %>
+                                            <% } else { %>
+                                                <% } %>
 
-                            <% if ( it.vehiculoSeleccionado !==undefined) { %>
-                                <%~ includeFile("oferta.html", it, element=it.vehiculoSeleccionado, j=undefined ) %>
-                            <% } %>
 
-                            <div class="tablero_ofertas">
-                                <h3>
-                                    <%=it.locations.titulo_ofertas %>
-                                </h3>
-                            </div>
+                                                    <% } %>
 
-                            <% for (let x=0; x < it.data.length; x++) { %>
-                                <%~ includeFile("oferta.html", it, element=it.data[x], j=x ) %>
-                            <% } %>
-<% /* cambio-fin */ %>
+                                                        <% if ( it.vehiculoSeleccionado !==undefined) { %>
+                                                            <%~ includeFile("oferta.html", it,
+                                                                element=it.vehiculoSeleccionado, j=undefined ) %>
+                                                                <% } %>
+
+                                                                    <div class="tablero_ofertas">
+                                                                        <h3>
+                                                                            <%=it.locations.titulo_ofertas %>
+                                                                        </h3>
+                                                                    </div>
+
+                                                                    <% for (let x=0; x < it.data.length; x++) { %>
+                                                                        <%~ includeFile("oferta.html", it,
+                                                                            element=it.data[x], j=x ) %>
+                                                                            <% } %>
+
 
                     </div>
                     <!--------------- Fin Ofertas ------------------------>
@@ -558,10 +560,57 @@
     <script src="./js/clockpicker.js"></script>
     
     <!----------------------------------- Scripts -------------------------------------------->
-   
+    
+    <script>
+        $.datepicker.regional['es'] = {
+            closeText: '<%=it.locations.cerrar_clock%>',
+            prevText: '<%=it.locations.anterior_clock %>',
+            nextText: '<%=it.locations.siguiente_clock %>',
+            currentText: '<%=it.locations.hoy_clock %>',
+            monthNames: ['<%=it.locations.enero%>', '<%=it.locations.febrero%>', '<%=it.locations.marzo%>', '<%=it.locations.abril%>', '<%=it.locations.mayo%>', '<%=it.locations.junio%>', '<%=it.locations.julio%>', '<%=it.locations.agosto%>', '<%=it.locations.septiembre%>', '<%=it.locations.octubre%>', '<%=it.locations.noviembre%>', '<%=it.locations.diciembre%>'],
+            monthNamesShort: ['<%=it.locations.corto_enero%>', '<%=it.locations.corto_febrero%>', '<%=it.locations.corto_marzo%>', '<%=it.locations.corto_abril%>', '<%=it.locations.corto_mayo%>', '<%=it.locations.corto_junio%>', '<%=it.locations.corto_julio%>', '<%=it.locations.corto_agosto%>', '<%=it.locations.corto_septiembre%>', '<%=it.locations.corto_octubre%>', '<%=it.locations.corto_noviembre%>', '<%=it.locations.corto_diciembre%>'],
+            dayNames: ['<%=it.locations.domingo%>', '<%=it.locations.lunes%>', '<%=it.locations.martes%>', '<%=it.locations.miercoles%>', '<%=it.locations.jueves%>', '<%=it.locations.viernes%>', '<%=it.locations.sabado%>'],
+            dayNamesShort: ['<%=it.locations.corto_domingo%>', '<%=it.locations.corto_lunes%>', '<%=it.locations.corto_martes%>', '<%=it.locations.corto_miercoles%>', '<%=it.locations.corto_jueves%>', '<%=it.locations.corto_viernes%>', '<%=it.locations.corto_sabado%>'],
+            dayNamesMin: ['<%=it.locations.min_domingo%>', '<%=it.locations.min_lunes%>', '<%=it.locations.min_martes%>', '<%=it.locations.min_miercoles%>', '<%=it.locations.min_jueves%>', '<%=it.locations.min_viernes%>', '<%=it.locations.min_sabado%>'],
+            weekHeader: 'Sm',
+            dateFormat: 'dd/mm/yy',
+            firstDay: 1,
+            isRTL: false,
+            showMonthAfterYear: false,
+            yearSuffix: ''
+        };
+        $.datepicker.setDefaults($.datepicker.regional['es']);
+    </script>
+    
+    <!-- Scripts calendario Recogida/Devolucion ---------------------->
+    <script>
+        $(function () {
+            $("#fechaRecogida").datepicker({ dateFormat: 'D,dd-mm-yy', minDate: '1d' });
+            $(".datepicker").datepicker("setDate", new Date());
+            $(".triggerRec").click(function () {
+                $("#fechaRecogida").datepicker("show");
+            });
+        });
+    </script>
+    
+    <script>
+        $(function () {
+            $("#fechaDevolucion").datepicker({ dateFormat: 'D,dd-mm-yy', minDate: '1d' });
+            $(".triggerDev").click(function () {
+                $("#fechaDevolucion").datepicker("show");
+            });
+        });
+    </script>
+    <!--------- Fin Bootstrap Calendario Cupertino themes ------------>
+    
+    
+    <!---------------------------- ClockPicker ----------------------->
+    <script type="text/javascript">
+        $('.clockpicker').clockpicker();
+    </script>
     <!--------- ----------------------------------------------------->
     
-    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script> -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
 
     

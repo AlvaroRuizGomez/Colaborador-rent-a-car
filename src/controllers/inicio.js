@@ -10,15 +10,8 @@ const locations = require("./locations");
 const obtenerVars = require("./obtenervariablesentorno");
 const logicDiferenciaFechas = require("./logicDiferenciaFechas");
 
-//variables
-const URI_API_BACKEND = obtenerVars.ObtenerURI_API_BACKEND();
-const URI_GETALL_BACKEND = obtenerVars.ObtenerURI_GETALL_BACKEND();
-
-const URI_STATS_BACKEND = obtenerVars.ObtenerURI_STATS_BACKEND();
-const ENDPOINT_GETCAR_FROM_CARD_BACKEND = obtenerVars.ObtenerENDPOINT_GETCAR_FROM_CARD_BACKEND();
-
-
 const eta = require("eta");
+
 
 
 exports.getHome = async (req, res, languageBrowser) =>
@@ -33,6 +26,36 @@ exports.getHome = async (req, res, languageBrowser) =>
         return res.status(404).send("Not Found");
     }
 
+    // const languagesAccpeted = {
+    //     "en": "en",
+    //     "es": "es",
+    //     "it": "it",
+    //     "de": "de",
+    // };
+
+    // // let languageNativeBrowser = undefined;
+    // let textoRutaArchivo = "";
+
+    // if (languageBrowser === undefined)
+    // {
+    //     languageBrowser = req.headers["accept-language"].split(",")[0].split("-")[0];
+    // }
+
+    // if ((languageBrowser in languagesAccpeted) === true)
+    // {
+    //     textoRutaArchivo = `../../public/inicio_cache_${languagesAccpeted[languageBrowser]}.html`;
+    // }
+    // else
+    // {
+    //     textoRutaArchivo = `../../public/inicio_cache_${languagesAccpeted["en"]}.html`;
+    // }
+    
+    // return res.render(path.join(__dirname, textoRutaArchivo), {
+    //     "success": id,
+    //     "numeroDias": 3
+    // });
+    
+    //TODO: arriba cacheado
     const locationLanguage = await locations.GenerateLocationBrowser(
         languageBrowser, 
         req.headers["accept-language"].split(",")[0].split("-")[0]
@@ -48,7 +71,7 @@ exports.getHome = async (req, res, languageBrowser) =>
     };
 
     //enviamos al backedn la informacion
-    const responseRaw = await fetch(URI_GETALL_BACKEND, {
+    const responseRaw = await fetch(obtenerVars.URI_GETALL_BACKEND, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -74,7 +97,15 @@ exports.getHome = async (req, res, languageBrowser) =>
     if (dataResponse.data.length <= 0) {
         res.render(path.join(__dirname, "../../public/inicio.html"), {
             "data": dataResponse.data,
-            "formdata": req.query,
+            // "conductor_con_experiencia": req.query.conductor_con_experiencia,
+            // "edad_conductor": req.query.edad_conductor,
+            // "anyos_carnet": req.query.anyos_carnet,
+            // "fechaRecogida": req.query.fechaRecogida,
+            // "horaRecogida": req.query.horaRecogida,
+            // "fechaDevolucion": req.query.fechaDevolucion,
+            // "horaDevolucion": req.query.horaDevolucion,
+            // "numeroDias": req.query.numeroDias,
+            // "formdata": req.query,
             "errorFormulario": dataResponse.errorFormulario,
             "success": id,
             "diasEntreRecogidaDevolucion": dataResponse.diasEntreRecogidaDevolucion,
@@ -99,7 +130,7 @@ exports.getHome = async (req, res, languageBrowser) =>
 
 
     // enviar stats al backend
-    // const responseRaw = await fetch(URI_STATS_BACKEND, {
+    // const responseRaw = await fetch(obtenerVars.URI_STATS_BACKEND, {
     //     method: "POST",
     //     headers: {
     //         "Content-Type": "application/json",
@@ -120,6 +151,9 @@ exports.getHome = async (req, res, languageBrowser) =>
     // }
 
 };
+
+
+
 
 exports.redirectToHome = async (req, res) =>
 {
@@ -156,7 +190,7 @@ exports.postHomeDirect = async (req, res) =>
     const body = { "token": process.env.TOKEN_FOR_BACKEND_ACCESS, "direct":true, ...query };
 
     //enviamos al backedn la informacion
-    const responseRaw = await fetch(ENDPOINT_GETCAR_FROM_CARD_BACKEND, {
+    const responseRaw = await fetch(obtenerVars.ENDPOINT_GETCAR_FROM_CARD_BACKEND, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -200,7 +234,15 @@ exports.postHomeDirect = async (req, res) =>
     if (dataResponse.data.length <= 0) {
         res.render(path.join(__dirname, "../../public/muestraOferta.html"), {
             "data": dataResponse.data,
-            "formdata": query,
+            "conductor_con_experiencia": query.conductor_con_experiencia,
+            "edad_conductor": query.edad_conductor,
+            "anyos_carnet": query.anyos_carnet,
+            "fechaRecogida": query.fechaRecogida,
+            "horaRecogida": query.horaRecogida,
+            "fechaDevolucion": query.fechaDevolucion,
+            "horaDevolucion": query.horaDevolucion,
+            "numeroDias": query.numeroDias,
+            // "formdata": query,
             "errorFormulario": dataResponse.errorFormulario,
             "success": query.success,
             "diasEntreRecogidaDevolucion": dataResponse.diasEntreRecogidaDevolucion,
@@ -217,11 +259,19 @@ exports.postHomeDirect = async (req, res) =>
         dataResponse.data = await OrdenaPorClaseVehiculos(dataResponse.datosOrdenacion, dataResponse.data)
 
         //obtener el vehiculo seleccionado
-        const vehiculoSeleccionado = await ObtenerVehiculoSeleccionado(dataResponse.data, body.vehiculo);
+        const vehiculoSeleccionado = await ObtenerVehiculoSeleccionado(dataResponse.data, query.vehiculo);
 
         res.render(path.join(__dirname, "../../public/muestraOferta.html"), {
             "data": dataResponse.data,
-            "formdata": query,
+            "conductor_con_experiencia": query.conductor_con_experiencia ,
+            "edad_conductor": query.edad_conductor ,
+            "anyos_carnet": query.anyos_carnet ,
+            "fechaRecogida": query.fechaRecogida ,
+            "horaRecogida": query.horaRecogida ,
+            "fechaDevolucion": query.fechaDevolucion ,
+            "horaDevolucion": query.horaDevolucion ,
+            "numeroDias": query.numeroDias ,
+            // "formdata": query,
             "errorFormulario": dataResponse.errorFormulario,
             "success": query.success,
             "diasEntreRecogidaDevolucion": dataResponse.diasEntreRecogidaDevolucion,
@@ -346,7 +396,7 @@ exports.postHome = async (req, res) =>
     const body = { "token": process.env.TOKEN_FOR_BACKEND_ACCESS, "direct": false, ...req.body };
     
     //enviamos al backedn la informacion
-    const responseRaw = await fetch(URI_API_BACKEND, {
+    const responseRaw = await fetch(obtenerVars.URI_API_BACKEND, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -390,7 +440,15 @@ exports.postHome = async (req, res) =>
     if (dataResponse.data.length <= 0) {
         res.render(path.join(__dirname, "../../public/muestraOferta.html"), {
             "data": dataResponse.data,
-            "formdata": req.body,
+            "conductor_con_experiencia": req.body.conductor_con_experiencia,
+            "edad_conductor": req.body.edad_conductor,
+            "anyos_carnet": req.body.anyos_carnet,
+            "fechaRecogida": req.body.fechaRecogida,
+            "horaRecogida": req.body.horaRecogida,
+            "fechaDevolucion": req.body.fechaDevolucion,
+            "horaDevolucion": req.body.horaDevolucion,
+            "numeroDias": req.body.numeroDias,
+            // "formdata": req.body,
             "errorFormulario": dataResponse.errorFormulario,
             "success": req.body.success,
             "diasEntreRecogidaDevolucion": dataResponse.diasEntreRecogidaDevolucion,
@@ -408,7 +466,15 @@ exports.postHome = async (req, res) =>
     
         res.render(path.join(__dirname, "../../public/muestraOferta.html"), {
             "data": dataResponse.data,
-            "formdata": req.body,
+            "conductor_con_experiencia": req.body.conductor_con_experiencia,
+            "edad_conductor": req.body.edad_conductor,
+            "anyos_carnet": req.body.anyos_carnet,
+            "fechaRecogida": req.body.fechaRecogida,
+            "horaRecogida": req.body.horaRecogida,
+            "fechaDevolucion": req.body.fechaDevolucion,
+            "horaDevolucion": req.body.horaDevolucion,
+            "numeroDias": req.body.numeroDias,
+            // "formdata": req.body,
             "errorFormulario": dataResponse.errorFormulario,
             "success": req.body.success,
             "diasEntreRecogidaDevolucion": dataResponse.diasEntreRecogidaDevolucion,
@@ -456,7 +522,9 @@ const OrdenaPorClaseVehiculos = async (datosOrdenacion, datosVehiculos) => {
     return buffer;
 
 
-}
+};
+
+
 
 const OrdenarPorPrecioTotalDias = async (datosvehiculos) => {
 
@@ -497,6 +565,14 @@ const OrdenarPorPrecioTotalDias = async (datosvehiculos) => {
 
     return datosVehiculosOrdenados;
 }
+
+exports.OrdenarClaseVehiculos = async (datosOrdenacion, datosVehiculos) => {
+    return await OrdenaPorClaseVehiculos(datosOrdenacion, datosVehiculos);
+};
+
+exports.OrdenarPorPrecioTotalDias = async (datosvehiculos) => {
+    return await OrdenarPorPrecioTotalDias(datosvehiculos);
+};
 
 const ControlDirectSchema = async (body) =>
 {

@@ -1,3 +1,5 @@
+
+
 /* --------------- Header -------------- */
 .fondo_cabecera
 {
@@ -171,11 +173,12 @@
   justify-items: center;
   color: #0d6efd;
   background-color: #fafafa;
-  font-family: 'Lobster', cursive;
+  font-family: "Lobster-Regular";
   font-size: 63px;
   font-weight: bold;
   font-style: oblique;
   text-shadow: 1px 6px 2px #222;
+  user-select: none;
 }
 
 /* menu idiomas */
@@ -303,6 +306,7 @@
 .colaboracion 
 {
   display: none;
+  user-select: none;
 }
 
 
