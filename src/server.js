@@ -62,46 +62,46 @@ exports.InitServer = async () => {
         next();
     });
 
-    //headers security
+    // //headers security
     
-    // Content-Security-Policy
-    app.use(
-        helmet.contentSecurityPolicy(
-        {
-            useDefaults: false,
-            directives: {
-                defaultSrc: ["'self'"],
-                objectSrc: ["'none'"],
-                childSrc: ["'self'"],
-                frameSrc: ["'self'", "https://www.google.com"],
-                frameAncestors: ["'self'", "https://www.google.com"],
-                upgradeInsecureRequests: [],
-                blockAllMixedContent: [],
-            },
-        })
-    );
+    // // Content-Security-Policy
+    // app.use(
+    //     helmet.contentSecurityPolicy(
+    //     {
+    //         useDefaults: false,
+    //         directives: {
+    //             defaultSrc: ["'self'"],
+    //             objectSrc: ["'none'"],
+    //             childSrc: ["'self'"],
+    //             frameSrc: ["'self'", "https://www.google.com"],
+    //             frameAncestors: ["'self'", "https://www.google.com"],
+    //             upgradeInsecureRequests: [],
+    //             blockAllMixedContent: [],
+    //         },
+    //     })
+    // );
 
-    app.use(helmet.dnsPrefetchControl());
-    app.use(helmet.expectCt());
+    // app.use(helmet.dnsPrefetchControl());
+    // app.use(helmet.expectCt());
     
-    // X-Frame-Options
-    app.use(helmet.frameguard({
-        action: "deny",
-    }));
+    // // X-Frame-Options
+    // app.use(helmet.frameguard({
+    //     action: "deny",
+    // }));
     
-    app.use(helmet.hidePoweredBy());
-    app.use(helmet.hsts());
-    app.use(helmet.ieNoOpen());
+    // app.use(helmet.hidePoweredBy());
+    // app.use(helmet.hsts());
+    // app.use(helmet.ieNoOpen());
     
-    // X-Content-Type-Options: nosniff
-    app.use(helmet.noSniff());
+    // // X-Content-Type-Options: nosniff
+    // app.use(helmet.noSniff());
     
-    // X-Permitted-Cross-Domain-Policies: none
-    app.use(
-        helmet.permittedCrossDomainPolicies({
-            permittedPolicies: "none",
-        })
-    );
+    // // X-Permitted-Cross-Domain-Policies: none
+    // app.use(
+    //     helmet.permittedCrossDomainPolicies({
+    //         permittedPolicies: "none",
+    //     })
+    // );
     
     // app.use(helmet.permittedCrossDomainPolicies({permittedPolicies: "https://www.google.com"}));
 
