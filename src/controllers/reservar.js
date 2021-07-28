@@ -65,7 +65,7 @@ exports.postRealizarReserva = async (req, res, language ) =>
 
     const locationLanguage = await locations.GenerateLocationBrowser(req.body.idioma);
 
-    const safari = await logicHelper.IsSafari(req.get("User-Agent"));
+    const isAvifSupported = await logicHelper.IsAvifSupported(req.get("Accept"));
 
     //{ isOk: resultadoInsercion.isInserted, numeroRegistro: resultadoInsercion.numeroRegistro }
 
@@ -80,7 +80,7 @@ exports.postRealizarReserva = async (req, res, language ) =>
     // }
     res.send(
         {
-            "safari": safari,
+            "isAvifSupported": isAvifSupported,
             "isOk": dataResponse.isOk,
             "success": req.body.success,
             "locations": locationLanguage,

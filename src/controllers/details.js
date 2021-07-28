@@ -42,11 +42,11 @@ exports.postShowDetails = async (req, res, languageBrowser) =>
         req.headers["accept-language"].split(",")[1].split(";")[0]
     );
 
-    const safari = await logicHelper.IsSafari(req.get("User-Agent"));
+    const isAvifSupported = await logicHelper.IsAvifSupported(req.get("Accept"));
 
 
     res.render(path.join(__dirname, "../../public/reservar.html"), {
-        "safari": safari,
+        "isAvifSupported": isAvifSupported,
         "success": req.body.sucess,
         "locations": locationLanguage,
         "formdata": req.body,

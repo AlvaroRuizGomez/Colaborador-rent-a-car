@@ -138,7 +138,7 @@
                         <input type="text" class="input-color form-control-clock" name="horaRecogida" id="horaRecogida"
                             value="<%= it.horaRecogida %>" readonly="" />
                         <span class="iconClock input-group-addon">
-                            <% if (it.safari===false) { %>
+                            <% if (it.isAvifSupported===false) { %>
                                 <img src="./img/Img-Clock/clock.avif" alt="Reloj Recogida" class="img-clock">
                             <% } else { %>
                                 <img src="./img/Img-Clock/clock.webp" alt="Reloj Recogida" class="img-clock">
@@ -180,7 +180,7 @@
                         <input type="text" class="input-color form-control-clock" name="horaDevolucion" id="horaDevolucion"
                             value="<%= it.horaDevolucion %>" readonly="" />
                         <span class="iconClock2 input-group-addon">
-                            <% if (it.safari===false) { %>
+                            <% if (it.isAvifSupported===false) { %>
                             <img src="./img/Img-Clock/clock.avif" alt="<%=it.locations.alt_reloj_recogida%>" class="img-clock">
                             <% } else { %>
                                 <img src="./img/Img-Clock/clock.webp" alt="<%=it.locations.alt_reloj_recogida%>" class="img-clock">
@@ -230,7 +230,7 @@
         <div class="infoColapseContainer">
             <details class="collapsable" >
                 <summary class="header">
-                    <% if (it.safari===false) { %>
+                    <% if (it.isAvifSupported===false) { %>
                         <img src="./img/velocimetro.avif" border="0" width="20px" height="20px" class="f-ico">
                     <% } else { %>
                         <img src="./img/velocimetro.webp" border="0" width="20px" height="20px" class="f-ico">
@@ -445,7 +445,7 @@
                 <!--Content starts-->
                 <div class="content-weaves flex">
                     <picture>
-                        <% if (it.safari===false) { %>
+                        <% if (it.isAvifSupported===false) { %>
                         <source data-srcset="./img/Img-Logo/rentacar_logo_header.avif">
                         <% } %>
                         <source data-srcset="./img/Img-Logo/rentacar_logo_header.webp">

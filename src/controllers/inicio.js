@@ -63,8 +63,8 @@ exports.getHome = async (req, res, languageBrowser) =>
     );
 
     // Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.2 Safari/605.1.15
-    const safari = await logicHelper.IsSafari(req.get("User-Agent"));
-        
+    const isAvifSupported = await logicHelper.IsAvifSupported(req.get("Accept"));
+    
     const body = {
         "token": process.env.TOKEN_FOR_BACKEND_ACCESS,
         "useragent": req.useragent,
@@ -110,7 +110,7 @@ exports.getHome = async (req, res, languageBrowser) =>
             // "horaDevolucion": req.query.horaDevolucion,
             // "numeroDias": req.query.numeroDias,
             // "formdata": req.query,
-            "safari": safari,
+            "isAvifSupported": isAvifSupported,
             "errorFormulario": dataResponse.errorFormulario,
             "success": id,
             "diasEntreRecogidaDevolucion": dataResponse.diasEntreRecogidaDevolucion,
@@ -126,7 +126,7 @@ exports.getHome = async (req, res, languageBrowser) =>
         res.render(path.join(__dirname, "../../public/inicio.html"), {
             "data": dataResponse.data,
             "success": id,
-            "safari": safari,
+            "isAvifSupported": isAvifSupported,
             "preciosPorClase": dataResponse.preciosPorClase,
             "locations": locationLanguage,
             "numeroDias": 3
@@ -219,7 +219,7 @@ exports.postHomeDirect = async (req, res) =>
 
     const locationLanguage = await locations.GenerateLocationBrowser(query.idioma);
 
-    const safari = await logicHelper.IsSafari(req.get("User-Agent"));
+    const isAvifSupported = await logicHelper.IsAvifSupported(req.get("Accept"));
 
     if (dataResponse.isOk === false) {
         if (dataResponse.errorFormulario === "") {
@@ -229,7 +229,7 @@ exports.postHomeDirect = async (req, res) =>
         else {
             return res.render(path.join(__dirname, "../../public/inicio.html"),
                 {
-                    "safari": safari,
+                    "isAvifSupported": isAvifSupported,
                     "success": query.success,
                     "errorFormulario": dataResponse.errorFormulario,
                     "locations": locationLanguage
@@ -242,7 +242,7 @@ exports.postHomeDirect = async (req, res) =>
 
     if (dataResponse.data.length <= 0) {
         res.render(path.join(__dirname, "../../public/muestraOferta.html"), {
-            "safari": safari,
+            "isAvifSupported": isAvifSupported,
             "data": dataResponse.data,
             "conductor_con_experiencia": query.conductor_con_experiencia,
             "edad_conductor": query.edad_conductor,
@@ -273,7 +273,7 @@ exports.postHomeDirect = async (req, res) =>
 
         res.render(path.join(__dirname, "../../public/muestraOferta.html"), {
             "data": dataResponse.data,
-            "safari": safari,
+            "isAvifSupported": isAvifSupported,
             "conductor_con_experiencia": query.conductor_con_experiencia ,
             "edad_conductor": query.edad_conductor ,
             "anyos_carnet": query.anyos_carnet ,
@@ -425,7 +425,8 @@ exports.postHome = async (req, res) =>
     
     }
     
-    const safari = await logicHelper.IsSafari(req.get("User-Agent"));
+    // const isAvifSupported = await logicHelper.IsAvifSupported(req.get("Accept"));
+    const safari = await logicHelper.IsAvifSupported(req.get("Accept"));
 
     const locationLanguage = await locations.GenerateLocationBrowser(req.body.idioma);
     
@@ -440,7 +441,7 @@ exports.postHome = async (req, res) =>
         {
             return res.render(path.join(__dirname, "../../public/inicio.html"),
             {
-                "safari": safari,
+                "isAvifSupported": isAvifSupported,
                 "success": req.body.success,
                 "errorFormulario": dataResponse.errorFormulario,
                 "locations": locationLanguage
@@ -454,7 +455,7 @@ exports.postHome = async (req, res) =>
     if (dataResponse.data.length <= 0) {
         res.render(path.join(__dirname, "../../public/muestraOferta.html"), {
             "data": dataResponse.data,
-            "safari": safari,
+            "isAvifSupported": isAvifSupported,
             "conductor_con_experiencia": req.body.conductor_con_experiencia,
             "edad_conductor": req.body.edad_conductor,
             "anyos_carnet": req.body.anyos_carnet,
@@ -481,7 +482,7 @@ exports.postHome = async (req, res) =>
     
         res.render(path.join(__dirname, "../../public/muestraOferta.html"), {
             "data": dataResponse.data,
-            "safari": safari,
+            "isAvifSupported": isAvifSupported,
             "conductor_con_experiencia": req.body.conductor_con_experiencia,
             "edad_conductor": req.body.edad_conductor,
             "anyos_carnet": req.body.anyos_carnet,

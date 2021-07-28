@@ -27,7 +27,7 @@
             <input type="hidden" name="descripcion_vehiculo" value="<%= element.descripcion %>">
             
             <picture class="car-image">
-                <% if (it.safari===false) { %>
+                <% if (it.isAvifSupported===false) { %>
                 <source data-srcset="./img/Img-Vehiculos/<%= element.ImagenVehiclo %>_Card.avif" >
                 <% } %>
                 <source data-srcset="./img/Img-Vehiculos/<%= element.ImagenVehiclo %>_Card.webp">
