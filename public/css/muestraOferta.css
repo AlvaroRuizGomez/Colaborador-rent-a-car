@@ -576,11 +576,14 @@ body {
 }
 
 details > summary::marker {
-    display: none;
-    content: "";
+  display: none;
+  content: "";
 }
 
-
+details > summary::-webkit-details-marker {
+  display: none;
+  content: "";
+}
 
 .descCardCollapse {  
   width: 100%;  
