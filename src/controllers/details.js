@@ -37,9 +37,10 @@ exports.postShowDetails = async (req, res, languageBrowser) =>
         return res.redirect("/");
     }
 
+    console.log("acept language" + req.headers["accept-language"]);
     const locationLanguage = await locations.GenerateLocationBrowser(
         languageBrowser,
-        req.headers["accept-language"].split(",")[1].split(";")[0]
+        req.headers["accept-language"].split(",")[0].split("-")[0]
     );
 
     const isAvifSupported = await logicHelper.IsAvifSupported(req.get("Accept"));
