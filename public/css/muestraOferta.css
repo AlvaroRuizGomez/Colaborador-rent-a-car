@@ -585,6 +585,15 @@ details > summary::-webkit-details-marker {
   content: "";
 }
 
+@media not all and (min-resolution:.001dpcm) { @media {
+
+    details > summary { 
+
+        display: block; 
+
+    }
+}}
+
 .descCardCollapse {  
   width: 100%;  
   margin-bottom: 0px;  
