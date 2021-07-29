@@ -229,19 +229,21 @@
         <!----------------- Inicio Info colapse ------------------->
         <div class="infoColapseContainer">
             <details class="collapsable" >
-                <summary class="header_summary">
-                    <% if (it.isAvifSupported===true) { %>
+                <summary class="summary_list">
+                    <div class="header_summary">
+                        <% if (it.isAvifSupported===true) { %>
                         <img src="./img/velocimetro.avif" border="0" width="20px" height="20px" class="f-ico">
-                    <% } else { %>
-                        <img src="./img/velocimetro.webp" border="0" width="20px" height="20px" class="f-ico">
-                    <% } %>
-                    <p class="descCardCollapse noselect">
-                        <%=it.locations.info_kilometraje %>
-                    </p>
-                    <div data-tooltip-location="top" data-tooltip="<%=it.locations.tooltip_kilometros %>">
-                        <img src="./img/svg/iconInfo.svg" class="iconInfoColapse" border="0">
+                        <% } else { %>
+                            <img src="./img/velocimetro.webp" border="0" width="20px" height="20px" class="f-ico">
+                            <% } %>
+                        <p class="descCardCollapse noselect">
+                            <%=it.locations.info_kilometraje %>
+                        </p>
+                        <div data-tooltip-location="top" data-tooltip="<%=it.locations.tooltip_kilometros %>">
+                            <img src="./img/svg/iconInfo.svg" class="iconInfoColapse" border="0">
+                        </div>
+                        <div class="arrow"></div>
                     </div>
-                    <div class="arrow"></div>
                 </summary>
                 <div class="content noselect">
                     <p><%=it.locations.contenido_kilometraje %></p>
@@ -252,15 +254,17 @@
             <!-- ----------------------------------------------------->
 
             <details class="collapsable" >
-                <summary class="header">
-                    <img src="./img/svg/fuel_icon.svg" border="0" width="20px" height="20px" class="f-ico">
-                    <p class="descCardCollapse noselect">
-                        <%=it.locations.info_combustible %>
-                    </p>
-                    <div data-tooltip-location="top" data-tooltip="<%=it.locations.tooltip_combustible%>">
-                        <img src="./img/svg/iconInfo.svg" class="iconInfoColapse" border="0" >
+                <summary class="summary_list">
+                    <div class="header_summary">
+                        <img src="./img/svg/fuel_icon.svg" border="0" width="20px" height="20px" class="f-ico">
+                        <p class="descCardCollapse noselect">
+                            <%=it.locations.info_combustible %>
+                        </p>
+                        <div data-tooltip-location="top" data-tooltip="<%=it.locations.tooltip_combustible%>">
+                            <img src="./img/svg/iconInfo.svg" class="iconInfoColapse" border="0" >
+                        </div>
+                        <div class="arrow"></div>
                     </div>
-                    <div class="arrow"></div>
                 </summary>
                 <div class="content noselect">
                     <p><%=it.locations.contenido_combustible %></p>
@@ -271,16 +275,18 @@
             <!-- ----------------------------------------------------->
 
             <details class="collapsable" >
-                <summary class="header">
-                    <img src="./img/svg/driver_Plus.svg" border="0" width="20px" height="20px" class="f-ico">
-                    <p class="descCardCollapse noselect">
-                        <%=it.locations.info_conductor_adicional %>
-                    </p>
-                    <div data-tooltip-location="top" data-tooltip="<%=it.locations.tooltip_conductoradicional%>">
-                        <img src="./img/svg/iconInfo.svg" class="iconInfoColapse" border="0">
+                <summary class="summary_list">
+                    <div class="header_summary">
+                        <img src="./img/svg/driver_Plus.svg" border="0" width="20px" height="20px" class="f-ico">
+                        <p class="descCardCollapse noselect">
+                            <%=it.locations.info_conductor_adicional %>
+                        </p>
+                        <div data-tooltip-location="top" data-tooltip="<%=it.locations.tooltip_conductoradicional%>">
+                            <img src="./img/svg/iconInfo.svg" class="iconInfoColapse" border="0">
 
+                        </div>
+                        <div class="arrow"></div>
                     </div>
-                    <div class="arrow"></div>
                 </summary>
                 <div class="content noselect">
                     <p><%=it.locations.contenido_conductoradicional %></p>
@@ -291,14 +297,16 @@
             <!-- ----------------------------------------------------->
 
             <details class="collapsable" >
-                <summary class="header">
-                    <img src="./img/svg/cancelacion_Icon.svg" border="0" width="20px" height="20px" class="f-ico">
-                    <p class="descCardCollapse noselect"><%=it.locations.info_cancelacionreserva %></p>
-                    <div data-tooltip-location="top" data-tooltip="<%=it.locations.tooltip_cancelacionreserva%>">
-                        <img src="./img/svg/iconInfo.svg" class="iconInfoColapse" border="0">
-                    </div>
+                <summary class="summary_list">
+                    <div class="header_summary">
+                        <img src="./img/svg/cancelacion_Icon.svg" border="0" width="20px" height="20px" class="f-ico">
+                        <p class="descCardCollapse noselect"><%=it.locations.info_cancelacionreserva %></p>
+                        <div data-tooltip-location="top" data-tooltip="<%=it.locations.tooltip_cancelacionreserva%>">
+                            <img src="./img/svg/iconInfo.svg" class="iconInfoColapse" border="0">
+                        </div>
 
-                    <div class="arrow"></div>
+                        <div class="arrow"></div>
+                    </div>
                 </summary>
                 <div class="content noselect">
                     <p><%=it.locations.contenido_cancelacionreserva %></p>
@@ -309,13 +317,15 @@
             <!-- ----------------------------------------------------->
 
             <details class="collapsable" id="lugar" >
-                <summary class="header">
-                    <img src="./img/svg/recogida_Icon.svg" border="0" width="20px" height="20px" class="f-ico">
-                        <p class="descCardCollapse noselect"><%=it.locations.info_recogida %></p>
-                    <div data-tooltip-location="top" data-tooltip="<%=it.locations.tooltip_recogida%>">
-                        <img src="./img/svg/iconInfo.svg" class="iconInfoColapse" border="0">
+                <summary class="summary_list">
+                    <div class="header_summary">
+                        <img src="./img/svg/recogida_Icon.svg" border="0" width="20px" height="20px" class="f-ico">
+                            <p class="descCardCollapse noselect"><%=it.locations.info_recogida %></p>
+                        <div data-tooltip-location="top" data-tooltip="<%=it.locations.tooltip_recogida%>">
+                            <img src="./img/svg/iconInfo.svg" class="iconInfoColapse" border="0">
+                        </div>
+                        <div class="arrow"></div>
                     </div>
-                    <div class="arrow"></div>
                 </summary>
                 <div class="content noselect">
                     <p><%=it.locations.contenido_recogida %></p>

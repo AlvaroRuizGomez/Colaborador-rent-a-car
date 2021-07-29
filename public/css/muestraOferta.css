@@ -566,9 +566,22 @@ body {
 .header_summary {  
   display: flex;  
   padding-left: 11px;    
-  align-items: center;  
+  align-items: center;
 }  
+
+.summary_list
+{
+  display: list-item; 
   
+}
+
+details > summary::marker {
+    display: none;
+    content: "";
+}
+
+
+
 .descCardCollapse {  
   width: 100%;  
   margin-bottom: 0px;  
