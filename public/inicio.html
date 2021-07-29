@@ -238,10 +238,10 @@
                 
                     
                     <% if (it.isAvifSupported === true) { %>
+                        <div class="card lazyload <%=it.data[i]["ImagenVehiclo"] %>">
+                    <% } else { %>
                         <% let claseAvif = it.data[i]["ImagenVehiclo"] + "_safari" %>
                         <div class="card lazyload <%=claseAvif %>">
-                    <% } else { %>
-                        <div class="card lazyload <%=it.data[i]["ImagenVehiclo"] %>">
                     <% } %>
                         <a class="form-line" href="/car/<%=it.data[i]["vehiculo"] %>.html?id=<%=it.data[i]["vehiculo"]%>&success=<%=it.success %>&fase=2&idioma=<%=it.locations.idioma_web %>&vehiculo=<%=it.data[i]["vehiculo"] %>&fechaRecogida=&horaRecogida=&fechaDevolucion=&horaDevolucion=&conductor_con_experiencia=&edad_conductor=&anyos_carnet=&" id="<%=it.data[i]["vehiculo"] %>">
                             
