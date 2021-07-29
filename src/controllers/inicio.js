@@ -425,8 +425,7 @@ exports.postHome = async (req, res) =>
     
     }
     
-    // const isAvifSupported = await logicHelper.IsAvifSupported(req.get("Accept"));
-    const safari = await logicHelper.IsAvifSupported(req.get("Accept"));
+    const isAvifSupported = await logicHelper.IsAvifSupported(req.get("Accept"));
 
     const locationLanguage = await locations.GenerateLocationBrowser(req.body.idioma);
     

@@ -12,7 +12,7 @@ const Init = async () => {
 
         await require("./controllers/obtenervariablesentorno").GenerateStaticVars();
         // await generar.GenerarCacheFromInitServer();
-        await generar.ChangeCacheIsSaveable(true);
+        // await generar.ChangeCacheIsSaveable(true);
         const servidor = require("./server");
         servidor.InitServer();
 
