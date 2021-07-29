@@ -59,8 +59,8 @@
                             <section class="rentacar-info">
                                 <picture class="car-image">
                                     <% if (it.isAvifSupported === true) { %>
-                                        <% } %>
-                                    <source type="image/avif" srcset="./img/Img-Vehiculos/<%= it.formdata.imagen_vehiculo %>_Card.avif">
+                                        <source type="image/avif" srcset="./img/Img-Vehiculos/<%= it.formdata.imagen_vehiculo %>_Card.avif">
+                                    <% } %>
                                     <source type="image/webp" srcset="./img/Img-Vehiculos/<%= it.formdata.imagen_vehiculo %>_Card.webp">
                                     <img class="car-image"
                                         src="./img/Img-Vehiculos/<%=it.formdata.imagen_vehiculo %>_Card.png"
@@ -157,7 +157,7 @@
                                     <p class="icon-dateDevolucion">
                                         <%= it.formdata.fechaDevolucion %>
                                     </p>
-                                    <% if (it.isAvifSupported===false) { %>
+                                    <% if (it.isAvifSupported===true) { %>
                                     <img src="./img/Img-Clock/clock.avif" alt="Icono calendario" class="icon-25">
                                     <% } else { %>
                                         <img src="./img/Img-Clock/clock.webp" alt="Icono calendario" class="icon-25">

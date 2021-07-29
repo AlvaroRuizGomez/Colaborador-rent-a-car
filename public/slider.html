@@ -16,8 +16,9 @@
                                 <!-- py-4 text-black text-center -->
 
                                 <picture>
-                                    <source
-                                        data-srcset="./img/Img-Vehiculos/<%= it.data[i].ImagenVehiclo %>_Slider.avif">
+                                    <% if (it.isAvifSupported===true) { %>
+                                        <source data-srcset="./img/Img-Vehiculos/<%= it.data[i].ImagenVehiclo %>_Slider.avif">
+                                    <% } %>
                                     <source
                                         data-srcset="./img/Img-Vehiculos/<%= it.data[i].ImagenVehiclo %>_Slider.webp">
                                     <img class="img-ta lazyload"
@@ -56,8 +57,9 @@
                                                 <%= it.data[puntero].descripcion %>
                                             </h5>
                                             <picture>
-                                                <source
-                                                    data-srcset="./img/Img-Vehiculos/<%= it.data[puntero].ImagenVehiclo %>_Slider.avif">
+                                                <% if (it.isAvifSupported===true) { %>
+                                                    <source data-srcset="./img/Img-Vehiculos/<%= it.data[puntero].ImagenVehiclo %>_Slider.avif">
+                                                <% } %>
                                                 <source
                                                     data-srcset="./img/Img-Vehiculos/<%= it.data[puntero].ImagenVehiclo %>_Slider.webp">
                                                 <img class=" img-ta lazyload"

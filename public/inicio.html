@@ -149,7 +149,7 @@
                     <div class="recogidaClockData input-group2  clockpicker" data-placement="bottom" data-align="top" data-autoclose="true">
                         <input type="text" class="input-color form-control-clock"  id="horaRecogida" name="horaRecogida" value="09:00" readonly="" />
                         <span class="input-group-addon" data-tooltip-location="top" data-tooltip="<%=it.locations.tooltip_hora_recogida_informacion%>">
-                            <% if (it.isAvifSupported===false) { %>
+                            <% if (it.isAvifSupported===true) { %>
                                 <img src="./img/Img-Clock/clock.avif" alt="<%=it.locations.relojrecogida %>" class="img-clock" width="25" height="25">
                             <% } else { %>
                                 <img src="./img/Img-Clock/clock.webp" alt="<%=it.locations.relojrecogida %>" class="img-clock" width="25" height="25">
@@ -182,7 +182,7 @@
                     <div class="devolucionClockData input-group2 clockpicker" data-placement="bottom" data-align="top" data-autoclose="true">
                         <input type="text" class="input-color form-control-clock" id="horaDevolucion" name="horaDevolucion" value="20:00" readonly="" />
                         <span class="input-group-addon" data-tooltip-location="top" data-tooltip="<%=it.locations.tooltip_hora_devolucion_informacion%>">
-                            <% if (it.isAvifSupported===false) { %>
+                            <% if (it.isAvifSupported===true) { %>
                                 <img src="./img/Img-Clock/clock.avif" alt="<%=it.locations.relojdevolucion %>" class="img-clock" width="25" height="25">
                             <% } else { %>
                                 <img src="./img/Img-Clock/clock.webp" alt="<%=it.locations.relojdevolucion %>" class="img-clock" width="25" height="25">
@@ -241,7 +241,7 @@
                         <% let claseAvif = it.data[i]["ImagenVehiclo"] + "_safari" %>
                         <div class="card lazyload <%=claseAvif %>">
                     <% } else { %>
-                    <div class="card lazyload <%=it.data[i]["ImagenVehiclo"] %>">
+                        <div class="card lazyload <%=it.data[i]["ImagenVehiclo"] %>">
                     <% } %>
                         <a class="form-line" href="/car/<%=it.data[i]["vehiculo"] %>.html?id=<%=it.data[i]["vehiculo"]%>&success=<%=it.success %>&fase=2&idioma=<%=it.locations.idioma_web %>&vehiculo=<%=it.data[i]["vehiculo"] %>&fechaRecogida=&horaRecogida=&fechaDevolucion=&horaDevolucion=&conductor_con_experiencia=&edad_conductor=&anyos_carnet=&" id="<%=it.data[i]["vehiculo"] %>">
                             

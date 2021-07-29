@@ -44,9 +44,9 @@
                         <% const idio = "idioma_" + idi[i] %>
                         <button class="boton-idioma-seleccionado" id="boton-idioma-seleccionado">
                             <picture>
-                                <% if (it.isAvifSupported===false) { %>
-                                <% } %>
-                                <source type="image/avif" srcset="./img/banderas/<%= idi[i] %>.avif">
+                                <% if (it.isAvifSupported===true) { %>
+                                    <% } %>
+                                    <source type="image/avif" srcset="./img/banderas/<%= idi[i] %>.avif">
                                 <source type="image/webp" srcset="./img/banderas/<%= idi[i] %>.webp">
                                 <img width="20" height="14" src="./img/banderas/<%= idi[i] %>.png" class="bandera" alt="<%=it.locations[bander]%>">
                             </picture>
