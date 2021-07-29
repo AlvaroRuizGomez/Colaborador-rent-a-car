@@ -563,7 +563,7 @@ body {
   background-color:#eaf2fd;  
 }  
   
-.header {  
+.header_summary {  
   display: flex;  
   padding-left: 11px;    
   align-items: center;  
