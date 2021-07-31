@@ -69,12 +69,14 @@ exports.GetBackendVars = async () => {
     
     const buf = Buffer.from(datos.variables);
     const envConfig = dotenv.parse(buf);
+    let tempEnv = {};
     for (const key in envConfig) {
         
         const variableSanitizada = await sanitizar(envConfig[key]);
-        process.env[key] = variableSanitizada;
+        tempEnv[key] = variableSanitizada;
         // console.log(`texto sanitizado=${key}:${variableSanitizada}`);
     }
+    process.env = tempEnv;
 
 };
 
