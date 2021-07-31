@@ -159,12 +159,9 @@ const min_jueves = document.getElementById("min_jueves").value;
 const min_viernes = document.getElementById("min_viernes").value;
 const min_sabado = document.getElementById("min_sabado").value;
 
-const iconmundi = document.getElementById("icon-Mundi");
+const botonVerPrecios = document.getElementById("boton-VerPrecios");
 
-if (!iconmundi )
-{
-
-    $.datepicker.regional['es'] = {
+$.datepicker.regional['es'] = {
         closeText: cerrar_clock,
         prevText: anterior_clock ,
         nextText: siguiente_clock ,
@@ -180,29 +177,42 @@ if (!iconmundi )
         isRTL: false,
         showMonthAfterYear: false,
         yearSuffix: ''
-            };
-
-    $.datepicker.setDefaults($.datepicker.regional['es']);
-
-    $(function () {
-        $("#fechaRecogida").datepicker({ dateFormat: 'D,dd-mm-yy', minDate: '1d' });
+};
+$.datepicker.setDefaults($.datepicker.regional['es']);
+    
+$(function () 
+{
+    $("#fechaRecogida").datepicker({ dateFormat: 'D,dd-mm-yy', minDate: '1d' });
+    if (botonVerPrecios)
+    {
         //    comprobar que no machaque la fecha desde muestraoferta.html
         $("#fechaRecogida").datepicker("setDate", new Date());
-        $(".triggerRec").click(function () {
-            $("#fechaRecogida").datepicker("show");
-        });
-    });
 
-    $(function () {
-        $("#fechaDevolucion").datepicker({ dateFormat: 'D,dd-mm-yy', minDate: '1d' });
-        $fecha = new Date();
-        $fecha.setDate($fecha.getDate() + 3);
+    }
+});
+    
+$(function () 
+{
+
+    $("#fechaDevolucion").datepicker({ dateFormat: 'D,dd-mm-yy', minDate: '1d' });
+    
+    $fecha = new Date();
+    $fecha.setDate($fecha.getDate() + 3);
+    
+    if (botonVerPrecios)
+    {
         $("#fechaDevolucion").datepicker("setDate", $fecha);
-        $(".triggerDev").click(function () {
-            $("#fechaDevolucion").datepicker("show");
-        });
-    });
 
-    $('.clockpicker').clockpicker();
+    }
+});
 
-}
+
+$(".triggerRec").click(function () {
+    $("#fechaRecogida").datepicker("show");
+});
+
+$(".triggerDev").click(function () {
+    $("#fechaDevolucion").datepicker("show");
+});
+
+$('.clockpicker').clockpicker();

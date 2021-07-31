@@ -200,10 +200,10 @@ const numerodiasInput = document.getElementById("numerodias");
 const inputHiddenNumeroDias = document.getElementById("numerodiasHidden");
 
 
-let idiomaDias = document.getElementById("");
-let idiomaDia = undefined;
+// let idiomaDias = document.getElementById("");
+// let idiomaDia = undefined;
 
-const ComprobarIntervaloFechas = async (idiomaDiaCurrent, idiomaDiasCurrent) => {
+const ComprobarIntervaloFechas = async () => {
 
 
     const fechaRecogida = await ObtenerFecha(inputFechaRecogida.value, inputHoraRecogida.value);
