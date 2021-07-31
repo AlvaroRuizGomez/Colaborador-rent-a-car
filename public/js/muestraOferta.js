@@ -107,7 +107,7 @@ for (let i = 0; i < elementosColapsables.length; i++)
 
         if (evento.target.parentElement.className === "content noselect") return;
 
-        const flecha = elementosColapsables[i].children[0].lastElementChild;
+        const flecha = elementosColapsables[i].children[0].children[0].lastElementChild;
 
         if (flecha.classList.contains("arrow_down") === false)
         {

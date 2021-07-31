@@ -18,32 +18,24 @@
     
     <!-- --------------------------------------------------- -->
 
-    <link rel="preload" href="./fonts/Lobster-Regular.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="css/styles.css" />
     <link rel="stylesheet" href="./css/header.css">
     <link rel="stylesheet" href="./css/footer.css">
-    
-    <link rel="stylesheet" href="./css/bootstrapused.css">
-    <link rel="stylesheet" href="./css/bootstrap4/bootstrap.min.css">
-    <script async src="./bootstrap/js/bootstrap.bundle.min.js"></script> 
-
 
     <!----------------------------------- Fonts --------------------------------------->
     <!-- <link rel="preconnect" href="https://fonts.gstatic.com"> -->
     <!-- <link href="https://fonts.googleapis.com/css2?family=Caveat&display=swap" rel="stylesheet "> -->
-
-    <!-- <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
-     -->
+
     <!------------------------------ Font Faster R ----------------------------------->
     <!-- <link href="https://fonts.googleapis.com/css2?family=Allura&family=Arizonia&family=Charmonman:wght@700&family=Damion&family=Faster+One&family=Galada&family=Gravitas+One&family=Montez&family=Sarina&family=Sonsie+One&display=swap" rel="stylesheet">   -->
     <!--------------------------------------------------------------------------------->
 
     <!------------------- Bootstrap CSS ------------------------>
     
-    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
-    <!-- <script async src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script> -->
-    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script async src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
     <!-- --------------------------------------------------- -->
 
     <!-- Sociales -->
@@ -86,7 +78,7 @@
         <%~ includeFile("header.html", it) %>
         <!-- Fin Cabecera -->
 
-        <section id="eslogan" class="eslogan">
+        <section id="eslogan">
             <%=it.locations.eslogan%>
         </section>
         
@@ -105,7 +97,7 @@
                     <h2>
                         <%=it.locations.titulo_form%>
                     </h2>
-                    <img width="153" height="30" class="forma_rectangulo" src="./img/svg/forma_rectangulo.svg" alt="rectangulo dias">
+                    <img class="forma_rectangulo" src="./img/svg/forma_rectangulo.svg" alt="rectangulo dias">
                     <% if ( it.numeroDias ) { %>
                         <% if (it.numeroDias - 0 === 1 ) { %>
                         <span id="numerodias" class="numerodias"><%=it.numeroDias %> <%=it.locations.dia %></span>
@@ -136,7 +128,7 @@
                     </div>
     
                     <div class="recogidaDateIcon" data-tooltip-location="top" data-tooltip="<%=it.locations.tooltip_fecha_recogida_informacion%>">
-                        <img src="./img/img-Calendar/calendar.svg" alt="<%=it.locations.calendariorecogida %>" class="img-calendar triggerRec" width="25" height="25">
+                        <img src="./img/img-Calendar/calendar.svg" alt="<%=it.locations.calendariorecogida %>" class="img-calendar triggerRec">
                     </div>
     
                     <!-- ------------------------------------- -->
@@ -149,15 +141,11 @@
                     <div class="recogidaClockData input-group2  clockpicker" data-placement="bottom" data-align="top" data-autoclose="true">
                         <input type="text" class="input-color form-control-clock"  id="horaRecogida" name="horaRecogida" value="09:00" readonly="" />
                         <span class="input-group-addon" data-tooltip-location="top" data-tooltip="<%=it.locations.tooltip_hora_recogida_informacion%>">
-                            <% if (it.isAvifSupported===true) { %>
-                                <img src="./img/Img-Clock/clock.avif" alt="<%=it.locations.relojrecogida %>" class="img-clock" width="25" height="25">
-                            <% } else { %>
-                                <img src="./img/Img-Clock/clock.webp" alt="<%=it.locations.relojrecogida %>" class="img-clock" width="25" height="25">
-                            <% } %>
+                            <img src="./img/Img-Clock/clock.avif" alt="<%=it.locations.relojrecogida %>" class="img-clock">
                         </span>
                     </div>
 
-                    <!------- Devolucion Fecha y Hora  -------->
+                    <!------- Devolución Fecha y Hora  -------->
                     <div class="devolucionDateTit" data-tooltip-location="top" data-tooltip="<%=it.locations.tooltip_fecha_devolucion_informacion%>">
                         <p>
                             <%=it.locations.devolucion %>
@@ -169,10 +157,10 @@
                     </div>
     
                     <div class="devolucionDateIcon" data-tooltip-location="top" data-tooltip="<%=it.locations.tooltip_fecha_devolucion_informacion%>">
-                        <img src="./img/img-Calendar/calendar.svg" alt="<%=it.locations.calendariodevolucion %>" class="img-calendar triggerDev" width="25" height="25">
+                        <img src="./img/img-Calendar/calendar.svg" alt="<%=it.locations.calendariodevolucion %>" class="img-calendar triggerDev">
                     </div>
     
-                    <!------- Devolucion Hora ---------->
+                    <!------- Devolución Hora ---------->
                     <div class="devolucionClockTit" data-tooltip-location="top" data-tooltip="<%=it.locations.tooltip_hora_devolucion_informacion%>">
                         <p>
                             <%=it.locations.hora %>
@@ -182,11 +170,7 @@
                     <div class="devolucionClockData input-group2 clockpicker" data-placement="bottom" data-align="top" data-autoclose="true">
                         <input type="text" class="input-color form-control-clock" id="horaDevolucion" name="horaDevolucion" value="20:00" readonly="" />
                         <span class="input-group-addon" data-tooltip-location="top" data-tooltip="<%=it.locations.tooltip_hora_devolucion_informacion%>">
-                            <% if (it.isAvifSupported===true) { %>
-                                <img src="./img/Img-Clock/clock.avif" alt="<%=it.locations.relojdevolucion %>" class="img-clock" width="25" height="25">
-                            <% } else { %>
-                                <img src="./img/Img-Clock/clock.webp" alt="<%=it.locations.relojdevolucion %>" class="img-clock" width="25" height="25">
-                            <% } %>
+                            <img src="./img/Img-Clock/clock.avif" alt="<%=it.locations.relojdevolucion %>" class="img-clock">
                         </span>
                     </div>
                     
@@ -236,24 +220,16 @@
             
                 <% for (let i=0; i < it.data.length; i++) { %>
                 
-                    
-                    <% if (it.isAvifSupported === true) { %>
-                        <div class="card lazyload <%=it.data[i]["ImagenVehiclo"] %>">
-                    <% } else { %>
-                        <% let claseAvif = it.data[i]["ImagenVehiclo"] + "_safari" %>
-                        <div class="card lazyload <%=claseAvif %>">
-                    <% } %>
+                    <div class="card lazyload <%=it.data[i]["ImagenVehiclo"] %>">
+                        
                         <a class="form-line" href="/car/<%=it.data[i]["vehiculo"] %>.html?id=<%=it.data[i]["vehiculo"]%>&success=<%=it.success %>&fase=2&idioma=<%=it.locations.idioma_web %>&vehiculo=<%=it.data[i]["vehiculo"] %>&fechaRecogida=&horaRecogida=&fechaDevolucion=&horaDevolucion=&conductor_con_experiencia=&edad_conductor=&anyos_carnet=&" id="<%=it.data[i]["vehiculo"] %>">
                             
                             <div class="content">
                                 <picture>
-                                    <% if (it.isAvifSupported === false) { %>
-                                        <% } %> 
-                                        <source type="image/avif" srcset="./img/Img-Logo/Logo-Marca-Coche/<%=it.data[i]["logoMarcaCoche"] %>.avif">
-                                    <source type="image/webp" srcset="./img/Img-Logo/Logo-Marca-Coche/<%=it.data[i]["logoMarcaCoche"] %>.webp">
-                                    <img width="25" height="25" src="./img/Img-Logo/Logo-Marca-Coche/<%=it.data[i]["logoMarcaCoche"] %>.png" class="imgLogo logo-<%=it.data[i]["ImagenVehiclo"] %>" alt="<%=it.data[i]["logoMarcaCoche"]%>">
+                                    <source srcset="./img/Img-Logo/Logo-Marca-Coche/<%=it.data[i]["logoMarcaCoche"] %>.avif">
+                                    <source srcset="./img/Img-Logo/Logo-Marca-Coche/<%=it.data[i]["logoMarcaCoche"] %>.webp">
+                                    <img src="./img/Img-Logo/Logo-Marca-Coche/<%=it.data[i]["logoMarcaCoche"] %>.png" class="imgLogo logo-<%=it.data[i]["ImagenVehiclo"] %>" alt="<%=it.data[i]["logoMarcaCoche"]%>">
                                 </picture>
-                                
                                 <h2 class="title title-<%=it.data[i]["ImagenVehiclo"] %>"><%=it.data[i]["descripcion"]%>
                                 </h2>
                                 <div class="content-card">
@@ -261,14 +237,14 @@
                                     <br>
                                     <div class="car-info-services">
                                         <div class="servicios-asientos">
-                                            <img width="16" height="16" class="icon-24" src="./img/svg/persona.svg" alt="<%=it.locations.alt_persona%>">
+                                            <img class="icon-24" src="./img/svg/persona.svg" alt="<%=it.locations.alt_persona%>">
                                             <div class="icon-number">
                                                 <%=it.data[i]["pax"]%>
                                             </div>
                                         </div>
                                         <% if (it.data[i]["puertas"]> 0 ) { %>
                                             <div class="servicios-puertas">
-                                                <img width="16" height="16" class="icon-24" src="img/svg/puerta.svg" alt="<%=it.locations.alt_puerta%>">
+                                                <img class="icon-24" src="img/svg/puerta.svg" alt="<%=it.locations.alt_puerta%>">
                                                 <div class="icon-number">
                                                     <%=it.data[i]["puertas"]%>
                                                 </div>
@@ -276,18 +252,18 @@
                                             <% } %>
                                                 <% if (it.data[i].aireacondicionado===1) { %>
                                                     <div class="servicios-aire">
-                                                        <img width="16" height="16" class="icon-24" src="img/svg/aire.svg" alt="<%=it.locations.alt_aire %>">
+                                                        <img class="icon-24" src="img/svg/aire.svg" alt="<%=it.locations.alt_aire %>">
                                                     </div>
                                                     <% } %>
                                                         <% if (it.data[i].transmision==="M" ) { %>
                                                             <div class="servicios-trasmision">
-                                                                <img width="16" height="16" class="icon-24" src="img/svg/cambio_manual.svg"
+                                                                <img class="icon-24" src="img/svg/cambio_manual.svg"
                                                                     alt="<%=it.locations.alt_cambio_manual%>">
                                                                 <div class="icon-number">M</div>
                                                             </div>
                                                             <%} else if (it.data[i].transmision==="A" ) { %>
                                                                 <div class="servicios-trasmision">
-                                                                    <img width="16" height="16" class="icon-24" src="img/svg/cambio_automatico.svg"
+                                                                    <img class="icon-24" src="img/svg/cambio_automatico.svg"
                                                                         alt="<%=it.locations.alt_cambio_auto%>">
                                                                     <div class="icon-number">A</div>
                                                                 </div>
@@ -329,6 +305,48 @@
         <script async src="./js/newsletter.js"></script>
         <script async src="./js/footer.js"></script>
         <script src="./js/clockpicker.js"></script>
+
+        <script>
+            
+                const inputAnyosCar = document.getElementById('anyos_carnet');
+                const inputEdadCondu = document.getElementById('edad_conductor');
+                
+                inputAnyosCar.addEventListener('invalid', function (event) {
+                    CheckCarnetEdad(inputEdadCondu.value - 0, inputAnyosCar.value - 0);
+                })
+
+                inputAnyosCar.addEventListener('change', function (event) {
+                    event.target.setCustomValidity('');
+                    CheckCarnetEdad(inputEdadCondu.value - 0, inputAnyosCar.value - 0);
+                })
+
+
+                inputEdadCondu.addEventListener('invalid', function (event) 
+                {
+                    CheckCarnetEdad(inputEdadCondu.value - 0, inputAnyosCar.value - 0);
+                });
+
+                inputEdadCondu.addEventListener('change', function (event) 
+                {
+                    event.target.setCustomValidity('');
+                    CheckCarnetEdad(inputEdadCondu.value - 0, inputAnyosCar.value - 0);
+                });
+
+                const CheckCarnetEdad = (edadConductor, edadCarnet) =>
+                {
+                    if (edadConductor > 70) {
+                        event.target.setCustomValidity("<%=it.locations.error_validacion_edad_conductor_mas_70%>");
+                    }
+                    else if (edadConductor <= 20) {
+                        event.target.setCustomValidity("<%=it.locations.error_validacion_edad_conductor_menos_20%>");
+                    }
+                    else if (edadConductor >= 21 && edadConductor <= 70 && edadCarnet < 2)
+                    {
+                        event.target.setCustomValidity("<%=it.locations.error_validacion_carnet_2_anyos %>");
+                    }
+                };
+
+        </script>
         
         <!--------------------------- Scripts ---------------------------->
         <!---------------------------------------------------------------->
@@ -336,8 +354,59 @@
     
 
 
+        <script>
+            $.datepicker.regional['es'] = {
+                closeText: '<%=it.locations.cerrar_clock%>',
+                prevText: '<%=it.locations.anterior_clock %>',
+                nextText: '<%=it.locations.siguiente_clock %>',
+                currentText: '<%=it.locations.hoy_clock %>',
+                monthNames: ['<%=it.locations.enero%>', '<%=it.locations.febrero%>', '<%=it.locations.marzo%>', '<%=it.locations.abril%>', '<%=it.locations.mayo%>', '<%=it.locations.junio%>', '<%=it.locations.julio%>', '<%=it.locations.agosto%>', '<%=it.locations.septiembre%>', '<%=it.locations.octubre%>', '<%=it.locations.noviembre%>', '<%=it.locations.diciembre%>'],
+                monthNamesShort: ['<%=it.locations.corto_enero%>', '<%=it.locations.corto_febrero%>', '<%=it.locations.corto_marzo%>', '<%=it.locations.corto_abril%>', '<%=it.locations.corto_mayo%>', '<%=it.locations.corto_junio%>', '<%=it.locations.corto_julio%>', '<%=it.locations.corto_agosto%>', '<%=it.locations.corto_septiembre%>', '<%=it.locations.corto_octubre%>', '<%=it.locations.corto_noviembre%>', '<%=it.locations.corto_diciembre%>'],
+                dayNames: ['<%=it.locations.domingo%>', '<%=it.locations.lunes%>', '<%=it.locations.martes%>', '<%=it.locations.miercoles%>', '<%=it.locations.jueves%>', '<%=it.locations.viernes%>', '<%=it.locations.sabado%>'],
+                dayNamesShort: ['<%=it.locations.corto_domingo%>', '<%=it.locations.corto_lunes%>', '<%=it.locations.corto_martes%>', '<%=it.locations.corto_miercoles%>', '<%=it.locations.corto_jueves%>', '<%=it.locations.corto_viernes%>', '<%=it.locations.corto_sabado%>'],
+                dayNamesMin: ['<%=it.locations.min_domingo%>', '<%=it.locations.min_lunes%>', '<%=it.locations.min_martes%>', '<%=it.locations.min_miercoles%>', '<%=it.locations.min_jueves%>', '<%=it.locations.min_viernes%>', '<%=it.locations.min_sabado%>'],
+                weekHeader: 'Sm',
+                dateFormat: 'dd/mm/yy',
+                firstDay: 1,
+                isRTL: false,
+                showMonthAfterYear: false,
+                yearSuffix: ''
+            };
         
-       
+            $.datepicker.setDefaults($.datepicker.regional['es']);
+        </script>
+        
+        <!-- Scripts calendario Recogida/Devolucion ---------------------->
+        <script> 
+            $(function() {
+                $("#fechaRecogida").datepicker({ dateFormat: 'D,dd-mm-yy', minDate:'1d' });
+            //    comprobar que no machaque la fecha desde muestraoferta.html
+                $("#fechaRecogida").datepicker("setDate", new Date());
+                $(".triggerRec").click(function(){
+                    $("#fechaRecogida").datepicker("show");
+                }); 
+            });
+        </script>
+        
+        <script>
+            $(function() {
+                $("#fechaDevolucion").datepicker({ dateFormat: 'D,dd-mm-yy', minDate:'1d' });
+                $fecha = new Date();
+                $fecha.setDate($fecha.getDate() + 3);
+                $("#fechaDevolucion").datepicker("setDate", $fecha );
+                $(".triggerDev").click(function(){
+                    $("#fechaDevolucion").datepicker("show");
+                }); 
+            });
+        </script>
+        <!--------- Fin Bootstrap Calendario Cupertino themes ------------>
+        
+        
+        <!---------------------------- ClockPicker ----------------------->
+        <script type="text/javascript">
+            $('.clockpicker').clockpicker();
+        </script>
+        <!--------- --------------------------------------------------- -->
 
     </body>    
     

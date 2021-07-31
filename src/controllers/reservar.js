@@ -3,10 +3,7 @@ const fetch = require("node-fetch");
 const geolocation = require("./geolocation");
 const locations = require("../controllers/locations");
 const obtenerVars = require('./obtenervariablesentorno');
-
-
-const URI_UPDATE_STATS_BACKEND = obtenerVars.ObtenerURI_UPDATE_STATS_BACKEND();
-const URI_REALIZAR_RESERVA_BACKEND = obtenerVars.ObtenerURI_REALIZAR_RESERVA_BACKEND();
+const logicHelper = require("./logicHelper");
 
 exports.getReservar = async (req, res, languageBrowser) => {
     return res.redirect("/");
@@ -41,7 +38,7 @@ exports.postRealizarReserva = async (req, res, language ) =>
     };
 
     //enviamos al backedn la informacion
-    const responseRaw = await fetch(URI_REALIZAR_RESERVA_BACKEND, {
+    const responseRaw = await fetch(obtenerVars.URI_REALIZAR_RESERVA_BACKEND, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -68,6 +65,8 @@ exports.postRealizarReserva = async (req, res, language ) =>
 
     const locationLanguage = await locations.GenerateLocationBrowser(req.body.idioma);
 
+    const isAvifSupported = await logicHelper.IsAvifSupported(req.get("Accept"));
+
     //{ isOk: resultadoInsercion.isInserted, numeroRegistro: resultadoInsercion.numeroRegistro }
 
     // if (dataResponse.isOk === false)
@@ -81,6 +80,7 @@ exports.postRealizarReserva = async (req, res, language ) =>
     // }
     res.send(
         {
+            "isAvifSupported": isAvifSupported,
             "isOk": dataResponse.isOk,
             "success": req.body.success,
             "locations": locationLanguage,

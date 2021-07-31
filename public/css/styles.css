@@ -26,12 +26,28 @@
 
 }
 
+@font-face {
+  font-family: 'Lobster-Regular';
+  src: 
+      url('../fonts/Lobster-Regular.woff2') format('woff2'),
+      url('../fonts/Lobster-Regular.woff') format('woff'),
+      url('../fonts/Lobster-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+
 * {
   text-decoration: none;
   margin: 0px;
   padding: 0px;
   font-family: sans-serif;
 }
+
+
+
 
 
 html
@@ -791,171 +807,109 @@ body{
 }
 
 
-
-@supports not (background-image: url("/img/Img-Vehiculos/peugeot108Blue_Card.avif")) {
-
-  .peugeot108Blue:before {
-    background-image: url(/img/Img-Vehiculos/peugeot108Blue_Card.webp);
-  }
-}
-
-@supports (background-image: url("/img/Img-Vehiculos/peugeot108Blue_Card.avif")) {
-
-  .peugeot108Blue:before {
-    background-image: url(/img/Img-Vehiculos/peugeot108Blue_Card.avif);
-  }
-
+.peugeot108Blue_safari:before {
+  background-image: url("/img/Img-Vehiculos/peugeot108Blue_Card.webp");
 }
 
 
-@supports not (background-image: url("/img/Img-Vehiculos/toyotaAygoRed_Card.avif")) {
-
-  .toyotaAygoRed:before {
-    background-image: url(/img/Img-Vehiculos/toyotaAygoRed_Card.webp);
-  }
+.peugeot108Blue:before {
+  background-image: url(/img/Img-Vehiculos/peugeot108Blue_Card.avif);
 }
 
-@supports (background-image: url("/img/Img-Vehiculos/toyotaAygoRed_Card.avif")) {
-  .toyotaAygoRed:before {
-  background-image: url(/img/Img-Vehiculos/toyotaAygoRed_Card.avif);
-  }
+.toyotaAygoRed_safari:before {
+  background-image: url(/img/Img-Vehiculos/toyotaAygoRed_Card.webp);
 }
 
-/* ---- */
-
-@supports not (background-image: url("/img/Img-Vehiculos/CitroenC1_open_Card.avif")) {
-
-  .CitroenC1_open:before {
-    background-image: url(/img/Img-Vehiculos/CitroenC1_open_Card.webp);
-  }
+.toyotaAygoRed:before {
+background-image: url(/img/Img-Vehiculos/toyotaAygoRed_Card.avif);
 }
 
-@supports (background-image: url("/img/Img-Vehiculos/CitroenC1_open_Card.avif")) {
-  .CitroenC1_open:before {
-  background-image: url(/img/Img-Vehiculos/CitroenC1_open_Card.avif);
+.CitroenC1_open_safari:before {
+  background-image: url(/img/Img-Vehiculos/CitroenC1_open_Card.webp);
 }
 
-}
-
-/* ---- */
-@supports not (background-image: url("/img/Img-Vehiculos/citroenC1AutomaticPlata_Card.avif")) {
-
-  .citroenC1AutomaticPlata:before {
-    background-image: url(/img/Img-Vehiculos/citroenC1AutomaticPlata_Card.webp);
-  }
-}
-
-@supports (background-image: url("/img/Img-Vehiculos/citroenC1AutomaticPlata_Card.avif")) {
-
-  .citroenC1AutomaticPlata:before {
-    background-image: url(/img/Img-Vehiculos/citroenC1AutomaticPlata_Card.avif);
-  }
-}
-
-/*  */
-@supports not (background-image: url("/img/Img-Vehiculos/citroenC1White_Card.avif")) {
-
-  .citroenC1White:before {
-    background-image: url(/img/Img-Vehiculos/citroenC1White_Card.webp);
-  }
-}
-
-@supports (background-image: url("/img/Img-Vehiculos/citroenC1White_Card.avif")) {
-
-  .citroenC1White:before {
-    background-image: url(/img/Img-Vehiculos/citroenC1White_Card.avif);
-  }
-
+.CitroenC1_open:before {
+background-image: url(/img/Img-Vehiculos/CitroenC1_open_Card.avif);
 }
 
 
-/*  */
-@supports not (background-image: url("/img/Img-Vehiculos/toyotaAygoOpenWhite_Card.avif")) {
+.citroenC1AutomaticPlata_safari:before {
+  background-image: url(/img/Img-Vehiculos/citroenC1AutomaticPlata_Card.webp);
+}
 
-  .toyotaAygoOpenWhite:before {
+
+.citroenC1AutomaticPlata:before {
+  background-image: url(/img/Img-Vehiculos/citroenC1AutomaticPlata_Card.avif);
+}
+
+.citroenC1White_safari:before {
+  background-image: url(/img/Img-Vehiculos/citroenC1White_Card.webp);
+}
+
+.citroenC1White:before {
+  background-image: url(/img/Img-Vehiculos/citroenC1White_Card.avif);
+}
+
+
+
+.toyotaAygoOpenWhite_safari:before {
     background-image: url(/img/Img-Vehiculos/toyotaAygoOpenWhite_Card.webp);
-  }
 }
 
-@supports (background-image: url("/img/Img-Vehiculos/toyotaAygoOpenWhite_Card.avif")) {
-  .toyotaAygoOpenWhite:before {
+.toyotaAygoOpenWhite:before {
     background-image: url(/img/Img-Vehiculos/toyotaAygoOpenWhite_Card.avif);
 }
 
-}
 
-/*  */
-@supports not (background-image: url("/img/Img-Vehiculos/citroenC3WhiteRed_Card.avif")) {
 
-  .citroenC3WhiteRed:before {
+
+  .citroenC3WhiteRed_safari:before {
     background-image: url(/img/Img-Vehiculos/citroenC3WhiteRed_Card.webp);
   }
-}
 
-@supports (background-image: url("/img/Img-Vehiculos/citroenC3WhiteRed_Card.avif")) {
-    .citroenC3WhiteRed:before {
+  .citroenC3WhiteRed:before {
     background-image: url(/img/Img-Vehiculos/citroenC3WhiteRed_Card.avif);
     }
-}
 
-/*  */
-@supports not (background-image: url("/img/Img-Vehiculos/peugeot807Grey_Card.avif")) {
 
-  .peugeot807Grey:before {
+
+  .peugeot807Grey_safari:before {
     background-image: url(/img/Img-Vehiculos/peugeot807Grey_Card.webp);
   }
-}
 
-@supports (background-image: url("/img/Img-Vehiculos/peugeot807Grey_Card.avif")) {
   .peugeot807Grey:before {
   background-image: url(/img/Img-Vehiculos/peugeot807Grey_Card.avif);
 }
-}
 
-/*  */
-@supports not (background-image: url("/img/Img-Vehiculos/peugeot_208_Card.avif")) {
-
-  .peugeot_208:before {
+  .peugeot_208_safari:before {
     background-image: url(/img/Img-Vehiculos/peugeot_208_Card.webp);
   }
-}
 
-@supports (background-image: url("/img/Img-Vehiculos/peugeot_208_Card.avif")) {
+
   .peugeot_208:before {
   background-image: url(/img/Img-Vehiculos/peugeot_208_Card.avif);
 }
-}
 
 
-/*  */
-@supports not (background-image: url("/img/Img-Vehiculos/PiaggioLiberty_125cc_Card.avif")) {
 
-  .PiaggioLiberty_125cc:before {
+
+  .PiaggioLiberty_125cc_safari:before {
     background-image: url(/img/Img-Vehiculos/PiaggioLiberty_125cc_Card.webp);
   }
 }
 
-@supports (background-image: url("/img/Img-Vehiculos/PiaggioLiberty_125cc_Card.avif")) {
 
   .PiaggioLiberty_125cc:before {
     background-image: url(/img/Img-Vehiculos/PiaggioLiberty_125cc_Card.avif);
   }
-}
 
-/*  */
-@supports not (background-image: url("/img/Img-Vehiculos/Suzuki-Burgman_125cc_Card.avif")) {
-
-  .Suzuki-Burgman_125cc:before {
+  .Suzuki-Burgman_125cc_safari:before {
     background-image: url(/img/Img-Vehiculos/Suzuki-Burgman_125cc_Card.webp);
   }
-}
-
-@supports (background-image: url("/img/Img-Vehiculos/Suzuki-Burgman_125cc_Card.avif")) {
 
     .Suzuki-Burgman_125cc:before {
     background-image: url(/img/Img-Vehiculos/Suzuki-Burgman_125cc_Card.avif);
     }
-}
 
 
 .title-peugeot108Blue {

@@ -53,6 +53,75 @@ exports.InitServer = async () => {
     // configuracion
     // app.use(session({ secret: process.env.SECRET_SESSION, resave: false, saveUninitialized: false }));
     // app.use(expressSession);
+
+    app.use((req, res, next) => {
+        const cacheTime = 31536000;
+        res.set({
+            'Cache-Control': `max-age=${cacheTime}`
+        });
+        next();
+    });
+
+    // //headers security
+    
+    // // Content-Security-Policy
+    // app.use(
+    //     helmet.contentSecurityPolicy(
+    //     {
+    //         useDefaults: false,
+    //         directives: {
+    //             defaultSrc: ["'self'"],
+    //             objectSrc: ["'none'"],
+    //             childSrc: ["'self'"],
+    //             frameSrc: ["'self'", "https://www.google.com"],
+    //             frameAncestors: ["'self'", "https://www.google.com"],
+    //             upgradeInsecureRequests: [],
+    //             blockAllMixedContent: [],
+    //         },
+    //     })
+    // );
+
+    // app.use(helmet.dnsPrefetchControl());
+    // app.use(helmet.expectCt());
+    
+    // // X-Frame-Options
+    // app.use(helmet.frameguard({
+    //     action: "deny",
+    // }));
+    
+    // app.use(helmet.hidePoweredBy());
+    // app.use(helmet.hsts());
+    // app.use(helmet.ieNoOpen());
+    
+    // // X-Content-Type-Options: nosniff
+    // app.use(helmet.noSniff());
+    
+    // // X-Permitted-Cross-Domain-Policies: none
+    // app.use(
+    //     helmet.permittedCrossDomainPolicies({
+    //         permittedPolicies: "none",
+    //     })
+    // );
+    
+    // app.use(helmet.permittedCrossDomainPolicies({permittedPolicies: "https://www.google.com"}));
+
+    // Cross-Origin-Embedder-Policy: require-corp
+    // app.use(helmet.crossOriginEmbedderPolicy());
+
+    // Cross-Origin-Opener-Policy: same-origin
+    // app.use(helmet.crossOriginOpenerPolicy());
+
+    // Cross-Origin-Resource-Policy: same-origin
+    // app.use(helmet.crossOriginResourcePolicy(
+            // { policy: "cross-origin" }
+    // ));
+    
+    // Referrer-Policy
+    app.use(helmet.referrerPolicy({
+        policy: "no-referrer",
+    }));
+    app.use(helmet.xssFilter());
+    
     app.use(compression());
     app.use(userAgent.express());
     
@@ -74,6 +143,8 @@ exports.InitServer = async () => {
 
     // app.use("/", express.static('public'));
     // app.use("/car/", express.static('public'));
+
+    // https://www.npmjs.com/package/safe-regex
 
     app.engine(".html", eta.renderFile);
     app.set("views", path.join(__dirname, "../public"));

@@ -1,8 +1,6 @@
 const fetch = require("node-fetch");
 const obtenerVars = require("./obtenervariablesentorno");
 
-const ENDPOINT_NEWSLETTER_BACKEND = obtenerVars.ObtenerENDPOINT_NEWSLETTER_BACKEND();
-
 exports.ProcesarEmail = async (req, res) =>
 {
 
@@ -32,7 +30,7 @@ exports.ProcesarEmail = async (req, res) =>
     };
     
     
-    const responseRaw = await fetch(ENDPOINT_NEWSLETTER_BACKEND, {
+    const responseRaw = await fetch(obtenerVars.ENDPOINT_NEWSLETTER_BACKEND, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",

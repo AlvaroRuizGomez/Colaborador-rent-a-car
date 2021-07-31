@@ -5,7 +5,7 @@ let porcentajeTipoVehiculo = undefined;
 const tokenFromFrontend = "sdj&/k.(fk)j#.#$d.a#s%djf.l7).as!#%as/kue#$!.!.#.$!.#$";
 
 
-const URI_PORCENTAJEVEHICULO = obtenerVars.ObtenerURI_PORCENTAJEVEHICULO();
+
 
 
 exports.GetPorcentajeVehiculos = async () => {
@@ -24,7 +24,7 @@ exports.GetPorcentajeVehiculos = async () => {
 
 const Frontend_TO_Backend = async (req, res) =>
 {
-    const responseRaw = await fetch(URI_PORCENTAJEVEHICULO, {
+    const responseRaw = await fetch(obtenerVars.URI_PORCENTAJEVEHICULO, {
         method: "GET",
         headers: {
             "Content-Type": "application/json",

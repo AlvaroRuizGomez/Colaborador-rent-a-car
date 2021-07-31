@@ -4,9 +4,9 @@ const geolocation = require("./geolocation");
 const locations = require("./locations");
 const obtenerVars = require("./obtenervariablesentorno");
 const logicDiferenciaFechas = require("./logicDiferenciaFechas");
+const logicHelper = require("./logicHelper");
 const path = require("path");
 
-const URI_UPDATE_STATS_BACKEND = obtenerVars.ObtenerURI_UPDATE_STATS_BACKEND();
 
 exports.getShowDetails = async (req, res, languageBrowser) => {
     return res.redirect("/");
@@ -37,14 +37,17 @@ exports.postShowDetails = async (req, res, languageBrowser) =>
         return res.redirect("/");
     }
 
+    console.log("acept language" + req.headers["accept-language"]);
     const locationLanguage = await locations.GenerateLocationBrowser(
         languageBrowser,
-        req.headers["accept-language"].split(",")[1].split(";")[0]
+        req.headers["accept-language"].split(",")[0].split("-")[0]
     );
 
+    const isAvifSupported = await logicHelper.IsAvifSupported(req.get("Accept"));
 
 
     res.render(path.join(__dirname, "../../public/reservar.html"), {
+        "isAvifSupported": isAvifSupported,
         "success": req.body.sucess,
         "locations": locationLanguage,
         "formdata": req.body,
@@ -62,7 +65,7 @@ exports.postShowDetails = async (req, res, languageBrowser) =>
     };
 
     // enviamos al backedn la informacion
-    const responseRaw = await fetch(URI_UPDATE_STATS_BACKEND, {
+    const responseRaw = await fetch(obtenerVars.URI_UPDATE_STATS_BACKEND, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",

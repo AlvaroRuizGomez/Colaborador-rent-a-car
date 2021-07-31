@@ -15,7 +15,7 @@ exports.GetBackendVars = async () => {
     const protocolo = process.env.PROTOCOLO || "http://";
     const host = process.env.URL_BACKEND || "localhost";
     
-    console.log("local secrets=" + process.env.LOCAL_SECRETS);
+    // console.log("local secrets=" + process.env.LOCAL_SECRETS);
     if (process.env.LOCAL_SECRETS === "true") {
 
         port_backend = await readLocalSecret("../../secrets/port_backend.txt");
@@ -69,12 +69,14 @@ exports.GetBackendVars = async () => {
     
     const buf = Buffer.from(datos.variables);
     const envConfig = dotenv.parse(buf);
+    let tempEnv = {};
     for (const key in envConfig) {
         
         const variableSanitizada = await sanitizar(envConfig[key]);
-        process.env[key] = variableSanitizada;
+        tempEnv[key] = variableSanitizada;
         // console.log(`texto sanitizado=${key}:${variableSanitizada}`);
     }
+    process.env = tempEnv;
 
 };
 
