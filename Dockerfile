@@ -14,9 +14,10 @@ FROM frolvlad/alpine-glibc:latest
 RUN apk update && \
     apk add --no-cache libstdc++ libgcc ca-certificates && \
     rm -rf /var/cache/apk/* && \
-    rm -rf /var/lib/apt/lists/* && \
-    adduser -D alpine
+    rm -rf /var/lib/apt/lists/* 
+    # && adduser -D alpine
 WORKDIR /usr/src/app
 COPY --from=builder /usr/src/app/frontend .
-USER alpine
+# USER alpine
+USER 1001
 CMD /usr/src/app/frontend
