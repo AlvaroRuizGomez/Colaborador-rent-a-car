@@ -8,6 +8,7 @@ const details = require("../controllers/details");
 const generar = require("../controllers/generar");
 const locations = require("../controllers/locations");
 const newsletter = require("../controllers/newsletter");
+const challange = require("../controllers/challange");
 
 const templates = require("../controllers/getTemplate");
 
@@ -61,6 +62,9 @@ router.get("/location", async (req, res) => await locations.Frontend_TO_Backend(
 
 router.post(process.env.ENDPOINT_TEMPLATE_FRONTEND, async (req, res) => await templates.GetTemplate(req, res));
 router.post(process.env.ENDPOINT_DETALLE_TEMPLATE_FRONTEND, async (req, res) => await templates.DetalleTemplate(req, res));
+
+
+router.get("/.well-known/acme-challenge/*", async (req, res) => await challange.URIChallange(req, res));
 
 
 module.exports = router;
