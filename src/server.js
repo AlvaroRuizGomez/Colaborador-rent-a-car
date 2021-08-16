@@ -166,9 +166,9 @@ exports.InitServer = async () => {
     //     action: "deny",
     // }));
     
-    app.use(helmet.hidePoweredBy());
+    // app.use(helmet.hidePoweredBy());
     // app.use(helmet.hsts());
-    app.use(helmet.ieNoOpen());
+    // app.use(helmet.ieNoOpen());
     
     // // X-Content-Type-Options: nosniff
     app.use(helmet.noSniff());
@@ -204,10 +204,10 @@ exports.InitServer = async () => {
     app.use(express.urlencoded({ extended: true, limit: '2mb' }));
     app.use(express.json({ limit: '2mb' }));
     // app.use( cors(corsOptions) );
-    app.use(cors({
-        credentials: true,
-        origin: allowlist
-    }));
+    // app.use(cors({
+    //     credentials: true,
+    //     origin: allowlist
+    // }));
     
     
     app.use(morgan('combined'));
