@@ -171,7 +171,7 @@ exports.InitServer = async () => {
     // app.use(helmet.ieNoOpen());
     
     // // X-Content-Type-Options: nosniff
-    app.use(helmet.noSniff());
+    // app.use(helmet.noSniff());
     
     // // X-Permitted-Cross-Domain-Policies: none
     // app.use(
@@ -185,7 +185,7 @@ exports.InitServer = async () => {
     // app.use(helmet.crossOriginEmbedderPolicy({ policy: "require-corp" }));
 
     // Cross-Origin-Opener-Policy: same-origin
-    app.use(helmet.crossOriginOpenerPolicy({ policy: "same-origin-allow-popups" }));
+    // app.use(helmet.crossOriginOpenerPolicy({ policy: "same-origin-allow-popups" }));
 
     // Cross-Origin-Resource-Policy: same-origin
     // app.use(helmet.crossOriginResourcePolicy(
@@ -193,10 +193,10 @@ exports.InitServer = async () => {
     // ));
     
     // Referrer-Policy
-    app.use(helmet.referrerPolicy({
-        policy: "no-referrer",
-    }));
-    app.use(helmet.xssFilter());
+    // app.use(helmet.referrerPolicy({
+    //     policy: "no-referrer",
+    // }));
+    // app.use(helmet.xssFilter());
     
     app.use(compression());
     app.use(userAgent.express());
