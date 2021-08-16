@@ -612,12 +612,22 @@
                         </a>
                     </li>
                     <li class="details-modal-title">
-                        <h5 class="details-modal-title-text">
+                        <h5 id="titulo-modal-texto-reservar" class="details-modal-title-text">
                             <%=it.locations.overlay_titulo_reserva %>
                         </h5>
                     </li>
-                    <li class="sub-contenido-modal">
+                    <li class="sub-contenido-modal_reserva">
                         <div class="" id="relleno-modal-reservar">
+                            <div class="zona-tarjeta">
+
+                                <div id="card-form" />
+                                <form name="datos">
+                                    <input type="hidden" id="token"></input>
+                                    <input type="hidden" id="errorCode"></input>
+                                    <a href="javascript:alert(document.datos.token.value + '--' + document.datos.errorCode.value)"> ver</a>
+                                </form>
+                                
+                            </div>
 
                         </div>
                     </li>
@@ -693,6 +703,15 @@
         <script async src="./js/lazysizes.min.js"></script>
         <script async src="./js/newsletter.js"></script>
         <script async src="./js/footer.js"></script>
+
+        <!-- modo desarrollo -->
+        <script src="https://sis-t.redsys.es:25443/sis/NC/sandbox/redsysV2.js"></script>
+        <!-- modo real -->
+        <!-- <script src="https://sis.redsys.es/sis/NC/redsysV2.js"></script> -->
+
+        
+
+
 </body>
 
 </html>

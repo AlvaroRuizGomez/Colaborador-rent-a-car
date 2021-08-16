@@ -1224,7 +1224,12 @@ select {
     margin-bottom: 1rem;
 }
 
-
+#redsys-hosted-pay-button
+{
+    height: 225px !important;
+    box-shadow: 0px 0px 0px !important;
+    margin-top: 0px !important;
+}
 
 /* ---- Fin datos conductor principal ----- */
 

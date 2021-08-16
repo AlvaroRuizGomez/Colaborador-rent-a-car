@@ -140,8 +140,6 @@ botonCerrarModal.addEventListener("click", async (evento) =>
 boton_reservar.addEventListener("click", async (evento) =>
 {
     evento.preventDefault();
-
-    
     
     const icono_error_formulario = document.getElementById("icono_error_formulario");
     
@@ -200,8 +198,8 @@ boton_reservar.addEventListener("click", async (evento) =>
     datosFormulario["total_suplmento_tipo_conductor"] = document.getElementById("total_suplmento_tipo_conductor").value;
     datosFormulario["pagoRecogida"] = document.getElementById("pagoRecogida").value;
     datosFormulario["pago_online"] = document.getElementById("pago_online").value;
-    datosFormulario["trato"] = document.getElementById("sr_input").value;
     datosFormulario["numero_sillas_nino"] = document.getElementById("child_seat").value;
+    datosFormulario["trato"] = document.getElementById("sr_input").value;
     datosFormulario["numero_booster"] = document.getElementById("booster_seat").value;
     datosFormulario["nombre"] = document.getElementById("nombre").value;
     datosFormulario["apellidos"] = document.getElementById("apellidos").value;
@@ -243,15 +241,45 @@ boton_reservar.addEventListener("click", async (evento) =>
     // console.log("datos");
 
     await MostrarOverlayFormularioCC(evento);
-    const relleno = document.getElementById("relleno-modal-reservar");
+    const relleno = document.getElementById("titulo-modal-texto-reservar");
 
-    const trozoHtml = document.createElement("p");
-    trozoHtml.innerHTML = "Numero Registro:" + datos.numeroRegistro;
+    // const trozoHtml = document.createElement("p");
+    relleno.innerText = relleno.innerText + " " + datos.numeroRegistro;
 
-    relleno.appendChild(trozoHtml);
+    // relleno.appendChild(trozoHtml);
 
-    boton_reservar.disabled = true;
+    document.getElementById("sr_input").disabled = true;
+    document.getElementById("booster_seat").disabled = true;
+    document.getElementById("nombre").disabled = true;
+    document.getElementById("apellidos").disabled = true;
+    document.getElementById("email").disabled = true;
+    document.getElementById("telefono").disabled = true;
+    // boton_reservar.disabled = true;
     
+    // document.getElementById("redsys-hosted-pay-button").onload = () => {
+    // }
+    
+    // setTimeout(async () => {
+    //     // await OcultarOverlayAnimacion(evento);
+    //     // mostrar Formulario CC
+        
+    //     // alert('loaded');
+        
+    //     // var x = document.getElementsByTagName("iframe")[0].contentWindow;
+    //     // x.document.getElementsByTagName("body")[0].style.backgroundColor = "blue";
+        
+    //     const ho = document.getElementById("redsys-hosted-pay-button");
+        
+
+
+    //     // ho.contentWindow.document.getElementById("card-number").focus = true;
+    //     ho.contentWindow.postMessage("focus", "*");
+        
+
+    // }, 500);
+
+
+
     // // ocultar overlay
     // setTimeout(async () => {
     //     // await OcultarOverlayAnimacion(evento);
@@ -264,6 +292,30 @@ boton_reservar.addEventListener("click", async (evento) =>
 
     
 });
+
+
+function merchantValidationEjemplo() {
+    //Insertar validaciones…
+    alert("Esto son validaciones propias");
+    return true;
+}
+
+window.addEventListener("message", function receiveMessage(event) 
+{
+    if (event.data === "focus")
+    {
+        document.getElementById("card-number").focus = true;
+    }
+
+    storeIdOper(event, "token", "errorCode", merchantValidationEjemplo);
+});
+
+function pedido() {
+    return "pedido" + Math.floor((Math.random() * 1000) + 1);
+}
+getInSiteForm('card-form', '', '', '', '', 'Texto botón pago', '999008881', '1', pedido(), 'ES');
+
+
 
 
 const MostrarOverlayAnimacion = async (evento) =>
