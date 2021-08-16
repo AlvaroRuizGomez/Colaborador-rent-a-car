@@ -158,8 +158,8 @@ exports.InitServer = async () => {
         })
     );
 
-    app.use(helmet.dnsPrefetchControl());
-    app.use(helmet.expectCt());
+    // app.use(helmet.dnsPrefetchControl());
+    // app.use(helmet.expectCt());
     
     // // X-Frame-Options
     // app.use(helmet.frameguard({
@@ -167,7 +167,7 @@ exports.InitServer = async () => {
     // }));
     
     app.use(helmet.hidePoweredBy());
-    app.use(helmet.hsts());
+    // app.use(helmet.hsts());
     app.use(helmet.ieNoOpen());
     
     // // X-Content-Type-Options: nosniff
