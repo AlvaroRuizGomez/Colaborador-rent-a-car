@@ -68,6 +68,23 @@ exports.InitServer = async () => {
     // //headers security
     
     // // Content-Security-Policy
+    //temp
+    app.use(helmet.contentSecurityPolicy(
+        {
+            directives: {
+                frameSrc: [
+                    "'self'",
+                    "https://apis.google.com", 
+                    "https://maps.googleapis.com", 
+                    "https://www.google.com", 
+                    "https://sis-t.redsys.es:25443/",
+                    "https://sis.redsys.es/",
+                ],
+                frameAncestors: ["'none'"],
+
+            }
+        }
+    ));
     // app.use(
     //     helmet.contentSecurityPolicy(
     //     {
