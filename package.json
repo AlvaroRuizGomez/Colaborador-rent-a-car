@@ -10,6 +10,7 @@
     "dotenv": "^9.0.2",
     "eta": "^1.12.1",
     "express": "^4.17.1",
+    "express-csp-generator": "^1.0.3",
     "express-rate-limit": "^5.2.6",
     "express-useragent": "^1.0.15",
     "geoip-lite": "^1.4.2",
