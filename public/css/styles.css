@@ -903,11 +903,11 @@ background-image: url(/img/Img-Vehiculos/peugeot_208_Card.avif);
   background-image: url(/img/Img-Vehiculos/PiaggioLiberty_125cc_Card.avif);
 }
 
-.Suzuki-Burgman_125cc_safari:before {
+.Suzuki-Burgman_125cc_safari::before {
   background-image: url(/img/Img-Vehiculos/Suzuki-Burgman_125cc_Card.webp);
 }
 
-.Suzuki-Burgman_125cc:before {
+.Suzuki-Burgman_125cc::before {
   background-image: url(/img/Img-Vehiculos/Suzuki-Burgman_125cc_Card.avif);
 }
 
