@@ -907,9 +907,9 @@ background-image: url(/img/Img-Vehiculos/peugeot_208_Card.avif);
   background-image: url(/img/Img-Vehiculos/Suzuki-Burgman_125cc_Card.webp);
 }
 
-  .Suzuki-Burgman_125cc:before {
+.Suzuki-Burgman_125cc:before {
   background-image: url(/img/Img-Vehiculos/Suzuki-Burgman_125cc_Card.avif);
-  }
+}
 
 
 .title-peugeot108Blue {
