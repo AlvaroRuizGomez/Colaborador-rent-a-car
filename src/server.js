@@ -81,7 +81,11 @@ exports.InitServer = async () => {
                 manifestSrc: ["'self'"],
                 mediaSrc: ["'self'"],
                 defaultSrc: ["'none'"],
-                imgSrc: ["'self'"],
+                imgSrc: [
+                    "'self'",
+                    "data:",
+                    "https:"
+                ],
                 objectSrc: ["'none'"],
                 styleSrc: [
                     "'self'",
