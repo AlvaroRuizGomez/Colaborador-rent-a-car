@@ -194,7 +194,9 @@ exports.InitServer = async () => {
                 ],
                 "script-src": [
                     "'self'",
-                    "'report-sample'"
+                    "'report-sample'",
+                    "'unsafe-inline'",
+                    "https://sis-t.redsys.es:25443"
                 ],
                 "style-src": [
                     "'self'",
@@ -243,7 +245,7 @@ exports.InitServer = async () => {
                     "'self'"
                 ],
                 "report-uri": [
-                    "https://gate.rapidsec.net/g/r/csp/616afffa-f826-4461-85c3-941ee6973aff/0/4/3?sct=30c0d50e-2191-4857-9e5d-aed703100472&dpos=report"
+                    "https://gate.rapidsec.net/g/r/csp/616afffa-f826-4461-85c3-941ee6973aff/0/5/3?sct=30c0d50e-2191-4857-9e5d-aed703100472&dpos=report"
                 ]
             },
             "reportOnly": true
