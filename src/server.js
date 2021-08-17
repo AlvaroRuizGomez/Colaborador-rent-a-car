@@ -145,7 +145,13 @@ exports.InitServer = async () => {
                     "'sha256-tSulbyIC9pCfjTMSJ+oGN0txgCAxkNMdf3mNyhvqLd8='"
                     
                 ],
-                childSrc: ["'self'", "https://apis.google.com", "https://maps.googleapis.com", "https://www.google.com", "https://sis-t.redsys.es:25443/"],
+                childSrc: [
+                    "'self'",
+                    "https://apis.google.com",
+                    "https://maps.googleapis.com",
+                    "https://www.google.com", 
+                    "https://sis-t.redsys.es:25443/"
+                ],
                 frameSrc: [
                     "'self'",
                     "https://apis.google.com", 
@@ -155,7 +161,14 @@ exports.InitServer = async () => {
                     "https://sis.redsys.es/",
                 ],
                 
-                frameAncestors: ["'self'"],
+                frameAncestors: [
+                    "'self'",
+                    "https://apis.google.com",
+                    "https://maps.googleapis.com",
+                    "https://www.google.com",
+                    "https://sis-t.redsys.es:25443/",
+                    "https://sis.redsys.es/",
+                ],
                 upgradeInsecureRequests: [],
                 blockAllMixedContent: [],
             },
