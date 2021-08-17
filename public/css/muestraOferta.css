@@ -1167,7 +1167,7 @@ details > summary::-webkit-details-marker {
 
 .servicios-asientos-icono
 {
-  background: url(/cdn/img/icons/icons-128.png) no-repeat;
+  /* background: url(/img/icons/icons-128.png) no-repeat; */
   background-size: 96px;
 }
 

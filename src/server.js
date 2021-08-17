@@ -155,7 +155,7 @@ exports.InitServer = async () => {
                     "https://sis.redsys.es/",
                 ],
                 
-                frameAncestors: ["'none'"],
+                frameAncestors: ["'self'"],
                 upgradeInsecureRequests: [],
                 blockAllMixedContent: [],
             },
