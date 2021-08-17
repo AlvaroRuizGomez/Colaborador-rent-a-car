@@ -112,7 +112,7 @@ exports.InitServer = async () => {
                 formAction: ["'self'"],
                 workerSrc: ["'self'"],
                 scriptSrc: [
-                    "'self'",
+                    "'strict-dynamic'",
                     "https://www.google.com/maps/embed",
                     "https://maps.googleapis.com/maps/api/js/QuotaService.RecordEvent",
                     "https://sis-t.redsys.es:25443/sis/NC/sandbox/redsysV2.js",
