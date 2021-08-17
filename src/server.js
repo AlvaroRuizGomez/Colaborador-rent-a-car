@@ -198,19 +198,25 @@ exports.InitServer = async () => {
                 ],
                 "style-src": [
                     "'self'",
-                    "'report-sample'"
+                    "'report-sample'",
+                    "'unsafe-inline'"
                 ],
                 "object-src": [
                     "'none'"
                 ],
                 "frame-src": [
-                    "'self'"
+                    "'self'",
+                    "sis-t.redsys.es://25443",
+                    "www.google.com",
+                    "*.redsys.es",
+                    "sis-t.redsys.es:25443"
                 ],
                 "child-src": [
                     "'self'"
                 ],
                 "img-src": [
-                    "'self'"
+                    "'self'",
+                    "data:"
                 ],
                 "font-src": [
                     "'self'"
@@ -237,7 +243,7 @@ exports.InitServer = async () => {
                     "'self'"
                 ],
                 "report-uri": [
-                    "https://gate.rapidsec.net/g/r/csp/616afffa-f826-4461-85c3-941ee6973aff/0/2/3?sct=30c0d50e-2191-4857-9e5d-aed703100472&dpos=report"
+                    "https://gate.rapidsec.net/g/r/csp/616afffa-f826-4461-85c3-941ee6973aff/0/4/3?sct=30c0d50e-2191-4857-9e5d-aed703100472&dpos=report"
                 ]
             },
             "reportOnly": true
