@@ -84,7 +84,6 @@ exports.InitServer = async () => {
                 imgSrc: [
                     "'self'",
                     "data:",
-                    "https:"
                 ],
                 objectSrc: ["'none'"],
                 styleSrc: [
