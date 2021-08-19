@@ -186,7 +186,7 @@ boton_reservar.addEventListener("click", async (evento) =>
     
     let datosFormulario = {};
     
-// relleno
+    // relleno
     datosFormulario["descripcion_vehiculo"] = document.getElementById("descripcion_vehiculo").value;
     datosFormulario["fechaRecogida"] = document.getElementById("fechaRecogida").value;
     datosFormulario["horaRecogida"] = document.getElementById("horaRecogida").value;
@@ -242,9 +242,15 @@ boton_reservar.addEventListener("click", async (evento) =>
 
     await MostrarOverlayFormularioCC(evento);
     const relleno = document.getElementById("titulo-modal-texto-reservar");
-
-    // const trozoHtml = document.createElement("p");
     relleno.innerText = relleno.innerText + " " + datos.numeroRegistro;
+
+    // const textoBoton = document.getElementById("botonPayMerchant").innerText;
+    // document.getElementById("botonPayMerchant").innerText = textoBoton + " " + document.getElementById("pago_online").value.toString().trim();
+    
+    // const trozoHtml = document.createElement("p");
+    // rellenar los datos de la pasarela
+    // document.getElementById("Ds_MerchantParameters").value = datos.merchantPayment.dsMerchantParameters;
+    // document.getElementById("Ds_Signature").value = datos.merchantPayment.dsSignature;
 
     // relleno.appendChild(trozoHtml);
 
@@ -293,6 +299,45 @@ boton_reservar.addEventListener("click", async (evento) =>
     
 });
 
+// const botonPayMerchant = document.getElementById("botonPayMerchant");
+
+// botonPayMerchant.addEventListener("click", async (evento) =>
+// {
+
+//     evento.preventDefault();
+
+//     let datosFormulario = {};
+
+//     // relleno
+//     // datosFormulario["Ds_SignatureVersion"] = document.getElementById("Ds_SignatureVersion").value;
+//     // datosFormulario["Ds_MerchantParameters"] = document.getElementById("Ds_MerchantParameters").value;
+//     // datosFormulario["Ds_Signature"] = document.getElementById("Ds_Signature").value;
+
+//     datosFormulario["pago_online"] = document.getElementById("pago_online").value.toString().trim();
+//     datosFormulario["card-number"] = document.getElementById("card-number").value.toString().trim();
+//     datosFormulario["card-expiration"] = document.getElementById("card-expiration").value.toString().trim();
+//     datosFormulario["card-cvv"] = document.getElementById("card-cvv").value.toString().trim();
+//     const relleno = document.getElementById("titulo-modal-texto-reservar").innerText;
+//     datosFormulario["numeroRegistro"] = relleno.split(" ")[1].toString().trim();;
+
+//     const uri = document.getElementById("merchantform").attributes[1].nodeValue;
+//     const respuestaRaw = await fetch("/peticionapago", {
+//         method: "POST",
+//         // mode: "cors",
+//         // credentials: "include",
+//         // credentials: 'same-origin',
+//         headers: {
+//             "Content-Type": "application/json",
+//         },
+//         body: JSON.stringify(datosFormulario)
+//     });
+
+//     // console.log(respuestaRaw);
+//     const datos = await respuestaRaw.json();
+
+
+// });
+
 
 function merchantValidationEjemplo() {
     //Insertar validaciones…
@@ -302,18 +347,13 @@ function merchantValidationEjemplo() {
 
 window.addEventListener("message", function receiveMessage(event) 
 {
-    if (event.data === "focus")
-    {
-        document.getElementById("card-number").focus = true;
-    }
-
     storeIdOper(event, "token", "errorCode", merchantValidationEjemplo);
 });
 
 function pedido() {
     return "pedido" + Math.floor((Math.random() * 1000) + 1);
 }
-getInSiteForm('card-form', '', '', '', '', 'Texto botón pago', '999008881', '1', pedido(), 'ES');
+getInSiteForm('card-form', '', '', '', '', 'PAGAR', '352969752', '1', pedido(), 'ES');
 
 
 

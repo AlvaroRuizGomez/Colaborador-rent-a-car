@@ -78,13 +78,15 @@ exports.postRealizarReserva = async (req, res, language ) =>
     //         "locations": locationLanguage
     //     });
     // }
+
     res.send(
         {
             "isAvifSupported": isAvifSupported,
             "isOk": dataResponse.isOk,
             "success": req.body.success,
             "locations": locationLanguage,
-            "numeroRegistro": dataResponse.numeroRegistro
+            "numeroRegistro": dataResponse.numeroRegistro,
+            "merchantPayment": dataResponse.merchantPayment
         }
     );
     // res.render("reservacompletada", {
@@ -96,6 +98,23 @@ exports.postRealizarReserva = async (req, res, language ) =>
 
 };
 
+exports.PeticionPago = async (req, res) =>
+{
+
+    //enviamos al backedn la informacion
+    const responseRaw = await fetch(obtenerVars.URI_REALIZAR_PAGO_BACKEND, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        credentials: "include",
+        body: JSON.stringify(req.body)
+    });
+
+    const datos = await responseRaw.json();
+    
+
+};
 
 
 const ControlSchema = async (body) => 
