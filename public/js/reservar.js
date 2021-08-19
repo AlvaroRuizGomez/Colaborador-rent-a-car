@@ -275,7 +275,7 @@ boton_reservar.addEventListener("click", async (evento) =>
             
             const token = document.getElementById("token").value;
             const errorCode = document.getElementById("errorCode").value;
-            if (token === "")
+            if (token === "" || token === "-1")
             {
                 return;
             }
@@ -306,7 +306,7 @@ boton_reservar.addEventListener("click", async (evento) =>
     
         });
         
-    }, 5000);
+    }, 6000);
 
 
 
