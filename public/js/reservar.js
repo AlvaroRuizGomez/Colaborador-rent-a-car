@@ -350,7 +350,7 @@ window.addEventListener("message", function receiveMessage(event)
 {
     storeIdOper(event, "token", "errorCode", merchantValidationEjemplo);
     const token = document.getElementById("token").value;
-    const error = document.getElementById("errorCode").value;
+    const errorCode = document.getElementById("errorCode").value;
 
     if (errorCode === undefined)
     {
@@ -363,19 +363,7 @@ window.addEventListener("message", function receiveMessage(event)
     {
         "DS_MERCHANT_IDOPER": token,
         "DS_MERCHANT_ORDER": localizador,
-        // "Ds_SignatureVersion": "HMAC_SHA256_V1",
-        // "Ds_Signature": ""
     };
-
-    // const respuestaToken = await fetch("/peticionapago", {
-    //     method: "POST",
-    //     headers: {
-    //         "Content-Type": "application/json",
-    //     },
-    //     body: JSON.stringify(token)
-    // });
-
-    // const datosTokenCodificado = respuestaToken.json();
 
     const respuestaRaw = await fetch("https://sis-t.redsys.es:25443/sis/rest/trataPeticionREST", {
         method: "POST",
