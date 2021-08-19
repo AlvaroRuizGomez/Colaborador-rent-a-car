@@ -10,6 +10,9 @@ const overlayPrivacidad = document.getElementById("overlay-privacidad");
 
 const botonCerrarModal = document.getElementById("botonCerrarModal");
 
+
+let numeroRegistro = undefined;
+
 function handleFullWidthSizing() {
     const scrollbarWidth = window.innerWidth - document.body.clientWidth   
     document.getElementsByClassName("container")[0].style.width = `calc(100vw - ${scrollbarWidth}px)`;
@@ -300,15 +303,12 @@ boton_reservar.addEventListener("click", async (evento) =>
         const datos = respuestaRaw.json();
         console.log("datos=" + datos);
 
-
-
     });
 
 
 
 });
 
-let numeroRegistro = undefined;
 
 function merchantValidationEjemplo()
 {
