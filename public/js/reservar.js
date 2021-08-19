@@ -288,13 +288,32 @@ boton_reservar.addEventListener("click", async (evento) =>
                 return;
             }
             
+            // const datosFormulario =
+            // {
+            //     "DS_MERCHANT_IDOPER": token,
+            //     "DS_MERCHANT_ORDER": numeroRegistro,
+            // };
+    
+            // const respuestaConfirmacion = await fetch("https://sis-t.redsys.es:25443/sis/rest/trataPeticionREST", {
+            //     method: "POST",
+            //     // mode: "no-cors",
+            //     credentials: "include",
+            //     headers: {
+            //         "Content-Type": "application/json",
+            //     },
+            //     body: JSON.stringify(datosFormulario)
+            // });
+    
+            // const datos = await respuestaConfirmacion.json();
+            // console.log("datos=" + datos);
+    
             const datosFormulario =
             {
                 "DS_MERCHANT_IDOPER": token,
                 "DS_MERCHANT_ORDER": numeroRegistro,
             };
-    
-            const respuestaConfirmacion = await fetch("https://sis-t.redsys.es:25443/sis/rest/trataPeticionREST", {
+
+            const respuestaConfirmacion = await fetch("/peticionapago", {
                 method: "POST",
                 // mode: "no-cors",
                 credentials: "include",
@@ -303,10 +322,11 @@ boton_reservar.addEventListener("click", async (evento) =>
                 },
                 body: JSON.stringify(datosFormulario)
             });
-    
+
             const datos = await respuestaConfirmacion.json();
             console.log("datos=" + datos);
-    
+
+
         });
         
     }, 6000);

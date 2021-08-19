@@ -101,18 +101,39 @@ exports.postRealizarReserva = async (req, res, language ) =>
 exports.PeticionPago = async (req, res) =>
 {
 
-    //enviamos al backedn la informacion
-    const responseRaw = await fetch(obtenerVars.URI_REALIZAR_PAGO_BACKEND, {
+    // //enviamos al backedn la informacion
+    // const responseRaw = await fetch(obtenerVars.URI_REALIZAR_PAGO_BACKEND, {
+    //     method: "POST",
+    //     headers: {
+    //         "Content-Type": "application/json",
+    //     },
+    //     credentials: "include",
+    //     body: JSON.stringify(req.body)
+    // });
+
+    // const datos = await responseRaw.json();
+    
+    const datosFormulario =
+    {
+        "DS_MERCHANT_IDOPER": req.body.token,
+        "DS_MERCHANT_ORDER": req.body.numeroRegistro,
+    };
+    
+    
+    const respuestaConfirmacion = await fetch("https://sis-t.redsys.es:25443/sis/rest/trataPeticionREST", {
         method: "POST",
+        // mode: "no-cors",
+        credentials: "include",
         headers: {
             "Content-Type": "application/json",
         },
-        credentials: "include",
-        body: JSON.stringify(req.body)
+        body: JSON.stringify(datosFormulario)
     });
 
-    const datos = await responseRaw.json();
-    
+    const datos = await respuestaConfirmacion.json();
+    console.log("datos=" + datos);
+
+
 
 };
 
