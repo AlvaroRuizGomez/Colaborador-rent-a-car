@@ -1,3 +1,4 @@
+const crypto = require("crypto");
 const Joi = require('joi');
 const fetch = require("node-fetch");
 const geolocation = require("./geolocation");
