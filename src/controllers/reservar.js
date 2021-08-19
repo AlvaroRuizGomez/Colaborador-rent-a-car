@@ -209,9 +209,8 @@ const CreateMerchantPayment = async (jsonMerchantParameters, codigo, key) => {
     );
 
     const encodecSignature = await createMerchantSignature(process.env.MERCHANT_KEY_CODED, jsonMerchantParameters);
-    const base64MerchantParameters = await createMerchantParameters(jsonMerchantParameters);
-
     console.log("Ds_Signature:" + encodecSignature);
+    const base64MerchantParameters = await createMerchantParameters(jsonMerchantParameters);
     console.log("Ds_MerchantParameters:" + base64MerchantParameters);
 
     return {
