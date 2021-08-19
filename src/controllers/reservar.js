@@ -101,41 +101,28 @@ exports.postRealizarReserva = async (req, res, language ) =>
 exports.PeticionPago = async (req, res) =>
 {
 
-    // //enviamos al backedn la informacion
-    // const responseRaw = await fetch(obtenerVars.URI_REALIZAR_PAGO_BACKEND, {
-    //     method: "POST",
-    //     headers: {
-    //         "Content-Type": "application/json",
-    //     },
-    //     credentials: "include",
-    //     body: JSON.stringify(req.body)
-    // });
+    const merchantPayment = await CreateMerchantPayment(
+        req.body,
+        process.env.MERCHANT_CODE,
+        process.env.MERCHANT_KEY_CODED
+    );
 
-    // const datos = await responseRaw.json();
-    
-    const datosFormulario =
-    {
-        "DS_MERCHANT_IDOPER": req.body.token,
-        "DS_MERCHANT_ORDER": req.body.numeroRegistro,
-    };
-    
-    
-    const respuestaConfirmacion = await fetch("https://sis-t.redsys.es:25443/sis/rest/trataPeticionREST", {
+    console.log("merchantPayment:" + JSON.stringify(merchantPayment));
+
+    //enviamos al backedn la informacion
+    const responseRaw = await fetch("https://sis-t.redsys.es:25443/sis/rest/trataPeticionREST", {
         method: "POST",
-        // mode: "no-cors",
-        credentials: "include",
         headers: {
             "Content-Type": "application/json",
         },
-        body: JSON.stringify(datosFormulario)
+        credentials: "include",
+        body: JSON.stringify(merchantPayment)
     });
 
-    const datos = await respuestaConfirmacion.json();
-    console.log("datos=" + JSON.stringify(datos));
-
+    const datos = await responseRaw.json();
+    console.log("datos=" +  JSON.stringify(datos));
+    
     res.send({datos: datos});
-
-
 
 };
 
@@ -204,4 +191,104 @@ const ControlSchema = async (body) =>
 
     return isValid;
 
+};
+
+
+
+const CreateMerchantPayment = async (jsonMerchantParameters, codigo, key) => {
+
+    // const jsonMerchantParameters = 
+    // {
+
+    //     "DS_MERCHANT_AMOUNT": formulario["pago_online"].toString().replace(".", ""),
+    //     "DS_MERCHANT_CURRENCY": "978",
+    //     "DS_MERCHANT_CVV2": formulario["card-cvv"].toString(),
+    //     "DS_MERCHANT_EXPIRYDATE": formulario["card-expiration"].toString(),
+    //     "DS_MERCHANT_MERCHANTCODE": codigo.toString(),
+    //     "DS_MERCHANT_ORDER": formulario["numeroRegistro"].toString(),
+    //     "DS_MERCHANT_PAN": formulario["card-number"].toString(),
+    //     "DS_MERCHANT_TERMINAL": "1",
+    //     "DS_MERCHANT_TRANSACTIONTYPE": "0"
+
+    // };
+
+    console.log(
+        "Descodificados jsonMerchantParameters:" + JSON.stringify( jsonMerchantParameters )
+    );
+
+    const encodecSignature = await createMerchantSignature(process.env.MERCHANT_KEY_CODED, jsonMerchantParameters);
+    const base64MerchantParameters = await createMerchantParameters(jsonMerchantParameters);
+
+    console.log("Ds_Signature:" + encodecSignature);
+    console.log("Ds_MerchantParameters:" + base64MerchantParameters);
+
+    return {
+        "Ds_MerchantParameters": base64MerchantParameters,
+        "Ds_Signature": encodecSignature,
+        "Ds_SignatureVersion": "HMAC_SHA256_V1"
+    };
+
+};
+
+
+const encrypt3DES = async (str, key) => {
+    const secretKey = Buffer.from(key, 'base64');
+    const iv = Buffer.alloc(8, 0);
+    const cipher = crypto.createCipheriv('des-ede3-cbc', secretKey, iv);
+    cipher.setAutoPadding(false);
+    const relleno = await zeroPad(str, 8);
+    const en_key = cipher.update(relleno, 'utf8', 'binary') + cipher.final('binary');
+    const maxPos = Math.ceil(str.length / 8) * 8;
+
+    return Buffer.from(en_key.substr(0, maxPos), 'binary').toString('base64');
+};
+
+
+
+const decrypt3DES = async (str, key) => {
+    const secretKey = Buffer.from(key, 'base64');
+    const iv = Buffer.alloc(8, 0);
+    const cipher = crypto.createDecipheriv('des-ede3-cbc', secretKey, iv);
+    cipher.setAutoPadding(false);
+    const relleno = await zeroUnpad(str, 8);
+    const res = cipher.update(relleno, 'base64', 'utf8') + cipher.final('utf8');
+    return res.replace(/\0/g, '');
 }
+
+const mac256 = async (data, key) => {
+    return crypto.createHmac('sha256', Buffer.from(key, 'base64'))
+        .update(data)
+        .digest('base64');
+}
+
+const createMerchantParameters = async (data) => {
+    return Buffer.from(JSON.stringify(data), 'utf8').toString('base64');
+}
+
+const decodeMerchantParameters = async (data) => {
+    const decodedData = JSON.parse(base64url.decode(data, 'utf8'));
+    const res = {};
+    Object.keys(decodedData).forEach((param) => {
+        res[decodeURIComponent(param)] = decodeURIComponent(decodedData[param]);
+    });
+    return res;
+}
+
+const createMerchantSignature = async (key, data) => {
+    const merchantParameters = await createMerchantParameters(data);
+    const orderId = data.DS_MERCHANT_ORDER;
+    const orderKey = await encrypt3DES(orderId, key);
+
+    return await mac256(merchantParameters, orderKey);
+}
+
+const createMerchantSignatureNotif = async (key, data) => {
+    const merchantParameters = decodeMerchantParameters(data);
+    const orderId = merchantParameters.Ds_Order || merchantParameters.DS_ORDER;
+    const orderKey = await encrypt3DES(orderId, key);
+
+    const res = await mac256(data, orderKey);
+    return base64url.encode(res, 'base64');
+};
+
+

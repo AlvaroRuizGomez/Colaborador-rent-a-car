@@ -324,7 +324,7 @@ boton_reservar.addEventListener("click", async (evento) =>
             });
 
             const datos = await respuestaConfirmacion.json();
-            console.log("datos=" + datos);
+            console.log("datos=" + JSON.stringify(datos));
 
 
         });
