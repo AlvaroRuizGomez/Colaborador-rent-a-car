@@ -269,14 +269,19 @@ boton_reservar.addEventListener("click", async (evento) =>
     window.addEventListener("message", async function receiveMessage (event) {
         storeIdOper(event, "token", "errorCode", merchantValidationEjemplo);
         
+        const token = document.getElementById("token").value;
+        const errorCode = document.getElementById("errorCode").value;
+        if (errorCode === undefined)
+        {
+            return;
+        }
+
         if (errorCode !== undefined)
         {
             alert("ERRORES" + errorCode);
             return;
         }
         
-        const token = document.getElementById("token").value;
-        const errorCode = document.getElementById("errorCode").value;
         const datosFormulario =
         {
             "DS_MERCHANT_IDOPER": token,
@@ -291,6 +296,10 @@ boton_reservar.addEventListener("click", async (evento) =>
             },
             body: JSON.stringify(datosFormulario)
         });
+
+        const datos = respuestaRaw.json();
+        console.log("datos=" + datos);
+
 
 
     });
