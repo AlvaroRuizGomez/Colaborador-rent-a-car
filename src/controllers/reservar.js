@@ -198,30 +198,12 @@ const ControlSchema = async (body) =>
 
 const CreateMerchantPayment = async (jsonMerchantParameters, codigo, key) => {
 
-    // const jsonMerchantParameters = 
-    // {
 
-    //     "DS_MERCHANT_AMOUNT": formulario["pago_online"].toString().replace(".", ""),
-    //     "DS_MERCHANT_CURRENCY": "978",
-    //     "DS_MERCHANT_CVV2": formulario["card-cvv"].toString(),
-    //     "DS_MERCHANT_EXPIRYDATE": formulario["card-expiration"].toString(),
-    //     "DS_MERCHANT_MERCHANTCODE": codigo.toString(),
-    //     "DS_MERCHANT_ORDER": formulario["numeroRegistro"].toString(),
-    //     "DS_MERCHANT_PAN": formulario["card-number"].toString(),
-    //     "DS_MERCHANT_TERMINAL": "1",
-    //     "DS_MERCHANT_TRANSACTIONTYPE": "0"
-
-    // };
-
-    jsonMerchantParameters["DS_MERCHANT_MERCHANTCODE"] = codigo.toString();
-    jsonMerchantParameters["DS_MERCHANT_TERMINAL"] = "1";
-    jsonMerchantParameters["DS_MERCHANT_TRANSACTIONTYPE"] = "0";
-    jsonMerchantParameters["DS_MERCHANT_CURRENCY"] = "978";
+    // jsonMerchantParameters["DS_MERCHANT_MERCHANTCODE"] = codigo.toString();
+    // jsonMerchantParameters["DS_MERCHANT_TERMINAL"] = "1";
+    // jsonMerchantParameters["DS_MERCHANT_TRANSACTIONTYPE"] = "0";
+    // jsonMerchantParameters["DS_MERCHANT_CURRENCY"] = "978";
     
-
-    
-
-
     console.log(
         "Descodificados jsonMerchantParameters:" + JSON.stringify( jsonMerchantParameters )
     );
