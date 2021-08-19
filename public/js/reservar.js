@@ -261,83 +261,14 @@ boton_reservar.addEventListener("click", async (evento) =>
     document.getElementById("email").disabled = true;
     document.getElementById("telefono").disabled = true;
     // boton_reservar.disabled = true;
-    
-    // document.getElementById("redsys-hosted-pay-button").onload = () => {
-    // }
-    
-    // setTimeout(async () => {
-    //     // await OcultarOverlayAnimacion(evento);
-    //     // mostrar Formulario CC
-        
-    //     // alert('loaded');
-        
-    //     // var x = document.getElementsByTagName("iframe")[0].contentWindow;
-    //     // x.document.getElementsByTagName("body")[0].style.backgroundColor = "blue";
-        
-    //     const ho = document.getElementById("redsys-hosted-pay-button");
-        
 
+    numeroRegistro = datos.numeroRegistro;
 
-    //     // ho.contentWindow.document.getElementById("card-number").focus = true;
-    //     ho.contentWindow.postMessage("focus", "*");
-        
+    getInSiteForm('card-form', '', '', '', '', 'PAGAR', '352969752', '1', datos.numeroRegistro, 'ES');
 
-    // }, 500);
-
-
-
-    // // ocultar overlay
-    // setTimeout(async () => {
-    //     // await OcultarOverlayAnimacion(evento);
-    //     // mostrar Formulario CC
-    
-    
-    // }, 3000);
-    
-    
-
-    
 });
 
-// const botonPayMerchant = document.getElementById("botonPayMerchant");
-
-// botonPayMerchant.addEventListener("click", async (evento) =>
-// {
-
-//     evento.preventDefault();
-
-//     let datosFormulario = {};
-
-//     // relleno
-//     // datosFormulario["Ds_SignatureVersion"] = document.getElementById("Ds_SignatureVersion").value;
-//     // datosFormulario["Ds_MerchantParameters"] = document.getElementById("Ds_MerchantParameters").value;
-//     // datosFormulario["Ds_Signature"] = document.getElementById("Ds_Signature").value;
-
-//     datosFormulario["pago_online"] = document.getElementById("pago_online").value.toString().trim();
-//     datosFormulario["card-number"] = document.getElementById("card-number").value.toString().trim();
-//     datosFormulario["card-expiration"] = document.getElementById("card-expiration").value.toString().trim();
-//     datosFormulario["card-cvv"] = document.getElementById("card-cvv").value.toString().trim();
-//     const relleno = document.getElementById("titulo-modal-texto-reservar").innerText;
-//     datosFormulario["numeroRegistro"] = relleno.split(" ")[1].toString().trim();;
-
-//     const uri = document.getElementById("merchantform").attributes[1].nodeValue;
-//     const respuestaRaw = await fetch("/peticionapago", {
-//         method: "POST",
-//         // mode: "cors",
-//         // credentials: "include",
-//         // credentials: 'same-origin',
-//         headers: {
-//             "Content-Type": "application/json",
-//         },
-//         body: JSON.stringify(datosFormulario)
-//     });
-
-//     // console.log(respuestaRaw);
-//     const datos = await respuestaRaw.json();
-
-
-// });
-
+let numeroRegistro = undefined;
 
 function merchantValidationEjemplo()
 {
@@ -357,12 +288,12 @@ window.addEventListener("message", async function receiveMessage(event)
         this.alert("ERRORES");
     }
 
-    const localizador = document.getElementById("titulo-modal-texto-reservar").innerText.split(" ")[1].toString().trim();
+    // const localizador = document.getElementById("titulo-modal-texto-reservar").innerText.split(" ")[1].toString().trim();
 
     const datosFormulario = 
     {
         "DS_MERCHANT_IDOPER": token,
-        "DS_MERCHANT_ORDER": localizador,
+        "DS_MERCHANT_ORDER": numeroRegistro,
     };
 
     const respuestaRaw = await fetch("https://sis-t.redsys.es:25443/sis/rest/trataPeticionREST", {
@@ -376,12 +307,12 @@ window.addEventListener("message", async function receiveMessage(event)
 
 });
 
-function pedido() {
-    // return "pedido" + Math.floor((Math.random() * 1000) + 1);
-    const localizador = document.getElementById("titulo-modal-texto-reservar").innerText.split(" ")[1].toString().trim();
-    return localizador;
-}
-getInSiteForm('card-form', '', '', '', '', 'PAGAR', '352969752', '1', pedido(), 'ES');
+// function pedido() {
+//     // return "pedido" + Math.floor((Math.random() * 1000) + 1);
+//     const localizador = document.getElementById("titulo-modal-texto-reservar").innerText.split(" ")[1].toString().trim();
+//     return localizador;
+// }
+
 
 
 
