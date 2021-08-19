@@ -346,7 +346,7 @@ function merchantValidationEjemplo()
     return true;
 }
 
-window.addEventListener("message", function receiveMessage(event) 
+window.addEventListener("message", async function receiveMessage(event) 
 {
     storeIdOper(event, "token", "errorCode", merchantValidationEjemplo);
     const token = document.getElementById("token").value;
