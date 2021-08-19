@@ -1226,7 +1226,7 @@ select {
 
 #redsys-hosted-pay-button
 {
-    height: 225px !important;
+    height: 310px !important;
     box-shadow: 0px 0px 0px !important;
     margin-top: 0px !important;
 }
@@ -1264,104 +1264,6 @@ select {
     width: fit-content;
 }
 
-.form-list {
-  margin-top: 1.5rem;
-  
-}
-
-.card-number
-{
-    text-align: center;
-}
-
-.form-list .form-list-row {
-  margin: 1rem 0;
-}
-.form-list .form-list-row label {
-  font-size: 1rem;
-}
-.form-list .form-list-row input {
-  width: 70%;
-  font-size: 1rem;
-  padding: 0.4rem 0;
-  border: none;
-  display: inline-block;
-  border-bottom: solid 2px #999;
-  background-color: transparent;
-  transition: all 0.3s ease;
-}
-.form-list .form-list-row input:focus {
-  border-color: #cdb196;
-}
-.form-list .form-list-row .user .fa-user {
-  color: #999;
-  font-size: 1rem;
-}
-.form-list .form-list-row .user input {
-  position: relative;
-  left: -16px;
-  padding-left: 30px;
-}
-.form-list .form-list-row .number .fa-credit-card {
-  color: #999;
-  font-size: 1rem;
-}
-.form-list .form-list-row .number input {
-  position: relative;
-  left: -20px;
-  padding-left: 30px;
-}
-.form-list .form-list-row .date {
-  float: left;
-}
-.form-list .form-list-row .date input {
-  width: 60px;
-  text-align: center;
-}
-.form-list .form-list-row .date .year {
-  margin-left: 1.5rem;
-}
-.form-list .form-list-row .cvc {
-  float: left;
-  margin-left: 6rem;
-  text-align: center;
-}
-.form-list .form-list-row .cvc .fa-question-circle {
-  color: dodgerblue;
-  display: inline-block;
-  position: relative;
-  left: 0.75rem;
-}
-.form-list .form-list-row .cvc input {
-  width: 70px;
-  text-align: center;
-}
-.form-list .form-list-row .checkbox {
-  margin-top: 2rem;
-}
-.form-list .form-list-row .checkbox input {
-  width: auto;
-}
-.form-list .form-list-row .checkbox span {
-  font-size: 0.8rem;
-}
-.button_pago {
-    margin-top: 30px;
-  color: white;
-  font-size: 1rem;
-  margin-left: 1rem;
-  padding: 1rem 2.5rem;
-  /* position: absolute; */
-  bottom: 0;
-  border: none;
-  border-radius: 3px;
-  background-color: #2e09ba;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.25);
-  transition: all 0.3s ease;
-}
-.button_pago:hover {
-  background-color: #5e3ed1;
-}
 /* fin pago */
 
 

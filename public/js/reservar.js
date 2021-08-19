@@ -294,7 +294,7 @@ boton_reservar.addEventListener("click", async (evento) =>
     
             const respuestaConfirmacion = await fetch("https://sis-t.redsys.es:25443/sis/rest/trataPeticionREST", {
                 method: "POST",
-                mode: "no-cors",
+                // mode: "no-cors",
                 headers: {
                     "Content-Type": "application/json",
                 },
