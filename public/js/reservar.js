@@ -1,3 +1,5 @@
+const crypto = require("crypto");
+
 const botonTerminosCondiciones = document.getElementById("boton-terminos");
 const botonPrivacidad = document.getElementById("boton-privacidad");
 
