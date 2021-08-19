@@ -311,6 +311,7 @@ boton_reservar.addEventListener("click", async (evento) =>
             {
                 "DS_MERCHANT_IDOPER": token,
                 "DS_MERCHANT_ORDER": numeroRegistro,
+                "DS_MERCHANT_AMOUNT": document.getElementById("pago_online").value.toString().trim()
             };
 
             const respuestaConfirmacion = await fetch("/peticionpago", {
