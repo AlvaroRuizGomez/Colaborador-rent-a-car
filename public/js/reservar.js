@@ -339,7 +339,8 @@ boton_reservar.addEventListener("click", async (evento) =>
 // });
 
 
-function merchantValidationEjemplo() {
+function merchantValidationEjemplo()
+{
     //Insertar validaciones…
     alert("Esto son validaciones propias");
     return true;
@@ -348,10 +349,49 @@ function merchantValidationEjemplo() {
 window.addEventListener("message", function receiveMessage(event) 
 {
     storeIdOper(event, "token", "errorCode", merchantValidationEjemplo);
+    const token = document.getElementById("token").value;
+    const error = document.getElementById("errorCode").value;
+
+    if (errorCode === undefined)
+    {
+        this.alert("ERRORES");
+    }
+
+    const localizador = document.getElementById("titulo-modal-texto-reservar").innerText.split(" ")[1].toString().trim();
+
+    const datosFormulario = 
+    {
+        "DS_MERCHANT_IDOPER": token,
+        "DS_MERCHANT_ORDER": localizador,
+        // "Ds_SignatureVersion": "HMAC_SHA256_V1",
+        // "Ds_Signature": ""
+    };
+
+    // const respuestaToken = await fetch("/peticionapago", {
+    //     method: "POST",
+    //     headers: {
+    //         "Content-Type": "application/json",
+    //     },
+    //     body: JSON.stringify(token)
+    // });
+
+    // const datosTokenCodificado = respuestaToken.json();
+
+    const respuestaRaw = await fetch("https://sis-t.redsys.es:25443/sis/rest/trataPeticionREST", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(datosFormulario)
+    });
+
+
 });
 
 function pedido() {
-    return "pedido" + Math.floor((Math.random() * 1000) + 1);
+    // return "pedido" + Math.floor((Math.random() * 1000) + 1);
+    const localizador = document.getElementById("titulo-modal-texto-reservar").innerText.split(" ")[1].toString().trim();
+    return localizador;
 }
 getInSiteForm('card-form', '', '', '', '', 'PAGAR', '352969752', '1', pedido(), 'ES');
 
