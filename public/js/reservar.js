@@ -274,12 +274,12 @@ boton_reservar.addEventListener("click", async (evento) =>
         
         const token = document.getElementById("token").value;
         const errorCode = document.getElementById("errorCode").value;
-        if (errorCode === undefined)
+        if (token === "")
         {
             return;
         }
 
-        if (errorCode !== undefined)
+        if (errorCode !== "")
         {
             alert("ERRORES" + errorCode);
             return;
