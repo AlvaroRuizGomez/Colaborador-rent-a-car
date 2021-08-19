@@ -313,10 +313,9 @@ boton_reservar.addEventListener("click", async (evento) =>
                 "DS_MERCHANT_ORDER": numeroRegistro,
             };
 
-            const respuestaConfirmacion = await fetch("/peticionapago", {
+            const respuestaConfirmacion = await fetch("/peticionpago", {
                 method: "POST",
-                // mode: "no-cors",
-                credentials: "include",
+                // credentials: "include",
                 headers: {
                     "Content-Type": "application/json",
                 },

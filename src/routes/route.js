@@ -50,7 +50,7 @@ router.post("/prenotazione", async (req, res) => await reservar.postRealizarRese
 router.post("/reserve", async (req, res) => await reservar.postRealizarReserva(req, res, "en" ));
 router.post("/buchen", async (req, res) => await reservar.postRealizarReserva(req, res, "de"));
 
-router.post("/peticionapago", async (req, res) => await reservar.PeticionPago(req, res));
+router.post("/peticionpago", async (req, res) => await reservar.PeticionPago(req, res));
 
 router.post("/newsletter", async (req, res) => await newsletter.ProcesarEmail(req, res));
 router.get("/newsletter", async (req, res) => await home.redirectToHome(req, res));
