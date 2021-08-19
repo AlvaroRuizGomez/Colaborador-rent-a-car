@@ -213,6 +213,9 @@ const CreateMerchantPayment = async (jsonMerchantParameters, codigo, key) => {
 
     // };
 
+    jsonMerchantParameters["DS_MERCHANT_MERCHANTCODE"] = codigo.toString();
+    
+
     console.log(
         "Descodificados jsonMerchantParameters:" + JSON.stringify( jsonMerchantParameters )
     );
