@@ -187,6 +187,8 @@ exports.InitServer = async () => {
                     "https://sis-t.redsys.es:25443/",
                     "https://sis.redsys.es/",
                     "https://sis-t.redsys.es:25443/sis/rest/trataPeticionREST",
+                    "https://www.rentcarmallorca.es/detalles",
+                    "https://rentcarmallorca.es/detalles"
                 ],
                 upgradeInsecureRequests: [],
                 blockAllMixedContent: [],
