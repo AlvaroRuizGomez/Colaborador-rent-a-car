@@ -269,41 +269,45 @@ boton_reservar.addEventListener("click", async (evento) =>
 
     getInSiteForm('card-form', '', '', '', '', 'PAGAR', '352969752', '1', datos.numeroRegistro, 'ES');
 
-    window.addEventListener("message", async function receiveMessage (event) {
-        storeIdOper(event, "token", "errorCode", merchantValidationEjemplo);
-        
-        const token = document.getElementById("token").value;
-        const errorCode = document.getElementById("errorCode").value;
-        if (token === "")
-        {
-            return;
-        }
-
-        if (errorCode !== "")
-        {
-            alert("ERRORES" + errorCode);
-            return;
-        }
-        
-        const datosFormulario =
-        {
-            "DS_MERCHANT_IDOPER": token,
-            "DS_MERCHANT_ORDER": numeroRegistro,
-        };
-
-        const respuestaRaw = await fetch("https://sis-t.redsys.es:25443/sis/rest/trataPeticionREST", {
-            method: "POST",
-            mode: "no-cors",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(datosFormulario)
+    setTimeout(async () => {
+        window.addEventListener("message", async function receiveMessage (event) {
+            storeIdOper(event, "token", "errorCode", merchantValidationEjemplo);
+            
+            const token = document.getElementById("token").value;
+            const errorCode = document.getElementById("errorCode").value;
+            if (token === "")
+            {
+                return;
+            }
+    
+            if (errorCode !== "")
+            {
+                alert("ERRORES" + errorCode);
+                return;
+            }
+            
+            const datosFormulario =
+            {
+                "DS_MERCHANT_IDOPER": token,
+                "DS_MERCHANT_ORDER": numeroRegistro,
+            };
+    
+            const respuestaConfirmacion = await fetch("https://sis-t.redsys.es:25443/sis/rest/trataPeticionREST", {
+                method: "POST",
+                mode: "no-cors",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(datosFormulario)
+            });
+    
+            const datos = await respuestaConfirmacion.json();
+            console.log("datos=" + datos);
+    
         });
+        
+    }, 5000);
 
-        const datos = respuestaRaw.json();
-        console.log("datos=" + datos);
-
-    });
 
 
 
