@@ -216,6 +216,9 @@ const CreateMerchantPayment = async (jsonMerchantParameters, codigo, key) => {
     jsonMerchantParameters["DS_MERCHANT_MERCHANTCODE"] = codigo.toString();
     jsonMerchantParameters["DS_MERCHANT_TERMINAL"] = "1";
     jsonMerchantParameters["DS_MERCHANT_TRANSACTIONTYPE"] = "0";
+    jsonMerchantParameters["DS_MERCHANT_CURRENCY"] = "978";
+    
+
 
     console.log(
         "Descodificados jsonMerchantParameters:" + JSON.stringify( jsonMerchantParameters )
