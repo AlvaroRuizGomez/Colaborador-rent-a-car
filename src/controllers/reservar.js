@@ -133,6 +133,8 @@ exports.PeticionPago = async (req, res) =>
     const datos = await respuestaConfirmacion.json();
     console.log("datos=" + JSON.stringify(datos));
 
+    res.send({datos: datos});
+
 
 
 };
