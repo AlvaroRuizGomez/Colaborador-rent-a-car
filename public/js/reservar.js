@@ -268,15 +268,15 @@ boton_reservar.addEventListener("click", async (evento) =>
 
     window.addEventListener("message", async function receiveMessage (event) {
         storeIdOper(event, "token", "errorCode", merchantValidationEjemplo);
+        
+        if (errorCode !== undefined)
+        {
+            alert("ERRORES" + errorCode);
+            return;
+        }
+        
         const token = document.getElementById("token").value;
         const errorCode = document.getElementById("errorCode").value;
-
-        if (errorCode === undefined) {
-            this.alert("ERRORES");
-        }
-
-        // const localizador = document.getElementById("titulo-modal-texto-reservar").innerText.split(" ")[1].toString().trim();
-
         const datosFormulario =
         {
             "DS_MERCHANT_IDOPER": token,
@@ -285,6 +285,7 @@ boton_reservar.addEventListener("click", async (evento) =>
 
         const respuestaRaw = await fetch("https://sis-t.redsys.es:25443/sis/rest/trataPeticionREST", {
             method: "POST",
+            mode: "no-cors",
             headers: {
                 "Content-Type": "application/json",
             },
