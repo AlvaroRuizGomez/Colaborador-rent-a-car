@@ -621,53 +621,20 @@
                             <div class="zona-tarjeta">
 
                                 <div class="card-form">
-                                        <!-- <div class="grupo-imagenes">
-                                            <span class="card-instruction">Introduce tu número de tarjeta</span>
-                                            <img src="./img/comercia_global_payments.png">
-                                        </div>
-                                        <form id="merchantform" action="/peticionpago" class="credit-card-group" method="POST">
-                                            <input type="hidden" id="Ds_SignatureVersion" name="Ds_SignatureVersion" value="HMAC_SHA256_V1" />
-                                            <input type="hidden" id="Ds_MerchantParameters" name="Ds_MerchantParameters" value="" />
-                                            <input type="hidden" id="Ds_Signature" name="Ds_Signature" value="" />
-                                            <ul class="form-list">
-                                                <li class="form-list-row">
-                                                    <div class="number">
-                                                        <label for="card-number">Numero Tarjeta</label>
-                                                        <i class="far fa-credit-card"></i>
-                                                        <input id="card-number" class="card-number" type="text" pattern="[0-9]*" placeholder="Número de tarjeta" maxlength="38" required>
-                                                    </div>
-                                                </li>
-                                                <li class="form-list-row clearfix">
-                                                    <div class="date">
-                                                        <label for="card-expiration">Expiration Date</label><br>
-                                                        <input id="card-expiration" class="month" type="text" pattern="[0-9]*" placeholder="MMAA" maxlength="8" required>
+                                    <form id="formularioPago" name="from" action="https://sis-t.redsys.es:25443/sis/realizarPago" method="POST">
+                                        <input type="hidden" id="Ds_SignatureVersion" name="Ds_SignatureVersion" value="HMAC_SHA256_V1" />
+                                        <input type="hidden" id="Ds_MerchantParameters" name="Ds_MerchantParameters" value="">
+                                        <input type="hidden" id="Ds_Signature" name="Ds_Signature" value="" />
+                                        <button type="submit">ENVIAR</button>
+                                    </form>
 
-                                                    </div>
-                                                    <div class="cvc">
-                                                        <label for="card-cvv">CVC</label><i class="fas fa-question-circle"></i><br>
-                                                        <input id="card-cvv" class="card-cvv" type="text" pattern="[0-9]*" placeholder="CVV" maxlength="6" required>
-                                                    </div>
-                                                </li>
-                                                <button id="botonPayMerchant" class="button_pago">Pagar Ahora</button>
-                                            </ul>
-                                        </form>
-                                    </div> -->
-                                    
-                                    <!-- <label for="card-number">Numero de Tarjeta</label>
-                                    <input id="card-number" class="card-number" type="text" pattern="[0-9]*" placeholder="Número de tarjeta" maxlength="38">
-                                    <label for="card-expiration">Mes y Año de Expiracion</label>
-                                    <input id="card-expiration" class="card-expiration" type="text" pattern="[0-9]*" placeholder="MMAA" maxlength="8">
-                                    <label for="card-cvv">CVV</label>
-                                    <input id="card-cvv" class="card-cvv" type="text" pattern="[0-9]*" placeholder="CVV" maxlength="6"> -->
-                                <div id="card-form" />
+                                <!-- <div id="card-form" />
                                 <form name="datos">
                                     <input type="hidden" id="token"></input>
                                     <input type="hidden" id="errorCode"></input>
                                     <a href="javascript:alert(document.datos.token.value + '--' + document.datos.errorCode.value)"> ver</a>
-                                </form>
+                                </form> -->
                                 
-
-
                             </div>
 
                         </div>

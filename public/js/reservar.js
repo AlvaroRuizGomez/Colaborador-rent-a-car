@@ -210,23 +210,9 @@ boton_reservar.addEventListener("click", async (evento) =>
     datosFormulario["telefono"] = document.getElementById("telefono").value;
     datosFormulario["idioma"] = document.getElementById("idioma").value;
 
-//relleno
-
-
-    // document.getElementById("child_seat_input").value = document.getElementById("child_seat").value;
-    // document.getElementById("booster_seat_input").value = document.getElementById("booster_seat").value;
-
-    // document.getElementById("nombre_input").value = document.getElementById("nombre").value;
-    // document.getElementById("apellidos_input").value = document.getElementById("apellidos").value;
-    // document.getElementById("email_input").value = document.getElementById("email").value;
-    // document.getElementById("telefono_input").value = document.getElementById("telefono").value;
-    
     const uri = document.getElementById("formulario-reservar").attributes[1].nodeValue;
     // const uri = formulario_reservar.;
     // formulario_reservar.submit();
-
-    // mostrar animacion
-    // await MostrarOverlayAnimacion(evento);
 
     // enviar el formulario
     const responseRaw = await fetch(uri, {
@@ -243,93 +229,108 @@ boton_reservar.addEventListener("click", async (evento) =>
     // contestacion del servidor
     // console.log("datos");
 
-    await MostrarOverlayFormularioCC(evento);
-    const relleno = document.getElementById("titulo-modal-texto-reservar");
-    relleno.innerText = relleno.innerText + " " + datos.numeroRegistro;
+    document.getElementById("Ds_MerchantParameters").value = datos.merchantPayment.Ds_MerchantParameters;
+    document.getElementById("Ds_Signature").value = datos.merchantPayment.Ds_Signature;
 
-    // const textoBoton = document.getElementById("botonPayMerchant").innerText;
-    // document.getElementById("botonPayMerchant").innerText = textoBoton + " " + document.getElementById("pago_online").value.toString().trim();
-    
-    // const trozoHtml = document.createElement("p");
-    // rellenar los datos de la pasarela
-    // document.getElementById("Ds_MerchantParameters").value = datos.merchantPayment.dsMerchantParameters;
-    // document.getElementById("Ds_Signature").value = datos.merchantPayment.dsSignature;
+    const formularioPago = document.getElementById("formularioPago");
 
-    // relleno.appendChild(trozoHtml);
+    formularioPago.submit();
 
-    document.getElementById("sr_input").disabled = true;
-    document.getElementById("booster_seat").disabled = true;
-    document.getElementById("nombre").disabled = true;
-    document.getElementById("apellidos").disabled = true;
-    document.getElementById("email").disabled = true;
-    document.getElementById("telefono").disabled = true;
+
+
+
+    // await MostrarOverlayFormularioCC(evento);
+    // const relleno = document.getElementById("titulo-modal-texto-reservar");
+    // relleno.innerText = relleno.innerText + " " + datos.numeroRegistro;
+
+    // document.getElementById("sr_input").disabled = true;
+    // document.getElementById("booster_seat").disabled = true;
+    // document.getElementById("nombre").disabled = true;
+    // document.getElementById("apellidos").disabled = true;
+    // document.getElementById("email").disabled = true;
+    // document.getElementById("telefono").disabled = true;
     // boton_reservar.disabled = true;
 
-    numeroRegistro = datos.numeroRegistro;
+    // numeroRegistro = datos.numeroRegistro;
 
-    getInSiteForm('card-form', '', '', '', '', 'PAGAR', '352969752', '1', datos.numeroRegistro, 'ES');
+    // const respuestaConfirmacion = await fetch("/peticionpago", {
+    //     method: "POST",
+    //     headers: {
+    //         "Content-Type": "application/json",
+    //     },
+    //     body: JSON.stringify(datosFormulario)
+    // });
 
-    setTimeout(async () => {
-        window.addEventListener("message", async function receiveMessage (event) {
-            storeIdOper(event, "token", "errorCode", merchantValidationEjemplo);
+    // const datos = await respuestaConfirmacion.json();
+    // console.log("datos=" + JSON.stringify(datos));
+
+    // getInSiteForm('card-form', '', '', '', '', 'PAGAR', '352969752', '1', datos.numeroRegistro, 'ES');
+
+    // setTimeout(async () => {
+    //     window.addEventListener("message", async function receiveMessage (event) {
+    //         storeIdOper(event, "token", "errorCode", merchantValidationEjemplo);
             
-            const token = document.getElementById("token").value;
-            const errorCode = document.getElementById("errorCode").value;
-            console.log("token=" + token);
-            console.log("token=" + errorCode);
-            if (token === "" || token === "-1")
-            {
-                return;
-            }
+    //         const token = document.getElementById("token").value;
+    //         const errorCode = document.getElementById("errorCode").value;
+    //         console.log("token=" + token);
+    //         console.log("token=" + errorCode);
+    //         if (token === "" || token === "-1")
+    //         {
+    //             return;
+    //         }
     
-            if (errorCode !== "")
-            {
-                alert("ERRORES" + errorCode);
-                return;
-            }
+    //         if (errorCode !== "")
+    //         {
+    //             alert("ERRORES" + errorCode);
+    //             return;
+    //         }
             
-            // const datosFormulario =
-            // {
-            //     "DS_MERCHANT_IDOPER": token,
-            //     "DS_MERCHANT_ORDER": numeroRegistro,
-            // };
+    //         // const datosFormulario =
+    //         // {
+    //         //     "DS_MERCHANT_IDOPER": token,
+    //         //     "DS_MERCHANT_ORDER": numeroRegistro,
+    //         // };
     
-            // const respuestaConfirmacion = await fetch("https://sis-t.redsys.es:25443/sis/rest/trataPeticionREST", {
-            //     method: "POST",
-            //     // mode: "no-cors",
-            //     credentials: "include",
-            //     headers: {
-            //         "Content-Type": "application/json",
-            //     },
-            //     body: JSON.stringify(datosFormulario)
-            // });
+    //         // const respuestaConfirmacion = await fetch("https://sis-t.redsys.es:25443/sis/rest/trataPeticionREST", {
+    //         //     method: "POST",
+    //         //     // mode: "no-cors",
+    //         //     credentials: "include",
+    //         //     headers: {
+    //         //         "Content-Type": "application/json",
+    //         //     },
+    //         //     body: JSON.stringify(datosFormulario)
+    //         // });
     
-            // const datos = await respuestaConfirmacion.json();
-            // console.log("datos=" + datos);
+    //         // const datos = await respuestaConfirmacion.json();
+    //         // console.log("datos=" + datos);
     
-            // "DS_MERCHANT_ORDER": numeroRegistro,
-            // "DS_MERCHANT_AMOUNT": document.getElementById("pago_online").value.toString().replace(".", "")
-            const datosFormulario =
-            {
-                "DS_MERCHANT_IDOPER": token,
-            };
+    //         let cantidadStr = document.getElementById("pago_online").value;
+    //         let cantidad = (cantidadStr - 0).toString().padStart(2, "00");
+    //         cantidad = cantidad.toString().replace(".", "");
 
-            const respuestaConfirmacion = await fetch("/peticionpago", {
-                method: "POST",
-                // credentials: "include",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify(datosFormulario)
-            });
+    //         const datosFormulario =
+    //         {
+    //             "DS_MERCHANT_IDOPER": token,
+    //             "DS_MERCHANT_ORDER": numeroRegistro,
+    //             "DS_MERCHANT_AMOUNT": cantidad
+    //         };
 
-            const datos = await respuestaConfirmacion.json();
-            console.log("datos=" + JSON.stringify(datos));
+    //         const respuestaConfirmacion = await fetch("/peticionpago", {
+    //             method: "POST",
+    //             // credentials: "include",
+    //             headers: {
+    //                 "Content-Type": "application/json",
+    //             },
+    //             body: JSON.stringify(datosFormulario)
+    //         });
+
+    //         const datos = await respuestaConfirmacion.json();
+    //         console.log("datos=" + JSON.stringify(datos));
 
 
-        });
+    //     });
         
-    }, 6000);
+    // }, 6000);
 
 
 

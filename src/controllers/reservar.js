@@ -1,4 +1,5 @@
 const crypto = require("crypto");
+const path = require("path");
 const Joi = require('joi');
 const fetch = require("node-fetch");
 const geolocation = require("./geolocation");
@@ -10,6 +11,18 @@ exports.getReservar = async (req, res, languageBrowser) => {
     return res.redirect("/");
 
 };
+
+exports.GetCorrecto = async (req, res, languageBrowser) => {
+    
+    return res.render(path.join(__dirname, "../../public/reservacompletada.html") );
+
+};
+
+exports.GetNoCorrecto = async (req, res, languageBrowser) => {
+    return res.render(path.join(__dirname, "../../public/reservanocompletada.html") );
+
+};
+
 
 
 exports.postRealizarReserva = async (req, res, language ) => 
@@ -102,28 +115,41 @@ exports.postRealizarReserva = async (req, res, language ) =>
 exports.PeticionPago = async (req, res) =>
 {
 
+
+    const dsMerchantParameters = {
+        "DS_MERCHANT_AMOUNT": "145",
+        "DS_MERCHANT_CURRENCY": "978",
+        "DS_MERCHANT_MERCHANTCODE": "999008881",
+        "DS_MERCHANT_MERCHANTURL": "http://www.prueba.com/urlNotificacion.php",
+        "DS_MERCHANT_ORDER": "1446068581",
+        "DS_MERCHANT_TERMINAL": "1",
+        "DS_MERCHANT_TRANSACTIONTYPE": "0",
+        "DS_MERCHANT_URLKO": "http://www.prueba.com/urlKO.php",
+        "DS_MERCHANT_URLOK": "http://www.prueba.com/urlOK.php"
+    };
+
     const merchantPayment = await CreateMerchantPayment(
         req.body,
         process.env.MERCHANT_CODE,
         process.env.MERCHANT_KEY_CODED
     );
 
-    console.log("merchantPayment:" + JSON.stringify(merchantPayment));
+    // console.log("merchantPayment:" + JSON.stringify(merchantPayment));
 
-    //enviamos al backedn la informacion
-    const responseRaw = await fetch("https://sis-t.redsys.es:25443/sis/rest/trataPeticionREST", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        credentials: "include",
-        body: JSON.stringify(merchantPayment)
-    });
+    // //enviamos al backedn la informacion
+    // const responseRaw = await fetch("https://sis-t.redsys.es:25443/sis/rest/trataPeticionREST", {
+    //     method: "POST",
+    //     headers: {
+    //         "Content-Type": "application/json",
+    //     },
+    //     credentials: "include",
+    //     body: JSON.stringify(merchantPayment)
+    // });
 
-    const datos = await responseRaw.json();
-    console.log("datos=" +  JSON.stringify(datos));
+    // const datos = await responseRaw.json();
+    // console.log("datos=" +  JSON.stringify(datos));
     
-    res.send({datos: datos});
+    // res.send({datos: datos});
 
 };
 
