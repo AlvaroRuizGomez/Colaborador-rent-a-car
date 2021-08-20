@@ -129,7 +129,8 @@ select {
 
   /* grid-template-columns: repeat(2, auto); */
   grid-template-columns: 20% 0.7fr;
-  grid-template-rows: repeat(5, auto);
+  /* grid-template-rows: repeat(5, auto); */
+  grid-template-rows: repeat(3, auto) 416px auto;
   grid-template-areas:
     "sidebar contentReserva"
     "sidebar beneficios"
@@ -994,7 +995,7 @@ select {
 .databoxDriver {
     display: grid;
     grid-template-columns:  25% 55% 1fr;
-    grid-template-rows: repeat(5,27%) 29%;
+    grid-template-rows: repeat(5,27%) 29% auto;
     gap: 0px 17px;
     justify-items: flex-end;
     align-items: center;
@@ -1005,7 +1006,8 @@ select {
       "apellDriver apellDataDriver errorApell"
       "eMailDriver eMailDataDriver errorEmail"
       "telefDriver telefDataDriver errorTelf"
-      "condiciones condiciones condiciones";
+      "condiciones condiciones condiciones"
+      "errores errores errores";
 }
 
 .databoxDriver label {
@@ -1115,6 +1117,11 @@ select {
 .errorTelf
 {
     grid-area: errorTelf;
+}
+
+.errores_pago_reserva
+{
+    grid-area: errores;
 }
 
 

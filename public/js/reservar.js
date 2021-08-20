@@ -21,6 +21,19 @@ function handleFullWidthSizing() {
 
 handleFullWidthSizing();
 
+
+const tokenValidation = document.getElementById("token").value;
+
+if (tokenValidation !== "")
+{
+
+    const ocultoTexto = document.getElementById("oculto_texto_reserva_no_completado").value;
+    
+    document.getElementById("texto_reserva_no_completado").value = ocultoTexto;
+    document.getElementById("texto_reserva_no_completado").classList.remove("invisible");
+
+}
+
 ///------- formulario conductor
 
 const okTermsConditions = document.getElementById("okTermsConditions");
@@ -338,20 +351,6 @@ boton_reservar.addEventListener("click", async (evento) =>
 
 });
 
-
-function merchantValidationEjemplo()
-{
-    //Insertar validaciones…
-    alert("Esto son validaciones propias");
-    return true;
-}
-
-
-// function pedido() {
-//     // return "pedido" + Math.floor((Math.random() * 1000) + 1);
-//     const localizador = document.getElementById("titulo-modal-texto-reservar").innerText.split(" ")[1].toString().trim();
-//     return localizador;
-// }
 
 
 
