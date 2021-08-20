@@ -1,3 +1,5 @@
+// 1111111
+
 window.onload = function patras()
 { 
     setTimeout(() => {
