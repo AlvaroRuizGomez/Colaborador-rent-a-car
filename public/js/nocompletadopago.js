@@ -1,7 +1,8 @@
 window.onload = function patras()
 { 
     setTimeout(() => {
-        window.history.go(-4);
-    }, 15000);
+        alert("vamos pa atras");
+        window.history.go(-5);
+    }, 20000);
 
 };
