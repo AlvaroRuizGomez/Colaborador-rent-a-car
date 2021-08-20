@@ -405,10 +405,11 @@
                 <div class="formdriver-titulo-caja">
                     <h2 class="formdriver-titulo-texto">
                         <i class="ico ico-user"></i>
-                        FASE PRUEBAS - <%=it.locations.datos_conductor_titulo %>
+                        <%=it.locations.datos_conductor_titulo %>
                     </h2>
-
                 </div>
+
+                
                 <!----------- Inicio datos conductor principal ----------->
                 <div class="databoxDriver">
                     <!---------   Inicio Sr / Sra ------------------------>
@@ -461,12 +462,6 @@
                         alt="<%=it.locations.alt_icono_hecho %>">
                     <img src="./img/svg/error_formulario_nombres.svg" id="iconoErrorEmail"
                         class="icono-20 no-visible errorEmail" alt="<%=it.locations.alt_icono_hecho %>">
-                    <!-- <div class="info-fieldcontainer">
-                            <div class="info-fieldcontain">
-                                <%=it.locations.email_descripcion_dos %>
-                            </div>
-                        </div> -->
-
                     <!---------   Teléfono  ----------------------->
                     <label for="telefono" class="telefDriver">
                         <span class="color_rojo">*</span>
@@ -539,7 +534,15 @@
 
                     </div>
                     <!-- FIN TERMINOS Y CONDICIONES -->
+
+                    <div class="errores_pago_reserva">
+                        <input id="oculto_texto_reserva_no_completado" type="hidden" name="texto_reserva_no_completado"
+                            value="<%= it.locations.texto_reserva_no_completada %>">
+                        <h3 id="texto_reserva_no_completado" class="invisible"></h3>
+                    </div>
                 </div>
+
+
             </div>
         </div>
         <!-----  Fin formulario conductor principal y condiciones y términos ------>
@@ -619,22 +622,12 @@
                     <li class="sub-contenido-modal_reserva">
                         <div class="" id="relleno-modal-reservar">
                             <div class="zona-tarjeta">
-
                                 <div class="card-form">
                                     <form id="formularioPago" name="from" action="https://sis-t.redsys.es:25443/sis/realizarPago" method="POST">
                                         <input type="hidden" id="Ds_SignatureVersion" name="Ds_SignatureVersion" value="HMAC_SHA256_V1" />
                                         <input type="hidden" id="Ds_MerchantParameters" name="Ds_MerchantParameters" value="">
                                         <input type="hidden" id="Ds_Signature" name="Ds_Signature" value="" />
-                                        <button type="submit">ENVIAR</button>
                                     </form>
-
-                                <!-- <div id="card-form" />
-                                <form name="datos">
-                                    <input type="hidden" id="token"></input>
-                                    <input type="hidden" id="errorCode"></input>
-                                    <a href="javascript:alert(document.datos.token.value + '--' + document.datos.errorCode.value)"> ver</a>
-                                </form> -->
-                                
                             </div>
 
                         </div>
@@ -691,16 +684,8 @@
         
         </div>
         
-
-
-
-
         <!-------------------------    Fin Botón reservar  ------------------------>
 
-        <div class="blockSpace"></div>
-        <div class="blockSpace"></div>
-        <div class="blockSpace"></div>
-        <div class="blockSpace"></div>
         <div class="blockSpace"></div>
         <div class="blockSpace"></div>
     </main>
@@ -711,13 +696,6 @@
         <script async src="./js/lazysizes.min.js"></script>
         <script async src="./js/newsletter.js"></script>
         <script async src="./js/footer.js"></script>
-
-        <!-- modo desarrollo -->
-        <!-- <script src="https://sis-t.redsys.es:25443/sis/NC/sandbox/redsysV2.js"></script> -->
-        <!-- modo real -->
-        <!-- <script src="https://sis.redsys.es/sis/NC/redsysV2.js"></script> -->
-
-        
 
 
 </body>
