@@ -1,5 +1,5 @@
 window.onload = function patras()
 { 
-    window.history.back(-4);
+    window.history.go(-4);
 
 };
