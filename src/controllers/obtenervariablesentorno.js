@@ -11,6 +11,7 @@ exports.URI_BACKEND_GENERAR_CONDICIONES = undefined;
 exports.ENDPOINT_NEWSLETTER_BACKEND = undefined;
 exports.URI_PORCENTAJEVEHICULO = undefined;
 exports.URI_REALIZAR_RESERVA_BACKEND = undefined;
+exports.URI_REALIZAR_PAGO_BACKEND = undefined;
 
 
 exports.GenerateStaticVars = async () =>
@@ -26,6 +27,9 @@ exports.GenerateStaticVars = async () =>
     this.ENDPOINT_NEWSLETTER_BACKEND = `${protocolo}${urlbackend}:${process.env.PORT_BACKEND}${process.env.ENDPOINT_NEWSLETTER_BACKEND}`;
     this.URI_PORCENTAJEVEHICULO = `${protocolo}${urlbackend}:${process.env.PORT_BACKEND}${process.env.ENDPOINT_PORCENTAJE_VEHICULO}`;
     this.URI_REALIZAR_RESERVA_BACKEND = `${protocolo}${urlbackend}:${process.env.PORT_BACKEND}${process.env.ENDPOINT_REALIZAR_RESERVA_BACKEND}`;
+
+    this.URI_REALIZAR_PAGO_BACKEND = `${protocolo}${urlbackend}:${process.env.PORT_BACKEND}${process.env.ENDPOINT_REALIZAR_PAGO_BACKEND}`;
+
 
 };
 

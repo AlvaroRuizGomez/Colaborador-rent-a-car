@@ -161,58 +161,63 @@ const min_sabado = document.getElementById("min_sabado").value;
 
 const botonVerPrecios = document.getElementById("boton-VerPrecios");
 
-$.datepicker.regional['es'] = {
-        closeText: cerrar_clock,
-        prevText: anterior_clock ,
-        nextText: siguiente_clock ,
-        currentText: hoy_clock ,
-        monthNames: [enero, febrero, marzo, abril, mayo, junio, julio, agosto, septiembre, octubre, noviembre, diciembre],
-        monthNamesShort: [corto_enero, corto_febrero, corto_marzo, corto_abril, corto_mayo, corto_junio, corto_julio, corto_agosto, corto_septiembre, corto_octubre, corto_noviembre, corto_diciembre],
-        dayNames: [domingo, lunes, martes, miercoles, jueves, viernes, sabado],
-        dayNamesShort: [corto_domingo, corto_lunes, corto_martes, corto_miercoles, corto_jueves, corto_viernes, corto_sabado],
-        dayNamesMin: [min_domingo, min_lunes, min_martes, min_miercoles, min_jueves, min_viernes, min_sabado],
-        weekHeader: 'Sm',
-        dateFormat: 'dd/mm/yy',
-        firstDay: 1,
-        isRTL: false,
-        showMonthAfterYear: false,
-        yearSuffix: ''
-};
-$.datepicker.setDefaults($.datepicker.regional['es']);
-    
-$(function () 
-{
-    $("#fechaRecogida").datepicker({ dateFormat: 'D,dd-mm-yy', minDate: '1d' });
-    if (botonVerPrecios)
-    {
-        //    comprobar que no machaque la fecha desde muestraoferta.html
-        $("#fechaRecogida").datepicker("setDate", new Date());
-
-    }
-});
-    
-$(function () 
+if(typeof $ !== 'undefined')
 {
 
-    $("#fechaDevolucion").datepicker({ dateFormat: 'D,dd-mm-yy', minDate: '1d' });
-    
-    $fecha = new Date();
-    $fecha.setDate($fecha.getDate() + 3);
-    
-    if (botonVerPrecios)
+    $.datepicker.regional['es'] = {
+            closeText: cerrar_clock,
+            prevText: anterior_clock ,
+            nextText: siguiente_clock ,
+            currentText: hoy_clock ,
+            monthNames: [enero, febrero, marzo, abril, mayo, junio, julio, agosto, septiembre, octubre, noviembre, diciembre],
+            monthNamesShort: [corto_enero, corto_febrero, corto_marzo, corto_abril, corto_mayo, corto_junio, corto_julio, corto_agosto, corto_septiembre, corto_octubre, corto_noviembre, corto_diciembre],
+            dayNames: [domingo, lunes, martes, miercoles, jueves, viernes, sabado],
+            dayNamesShort: [corto_domingo, corto_lunes, corto_martes, corto_miercoles, corto_jueves, corto_viernes, corto_sabado],
+            dayNamesMin: [min_domingo, min_lunes, min_martes, min_miercoles, min_jueves, min_viernes, min_sabado],
+            weekHeader: 'Sm',
+            dateFormat: 'dd/mm/yy',
+            firstDay: 1,
+            isRTL: false,
+            showMonthAfterYear: false,
+            yearSuffix: ''
+    };
+    $.datepicker.setDefaults($.datepicker.regional['es']);
+        
+    $(function () 
     {
-        $("#fechaDevolucion").datepicker("setDate", $fecha);
+        $("#fechaRecogida").datepicker({ dateFormat: 'D,dd-mm-yy', minDate: '1d' });
+        if (botonVerPrecios)
+        {
+            //    comprobar que no machaque la fecha desde muestraoferta.html
+            $("#fechaRecogida").datepicker("setDate", new Date());
+    
+        }
+    });
+        
+    $(function () 
+    {
+    
+        $("#fechaDevolucion").datepicker({ dateFormat: 'D,dd-mm-yy', minDate: '1d' });
+        
+        $fecha = new Date();
+        $fecha.setDate($fecha.getDate() + 3);
+        
+        if (botonVerPrecios)
+        {
+            $("#fechaDevolucion").datepicker("setDate", $fecha);
+    
+        }
+    });
+    
+    
+    $(".triggerRec").click(function () {
+        $("#fechaRecogida").datepicker("show");
+    });
+    
+    $(".triggerDev").click(function () {
+        $("#fechaDevolucion").datepicker("show");
+    });
+    
+    $('.clockpicker').clockpicker();
+}
 
-    }
-});
-
-
-$(".triggerRec").click(function () {
-    $("#fechaRecogida").datepicker("show");
-});
-
-$(".triggerDev").click(function () {
-    $("#fechaDevolucion").datepicker("show");
-});
-
-$('.clockpicker').clockpicker();

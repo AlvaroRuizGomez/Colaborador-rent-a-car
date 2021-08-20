@@ -1,3 +1,4 @@
+// 11111111111111
 const botonTerminosCondiciones = document.getElementById("boton-terminos");
 const botonPrivacidad = document.getElementById("boton-privacidad");
 
@@ -9,6 +10,9 @@ const overlayPrivacidad = document.getElementById("overlay-privacidad");
 
 
 const botonCerrarModal = document.getElementById("botonCerrarModal");
+
+
+let numeroRegistro = undefined;
 
 function handleFullWidthSizing() {
     const scrollbarWidth = window.innerWidth - document.body.clientWidth   
@@ -140,8 +144,6 @@ botonCerrarModal.addEventListener("click", async (evento) =>
 boton_reservar.addEventListener("click", async (evento) =>
 {
     evento.preventDefault();
-
-    
     
     const icono_error_formulario = document.getElementById("icono_error_formulario");
     
@@ -188,7 +190,7 @@ boton_reservar.addEventListener("click", async (evento) =>
     
     let datosFormulario = {};
     
-// relleno
+    // relleno
     datosFormulario["descripcion_vehiculo"] = document.getElementById("descripcion_vehiculo").value;
     datosFormulario["fechaRecogida"] = document.getElementById("fechaRecogida").value;
     datosFormulario["horaRecogida"] = document.getElementById("horaRecogida").value;
@@ -200,8 +202,8 @@ boton_reservar.addEventListener("click", async (evento) =>
     datosFormulario["total_suplmento_tipo_conductor"] = document.getElementById("total_suplmento_tipo_conductor").value;
     datosFormulario["pagoRecogida"] = document.getElementById("pagoRecogida").value;
     datosFormulario["pago_online"] = document.getElementById("pago_online").value;
-    datosFormulario["trato"] = document.getElementById("sr_input").value;
     datosFormulario["numero_sillas_nino"] = document.getElementById("child_seat").value;
+    datosFormulario["trato"] = document.getElementById("sr_input").value;
     datosFormulario["numero_booster"] = document.getElementById("booster_seat").value;
     datosFormulario["nombre"] = document.getElementById("nombre").value;
     datosFormulario["apellidos"] = document.getElementById("apellidos").value;
@@ -209,23 +211,9 @@ boton_reservar.addEventListener("click", async (evento) =>
     datosFormulario["telefono"] = document.getElementById("telefono").value;
     datosFormulario["idioma"] = document.getElementById("idioma").value;
 
-//relleno
-
-
-    // document.getElementById("child_seat_input").value = document.getElementById("child_seat").value;
-    // document.getElementById("booster_seat_input").value = document.getElementById("booster_seat").value;
-
-    // document.getElementById("nombre_input").value = document.getElementById("nombre").value;
-    // document.getElementById("apellidos_input").value = document.getElementById("apellidos").value;
-    // document.getElementById("email_input").value = document.getElementById("email").value;
-    // document.getElementById("telefono_input").value = document.getElementById("telefono").value;
-    
     const uri = document.getElementById("formulario-reservar").attributes[1].nodeValue;
     // const uri = formulario_reservar.;
     // formulario_reservar.submit();
-
-    // mostrar animacion
-    // await MostrarOverlayAnimacion(evento);
 
     // enviar el formulario
     const responseRaw = await fetch(uri, {
@@ -242,28 +230,131 @@ boton_reservar.addEventListener("click", async (evento) =>
     // contestacion del servidor
     // console.log("datos");
 
-    await MostrarOverlayFormularioCC(evento);
-    const relleno = document.getElementById("relleno-modal-reservar");
+    document.getElementById("Ds_MerchantParameters").value = datos.merchantPayment.Ds_MerchantParameters;
+    document.getElementById("Ds_Signature").value = datos.merchantPayment.Ds_Signature;
 
-    const trozoHtml = document.createElement("p");
-    trozoHtml.innerHTML = "Numero Registro:" + datos.numeroRegistro;
+    const formularioPago = document.getElementById("formularioPago");
 
-    relleno.appendChild(trozoHtml);
+    formularioPago.submit();
 
-    boton_reservar.disabled = true;
-    
-    // // ocultar overlay
+
+
+
+    // await MostrarOverlayFormularioCC(evento);
+    // const relleno = document.getElementById("titulo-modal-texto-reservar");
+    // relleno.innerText = relleno.innerText + " " + datos.numeroRegistro;
+
+    // document.getElementById("sr_input").disabled = true;
+    // document.getElementById("booster_seat").disabled = true;
+    // document.getElementById("nombre").disabled = true;
+    // document.getElementById("apellidos").disabled = true;
+    // document.getElementById("email").disabled = true;
+    // document.getElementById("telefono").disabled = true;
+    // boton_reservar.disabled = true;
+
+    // numeroRegistro = datos.numeroRegistro;
+
+    // const respuestaConfirmacion = await fetch("/peticionpago", {
+    //     method: "POST",
+    //     headers: {
+    //         "Content-Type": "application/json",
+    //     },
+    //     body: JSON.stringify(datosFormulario)
+    // });
+
+    // const datos = await respuestaConfirmacion.json();
+    // console.log("datos=" + JSON.stringify(datos));
+
+    // getInSiteForm('card-form', '', '', '', '', 'PAGAR', '352969752', '1', datos.numeroRegistro, 'ES');
+
     // setTimeout(async () => {
-    //     // await OcultarOverlayAnimacion(evento);
-    //     // mostrar Formulario CC
+    //     window.addEventListener("message", async function receiveMessage (event) {
+    //         storeIdOper(event, "token", "errorCode", merchantValidationEjemplo);
+            
+    //         const token = document.getElementById("token").value;
+    //         const errorCode = document.getElementById("errorCode").value;
+    //         console.log("token=" + token);
+    //         console.log("token=" + errorCode);
+    //         if (token === "" || token === "-1")
+    //         {
+    //             return;
+    //         }
     
+    //         if (errorCode !== "")
+    //         {
+    //             alert("ERRORES" + errorCode);
+    //             return;
+    //         }
+            
+    //         // const datosFormulario =
+    //         // {
+    //         //     "DS_MERCHANT_IDOPER": token,
+    //         //     "DS_MERCHANT_ORDER": numeroRegistro,
+    //         // };
     
-    // }, 3000);
+    //         // const respuestaConfirmacion = await fetch("https://sis-t.redsys.es:25443/sis/rest/trataPeticionREST", {
+    //         //     method: "POST",
+    //         //     // mode: "no-cors",
+    //         //     credentials: "include",
+    //         //     headers: {
+    //         //         "Content-Type": "application/json",
+    //         //     },
+    //         //     body: JSON.stringify(datosFormulario)
+    //         // });
     
+    //         // const datos = await respuestaConfirmacion.json();
+    //         // console.log("datos=" + datos);
     
+    //         let cantidadStr = document.getElementById("pago_online").value;
+    //         let cantidad = (cantidadStr - 0).toString().padStart(2, "00");
+    //         cantidad = cantidad.toString().replace(".", "");
 
-    
+    //         const datosFormulario =
+    //         {
+    //             "DS_MERCHANT_IDOPER": token,
+    //             "DS_MERCHANT_ORDER": numeroRegistro,
+    //             "DS_MERCHANT_AMOUNT": cantidad
+    //         };
+
+    //         const respuestaConfirmacion = await fetch("/peticionpago", {
+    //             method: "POST",
+    //             // credentials: "include",
+    //             headers: {
+    //                 "Content-Type": "application/json",
+    //             },
+    //             body: JSON.stringify(datosFormulario)
+    //         });
+
+    //         const datos = await respuestaConfirmacion.json();
+    //         console.log("datos=" + JSON.stringify(datos));
+
+
+    //     });
+        
+    // }, 6000);
+
+
+
+
 });
+
+
+function merchantValidationEjemplo()
+{
+    //Insertar validaciones…
+    alert("Esto son validaciones propias");
+    return true;
+}
+
+
+// function pedido() {
+//     // return "pedido" + Math.floor((Math.random() * 1000) + 1);
+//     const localizador = document.getElementById("titulo-modal-texto-reservar").innerText.split(" ")[1].toString().trim();
+//     return localizador;
+// }
+
+
+
 
 
 const MostrarOverlayAnimacion = async (evento) =>

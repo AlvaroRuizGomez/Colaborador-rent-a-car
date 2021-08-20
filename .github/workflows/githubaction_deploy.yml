@@ -57,24 +57,16 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-      
-      - name: JS Minifier
-        uses: devatherock/minify-js@v1.0.2
-        with:
-          directory: './public/js'
-          add_suffix: false
+      # - name: JS Minifier
+      #   uses: devatherock/minify-js@v1.0.2
+      #   with:
+      #     directory: './public/js'
+      #     add_suffix: false
       - name: CSS Minifier
         uses: devatherock/minify-js@v1.0.2
         with:
           directory: './public/css'
           add_suffix: false
-
-      # - name: JS Minifier (public)
-      #   uses: devatherock/minify-js@v1.0.2
-      #   with:
-      #     directory: './public/*.js'
-      #     add_suffix: false
-
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
       

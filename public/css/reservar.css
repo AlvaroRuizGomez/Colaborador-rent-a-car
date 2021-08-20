@@ -1224,6 +1224,48 @@ select {
     margin-bottom: 1rem;
 }
 
+#redsys-hosted-pay-button
+{
+    height: 310px !important;
+    box-shadow: 0px 0px 0px !important;
+    margin-top: 0px !important;
+}
+
+
+/* pago */
+
+.card-form
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.grupo-imagenes
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 12px;
+
+}
+
+.merchantform
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 378px;
+}
+
+.imagen-global-paymentes
+{
+    width: fit-content;
+}
+
+/* fin pago */
+
 
 
 /* ---- Fin datos conductor principal ----- */

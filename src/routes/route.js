@@ -8,6 +8,7 @@ const details = require("../controllers/details");
 const generar = require("../controllers/generar");
 const locations = require("../controllers/locations");
 const newsletter = require("../controllers/newsletter");
+const challange = require("../controllers/challange");
 
 const templates = require("../controllers/getTemplate");
 
@@ -49,6 +50,10 @@ router.post("/prenotazione", async (req, res) => await reservar.postRealizarRese
 router.post("/reserve", async (req, res) => await reservar.postRealizarReserva(req, res, "en" ));
 router.post("/buchen", async (req, res) => await reservar.postRealizarReserva(req, res, "de"));
 
+router.get("/correcto", async (req, res) => await reservar.GetCorrecto(req, res) );
+router.get("/nocorrecto", async (req, res) => await reservar.GetNoCorrecto(req, res));
+
+router.post("/peticionpago", async (req, res) => await reservar.PeticionPago(req, res));
 
 router.post("/newsletter", async (req, res) => await newsletter.ProcesarEmail(req, res));
 router.get("/newsletter", async (req, res) => await home.redirectToHome(req, res));
@@ -61,6 +66,9 @@ router.get("/location", async (req, res) => await locations.Frontend_TO_Backend(
 
 router.post(process.env.ENDPOINT_TEMPLATE_FRONTEND, async (req, res) => await templates.GetTemplate(req, res));
 router.post(process.env.ENDPOINT_DETALLE_TEMPLATE_FRONTEND, async (req, res) => await templates.DetalleTemplate(req, res));
+
+
+router.get("/.well-known/acme-challenge/*", async (req, res) => await challange.URIChallange(req, res));
 
 
 module.exports = router;
