@@ -15,7 +15,7 @@ const eta = require("eta");
 
 
 
-exports.getHome = async (req, res, languageBrowser) =>
+exports.getHome = async (req, res, languageBrowser, isPagoCorrecto = false) =>
 {
 
     const id = nanoid.nanoid();
@@ -97,40 +97,68 @@ exports.getHome = async (req, res, languageBrowser) =>
     }
 
 
-
     if (dataResponse.data.length <= 0) {
-        res.render(path.join(__dirname, "../../public/inicio.html"), {
-            "data": dataResponse.data,
-            // "conductor_con_experiencia": req.query.conductor_con_experiencia,
-            // "edad_conductor": req.query.edad_conductor,
-            // "anyos_carnet": req.query.anyos_carnet,
-            // "fechaRecogida": req.query.fechaRecogida,
-            // "horaRecogida": req.query.horaRecogida,
-            // "fechaDevolucion": req.query.fechaDevolucion,
-            // "horaDevolucion": req.query.horaDevolucion,
-            // "numeroDias": req.query.numeroDias,
-            // "formdata": req.query,
-            "isAvifSupported": isAvifSupported,
-            "errorFormulario": dataResponse.errorFormulario,
-            "success": id,
-            "diasEntreRecogidaDevolucion": dataResponse.diasEntreRecogidaDevolucion,
-            "locations": locationLanguage
+        
+        if (isPagoCorrecto === true) 
+        {
 
-        });
+            res.render(path.join(__dirname, "../../public/reservacompletada.html"), {
+                "data": dataResponse.data,
+                "isAvifSupported": isAvifSupported,
+                "errorFormulario": dataResponse.errorFormulario,
+                "success": id,
+                "diasEntreRecogidaDevolucion": dataResponse.diasEntreRecogidaDevolucion,
+                "locations": locationLanguage
+
+            });
+        }
+        else
+        {
+            res.render(path.join(__dirname, "../../public/inicio.html"), {
+                "data": dataResponse.data,
+                "isAvifSupported": isAvifSupported,
+                "errorFormulario": dataResponse.errorFormulario,
+                "success": id,
+                "diasEntreRecogidaDevolucion": dataResponse.diasEntreRecogidaDevolucion,
+                "locations": locationLanguage
+    
+            });
+
+        }
+
+
     }
-    else {
+    else 
+    {
 
         //ordenar por clase vehiculos
         dataResponse.data = await OrdenaPorClaseVehiculos(dataResponse.datosOrdenacion, dataResponse.data)
 
-        res.render(path.join(__dirname, "../../public/inicio.html"), {
-            "data": dataResponse.data,
-            "success": id,
-            "isAvifSupported": isAvifSupported,
-            "preciosPorClase": dataResponse.preciosPorClase,
-            "locations": locationLanguage,
-            "numeroDias": 3
-        });
+        if (isPagoCorrecto === true) 
+        {
+
+            res.render(path.join(__dirname, "../../public/reservacompletada.html"), {
+                "data": dataResponse.data,
+                "success": id,
+                "isAvifSupported": isAvifSupported,
+                "preciosPorClase": dataResponse.preciosPorClase,
+                "locations": locationLanguage,
+                "numeroDias": 3
+            });
+
+        }
+        else
+        {
+            res.render(path.join(__dirname, "../../public/inicio.html"), {
+                "data": dataResponse.data,
+                "success": id,
+                "isAvifSupported": isAvifSupported,
+                "preciosPorClase": dataResponse.preciosPorClase,
+                "locations": locationLanguage,
+                "numeroDias": 3
+            });
+
+        }
 
     }
 

@@ -6,14 +6,19 @@ const geolocation = require("./geolocation");
 const locations = require("../controllers/locations");
 const obtenerVars = require('./obtenervariablesentorno');
 const logicHelper = require("./logicHelper");
+const { getHome } = require("./inicio");
 
 exports.getReservar = async (req, res, languageBrowser) => {
     return res.redirect("/");
 
 };
 
-exports.GetCorrecto = async (req, res, languageBrowser) => 
+exports.GetCorrecto = async (req, res) => 
 {
+
+    return await getHome(req, res, undefined, true);
+
+
 
     const id = nanoid.nanoid();
     const location = await geolocation.GetIPTimeZone(req);
