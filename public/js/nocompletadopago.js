@@ -1,5 +1,7 @@
 window.onload = function patras()
 { 
-    window.history.go(-4);
+    setTimeout(() => {
+        window.history.go(-4);
+    }, 15000);
 
 };
