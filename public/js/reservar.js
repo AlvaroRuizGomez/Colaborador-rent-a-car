@@ -22,8 +22,9 @@ function handleFullWidthSizing() {
 handleFullWidthSizing();
 
 
-const tokenValidation = document.getElementById("token").value;
+const tokenValidation = document.getElementById("Ds_Signature").value;
 
+// if (tokenValidation !== null || tokenValidation !== undefined)
 if (tokenValidation !== "")
 {
 
