@@ -134,6 +134,7 @@ exports.InitServer = async () => {
                     "'sha256-tSulbyIC9pCfjTMSJ+oGN0txgCAxkNMdf3mNyhvqLd8='",
                     "'sha256-4tehLJfCUwWh7TmeCizR3A07iyPojrk1EWuuoIsveSU='",
                     "'sha256-WrMdOLuaD9CxHHdi0shvJ+D32HQ0N9SzTjTDLIbeC08='",
+                    "'sha256-5+02zu5UULQkO7w1GIr6vftCgMfFdZcAHeDtFnKZsBs='",
                     "'unsafe-inline'",
                 ],
                 scriptSrcElem: [
@@ -156,6 +157,7 @@ exports.InitServer = async () => {
                     "'sha256-tSulbyIC9pCfjTMSJ+oGN0txgCAxkNMdf3mNyhvqLd8='",
                     "'sha256-4tehLJfCUwWh7TmeCizR3A07iyPojrk1EWuuoIsveSU='",
                     "'sha256-WrMdOLuaD9CxHHdi0shvJ+D32HQ0N9SzTjTDLIbeC08='",
+                    "'sha256-5+02zu5UULQkO7w1GIr6vftCgMfFdZcAHeDtFnKZsBs='"
                     
                 ],
                 childSrc: [
