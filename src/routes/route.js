@@ -9,6 +9,7 @@ const generar = require("../controllers/generar");
 const locations = require("../controllers/locations");
 const newsletter = require("../controllers/newsletter");
 const challange = require("../controllers/challange");
+const live = require("../controllers/live");
 
 const templates = require("../controllers/getTemplate");
 
@@ -69,6 +70,6 @@ router.post(process.env.ENDPOINT_DETALLE_TEMPLATE_FRONTEND, async (req, res) => 
 
 
 router.get("/.well-known/acme-challenge/*", async (req, res) => await challange.URIChallange(req, res));
-
+router.get(`/islive_0_QJFs_a_IiW_mFtZS2_f_A_BQ_NTib_Y3O6Ik_D0WNH9I`, async (req, res) => await live.IsLive(req, res));
 
 module.exports = router;
