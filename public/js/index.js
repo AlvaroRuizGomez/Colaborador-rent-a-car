@@ -1,3 +1,19 @@
+var supportsOrientationChange = "onorientationchange" in window,
+    orientationEvent = supportsOrientationChange ? "orientationchange" : "resize";
+
+window.addEventListener(orientationEvent, function() 
+{
+    if(window.orientation==90)
+    {
+        rotate(this, -90);
+    }
+    else
+    {
+        rotate(this, 90);
+    }
+});
+
+
 //mostrar edad
 const checkboxRangoEdad = document.getElementById("rangoedad");
 const desplegable_edad = document.getElementById("desplegable_edad");
