@@ -1,3 +1,36 @@
+// FORZAR ROTACION
+
+var supportsOrientationChange = "onorientationchange" in window,
+    orientationEvent = supportsOrientationChange ? "orientationchange" : "resize";
+
+window.addEventListener(orientationEvent, function () {
+    if (window.orientation == 90) {
+        rotate(this, -90);
+    }
+    else {
+        rotate(this, 90);
+    }
+});
+
+function rotate(el, degs) {
+    iedegs = degs / 90;
+    if (iedegs < 0) iedegs += 4;
+    transform = 'rotate(' + degs + 'deg)';
+    iefilter = 'progid:DXImageTransform.Microsoft.BasicImage(rotation=' + iedegs + ')';
+    styles = {
+        transform: transform,
+        '-webkit-transform': transform,
+        '-moz-transform': transform,
+        '-o-transform': transform,
+        filter: iefilter,
+        '-ms-filter': iefilter
+    };
+    $(el).css(styles);
+}
+
+
+// --------
+
 const botonesInformacionInteres = document.getElementsByClassName("interes-link-footer");
 const overlayInteres = document.getElementsByClassName("overlay-footer-interes-link");
 
