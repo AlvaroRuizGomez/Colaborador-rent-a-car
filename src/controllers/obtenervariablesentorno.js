@@ -12,6 +12,7 @@ exports.ENDPOINT_NEWSLETTER_BACKEND = undefined;
 exports.URI_PORCENTAJEVEHICULO = undefined;
 exports.URI_REALIZAR_RESERVA_BACKEND = undefined;
 exports.URI_REALIZAR_PAGO_BACKEND = undefined;
+exports.URI_DESCODIFICACION_MERCHANTPARAMETERS = undefined;
 
 
 exports.GenerateStaticVars = async () =>
@@ -29,7 +30,7 @@ exports.GenerateStaticVars = async () =>
     this.URI_REALIZAR_RESERVA_BACKEND = `${protocolo}${urlbackend}:${process.env.PORT_BACKEND}${process.env.ENDPOINT_REALIZAR_RESERVA_BACKEND}`;
 
     this.URI_REALIZAR_PAGO_BACKEND = `${protocolo}${urlbackend}:${process.env.PORT_BACKEND}${process.env.ENDPOINT_REALIZAR_PAGO_BACKEND}`;
-
+    this.URI_DESCODIFICACION_MERCHANTPARAMETERS = `${protocolo}${urlbackend}:${process.env.PORT_BACKEND}${process.env.ENDPOINT_DESCODIFICACION_MERCHANTPARAMETERS}`;
 
 };
 
