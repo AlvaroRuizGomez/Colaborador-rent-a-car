@@ -122,7 +122,7 @@ exports.PeticionPago = async (req, res) =>
         "DS_MERCHANT_AMOUNT": "145",
         "DS_MERCHANT_CURRENCY": "978",
         "DS_MERCHANT_MERCHANTCODE": "999008881",
-        "DS_MERCHANT_MERCHANTURL": "http://www.prueba.com/urlNotificacion.php",
+        "DS_MERCHANT_MERCHANTURL": "https://www.rentcarmallorca.es/",
         "DS_MERCHANT_ORDER": "1446068581",
         "DS_MERCHANT_TERMINAL": "1",
         "DS_MERCHANT_TRANSACTIONTYPE": "0",
@@ -155,6 +155,12 @@ exports.PeticionPago = async (req, res) =>
 
 };
 
+exports.NotificacionPago = async (req, res) =>
+{
+
+    console.log("notificaion" + JSON.stringify(req.body));
+
+};
 
 const ControlSchema = async (body) => 
 {
