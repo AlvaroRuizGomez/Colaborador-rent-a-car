@@ -8,6 +8,9 @@ const obtenerVars = require('./obtenervariablesentorno');
 const logicHelper = require("./logicHelper");
 const { getHome } = require("./inicio");
 
+// const { post } = require("../routes/route");
+
+
 exports.getReservar = async (req, res, languageBrowser) => {
     return res.redirect("/");
 
@@ -118,23 +121,23 @@ exports.PeticionPago = async (req, res) =>
 {
 
 
-    const dsMerchantParameters = {
-        "DS_MERCHANT_AMOUNT": "145",
-        "DS_MERCHANT_CURRENCY": "978",
-        "DS_MERCHANT_MERCHANTCODE": "999008881",
-        "DS_MERCHANT_MERCHANTURL": "https://www.rentcarmallorca.es/",
-        "DS_MERCHANT_ORDER": "1446068581",
-        "DS_MERCHANT_TERMINAL": "1",
-        "DS_MERCHANT_TRANSACTIONTYPE": "0",
-        "DS_MERCHANT_URLKO": "http://www.prueba.com/urlKO.php",
-        "DS_MERCHANT_URLOK": "http://www.prueba.com/urlOK.php"
-    };
+    // const dsMerchantParameters = {
+    //     "DS_MERCHANT_AMOUNT": "145",
+    //     "DS_MERCHANT_CURRENCY": "978",
+    //     "DS_MERCHANT_MERCHANTCODE": "999008881",
+    //     "DS_MERCHANT_MERCHANTURL": "https://www.rentcarmallorca.es/",
+    //     "DS_MERCHANT_ORDER": "1446068581",
+    //     "DS_MERCHANT_TERMINAL": "1",
+    //     "DS_MERCHANT_TRANSACTIONTYPE": "0",
+    //     "DS_MERCHANT_URLKO": "http://www.prueba.com/urlKO.php",
+    //     "DS_MERCHANT_URLOK": "http://www.prueba.com/urlOK.php"
+    // };
 
-    const merchantPayment = await CreateMerchantPayment(
-        req.body,
-        process.env.MERCHANT_CODE,
-        process.env.MERCHANT_KEY_CODED
-    );
+    // const merchantPayment = await CreateMerchantPayment(
+    //     req.body,
+    //     process.env.MERCHANT_CODE,
+    //     process.env.MERCHANT_KEY_CODED
+    // );
 
     // console.log("merchantPayment:" + JSON.stringify(merchantPayment));
 
@@ -159,6 +162,32 @@ exports.NotificacionPago = async (req, res) =>
 {
 
     console.log("notificaion" + JSON.stringify(req.body));
+    /* 
+        {
+            "Ds_SignatureVersion":"HMAC_SHA256_V1",
+            "Ds_MerchantParameters":"",
+            "Ds_Signature":""
+        }
+     */
+
+    // comprobar los datos codificados
+    const decodedMerchantParameters = decodeMerchantParameters(req.body.Ds_MerchantParameters);
+    console.log("decodedMerchantParrameters" + JSON.stringify(decodeMerchantParameters));
+    // DS_MERCHANT_ORDER
+
+    // enviar
+    const responseRaw = await fetch(obtenerVars.URI_DESCODIFICACION_MERCHANTPARAMETERS, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        credentials: "include",
+        body: JSON.stringify(req.body)
+    });
+
+    const datos = await responseRaw.json();
+
+    console.log("datos=" + JSON.stringify(datos));
 
 };
 
@@ -232,15 +261,10 @@ const ControlSchema = async (body) =>
 
 const CreateMerchantPayment = async (jsonMerchantParameters, codigo, key) => {
 
-
-    // jsonMerchantParameters["DS_MERCHANT_MERCHANTCODE"] = codigo.toString();
-    // jsonMerchantParameters["DS_MERCHANT_TERMINAL"] = "1";
-    // jsonMerchantParameters["DS_MERCHANT_TRANSACTIONTYPE"] = "0";
-    // jsonMerchantParameters["DS_MERCHANT_CURRENCY"] = "978";
     
-    console.log(
-        "Descodificados jsonMerchantParameters:" + JSON.stringify( jsonMerchantParameters )
-    );
+    // console.log(
+    //     "Descodificados jsonMerchantParameters:" + JSON.stringify( jsonMerchantParameters )
+    // );
 
     const encodecSignature = await createMerchantSignature(process.env.MERCHANT_KEY_CODED, jsonMerchantParameters);
     console.log("Ds_Signature:" + encodecSignature);

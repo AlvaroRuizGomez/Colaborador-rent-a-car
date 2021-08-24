@@ -54,7 +54,7 @@ router.post("/buchen", async (req, res) => await reservar.postRealizarReserva(re
 router.get("/correcto", async (req, res) => await reservar.GetCorrecto(req, res) );
 router.get("/nocorrecto", async (req, res) => await reservar.GetNoCorrecto(req, res));
 
-router.post("/peticionpago", async (req, res) => await reservar.PeticionPago(req, res));
+// router.post("/peticionpago", async (req, res) => await reservar.PeticionPago(req, res));
 router.post(process.env.ENDPOINT_NOTIFICACION_PAYGATEWAY, async (req, res) => await reservar.NotificacionPago(req, res));
 
 router.post("/newsletter", async (req, res) => await newsletter.ProcesarEmail(req, res));
