@@ -170,10 +170,9 @@ exports.NotificacionPago = async (req, res) =>
         }
      */
 
-    // comprobar los datos codificados
-    const decodedMerchantParameters = decodeMerchantParameters(req.body.Ds_MerchantParameters);
-    console.log("decodedMerchantParrameters" + JSON.stringify(decodeMerchantParameters));
-    // DS_MERCHANT_ORDER
+    // TODO: comprobar los datos codificados
+    
+    
 
     // enviar
     const responseRaw = await fetch(obtenerVars.URI_DESCODIFICACION_MERCHANTPARAMETERS, {
@@ -314,14 +313,14 @@ const createMerchantParameters = async (data) => {
     return Buffer.from(JSON.stringify(data), 'utf8').toString('base64');
 }
 
-const decodeMerchantParameters = async (data) => {
-    const decodedData = JSON.parse(base64url.decode(data, 'utf8'));
-    const res = {};
-    Object.keys(decodedData).forEach((param) => {
-        res[decodeURIComponent(param)] = decodeURIComponent(decodedData[param]);
-    });
-    return res;
-}
+// const decodeMerchantParameters = async (data) => {
+//     const decodedData = JSON.parse(base64url.decode(data, 'utf8'));
+//     const res = {};
+//     Object.keys(decodedData).forEach((param) => {
+//         res[decodeURIComponent(param)] = decodeURIComponent(decodedData[param]);
+//     });
+//     return res;
+// }
 
 const createMerchantSignature = async (key, data) => {
     const merchantParameters = await createMerchantParameters(data);
@@ -331,14 +330,14 @@ const createMerchantSignature = async (key, data) => {
     return await mac256(merchantParameters, orderKey);
 }
 
-const createMerchantSignatureNotif = async (key, data) => {
-    const merchantParameters = decodeMerchantParameters(data);
-    const orderId = merchantParameters.Ds_Order || merchantParameters.DS_ORDER;
-    const orderKey = await encrypt3DES(orderId, key);
+// const createMerchantSignatureNotif = async (key, data) => {
+//     const merchantParameters = decodeMerchantParameters(data);
+//     const orderId = merchantParameters.Ds_Order || merchantParameters.DS_ORDER;
+//     const orderKey = await encrypt3DES(orderId, key);
 
-    const res = await mac256(data, orderKey);
-    return base64url.encode(res, 'base64');
-};
+//     const res = await mac256(data, orderKey);
+//     return base64url.encode(res, 'base64');
+// };
 
 const zeroPad = async (buf, blocksize) => {
     const buffer = typeof buf === 'string' ? Buffer.from(buf, 'utf8') : buf;
