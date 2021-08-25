@@ -1,30 +1,10 @@
 // FORZAR ROTACION
-// if (window.DeviceOrientationEvent)
-// {
-//     window.addEventListener('deviceorientation', function (evento) {
+// if (window.DeviceOrientationEvent) {
+//     window.addEventListener('deviceorientation', function () {
 
-//         var rotate = 0 - window.orientation;
-//         setAttribute("transform:rotate(" + rotate + "deg);-ms-transform:rotate(" + rotate + "deg);-webkit-transform:rotate(" + rotate + "deg)", "style");
-
-//         // if (evento.gamma === 90)
-//         // {
-//         //     rotate(this, -90);
-//         // }
-//         // else
-//         // {
-//         //     rotate(this, 90);
-//         // }
-//         // if (window.orientation == 90)
-//         // {
-//         //     rotate(this, -90);
-//         // }
-//         // else
-//         // {
-//         //     rotate(this, 90);
-//         // }
 
 //     }, false);
-    
+//     document.getElementById("doeSupported").innerText = "Supported!";
 // }
 
 
@@ -32,7 +12,13 @@
 // var supportsOrientationChange = "onorientationchange" in window,
 //     orientationEvent = supportsOrientationChange ? "orientationchange" : "resize";
 
-// window.addEventListener(orientationEvent, function () {
+// window.addEventListener(orientationEvent, function (evento) {
+//     if (window.orientation == 90) {
+//         rotate(this, -90);
+//     }
+//     else {
+//         rotate(this, 90);
+//     }
 // });
 
 function rotate(el, degs) {
