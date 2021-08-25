@@ -21,6 +21,8 @@
 //     }
 // });
 
+screen.orientation.lock('portrait');
+
 function rotate(el, degs) {
     iedegs = degs / 90;
     if (iedegs < 0) iedegs += 4;
