@@ -1,16 +1,39 @@
 // FORZAR ROTACION
+// if (window.DeviceOrientationEvent)
+// {
+//     window.addEventListener('deviceorientation', function (evento) {
 
-var supportsOrientationChange = "onorientationchange" in window,
-    orientationEvent = supportsOrientationChange ? "orientationchange" : "resize";
+//         var rotate = 0 - window.orientation;
+//         setAttribute("transform:rotate(" + rotate + "deg);-ms-transform:rotate(" + rotate + "deg);-webkit-transform:rotate(" + rotate + "deg)", "style");
 
-window.addEventListener(orientationEvent, function () {
-    if (window.orientation == 90) {
-        rotate(this, -90);
-    }
-    else {
-        rotate(this, 90);
-    }
-});
+//         // if (evento.gamma === 90)
+//         // {
+//         //     rotate(this, -90);
+//         // }
+//         // else
+//         // {
+//         //     rotate(this, 90);
+//         // }
+//         // if (window.orientation == 90)
+//         // {
+//         //     rotate(this, -90);
+//         // }
+//         // else
+//         // {
+//         //     rotate(this, 90);
+//         // }
+
+//     }, false);
+    
+// }
+
+
+
+// var supportsOrientationChange = "onorientationchange" in window,
+//     orientationEvent = supportsOrientationChange ? "orientationchange" : "resize";
+
+// window.addEventListener(orientationEvent, function () {
+// });
 
 function rotate(el, degs) {
     iedegs = degs / 90;

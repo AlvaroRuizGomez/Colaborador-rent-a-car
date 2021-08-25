@@ -24,6 +24,8 @@
   --background-cabecera-container: #eaf2fd;
   --background-cabecera: #fafafa;
 
+
+  --rotacion: -180deg;
 }
 
 @font-face {
@@ -46,7 +48,21 @@
   font-family: sans-serif;
 }
 
+@media (orientation: portrait) {
+  body {
+    transform-origin(0% 0%);
+    transform( rotate(90deg));
+    /* position: absolute; */
+    /* left: 100%; */
+    
+    /* -webkit-transform: rotate(var(--rotacion));
+    -moz-transform: rotate(var(--rotacion));
+    -o-transform: rotate(var(--rotacion));
+    -ms-transform: rotate(var(--rotacion));
+    transform: rotate(var(--rotacion)); */
 
+  }
+}
 
 
 
