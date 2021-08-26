@@ -1,32 +1,43 @@
 // FORZAR ROTACION
+// if (window.DeviceOrientationEvent) {
+//     window.addEventListener('deviceorientation', function () {
 
-var supportsOrientationChange = "onorientationchange" in window,
-    orientationEvent = supportsOrientationChange ? "orientationchange" : "resize";
 
-window.addEventListener(orientationEvent, function () {
-    if (window.orientation == 90) {
-        rotate(this, -90);
-    }
-    else {
-        rotate(this, 90);
-    }
-});
+//     }, false);
+//     document.getElementById("doeSupported").innerText = "Supported!";
+// }
 
-function rotate(el, degs) {
-    iedegs = degs / 90;
-    if (iedegs < 0) iedegs += 4;
-    transform = 'rotate(' + degs + 'deg)';
-    iefilter = 'progid:DXImageTransform.Microsoft.BasicImage(rotation=' + iedegs + ')';
-    styles = {
-        transform: transform,
-        '-webkit-transform': transform,
-        '-moz-transform': transform,
-        '-o-transform': transform,
-        filter: iefilter,
-        '-ms-filter': iefilter
-    };
-    $(el).css(styles);
-}
+
+
+// var supportsOrientationChange = "onorientationchange" in window,
+//     orientationEvent = supportsOrientationChange ? "orientationchange" : "resize";
+
+// window.addEventListener(orientationEvent, function (evento) {
+//     if (window.orientation == 90) {
+//         rotate(this, -90);
+//     }
+//     else {
+//         rotate(this, 90);
+//     }
+// });
+
+// screen.orientation.lock('portrait');
+
+// function rotate(el, degs) {
+//     iedegs = degs / 90;
+//     if (iedegs < 0) iedegs += 4;
+//     transform = 'rotate(' + degs + 'deg)';
+//     iefilter = 'progid:DXImageTransform.Microsoft.BasicImage(rotation=' + iedegs + ')';
+//     styles = {
+//         transform: transform,
+//         '-webkit-transform': transform,
+//         '-moz-transform': transform,
+//         '-o-transform': transform,
+//         filter: iefilter,
+//         '-ms-filter': iefilter
+//     };
+//     $(el).css(styles);
+// }
 
 
 // --------
