@@ -40,16 +40,16 @@ exports.ProcesarEmail = async (req, res) =>
     });
 
     const dataResponse = await responseRaw.json();
+    
+    res.json({ "isOk": dataResponse.isOk });
+    // if (dataResponse.isOk === false)
+    // {
+    // }
+    // else
+    // {
+    //     res.json({"isOk": true});
 
-    if (dataResponse.isOk === false)
-    {
-        // res.status(404).send();
-    }
-    else
-    {
-        res.json({"isOk": true});
-
-    }
+    // }
 
 
 };
