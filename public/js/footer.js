@@ -21,23 +21,23 @@
 //     }
 // });
 
-screen.orientation.lock('portrait');
+// screen.orientation.lock('portrait');
 
-function rotate(el, degs) {
-    iedegs = degs / 90;
-    if (iedegs < 0) iedegs += 4;
-    transform = 'rotate(' + degs + 'deg)';
-    iefilter = 'progid:DXImageTransform.Microsoft.BasicImage(rotation=' + iedegs + ')';
-    styles = {
-        transform: transform,
-        '-webkit-transform': transform,
-        '-moz-transform': transform,
-        '-o-transform': transform,
-        filter: iefilter,
-        '-ms-filter': iefilter
-    };
-    $(el).css(styles);
-}
+// function rotate(el, degs) {
+//     iedegs = degs / 90;
+//     if (iedegs < 0) iedegs += 4;
+//     transform = 'rotate(' + degs + 'deg)';
+//     iefilter = 'progid:DXImageTransform.Microsoft.BasicImage(rotation=' + iedegs + ')';
+//     styles = {
+//         transform: transform,
+//         '-webkit-transform': transform,
+//         '-moz-transform': transform,
+//         '-o-transform': transform,
+//         filter: iefilter,
+//         '-ms-filter': iefilter
+//     };
+//     $(el).css(styles);
+// }
 
 
 // --------
