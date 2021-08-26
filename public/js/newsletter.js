@@ -7,7 +7,7 @@ botonNews.addEventListener("click", async (evento) =>
     
     const formularioNews = document.getElementById("subscribe-blog");
     const emailInput = document.getElementById("subscribe-field");
-    const contestacion = document.getElementById("contestacion");
+    // const contestacion = document.getElementById("contestacion");
 
     const emailIsValid = await CheckEmail(emailInput);
 
@@ -31,38 +31,54 @@ botonNews.addEventListener("click", async (evento) =>
     });
 
     const dataResponse = await responseRaw.json();
+    
+    const titulo = document.getElementById("formulario-newsletter-titulo");
+    const email = document.getElementById("formulario-newsletter-email");
+    const grupo = document.getElementById("formulario-newsletter-grupo");
+
+    const contestacionBien = document.getElementById("contestacion");
+    const contestacionMal = document.getElementById("contestacionmal");
 
     if (dataResponse.isOk === true)
     {
-        const titulo = document.getElementById("formulario-newsletter-titulo");
-        const email = document.getElementById("formulario-newsletter-email");
-        const grupo = document.getElementById("formulario-newsletter-grupo");
 
-        const contestacion = document.getElementById("contestacion");
-
-        if (contestacion.classList.contains("invisible-sinocupar") === true)
+        if (contestacionBien.classList.contains("invisible-sinocupar") === true)
         {
-            contestacion.classList.remove("invisible-sinocupar");
-            contestacion.classList.add("visible-ocupar");
-            contestacion.classList.add("formulario-newsletter-blanco");
-            contestacion.classList.add("titulo-formulario-newsletter");
+            contestacionBien.classList.remove("invisible-sinocupar");
+            contestacionBien.classList.add("visible-ocupar");
+            contestacionBien.classList.add("formulario-newsletter-blanco");
+            contestacionBien.classList.add("titulo-formulario-newsletter");
+
+            if (titulo.classList.contains("invisible-sinocupar") === false) {
+                titulo.classList.add("invisible-sinocupar");
+            }
+
+            if (email.classList.contains("invisible-sinocupar") === false) {
+                email.classList.add("invisible-sinocupar");
+            }
+
+            if (grupo.classList.contains("invisible-sinocupar") === false) {
+
+                grupo.classList.remove("formulario-newsletter-grupo");
+                grupo.classList.add("invisible-sinocupar");
+            }
 
             setTimeout(() => {
                 
-                contestacion.classList.add("invisible-sinocupar");
+                contestacionBien.classList.add("invisible-sinocupar");
 
-                contestacion.classList.remove("visible-ocupar");
-                contestacion.classList.remove("formulario-newsletter-blanco");
-                contestacion.classList.remove("titulo-formulario-newsletter");
+                contestacionBien.classList.remove("visible-ocupar");
+                contestacionBien.classList.remove("formulario-newsletter-blanco");
+                contestacionBien.classList.remove("titulo-formulario-newsletter");
 
                 titulo.classList.remove("invisible-sinocupar");
-                titulo.classList.add("visible-ocupar");
+                // titulo.classList.add("visible-ocupar");
 
                 email.classList.remove("invisible-sinocupar");
-                email.classList.add("visible-ocupar");
+                // email.classList.add("visible-ocupar");
 
                 grupo.classList.remove("invisible-sinocupar");
-                grupo.classList.add("visible-ocupar");
+                // grupo.classList.add("visible-ocupar");
 
                 emailInput.value = ""
                 
@@ -71,20 +87,58 @@ botonNews.addEventListener("click", async (evento) =>
             
         }
 
-        if (titulo.classList.contains("invisible-sinocupar") === false)
+        
+
+    }
+    else
+    {
+
+        if (contestacionMal.classList.contains("invisible-sinocupar") === true) 
         {
-            titulo.classList.add("invisible-sinocupar");
+            contestacionMal.classList.remove("invisible-sinocupar");
+            contestacionMal.classList.add("visible-ocupar");
+            contestacionMal.classList.add("formulario-newsletter-blanco");
+            contestacionMal.classList.add("titulo-formulario-newsletter");
+
+            if (titulo.classList.contains("invisible-sinocupar") === false) {
+                titulo.classList.add("invisible-sinocupar");
+            }
+
+            if (email.classList.contains("invisible-sinocupar") === false) {
+                email.classList.add("invisible-sinocupar");
+            }
+
+            if (grupo.classList.contains("invisible-sinocupar") === false) {
+
+                grupo.classList.remove("formulario-newsletter-grupo");
+                grupo.classList.add("invisible-sinocupar");
+            }
+
+
+            setTimeout(() => {
+
+                contestacionMal.classList.add("invisible-sinocupar");
+
+                contestacionMal.classList.remove("visible-ocupar");
+                contestacionMal.classList.remove("formulario-newsletter-blanco");
+                contestacionMal.classList.remove("titulo-formulario-newsletter");
+
+                titulo.classList.remove("invisible-sinocupar");
+                // titulo.classList.add("visible-ocupar");
+
+                email.classList.remove("invisible-sinocupar");
+                // email.classList.add("visible-ocupar");
+
+                grupo.classList.remove("invisible-sinocupar");
+                // grupo.classList.add("visible-ocupar");
+
+                emailInput.value = ""
+
+
+            }, 2000);
+
         }
 
-        if (email.classList.contains("invisible-sinocupar") === false) {
-            email.classList.add("invisible-sinocupar");
-        }
-
-        if (grupo.classList.contains("invisible-sinocupar") === false) {
-            
-            grupo.classList.remove("formulario-newsletter-grupo");
-            grupo.classList.add("invisible-sinocupar");
-        }
 
     }
 

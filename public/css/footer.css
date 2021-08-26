@@ -322,7 +322,7 @@ iframe
 .contestacion
 {
   height: 284px;
-  width: 320px;
+  width: 220px;
 }
 
 .formulario-newsletter-grupo
@@ -346,13 +346,12 @@ iframe
     margin-left: 90px;
 }
 
-/* @import url('https://fonts.googleapis.com/css?family=PT+Sans+Narrow'); */
 
 .widget_blog_subscription {
   display: block;
-  /* margin: 84px auto; */
+  
   margin-top: 40px;
-  /* width: 60%; */
+  
   max-width: 490px;
   min-width: 280px;
   position: relative;
