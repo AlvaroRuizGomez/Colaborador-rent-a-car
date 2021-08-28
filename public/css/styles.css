@@ -369,11 +369,6 @@ body{
   font-size: 17px;
 }
 
-.gap-10
-{
-  gap: 10px;
-
-}
 
 .colapsable-content
 {
@@ -383,13 +378,13 @@ body{
 
 }
 
-.columna-centrado
+/* .columna-centrado
 {
   display: flex;
   flex-direction: column;
   justify-items: center;
   align-items: center;
-}
+} */
 
 .centrado
 {
@@ -647,14 +642,14 @@ body{
 /* pulsado el inpuradio */
 
 /* izquierdo */
-.elemento__inputradio:checked ~ .elemento__circulo:before
+/* .elemento__inputradio:checked ~ .elemento__circulo:before
 {
     width: 7px;
     transition-delay: 0ms;
-}
+} */
 
 /* derecho */
-.elemento__inputradio:checked ~ .elemento__circulo:after
+/* .elemento__inputradio:checked ~ .elemento__circulo:after
 {
     width: 15px;
     transition-delay: 160ms;
@@ -664,7 +659,7 @@ body{
 .elemento__inputradio:checked ~ .elemento__titulo
 {
     transition: all 650ms;
-}
+} */
 
 
 .invisible
@@ -1282,7 +1277,7 @@ background-image: url(/img/Img-Vehiculos/peugeot_208_Card.avif);
   border-top: 1px solid rgba(225, 225, 226, 0.8);
 }
 
-#footer .info {
+.info {
   margin-left: 20px;
   color: #444;
 }
@@ -1318,7 +1313,7 @@ background-image: url(/img/Img-Vehiculos/peugeot_208_Card.avif);
 }
 
 /* palito izquierdo */
-.elemento__circulo:before
+/* .elemento__circulo:before
 {
     content: "";
     position: absolute;
@@ -1334,14 +1329,12 @@ background-image: url(/img/Img-Vehiculos/peugeot_208_Card.avif);
     transform-origin: left;
     transition: all 150ms;
     transition-delay: 150ms;
-}
+} */
 
 .elemento__titulo 
 {
   display: block;
-
   border-radius: 5px;
-  
   cursor: pointer;
 }
 

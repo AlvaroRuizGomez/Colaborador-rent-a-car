@@ -72,13 +72,8 @@ botonNews.addEventListener("click", async (evento) =>
                 contestacionBien.classList.remove("titulo-formulario-newsletter");
 
                 titulo.classList.remove("invisible-sinocupar");
-                // titulo.classList.add("visible-ocupar");
-
                 email.classList.remove("invisible-sinocupar");
-                // email.classList.add("visible-ocupar");
-
                 grupo.classList.remove("invisible-sinocupar");
-                // grupo.classList.add("visible-ocupar");
 
                 emailInput.value = ""
                 
@@ -124,13 +119,8 @@ botonNews.addEventListener("click", async (evento) =>
                 contestacionMal.classList.remove("titulo-formulario-newsletter");
 
                 titulo.classList.remove("invisible-sinocupar");
-                // titulo.classList.add("visible-ocupar");
-
                 email.classList.remove("invisible-sinocupar");
-                // email.classList.add("visible-ocupar");
-
                 grupo.classList.remove("invisible-sinocupar");
-                // grupo.classList.add("visible-ocupar");
 
                 emailInput.value = ""
 
