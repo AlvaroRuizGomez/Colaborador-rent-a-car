@@ -1,17 +1,17 @@
 let app = undefined;
 
 exports.InitServer = async () => {
-    require('dotenv').config();
+    require("dotenv").config();
     
-    const cors = require('cors');
-    const morgan = require('morgan');
-    const helmet = require('helmet');
-    const express = require('express');
+    const cors = require("cors");
+    const morgan = require("morgan");
+    const helmet = require("helmet");
+    const express = require("express");
     const eta = require("eta");
-    const compression = require('compression');
-    const userAgent = require('express-useragent')
-    const rateLimit = require('express-rate-limit');
-    const router = require('./routes/route');
+    const compression = require("compression");
+    const userAgent = require("express-useragent")
+    const rateLimit = require("express-rate-limit");
+    const router = require("./routes/route");
     const path = require("path");
     // const contentSecurityPolicy = require("express-csp-generator");
 
@@ -24,13 +24,13 @@ exports.InitServer = async () => {
     
     const allowlist = [
         `${process.env.URL_FRONTEND}:${process.env.PORT_FRONTEND}`,
-        "https://sis-t.redsys.es:25443/",
-        "https://sis-t.redsys.es:25443/sis/rest/trataPeticionREST",
+        "https://sis-t.redsys.es/",
+        "https://sis-t.redsys.es/sis/rest/trataPeticionREST",
     ];
     
     // const corsOptions = (req, callback) => {
     //     let corsOptions;
-    //     if (allowlist.indexOf(req.header('Origin')) !== -1) {
+    //     if (allowlist.indexOf(req.header("Origin")) !== -1) {
     //         corsOptions = { origin: true }
     //     } else {
     //         corsOptions = { origin: false }
@@ -53,7 +53,7 @@ exports.InitServer = async () => {
     app.use((req, res, next) => {
         const cacheTime = 31536000;
         res.set({
-            'Cache-Control': `max-age=${cacheTime}`
+            "Cache-Control": `max-age=${cacheTime}`
         });
         next();
     });
@@ -71,14 +71,15 @@ exports.InitServer = async () => {
                 connectSrc: [
                     "'self'",
                     "https://sis.redsys.es/sis/NC/redsysV2.js",
-                    "https://sis-t.redsys.es:25443/sis/realizarPago",
-                    "https://sis-t.redsys.es:25443/sis/rest/trataPeticionREST",
+                    "https://sis.redsys.es/sis/realizarPago",
+                    "https://sis.redsys.es/sis/rest/trataPeticionREST",
+                    
                 ],
                 formAction: [
                     "'self'",
                     "https://sis.redsys.es/sis/NC/redsysV2.js",
-                    "https://sis-t.redsys.es:25443/sis/realizarPago",
-                    "https://sis-t.redsys.es:25443/sis/rest/trataPeticionREST",
+                    "https://sis.redsys.es/sis/realizarPago",
+                    "https://sis.redsys.es/sis/rest/trataPeticionREST",
                 ],
                 fontSrc: ["'self'"],
                 manifestSrc: ["'self'"],
@@ -92,9 +93,9 @@ exports.InitServer = async () => {
                 styleSrc: [
                     "'self'",
                     "'unsafe-hashes'",
-                    "https://sis-t.redsys.es:25443/sis/NC/sandbox/redsysV2.js",
+                    "https://sis.redsys.es/sis/NC/sandbox/redsysV2.js",
                     "https://sis.redsys.es/sis/NC/redsysV2.js",
-                    "https://sis-t.redsys.es:25443/sis/rest/trataPeticionREST",
+                    "https://sis.redsys.es/sis/rest/trataPeticionREST",
                     "'sha256-QhTxUtlV491XQZHnTX/iZgDCdfTbN1vAILK4yt3jgYI='",
                     "'sha256-7QjiizGaIV/0HdTo3IYJW3cdwZC5lF69KZWWFmTz8Gw='",
                     "'unsafe-inline'"
@@ -103,12 +104,12 @@ exports.InitServer = async () => {
                 styleSrcAttr: [
                     "'self'",
                     "'unsafe-hashes'",
-                    "https://sis-t.redsys.es:25443/sis/NC/sandbox/redsysV2.js",
+                    "https://sis.redsys.es/sis/NC/sandbox/redsysV2.js",
                     "https://sis.redsys.es/sis/NC/redsysV2.js",
-                    "https://sis-t.redsys.es:25443/sis/rest/trataPeticionREST",
+                    "https://sis.redsys.es/sis/rest/trataPeticionREST",
                     "'sha256-QhTxUtlV491XQZHnTX/iZgDCdfTbN1vAILK4yt3jgYI='",
                     "'sha256-7QjiizGaIV/0HdTo3IYJW3cdwZC5lF69KZWWFmTz8Gw='",
-                    "https://sis-t.redsys.es:25443/",
+                    "https://sis.redsys.es/",
                     "https://sis.redsys.es",
                     "'unsafe-inline'"
 
@@ -118,10 +119,10 @@ exports.InitServer = async () => {
                     "'strict-dynamic'",
                     "https://www.google.com/maps/embed",
                     "https://maps.googleapis.com/maps/api/js/QuotaService.RecordEvent",
-                    "https://sis-t.redsys.es:25443/sis/NC/sandbox/redsysV2.js",
+                    "https://sis.redsys.es/sis/NC/sandbox/redsysV2.js",
                     "https://sis.redsys.es/sis/NC/redsysV2.js",
-                    "https://sis-t.redsys.es:25443",
-                    "https://sis-t.redsys.es:25443/sis/rest/trataPeticionREST",
+                    "https://sis.redsys.es",
+                    "https://sis.redsys.es/sis/rest/trataPeticionREST",
                     "https://sis.redsys.es",
                     "'sha256-S+X8s301GQoAcOI+8hj231fxePS+QG94YC0px7AraoQ='",
                     "'sha256-Z6AFHJcDDPHLaWVdLcifmBDDzjDMApb7nM2qbkPTJeo='",
@@ -139,13 +140,13 @@ exports.InitServer = async () => {
                 ],
                 scriptSrcElem: [
                     "'self'", 
-                    "https://sis-t.redsys.es:25443",
+                    "https://sis.redsys.es",
                     "https://sis.redsys.es",
                     "https://www.google.com/maps/embed",
                     "https://maps.googleapis.com/maps/api/js/QuotaService.RecordEvent",
-                    "https://sis-t.redsys.es:25443/sis/NC/sandbox/redsysV2.js",
+                    "https://sis.redsys.es/sis/NC/sandbox/redsysV2.js",
                     "https://sis.redsys.es/sis/NC/redsysV2.js",
-                    "https://sis-t.redsys.es:25443/sis/rest/trataPeticionREST",
+                    "https://sis.redsys.es/sis/rest/trataPeticionREST",
                     "'sha256-S+X8s301GQoAcOI+8hj231fxePS+QG94YC0px7AraoQ='",
                     "'sha256-Z6AFHJcDDPHLaWVdLcifmBDDzjDMApb7nM2qbkPTJeo='",
                     "'sha256-YVCjXA9IbEbK3w4jDiqhWcfCPs+7VhG2TuPyX8v/NB8='",
@@ -165,17 +166,17 @@ exports.InitServer = async () => {
                     "https://apis.google.com",
                     "https://maps.googleapis.com",
                     "https://www.google.com", 
-                    "https://sis-t.redsys.es:25443/",
-                    "https://sis-t.redsys.es:25443/sis/rest/trataPeticionREST",
+                    "https://sis.redsys.es/",
+                    "https://sis.redsys.es/sis/rest/trataPeticionREST",
                 ],
                 frameSrc: [
                     "'self'",
                     "https://apis.google.com", 
                     "https://maps.googleapis.com", 
                     "https://www.google.com", 
-                    "https://sis-t.redsys.es:25443/",
                     "https://sis.redsys.es/",
-                    "https://sis-t.redsys.es:25443/sis/rest/trataPeticionREST",
+                    "https://sis.redsys.es/",
+                    "https://sis.redsys.es/sis/rest/trataPeticionREST",
                     "'sha256-4tehLJfCUwWh7TmeCizR3A07iyPojrk1EWuuoIsveSU='",
                     "'sha256-WrMdOLuaD9CxHHdi0shvJ+D32HQ0N9SzTjTDLIbeC08='",
                 ],
@@ -185,10 +186,10 @@ exports.InitServer = async () => {
                     "https://apis.google.com",
                     "https://maps.googleapis.com",
                     "https://www.google.com",
-                    "https://sis-t.redsys.es:25443/",
-                    "https://sis-t.redsys.es:25443/",
                     "https://sis.redsys.es/",
-                    "https://sis-t.redsys.es:25443/sis/rest/trataPeticionREST",
+                    "https://sis.redsys.es/",
+                    "https://sis.redsys.es/",
+                    "https://sis.redsys.es/sis/rest/trataPeticionREST",
                     "https://www.rentcarmallorca.es/detalles",
                     "https://rentcarmallorca.es/detalles"
                 ],
@@ -241,8 +242,8 @@ exports.InitServer = async () => {
     app.use(compression());
     app.use(userAgent.express());
     
-    app.use(express.urlencoded({ extended: true, limit: '2mb' }));
-    app.use(express.json({ limit: '2mb' }));
+    app.use(express.urlencoded({ extended: true, limit: "2mb" }));
+    app.use(express.json({ limit: "2mb" }));
     // app.use( cors(corsOptions) );
     app.use(cors({
         credentials: true,
@@ -250,15 +251,15 @@ exports.InitServer = async () => {
     }));
     
     
-    app.use(morgan('combined'));
+    app.use(morgan("combined"));
     
     //FUNcioa - registro de html como eta
     // app.engine(".html", eta.renderFile);
     // app.set("views", path.join(__dirname, "../public"));
     // app.set("view engine", "html");
 
-    // app.use("/", express.static('public'));
-    // app.use("/car/", express.static('public'));
+    // app.use("/", express.static("public"));
+    // app.use("/car/", express.static("public"));
 
     // https://www.npmjs.com/package/safe-regex
 
@@ -275,13 +276,38 @@ exports.InitServer = async () => {
     app.use("/", router);
     
     // escucha puerto servidor
-    app.listen(process.env.PORT_FRONTEND, (error) => {
+    let express_server = app.listen(process.env.PORT_FRONTEND, (error) => {
         if (error) {
             console.error(`[process ${process.pid}] Error ${error} ${process.env.PORT_FRONTEND}`);
         }
         console.info(`[process ${process.pid}] Listening at port ${process.env.PORT_FRONTEND}`);
     }
     );
+
+    process.on("SIGINT", function onSigint() {
+        console.info("Got SIGINT (aka ctrl-c in docker). Graceful shutdown ", new Date().toISOString());
+        shutdown();
+    });
+    
+    process.on("SIGTERM", function onSigterm() {
+        console.info("Got SIGTERM (docker container stop). Graceful shutdown ", new Date().toISOString());
+        shutdown();
+    })
+
+    // shut down server
+    const shutdown = () =>
+    {
+    
+        express_server.close(function onServerClosed(err)
+        {
+            if (err) 
+            {
+                console.error(err);
+                process.exitCode = 1;
+            }
+            process.exit();
+        })
+    }
 
 };
 
