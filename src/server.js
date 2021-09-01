@@ -1,17 +1,17 @@
 let app = undefined;
 
 exports.InitServer = async () => {
-    require('dotenv').config();
+    require("dotenv").config();
     
-    const cors = require('cors');
-    const morgan = require('morgan');
-    const helmet = require('helmet');
-    const express = require('express');
+    const cors = require("cors");
+    const morgan = require("morgan");
+    const helmet = require("helmet");
+    const express = require("express");
     const eta = require("eta");
-    const compression = require('compression');
-    const userAgent = require('express-useragent')
-    const rateLimit = require('express-rate-limit');
-    const router = require('./routes/route');
+    const compression = require("compression");
+    const userAgent = require("express-useragent")
+    const rateLimit = require("express-rate-limit");
+    const router = require("./routes/route");
     const path = require("path");
     // const contentSecurityPolicy = require("express-csp-generator");
 
@@ -30,7 +30,7 @@ exports.InitServer = async () => {
     
     // const corsOptions = (req, callback) => {
     //     let corsOptions;
-    //     if (allowlist.indexOf(req.header('Origin')) !== -1) {
+    //     if (allowlist.indexOf(req.header("Origin")) !== -1) {
     //         corsOptions = { origin: true }
     //     } else {
     //         corsOptions = { origin: false }
@@ -53,7 +53,7 @@ exports.InitServer = async () => {
     app.use((req, res, next) => {
         const cacheTime = 31536000;
         res.set({
-            'Cache-Control': `max-age=${cacheTime}`
+            "Cache-Control": `max-age=${cacheTime}`
         });
         next();
     });
@@ -241,8 +241,8 @@ exports.InitServer = async () => {
     app.use(compression());
     app.use(userAgent.express());
     
-    app.use(express.urlencoded({ extended: true, limit: '2mb' }));
-    app.use(express.json({ limit: '2mb' }));
+    app.use(express.urlencoded({ extended: true, limit: "2mb" }));
+    app.use(express.json({ limit: "2mb" }));
     // app.use( cors(corsOptions) );
     app.use(cors({
         credentials: true,
@@ -250,15 +250,15 @@ exports.InitServer = async () => {
     }));
     
     
-    app.use(morgan('combined'));
+    app.use(morgan("combined"));
     
     //FUNcioa - registro de html como eta
     // app.engine(".html", eta.renderFile);
     // app.set("views", path.join(__dirname, "../public"));
     // app.set("view engine", "html");
 
-    // app.use("/", express.static('public'));
-    // app.use("/car/", express.static('public'));
+    // app.use("/", express.static("public"));
+    // app.use("/car/", express.static("public"));
 
     // https://www.npmjs.com/package/safe-regex
 
@@ -275,13 +275,38 @@ exports.InitServer = async () => {
     app.use("/", router);
     
     // escucha puerto servidor
-    app.listen(process.env.PORT_FRONTEND, (error) => {
+    let express_server = app.listen(process.env.PORT_FRONTEND, (error) => {
         if (error) {
             console.error(`[process ${process.pid}] Error ${error} ${process.env.PORT_FRONTEND}`);
         }
         console.info(`[process ${process.pid}] Listening at port ${process.env.PORT_FRONTEND}`);
     }
     );
+
+    process.on("SIGINT", function onSigint() {
+        console.info("Got SIGINT (aka ctrl-c in docker). Graceful shutdown ", new Date().toISOString());
+        shutdown();
+    });
+    
+    process.on("SIGTERM", function onSigterm() {
+        console.info("Got SIGTERM (docker container stop). Graceful shutdown ", new Date().toISOString());
+        shutdown();
+    })
+
+    // shut down server
+    const shutdown = () =>
+    {
+    
+        express_server.close(function onServerClosed(err)
+        {
+            if (err) 
+            {
+                console.error(err);
+                process.exitCode = 1;
+            }
+            process.exit();
+        })
+    }
 
 };
 
