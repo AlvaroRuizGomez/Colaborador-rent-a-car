@@ -70,6 +70,7 @@ exports.InitServer = async () => {
                 baseUri: ["'self'"],
                 connectSrc: [
                     "'self'",
+                    "https://www.googletagmanager.com/gtag/js",
                     "https://sis.redsys.es/sis/NC/redsysV2.js",
                     "https://sis.redsys.es/sis/realizarPago",
                     "https://sis.redsys.es/sis/rest/trataPeticionREST",
