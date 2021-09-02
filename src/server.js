@@ -118,6 +118,8 @@ exports.InitServer = async () => {
                 scriptSrc: [
                     "'strict-dynamic'",
                     "https://www.google.com/maps/embed",
+                    "https://www.googletagmanager.com/gtag/js?id=G-VP7BNLX8GC",
+                    "'sha256-F22pCOStfVB9vzM057k+25CM6Xd0uJtV75gh1CHSRRA='",
                     "https://maps.googleapis.com/maps/api/js/QuotaService.RecordEvent",
                     "https://sis.redsys.es/sis/NC/sandbox/redsysV2.js",
                     "https://sis.redsys.es/sis/NC/redsysV2.js",
@@ -143,6 +145,8 @@ exports.InitServer = async () => {
                     "https://sis.redsys.es",
                     "https://sis.redsys.es",
                     "https://www.google.com/maps/embed",
+                    "https://www.googletagmanager.com/gtag/js?id=G-VP7BNLX8GC",
+                    "'sha256-F22pCOStfVB9vzM057k+25CM6Xd0uJtV75gh1CHSRRA='",
                     "https://maps.googleapis.com/maps/api/js/QuotaService.RecordEvent",
                     "https://sis.redsys.es/sis/NC/sandbox/redsysV2.js",
                     "https://sis.redsys.es/sis/NC/redsysV2.js",
