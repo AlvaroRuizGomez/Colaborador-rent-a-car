@@ -295,7 +295,7 @@ exports.InitServer = async () => {
     })
 
     // shut down server
-    const shutdown = () =>
+    const shutdown = async () =>
     {
     
         express_server.close(function onServerClosed(err)
