@@ -2,8 +2,8 @@
 <html lang="<%=it.locations.idioma_web%>">
 <head>
     <meta charset="UTF-8" />
-    <meta name="robots" content="nofollow">
-    <meta name="googlebot" content="none" />
+    <!-- <meta name="robots" content="nofollow"> -->
+    <!-- <meta name="googlebot" content="none" /> -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%=it.locations.titulo%></title>
     
@@ -80,16 +80,7 @@
     <link rel="apple-touch-icon" href="./img/Img-Logo/rentacar_favicon-152.png" sizes="152x152">
     <link rel="apple-touch-icon" href="./img/Img-Logo/rentacar_favicon-180.png" sizes="180x180">
 
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VP7BNLX8GC"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-
-        gtag('config', 'G-VP7BNLX8GC');
-    </script>
-
+    <%~ includeFile("config_header.html", it) %>
 </head>
 
 <body>
