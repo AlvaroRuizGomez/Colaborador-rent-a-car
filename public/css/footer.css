@@ -509,6 +509,12 @@ iframe
   display: flex;
   align-items: center;
   margin-left: 20px;
+  justify-content: space-between;
+}
+
+.rapidsec-margin
+{
+  margin-right: 20px;
 }
 
 .iconwidget-holder {
