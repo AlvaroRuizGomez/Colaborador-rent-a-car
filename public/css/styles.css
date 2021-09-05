@@ -1055,7 +1055,8 @@ background-image: url(/img/Img-Vehiculos/peugeot_208_Card.avif);
 .icon-number{
     display: inline;
     font-size: 13px;
-    color: white;
+    /* color: white; */
+    color: #000000;
 }
   
 .servicios-puertas{
@@ -1180,6 +1181,16 @@ background-image: url(/img/Img-Vehiculos/peugeot_208_Card.avif);
   width: 210px;
 }
 
+.card:hover > .form-line > .content > .content-card > .car-info-services > .servicios-asientos > .icon-number,
+.card:hover > .form-line > .content > .content-card > .car-info-services > .servicios-puertas > .icon-number,
+.card:hover > .form-line > .content > .content-card > .car-info-services > .servicios-aire > .icon-number,
+.card:hover > .form-line > .content > .content-card > .car-info-services > .servicios-trasmision > .icon-number
+{
+
+  color: white;
+
+}
+
 .card:hover > .form-line > .content > picture > .imgLogo
 {
   /* background-color: red; */
@@ -1235,6 +1246,8 @@ background-image: url(/img/Img-Vehiculos/peugeot_208_Card.avif);
   /* background-color: red; */
 
 }
+
+
 
 
 

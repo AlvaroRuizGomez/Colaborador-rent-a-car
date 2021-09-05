@@ -63,8 +63,10 @@
             <div class="footerTop_container">
                 <div class="footerTop_menu_footer">
                     <div class="footerTop_info">
-                        <h5 class="titulo"><%=it.locations.informacion_footer %></h5>
+                        <h2 class="titulo"><%=it.locations.informacion_footer %></h2>
                         <ul class="listado">
+                            
+                            
                             <li class="listado-li">
                             
                                 <button id="anulacion_footer_top" class="interes-link-footer">
@@ -78,9 +80,9 @@
                                             </a>
                                         </li>
                                         <li class="details-modal-title title-footer">
-                                            <h5 class="details-modal-title-text">
+                                            <h3 class="details-modal-title-text">
                                                 <%=it.locations.titulo_politica_anulacion_footer %>
-                                            </h5>
+                                            </h3>
                                         </li>
                                         <li class="sub-contenido-modal">
                                             <%=it.locations.contenido_politica_anulacion_footer %>
@@ -102,9 +104,9 @@
                                             </a>
                                         </li>
                                         <li class="details-modal-title">
-                                            <h5 class="details-modal-title-text">
+                                            <h3 class="details-modal-title-text">
                                                 <%=it.locations.titulo_seguro_footer %>
-                                            </h5>
+                                            </h3>
                                         </li>
                                         <li class="sub-contenido-modal">
                                             <%=it.locations.contenido_seguro_footer %>
@@ -126,9 +128,9 @@
                                             </a>
                                         </li>
                                         <li class="details-modal-title">
-                                            <h5 class="details-modal-title-text">
+                                            <h3 class="details-modal-title-text">
                                                 <%=it.locations.titulo_sillas_footer %>
-                                            </h5>
+                                            </h3>
                                         </li>
                                         <li class="sub-contenido-modal">
                                             <%=it.locations.contenido_sillas_footer %>
@@ -151,9 +153,9 @@
                                             </a>
                                         </li>
                                         <li class="details-modal-title">
-                                            <h5 class="details-modal-title-text">
+                                            <h3 class="details-modal-title-text">
                                                 <%=it.locations.titulo_nosotros_footer %>
-                                            </h5>
+                                            </h3>
                                         </li>
                                         <li class="sub-contenido-modal">
                                             <%=it.locations.contenido_nosotros_footer %>
@@ -165,15 +167,15 @@
                     </div>
                 </div>
                 <div class="map">
-                    <h5 class="titulo">
+                    <h2 class="titulo">
                         <%=it.locations.donde_estamos %>
-                    </h5>
+                    </h2>
                     <p class="p-Direccion">
                         <a href="/" class="link-rentacar-logo">
                             <picture>
                                 <% if (it.isAvifSupported===true) { %>
-                                    <% } %>
-                                <source type="image/avif" srcset="./img/Img-Logo/rentacar_logo_footer.avif">
+                                    <source type="image/avif" srcset="./img/Img-Logo/rentacar_logo_footer.avif">
+                                <% } %>
                                 <source type="image/webp"  srcset="./img/Img-Logo/rentacar_logo_footer.webp">
                                 <img width="300" height="59" class="imagen-rentacar-logo" src="./img/Img-Logo/rentacar_logo_footer.png" alt="<%=it.locations.alt_logo_empresa %>">
                             </picture>
@@ -193,7 +195,7 @@
                 </div>
                 <div class="redes">
 
-                    <h5 class="titulo"><%=it.locations.siguenos %></h5>
+                    <h2 class="titulo"><%=it.locations.siguenos %></h2>
                     <div class="instagram">
                         <a href="https://www.instagram.com/rentcarmallorca/" target="_blank" rel="noreferrer" class="icon link-azul centrado-vertical">
                             <img width="30" height="30" class="icono-social" src="./img/svg/instagram.svg" alt="<%=it.locations.alt_icono_instagram %>">
