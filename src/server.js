@@ -66,7 +66,7 @@ exports.InitServer = async () => {
         {
             useDefaults: false,
             directives: {
-                // reportUri: ["https://gate.rapidsec.net/g/r/csp/616afffa-f826-4461-85c3-941ee6973aff/0/0/3?sct=30c0d50e-2191-4857-9e5d-aed703100472&dpos=report"],
+                reportUri: ["https://gate.rapidsec.net/g/r/csp/616afffa-f826-4461-85c3-941ee6973aff/0/0/3?sct=30c0d50e-2191-4857-9e5d-aed703100472&dpos=report"],
                 baseUri: ["'self'"],
                 connectSrc: [
                     "'self'",
@@ -90,6 +90,7 @@ exports.InitServer = async () => {
                 imgSrc: [
                     "'self'",
                     "data:",
+                    "https://badge.rapidsec.com/files/green.svg"
                 ],
                 objectSrc: ["'none'"],
                 styleSrc: [
