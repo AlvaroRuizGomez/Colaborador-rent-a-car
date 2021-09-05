@@ -72,6 +72,11 @@ for (let i = 0; i < botonesInformacionInteres.length; i++) {
 
         let divOverlay = document.getElementById(`overlay-footer-interes-link-${botonesCerrarModal[i].id}`);
 
+        if (divOverlay === null || divOverlay === undefined)
+        {
+            return;
+        }
+
         if (divOverlay.classList[1] === "modal-visible") {
             divOverlay.classList.remove("modal-visible");
             divOverlay.classList.add("modal-invisible");

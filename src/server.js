@@ -122,6 +122,8 @@ exports.InitServer = async () => {
                     "https://www.google.com/maps/embed",
                     "https://www.googletagmanager.com/gtag/js",
                     "'sha256-sWe1TdbP6hTGY12z2INsiVCNco2shKLDHyvrkMIl53o='",
+                    "'sha256-uHg6VHxTrRmQ+sTqpQwel3NmOzbzh75LqbdPzRWY1Cg='",
+                    "'sha256-A8LG6vgfKNxiBOdiThfNp8hIlr/VJ4k++5UswtqcFWg='",
                     "https://maps.googleapis.com/maps/api/js/QuotaService.RecordEvent",
                     "https://sis.redsys.es/sis/NC/sandbox/redsysV2.js",
                     "https://sis.redsys.es/sis/NC/redsysV2.js",
@@ -144,15 +146,20 @@ exports.InitServer = async () => {
                 ],
                 scriptSrcElem: [
                     "'self'", 
+                    //google analtics
+                    "https://www.googletagmanager.com/gtag/js",
+                    "'sha256-sWe1TdbP6hTGY12z2INsiVCNco2shKLDHyvrkMIl53o='",
+                    "'sha256-uHg6VHxTrRmQ+sTqpQwel3NmOzbzh75LqbdPzRWY1Cg='",
+                    "'sha256-A8LG6vgfKNxiBOdiThfNp8hIlr/VJ4k++5UswtqcFWg='",
+                    "https://maps.googleapis.com/maps/api/js/QuotaService.RecordEvent",
+                    //redsis
                     "https://sis.redsys.es",
                     "https://sis.redsys.es",
                     "https://www.google.com/maps/embed",
-                    "https://www.googletagmanager.com/gtag/js",
-                    "'sha256-sWe1TdbP6hTGY12z2INsiVCNco2shKLDHyvrkMIl53o='",
-                    "https://maps.googleapis.com/maps/api/js/QuotaService.RecordEvent",
                     "https://sis.redsys.es/sis/NC/sandbox/redsysV2.js",
                     "https://sis.redsys.es/sis/NC/redsysV2.js",
                     "https://sis.redsys.es/sis/rest/trataPeticionREST",
+                    //scripts inline propios
                     "'sha256-S+X8s301GQoAcOI+8hj231fxePS+QG94YC0px7AraoQ='",
                     "'sha256-Z6AFHJcDDPHLaWVdLcifmBDDzjDMApb7nM2qbkPTJeo='",
                     "'sha256-YVCjXA9IbEbK3w4jDiqhWcfCPs+7VhG2TuPyX8v/NB8='",
@@ -164,7 +171,8 @@ exports.InitServer = async () => {
                     "'sha256-tSulbyIC9pCfjTMSJ+oGN0txgCAxkNMdf3mNyhvqLd8='",
                     "'sha256-4tehLJfCUwWh7TmeCizR3A07iyPojrk1EWuuoIsveSU='",
                     "'sha256-WrMdOLuaD9CxHHdi0shvJ+D32HQ0N9SzTjTDLIbeC08='",
-                    "'sha256-5+02zu5UULQkO7w1GIr6vftCgMfFdZcAHeDtFnKZsBs='"
+                    "'sha256-5+02zu5UULQkO7w1GIr6vftCgMfFdZcAHeDtFnKZsBs='",
+                    
                     
                 ],
                 childSrc: [
