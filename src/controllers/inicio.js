@@ -22,10 +22,12 @@ exports.getHome = async (req, res, languageBrowser, isPagoCorrecto = false) =>
     const location = await geolocation.GetIPTimeZone(req);
 
     // Bot check
-    if ((location.agent && location.agent.isBot === true) || (req.headers["accept-language"] === undefined)) {
-        // TODO: registrar los eventos en sitio separado
-        return res.status(404).send("Not Found");
-    }
+    // if ((location.agent && location.agent.isBot === true) || (req.headers["accept-language"] === undefined)) 
+    // {
+    //     // TODO: registrar los eventos en sitio separado
+    //     console.log("bot" + location.agent);
+    //     return res.status(404).send("Not Found");
+    // }
 
     // const languagesAccpeted = {
     //     "en": "en",
