@@ -60,19 +60,15 @@ exports.getHome = async (req, res, languageBrowser, isPagoCorrecto = false) =>
     // });
     
 
-    let locationLanguage = "";
-    if (req.headers["accept-language"] === undefined)
-    {
-        locationLanguage = "en";
-    }
-    else
+    let locationLanguage = "en";
+    if (req.headers["accept-language"] !== undefined)
     {
         //TODO: arriba cacheado
         locationLanguage = await locations.GenerateLocationBrowser(
             languageBrowser, 
             req.headers["accept-language"].split(",")[0].split("-")[0]
         );
-
+        
     }
 
     // Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.2 Safari/605.1.15
