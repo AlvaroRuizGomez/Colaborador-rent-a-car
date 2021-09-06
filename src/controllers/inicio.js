@@ -60,21 +60,19 @@ exports.getHome = async (req, res, languageBrowser, isPagoCorrecto = false) =>
     // });
     
 
-    let locationLanguage = "";
-    if (req.headers["accept-language"] === undefined)
-    {
-        locationLanguage = "en";
-    }
-    else
+    let locationLanguage = "en";
+    let languageHeader = "en";
+    console.log("lenguaje=" + req.headers["accept-language"]);
+    if (req.headers["accept-language"] !== undefined)
     {
         //TODO: arriba cacheado
-        locationLanguage = await locations.GenerateLocationBrowser(
-            languageBrowser, 
-            req.headers["accept-language"].split(",")[0].split("-")[0]
-        );
-
+        languageHeader = req.headers["accept-language"].split(",")[0].split("-")[0];
     }
-
+    
+    locationLanguage = await locations.GenerateLocationBrowser(
+        languageBrowser, 
+        languageHeader
+    );
     // Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.2 Safari/605.1.15
     const isAvifSupported = await logicHelper.IsAvifSupported(req.get("Accept"));
     
