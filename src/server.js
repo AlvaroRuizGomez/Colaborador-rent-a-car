@@ -13,9 +13,10 @@ exports.InitServer = async () => {
     const rateLimit = require("express-rate-limit");
     const router = require("./routes/route");
     const path = require("path");
-    // const contentSecurityPolicy = require("express-csp-generator");
+    const cookieParser = require('cookie-parser');
 
     const app = express();
+    app.use(cookieParser());
     
     const apiLimiter = rateLimit({
         windowMs: 1 * 60 * 1000, //1min
@@ -24,8 +25,8 @@ exports.InitServer = async () => {
     
     const allowlist = [
         `${process.env.URL_FRONTEND}:${process.env.PORT_FRONTEND}`,
-        "https://sis-t.redsys.es/",
-        "https://sis-t.redsys.es/sis/rest/trataPeticionREST",
+        "https://sis.redsys.es/",
+        "https://sis.redsys.es/sis/rest/trataPeticionREST",
     ];
     
     // const corsOptions = (req, callback) => {
@@ -64,6 +65,7 @@ exports.InitServer = async () => {
     app.use(
         helmet.contentSecurityPolicy(
         {
+            
             useDefaults: false,
             directives: {
                 reportUri: ["https://gate.rapidsec.net/g/r/csp/616afffa-f826-4461-85c3-941ee6973aff/0/0/3?sct=30c0d50e-2191-4857-9e5d-aed703100472&dpos=report"],
@@ -125,6 +127,9 @@ exports.InitServer = async () => {
                     "'sha256-sWe1TdbP6hTGY12z2INsiVCNco2shKLDHyvrkMIl53o='",
                     "'sha256-uHg6VHxTrRmQ+sTqpQwel3NmOzbzh75LqbdPzRWY1Cg='",
                     "'sha256-A8LG6vgfKNxiBOdiThfNp8hIlr/VJ4k++5UswtqcFWg='",
+                    "'sha256-8wxcr0tQeDrTYzn/Og8N0rc46wg6qYlfKAU5ptiqpSc='",
+                    "'sha256-pf7ATGsfXb/44dlQjex9+9P448/6hIclLgrz7V2AkAc='",
+                    "'sha256-4Ow+Ur8L9cYCVoD2ccQS8Ksz6mcrBVS+n/iRKfzhrD4='",
                     "https://maps.googleapis.com/maps/api/js/QuotaService.RecordEvent",
                     "https://sis.redsys.es/sis/NC/sandbox/redsysV2.js",
                     "https://sis.redsys.es/sis/NC/redsysV2.js",
@@ -152,6 +157,9 @@ exports.InitServer = async () => {
                     "'sha256-sWe1TdbP6hTGY12z2INsiVCNco2shKLDHyvrkMIl53o='",
                     "'sha256-uHg6VHxTrRmQ+sTqpQwel3NmOzbzh75LqbdPzRWY1Cg='",
                     "'sha256-A8LG6vgfKNxiBOdiThfNp8hIlr/VJ4k++5UswtqcFWg='",
+                    "'sha256-8wxcr0tQeDrTYzn/Og8N0rc46wg6qYlfKAU5ptiqpSc='",
+                    "'sha256-pf7ATGsfXb/44dlQjex9+9P448/6hIclLgrz7V2AkAc='",
+                    "'sha256-4Ow+Ur8L9cYCVoD2ccQS8Ksz6mcrBVS+n/iRKfzhrD4='",
                     "https://maps.googleapis.com/maps/api/js/QuotaService.RecordEvent",
                     //redsis
                     "https://sis.redsys.es",
@@ -210,6 +218,7 @@ exports.InitServer = async () => {
                 ],
                 upgradeInsecureRequests: [],
                 blockAllMixedContent: [],
+                prefetchSrc: ["'self'"],
             },
         })
     );

@@ -161,19 +161,7 @@ exports.PeticionPago = async (req, res) =>
 exports.NotificacionPago = async (req, res) =>
 {
 
-    console.log("notificaion" + JSON.stringify(req.body));
-    /* 
-        {
-            "Ds_SignatureVersion":"HMAC_SHA256_V1",
-            "Ds_MerchantParameters":"",
-            "Ds_Signature":""
-        }
-     */
-
-    // TODO: comprobar los datos codificados
-    
-    
-
+    // console.log("notificaion" + JSON.stringify(req.body));
     // enviar
     const responseRaw = await fetch(obtenerVars.URI_DESCODIFICACION_MERCHANTPARAMETERS, {
         method: "POST",
@@ -186,7 +174,7 @@ exports.NotificacionPago = async (req, res) =>
 
     const datos = await responseRaw.json();
 
-    console.log("datos=" + JSON.stringify(datos));
+    // console.log("datos=" + JSON.stringify(datos));
 
 };
 
@@ -258,60 +246,60 @@ const ControlSchema = async (body) =>
 
 
 
-const CreateMerchantPayment = async (jsonMerchantParameters, codigo, key) => {
+// const CreateMerchantPayment = async (jsonMerchantParameters, codigo, key) => {
 
     
-    // console.log(
-    //     "Descodificados jsonMerchantParameters:" + JSON.stringify( jsonMerchantParameters )
-    // );
+//     // console.log(
+//     //     "Descodificados jsonMerchantParameters:" + JSON.stringify( jsonMerchantParameters )
+//     // );
 
-    const encodecSignature = await createMerchantSignature(process.env.MERCHANT_KEY_CODED, jsonMerchantParameters);
-    console.log("Ds_Signature:" + encodecSignature);
-    const base64MerchantParameters = await createMerchantParameters(jsonMerchantParameters);
-    console.log("Ds_MerchantParameters:" + base64MerchantParameters);
+//     const encodecSignature = await createMerchantSignature(process.env.MERCHANT_KEY_CODED, jsonMerchantParameters);
+//     console.log("Ds_Signature:" + encodecSignature);
+//     const base64MerchantParameters = await createMerchantParameters(jsonMerchantParameters);
+//     console.log("Ds_MerchantParameters:" + base64MerchantParameters);
 
-    return {
-        "Ds_MerchantParameters": base64MerchantParameters,
-        "Ds_Signature": encodecSignature,
-        "Ds_SignatureVersion": "HMAC_SHA256_V1"
-    };
+//     return {
+//         "Ds_MerchantParameters": base64MerchantParameters,
+//         "Ds_Signature": encodecSignature,
+//         "Ds_SignatureVersion": "HMAC_SHA256_V1"
+//     };
 
-};
-
-
-const encrypt3DES = async (str, key) => {
-    const secretKey = Buffer.from(key, 'base64');
-    const iv = Buffer.alloc(8, 0);
-    const cipher = crypto.createCipheriv('des-ede3-cbc', secretKey, iv);
-    cipher.setAutoPadding(false);
-    const relleno = await zeroPad(str, 8);
-    const en_key = cipher.update(relleno, 'utf8', 'binary') + cipher.final('binary');
-    const maxPos = Math.ceil(str.length / 8) * 8;
-
-    return Buffer.from(en_key.substr(0, maxPos), 'binary').toString('base64');
-};
+// };
 
 
+// const encrypt3DES = async (str, key) => {
+//     const secretKey = Buffer.from(key, 'base64');
+//     const iv = Buffer.alloc(8, 0);
+//     const cipher = crypto.createCipheriv('des-ede3-cbc', secretKey, iv);
+//     cipher.setAutoPadding(false);
+//     const relleno = await zeroPad(str, 8);
+//     const en_key = cipher.update(relleno, 'utf8', 'binary') + cipher.final('binary');
+//     const maxPos = Math.ceil(str.length / 8) * 8;
 
-const decrypt3DES = async (str, key) => {
-    const secretKey = Buffer.from(key, 'base64');
-    const iv = Buffer.alloc(8, 0);
-    const cipher = crypto.createDecipheriv('des-ede3-cbc', secretKey, iv);
-    cipher.setAutoPadding(false);
-    const relleno = await zeroUnpad(str, 8);
-    const res = cipher.update(relleno, 'base64', 'utf8') + cipher.final('utf8');
-    return res.replace(/\0/g, '');
-}
+//     return Buffer.from(en_key.substr(0, maxPos), 'binary').toString('base64');
+// };
 
-const mac256 = async (data, key) => {
-    return crypto.createHmac('sha256', Buffer.from(key, 'base64'))
-        .update(data)
-        .digest('base64');
-}
 
-const createMerchantParameters = async (data) => {
-    return Buffer.from(JSON.stringify(data), 'utf8').toString('base64');
-}
+
+// const decrypt3DES = async (str, key) => {
+//     const secretKey = Buffer.from(key, 'base64');
+//     const iv = Buffer.alloc(8, 0);
+//     const cipher = crypto.createDecipheriv('des-ede3-cbc', secretKey, iv);
+//     cipher.setAutoPadding(false);
+//     const relleno = await zeroUnpad(str, 8);
+//     const res = cipher.update(relleno, 'base64', 'utf8') + cipher.final('utf8');
+//     return res.replace(/\0/g, '');
+// }
+
+// const mac256 = async (data, key) => {
+//     return crypto.createHmac('sha256', Buffer.from(key, 'base64'))
+//         .update(data)
+//         .digest('base64');
+// }
+
+// const createMerchantParameters = async (data) => {
+//     return Buffer.from(JSON.stringify(data), 'utf8').toString('base64');
+// }
 
 // const decodeMerchantParameters = async (data) => {
 //     const decodedData = JSON.parse(base64url.decode(data, 'utf8'));
@@ -322,13 +310,13 @@ const createMerchantParameters = async (data) => {
 //     return res;
 // }
 
-const createMerchantSignature = async (key, data) => {
-    const merchantParameters = await createMerchantParameters(data);
-    const orderId = data.DS_MERCHANT_ORDER;
-    const orderKey = await encrypt3DES(orderId, key);
+// const createMerchantSignature = async (key, data) => {
+//     const merchantParameters = await createMerchantParameters(data);
+//     const orderId = data.DS_MERCHANT_ORDER;
+//     const orderKey = await encrypt3DES(orderId, key);
 
-    return await mac256(merchantParameters, orderKey);
-}
+//     return await mac256(merchantParameters, orderKey);
+// }
 
 // const createMerchantSignatureNotif = async (key, data) => {
 //     const merchantParameters = decodeMerchantParameters(data);
@@ -339,22 +327,22 @@ const createMerchantSignature = async (key, data) => {
 //     return base64url.encode(res, 'base64');
 // };
 
-const zeroPad = async (buf, blocksize) => {
-    const buffer = typeof buf === 'string' ? Buffer.from(buf, 'utf8') : buf;
-    const pad = Buffer.alloc((blocksize - (buffer.length % blocksize)) % blocksize, 0);
-    return Buffer.concat([buffer, pad]);
-};
+// const zeroPad = async (buf, blocksize) => {
+//     const buffer = typeof buf === 'string' ? Buffer.from(buf, 'utf8') : buf;
+//     const pad = Buffer.alloc((blocksize - (buffer.length % blocksize)) % blocksize, 0);
+//     return Buffer.concat([buffer, pad]);
+// };
 
 
-const zeroUnpad = async (buf, blocksize) => {
-    let lastIndex = buf.length;
-    while (lastIndex >= 0 && lastIndex > buf.length - blocksize - 1) {
-        lastIndex -= 1;
-        if (buf[lastIndex] !== 0) {
-            break;
-        }
-    }
-    return buf.slice(0, lastIndex + 1).toString('utf8');
-};
+// const zeroUnpad = async (buf, blocksize) => {
+//     let lastIndex = buf.length;
+//     while (lastIndex >= 0 && lastIndex > buf.length - blocksize - 1) {
+//         lastIndex -= 1;
+//         if (buf[lastIndex] !== 0) {
+//             break;
+//         }
+//     }
+//     return buf.slice(0, lastIndex + 1).toString('utf8');
+// };
 
 

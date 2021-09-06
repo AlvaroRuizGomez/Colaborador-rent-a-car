@@ -5,5 +5,9 @@
     function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
 
-    gtag('config', 'G-VP7BNLX8GC', { 'anonymize_ip': true });
+    gtag('config', 'G-VP7BNLX8GC');
+    gtag('set', 'allowAdFeatures', false);
+    gtag('set', 'anonymizeIp', true);
+    gtag('send', 'pageview');
+
 </script>

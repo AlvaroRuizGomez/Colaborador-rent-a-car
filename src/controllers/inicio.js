@@ -96,7 +96,6 @@ exports.getHome = async (req, res, languageBrowser, isPagoCorrecto = false) =>
         return res.status(404).send("Not found");
     }
 
-
     if (dataResponse.data.length <= 0) {
         
         if (isPagoCorrecto === true) 
