@@ -18,9 +18,9 @@ exports.InitServer = async () => {
     const app = express();
     app.use(cookieParser());
     
-    const apiLimiter = rateLimit({
+    const limiterHome = rateLimit({
         windowMs: 1 * 60 * 1000, //1min
-        max: 20
+        max: 100
     });
     
     const allowlist = [
@@ -298,7 +298,7 @@ exports.InitServer = async () => {
     
     
     // rutas
-    app.use("/", apiLimiter);
+    app.use("/", limiterHome);
     app.use("/", router);
     
     // escucha puerto servidor

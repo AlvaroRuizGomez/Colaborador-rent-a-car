@@ -22,12 +22,13 @@ exports.getHome = async (req, res, languageBrowser, isPagoCorrecto = false) =>
     const location = await geolocation.GetIPTimeZone(req);
 
     // Bot check
-    // if ((location.agent && location.agent.isBot === true) || (req.headers["accept-language"] === undefined)) 
-    // {
-    //     // TODO: registrar los eventos en sitio separado
-    //     console.log("bot" + location.agent);
-    //     return res.status(404).send("Not Found");
-    // }
+    if ((location.agent && location.agent.isBot === true) || (req.headers["accept-language"] === undefined)) 
+    {
+        // TODO: registrar los eventos en sitio separado
+        console.log("bot" + location.agent);
+        // return res.status(404).send("Not Found");
+    }
+
 
     // const languagesAccpeted = {
     //     "en": "en",
@@ -58,11 +59,21 @@ exports.getHome = async (req, res, languageBrowser, isPagoCorrecto = false) =>
     //     "numeroDias": 3
     // });
     
-    //TODO: arriba cacheado
-    const locationLanguage = await locations.GenerateLocationBrowser(
-        languageBrowser, 
-        req.headers["accept-language"].split(",")[0].split("-")[0]
-    );
+
+    let locationLanguage = "";
+    if (req.headers["accept-language"] === undefined)
+    {
+        locationLanguage = "en";
+    }
+    else
+    {
+        //TODO: arriba cacheado
+        locationLanguage = await locations.GenerateLocationBrowser(
+            languageBrowser, 
+            req.headers["accept-language"].split(",")[0].split("-")[0]
+        );
+
+    }
 
     // Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.2 Safari/605.1.15
     const isAvifSupported = await logicHelper.IsAvifSupported(req.get("Accept"));
