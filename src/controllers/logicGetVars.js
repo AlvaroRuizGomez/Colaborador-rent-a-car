@@ -122,9 +122,9 @@ const readLocalSecret = async (secretNameAndPath) => {
 const readSecret = async (secretNameAndPath) => {
     try {
         
-        // return fs.readFileSync(secretNameAndPath, "utf8");
+        
         const t = fs.readFileSync(secretNameAndPath, "utf8");
-        console.log(`secreto=${t}`)
+        // console.log(`secreto=${t}`)
         return t;
     }
     catch (err) {
