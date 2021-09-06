@@ -130,6 +130,7 @@ exports.InitServer = async () => {
                     "'sha256-8wxcr0tQeDrTYzn/Og8N0rc46wg6qYlfKAU5ptiqpSc='",
                     "'sha256-pf7ATGsfXb/44dlQjex9+9P448/6hIclLgrz7V2AkAc='",
                     "'sha256-4Ow+Ur8L9cYCVoD2ccQS8Ksz6mcrBVS+n/iRKfzhrD4='",
+                    "'sha256-Oke7EEwk0COk1ampSlXcyK8UoO0ukpUnXzyDeUMXNkA='",
                     "https://maps.googleapis.com/maps/api/js/QuotaService.RecordEvent",
                     "https://sis.redsys.es/sis/NC/sandbox/redsysV2.js",
                     "https://sis.redsys.es/sis/NC/redsysV2.js",
@@ -160,6 +161,7 @@ exports.InitServer = async () => {
                     "'sha256-8wxcr0tQeDrTYzn/Og8N0rc46wg6qYlfKAU5ptiqpSc='",
                     "'sha256-pf7ATGsfXb/44dlQjex9+9P448/6hIclLgrz7V2AkAc='",
                     "'sha256-4Ow+Ur8L9cYCVoD2ccQS8Ksz6mcrBVS+n/iRKfzhrD4='",
+                    "'sha256-Oke7EEwk0COk1ampSlXcyK8UoO0ukpUnXzyDeUMXNkA='",
                     "https://maps.googleapis.com/maps/api/js/QuotaService.RecordEvent",
                     //redsis
                     "https://sis.redsys.es",
