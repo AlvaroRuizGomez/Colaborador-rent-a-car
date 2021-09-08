@@ -20,7 +20,7 @@ exports.InitServer = async () => {
     
     const limiterHome = rateLimit({
         windowMs: 1 * 60 * 1000, //1min
-        max: 100
+        max: 25
     });
     
     const allowlist = [
@@ -183,8 +183,8 @@ exports.InitServer = async () => {
                     "'sha256-4tehLJfCUwWh7TmeCizR3A07iyPojrk1EWuuoIsveSU='",
                     "'sha256-WrMdOLuaD9CxHHdi0shvJ+D32HQ0N9SzTjTDLIbeC08='",
                     "'sha256-5+02zu5UULQkO7w1GIr6vftCgMfFdZcAHeDtFnKZsBs='",
-                    
-                    
+                    //js
+                    "'sha256-zSry2p/DPzG0rkc5IQn/HFwlMgNVmiqKHZtrNQuFLEc='"
                 ],
                 childSrc: [
                     "'self'",

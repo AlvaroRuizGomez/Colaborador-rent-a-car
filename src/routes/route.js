@@ -15,6 +15,9 @@ const templates = require("../controllers/getTemplate");
 
 
 // rutas
+
+router.get("/cookie_policy", async (req, res) => await home.GetCookiePolicy(req, res));
+
 router.get("/", async (req, res) => await home.getHome(req, res));
 router.post("/busqueda", async (req, res) => await home.postHome(req, res));
 router.get("/busqueda", async (req, res) => await home.redirectToHome(req, res));

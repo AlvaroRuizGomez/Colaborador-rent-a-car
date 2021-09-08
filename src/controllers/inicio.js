@@ -13,7 +13,30 @@ const logicHelper = require("./logicHelper");
 
 const eta = require("eta");
 
+exports.GetCookiePolicy = async (req, res, languageBrowser) =>
+{
 
+
+    let locationLanguage = "en";
+    let languageHeader = "en";
+    // console.log("lenguaje=" + req.headers["accept-language"]);
+    if (req.headers["accept-language"] !== undefined) {
+        //TODO: arriba cacheado
+        languageHeader = req.headers["accept-language"].split(",")[0].split("-")[0];
+    }
+
+    locationLanguage = await locations.GenerateLocationBrowser(
+        languageBrowser,
+        languageHeader
+    );
+
+
+    res.render(path.join(__dirname, "../../public/cookie_policy.html"), {
+        "locations": locationLanguage,
+    });
+
+
+};
 
 exports.getHome = async (req, res, languageBrowser, isPagoCorrecto = false) =>
 {
@@ -209,7 +232,18 @@ exports.postHomeDirect = async (req, res) =>
 
     
     let query = req.query;
-    const idioma = req.headers["accept-language"].split(",")[0].split("-")[0];
+
+    
+
+    // let locationLanguage = "en";
+    let idioma = "en";
+    // console.log("lenguaje=" + req.headers["accept-language"]);
+    if (req.headers["accept-language"] !== undefined) 
+    {
+        idioma = req.headers["accept-language"].split(",")[0].split("-")[0];
+    }
+
+    // const idioma = req.headers["accept-language"].split(",")[0].split("-")[0];
 
     if (query["vehiculo"] === undefined)
     {

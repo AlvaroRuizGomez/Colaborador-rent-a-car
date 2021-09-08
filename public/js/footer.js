@@ -1,46 +1,3 @@
-// FORZAR ROTACION
-// if (window.DeviceOrientationEvent) {
-//     window.addEventListener('deviceorientation', function () {
-
-
-//     }, false);
-//     document.getElementById("doeSupported").innerText = "Supported!";
-// }
-
-
-
-// var supportsOrientationChange = "onorientationchange" in window,
-//     orientationEvent = supportsOrientationChange ? "orientationchange" : "resize";
-
-// window.addEventListener(orientationEvent, function (evento) {
-//     if (window.orientation == 90) {
-//         rotate(this, -90);
-//     }
-//     else {
-//         rotate(this, 90);
-//     }
-// });
-
-// screen.orientation.lock('portrait');
-
-// function rotate(el, degs) {
-//     iedegs = degs / 90;
-//     if (iedegs < 0) iedegs += 4;
-//     transform = 'rotate(' + degs + 'deg)';
-//     iefilter = 'progid:DXImageTransform.Microsoft.BasicImage(rotation=' + iedegs + ')';
-//     styles = {
-//         transform: transform,
-//         '-webkit-transform': transform,
-//         '-moz-transform': transform,
-//         '-o-transform': transform,
-//         filter: iefilter,
-//         '-ms-filter': iefilter
-//     };
-//     $(el).css(styles);
-// }
-
-
-// --------
 
 const botonesInformacionInteres = document.getElementsByClassName("interes-link-footer");
 const overlayInteres = document.getElementsByClassName("overlay-footer-interes-link");
@@ -248,12 +205,12 @@ if(typeof $ !== 'undefined')
     
         $("#fechaDevolucion").datepicker({ dateFormat: 'D,dd-mm-yy', minDate: '1d' });
         
-        $fecha = new Date();
-        $fecha.setDate($fecha.getDate() + 3);
+        let fecha = new Date();
+        fecha.setDate(fecha.getDate() + 3);
         
         if (botonVerPrecios)
         {
-            $("#fechaDevolucion").datepicker("setDate", $fecha);
+            $("#fechaDevolucion").datepicker("setDate", fecha);
     
         }
     });
