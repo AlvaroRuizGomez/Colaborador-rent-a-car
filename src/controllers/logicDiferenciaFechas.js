@@ -41,7 +41,17 @@ exports.DiferenciaFechaRecogidaDevolucion = async (formulario) => {
 const ObtenerConversionFecha = async (fechaRaw, horaRaw) => {
 
 
-    const fechaRecogidaFormSplitted = fechaRaw.split(",")[1].split("-");
+    let fechaRecogidaFormSplitted = undefined;
+    if (fechaRaw.split(",").length >= 2)
+    {
+        fechaRecogidaFormSplitted = fechaRaw.split(",")[1].split("-");
+
+    }
+    else
+    {
+        fechaRecogidaFormSplitted = fechaRaw.split("-");
+    }
+
     const anyo = fechaRecogidaFormSplitted[2] - 0;
     const mes = fechaRecogidaFormSplitted[1] - 0;
     const dia = fechaRecogidaFormSplitted[0] - 0;
