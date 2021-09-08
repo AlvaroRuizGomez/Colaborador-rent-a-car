@@ -248,7 +248,22 @@
                         <% let claseAvif = it.data[i]["ImagenVehiclo"] + "_safari" %>
                         <div class="card lazyload <%=claseAvif %>">
                     <% } %>
-                        <a class="form-line" href="/car/<%=it.data[i]["vehiculo"] %>.html?id=<%=it.data[i]["vehiculo"]%>&success=<%=it.success %>&fase=2&idioma=<%=it.locations.idioma_web %>&vehiculo=<%=it.data[i]["vehiculo"] %>&fechaRecogida=&horaRecogida=&fechaDevolucion=&horaDevolucion=&conductor_con_experiencia=&edad_conductor=&anyos_carnet=&" id="<%=it.data[i]["vehiculo"] %>">
+<!-- &fechaRecogida=&horaRecogida=&fechaDevolucion=&horaDevolucion=&conductor_con_experiencia=&edad_conductor=&anyos_carnet=& -->
+<% 
+let date_ob = new Date();
+
+const diaRec = (date_ob.getDate() + 1).toString().padStart(2, "00");
+const mesRec = (date_ob.getDate() + 1).toString().padStart(2, "00");
+const anyoRec = date_ob.getFullYear();
+const fechaRecogidaTexto = `${diaRec}-${mesRec}-${anyoRec}`;
+const fechaDevolucionTexto = `${date_ob.getDate() + 3}-${mesRec}-${anyoRec}`;
+
+%>
+
+
+                    
+                    
+                        <a class="form-line" href="/car/<%=it.data[i]["vehiculo"] %>.html?id=<%=it.data[i]["vehiculo"]%>&success=<%=it.success %>&fase=2&idioma=<%=it.locations.idioma_web %>&vehiculo=<%=it.data[i]["vehiculo"] %>&fechaRecogida=<%=fechaRecogidaTexto%>&horaRecogida=09:00&fechaDevolucion=<%=fechaDevolucionTexto%>&horaDevolucion=20:00&conductor_con_experiencia=true&edad_conductor=25&anyos_carnet=3&numeroDias=3" id="<%=it.data[i]["vehiculo"] %>">
                             
                             <div class="content">
                                 <picture>

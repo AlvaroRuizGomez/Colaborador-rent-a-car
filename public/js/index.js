@@ -9,14 +9,22 @@ const cards = document.getElementsByClassName("card");
 
 for (let i = 0; i < cards.length; i++)
 {
+    
+    //"http://localhost:8080/car/
+    // peugeot108.html?id=peugeot108&success=xIieCQdYG6eUpzg2nYf5L&fase=2&idioma=es&vehiculo=peugeot108
+    // &fechaRecogida=Sab,17-07-2021&horaRecogida=09:00
+    // &fechaDevolucion=Vie,23-07-2021&horaDevolucion=20:00
+    // &conductor_con_experiencia=off
+    // &edad_conductor=22
+    // &anyos_carnet=2&numeroDias=7"
+    
     cards[i].addEventListener("click", async (evento) =>
     {
         // evento.preventDefault();
-        
         const selectedVehiculo = cards[i].lastElementChild.lastElementChild.lastElementChild.value;
         const formulario = document.getElementById(selectedVehiculo);
-
-        let link = formulario.href;
+    
+        let link = formulario.attributes.href.textContent;
         link = link.split("fechaRecogida=")[0] +  "fechaRecogida=" + document.getElementById("fechaRecogida").value + link.split("fechaRecogida=")[1];
         link = link.split("horaRecogida=")[0] + "horaRecogida=" + document.getElementById("horaRecogida").value + link.split("horaRecogida=")[1];
         link = link.split("fechaDevolucion=")[0] + "fechaDevolucion=" + document.getElementById("fechaDevolucion").value + link.split("fechaDevolucion=")[1];
@@ -32,20 +40,12 @@ for (let i = 0; i < cards.length; i++)
             link = link.split("conductor_con_experiencia=")[0] + "conductor_con_experiencia=off" + link.split("conductor_con_experiencia=")[1];
             link = link.split("edad_conductor=")[0] + "edad_conductor=" + document.getElementById("edad_conductor").value + link.split("edad_conductor=")[1];
         }
-
+    
         link = link.split("anyos_carnet=")[0] + "anyos_carnet=" + document.getElementById("anyos_carnet").value + link.split("anyos_carnet=")[1];
         link += "numeroDias=" + document.getElementById("numerodiasHidden").value;
-
-        formulario.href = link;
-
-//"http://localhost:8080/car/
-// peugeot108.html?id=peugeot108&success=xIieCQdYG6eUpzg2nYf5L&fase=2&idioma=es&vehiculo=peugeot108
-// &fechaRecogida=Sab,17-07-2021&horaRecogida=09:00
-// &fechaDevolucion=Vie,23-07-2021&horaDevolucion=20:00
-// &conductor_con_experiencia=off
-// &edad_conductor=22
-// &anyos_carnet=2&numeroDias=7"
-
+    
+        formulario.href.textContent = link;
+        
 
     });
 
