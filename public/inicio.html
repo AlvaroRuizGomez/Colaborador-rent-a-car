@@ -343,29 +343,6 @@
 
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-VP7BNLX8GC"></script>
 
-    <script>
-        document.addEventListener('gdprCookiesEnabled', function (e) 
-        {
-            console.log("añadir cookies");
-            if (e.detail.marketing)
-            {
-
-            }
-            if (e.detail.analytics)
-            {
-                // console.log('anlitics cookies are enabled');
-                
-                window.dataLayer = window.dataLayer || [];
-                function gtag() {dataLayer.push(arguments); }
-                gtag('js', new Date());
-                gtag('config', 'G-VP7BNLX8GC');
-                gtag('set', 'allowAdFeatures', false);
-                gtag('set', 'anonymizeIp', true);
-                gtag('send', 'pageview');
-
-            }
-        });
-
-    </script>
+    
 </body>    
 </html>

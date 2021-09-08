@@ -511,24 +511,58 @@ window["gdpr-cookie-notice-templates"]["modal.html"] = "<div class=\"gdpr-cookie
     "";
 // END
 
+const description_cookieLocales = document.getElementById("description").value;
+const settings_cookieLocales = document.getElementById("settings").value;
+const accept_cookieLocales = document.getElementById("accept").value;
+const statement_cookieLocales = document.getElementById("statement").value;
+const save_cookieLocales = document.getElementById("save").value;
+const always_on_cookieLocales = document.getElementById("always_on").value;
+const cookie_essential_title_cookieLocales = document.getElementById("cookie_essential_title").value;
+const cookie_essential_desc_cookieLocales = document.getElementById("cookie_essential_desc").value;
+const cookie_performance_title_cookieLocales = document.getElementById("cookie_performance_title").value;
+const cookie_performance_desc_cookieLocales = document.getElementById("cookie_performance_desc").value;
+const cookie_analytics_title_cookieLocales = document.getElementById("cookie_analytics_title").value;
+const cookie_analytics_desc_cookieLocales = document.getElementById("cookie_analytics_desc").value;
+const cookie_marketing_title_cookieLocales = document.getElementById("cookie_marketing_title").value;
+const cookie_marketing_desc_cookieLocales = document.getElementById("cookie_marketing_desc").value;
+
 
 //Add strings
-gdprCookieNoticeLocales.en = {
-    description: 'We use cookies to offer you a better browsing experience, personalise content and ads, to provide social media features and to analyse our traffic. Read about how we use cookies and how you can control them by clicking Cookie Settings. You consent to our cookies if you continue to use this website.',
-    settings: 'Cookie settings',
-    accept: 'Accept cookies',
-    statement: 'Our cookie statement',
-    save: 'Save settings',
-    always_on: 'Always on',
-    cookie_essential_title: 'Essential website cookies',
-    cookie_essential_desc: 'Necessary cookies help make a website usable by enabling basic functions like page navigation and access to secure areas of the website. The website cannot function properly without these cookies.',
-    cookie_performance_title: 'Performance cookies',
-    cookie_performance_desc: 'These cookies are used to enhance the performance and functionality of our websites but are non-essential to their use. For example it stores your preferred language or the region that you are in.',
-    cookie_analytics_title: 'Analytics cookies',
-    cookie_analytics_desc: 'We use analytics cookies to help us measure how users interact with website content, which helps us customize our websites and application for you in order to enhance your experience.',
-    cookie_marketing_title: 'Marketing cookies',
-    cookie_marketing_desc: 'These cookies are used to make advertising messages more relevant to you and your interests. The intention is to display ads that are relevant and engaging for the individual user and thereby more valuable for publishers and third party advertisers.'
-}
+gdprCookieNoticeLocales.en = 
+{
+    description: description_cookieLocales,
+    settings: settings_cookieLocales,
+    accept: accept_cookieLocales,
+    statement: statement_cookieLocales,
+    save: save_cookieLocales,
+    always_on: always_on_cookieLocales,
+    cookie_essential_title: cookie_essential_title_cookieLocales,
+    cookie_essential_desc: cookie_essential_desc_cookieLocales,
+    cookie_performance_title: cookie_performance_title_cookieLocales,
+    cookie_performance_desc: cookie_performance_desc_cookieLocales,
+    cookie_analytics_title: cookie_analytics_title_cookieLocales,
+    cookie_analytics_desc: cookie_analytics_desc_cookieLocales,
+    cookie_marketing_title: cookie_marketing_title_cookieLocales,
+    cookie_marketing_desc: cookie_marketing_desc_cookieLocales
+};
+
+// gdprCookieNoticeLocales.en = 
+// {
+//     description: 'We use cookies to offer you a better browsing experience, personalise content and ads, to provide social media features and to analyse our traffic. Read about how we use cookies and how you can control them by clicking Cookie Settings. You consent to our cookies if you continue to use this website.',
+//     settings: 'Cookie settings',
+//     accept: 'Accept cookies',
+//     statement: 'Our cookie statement',
+//     save: 'Save settings',
+//     always_on: 'Always on',
+//     cookie_essential_title: 'Essential website cookies',
+//     cookie_essential_desc: 'Necessary cookies help make a website usable by enabling basic functions like page navigation and access to secure areas of the website. The website cannot function properly without these cookies.',
+//     cookie_performance_title: 'Performance cookies',
+//     cookie_performance_desc: 'These cookies are used to enhance the performance and functionality of our websites but are non-essential to their use. For example it stores your preferred language or the region that you are in.',
+//     cookie_analytics_title: 'Analytics cookies',
+//     cookie_analytics_desc: 'We use analytics cookies to help us measure how users interact with website content, which helps us customize our websites and application for you in order to enhance your experience.',
+//     cookie_marketing_title: 'Marketing cookies',
+//     cookie_marketing_desc: 'These cookies are used to make advertising messages more relevant to you and your interests. The intention is to display ads that are relevant and engaging for the individual user and thereby more valuable for publishers and third party advertisers.'
+// };
 
 
 gdprCookieNotice({
@@ -537,8 +571,26 @@ gdprCookieNotice({
     expiration: 30,
     domain: '.rentcarmallorca.es',
     implicit: true,
-    statement: 'https://www.rentcarmallorca.es/cookies_policy', //Link to your cookie statement page
-    performance: ['JSESSIONID'], //Cookies in the performance category.
-    analytics: ['ga'], //Cookies in the analytics category.
-    marketing: ['SSID'] //Cookies in the marketing category.
+    statement: 'https://www.rentcarmallorca.es/cookies_policy',
+    performance: ['JSESSIONID'],
+    analytics: ['ga'], 
+    marketing: ['SSID']
+});
+
+document.addEventListener('gdprCookiesEnabled', function (e) {
+    if (e.detail.marketing) {
+        // console.log("marketing cookies");
+    }
+    if (e.detail.analytics) {
+        // console.log("analitics google activadas");
+
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-VP7BNLX8GC');
+        gtag('set', 'allowAdFeatures', false);
+        gtag('set', 'anonymizeIp', true);
+        gtag('send', 'pageview');
+
+    }
 });
