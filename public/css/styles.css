@@ -26,6 +26,9 @@
 
 
   --rotacion: -180deg;
+
+  /* COOKIES */
+  --COLOR-BACKGROUND-COOKIE-BOTON: #1ad56c;
 }
 
 @font-face {

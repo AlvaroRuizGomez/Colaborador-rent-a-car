@@ -21,6 +21,9 @@
   --background-cabecera-container: #eaf2fd;
   --background-cabecera: #fafafa;
 
+    /* COOKIES */
+  --COLOR-BACKGROUND-COOKIE-BOTON: #1ad56c;
+
 }
 
 *{
