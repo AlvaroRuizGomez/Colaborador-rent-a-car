@@ -253,7 +253,7 @@
 let date_ob = new Date();
 
 const diaRec = (date_ob.getDate() + 1).toString().padStart(2, "00");
-const mesRec = (date_ob.getDate() + 1).toString().padStart(2, "00");
+const mesRec = (date_ob.getMonth() + 1).toString().padStart(2, "00");
 const anyoRec = date_ob.getFullYear();
 const fechaRecogidaTexto = `${diaRec}-${mesRec}-${anyoRec}`;
 const fechaDevolucionTexto = `${date_ob.getDate() + 3}-${mesRec}-${anyoRec}`;
