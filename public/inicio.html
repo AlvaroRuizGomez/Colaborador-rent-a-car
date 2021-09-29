@@ -80,7 +80,6 @@
     <link rel="apple-touch-icon" href="./img/Img-Logo/rentacar_favicon-152.png" sizes="152x152">
     <link rel="apple-touch-icon" href="./img/Img-Logo/rentacar_favicon-180.png" sizes="180x180">
 
-    <%~ includeFile("config_header.html", it) %>
 </head>
 
 <body>
@@ -257,7 +256,7 @@ const mesRec = (date_now.getMonth() + 1).toString().padStart(2, "00");
 const anyoRec = date_now.getFullYear();
 const fechaRecogidaTexto = `${diaRec}-${mesRec}-${anyoRec}`;
 
-let date_fin = new Date( date_now.setDate(date_now.getDate() + 4) );
+let date_fin = new Date( date_now.setDate(date_now.getDate() + 3) );
 
 const diaRecFin = date_fin.getDate().toString().padStart(2, "00");
 const mesRecFin = (date_fin.getMonth() + 1).toString().padStart(2, "00");
