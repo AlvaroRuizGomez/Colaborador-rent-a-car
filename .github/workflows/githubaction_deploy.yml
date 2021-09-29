@@ -1,17 +1,7 @@
 name: accion para subir imagen a servidor
-
-# on:
-#   push:
-#     tags:
-#       - 'v*'
-#     # branches:
-#     #   - backend
-
 on:
   push:
     branches: [ dev-joseluis ]
-
-
 jobs:
   # test:
     # runs-on: ubuntu-20.04
@@ -42,7 +32,7 @@ jobs:
 
 
 
-  buildx:
+  frontend:
     runs-on: ubuntu-20.04
     if: "contains(github.event.head_commit.message, '/a')"
     steps:
@@ -79,6 +69,8 @@ jobs:
           tags: | 
             sosan/frontend-rentacarmallorca:${{steps.date.outputs.DATE_NOW}}
             sosan/frontend-rentacarmallorca:latest
+          environment: |
+            
           secrets: |
             "PORT_BACKEND=${{ secrets.PORT_BACKEND }}"
             "ENDPOINT_VARIABLES_FRONTEND=${{ secrets.ENDPOINT_VARIABLES_FRONTEND }}"
