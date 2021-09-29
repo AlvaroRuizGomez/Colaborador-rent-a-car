@@ -255,11 +255,15 @@ let date_now = new Date();
 const diaRec = (date_now.getDate() + 1).toString().padStart(2, "00");
 const mesRec = (date_now.getMonth() + 1).toString().padStart(2, "00");
 const anyoRec = date_now.getFullYear();
-
-let date_fin = date_now.setDate(date_now.getDate() + 4);
-
 const fechaRecogidaTexto = `${diaRec}-${mesRec}-${anyoRec}`;
-const fechaDevolucionTexto = `${date_fin.getDate()}-${mesRec}-${anyoRec}`;
+
+let date_fin = new Date( date_now.setDate(date_now.getDate() + 4) );
+
+const diaRecFin = date_fin.getDate().toString().padStart(2, "00");
+const mesRecFin = (date_fin.getMonth() + 1).toString().padStart(2, "00");
+const anyoRecFin = date_fin.getFullYear();
+
+const fechaDevolucionTexto = `${diaRecFin}-${mesRecFin}-${anyoRecFin}`;
 
 %>
 
