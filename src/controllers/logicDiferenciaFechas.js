@@ -63,7 +63,9 @@ const ObtenerConversionFecha = async (fechaRaw, horaRaw) => {
     //comprobar que el mes este entre 0 y 11, dia entre 1 y 30 y 1900-
     if (mes < 1 || mes > 12) {
         console.error("Mes - Conversion erronea");
-        return undefined;
+        const mesRaw = new Date().getMonth();
+        mes = mesRaw + 1;
+        // return undefined;
     }
 
     if (anyo < 1900) {

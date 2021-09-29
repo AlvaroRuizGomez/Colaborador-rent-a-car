@@ -250,13 +250,16 @@
                     <% } %>
 <!-- &fechaRecogida=&horaRecogida=&fechaDevolucion=&horaDevolucion=&conductor_con_experiencia=&edad_conductor=&anyos_carnet=& -->
 <% 
-let date_ob = new Date();
+let date_now = new Date();
 
-const diaRec = (date_ob.getDate() + 1).toString().padStart(2, "00");
-const mesRec = (date_ob.getMonth() + 1).toString().padStart(2, "00");
-const anyoRec = date_ob.getFullYear();
+const diaRec = (date_now.getDate() + 1).toString().padStart(2, "00");
+const mesRec = (date_now.getMonth() + 1).toString().padStart(2, "00");
+const anyoRec = date_now.getFullYear();
+
+let date_fin = date_now.setDate(date_now.getDate() + 4);
+
 const fechaRecogidaTexto = `${diaRec}-${mesRec}-${anyoRec}`;
-const fechaDevolucionTexto = `${date_ob.getDate() + 3}-${mesRec}-${anyoRec}`;
+const fechaDevolucionTexto = `${date_fin.getDate()}-${mesRec}-${anyoRec}`;
 
 %>
 
