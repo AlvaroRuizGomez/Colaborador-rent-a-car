@@ -86,6 +86,7 @@ const conversionFecha = async (fechaRaw, horaRaw) =>
     let mes = fechaRecogidaFormSplitted[1] - 0;
     let dia = fechaRecogidaFormSplitted[0] - 0;
 
+    
     //comprobar que el mes este entre 0 y 11, dia entre 1 y 30 y 1900-
     if (mes < 1 || mes > 12) {
         console.error("Mes - Conversion erronea");
