@@ -1,5 +1,9 @@
 
 exports.DiferenciaFechaRecogidaDevolucion = async (formulario) => {
+
+
+    //https://www.rentcarmallorca.es/car/citroenC3.html?id=citroenC3\u0026success=Can7Ed63YEPpAgTZAM_8f\u0026fase=2\u0026idioma=en\u0026vehiculo=citroenC3\u0026fechaRecogida=22-22-2021\u0026horaRecogida=09:00\u0026fechaDevolucion=24-22-2021\u0026horaDevolucion=20:00\u0026conductor_con_experiencia=true\u0026edad_conductor=25\u0026anyos_carnet=3\u0026numeroDias=3
+
     const fechaRecogida = await ObtenerConversionFecha(
         formulario.fechaRecogida,
         formulario.horaRecogida,
@@ -47,11 +51,12 @@ const ObtenerConversionFecha = async (fechaRaw, horaRaw) =>
 
     const currentDate = new Date();
 
-    if (fechaRaw === undefined || horaRaw === undefined)
+    if (fechaRaw === undefined)
     {
         anyo = currentDate.getFullYear();
         mes = currentDate.getMonth() + 1;
         dia = currentDate.getDate();
+        
     }
     else
     {
@@ -64,7 +69,6 @@ const ObtenerConversionFecha = async (fechaRaw, horaRaw) =>
 
 
 };
-
 
 const conversionFecha = async (fechaRaw, horaRaw) =>
 {
@@ -86,7 +90,7 @@ const conversionFecha = async (fechaRaw, horaRaw) =>
     let mes = fechaRecogidaFormSplitted[1] - 0;
     let dia = fechaRecogidaFormSplitted[0] - 0;
 
-    
+
     //comprobar que el mes este entre 0 y 11, dia entre 1 y 30 y 1900-
     if (mes < 1 || mes > 12) {
         console.error("Mes - Conversion erronea");
@@ -105,6 +109,5 @@ const conversionFecha = async (fechaRaw, horaRaw) =>
     }
 
     return [anyo, mes, dia];
-
 
 };
