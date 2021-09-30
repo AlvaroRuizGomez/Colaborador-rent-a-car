@@ -63,7 +63,7 @@ const ObtenerConversionFecha = async (fechaRaw, horaRaw) =>
     }
     else
     {
-        [anyo, mes, dia] = await conversionFecha(fechaRaw);
+        [anyo, mes, dia] = await conversionFecha(fechaRaw, currentDate);
     }
 
     const fechaRecogida = new Date(`${anyo}-${mes}-${dia} ${horaRaw}:00Z`);
@@ -73,7 +73,7 @@ const ObtenerConversionFecha = async (fechaRaw, horaRaw) =>
 
 };
 
-const conversionFecha = async (fechaRaw) =>
+const conversionFecha = async (fechaRaw, currentDate) =>
 {
 
     let fechaRecogidaFormSplitted = undefined;
