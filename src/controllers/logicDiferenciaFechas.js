@@ -4,6 +4,8 @@ exports.DiferenciaFechaRecogidaDevolucion = async (formulario) => {
 
     //https://www.rentcarmallorca.es/car/citroenC3.html?id=citroenC3\u0026success=Can7Ed63YEPpAgTZAM_8f\u0026fase=2\u0026idioma=en\u0026vehiculo=citroenC3\u0026fechaRecogida=22-22-2021\u0026horaRecogida=09:00\u0026fechaDevolucion=24-22-2021\u0026horaDevolucion=20:00\u0026conductor_con_experiencia=true\u0026edad_conductor=25\u0026anyos_carnet=3\u0026numeroDias=3
 
+    // formulario = await sanitizarFormulario(formulario);
+
     const fechaRecogida = await ObtenerConversionFecha(
         formulario.fechaRecogida,
         formulario.horaRecogida,
@@ -42,6 +44,7 @@ exports.DiferenciaFechaRecogidaDevolucion = async (formulario) => {
     return true;
 };
 
+
 const ObtenerConversionFecha = async (fechaRaw, horaRaw) =>
 {
 
@@ -60,7 +63,7 @@ const ObtenerConversionFecha = async (fechaRaw, horaRaw) =>
     }
     else
     {
-        [anyo, mes, dia] = await conversionFecha(fechaRaw, horaRaw);
+        [anyo, mes, dia] = await conversionFecha(fechaRaw);
     }
 
     const fechaRecogida = new Date(`${anyo}-${mes}-${dia} ${horaRaw}:00Z`);
@@ -70,13 +73,8 @@ const ObtenerConversionFecha = async (fechaRaw, horaRaw) =>
 
 };
 
-const conversionFecha = async (fechaRaw, horaRaw) =>
+const conversionFecha = async (fechaRaw) =>
 {
-
-    let anyo = undefined;
-    let mes = undefined;
-    let dia = undefined;
-
 
     let fechaRecogidaFormSplitted = undefined;
     if (fechaRaw.split(",").length >= 2) {

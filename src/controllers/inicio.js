@@ -13,6 +13,9 @@ const logicHelper = require("./logicHelper");
 
 const eta = require("eta");
 
+const ctrlCharactersRegex = /[\u0000-\u001F\u007F-\u009F\u2000-\u200D\uFEFF]/gim;
+const regexExpAmp = new RegExp("\\\\u0026", "g");
+
 exports.GetCookiePolicy = async (req, res, languageBrowser) =>
 {
 
@@ -231,10 +234,9 @@ exports.postHomeDirect = async (req, res) =>
 {
 
     
-    let query = req.query;
+    // let query = req.query;
 
     
-
     // let locationLanguage = "en";
     let idioma = "en";
     // console.log("lenguaje=" + req.headers["accept-language"]);
@@ -242,10 +244,11 @@ exports.postHomeDirect = async (req, res) =>
     {
         idioma = req.headers["accept-language"].split(",")[0].split("-")[0];
     }
-
+    
     // const idioma = req.headers["accept-language"].split(",")[0].split("-")[0];
-
-    if (query["vehiculo"] === undefined)
+    
+    let query = req.query;
+    if (req.query["vehiculo"] === undefined)
     {
         query = await sanitizar(req.url, idioma);
 
@@ -373,12 +376,20 @@ exports.postHomeDirect = async (req, res) =>
 
 };
 
+
+
 const sanitizar = async (query, idioma) =>
 {
 
     idioma = await CheckLanguage(idioma);
-    let q = querystring.unescape(query).split("?")[1];
-    let queryParsed = undefined;
+
+    query = query.toString().replace(ctrlCharactersRegex, "").trim();
+    query = decodeURI(query);
+    query = query.toString().replace(regexExpAmp, "&" );
+    
+    // let q = querystring.unescape(query).split("?")[1];
+    let q = query.split("?")[1];
+    let queryParsed = {};
     if (q === undefined)
     {
         let vehiculo = query.split("/")[2].split(".")[0];
@@ -395,20 +406,28 @@ const sanitizar = async (query, idioma) =>
             horaDevolucion: "20:00",
             conductor_con_experiencia: "on",
             edad_conductor: "25",
-            anyos_carnet: "2"
+            anyos_carnet: "3"
         };
 
         
     }
     else
     {
-        queryParsed = querystring.parse(q, "&", "=", querystring.unescape());
+        // queryParsed = querystring.parse(q, "&", "=", querystring.unescape());
+        const params = new URLSearchParams(q);
+        for (const [key, value] of params) 
+        {
+            console.log("key=" + key + "value=" + value);
+            queryParsed[key] = value;
+
+        }
+        
     }
 
-    if (queryParsed.idioma !== undefined)
+    if (queryParsed["idioma"] !== undefined)
     {
-        const fechaRecogida = await ObtenerCurrentDate(queryParsed.idioma, 1);
-        const fechaRetorno = await ObtenerCurrentDate(queryParsed.idioma, 4);
+        const fechaRecogida = await ObtenerCurrentDate(queryParsed["idioma"], 1);
+        const fechaRetorno = await ObtenerCurrentDate(queryParsed["idioma"], 3);
     
         queryParsed["fechaRecogida"] = fechaRecogida;
         queryParsed["horaRecogida"] = "09:00";
