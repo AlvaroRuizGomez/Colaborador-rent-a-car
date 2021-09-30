@@ -53,7 +53,7 @@ const ObtenerConversionFecha = async (fechaRaw, horaRaw) => {
     }
 
     const anyo = fechaRecogidaFormSplitted[2] - 0;
-    const mes = fechaRecogidaFormSplitted[1] - 0;
+    let mes = fechaRecogidaFormSplitted[1] - 0;
     const dia = fechaRecogidaFormSplitted[0] - 0;
 
     // const horaSplitted = horaRaw.split(":");
