@@ -38,49 +38,72 @@ exports.DiferenciaFechaRecogidaDevolucion = async (formulario) => {
     return true;
 };
 
-const ObtenerConversionFecha = async (fechaRaw, horaRaw) => {
+const ObtenerConversionFecha = async (fechaRaw, horaRaw) =>
+{
 
+    let anyo = undefined;
+    let mes = undefined;
+    let dia = undefined;
 
-    let fechaRecogidaFormSplitted = undefined;
-    if (fechaRaw.split(",").length >= 2)
+    const currentDate = new Date();
+
+    if (fechaRaw === undefined || horaRaw === undefined)
     {
-        fechaRecogidaFormSplitted = fechaRaw.split(",")[1].split("-");
-
+        anyo = currentDate.getFullYear();
+        mes = currentDate.getMonth() + 1;
+        dia = currentDate.getDate();
     }
     else
     {
-        fechaRecogidaFormSplitted = fechaRaw.split("-");
-    }
-
-    const anyo = fechaRecogidaFormSplitted[2] - 0;
-    let mes = fechaRecogidaFormSplitted[1] - 0;
-    const dia = fechaRecogidaFormSplitted[0] - 0;
-
-    // const horaSplitted = horaRaw.split(":");
-    // const hora = horaSplitted[0] - 0;
-
-
-    //comprobar que el mes este entre 0 y 11, dia entre 1 y 30 y 1900-
-    if (mes < 1 || mes > 12) {
-        console.error("Mes - Conversion erronea");
-        const mesRaw = new Date().getMonth();
-        mes = mesRaw + 1;
-        // return undefined;
-    }
-
-    if (anyo < 1900) {
-        console.error("Anyo - Conversion erronea");
-        return undefined;
-    }
-
-    if (dia < 1 || dia > 31) {
-        console.error("Dia - Conversion erronea");
-        return undefined;
+        [anyo, mes, dia] = await conversionFecha(fechaRaw, horaRaw);
     }
 
     const fechaRecogida = new Date(`${anyo}-${mes}-${dia} ${horaRaw}:00Z`);
 
     return fechaRecogida;
+
+
+};
+
+
+const conversionFecha = async (fechaRaw, horaRaw) =>
+{
+
+    let anyo = undefined;
+    let mes = undefined;
+    let dia = undefined;
+
+
+    let fechaRecogidaFormSplitted = undefined;
+    if (fechaRaw.split(",").length >= 2) {
+        fechaRecogidaFormSplitted = fechaRaw.split(",")[1].split("-");
+    }
+    else {
+        fechaRecogidaFormSplitted = fechaRaw.split("-");
+    }
+
+    let anyo = fechaRecogidaFormSplitted[2] - 0;
+    let mes = fechaRecogidaFormSplitted[1] - 0;
+    let dia = fechaRecogidaFormSplitted[0] - 0;
+
+    //comprobar que el mes este entre 0 y 11, dia entre 1 y 30 y 1900-
+    if (mes < 1 || mes > 12) {
+        console.error("Mes - Conversion erronea");
+        const mesRaw = currentDate.getMonth();
+        mes = mesRaw + 1;
+    }
+
+    if (anyo < 1900) {
+        console.error("Anyo - Conversion erronea");
+        anyo = currentDate.getFullYear();
+    }
+
+    if (dia < 1 || dia > 31) {
+        console.error("Dia - Conversion erronea");
+        dia = currentDate.getDate();
+    }
+
+    return [anyo, mes, dia];
 
 
 };
