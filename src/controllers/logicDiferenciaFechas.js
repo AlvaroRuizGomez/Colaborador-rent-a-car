@@ -18,7 +18,7 @@ exports.DiferenciaFechaRecogidaDevolucion = async (formulario) => {
         return false;
     }
 
-    let fechaDevolucion = await ObtenerConversionFecha(
+    const fechaDevolucion = await ObtenerConversionFecha(
         formulario.fechaDevolucion,
         formulario.horaDevolucion,
 
@@ -36,12 +36,8 @@ exports.DiferenciaFechaRecogidaDevolucion = async (formulario) => {
         return false;
     }
 
-    // const milisecondsEntreRecogidaDevolucion = fechaDevolucion - fechaRecogida;
-    // const diasEntreRecogidaDevolucion = Math.round(milisecondsEntreRecogidaDevolucion / DAY_IN_MILISECONDS);
+    return [true, fechaRecogida, fechaDevolucion];
 
-    // console.log("dias=" + diasEntreRecogidaDevolucion);
-
-    return true;
 };
 
 
