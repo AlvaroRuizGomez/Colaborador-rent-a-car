@@ -234,10 +234,6 @@ exports.postHomeDirect = async (req, res) =>
 {
 
     
-    // let query = req.query;
-
-    
-    // let locationLanguage = "en";
     let idioma = "en";
     // console.log("lenguaje=" + req.headers["accept-language"]);
     if (req.headers["accept-language"] !== undefined) 
@@ -264,8 +260,9 @@ exports.postHomeDirect = async (req, res) =>
 
     const [diferenciaDias, fechaRecogida, fechaDevolucion] = await logicDiferenciaFechas.DiferenciaFechaRecogidaDevolucion(query);
     
-    if (query.edad_conductor - 0 < 21 || query.edad_conductor - 0 > 90 || query.anyos_carnet - 0 < 2 || diferenciaDias === false) {
-        return res.redirect("/");
+    if (query.edad_conductor - 0 < 21 || query.edad_conductor - 0 > 90 || query.anyos_carnet - 0 < 2 || diferenciaDias === false)
+    {
+        return res.status(301).redirect("/");
     }
 
     const body = { "token": process.env.TOKEN_FOR_BACKEND_ACCESS, "direct":true, ...query };
