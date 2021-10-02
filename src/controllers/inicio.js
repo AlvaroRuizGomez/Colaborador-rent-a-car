@@ -262,14 +262,16 @@ exports.postHomeDirect = async (req, res) =>
         return res.status(404).send("Not found");
     }
 
-    const diferenciaDias = await logicDiferenciaFechas.DiferenciaFechaRecogidaDevolucion(query);
-
+    const [diferenciaDias, fechaRecogida, fechaDevolucion] = await logicDiferenciaFechas.DiferenciaFechaRecogidaDevolucion(query);
+    
     if (query.edad_conductor - 0 < 21 || query.edad_conductor - 0 > 90 || query.anyos_carnet - 0 < 2 || diferenciaDias === false) {
         return res.redirect("/");
     }
 
     const body = { "token": process.env.TOKEN_FOR_BACKEND_ACCESS, "direct":true, ...query };
-
+    body["fechaRecogida"] = fechaRecogida;
+    body["fechaDevolucion"] = fechaDevolucion;
+    // no nos fiamos del usuario y ponemos la fecha que mas o 
     //enviamos al backedn la informacion
     const responseRaw = await fetch(obtenerVars.ENDPOINT_GETCAR_FROM_CARD_BACKEND, {
         method: "POST",
@@ -322,10 +324,10 @@ exports.postHomeDirect = async (req, res) =>
             "conductor_con_experiencia": query.conductor_con_experiencia,
             "edad_conductor": query.edad_conductor,
             "anyos_carnet": query.anyos_carnet,
-            "fechaRecogida": query.fechaRecogida,
-            "horaRecogida": query.horaRecogida,
-            "fechaDevolucion": query.fechaDevolucion,
-            "horaDevolucion": query.horaDevolucion,
+            "fechaRecogida": body.fechaRecogida,
+            "horaRecogida": body.horaRecogida,
+            "fechaDevolucion": body.fechaDevolucion,
+            "horaDevolucion": body.horaDevolucion,
             "numeroDias": query.numeroDias,
             // "formdata": query,
             "errorFormulario": dataResponse.errorFormulario,
@@ -351,12 +353,12 @@ exports.postHomeDirect = async (req, res) =>
             "isAvifSupported": isAvifSupported,
             "conductor_con_experiencia": query.conductor_con_experiencia ,
             "edad_conductor": query.edad_conductor ,
-            "anyos_carnet": query.anyos_carnet ,
-            "fechaRecogida": query.fechaRecogida ,
-            "horaRecogida": query.horaRecogida ,
-            "fechaDevolucion": query.fechaDevolucion ,
-            "horaDevolucion": query.horaDevolucion ,
-            "numeroDias": query.numeroDias ,
+            "anyos_carnet": query.anyos_carnet,
+            "fechaRecogida": body.fechaRecogida,
+            "horaRecogida": body.horaRecogida,
+            "fechaDevolucion": body.fechaDevolucion,
+            "horaDevolucion": body.horaDevolucion,
+            "numeroDias": query.numeroDias,
             // "formdata": query,
             "errorFormulario": dataResponse.errorFormulario,
             "success": query.success,
@@ -370,9 +372,6 @@ exports.postHomeDirect = async (req, res) =>
         });
 
     }
-
-
-
 
 };
 
@@ -488,7 +487,7 @@ exports.postHome = async (req, res) =>
         return res.status(404).send("Not found");
     }
 
-    const diferenciaDias = await logicDiferenciaFechas.DiferenciaFechaRecogidaDevolucion(req.body);
+    const [diferenciaDias, fechaRecogida, fechaDevolucion] = await logicDiferenciaFechas.DiferenciaFechaRecogidaDevolucion(req.body);
 
     if (req.body.edad_conductor - 0 < 21 || req.body.edad_conductor - 0 > 90 || req.body.anyos_carnet - 0 < 2 || diferenciaDias === false)
     {
@@ -496,7 +495,9 @@ exports.postHome = async (req, res) =>
     }
     
     const body = { "token": process.env.TOKEN_FOR_BACKEND_ACCESS, "direct": false, ...req.body };
-    
+    body["fechaRecogida"] = fechaRecogida;
+    body["fechaDevolucion"] = fechaDevolucion;
+
     //enviamos al backedn la informacion
     const responseRaw = await fetch(obtenerVars.URI_API_BACKEND, {
         method: "POST",

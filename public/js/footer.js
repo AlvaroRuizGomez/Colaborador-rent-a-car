@@ -192,12 +192,12 @@ if(typeof $ !== 'undefined')
     $(function () 
     {
         $("#fechaRecogida").datepicker({ dateFormat: 'D,dd-mm-yy', minDate: '1d' });
-        if (botonVerPrecios)
-        {
-            //    comprobar que no machaque la fecha desde muestraoferta.html
-            $("#fechaRecogida").datepicker("setDate", new Date());
+        $("#fechaRecogida").datepicker("setDate", new Date());
+        // if (botonVerPrecios)
+        // {
+        
     
-        }
+        // }
     });
         
     $(function () 
@@ -207,12 +207,12 @@ if(typeof $ !== 'undefined')
         
         let fecha = new Date();
         fecha.setDate(fecha.getDate() + 3);
+        $("#fechaDevolucion").datepicker("setDate", fecha);
         
-        if (botonVerPrecios)
-        {
-            $("#fechaDevolucion").datepicker("setDate", fecha);
+        // if (botonVerPrecios)
+        // {
     
-        }
+        // }
     });
     
     

@@ -18,7 +18,7 @@ exports.DiferenciaFechaRecogidaDevolucion = async (formulario) => {
         return false;
     }
 
-    let fechaDevolucion = await ObtenerConversionFecha(
+    const fechaDevolucion = await ObtenerConversionFecha(
         formulario.fechaDevolucion,
         formulario.horaDevolucion,
 
@@ -36,12 +36,8 @@ exports.DiferenciaFechaRecogidaDevolucion = async (formulario) => {
         return false;
     }
 
-    // const milisecondsEntreRecogidaDevolucion = fechaDevolucion - fechaRecogida;
-    // const diasEntreRecogidaDevolucion = Math.round(milisecondsEntreRecogidaDevolucion / DAY_IN_MILISECONDS);
+    return [true, fechaRecogida, fechaDevolucion];
 
-    // console.log("dias=" + diasEntreRecogidaDevolucion);
-
-    return true;
 };
 
 
@@ -63,7 +59,7 @@ const ObtenerConversionFecha = async (fechaRaw, horaRaw) =>
     }
     else
     {
-        [anyo, mes, dia] = await conversionFecha(fechaRaw);
+        [anyo, mes, dia] = await conversionFecha(fechaRaw, currentDate);
     }
 
     const fechaRecogida = new Date(`${anyo}-${mes}-${dia} ${horaRaw}:00Z`);
@@ -73,7 +69,7 @@ const ObtenerConversionFecha = async (fechaRaw, horaRaw) =>
 
 };
 
-const conversionFecha = async (fechaRaw) =>
+const conversionFecha = async (fechaRaw, currentDate) =>
 {
 
     let fechaRecogidaFormSplitted = undefined;
