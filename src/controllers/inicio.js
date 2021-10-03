@@ -41,6 +41,21 @@ exports.GetCookiePolicy = async (req, res, languageBrowser) =>
 
 };
 
+exports.SecurityReportGet = async (req, res) => {
+
+    console.log(JSON.stringify(req));
+
+};
+
+
+exports.SecurityReport = async (req, res) =>
+{
+
+    console.log(JSON.stringify(req));
+
+};
+
+
 exports.getHome = async (req, res, languageBrowser, isPagoCorrecto = false) =>
 {
 

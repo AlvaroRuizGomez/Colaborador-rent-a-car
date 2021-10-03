@@ -1,9 +1,9 @@
 
 exports.DiferenciaFechaRecogidaDevolucion = async (formulario) => {
 
+// http://localhost:8080/car/peugeot807.html?anyos_carnet=3&conductor_con_experiencia=true&edad_conductor=25&fase=2&fechaDevolucion=32-09-2021&fechaRecogida=30-09-2021&horaDevolucion=20%3A00&horaRecogida=09%3A00&id=peugeot807&idioma=en&numeroDias=3&success=BMnO390GIbIIelNNAmwZc&vehiculo=peugeot807
 
 
-    // http://localhost:8080/car/suzukyBurgman125.html?id=suzukyBurgman125&success=GgxjggDbBgV88lT3d7dO5&fase=2&idioma=en&vehiculo=suzukyBurgman125&fechaRecogida=29-09-2021&horaRecogida=09:00&fechaDevolucion=31-09-2021&horaDevolucion=20:00&conductor_con_experiencia=true&edad_conductor=25&anyos_carnet=3&numeroDias=3
     let resultado = false;
 
     let fechaRecogida = await ObtenerConversionFecha(
