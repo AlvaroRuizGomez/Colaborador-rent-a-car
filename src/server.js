@@ -158,6 +158,7 @@ exports.InitServer = async () => {
                 scriptSrcElem: [
                     "'self'",
                     "'unsafe-inline'",
+
                     //google analtics
                     "https://www.googletagmanager.com/gtag/js",
                     "'sha256-sWe1TdbP6hTGY12z2INsiVCNco2shKLDHyvrkMIl53o='",
@@ -190,7 +191,7 @@ exports.InitServer = async () => {
                     "'sha256-5+02zu5UULQkO7w1GIr6vftCgMfFdZcAHeDtFnKZsBs='",
                     //js
                     "'sha256-zSry2p/DPzG0rkc5IQn/HFwlMgNVmiqKHZtrNQuFLEc='",
-                    "report-sample"
+                    "'report-sample'"
                 ],
                 childSrc: [
                     "'self'",
