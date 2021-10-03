@@ -125,7 +125,6 @@ exports.InitServer = async () => {
                 scriptSrc: [
                     "'unsafe-inline'",
                     // "'strict-dynamic'",
-
                     "https://www.google.com/maps/embed",
                     "https://www.googletagmanager.com/gtag/js",
                     "'sha256-sWe1TdbP6hTGY12z2INsiVCNco2shKLDHyvrkMIl53o='",
@@ -158,7 +157,6 @@ exports.InitServer = async () => {
                 scriptSrcElem: [
                     "'self'",
                     "'unsafe-inline'",
-
                     //google analtics
                     "https://www.googletagmanager.com/gtag/js",
                     "'sha256-sWe1TdbP6hTGY12z2INsiVCNco2shKLDHyvrkMIl53o='",
