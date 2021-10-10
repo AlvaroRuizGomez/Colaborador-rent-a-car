@@ -3,6 +3,8 @@ let botonesCerrar = document.getElementsByClassName("details-modal-close");
 const overlay = document.getElementsByClassName("overlay-transparente");
 const botonesEnlacesInteres = document.getElementsByClassName("enlace_interes_modal");
 const overlayAnimacion = document.getElementById("overlay-animacion-contenido");
+const botonModificar = document.getElementById("bt-enviar-index");
+
 
 for (let i = 0; i < botonCondiciones.length; i++)
 {
@@ -227,6 +229,16 @@ const ComprobarIntervaloFechas = async () => {
     }
     inputHiddenNumeroDias.value = numerodias;
     numerodiasInput.innerHTML = `${numerodias} ${traDias}`;
+    
+    if (numerodias <= 0)
+    {
+        botonModificar.disabled = true;
+    }
+    else
+    {
+        botonModificar.disabled = false;
+    }
+
     return true;
 
 

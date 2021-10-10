@@ -68,7 +68,8 @@ exports.InitServer = async () => {
             
             useDefaults: false,
             directives: {
-                reportUri: ["https://gate.rapidsec.net/g/r/csp/616afffa-f826-4461-85c3-941ee6973aff/0/0/3?sct=30c0d50e-2191-4857-9e5d-aed703100472&dpos=report"],
+                reportUri: ["/grcsp616afffa_f826_4461_85c3_941ee6973aff_0_0_3sct30c0d50e_2191_4857_9e5d_aed703100472"],
+                // reportUri: ["https://gate.rapidsec.net/g/r/csp/616afffa-f826-4461-85c3-941ee6973aff/0/0/3?sct=30c0d50e-2191-4857-9e5d-aed703100472&dpos=report"],
                 baseUri: ["'self'"],
                 connectSrc: [
                     "'self'",
@@ -109,6 +110,7 @@ exports.InitServer = async () => {
                 styleSrcAttr: [
                     "'self'",
                     "'unsafe-hashes'",
+                    "'report-sample'",
                     "https://sis.redsys.es/sis/NC/sandbox/redsysV2.js",
                     "https://sis.redsys.es/sis/NC/redsysV2.js",
                     "https://sis.redsys.es/sis/rest/trataPeticionREST",
@@ -121,7 +123,8 @@ exports.InitServer = async () => {
                 ],
                 workerSrc: ["'self'"],
                 scriptSrc: [
-                    "'strict-dynamic'",
+                    "'unsafe-inline'",
+                    // "'strict-dynamic'",
                     "https://www.google.com/maps/embed",
                     "https://www.googletagmanager.com/gtag/js",
                     "'sha256-sWe1TdbP6hTGY12z2INsiVCNco2shKLDHyvrkMIl53o='",
@@ -149,10 +152,11 @@ exports.InitServer = async () => {
                     "'sha256-4tehLJfCUwWh7TmeCizR3A07iyPojrk1EWuuoIsveSU='",
                     "'sha256-WrMdOLuaD9CxHHdi0shvJ+D32HQ0N9SzTjTDLIbeC08='",
                     "'sha256-5+02zu5UULQkO7w1GIr6vftCgMfFdZcAHeDtFnKZsBs='",
-                    "'unsafe-inline'",
+                    
                 ],
                 scriptSrcElem: [
-                    "'self'", 
+                    "'self'",
+                    "'unsafe-inline'",
                     //google analtics
                     "https://www.googletagmanager.com/gtag/js",
                     "'sha256-sWe1TdbP6hTGY12z2INsiVCNco2shKLDHyvrkMIl53o='",
@@ -184,7 +188,8 @@ exports.InitServer = async () => {
                     "'sha256-WrMdOLuaD9CxHHdi0shvJ+D32HQ0N9SzTjTDLIbeC08='",
                     "'sha256-5+02zu5UULQkO7w1GIr6vftCgMfFdZcAHeDtFnKZsBs='",
                     //js
-                    "'sha256-zSry2p/DPzG0rkc5IQn/HFwlMgNVmiqKHZtrNQuFLEc='"
+                    "'sha256-zSry2p/DPzG0rkc5IQn/HFwlMgNVmiqKHZtrNQuFLEc='",
+                    "'report-sample'"
                 ],
                 childSrc: [
                     "'self'",
@@ -222,6 +227,8 @@ exports.InitServer = async () => {
                 blockAllMixedContent: [],
                 prefetchSrc: ["'self'"],
             },
+            reportOnly: false,
+
         })
     );
 

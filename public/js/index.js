@@ -2,6 +2,7 @@
 //mostrar edad
 const checkboxRangoEdad = document.getElementById("rangoedad");
 const desplegable_edad = document.getElementById("desplegable_edad");
+const botonModificar = document.getElementById("boton-VerPrecios");
 
 
 //cards
@@ -155,6 +156,14 @@ const ComprobarIntervaloFechas = async () => {
     }
     inputHiddenNumeroDias.value = numerodias;
     numerodiasInput.innerHTML = `${numerodias} ${traDias}`;
+
+    if (numerodias <= 0) {
+        botonModificar.disabled = true;
+    }
+    else {
+        botonModificar.disabled = false;
+    }
+
     return true;
     
 

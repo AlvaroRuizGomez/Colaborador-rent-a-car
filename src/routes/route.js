@@ -17,6 +17,8 @@ const templates = require("../controllers/getTemplate");
 // rutas
 
 router.get("/cookie_policy", async (req, res) => await home.GetCookiePolicy(req, res));
+router.get("/grcsp616afffa_f826_4461_85c3_941ee6973aff_0_0_3sct30c0d50e_2191_4857_9e5d_aed703100472", async (req, res) => await home.SecurityReportGet(req, res))
+router.post("/grcsp616afffa_f826_4461_85c3_941ee6973aff_0_0_3sct30c0d50e_2191_4857_9e5d_aed703100472", async (req, res) => await home.SecurityReport(req, res))
 
 router.get("/", async (req, res) => await home.getHome(req, res));
 router.post("/busqueda", async (req, res) => await home.postHome(req, res));
@@ -75,5 +77,7 @@ router.post(process.env.ENDPOINT_DETALLE_TEMPLATE_FRONTEND, async (req, res) => 
 
 router.get("/.well-known/acme-challenge/*", async (req, res) => await challange.URIChallange(req, res));
 router.get(`/islive_0_QJFs_a_IiW_mFtZS2_f_A_BQ_NTib_Y3O6Ik_D0WNH9I`, async (req, res) => await live.IsLive(req, res));
+
+router.get("/robots.txt" ,async (req, res) => await home.GetRobots(req, res));
 
 module.exports = router;

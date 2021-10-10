@@ -479,7 +479,7 @@
         <div id="contenido-ofertas" class="contenido invisible">
             <!------------ Inicio Carrusel  ------------->
 <% /* cambio-inicio */ %>
-            <% if (it.data.length> 0) { %>
+            <% if (it.data !== undefined) { %>
                 <%~ includeFile("slider.html", it) %>
             <% } %>
 <% /* cambio-fin */ %>
@@ -529,7 +529,7 @@
 
                         
 <% /* cambio-inicio */ %>
-                        <% if (it.data.length <=0) { %>
+                        <% if (it.data !== undefined) { %>
                             <article class="">
                                 <h3 class="error-sinproductos">
                                     <%= it.errorFormulario %>
@@ -567,8 +567,10 @@
                                 </h3>
                             </div>
 
-                            <% for (let x=0; x < it.data.length; x++) { %>
-                                <%~ includeFile("oferta.html", it, element=it.data[x], j=x ) %>
+                            <% if (it.data !== undefined) { %>
+                                <% for (let x=0; x < it.data.length; x++) { %>
+                                    <%~ includeFile("oferta.html", it, element=it.data[x], j=x ) %>
+                                <% } %>
                             <% } %>
 <% /* cambio-fin */ %>
 

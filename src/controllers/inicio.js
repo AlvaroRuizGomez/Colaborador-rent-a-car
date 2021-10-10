@@ -41,6 +41,29 @@ exports.GetCookiePolicy = async (req, res, languageBrowser) =>
 
 };
 
+exports.SecurityReportGet = async (req, res) => {
+
+    console.log(JSON.stringify(req));
+
+};
+
+
+exports.SecurityReport = async (req, res) =>
+{
+
+    console.log(JSON.stringify(req));
+
+};
+
+
+exports.GetRobots = async (req, res) =>
+{
+
+    res.type('text/plain');
+    res.send("User-agent: Yandex\nDisallow: /");
+
+};
+
 exports.getHome = async (req, res, languageBrowser, isPagoCorrecto = false) =>
 {
 
@@ -51,7 +74,7 @@ exports.getHome = async (req, res, languageBrowser, isPagoCorrecto = false) =>
     if ((location.agent && location.agent.isBot === true) || (req.headers["accept-language"] === undefined)) 
     {
         // TODO: registrar los eventos en sitio separado
-        console.log("bot" + location.agent);
+        console.log("bot " + JSON.stringify( location.agent));
         // return res.status(404).send("Not Found");
     }
 
@@ -244,6 +267,11 @@ exports.postHomeDirect = async (req, res) =>
     // const idioma = req.headers["accept-language"].split(",")[0].split("-")[0];
     
     let query = req.query;
+    
+    if (Object.keys(query).length === 0)
+    {
+        return res.status(404).send("Not found");
+    }
     if (req.query["vehiculo"] === undefined)
     {
         query = await sanitizar(req.url, idioma);
@@ -252,123 +280,145 @@ exports.postHomeDirect = async (req, res) =>
 
     const isSchemaValid = await ControlDirectSchema(query);
 
-    if (isSchemaValid === false) {
+    if (isSchemaValid === false) 
+    {
         //TODO: mejorar
         console.error("inicio.js control schema invalido");
         return res.status(404).send("Not found");
     }
 
-    const [diferenciaDias, fechaRecogida, fechaDevolucion] = await logicDiferenciaFechas.DiferenciaFechaRecogidaDevolucion(query);
+    const [fechasValidas, fechaRecogida, fechaDevolucion, diasEntreFechas] = await logicDiferenciaFechas.DiferenciaFechaRecogidaDevolucion(query);
     
-    if (query.edad_conductor - 0 < 21 || query.edad_conductor - 0 > 90 || query.anyos_carnet - 0 < 2 || diferenciaDias === false)
+    if (query.edad_conductor - 0 < 21 || query.edad_conductor - 0 > 90 || query.anyos_carnet - 0 < 2 || fechasValidas === false)
     {
         return res.status(301).redirect("/");
     }
 
+    query.numeroDias = diasEntreFechas;
+    query.fechaRecogida = fechaRecogida;
+    query.fechaDevolucion = fechaDevolucion;
+    // query.fechaRecogida = `${fechaRecogida.getDate()}-${fechaRecogida.getMonth() + 1}-${fechaRecogida.getFullYear()}`;
+    // query.fechaDevolucion = `${fechaDevolucion.getDate()}-${fechaDevolucion.getMonth() + 1}-${fechaDevolucion.getFullYear()}`;
+
+
     const body = { "token": process.env.TOKEN_FOR_BACKEND_ACCESS, "direct":true, ...query };
-    body["fechaRecogida"] = fechaRecogida;
-    body["fechaDevolucion"] = fechaDevolucion;
+    // body["fechaRecogida"] = fechaRecogida;
+    // body["fechaDevolucion"] = fechaDevolucion;
     // no nos fiamos del usuario y ponemos la fecha que mas o 
     //enviamos al backedn la informacion
-    const responseRaw = await fetch(obtenerVars.ENDPOINT_GETCAR_FROM_CARD_BACKEND, {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        credentials: "include",
-        body: JSON.stringify(body)
-    });
-
-
-    const dataResponse = await responseRaw.json();
-
-    // TODO: seguridad comprobar que proviene del backend
-    if (dataResponse.token !== `sdj&/k.(fk)j#.#$d.a#s%djf.l7).as!#%as/kue#$!.!.#.$!.#$`)
+    try
     {
-        res.status(404).send("Not found");
-        return;
-    }
-    // const languageBrowser = await CheckLanguage(req.query.idioma);
-    // const lenguaje = await locations.GetVarLocales();
+        const responseRaw = await fetch(obtenerVars.ENDPOINT_GETCAR_FROM_CARD_BACKEND, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            credentials: "include",
+            body: JSON.stringify(body)
+        });
 
-    const locationLanguage = await locations.GenerateLocationBrowser(query.idioma);
-
-    const isAvifSupported = await logicHelper.IsAvifSupported(req.get("Accept"));
-
-    if (dataResponse.isOk === false) {
-        if (dataResponse.errorFormulario === "") {
-            // Blacklist?
-            return res.status(404).send("Not found");
+        const dataResponse = await responseRaw.json();
+    
+        // TODO: seguridad comprobar que proviene del backend
+        if (dataResponse.token !== `sdj&/k.(fk)j#.#$d.a#s%djf.l7).as!#%as/kue#$!.!.#.$!.#$`)
+        {
+            res.status(404).send("Not found");
+            return;
+        }
+        // const languageBrowser = await CheckLanguage(req.query.idioma);
+        // const lenguaje = await locations.GetVarLocales();
+    
+        const locationLanguage = await locations.GenerateLocationBrowser(query.idioma);
+    
+        const isAvifSupported = await logicHelper.IsAvifSupported(req.get("Accept"));
+    
+        if (dataResponse.isOk === false) {
+            
+            return res.status(501).send("Error Not Found");
+            // if (dataResponse.errorFormulario === "") 
+            // {
+            //     // Blacklist?
+            // }
+            // else {
+            //     return res.render(path.join(__dirname, "../../public/inicio.html"),
+            //         {
+            //             "isAvifSupported": isAvifSupported,
+            //             "success": query.success,
+            //             "errorFormulario": dataResponse.errorFormulario,
+            //             "locations": locationLanguage,
+            //             "data": undefined
+    
+            //         });
+            // }
+    
+        }
+    
+        // req.session.data = dataResponse.data;
+    
+        if (dataResponse.data.length <= 0) 
+        {
+            res.render(path.join(__dirname, "../../public/muestraOferta.html"), {
+                "isAvifSupported": isAvifSupported,
+                "data": dataResponse.data,
+                "conductor_con_experiencia": query.conductor_con_experiencia,
+                "edad_conductor": query.edad_conductor,
+                "anyos_carnet": query.anyos_carnet,
+                "fechaRecogida": body.fechaRecogida,
+                "horaRecogida": body.horaRecogida,
+                "fechaDevolucion": body.fechaDevolucion,
+                "horaDevolucion": body.horaDevolucion,
+                "numeroDias": body.numeroDias,
+                // "formdata": query,
+                "errorFormulario": dataResponse.errorFormulario,
+                "success": query.success,
+                "diasEntreRecogidaDevolucion": dataResponse.diasEntreRecogidaDevolucion,
+                "locations": locationLanguage
+    
+            });
         }
         else {
-            return res.render(path.join(__dirname, "../../public/inicio.html"),
-                {
-                    "isAvifSupported": isAvifSupported,
-                    "success": query.success,
-                    "errorFormulario": dataResponse.errorFormulario,
-                    "locations": locationLanguage
-                });
+    
+            // ordenar por precio
+            dataResponse.data = await OrdenarPorPrecioTotalDias(dataResponse.data);
+    
+            //ordenar por clase vehiculos
+            dataResponse.data = await OrdenaPorClaseVehiculos(dataResponse.datosOrdenacion, dataResponse.data)
+    
+            //obtener el vehiculo seleccionado
+            const vehiculoSeleccionado = await ObtenerVehiculoSeleccionado(dataResponse.data, query.vehiculo);
+    
+            res.render(path.join(__dirname, "../../public/muestraOferta.html"), {
+                "data": dataResponse.data,
+                "isAvifSupported": isAvifSupported,
+                "conductor_con_experiencia": query.conductor_con_experiencia ,
+                "edad_conductor": query.edad_conductor ,
+                "anyos_carnet": query.anyos_carnet,
+                "fechaRecogida": body.fechaRecogida,
+                "horaRecogida": body.horaRecogida,
+                "fechaDevolucion": body.fechaDevolucion,
+                "horaDevolucion": body.horaDevolucion,
+                "numeroDias": body.numeroDias,
+                // "formdata": query,
+                "errorFormulario": dataResponse.errorFormulario,
+                "success": query.success,
+                "diasEntreRecogidaDevolucion": dataResponse.diasEntreRecogidaDevolucion,
+                "suplementogenerico_base": dataResponse.suplementogenerico_base,
+                "suplementotipochofer_base": dataResponse.suplementotipochofer_base,
+                "preciosPorClase": dataResponse.preciosPorClase,
+                "condicionesgenerales": dataResponse.condicionesgenerales,
+                "locations": locationLanguage,
+                "vehiculoSeleccionado": vehiculoSeleccionado
+            });
+    
         }
-
+    }
+    catch(error)
+    {
+        console.log("error=" + error );
+        return res.status(501).send("Error Not Found");
     }
 
-    // req.session.data = dataResponse.data;
 
-    if (dataResponse.data.length <= 0) {
-        res.render(path.join(__dirname, "../../public/muestraOferta.html"), {
-            "isAvifSupported": isAvifSupported,
-            "data": dataResponse.data,
-            "conductor_con_experiencia": query.conductor_con_experiencia,
-            "edad_conductor": query.edad_conductor,
-            "anyos_carnet": query.anyos_carnet,
-            "fechaRecogida": body.fechaRecogida,
-            "horaRecogida": body.horaRecogida,
-            "fechaDevolucion": body.fechaDevolucion,
-            "horaDevolucion": body.horaDevolucion,
-            "numeroDias": query.numeroDias,
-            // "formdata": query,
-            "errorFormulario": dataResponse.errorFormulario,
-            "success": query.success,
-            "diasEntreRecogidaDevolucion": dataResponse.diasEntreRecogidaDevolucion,
-            "locations": locationLanguage
-
-        });
-    }
-    else {
-
-        // ordenar por precio
-        dataResponse.data = await OrdenarPorPrecioTotalDias(dataResponse.data);
-
-        //ordenar por clase vehiculos
-        dataResponse.data = await OrdenaPorClaseVehiculos(dataResponse.datosOrdenacion, dataResponse.data)
-
-        //obtener el vehiculo seleccionado
-        const vehiculoSeleccionado = await ObtenerVehiculoSeleccionado(dataResponse.data, query.vehiculo);
-
-        res.render(path.join(__dirname, "../../public/muestraOferta.html"), {
-            "data": dataResponse.data,
-            "isAvifSupported": isAvifSupported,
-            "conductor_con_experiencia": query.conductor_con_experiencia ,
-            "edad_conductor": query.edad_conductor ,
-            "anyos_carnet": query.anyos_carnet,
-            "fechaRecogida": body.fechaRecogida,
-            "horaRecogida": body.horaRecogida,
-            "fechaDevolucion": body.fechaDevolucion,
-            "horaDevolucion": body.horaDevolucion,
-            "numeroDias": query.numeroDias,
-            // "formdata": query,
-            "errorFormulario": dataResponse.errorFormulario,
-            "success": query.success,
-            "diasEntreRecogidaDevolucion": dataResponse.diasEntreRecogidaDevolucion,
-            "suplementogenerico_base": dataResponse.suplementogenerico_base,
-            "suplementotipochofer_base": dataResponse.suplementotipochofer_base,
-            "preciosPorClase": dataResponse.preciosPorClase,
-            "condicionesgenerales": dataResponse.condicionesgenerales,
-            "locations": locationLanguage,
-            "vehiculoSeleccionado": vehiculoSeleccionado
-        });
-
-    }
 
 };
 
@@ -484,12 +534,14 @@ exports.postHome = async (req, res) =>
         return res.status(404).send("Not found");
     }
 
-    const [diferenciaDias, fechaRecogida, fechaDevolucion] = await logicDiferenciaFechas.DiferenciaFechaRecogidaDevolucion(req.body);
+    const [fechaValida, fechaRecogida, fechaDevolucion, diasEntreFechas] = await logicDiferenciaFechas.DiferenciaFechaRecogidaDevolucion(req.body);
 
-    if (req.body.edad_conductor - 0 < 21 || req.body.edad_conductor - 0 > 90 || req.body.anyos_carnet - 0 < 2 || diferenciaDias === false)
+    if (req.body.edad_conductor - 0 < 21 || req.body.edad_conductor - 0 > 90 || req.body.anyos_carnet - 0 < 2 || fechaValida === false)
     {
         return res.redirect("/");
     }
+
+    req.body.numeroDias = diasEntreFechas;
     
     const body = { "token": process.env.TOKEN_FOR_BACKEND_ACCESS, "direct": false, ...req.body };
     body["fechaRecogida"] = fechaRecogida;
