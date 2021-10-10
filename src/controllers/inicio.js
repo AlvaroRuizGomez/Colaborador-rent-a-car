@@ -401,7 +401,7 @@ exports.postHomeDirect = async (req, res) =>
     }
     catch(error)
     {
-        console.log("error=" + error);
+        console.log("error=" + error + " response=" + JSON.stringify(responseRaw));
         return res.status(501).send("Error Not Found");
     }
 
