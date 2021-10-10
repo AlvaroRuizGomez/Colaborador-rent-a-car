@@ -528,7 +528,7 @@ exports.postHome = async (req, res) =>
         return res.redirect("/");
     }
 
-    query.numeroDias = diasEntreFechas;
+    req.body.numeroDias = diasEntreFechas;
     
     const body = { "token": process.env.TOKEN_FOR_BACKEND_ACCESS, "direct": false, ...req.body };
     body["fechaRecogida"] = fechaRecogida;
