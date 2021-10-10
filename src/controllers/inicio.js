@@ -56,6 +56,14 @@ exports.SecurityReport = async (req, res) =>
 };
 
 
+exports.GetRobots = async (req, res) =>
+{
+
+    res.type('text/plain');
+    res.send("User-agent: Yandex\nDisallow: /");
+
+};
+
 exports.getHome = async (req, res, languageBrowser, isPagoCorrecto = false) =>
 {
 
