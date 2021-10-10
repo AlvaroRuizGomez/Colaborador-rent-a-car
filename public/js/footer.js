@@ -192,12 +192,15 @@ if(typeof $ !== 'undefined')
     $(function () 
     {
         $("#fechaRecogida").datepicker({ dateFormat: 'D,dd-mm-yy', minDate: '1d' });
-        $("#fechaRecogida").datepicker("setDate", new Date());
-        // if (botonVerPrecios)
-        // {
-        
-    
-        // }
+        // pagina inicio
+        if (botonVerPrecios)
+        {
+            $("#fechaRecogida").datepicker("setDate", new Date());
+        }
+        else
+        {
+
+        }
     });
         
     $(function () 
@@ -205,14 +208,18 @@ if(typeof $ !== 'undefined')
     
         $("#fechaDevolucion").datepicker({ dateFormat: 'D,dd-mm-yy', minDate: '1d' });
         
-        let fecha = new Date();
-        fecha.setDate(fecha.getDate() + 3);
-        $("#fechaDevolucion").datepicker("setDate", fecha);
-        
-        // if (botonVerPrecios)
-        // {
+        // pagina inicio
+        if (botonVerPrecios)
+        {
+            let fecha = new Date();
+            fecha.setDate(fecha.getDate() + 3);
+            $("#fechaDevolucion").datepicker("setDate", fecha);
     
-        // }
+        }
+        else
+        {
+            
+        }
     });
     
     

@@ -1,3 +1,4 @@
+const MILISECONDS_DAY = 1000 * 3600 * 24;
 
 exports.DiferenciaFechaRecogidaDevolucion = async (formulario) => {
 
@@ -5,6 +6,7 @@ exports.DiferenciaFechaRecogidaDevolucion = async (formulario) => {
 
 
     let resultado = false;
+    let diasEntreFechas = formulario.numeroDias - 0;
 
     let fechaRecogida = await ObtenerConversionFecha(
         formulario.fechaRecogida,
@@ -33,16 +35,26 @@ exports.DiferenciaFechaRecogidaDevolucion = async (formulario) => {
         if (fechaDevolucion < fechaRecogida)
         {
             console.error(`FEchaDevolucion es menor a la fechaRecogida fechaDevolucion=${fechaDevolucion} fechaRecogida=${fechaRecogida}`);
-            resultado = false;
-            fechaDevolucion = undefined;
-            fechaRecogida = undefined;
+            const tempFecha = fechaRecogida;
+            fechaRecogida = fechaDevolucion;
+            fechaDevolucion = tempFecha;
+            // resultado = false;
+            // fechaDevolucion = undefined;
+            // fechaRecogida = undefined;
+
+            let timeDifference = Math.abs(fechaDevolucion.getTime() - fechaRecogida.getTime());
+            diasEntreFechas = Math.ceil(timeDifference / (MILISECONDS_DAY));
+
+            // console.log(diasEntreFechas);
             
         }
     }
     
-    return [resultado, fechaRecogida, fechaDevolucion];
+    return [resultado, fechaRecogida, fechaDevolucion, diasEntreFechas];
 
 };
+
+
 
 
 const ObtenerConversionFecha = async (fechaRaw, horaRaw) =>
