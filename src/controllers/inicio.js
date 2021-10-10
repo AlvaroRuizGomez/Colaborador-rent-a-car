@@ -259,6 +259,11 @@ exports.postHomeDirect = async (req, res) =>
     // const idioma = req.headers["accept-language"].split(",")[0].split("-")[0];
     
     let query = req.query;
+    
+    if (Object.keys(query).length === 0)
+    {
+        return res.status(404).send("Not found");
+    }
     if (req.query["vehiculo"] === undefined)
     {
         query = await sanitizar(req.url, idioma);
