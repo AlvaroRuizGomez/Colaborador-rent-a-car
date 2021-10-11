@@ -43,7 +43,7 @@ exports.GetCookiePolicy = async (req, res, languageBrowser) =>
 
 exports.SecurityReportGet = async (req, res) => {
 
-    console.log("security report get=" + JSON.stringify(req.body));
+    console.log("security report get=" + JSON.stringify(req.body) + " url=" + req.url);
 
 };
 
@@ -51,7 +51,7 @@ exports.SecurityReportGet = async (req, res) => {
 exports.SecurityReport = async (req, res) =>
 {
 
-    console.log("security report post=" + JSON.stringify(req.body));
+    console.log("security report post=" + JSON.stringify(req.body) + " url=" + req.url);
 
 };
 
