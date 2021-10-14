@@ -1,56 +1,35 @@
 <!DOCTYPE html>
 <html lang="<%=it.locations.idioma_web%>">
 <head>
-    <meta charset="UTF-8" />
-    
+    <meta charset="UTF-8" />    
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
     <title><%=it.locations.titulo%></title>
-    
-    <!-- 1 -->
-    <!-- ------------------- DatePicker JQuery ------------------------- -->
-    <script  src="jquery/jquery-3.5.1.min.js"></script>
-    <script  src="jquery-ui-1.12.1.custom/jquery-ui.js"></script>
+    <meta name="title" content="<%=it.locations.titulo %>" />
+    <meta name="DC.title" content="<%=it.locations.titulo %>" />
+    <meta http-equiv="title" content="<%=it.locations.titulo %>" />
+    <meta name="keywords" content="<%=it.locations.meta_keywords %>" />
+    <meta name="description"
+        content="<%=it.locations.meta_descripcion %>">
+    <meta http-equiv="DC.Description"
+        content="<%=it.locations.meta_descripcion %>" />
+    <meta http-equiv="description"
+        content="<%=it.locations.meta_descripcion %>" />
 
-    <link rel="stylesheet" href="jquery-ui-1.12.1.custom/jquery-ui.css">
-    
-    <!-- --------------------------------------------------- -->
-
-    <!-- ------------- Clock Picker jQuery ----------------- -->
-    <link rel="stylesheet" href="./css/clockpicker.css">
-    
-    <!-- --------------------------------------------------- -->
-    
-    <link rel="preload" href="./fonts/Lobster-Regular.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="css/styles.css" />
-    <link rel="stylesheet" href="./css/header.css">
-    <link rel="stylesheet" href="./css/footer.css">
-    
-    <!-- <link rel="stylesheet" href="./css/bootstrapused.css"> -->
-    <script src="./bootstrap/js/bootstrap.bundle.min.js"></script>
-    <link rel="stylesheet" href="./css/bootstrap4/bootstrap.min.css">
-    
-    <title>Rent Car Mallorca - Alquiler de coches en Mallorca. Rent a Car Palma de Mallorca.</title>
-    <meta name="title"content="Rent Car Mallorca - Alquiler de coches en Mallorca. Rent a Car Palma de Mallorca." />
-    <meta name="DC.title" content="Rent Car Mallorca - Alquiler de coches en Mallorca. Rent a Car Palma de Mallorca." />
-    <meta http-equiv="title" content="Rent Car Mallorca - Alquiler de coches en Mallorca. Rent a Car Palma de Mallorca." />
-    <meta name="keywords" content="Alquiler de coche Mallorca, Rent a car Mallorca, Alquiler de coche Palma de Mallorca." />
-    <meta name="description" content="Alquiler de coches en Mallorca. Nuestas oficinas Rent Car Mallorca en Playa de Palma de Mallorca. Amplia gama de coches y motos.">
-    <meta http-equiv="DC.Description" content="Alquiler de coches en Mallorca. Nuestas oficinas Rent Car Mallorca en Playa de Palma de Mallorca. Amplia gama de coches y motos." />
-    <meta http-equiv="description" content="Alquiler de coches en Mallorca. Nuestas oficinas Rent Car Mallorca en Playa de Palma de Mallorca. Amplia gama de coches y motos." />
-    
     <!-- Sociales -->
-    <meta property="og:title" content="Rent Car Mallorca - Alquiler de coches en Mallorca. Rent a Car Palma de Mallorca." />
+    <meta property="og:title" content="<%=it.locations.titulo%>" />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://www.rentcarmallorca.es/img/Img-Logo/rentacar_logo_header.png" />
-    <meta property="og:image:url" content="https://www.rentcarmallorca.es/img/Img-Logo/rentacar_logo_header.png" />
+    <meta property="og:image" content="https://www.rentcarmallorca.es/img/Img-Logo/rentacar_favicon-128.png" />
+    <meta property="og:image:url" content="https://www.rentcarmallorca.es/img/Img-Logo/rentacar_favicon-128.png" />
     <meta property="og:image:type" content="image/png" />
-    <meta property="og:image:width" content="579" />
-    <meta property="og:image:height" content="113" />
-    <meta property="og:url" content="https://rentcarmallorca.es/" />
-    <meta property="og:description" content="Alquiler de coches en Mallorca. Nuestas oficinas Rent Car Mallorca en Playa de Palma de Mallorca. Amplia gama de coches y motos." />
+    <meta property="og:image:width" content="128" />
+    <meta property="og:image:height" content="128" />
+    <meta property="og:url" content="https://www.rentcarmallorca.es/" />
+    <meta property="og:description"
+        content="<%=it.locations.meta_descripcion %>" />
     <meta property="og:locale" content="es_ES" />
     <!-- Fin Redes Sociales -->
-
+    
     <!-- Geo localizacion -->
     <meta name="geography" content="Palma de Mallorca, Spain" />
     <meta name="zipcode" content="07610" />
@@ -61,16 +40,28 @@
     <meta name="geo.placename" content="Palma de Mallorca, Illes Balears, Spain">
     <meta name="geo.region" content="ES-PM">
     <!-- Fin Geo localizacion -->
-
+    
     <meta name="author" content="Rent Car Mallorca">
     <meta name="robots" content="all, FOLLOW" />
     
-    <!-- <meta property="og:locale" content="es_ES" />
-    <meta property="og:locale:alternate" content="it_IT" />
-    <meta property="og:locale:alternate" content="en_GB" />
-    <meta property="og:locale:alternate" content="de_DE" /> -->
+    <!-- ------------------- DatePicker JQuery ------------------------- -->
+    <script  src="jquery/jquery-3.5.1.min.js"></script>
+    <script  src="jquery-ui-1.12.1.custom/jquery-ui.js"></script>
+    <link rel="stylesheet" href="jquery-ui-1.12.1.custom/jquery-ui.css">
+    <!-- --------------------------------------------------- -->
 
+    <!-- ------------- Clock Picker jQuery ----------------- -->
+    <link rel="stylesheet" href="./css/clockpicker.css">
+    <!-- --------------------------------------------------- -->
+    
+    <link rel="preload" href="./fonts/Lobster-Regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="./css/header.css">
+    <link rel="stylesheet" href="./css/footer.css">
+    
 
+    <script src="./bootstrap/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="./css/bootstrap4/bootstrap.min.css">
 
     <!-- Favicon -->
     <link rel="icon" href="./img/Img-Logo/rentacar_favicon-32.png" sizes="32x32">
