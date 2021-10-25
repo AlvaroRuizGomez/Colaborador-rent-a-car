@@ -526,26 +526,26 @@
                                         <%= it.locations[it.errorFormulario] %>
                                 </h3>
                             </article>
-                            <% } else { %>
-                                <% if (it["conductor_con_experiencia"]==="undefined" || it["conductor_con_experiencia"]===undefined || it["conductor_con_experiencia"]==="off") { %>
-                                    <div class="aviso-edad">
-                                        <img class="icono-alerta-edad" src="./img/svg/alerta_edad.svg"
-                                            alt="<%=it.locations.alt_icono_edad_conductor %>">
-                                        <p class="texto-alerta-edad">
-                                            <%=it.locations.aviso_edad_ofertas %>
-                                        </p>
-                                    </div>
-                                <% } %>
-                                <% if ( it.vehiculoSeleccionado !==undefined) { %>
-                                    <div class="tablero_ofertas">
-                                        <h3 class="titulo_tablero_ofertas">
-                                            <%=it.locations.vehiculo_seleccionado %>
-                                        </h3>
-                                    </div>
-
-                                <% } else { %>
-                                <% } %>
+                        <% } else { %>
+                            <% if (it["conductor_con_experiencia"]==="undefined" || it["conductor_con_experiencia"]===undefined || it["conductor_con_experiencia"]==="off") { %>
+                                <div class="aviso-edad">
+                                    <img class="icono-alerta-edad" src="./img/svg/alerta_edad.svg"
+                                        alt="<%=it.locations.alt_icono_edad_conductor %>">
+                                    <p class="texto-alerta-edad">
+                                        <%=it.locations.aviso_edad_ofertas %>
+                                    </p>
+                                </div>
                             <% } %>
+                            <% if ( it.vehiculoSeleccionado !==undefined) { %>
+                                <div class="tablero_ofertas">
+                                    <h3 class="titulo_tablero_ofertas">
+                                        <%=it.locations.vehiculo_seleccionado %>
+                                    </h3>
+                                </div>
+
+                            <% } else { %>
+                            <% } %>
+                        <% } %>
 
                             <% if ( it.vehiculoSeleccionado !==undefined) { %>
                                 <%~ includeFile("oferta.html", it, element=it.vehiculoSeleccionado, j=undefined ) %>
