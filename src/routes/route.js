@@ -80,4 +80,6 @@ router.get(`/islive_0_QJFs_a_IiW_mFtZS2_f_A_BQ_NTib_Y3O6Ik_D0WNH9I`, async (req,
 
 router.get("/robots.txt" ,async (req, res) => await home.GetRobots(req, res));
 
+router.get("/?XDEBUG_SESSION_START=phpstorm", async (req, res) => { res.status(404).send(""); })
+
 module.exports = router;
