@@ -160,15 +160,13 @@ body{
 
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
 }
 
 .formTit h2 {
   display: block;
-  font-size: 1.5em;
-  /* margin-block-start: 0.83em; */
+  font-size: 1.3em;
   margin-block-end: 0.83em;
-  /* margin-inline-start: 2em; */
   margin-inline-end: 0px;
   font-weight: bold;
 }
@@ -445,8 +443,8 @@ body{
 .numerodias
 {
   position: absolute;
-  top: 170%;
-  left: 0%;
+  top: 176%;
+  left: 26%;
   z-index: 0;
   font-size: 20px;
   text-align: center;
@@ -626,14 +624,14 @@ body{
 
   .numerodias
   {
-    top: 390%;
+    top: 415%;
     left: 34%;
   }
 
   .forma_rectangulo
   {
     display: block;
-    top: 359%;
+    top: 379%;
     position: absolute;
     left: 20%;
     width: 153px;
