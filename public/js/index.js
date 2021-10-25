@@ -71,9 +71,9 @@ const CheckRangoEdad = async () => {
 
 checkboxRangoEdad.addEventListener("click", CheckRangoEdad );
 
-const boton = document.getElementById("boton-idioma-seleccionado");
+const botonIdioma = document.getElementById("boton-idioma-seleccionado");
 
-boton.addEventListener("click", async () =>
+botonIdioma.addEventListener("click", async () =>
 {
 
     const contenido = document.getElementById("idioma-contenido");
