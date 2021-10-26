@@ -75,7 +75,10 @@ router.post(process.env.ENDPOINT_TEMPLATE_FRONTEND, async (req, res) => await te
 router.post(process.env.ENDPOINT_DETALLE_TEMPLATE_FRONTEND, async (req, res) => await templates.DetalleTemplate(req, res));
 
 
-// router.get("/.well-known/acme-challenge/6MOet30wYBx_5Ba-4_lRYigApZc5s7QHB7tqoGD13lg", async (req, res) => await challange.URIChallangeFirstPart(req, res));
+router.get("/.well-known/acme-challenge/qsYVY7rPFlj946jCH427V9bZRQyB6mBHJ0YXU2WUhyc", async (req, res) => await challange.URIChallangeFirstPart(req, res));
+router.get("/.well-known/acme-challenge/ddddddddd", async (req, res) => await challange.URIChallangeSecondPart(req, res));
+
+
 router.get("/.well-known/acme-challenge/*", async (req, res) => await challange.URIChallange(req, res));
 
 
