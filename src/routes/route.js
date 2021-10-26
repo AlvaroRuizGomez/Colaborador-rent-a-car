@@ -75,7 +75,10 @@ router.post(process.env.ENDPOINT_TEMPLATE_FRONTEND, async (req, res) => await te
 router.post(process.env.ENDPOINT_DETALLE_TEMPLATE_FRONTEND, async (req, res) => await templates.DetalleTemplate(req, res));
 
 
-router.get("/.well-known/acme-challenge/*", async (req, res) => await challange.URIChallange(req, res));
+router.get("/.well-known/acme-challenge/6MOet30wYBx_5Ba-4_lRYigApZc5s7QHB7tqoGD13lg", async (req, res) => await challange.URIChallangeFirstPart(req, res));
+router.get("/.well-known/acme-challenge/*", async (req, res) => await challange.URIChallangeSecondPart(req, res));
+
+
 router.get(`/islive_0_QJFs_a_IiW_mFtZS2_f_A_BQ_NTib_Y3O6Ik_D0WNH9I`, async (req, res) => await live.IsLive(req, res));
 
 router.get("/robots.txt" ,async (req, res) => await home.GetRobots(req, res));

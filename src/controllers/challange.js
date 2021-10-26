@@ -1,9 +1,14 @@
 const path = require("path");
 
-exports.URIChallange = async (req, res) =>
+exports.URIChallangeFirstPart = async (req, res) =>
 {
-    res.sendFile(path.join(__dirname, "../../public/.well-known/acme-challange/texto"));
+    res.sendFile(path.join(__dirname, "../../public/.well-known/acme-challange/parteuno"));
     
+};
+
+exports.URIChallangeSecondPart = async (req, res) => {
+    res.sendFile(path.join(__dirname, "../../public/.well-known/acme-challange/partedos"));
+
 };
 
 
