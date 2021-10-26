@@ -1,7 +1,7 @@
 const path = require("path");
 
 exports.URIChallange = async (req, res) => {
-    console.log("acme challange url=" + JSON.stringify(req));
+    // console.log("acme challange url=" + JSON.stringify(req));
 
     if (req.url.indexOf("/.well-known/acme-challenge/") === -1)
     {
