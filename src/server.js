@@ -20,7 +20,7 @@ exports.InitServer = async () => {
     
     const limiterHome = rateLimit({
         windowMs: 1 * 60 * 1000, //1min
-        max: 50
+        max: 150
     });
     
     const allowlist = [
