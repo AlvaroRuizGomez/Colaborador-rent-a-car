@@ -153,22 +153,21 @@
 .interes-link-footer
 {
 
-      -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    overflow: visible;
-    border: 0;
-    outline: 0;
-    font: inherit;
-    -webkit-font-smoothing: inherit;
-    letter-spacing: inherit;
-    color: inherit;
-    background: none;
-    vertical-align: top;
-
-
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  overflow: visible;
+  border: 0;
+  outline: 0;
+  font: inherit;
+  -webkit-font-smoothing: inherit;
+  letter-spacing: inherit;
+  color: inherit;
+  background: none;
+  vertical-align: top;
 
   font-size: 1rem;
+  white-space: nowrap;
   color: #37bcf9;
   transition: all 300ms;
   text-decoration: none;
@@ -181,11 +180,12 @@
 
 .interes-link-footer:hover
 {
-    padding-left: 40px;
-    color: white;
-    width: 100%;
-    text-decoration: none;
-    cursor: pointer;
+  padding-left: 40px;
+  color: white;
+  width: 100%;
+  text-decoration: none;
+  cursor: pointer;
+  white-space: nowrap;
 }
 
 .boton-cerrar-modal-footer
