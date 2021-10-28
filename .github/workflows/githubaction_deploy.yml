@@ -48,12 +48,12 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       # - name: JS Minifier
-      #   uses: devatherock/minify-js@v1.0.2
+      #   uses: devatherock/minify-js@v1.0.3
       #   with:
       #     directory: './public/js'
       #     add_suffix: false
       - name: CSS Minifier
-        uses: devatherock/minify-js@v1.0.2
+        uses: devatherock/minify-js@v1.0.3
         with:
           directory: './public/css'
           add_suffix: false
