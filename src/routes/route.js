@@ -69,7 +69,7 @@ router.get("/newsletter", async (req, res) => await home.redirectToHome(req, res
 // router.get(process.env.ENDPOINT_CACHE, async (req, res) => await generar.GenerarWebCache(req, res));
 
 // router.post(process.env.ENDPOINT_LOCATION, async (req, res) => await locations.GenerarLocations(req, res));
-router.get("/location", async (req, res) => await locations.Frontend_TO_Backend(req, res) );
+router.post("/location", async (req, res) => await locations.Frontend_TO_Backend(req, res) );
 
 router.post(process.env.ENDPOINT_TEMPLATE_FRONTEND, async (req, res) => await templates.GetTemplate(req, res));
 router.post(process.env.ENDPOINT_DETALLE_TEMPLATE_FRONTEND, async (req, res) => await templates.DetalleTemplate(req, res));
