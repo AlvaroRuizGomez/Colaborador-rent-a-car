@@ -34,49 +34,46 @@ exports.GetBackendVars = async () => {
     port_backend = port_backend.replace(/[\n\t\r]/g, "");
     token_for_backend = token_for_backend.replace(/[\n\t\r]/g, "");
     endpoint_variables_frontend = endpoint_variables_frontend.replace(/[\n\t\r]/g, "");
-    // console.log("port_backend=" + port_backend);
-    // port_backend = port_backend.replace("%0A", "");
-    // port_backend = port_backend.replace("%0a", "");
-    // port_backend = port_backend.replace(" ", "");
-    // port_backend = port_backend - 0;
-    // console.log("port_backend=" + port_backend);
-
-    // console.log("endpoint_variables_frontend=" + endpoint_variables_frontend);
-    // endpoint_variables_frontend = endpoint_variables_frontend.replace("%0A", "");
-    // console.log("endpoint_variables_frontend=" + endpoint_variables_frontend);
-    // endpoint_variables_frontend = endpoint_variables_frontend.replace("%0a", "");
-    // console.log("endpoint_variables_frontend=" + endpoint_variables_frontend);
-    // endpoint_variables_frontend = endpoint_variables_frontend.trim();
-    // console.log("endpoint_variables_frontend=" + endpoint_variables_frontend);
-    
-    await esperar(5);
-    
-    const URI_VARIABLES = `${protocolo}${host}:${port_backend}${endpoint_variables_frontend}`;
-    // console.log("uri_variable=" + URI_VARIABLES);
-
-    const responseRaw = await fetch(URI_VARIABLES, {
-        method: "GET",
-        headers: {
-            "Content-Type": "application/json",
-            "Authorization": `${token_for_backend}`,
-        },
-        credentials: "include"
-    });
-
-    let datos = await responseRaw.json();
-    // console.log(datos);
-
-    
-    const buf = Buffer.from(datos.variables);
-    const envConfig = dotenv.parse(buf);
-    let tempEnv = {};
-    for (const key in envConfig) {
         
-        const variableSanitizada = await sanitizar(envConfig[key]);
-        tempEnv[key] = variableSanitizada;
-        // console.log(`texto sanitizado=${key}:${variableSanitizada}`);
+    await esperar(5);
+
+    try
+    {
+
+        const URI_VARIABLES = `${protocolo}${host}:${port_backend}${endpoint_variables_frontend}`;
+        // console.log("uri_variable=" + URI_VARIABLES);
+    
+        const responseRaw = await fetch(URI_VARIABLES, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `${token_for_backend}`,
+            },
+            credentials: "include"
+        });
+    
+        let datos = await responseRaw.json();
+        // console.log(datos);
+    
+        
+        const buf = Buffer.from(datos.variables);
+        const envConfig = dotenv.parse(buf);
+        let tempEnv = {};
+        for (const key in envConfig) {
+            
+            const variableSanitizada = await sanitizar(envConfig[key]);
+            tempEnv[key] = variableSanitizada;
+            // console.log(`texto sanitizado=${key}:${variableSanitizada}`);
+        }
+        process.env = tempEnv;
+        return true;
     }
-    process.env = tempEnv;
+    catch(error)
+    {
+        return false;
+
+    }
+    
 
 };
 
