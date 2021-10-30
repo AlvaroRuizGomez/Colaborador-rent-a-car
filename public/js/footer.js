@@ -199,10 +199,10 @@ if(typeof $ !== 'undefined')
         }
         else
         {
-            const recog = document.getElementById("fechaRecogida");
-            const fecha = new Date(recog.value);
-            // console.log(fecha);
-            $("#fechaRecogida").datepicker("setDate", fecha);
+            const recogidaValue = document.getElementById("fechaRecogida").value;
+            const fechaRecogida = new Date(recogidaValue);
+
+            $("#fechaRecogida").datepicker("setDate", fechaRecogida);
             $("#fechaRecogida").datepicker({ dateFormat: 'D,dd-mm-yy', minDate: '1d' });
         }
 
@@ -219,23 +219,20 @@ if(typeof $ !== 'undefined')
         else 
         {
 
-            const devolucion = document.getElementById("fechaDevolucion");
-            const fecha = new Date(devolucion.value);
-            // console.log(fecha);
+            const devolucionValue = document.getElementById("fechaDevolucion").value;
+            const fechaDevolucion = new Date(devolucionValue);
+        
+            if (devolucionValue.indexOf(",") === -1)
+            {
+                $("#fechaDevolucion").datepicker("setDate", fechaDevolucion);
+                $("#fechaDevolucion").datepicker({ dateFormat: 'D,dd-mm-yy', minDate: '1d' });
 
-            $("#fechaDevolucion").datepicker("setDate", fecha);
-            $("#fechaDevolucion").datepicker({ dateFormat: 'D,dd-mm-yy', minDate: '1d' });
+            }
 
         }
 
     });
         
-    // $(function () 
-    // {
-    
-       
-    // });
-    
     
     $(".triggerRec").click(function () {
         $("#fechaRecogida").datepicker("show");
