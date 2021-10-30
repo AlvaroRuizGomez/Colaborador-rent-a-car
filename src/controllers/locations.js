@@ -9,7 +9,7 @@ const Frontend_TO_Backend = async (req, res) =>
 {
     try
     {
-        console.log("obtenerVars.URI_LOCATIONS" + obtenerVars.URI_LOCATIONS);
+        
         const responseRaw = await fetch(obtenerVars.URI_LOCATIONS, {
             method: "GET",
             headers: {
