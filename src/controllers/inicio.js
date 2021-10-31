@@ -60,7 +60,8 @@ exports.GetRobots = async (req, res) =>
 {
 
     res.type('text/plain');
-    res.send("User-agent: Yandex\nDisallow: /");
+    // res.send("User-agent: Yandex\nDisallow: /");
+    res.send("");
 
 };
 
