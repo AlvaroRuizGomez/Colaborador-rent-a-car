@@ -551,7 +551,7 @@ gdprCookieNotice({
     timeout: 500,
     expiration: 30,
     domain: '.rentcarmallorca.es',
-    implicit: true,
+    implicit: false,
     statement: 'https://www.rentcarmallorca.es/cookies_policy',
     performance: ['JSESSIONID'],
     analytics: ['ga'], 
