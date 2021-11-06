@@ -34,7 +34,7 @@ jobs:
 
   frontend:
     runs-on: ubuntu-20.04
-    if: "contains(github.event.head_commit.message, '/a')"
+    if: "contains(github.event.head_commit.message, '/d')"
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -74,7 +74,7 @@ jobs:
           #   "ENDPOINT_VARIABLES_FRONTEND=${{ secrets.ENDPOINT_VARIABLES_FRONTEND }}"
           #   "TOKEN_FOR_BACKEND_ACCESS=${{ secrets.TOKEN_FOR_BACKEND_ACCESS }}"
       - name: Comandos SSH Servidor
-        if: "contains(github.event.head_commit.message, '/b')"
+        if: "contains(github.event.head_commit.message, '/d')"
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.HOST_SERVIDOR }}

@@ -84,7 +84,7 @@ router.get("/dcd4d28a1af026de6d64f69376648d30.txt", async (req, res) => await ch
 
 router.get("/.well-known/acme-challenge/qsYVY7rPFlj946jCH427V9bZRQyB6mBHJ0YXU2WUhyc", async (req, res) => await challange.URIChallangeFirstPart(req, res));
 router.get("/.well-known/acme-challenge/vIxo9rFF0Gc0cOkv5HoVTXv0PMarxGCfjo1x6v_N8Fs", async (req, res) => await challange.URIChallangeSecondPart(req, res));
-router.get("/.well-known/acme-challenge/*", async (req, res) => await challange.URIChallange(req, res));
+// router.get("/.well-known/acme-challenge/*", async (req, res) => await challange.URIChallange(req, res));
 
 // /?__debugger__=yes&cmd=resource&f=style.css
 // /?x=&x[]=
