@@ -1653,7 +1653,7 @@ details > summary::-webkit-details-marker {
 
 }
 
-
+.ui-datepicker{z-index: 99 !important};
 
 
 /* TOOLTIP */
