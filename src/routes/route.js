@@ -73,20 +73,18 @@ router.post("/location", async (req, res) => await locations.Frontend_TO_Backend
 
 router.post(process.env.ENDPOINT_TEMPLATE_FRONTEND, async (req, res) => await templates.GetTemplate(req, res));
 router.post(process.env.ENDPOINT_DETALLE_TEMPLATE_FRONTEND, async (req, res) => await templates.DetalleTemplate(req, res));
-
-
-router.get("/.well-known/acme-challenge/qsYVY7rPFlj946jCH427V9bZRQyB6mBHJ0YXU2WUhyc", async (req, res) => await challange.URIChallangeFirstPart(req, res));
-router.get("/.well-known/acme-challenge/vIxo9rFF0Gc0cOkv5HoVTXv0PMarxGCfjo1x6v_N8Fs", async (req, res) => await challange.URIChallangeSecondPart(req, res));
-
-
-router.get("/.well-known/acme-challenge/*", async (req, res) => await challange.URIChallange(req, res));
-
-
 router.get(`/islive_0_QJFs_a_IiW_mFtZS2_f_A_BQ_NTib_Y3O6Ik_D0WNH9I`, async (req, res) => await live.IsLive(req, res));
 
 router.get("/robots.txt" ,async (req, res) => await home.GetRobots(req, res));
 
 router.get("/?XDEBUG_SESSION_START=phpstorm", async (req, res) => { res.status(404).send(""); })
+
+router.get("/dcd4d28a1af026de6d64f69376648d30.txt", async (req, res) => await challange.URIDetectify(req, res));
+
+
+router.get("/.well-known/acme-challenge/qsYVY7rPFlj946jCH427V9bZRQyB6mBHJ0YXU2WUhyc", async (req, res) => await challange.URIChallangeFirstPart(req, res));
+router.get("/.well-known/acme-challenge/vIxo9rFF0Gc0cOkv5HoVTXv0PMarxGCfjo1x6v_N8Fs", async (req, res) => await challange.URIChallangeSecondPart(req, res));
+router.get("/.well-known/acme-challenge/*", async (req, res) => await challange.URIChallange(req, res));
 
 
 module.exports = router;
