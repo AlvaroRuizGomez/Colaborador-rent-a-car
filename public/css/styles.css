@@ -280,6 +280,8 @@ body{
   grid-area: devolucionClockIcon; 
 }
 
+
+
 /* -------  Conductor Novel ---------- */
 .driverNovel { 
   grid-area: driverNovel; 
@@ -1493,7 +1495,7 @@ input[type=number] {
 
 }
 
-
+.ui-datepicker{z-index: 99 !important};
 
 /* VENTANA MODAL */
 
