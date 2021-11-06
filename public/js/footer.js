@@ -232,7 +232,6 @@ if(typeof $ !== 'undefined')
         }
 
     });
-        
     
     $(".triggerRec").click(function () {
         $("#fechaRecogida").datepicker("show");
