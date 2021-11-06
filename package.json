@@ -10,7 +10,7 @@
     "cookie-parser": "^1.4.5",
     "cors": "^2.8.5",
     "dotenv": "^9.0.2",
-    "eta": "^1.12.1",
+    "eta": "^1.12.3",
     "express": "^4.17.1",
     "express-rate-limit": "^5.2.6",
     "express-useragent": "^1.0.15",
