@@ -119,13 +119,52 @@ const ValidateDateFromForm = async (fechaRaw, horaRaw) =>
 const ConversionFecha = async (fechaRaw, currentDate) =>
 {
 
-    let fechaRecogidaFormSplitted = undefined;
-    if (fechaRaw.split(",").length >= 2) {
-        fechaRecogidaFormSplitted = fechaRaw.split(",")[1].split("-");
+    try
+    {
+        let fechaRecogidaFormSplitted = undefined;
+        let anyo = 0;
+        let mes = 0;
+        let dia = 0;
+    
+        if (fechaRaw === undefined || fechaRaw.indexOf(",") === -1 || fechaRaw.indexOf("-") === -1 )
+        {
+            const mesRaw = currentDate.getMonth();
+            mes = mesRaw + 1;
+            anyo = currentDate.getFullYear();
+            dia = currentDate.getDate();
+    
+            return [anyo, mes, dia];
+        }
+    
+    
+        if (fechaRaw.split(",").length >= 2) {
+            fechaRecogidaFormSplitted = fechaRaw.split(",")[1].split("-");
+        }
+        else {
+            fechaRecogidaFormSplitted = fechaRaw.split("-");
+        }
+    
+    
+        [anyo, mes, dia] = await AjusteFecha(fechaRecogidaFormSplitted);
+        return [a, m, d];
+
     }
-    else {
-        fechaRecogidaFormSplitted = fechaRaw.split("-");
+    catch(error)
+    {
+        console.log("error conversion ConversionFecha error=" + error + " fecharaw=" + fechaRaw);
+        const mesRaw = currentDate.getMonth();
+        const mes = mesRaw + 1;
+        const anyo = currentDate.getFullYear();
+        const dia = currentDate.getDate();
+
+        return [anyo, mes, dia];
     }
+    
+
+};
+
+const AjusteFecha = async (fechaRecogidaFormSplitted) =>
+{
 
     let anyo = fechaRecogidaFormSplitted[2] - 0;
     let mes = fechaRecogidaFormSplitted[1] - 0;

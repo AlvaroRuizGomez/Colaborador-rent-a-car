@@ -242,5 +242,6 @@ if(typeof $ !== 'undefined')
     });
     
     $('.clockpicker').clockpicker();
+    
 }
 

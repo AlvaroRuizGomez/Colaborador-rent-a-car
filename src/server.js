@@ -10,18 +10,18 @@ exports.InitServer = async () => {
     const eta = require("eta");
     const compression = require("compression");
     const userAgent = require("express-useragent")
-    const rateLimit = require("express-rate-limit");
     const router = require("./routes/route");
     const path = require("path");
     const cookieParser = require('cookie-parser');
+    // const rateLimit = require("express-rate-limit");
+    // const limiterHome = rateLimit({
+    //     windowMs: 1 * 60 * 1000, //1min
+    //     max: 150
+    // });
 
     const app = express();
     app.use(cookieParser());
     
-    const limiterHome = rateLimit({
-        windowMs: 1 * 60 * 1000, //1min
-        max: 150
-    });
     
     const allowlist = [
         `${process.env.URL_FRONTEND}:${process.env.PORT_FRONTEND}`,
@@ -305,7 +305,7 @@ exports.InitServer = async () => {
     
     
     // rutas
-    app.use("/", limiterHome);
+    // app.use("/", limiterHome);
     app.use("/", router);
     
     // escucha puerto servidor
