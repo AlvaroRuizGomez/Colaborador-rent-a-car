@@ -3,7 +3,7 @@ FROM mhart/alpine-node:16.4.2 as builder
 WORKDIR /usr/src/app
 COPY package*.json ./
 
-RUN --mount=type=cache,target=/root/.npm/_cacache npm ci --only=production
+RUN --mount=type=cache,target=~/.npm/_cacache npm ci --only=production
 
 COPY ./src  ./src
 COPY ./public ./public
@@ -28,4 +28,4 @@ HEALTHCHECK --interval=60s \
     --start-period=5s \
     --timeout=10s \
     --retries=3 \
-    CMD ["/usr/bin/wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:8080/.well-known/acme-challenge/"]
+    CMD ["/usr/bin/wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:8080/islive_0_QJFs_a_IiW_mFtZS2_f_A_BQ_NTib_Y3O6Ik_D0WNH9I"]
