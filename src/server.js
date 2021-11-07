@@ -286,14 +286,6 @@ exports.InitServer = async () => {
     
     app.use(morgan("combined"));
     
-    //FUNcioa - registro de html como eta
-    // app.engine(".html", eta.renderFile);
-    // app.set("views", path.join(__dirname, "../public"));
-    // app.set("view engine", "html");
-
-    // app.use("/", express.static("public"));
-    // app.use("/car/", express.static("public"));
-
     // https://www.npmjs.com/package/safe-regex
 
     app.engine(".html", eta.renderFile);
@@ -307,6 +299,7 @@ exports.InitServer = async () => {
     // rutas
     // app.use("/", limiterHome);
     app.use("/", router);
+
     
     // escucha puerto servidor
     let express_server = app.listen(process.env.PORT_FRONTEND, (error) => {
@@ -314,6 +307,7 @@ exports.InitServer = async () => {
             console.error(`[process ${process.pid}] Error ${error} ${process.env.PORT_FRONTEND}`);
         }
         console.info(`[process ${process.pid}] Listening at port ${process.env.PORT_FRONTEND}`);
+        console.info("ENV_PROD=" + process.env.NODE_ENV);
     }
     );
 
