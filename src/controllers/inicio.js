@@ -23,16 +23,22 @@ exports.GetCookiePolicy = async (req, res, languageBrowser) =>
     let locationLanguage = "en";
     let languageHeader = "en";
     // console.log("lenguaje=" + req.headers["accept-language"]);
-    if (req.headers["accept-language"] !== undefined) {
+    const headerLocation = req.headers["accept-language"].toLowerCase();
+
+    if (headerLocation !== undefined)
+    {
         //TODO: arriba cacheado
-        languageHeader = req.headers["accept-language"].split(",")[0].split("-")[0];
+        if (headerLocation.indexOf(",") !== -1 && headerLocation.indexOf("-") !== -1)
+        {
+            
+            languageHeader = headerLocation.split(",")[0].split("-")[0];
+        }
     }
 
     locationLanguage = await locations.GenerateLocationBrowser(
         languageBrowser,
         languageHeader
     );
-
 
     res.render(path.join(__dirname, "../../public/cookie_policy.html"), {
         "locations": locationLanguage,
@@ -69,13 +75,13 @@ exports.getHome = async (req, res, languageBrowser, isPagoCorrecto = false) =>
 {
 
     const id = nanoid.nanoid();
-    const location = await geolocation.GetIPTimeZone(req);
+    const geolocationAgent = await geolocation.GetIPTimeZone(req);
 
     // Bot check
-    if ((location.agent && location.agent.isBot === true) || (req.headers["accept-language"] === undefined)) 
+    if ((geolocationAgent.agent && geolocationAgent.agent.isBot === true) || (req.headers["accept-language"] === undefined)) 
     {
         // TODO: registrar los eventos en sitio separado
-        console.log("bot " + JSON.stringify( location.agent));
+        console.log("bot " + JSON.stringify( geolocationAgent.agent));
         // return res.status(404).send("Not Found");
     }
 
@@ -111,17 +117,12 @@ exports.getHome = async (req, res, languageBrowser, isPagoCorrecto = false) =>
     
 
     let locationLanguage = "en";
-    let languageHeader = "en";
-    console.log("lenguaje=" + req.headers["accept-language"]);
-    if (req.headers["accept-language"] !== undefined)
-    {
-        //TODO: arriba cacheado
-        languageHeader = req.headers["accept-language"].split(",")[0].split("-")[0];
-    }
-    
+    // let languageHeader = "en";
+    // console.log("lenguaje=" + req.headers["accept-language"]);
     locationLanguage = await locations.GenerateLocationBrowser(
         languageBrowser, 
-        languageHeader
+        req.headers["accept-language"].toLowerCase()
+        // languageHeader
     );
     // Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.2 Safari/605.1.15
     const isAvifSupported = await logicHelper.IsAvifSupported(req.get("Accept"));
@@ -130,7 +131,7 @@ exports.getHome = async (req, res, languageBrowser, isPagoCorrecto = false) =>
         "token": process.env.TOKEN_FOR_BACKEND_ACCESS,
         "useragent": req.useragent,
         "direct": false,
-        "location": location,
+        "location": geolocationAgent,
         "id": id
     };
 
@@ -260,12 +261,12 @@ exports.postHomeDirect = async (req, res) =>
     
     let idioma = "en";
     // console.log("lenguaje=" + req.headers["accept-language"]);
-    if (req.headers["accept-language"] !== undefined) 
-    {
-        idioma = req.headers["accept-language"].split(",")[0].split("-")[0];
-    }
     
-    // const idioma = req.headers["accept-language"].split(",")[0].split("-")[0];
+    if (req.headers["accept-language"] !== undefined) {
+        if (req.headers["accept-language"].indexOf(",") !== -1 && req.headers["accept-language"].indexOf("-") !== -1) {
+            idioma = req.headers["accept-language"].split(",")[0].split("-")[0];
+        }
+    }
     
     let query = req.query;
     
@@ -334,27 +335,8 @@ exports.postHomeDirect = async (req, res) =>
         const isAvifSupported = await logicHelper.IsAvifSupported(req.get("Accept"));
     
         if (dataResponse.isOk === false) {
-            
             return res.status(501).send("Error Not Found");
-            // if (dataResponse.errorFormulario === "") 
-            // {
-            //     // Blacklist?
-            // }
-            // else {
-            //     return res.render(path.join(__dirname, "../../public/inicio.html"),
-            //         {
-            //             "isAvifSupported": isAvifSupported,
-            //             "success": query.success,
-            //             "errorFormulario": dataResponse.errorFormulario,
-            //             "locations": locationLanguage,
-            //             "data": undefined
-    
-            //         });
-            // }
-    
         }
-    
-        // req.session.data = dataResponse.data;
     
         if (dataResponse.data.length <= 0) 
         {

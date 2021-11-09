@@ -146,12 +146,12 @@ const ConversionFecha = async (fechaRaw, currentDate) =>
     
     
         [anyo, mes, dia] = await AjusteFecha(fechaRecogidaFormSplitted);
-        return [a, m, d];
+        return [anyo, mes, dia];
 
     }
     catch(error)
     {
-        console.log("error conversion ConversionFecha error=" + error + " fecharaw=" + fechaRaw);
+        console.log("error de conversion en ConversionFecha el error=" + error + " fecharaw=" + fechaRaw);
         const mesRaw = currentDate.getMonth();
         const mes = mesRaw + 1;
         const anyo = currentDate.getFullYear();

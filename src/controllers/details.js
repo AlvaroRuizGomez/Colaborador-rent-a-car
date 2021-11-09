@@ -37,10 +37,12 @@ exports.postShowDetails = async (req, res, languageBrowser) =>
         return res.redirect("/");
     }
 
-    console.log("acept language" + req.headers["accept-language"]);
+    // console.log("accept language=" + req.headers["accept-language"]);
+
     const locationLanguage = await locations.GenerateLocationBrowser(
         languageBrowser,
-        req.headers["accept-language"].split(",")[0].split("-")[0]
+        req.headers["accept-language"].toLowerCase()
+        // req.headers["accept-language"].split(",")[0].split("-")[0]
     );
 
     const isAvifSupported = await logicHelper.IsAvifSupported(req.get("Accept"));
@@ -53,6 +55,8 @@ exports.postShowDetails = async (req, res, languageBrowser) =>
         "formdata": req.body,
     });
 
+    // aqui
+    // res.redirect(301, '/article');
 
     const body = {
         "token": process.env.TOKEN_FOR_BACKEND_ACCESS,
