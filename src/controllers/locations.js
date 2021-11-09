@@ -88,9 +88,21 @@ const GetVarLocales = async () =>
 
 exports.GenerateLocationBrowser = async (languageBrowser, reqHeadersLocation) => {
 
+
+    // console.log("reqHeaderLocation=" + reqHeadersLocation);
+    let headersLocation = "en";
+    if (reqHeadersLocation !== undefined)
+    {
+        if (reqHeadersLocation.indexOf(",") !== -1 && reqHeadersLocation.indexOf("-") !== -1 )
+        {
+            headersLocation = reqHeadersLocation.split(",")[0].split("-")[0];
+        }
+    }
+    
     //lang = es, it, en, de
-    if (languageBrowser === undefined) {
-        languageBrowser = await CheckLanguage(reqHeadersLocation);
+    if (languageBrowser === undefined)
+    {
+        languageBrowser = await CheckLanguage(headersLocation);
     }
 
     let lenguaje = await GetVarLocales();
