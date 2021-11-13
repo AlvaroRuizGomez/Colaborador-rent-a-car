@@ -41,7 +41,7 @@ exports.postShowDetails = async (req, res, languageBrowser) =>
 
     const locationLanguage = await locations.GenerateLocationBrowser(
         languageBrowser,
-        req.headers["accept-language"].toLowerCase()
+        req.headers["accept-language"]
         // req.headers["accept-language"].split(",")[0].split("-")[0]
     );
 
