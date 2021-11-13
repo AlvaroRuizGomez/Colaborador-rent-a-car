@@ -102,7 +102,7 @@ exports.GenerateLocationBrowser = async (languageBrowser, reqHeadersLocation) =>
     //lang = es, it, en, de
     if (languageBrowser === undefined)
     {
-        languageBrowser = await CheckLanguage(headersLocation);
+        languageBrowser = await CheckLanguage(headersLocation.toLowerCase());
     }
 
     let lenguaje = await GetVarLocales();

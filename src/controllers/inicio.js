@@ -22,8 +22,8 @@ exports.GetCookiePolicy = async (req, res, languageBrowser) =>
 
     let locationLanguage = "en";
     let languageHeader = "en";
-    // console.log("lenguaje=" + req.headers["accept-language"]);
-    const headerLocation = req.headers["accept-language"].toLowerCase();
+    
+    const headerLocation = req.headers["accept-language"];
 
     if (headerLocation !== undefined)
     {
@@ -118,10 +118,10 @@ exports.getHome = async (req, res, languageBrowser, isPagoCorrecto = false) =>
 
     let locationLanguage = "en";
     // let languageHeader = "en";
-    // console.log("lenguaje=" + req.headers["accept-language"]);
+    console.log("lenguaje=" + req.headers["accept-language"]);
     locationLanguage = await locations.GenerateLocationBrowser(
         languageBrowser, 
-        req.headers["accept-language"].toLowerCase()
+        req.headers["accept-language"]
         // languageHeader
     );
     // Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.2 Safari/605.1.15
@@ -264,7 +264,7 @@ exports.postHomeDirect = async (req, res) =>
     
     if (req.headers["accept-language"] !== undefined) {
         if (req.headers["accept-language"].indexOf(",") !== -1 && req.headers["accept-language"].indexOf("-") !== -1) {
-            idioma = req.headers["accept-language"].split(",")[0].split("-")[0];
+            idioma = (req.headers["accept-language"].split(",")[0].split("-")[0]).toLowerCase();
         }
     }
     
