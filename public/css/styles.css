@@ -28,7 +28,9 @@
   --rotacion: -180deg;
 
   /* COOKIES */
-  --COLOR-BACKGROUND-COOKIE-BOTON: #1ad56c;
+  /* --COLOR-BACKGROUND-COOKIE-BOTON: #1ad56c; */
+  --COLOR-BACKGROUND-COOKIE-BOTON: #12592E;
+  
 }
 
 @font-face {
@@ -1802,3 +1804,7 @@ input[type=number] {
 }
 
 
+.fixedBlueContrast
+{
+  background-color: #10549E;
+}
