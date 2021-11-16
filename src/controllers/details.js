@@ -31,9 +31,16 @@ exports.postShowDetails = async (req, res, languageBrowser) =>
         return res.status(404).send("Not found");
     }
 
-    const diferenciaDias = await logicDiferenciaFechas.DiferenciaFechaRecogidaDevolucion(req.body);
+    const [fechaValida,
+        fechaRecogida,
+        fechaDevolucion,
+        diasEntreFechas,
+        fechaRecogidaFormatoCorto,
+        fechaDevolucionFormatoCorto] = await logicDiferenciaFechas.DiferenciaFechaRecogidaDevolucion(req.body);
 
-    if (req.body.edad_conductor - 0 < 21 || req.body.edad_conductor - 0 > 90 || req.body.anyos_carnet - 0 < 2 || diferenciaDias === false) {
+    
+
+    if (req.body.edad_conductor - 0 < 21 || req.body.edad_conductor - 0 > 90 || req.body.anyos_carnet - 0 < 2 || fechaValida === false) {
         return res.redirect("/");
     }
 
@@ -42,11 +49,9 @@ exports.postShowDetails = async (req, res, languageBrowser) =>
     const locationLanguage = await locations.GenerateLocationBrowser(
         languageBrowser,
         req.headers["accept-language"]
-        // req.headers["accept-language"].split(",")[0].split("-")[0]
     );
 
     const isAvifSupported = await logicHelper.IsAvifSupported(req.get("Accept"));
-
 
     res.render(path.join(__dirname, "../../public/reservar.html"), {
         "isAvifSupported": isAvifSupported,

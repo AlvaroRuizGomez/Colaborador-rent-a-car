@@ -49,7 +49,7 @@ exports.GetCookiePolicy = async (req, res, languageBrowser) =>
 
 exports.SecurityReportGet = async (req, res) => {
 
-    console.log("security report get=" + JSON.stringify(req.body) + " url=" + req.url);
+    console.log("security report get. req.body=" + JSON.stringify(req) + " req.url=" + req.url);
 
 };
 
@@ -57,7 +57,7 @@ exports.SecurityReportGet = async (req, res) => {
 exports.SecurityReport = async (req, res) =>
 {
 
-    console.log("security report post=" + JSON.stringify(req.body) + " url=" + req.url);
+    console.log("security report post. req.body=" + JSON.stringify(req) + " req.url=" + req.url);
 
 };
 
@@ -65,9 +65,7 @@ exports.SecurityReport = async (req, res) =>
 exports.GetRobots = async (req, res) =>
 {
 
-    res.type('text/plain');
-    // res.send("User-agent: Yandex\nDisallow: /");
-    res.send("");
+    res.sendFile(path.join(__dirname, "../../public/robots.txt"));
 
 };
 
@@ -289,9 +287,16 @@ exports.postHomeDirect = async (req, res) =>
         return res.status(404).send("Not found");
     }
 
-    const [fechasValidas, fechaRecogida, fechaDevolucion, diasEntreFechas] = await logicDiferenciaFechas.DiferenciaFechaRecogidaDevolucion(query);
-    
-    if (query.edad_conductor - 0 < 21 || query.edad_conductor - 0 > 90 || query.anyos_carnet - 0 < 2 || fechasValidas === false)
+    // no nos fiamos del usuario y ponemos la fecha que mas o 
+    const [
+        fechaValida,
+        fechaRecogida,
+        fechaDevolucion,
+        diasEntreFechas,
+        fechaRecogidaFormatoCorto,
+        fechaDevolucionFormatoCorto] = await logicDiferenciaFechas.DiferenciaFechaRecogidaDevolucion(query);
+
+    if (query.edad_conductor - 0 < 21 || query.edad_conductor - 0 > 90 || query.anyos_carnet - 0 < 2 || fechaValida === false)
     {
         return res.status(301).redirect("/");
     }
@@ -299,14 +304,12 @@ exports.postHomeDirect = async (req, res) =>
     query.numeroDias = diasEntreFechas;
     query.fechaRecogida = fechaRecogida;
     query.fechaDevolucion = fechaDevolucion;
-    // query.fechaRecogida = `${fechaRecogida.getDate()}-${fechaRecogida.getMonth() + 1}-${fechaRecogida.getFullYear()}`;
-    // query.fechaDevolucion = `${fechaDevolucion.getDate()}-${fechaDevolucion.getMonth() + 1}-${fechaDevolucion.getFullYear()}`;
+    query["fechaRecogidaFormatoCorto"] = fechaRecogidaFormatoCorto;
+    query["fechaDevolucionFormatoCorto"] = fechaDevolucionFormatoCorto;
 
 
     const body = { "token": process.env.TOKEN_FOR_BACKEND_ACCESS, "direct":true, ...query };
-    // body["fechaRecogida"] = fechaRecogida;
-    // body["fechaDevolucion"] = fechaDevolucion;
-    // no nos fiamos del usuario y ponemos la fecha que mas o 
+
     //enviamos al backedn la informacion
     try
     {
@@ -350,8 +353,9 @@ exports.postHomeDirect = async (req, res) =>
                 "horaRecogida": body.horaRecogida,
                 "fechaDevolucion": body.fechaDevolucion,
                 "horaDevolucion": body.horaDevolucion,
+                "fechaRecogidaFormatoCorto": body.fechaRecogidaFormatoCorto,
+                "fechaDevolucionFormatoCorto": body.fechaDevolucionFormatoCorto,
                 "numeroDias": body.numeroDias,
-                // "formdata": query,
                 "errorFormulario": dataResponse.errorFormulario,
                 "success": query.success,
                 "diasEntreRecogidaDevolucion": dataResponse.diasEntreRecogidaDevolucion,
@@ -381,7 +385,8 @@ exports.postHomeDirect = async (req, res) =>
                 "fechaDevolucion": body.fechaDevolucion,
                 "horaDevolucion": body.horaDevolucion,
                 "numeroDias": body.numeroDias,
-                // "formdata": query,
+                "fechaRecogidaFormatoCorto": body.fechaRecogidaFormatoCorto,
+                "fechaDevolucionFormatoCorto": body.fechaDevolucionFormatoCorto,
                 "errorFormulario": dataResponse.errorFormulario,
                 "success": query.success,
                 "diasEntreRecogidaDevolucion": dataResponse.diasEntreRecogidaDevolucion,
@@ -517,7 +522,14 @@ exports.postHome = async (req, res) =>
         return res.status(404).send("Not found");
     }
 
-    const [fechaValida, fechaRecogida, fechaDevolucion, diasEntreFechas] = await logicDiferenciaFechas.DiferenciaFechaRecogidaDevolucion(req.body);
+    const [
+        fechaValida,
+        fechaRecogida,
+        fechaDevolucion,
+        diasEntreFechas,
+        fechaRecogidaFormatoCorto,
+        fechaDevolucionFormatoCorto
+        ] = await logicDiferenciaFechas.DiferenciaFechaRecogidaDevolucion(req.body);
 
     if (req.body.edad_conductor - 0 < 21 || req.body.edad_conductor - 0 > 90 || req.body.anyos_carnet - 0 < 2 || fechaValida === false)
     {
@@ -529,6 +541,8 @@ exports.postHome = async (req, res) =>
     const body = { "token": process.env.TOKEN_FOR_BACKEND_ACCESS, "direct": false, ...req.body };
     body["fechaRecogida"] = fechaRecogida;
     body["fechaDevolucion"] = fechaDevolucion;
+    body["fechaRecogidaFormatoCorto"] = fechaRecogidaFormatoCorto;
+    body["fechaDevolucionFormatoCorto"] = fechaDevolucionFormatoCorto;
 
     //enviamos al backedn la informacion
     const responseRaw = await fetch(obtenerVars.URI_API_BACKEND, {
@@ -586,6 +600,8 @@ exports.postHome = async (req, res) =>
             "horaRecogida": req.body.horaRecogida,
             "fechaDevolucion": req.body.fechaDevolucion,
             "horaDevolucion": req.body.horaDevolucion,
+            "fechaRecogidaFormatoCorto": body.fechaRecogidaFormatoCorto,
+            "fechaDevolucionFormatoCorto": body.fechaDevolucionFormatoCorto,
             "numeroDias": req.body.numeroDias,
             // "formdata": req.body,
             "errorFormulario": dataResponse.errorFormulario,
@@ -614,7 +630,8 @@ exports.postHome = async (req, res) =>
             "fechaDevolucion": req.body.fechaDevolucion,
             "horaDevolucion": req.body.horaDevolucion,
             "numeroDias": req.body.numeroDias,
-            // "formdata": req.body,
+            "fechaRecogidaFormatoCorto": body.fechaRecogidaFormatoCorto,
+            "fechaDevolucionFormatoCorto": body.fechaDevolucionFormatoCorto,
             "errorFormulario": dataResponse.errorFormulario,
             "success": req.body.success,
             "diasEntreRecogidaDevolucion": dataResponse.diasEntreRecogidaDevolucion,
@@ -623,7 +640,7 @@ exports.postHome = async (req, res) =>
             "preciosPorClase": dataResponse.preciosPorClase,
             "condicionesgenerales": dataResponse.condicionesgenerales,
             "locations": locationLanguage,
-            // "pagoRecogida": dataResponse.pagoRecogida
+            
         });
     
     }

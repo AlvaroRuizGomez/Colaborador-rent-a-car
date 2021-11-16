@@ -6,43 +6,52 @@ exports.DiferenciaFechaRecogidaDevolucion = async (formulario) => {
 
 
     let resultado = false;
-    let diasEntreFechas = formulario.numeroDias - 0;
+    let diasEntreFechas = 3;
+    
+    if (formulario.numeroDias === undefined)
+    {
+        diasEntreFechas = formulario.diasEntreRecogidaDevolucion - 0;
+    }
+    else
+    {
+        diasEntreFechas = formulario.numeroDias - 0;
+    }
 
-    let fechaRecogida = await ObtenerConversionFecha(
+    let [fechaRecogidaFormatoISO, fechaRecogidaFormatoCorto] = await ObtenerConversionFecha(
         formulario.fechaRecogida,
         formulario.horaRecogida,
 
     );
     
-    let fechaDevolucion = await ObtenerConversionFecha(
+    let [fechaDevolucionFormatoISO, fechaDevolucionFormatoCorto] = await ObtenerConversionFecha(
         formulario.fechaDevolucion,
         formulario.horaDevolucion,
         
     );
         
-    if (fechaRecogida === undefined || fechaRecogida === undefined)
+    if (fechaRecogidaFormatoISO === undefined || fechaRecogidaFormatoISO === undefined)
     {
         
-        console.error(`formulario fechaRecogida=${formulario.fechaRecogida} formulario fechaDevolucion=${formulario.fechaDevolucion} fechaRecogida=${fechaRecogida} fechaDevolucion=${fechaDevolucion}`);
+        console.error(`formulario fechaRecogida=${formulario.fechaRecogida} formulario fechaDevolucion=${formulario.fechaDevolucion} fechaRecogida=${fechaRecogidaFormatoISO} fechaDevolucion=${fechaDevolucionFormatoISO}`);
 
         resultado = false;
-        fechaDevolucion = undefined;
-        fechaRecogida = undefined;
+        fechaDevolucionFormatoISO = undefined;
+        fechaRecogidaFormatoISO = undefined;
     }
     else
     {
         resultado = true;
-        if (fechaDevolucion < fechaRecogida)
+        if (fechaDevolucionFormatoISO < fechaRecogidaFormatoISO)
         {
-            console.error(`FEchaDevolucion es menor a la fechaRecogida fechaDevolucion=${fechaDevolucion} fechaRecogida=${fechaRecogida}`);
-            const tempFecha = fechaRecogida;
-            fechaRecogida = fechaDevolucion;
-            fechaDevolucion = tempFecha;
+            console.error(`FEchaDevolucion es menor a la fechaRecogida fechaDevolucion=${fechaDevolucionFormatoISO} fechaRecogida=${fechaRecogidaFormatoISO}`);
+            const tempFecha = fechaRecogidaFormatoISO;
+            fechaRecogidaFormatoISO = fechaDevolucionFormatoISO;
+            fechaDevolucionFormatoISO = tempFecha;
             // resultado = false;
             // fechaDevolucion = undefined;
             // fechaRecogida = undefined;
 
-            let timeDifference = Math.abs(fechaDevolucion.getTime() - fechaRecogida.getTime());
+            let timeDifference = Math.abs(fechaDevolucionFormatoISO.getTime() - fechaRecogidaFormatoISO.getTime());
             diasEntreFechas = Math.ceil(timeDifference / (MILISECONDS_DAY));
 
             // console.log(diasEntreFechas);
@@ -50,7 +59,7 @@ exports.DiferenciaFechaRecogidaDevolucion = async (formulario) => {
         }
     }
     
-    return [resultado, fechaRecogida, fechaDevolucion, diasEntreFechas];
+    return [resultado, fechaRecogidaFormatoISO, fechaDevolucionFormatoISO, diasEntreFechas, fechaRecogidaFormatoCorto, fechaDevolucionFormatoCorto];
 
 };
 
@@ -64,11 +73,11 @@ const ObtenerConversionFecha = async (fechaRaw, horaRaw) =>
     let mes = undefined;
     let dia = undefined;
 
-    const currentDate = new Date();
     const [validDate, fechaValidated, hora, minuto] = await ValidateDateFromForm(fechaRaw, horaRaw);
     
     if (fechaRaw === undefined || validDate === false)
     {
+        const currentDate = new Date();
         anyo = currentDate.getFullYear();
         mes = currentDate.getMonth() + 1;
         dia = currentDate.getDate();
@@ -81,20 +90,24 @@ const ObtenerConversionFecha = async (fechaRaw, horaRaw) =>
         mes = fechaValidated.getMonth() + 1;
         dia = fechaValidated.getDate();
 
-        // [anyo, mes, dia] = await conversionFecha(fechaRaw, currentDate);
     }
     
     // const fechaRecogida = new Date(`${fechaValidated}`);
     // fechaRecogida.setHours(9, 0, 0, 0)
-    fechaRecogida = new Date(`${anyo}-${mes}-${dia} ${hora}:${minuto}:00Z`);
+    fechaFormatoISO = new Date(`${anyo}-${mes}-${dia} ${hora}:${minuto}:00Z`);
+    fechaFormatoCorto = `${dia}-${mes}-${anyo}`;
 
-    return fechaRecogida;
+    return [fechaFormatoISO, fechaFormatoCorto];
 
 
 };
 
 const ValidateDateFromForm = async (fechaRaw, horaRaw) =>
 {
+
+    //
+    
+
 
     let isValid = false;
     let [anyo, mes, dia] = await ConversionFecha(fechaRaw, new Date());
@@ -116,17 +129,40 @@ const ValidateDateFromForm = async (fechaRaw, horaRaw) =>
 
 };
 
+
+const ComprobarFechaDentroCorreccion = async (fechaRaw) =>
+{
+
+    let isValid = false;
+    if (fechaRaw.indexOf(" ") !== -1)
+    {
+        isValid = true;
+    }
+
+    if (fechaRaw.indexOf("-") !== -1) {
+        isValid = true;
+    }
+
+    if (fechaRaw.indexOf(",") !== -1) {
+        isValid = true;
+    }
+
+    return isValid;
+
+};
+
 const ConversionFecha = async (fechaRaw, currentDate) =>
 {
 
     try
     {
-        let fechaRecogidaFormSplitted = undefined;
+        // let fechaRecogidaFormSplitted = undefined;
         let anyo = 0;
         let mes = 0;
         let dia = 0;
     
-        if (fechaRaw === undefined || fechaRaw.indexOf(",") === -1 || fechaRaw.indexOf("-") === -1 )
+        // fechas validas pueden tener una coma, un espacio, un guion
+        if (fechaRaw === undefined || (fechaRaw.indexOf(",") === -1 && fechaRaw.indexOf("-") === -1 && fechaRaw.indexOf(" ") === -1 ))
         {
             const mesRaw = currentDate.getMonth();
             mes = mesRaw + 1;
@@ -136,15 +172,8 @@ const ConversionFecha = async (fechaRaw, currentDate) =>
             return [anyo, mes, dia];
         }
     
-    
-        if (fechaRaw.split(",").length >= 2) {
-            fechaRecogidaFormSplitted = fechaRaw.split(",")[1].split("-");
-        }
-        else {
-            fechaRecogidaFormSplitted = fechaRaw.split("-");
-        }
-    
-    
+        const fechaRecogidaFormSplitted = await SplitFecha(fechaRaw);
+
         [anyo, mes, dia] = await AjusteFecha(fechaRecogidaFormSplitted);
         return [anyo, mes, dia];
 
@@ -163,8 +192,63 @@ const ConversionFecha = async (fechaRaw, currentDate) =>
 
 };
 
+const meses = {
+    "dec": 12,
+    "nov": 11,
+    "oct": 10,
+    "sep": 9,
+    "aug": 8,
+    "jul": 7,
+    "jun": 6,
+    "may": 5,
+    "apr": 4,
+    "mar": 3,
+    "feb": 2,
+    "jan": 1,
+
+};
+
+const SplitFecha = async (fechaRaw) =>
+{
+
+    let fechaRecogidaFormSplitted;
+
+    if (fechaRaw.indexOf(",") !== -1)
+    {
+        // Vie, 12-12-20
+        fechaRecogidaFormSplitted = fechaRaw.split(",")[1].split("-");
+    }
+    else
+    {
+        // Fri Nov 19 2021 00:00:00 GMT+0100 (hora estándar de Europa central)
+        if (fechaRaw.indexOf(" ") !== -1)
+        {
+            const splittedText = fechaRaw.toString().split(" ");
+            const anyo = splittedText[3];
+            const mesIndex = splittedText[1].toLowerCase();
+            const mes = meses[mesIndex];
+            const dia = splittedText[2];
+
+            fechaRecogidaFormSplitted = [ dia, mes, anyo ];
+
+        }
+        else
+        {
+            fechaRecogidaFormSplitted = fechaRaw.split("-");
+        }
+
+    }
+
+    return fechaRecogidaFormSplitted;
+
+};
+
 const AjusteFecha = async (fechaRecogidaFormSplitted) =>
 {
+
+
+    // let [anyo, mes, dia] = await DateVariablesAsignation(fechaRecogidaFormSplitted);
+    
 
     let anyo = fechaRecogidaFormSplitted[2] - 0;
     let mes = fechaRecogidaFormSplitted[1] - 0;
@@ -191,6 +275,34 @@ const AjusteFecha = async (fechaRecogidaFormSplitted) =>
     return [anyo, mes, dia];
 
 };
+
+// const DateVariablesAsignation = async (fechaRecogidaFormSplitted, splittedVars) =>
+// {
+
+//     let anyo = 0;
+//     let mes = 0;
+//     let dia = 0;
+    
+//     if (splittedVars[ENUM_SPLIT_VARS.guion] === true) {
+        
+//         anyo = fechaRecogidaFormSplitted[2] - 0;
+//         mes = fechaRecogidaFormSplitted[1] - 0;
+//         dia = fechaRecogidaFormSplitted[0] - 0;
+//     }
+
+//     if (splittedVars[ENUM_SPLIT_VARS.espacio] === true) {
+
+//         let anyo = fechaRecogidaFormSplitted[2] - 0;
+//         let mes = fechaRecogidaFormSplitted[1] - 0;
+//         let dia = fechaRecogidaFormSplitted[0] - 0;
+
+//     }
+
+//     if (splittedVars[ENUM_SPLIT_VARS.espacio] === true) {
+
+//     }
+
+// };
 
 const ConversionHora = async (horaRaw) => {
 
