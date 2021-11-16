@@ -229,6 +229,21 @@ const ComprobarIntervaloFechas = async () => {
     }
     inputHiddenNumeroDias.value = numerodias;
     numerodiasInput.innerHTML = `${numerodias} ${traDias}`;
+
+    // cambiar formulario
+    let fechaDateForm = new Date(fechaRecogida);
+    let diaForm = fechaDateForm.getDate();
+    let mesForm = fechaDateForm.getMonth() + 1;
+    let anyoForm = fechaDateForm.getFullYear();
+
+    document.getElementById("fechaRecogidaForm").value = `${diaForm}-${mesForm}-${anyoForm}`;
+
+    fechaDateForm = new Date(fechaDevolucion);
+    diaForm = fechaDateForm.getDate();
+    mesForm = fechaDateForm.getMonth() + 1;
+    anyoForm = fechaDateForm.getFullYear();
+
+    document.getElementById("fechaDevolucionForm").value = `${diaForm}-${mesForm}-${anyoForm}`;
     
     if (numerodias <= 0)
     {
