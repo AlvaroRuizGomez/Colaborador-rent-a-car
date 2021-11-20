@@ -15,6 +15,14 @@ const eta = require("eta");
 
 const ctrlCharactersRegex = /[\u0000-\u001F\u007F-\u009F\u2000-\u200D\uFEFF]/gim;
 const regexExpAmp = new RegExp("\\\\u0026", "g");
+const languagesAccpeted = {
+    "en": "/en",
+    "es": "/es",
+    "it": "/it",
+    "de": "/de",
+};
+
+
 
 exports.GetCookiePolicy = async (req, res, languageBrowser) =>
 {
@@ -49,7 +57,7 @@ exports.GetCookiePolicy = async (req, res, languageBrowser) =>
 
 exports.SecurityReportGet = async (req, res) => {
 
-    console.log("security report get. req.body=" + JSON.stringify(req) + " req.url=" + req.url);
+    console.log("security report get. req.url=" + req.url);
 
 };
 
@@ -57,7 +65,7 @@ exports.SecurityReportGet = async (req, res) => {
 exports.SecurityReport = async (req, res) =>
 {
 
-    console.log("security report post. req.body=" + JSON.stringify(req) + " req.url=" + req.url);
+    console.log("hotlink security report post. req.url=" + req.url);
 
 };
 
@@ -66,6 +74,19 @@ exports.GetRobots = async (req, res) =>
 {
 
     res.sendFile(path.join(__dirname, "../../public/robots.txt"));
+
+};
+
+exports.HomeRedirectToLanguages = async (req, res) =>
+{
+
+    const currentLanguage = await locations.GetLanguageFromHeader(req.headers["accept-language"]);
+    const uri = languagesAccpeted[currentLanguage];
+
+    console.log("redire")
+
+    res.redirect(uri);
+
 
 };
 
@@ -84,12 +105,7 @@ exports.getHome = async (req, res, languageBrowser, isPagoCorrecto = false) =>
     }
 
 
-    // const languagesAccpeted = {
-    //     "en": "en",
-    //     "es": "es",
-    //     "it": "it",
-    //     "de": "de",
-    // };
+
 
     // // let languageNativeBrowser = undefined;
     // let textoRutaArchivo = "";
@@ -208,6 +224,8 @@ exports.getHome = async (req, res, languageBrowser, isPagoCorrecto = false) =>
         }
         else
         {
+
+
             res.render(path.join(__dirname, "../../public/inicio.html"), {
                 "data": dataResponse.data,
                 "success": id,
@@ -216,6 +234,8 @@ exports.getHome = async (req, res, languageBrowser, isPagoCorrecto = false) =>
                 "locations": locationLanguage,
                 "numeroDias": 3
             });
+
+            
 
         }
 
@@ -251,6 +271,11 @@ exports.getHome = async (req, res, languageBrowser, isPagoCorrecto = false) =>
 exports.redirectToHome = async (req, res) =>
 {
     return res.redirect("/");
+};
+
+
+exports.redirectToHomeUnNivel = async (req, res) => {
+    return res.redirect("../");
 };
 
 exports.postHomeDirect = async (req, res) =>
@@ -511,7 +536,7 @@ const ObtenerCurrentDate = async (idioma, diaMas) => {
 
 };
 
-exports.postHome = async (req, res) =>
+exports.postHome = async (req, res, languageBrowser) =>
 {
     
     const isSchemaValid = await ControlSchema(req.body);

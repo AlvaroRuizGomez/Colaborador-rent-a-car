@@ -292,14 +292,39 @@ exports.InitServer = async () => {
     app.set("views", path.join(__dirname, "../public"));
     app.set("view engine", "html");
 
-    app.use("/", express.static(path.join(__dirname, "../public")));
-    app.use("/car/", express.static(path.join(__dirname, "../public")));
-    
+    // app.use("/", express.static(path.join(__dirname, "../public")));
     
     // rutas
+    app.use( express.static(path.join(__dirname, "../public")));
+    app.use("/es/*/car/*.html", express.static(path.join(__dirname, "../public")));
+    app.use("/it/*/car/*.html", express.static(path.join(__dirname, "../public")));
+    app.use("/en/*/car/*.html", express.static(path.join(__dirname, "../public")));
+    app.use("/de/*/car/*.html", express.static(path.join(__dirname, "../public")));
+
+    
+    // en caso de haya un slash al final, redirigimos sin slash
+    // www.rentcarmallorca.es/
+    // www.rentcarmallorca.es
+    // www.rentcaramallorca.es/dashboard/
+    // www.rentcaramallorca.es/dashboard
+    // app.use(function (req, res, next)
+    // {
+    //     if (req.path.substr(-1) === "/" && req.path.length > 1)
+    //     {
+    //         // quitamos ultima posicion si hay /
+    //         const queryUri = req.url.slice(req.path.length);
+    //         res.redirect(301, req.path.slice(0, -1) + queryUri);
+    //     }
+    //     else
+    //     {
+    //         next();
+    //     }
+    // });
+    
+    
     // app.use("/", limiterHome);
     app.use("/", router);
-
+    
     
     // escucha puerto servidor
     let express_server = app.listen(process.env.PORT_FRONTEND, (error) => {
