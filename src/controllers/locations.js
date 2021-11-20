@@ -86,19 +86,34 @@ const GetVarLocales = async () =>
     return locales;
 };
 
+exports.GetLanguageFromHeader = async (reqHeadersLocation) =>
+{
+
+    let headersLocation = "en";
+    if (reqHeadersLocation !== undefined) {
+        if (reqHeadersLocation.indexOf(",") !== -1 && reqHeadersLocation.indexOf("-") !== -1) {
+            headersLocation = reqHeadersLocation.split(",")[0].split("-")[0];
+        }
+    }
+
+    return headersLocation.toLowerCase();
+};
+
 exports.GenerateLocationBrowser = async (languageBrowser, reqHeadersLocation) => {
 
 
     // console.log("reqHeaderLocation=" + reqHeadersLocation);
-    let headersLocation = "en";
-    if (reqHeadersLocation !== undefined)
-    {
-        if (reqHeadersLocation.indexOf(",") !== -1 && reqHeadersLocation.indexOf("-") !== -1 )
-        {
-            headersLocation = reqHeadersLocation.split(",")[0].split("-")[0];
-        }
-    }
-    
+    // let headersLocation = "en";
+    // if (reqHeadersLocation !== undefined)
+    // {
+    //     if (reqHeadersLocation.indexOf(",") !== -1 && reqHeadersLocation.indexOf("-") !== -1 )
+    //     {
+    //         headersLocation = reqHeadersLocation.split(",")[0].split("-")[0];
+    //     }
+    // }
+    const headersLocation = await this.GetLanguageFromHeader(reqHeadersLocation);
+
+
     //lang = es, it, en, de
     if (languageBrowser === undefined)
     {

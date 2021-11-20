@@ -15,35 +15,57 @@ const templates = require("../controllers/getTemplate");
 
 
 // rutas
-
 router.get("/cookie_policy", async (req, res) => await home.GetCookiePolicy(req, res));
 router.get("/grcsp616afffa_f826_4461_85c3_941ee6973aff_0_0_3sct30c0d50e_2191_4857_9e5d_aed703100472", async (req, res) => await home.SecurityReportGet(req, res))
 router.post("/grcsp616afffa_f826_4461_85c3_941ee6973aff_0_0_3sct30c0d50e_2191_4857_9e5d_aed703100472", async (req, res) => await home.SecurityReport(req, res))
 
-router.get("/", async (req, res) => await home.getHome(req, res));
-router.post("/busqueda", async (req, res) => await home.postHome(req, res));
-router.get("/busqueda", async (req, res) => await home.redirectToHome(req, res));
+// router.get("/", async (req, res) => await home.getHome(req, res));
 
-router.get("/car/*", async (req, res) => await home.postHomeDirect(req, res));
+router.get("/", async (req, res) => await home.HomeRedirectToLanguages(req, res));
+router.get("/es", async (req, res) => await home.getHome(req, res, "es"));
+router.get("/it", async (req, res) => await home.getHome(req, res, "it"));
+router.get("/en", async (req, res) => await home.getHome(req, res, "en"));
+router.get("/de", async (req, res) => await home.getHome(req, res, "de"));
+
+// router.post("/busqueda", async (req, res) => await home.postHome(req, res));
+// router.get("/busqueda", async (req, res) => await home.redirectToHome(req, res));
+
+
+// router.post("/busqueda", async (req, res) => await home.postHome(req, res));
+router.post("/es/alquiler-coches", async (req, res) => await home.postHome(req, res));
+router.post("/it/autonoleggio", async (req, res) => await home.postHome(req, res));
+router.post("/en/rentacar", async (req, res) => await home.postHome(req, res));
+router.post("/de/mietwagen", async (req, res) => await home.postHome(req, res));
+
+router.get("/es/alquiler-coches", async (req, res) => await home.redirectToHome(req, res));
+router.get("/it/autonoleggio", async (req, res) => await home.redirectToHome(req, res));
+router.get("/en/rentacar", async (req, res) => await home.redirectToHome(req, res));
+router.get("/de/mietwagen", async (req, res) => await home.redirectToHome(req, res));
+
+router.get("/es/alquiler-coches/car/*", async (req, res) => await home.postHomeDirect(req, res));
+router.get("/it/autonoleggio/car/*", async (req, res) => await home.postHomeDirect(req, res));
+router.get("/en/rentacar/car/*", async (req, res) => await home.postHomeDirect(req, res));
+router.get("/de/mietwagen/car/*", async (req, res) => await home.postHomeDirect(req, res));
 
 
 //rutas idiomas
-router.get("/alquiler-coches", async (req, res) => await home.getHome(req, res, "es"));
-router.get("/autonoleggio", async (req, res) => await home.getHome(req, res, "it"));
-router.get("/rentacar", async (req, res) => await home.getHome(req, res, "en"));
-router.get("/mietwagen", async (req, res) => await home.getHome(req, res, "de"));
+// router.get("/alquiler-coches", async (req, res) => await home.getHome(req, res, "es"));
+// router.get("/autonoleggio", async (req, res) => await home.getHome(req, res, "it"));
+// router.get("/rentacar", async (req, res) => await home.getHome(req, res, "en"));
+// router.get("/mietwagen", async (req, res) => await home.getHome(req, res, "de"));
+
 
 
 // rutas detalles
-router.post("/detalles", async (req, res) => await details.postShowDetails(req, res, "es"));
-router.post("/dettagli", async (req, res) => await details.postShowDetails(req, res, "it"));
-router.post("/details", async (req, res) => await details.postShowDetails(req, res, "en"));
-router.post("/einzelheiten", async (req, res) => await details.postShowDetails(req, res, "de")); 
+router.post("/es/alquiler-coches/detalles.html", async (req, res) => await details.postShowDetails(req, res, "es"));
+router.post("/it/autonoleggio/dettagli.html", async (req, res) => await details.postShowDetails(req, res, "it"));
+router.post("/en/rentacar/details.html", async (req, res) => await details.postShowDetails(req, res, "en"));
+router.post("/de/mietwagen/einzelheiten.html", async (req, res) => await details.postShowDetails(req, res, "de"));
 
-router.get("/detalles", async (req, res) => await details.getShowDetails(req, res, "es"));
-router.get("/dettagli", async (req, res) => await details.getShowDetails(req, res, "it"));
-router.get("/details", async (req, res) => await details.getShowDetails(req, res, "en"));
-router.get("/einzelheiten", async (req, res) => await details.getShowDetails(req, res, "de"));
+router.get("/es/alquiler-coches/detalles.html", async (req, res) => await details.getShowDetails(req, res, "es"));
+router.get("/it/autonoleggio/dettagli.html", async (req, res) => await details.getShowDetails(req, res, "it"));
+router.get("/en/rentacar/details.html", async (req, res) => await details.getShowDetails(req, res, "en"));
+router.get("/de/mietwagen/einzelheiten.html", async (req, res) => await details.getShowDetails(req, res, "de"));
 
 
 router.get("/reservar", async (req, res) => await reservar.getReservar(req, res, "es"));

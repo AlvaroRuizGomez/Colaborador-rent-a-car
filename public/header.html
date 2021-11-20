@@ -58,9 +58,8 @@
                             <% const url_alquilercoches="url_alquilercoches_" + idi[i] %>
                             <% const bander="bandera_" + idi[i] %>
                             <% const idio="idioma_" + idi[i] %>
-                                <a class="link-idiomas" href="<%= it.locations[url_alquilercoches]%>">
+                                <a class="link-idiomas" href="/<%=idi[i] %>">
                                     <picture>
-                                        
                                         <source type="image/avif" srcset="./img/banderas/<%= idi[i] %>.avif">
                                         <source type="image/webp" srcset="./img/banderas/<%= idi[i] %>.webp">
                                         <img width="20" height="14" src="./img/banderas/<%= idi[i] %>.png" class="bandera" alt="<%=it.locations[bander]%>">

@@ -88,10 +88,10 @@
     <!-- <link rel="alternate" id="OlPdXw" media="only screen and (max-width: 640px)" href="https://www.rentcarmallorca.es" /> -->
     <!-- <link rel="alternate" href="https://www.rentcarmallorca.es" hreflang="<%=it.locations.idioma_web %>" /> -->
     <link rel="alternate" href="https://www.rentcarmallorca.es" hreflang="x-default" />
-    <link rel="alternate" href="https://www.rentcarmallorca.es/rentacar" hreflang="en-gb" />
-    <link rel="alternate" href="https://www.rentcarmallorca.es/autonoleggio" hreflang="it-it" />
-    <link rel="alternate" href="https://www.rentcarmallorca.es/mietwagen" hreflang="de-de" />
-    <link rel="alternate" href="https://www.rentcarmallorca.es/alquiler-coches" hreflang="es-es" />
+    <link rel="alternate" href="https://www.rentcarmallorca.es/en" hreflang="en-gb" />
+    <link rel="alternate" href="https://www.rentcarmallorca.es/it" hreflang="it-it" />
+    <link rel="alternate" href="https://www.rentcarmallorca.es/de" hreflang="de-de" />
+    <link rel="alternate" href="https://www.rentcarmallorca.es/es" hreflang="es-es" />
 
 </head>
 
@@ -113,7 +113,12 @@
             <!-------- Inicio Formulario de Busqueda ------------>
             <input type="hidden" id="traDia" name="traDia" value="<%=it.locations.dia %>">
             <input type="hidden" id="traDias" name="traDias" value="<%=it.locations.dias %>">
-            <form id="formulario-index" class="formContainer" method="POST" action="/busqueda">
+            <%
+            const textoTraduccionUriAlquilerCoches = "url_alquilercoches_" + it.locations.idioma_web;
+            const uriAlquilerCoches = it.locations[textoTraduccionUriAlquilerCoches];
+            %>
+
+            <form id="formulario-index" class="formContainer" method="POST" action="/<%=it.locations.idioma_web%><%=uriAlquilerCoches%>">
                 <input type="hidden" name="success" value="<%=it.success %>">
                 <input type="hidden" name="idioma" value="<%=it.locations.idioma_web%>">
                 <input type="hidden" name="fase" value="1">
@@ -278,15 +283,25 @@
 
                     const fechaDevolucionTexto = `${diaRecFin}-${mesRecFin}-${anyoRecFin}`;
 
+                    const linkHrefUri = "/" + it.locations.idioma_web 
+                    + uriAlquilerCoches
+                    + "/car/" + it.data[i]["vehiculo"]
+                    + ".html?id=" + it.data[i]["vehiculo"]
+                    + "&success=" + it.success
+                    + "&fase=2&idioma=" + it.locations.idioma_web
+                    + "&vehiculo=" + it.data[i]["vehiculo"] 
+                    + "&fechaRecogida=" + fechaRecogidaTexto
+                    + "&horaRecogida=09:00&fechaDevolucion=" + fechaDevolucionTexto
+                    + "&horaDevolucion=20:00&conductor_con_experiencia=true&edad_conductor=25&anyos_carnet=3&numeroDias=3";
+                    
+                    
                     %>
                     
-                        <a class="form-line" href="/car/<%=it.data[i]["vehiculo"] %>.html?id=<%=it.data[i]["vehiculo"]%>&success=<%=it.success %>&fase=2&idioma=<%=it.locations.idioma_web %>&vehiculo=<%=it.data[i]["vehiculo"] %>&fechaRecogida=<%=fechaRecogidaTexto%>&horaRecogida=09:00&fechaDevolucion=<%=fechaDevolucionTexto%>&horaDevolucion=20:00&conductor_con_experiencia=true&edad_conductor=25&anyos_carnet=3&numeroDias=3" id="<%=it.data[i]["vehiculo"] %>">
+                        <a class="form-line" href="<%=linkHrefUri%>" id="<%=it.data[i]['vehiculo'] %>"> 
                             
                             <div class="content">
                                 <picture>
-                                    <% if (it.isAvifSupported === false) { %>
-                                        <% } %> 
-                                        <source type="image/avif" srcset="./img/Img-Logo/Logo-Marca-Coche/<%=it.data[i]["logoMarcaCoche"] %>.avif">
+                                    <source type="image/avif" srcset="./img/Img-Logo/Logo-Marca-Coche/<%=it.data[i]["logoMarcaCoche"] %>.avif">
                                     <source type="image/webp" srcset="./img/Img-Logo/Logo-Marca-Coche/<%=it.data[i]["logoMarcaCoche"] %>.webp">
                                     <img width="25" height="25" src="./img/Img-Logo/Logo-Marca-Coche/<%=it.data[i]["logoMarcaCoche"] %>.png" class="imgLogo logo-<%=it.data[i]["ImagenVehiclo"] %>" alt="<%=it.data[i]["logoMarcaCoche"]%>">
                                 </picture>
