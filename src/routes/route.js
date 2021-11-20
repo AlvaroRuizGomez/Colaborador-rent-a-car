@@ -53,15 +53,15 @@ router.get("/de/busqueda", async (req, res) => await home.redirectToHome(req, re
 
 
 // rutas detalles
-router.post("/detalles", async (req, res) => await details.postShowDetails(req, res, "es"));
-router.post("/dettagli", async (req, res) => await details.postShowDetails(req, res, "it"));
-router.post("/details", async (req, res) => await details.postShowDetails(req, res, "en"));
-router.post("/einzelheiten", async (req, res) => await details.postShowDetails(req, res, "de")); 
+router.post("/es/alquiler-coches/detalles.html", async (req, res) => await details.postShowDetails(req, res, "es"));
+router.post("/it/autonoleggio/dettagli.html", async (req, res) => await details.postShowDetails(req, res, "it"));
+router.post("/en/rentacar/details.html", async (req, res) => await details.postShowDetails(req, res, "en"));
+router.post("/de/busqueda/einzelheiten.html", async (req, res) => await details.postShowDetails(req, res, "de"));
 
-router.get("/detalles", async (req, res) => await details.getShowDetails(req, res, "es"));
-router.get("/dettagli", async (req, res) => await details.getShowDetails(req, res, "it"));
-router.get("/details", async (req, res) => await details.getShowDetails(req, res, "en"));
-router.get("/einzelheiten", async (req, res) => await details.getShowDetails(req, res, "de"));
+router.get("/es/alquiler-coches/detalles.html", async (req, res) => await details.getShowDetails(req, res, "es"));
+router.get("/it/autonoleggio/dettagli.html", async (req, res) => await details.getShowDetails(req, res, "it"));
+router.get("/en/rentacar/details.html", async (req, res) => await details.getShowDetails(req, res, "en"));
+router.get("/de/busqueda/einzelheiten.html", async (req, res) => await details.getShowDetails(req, res, "de"));
 
 
 router.get("/reservar", async (req, res) => await reservar.getReservar(req, res, "es"));

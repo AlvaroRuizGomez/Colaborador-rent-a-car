@@ -296,10 +296,31 @@ exports.InitServer = async () => {
     
     // rutas
     app.use( express.static(path.join(__dirname, "../public")));
+    app.use("/es/", express.static(path.join(__dirname, "../public")));
+    
     app.use("/es/*/car/*.html", express.static(path.join(__dirname, "../public")));
     app.use("/it/*/car/*.html", express.static(path.join(__dirname, "../public")));
     app.use("/en/*/car/*.html", express.static(path.join(__dirname, "../public")));
     app.use("/de/*/car/*.html", express.static(path.join(__dirname, "../public")));
+
+
+    app.use("/es/alquiler-coches", express.static(path.join(__dirname, "../public")));
+    app.use("/it/autonoleggio", express.static(path.join(__dirname, "../public")));
+    app.use("/en/rentacar", express.static(path.join(__dirname, "../public")));
+    app.use("/de/busqueda", express.static(path.join(__dirname, "../public")));
+    
+    // app.use("/es/alquiler-coches/detalles.php", express.static(path.join(__dirname, "../public")));
+
+    // app.use("/es/*/detalles", express.static(path.join(__dirname, "../public")));
+    // app.use("/it/*/dettagli", express.static(path.join(__dirname, "../public")));
+    // app.use("/en/*/details", express.static(path.join(__dirname, "../public")));
+    // app.use("/de/*/einzelheiten", express.static(path.join(__dirname, "../public")));
+
+
+// /es/alquiler-coches/detalles
+// /it/autonoleggio/dettagli
+// /en/rentacar/details
+// /de/busqueda/einzelheiten
 
     
     // en caso de haya un slash al final, redirigimos sin slash
