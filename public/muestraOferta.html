@@ -67,12 +67,12 @@
 
     <!-- href langs -->
     <link rel="canonical" href="https://www.rentcarmallorca.es" />
-    <link rel="alternate" id="OlPdXw" media="only screen and (max-width: 640px)" href="https://www.rentcarmallorca.es" />
-    
-    <link rel="alternate" href="https://www.rentcarmallorca.es/rentacar" hreflang="en" />
-    <link rel="alternate" href="https://www.rentcarmallorca.es/autonoleggio" hreflang="it" />
-    <link rel="alternate" href="https://www.rentcarmallorca.es/mietwagen" hreflang="de" />
-    <link rel="alternate" href="https://www.rentcarmallorca.es/alquiler-coches" hreflang="es" />
+    <link rel="alternate" href="https://www.rentcarmallorca.es" hreflang="x-default" />
+    <link rel="alternate" href="https://www.rentcarmallorca.es/es/alquiler-coches" hreflang="es-es" />
+    <link rel="alternate" href="https://www.rentcarmallorca.es/it/autonoleggio" hreflang="it-it" />
+    <link rel="alternate" href="https://www.rentcarmallorca.es/en/rentacar" hreflang="en-gb" />
+    <link rel="alternate" href="https://www.rentcarmallorca.es/de/mietwagen" hreflang="de-de" />
+
 
 
 </head>
@@ -89,7 +89,9 @@
 
 
         <!------- Inicio formulario de Busqueda ----------------->
-        <form id="formulario-index" class="form" method="POST" action="/busqueda">
+        <% const textoTraduccionUriAlquilerCoches="url_alquilercoches_" + it.locations.idioma_web; const
+            uriAlquilerCoches=it.locations[textoTraduccionUriAlquilerCoches]; %>
+        <form id="formulario-index" class="form" method="POST" action="/<%=it.locations.idioma_web%><%=uriAlquilerCoches%>">
             <input type="hidden" name="conductor_con_experiencia" value="<%= it.conductor_con_experiencia %>">
             <input type="hidden" id="edad_conductor" name="edad_conductor" value="<%= it.edad_conductor %>">
             <input type="hidden" name="idioma" value="<%=it.locations.idioma_web %>">

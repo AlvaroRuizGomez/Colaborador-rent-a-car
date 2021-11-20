@@ -1808,3 +1808,8 @@ input[type=number] {
 {
   background-color: #10549E;
 }
+
+.texto_reserva_completada
+{
+  font-size: 18px;
+}
