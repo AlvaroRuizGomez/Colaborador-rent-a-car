@@ -292,11 +292,16 @@ exports.InitServer = async () => {
     app.set("views", path.join(__dirname, "../public"));
     app.set("view engine", "html");
 
-    // app.use("/", express.static(path.join(__dirname, "../public")));
+    app.use("/", express.static(path.join(__dirname, "../public")));
     
+
     // rutas
     app.use( express.static(path.join(__dirname, "../public")));
     app.use("/es/", express.static(path.join(__dirname, "../public")));
+    app.use("/en/", express.static(path.join(__dirname, "../public")));
+    app.use("/it/", express.static(path.join(__dirname, "../public")));
+    app.use("/de/", express.static(path.join(__dirname, "../public")));
+
     
     app.use("/es/*/car/*.html", express.static(path.join(__dirname, "../public")));
     app.use("/it/*/car/*.html", express.static(path.join(__dirname, "../public")));
@@ -307,7 +312,7 @@ exports.InitServer = async () => {
     app.use("/es/alquiler-coches", express.static(path.join(__dirname, "../public")));
     app.use("/it/autonoleggio", express.static(path.join(__dirname, "../public")));
     app.use("/en/rentacar", express.static(path.join(__dirname, "../public")));
-    app.use("/de/busqueda", express.static(path.join(__dirname, "../public")));
+    app.use("/de/mietwagen", express.static(path.join(__dirname, "../public")));
     
     // app.use("/es/alquiler-coches/detalles.php", express.static(path.join(__dirname, "../public")));
 

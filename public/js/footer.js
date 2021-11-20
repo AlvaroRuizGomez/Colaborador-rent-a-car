@@ -189,7 +189,7 @@ if(typeof $ !== 'undefined')
     };
     $.datepicker.setDefaults($.datepicker.regional['es']);
         
-    $(function () 
+    $(async function () 
     {
         $("#fechaRecogida").datepicker({ dateFormat: 'D,dd-mm-yy', minDate: '1d' });
         // pagina inicio
@@ -199,8 +199,9 @@ if(typeof $ !== 'undefined')
         }
         else
         {
-            const recogidaValue = document.getElementById("fechaRecogida").value;
-            const fechaRecogida = new Date(recogidaValue);
+            const recogidaValue =  document.getElementById("fechaRecogida").value;
+
+            const fechaRecogida = await ObtenerFecha(recogidaValue, "09:00");//new Date(recogidaValue);
 
             $("#fechaRecogida").datepicker("setDate", fechaRecogida);
             $("#fechaRecogida").datepicker({ dateFormat: 'D,dd-mm-yy', minDate: '1d' });
@@ -245,3 +246,21 @@ if(typeof $ !== 'undefined')
     
 }
 
+
+// const ObtenerFecha = (fecha, hora) => {
+
+//     if (fecha.indexOf(",") === -1 || fecha.indexOf("-") === -1)
+//     {
+//         return new Date();
+
+//     }
+
+//     const splited = fecha.split(",")[1].split("-");
+//     const dia = splited[0];
+//     const mes = splited[1];
+//     const anyo = splited[2];
+
+//     const fechaRecogida = new Date(`${anyo}-${mes}-${dia}T${hora}`);
+//     return fechaRecogida;
+
+// };

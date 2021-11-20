@@ -261,6 +261,12 @@ const ComprobarIntervaloFechas = async () => {
 
 const ObtenerFecha = async (fecha, hora) => {
 
+    if (fecha.indexOf(",") === -1 || fecha.indexOf("-") === -1)
+    {
+        return new Date();
+
+    }
+
     const splited = fecha.split(",")[1].split("-");
     const dia = splited[0];
     const mes = splited[1];
