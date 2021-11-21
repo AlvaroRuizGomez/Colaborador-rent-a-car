@@ -171,6 +171,7 @@
   justify-items: center;
   color: #0d6efd;
   background-color: #fafafa;
+  font-display: optional;
   font-family: "Lobster-Regular";
   font-size: 63px;
   font-weight: bold;
