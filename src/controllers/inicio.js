@@ -83,8 +83,6 @@ exports.HomeRedirectToLanguages = async (req, res) =>
     const currentLanguage = await locations.GetLanguageFromHeader(req.headers["accept-language"]);
     const uri = languagesAccpeted[currentLanguage];
 
-    console.log("redire")
-
     res.redirect(uri);
 
 
@@ -271,11 +269,6 @@ exports.getHome = async (req, res, languageBrowser, isPagoCorrecto = false) =>
 exports.redirectToHome = async (req, res) =>
 {
     return res.redirect("/");
-};
-
-
-exports.redirectToHomeUnNivel = async (req, res) => {
-    return res.redirect("../");
 };
 
 exports.postHomeDirect = async (req, res) =>
