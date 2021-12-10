@@ -60,9 +60,6 @@ exports.postShowDetails = async (req, res, languageBrowser) =>
         "formdata": req.body,
     });
 
-    // aqui
-    // res.redirect(301, '/article');
-
     const body = {
         "token": process.env.TOKEN_FOR_BACKEND_ACCESS,
         "useragent": req.useragent,

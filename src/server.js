@@ -302,12 +302,10 @@ exports.InitServer = async () => {
     app.use("/it/", express.static(path.join(__dirname, "../public")));
     app.use("/de/", express.static(path.join(__dirname, "../public")));
 
-    
     app.use("/es/*/car/*.html", express.static(path.join(__dirname, "../public")));
     app.use("/it/*/car/*.html", express.static(path.join(__dirname, "../public")));
     app.use("/en/*/car/*.html", express.static(path.join(__dirname, "../public")));
     app.use("/de/*/car/*.html", express.static(path.join(__dirname, "../public")));
-
 
     app.use("/es/alquiler-coches", express.static(path.join(__dirname, "../public")));
     app.use("/it/autonoleggio", express.static(path.join(__dirname, "../public")));
