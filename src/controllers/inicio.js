@@ -16,10 +16,10 @@ const eta = require("eta");
 const ctrlCharactersRegex = /[\u0000-\u001F\u007F-\u009F\u2000-\u200D\uFEFF]/gim;
 const regexExpAmp = new RegExp("\\\\u0026", "g");
 const languagesAccpeted = {
-    "en": "/en",
-    "es": "/es",
-    "it": "/it",
-    "de": "/de",
+    "en": "/en/",
+    "es": "/es/",
+    "it": "/it/",
+    "de": "/de/",
 };
 
 

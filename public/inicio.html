@@ -285,8 +285,10 @@
 
                     const linkHrefUri = "/" + it.locations.idioma_web 
                     + uriAlquilerCoches
-                    + "/car/" + it.data[i]["vehiculo"]
-                    + ".html?id=" + it.data[i]["vehiculo"]
+                    + "/"
+                    + it.data[i]["vehiculo"]
+                    + "/?id=" 
+                    + it.data[i]["vehiculo"]
                     + "&success=" + it.success
                     + "&fase=2&idioma=" + it.locations.idioma_web
                     + "&vehiculo=" + it.data[i]["vehiculo"] 
@@ -294,6 +296,7 @@
                     + "&horaRecogida=09:00&fechaDevolucion=" + fechaDevolucionTexto
                     + "&horaDevolucion=20:00&conductor_con_experiencia=true&edad_conductor=25&anyos_carnet=3&numeroDias=3";
                     
+
                     
                     %>
                     

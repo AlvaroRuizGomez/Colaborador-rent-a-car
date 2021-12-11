@@ -22,10 +22,10 @@ router.post("/grcsp616afffa_f826_4461_85c3_941ee6973aff_0_0_3sct30c0d50e_2191_48
 // router.get("/", async (req, res) => await home.getHome(req, res));
 
 router.get("/", async (req, res) => await home.HomeRedirectToLanguages(req, res));
-router.get("/es", async (req, res) => await home.getHome(req, res, "es"));
-router.get("/it", async (req, res) => await home.getHome(req, res, "it"));
-router.get("/en", async (req, res) => await home.getHome(req, res, "en"));
-router.get("/de", async (req, res) => await home.getHome(req, res, "de"));
+router.get("/es/", async (req, res) => await home.getHome(req, res, "es"));
+router.get("/it/", async (req, res) => await home.getHome(req, res, "it"));
+router.get("/en/", async (req, res) => await home.getHome(req, res, "en"));
+router.get("/de/", async (req, res) => await home.getHome(req, res, "de"));
 
 // router.post("/busqueda", async (req, res) => await home.postHome(req, res));
 // router.get("/busqueda", async (req, res) => await home.redirectToHome(req, res));
@@ -42,6 +42,7 @@ router.get("/it/autonoleggio", async (req, res) => await home.redirectToHome(req
 router.get("/en/rentacar", async (req, res) => await home.redirectToHome(req, res));
 router.get("/de/mietwagen", async (req, res) => await home.redirectToHome(req, res));
 
+//  /es/alquiler-coches/peugeot108/
 router.get("/es/alquiler-coches/car/*", async (req, res) => await home.postHomeDirect(req, res));
 router.get("/it/autonoleggio/car/*", async (req, res) => await home.postHomeDirect(req, res));
 router.get("/en/rentacar/car/*", async (req, res) => await home.postHomeDirect(req, res));
