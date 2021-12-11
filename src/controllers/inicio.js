@@ -749,6 +749,14 @@ exports.OrdenarPorPrecioTotalDias = async (datosvehiculos) => {
     return await OrdenarPorPrecioTotalDias(datosvehiculos);
 };
 
+
+
+exports.GetSitemap = async (req, res) =>
+{
+    return res.sendFile(path.join(__dirname, "../../public/sitemap.xml"))
+};
+
+
 const ControlDirectSchema = async (body) =>
 {
 

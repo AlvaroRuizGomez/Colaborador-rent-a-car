@@ -19,7 +19,8 @@ router.get("/cookie_policy", async (req, res) => await home.GetCookiePolicy(req,
 router.get("/grcsp616afffa_f826_4461_85c3_941ee6973aff_0_0_3sct30c0d50e_2191_4857_9e5d_aed703100472", async (req, res) => await home.SecurityReportGet(req, res))
 router.post("/grcsp616afffa_f826_4461_85c3_941ee6973aff_0_0_3sct30c0d50e_2191_4857_9e5d_aed703100472", async (req, res) => await home.SecurityReport(req, res))
 
-// router.get("/", async (req, res) => await home.getHome(req, res));
+
+router.get("/sitemap.xml", async (req, res) => await home.GetSitemap(req, res));
 
 router.get("/", async (req, res) => await home.HomeRedirectToLanguages(req, res));
 router.get("/es/", async (req, res) => await home.getHome(req, res, "es"));
