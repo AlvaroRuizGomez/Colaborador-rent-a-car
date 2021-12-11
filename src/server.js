@@ -301,19 +301,18 @@ exports.InitServer = async () => {
     app.use("/en/", express.static(path.join(__dirname, "../public")));
     app.use("/it/", express.static(path.join(__dirname, "../public")));
     app.use("/de/", express.static(path.join(__dirname, "../public")));
-
-    app.use("/es/*/car/*.html", express.static(path.join(__dirname, "../public")));
-    app.use("/it/*/car/*.html", express.static(path.join(__dirname, "../public")));
-    app.use("/en/*/car/*.html", express.static(path.join(__dirname, "../public")));
-    app.use("/de/*/car/*.html", express.static(path.join(__dirname, "../public")));
+// /es/alquiler-coches/peugeot108/
+    app.use("/es/alquiler-coches/:id", express.static(path.join(__dirname, "../public")));
+    app.use("/it/autonoleggio/:id", express.static(path.join(__dirname, "../public")));
+    app.use("/en/rentacar/:id", express.static(path.join(__dirname, "../public")));
+    app.use("/de/mietwagen/:id", express.static(path.join(__dirname, "../public")));
 
     app.use("/es/alquiler-coches", express.static(path.join(__dirname, "../public")));
     app.use("/it/autonoleggio", express.static(path.join(__dirname, "../public")));
     app.use("/en/rentacar", express.static(path.join(__dirname, "../public")));
     app.use("/de/mietwagen", express.static(path.join(__dirname, "../public")));
     
-    // app.use("/es/alquiler-coches/detalles.php", express.static(path.join(__dirname, "../public")));
-
+    
     // app.use("/es/*/detalles", express.static(path.join(__dirname, "../public")));
     // app.use("/it/*/dettagli", express.static(path.join(__dirname, "../public")));
     // app.use("/en/*/details", express.static(path.join(__dirname, "../public")));

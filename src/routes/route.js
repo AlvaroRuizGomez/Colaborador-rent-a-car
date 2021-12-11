@@ -43,10 +43,10 @@ router.get("/en/rentacar", async (req, res) => await home.redirectToHome(req, re
 router.get("/de/mietwagen", async (req, res) => await home.redirectToHome(req, res));
 
 //  /es/alquiler-coches/peugeot108/
-router.get("/es/alquiler-coches/car/*", async (req, res) => await home.postHomeDirect(req, res));
-router.get("/it/autonoleggio/car/*", async (req, res) => await home.postHomeDirect(req, res));
-router.get("/en/rentacar/car/*", async (req, res) => await home.postHomeDirect(req, res));
-router.get("/de/mietwagen/car/*", async (req, res) => await home.postHomeDirect(req, res));
+router.get("/es/alquiler-coches/*", async (req, res) => await home.postHomeDirect(req, res));
+router.get("/it/autonoleggio/*", async (req, res) => await home.postHomeDirect(req, res));
+router.get("/en/rentacar/*", async (req, res) => await home.postHomeDirect(req, res));
+router.get("/de/mietwagen/*", async (req, res) => await home.postHomeDirect(req, res));
 
 
 //rutas idiomas
