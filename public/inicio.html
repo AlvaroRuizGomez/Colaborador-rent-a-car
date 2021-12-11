@@ -84,14 +84,12 @@
     <link rel="apple-touch-icon" href="./img/Img-Logo/rentacar_favicon-180.png" sizes="180x180">
 
     <!-- href langs -->
-    <link rel="canonical" href="https://www.rentcarmallorca.es" />
-    <!-- <link rel="alternate" id="OlPdXw" media="only screen and (max-width: 640px)" href="https://www.rentcarmallorca.es" /> -->
-    <!-- <link rel="alternate" href="https://www.rentcarmallorca.es" hreflang="<%=it.locations.idioma_web %>" /> -->
+    <link rel="canonical" href="https://www.rentcarmallorca.es/es/" />
     <link rel="alternate" href="https://www.rentcarmallorca.es" hreflang="x-default" />
-    <link rel="alternate" href="https://www.rentcarmallorca.es/en" hreflang="en-gb" />
-    <link rel="alternate" href="https://www.rentcarmallorca.es/it" hreflang="it-it" />
-    <link rel="alternate" href="https://www.rentcarmallorca.es/de" hreflang="de-de" />
-    <link rel="alternate" href="https://www.rentcarmallorca.es/es" hreflang="es-es" />
+    <link rel="alternate" href="https://www.rentcarmallorca.es/en/" hreflang="en-gb" />
+    <link rel="alternate" href="https://www.rentcarmallorca.es/it/" hreflang="it-it" />
+    <link rel="alternate" href="https://www.rentcarmallorca.es/de/" hreflang="de-de" />
+    <link rel="alternate" href="https://www.rentcarmallorca.es/es/" hreflang="es-es" />
 
 </head>
 
@@ -285,8 +283,10 @@
 
                     const linkHrefUri = "/" + it.locations.idioma_web 
                     + uriAlquilerCoches
-                    + "/car/" + it.data[i]["vehiculo"]
-                    + ".html?id=" + it.data[i]["vehiculo"]
+                    + "/"
+                    + it.data[i]["vehiculo"]
+                    + "/?id=" 
+                    + it.data[i]["vehiculo"]
                     + "&success=" + it.success
                     + "&fase=2&idioma=" + it.locations.idioma_web
                     + "&vehiculo=" + it.data[i]["vehiculo"] 
@@ -294,6 +294,7 @@
                     + "&horaRecogida=09:00&fechaDevolucion=" + fechaDevolucionTexto
                     + "&horaDevolucion=20:00&conductor_con_experiencia=true&edad_conductor=25&anyos_carnet=3&numeroDias=3";
                     
+
                     
                     %>
                     
@@ -379,7 +380,7 @@
     <!---------------------------------------------------------------->
     
     <script async src="./js/lazysizes.min.js"></script>
-    <script async src="./js/clockpicker.js"></script>
+    <script defer src="./js/clockpicker.js"></script>
     
     <script async src="./js/index.js" type="text/javascript"></script>
     <script async src="./js/newsletter.js" type="text/javascript"></script>

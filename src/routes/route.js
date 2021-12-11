@@ -22,10 +22,10 @@ router.post("/grcsp616afffa_f826_4461_85c3_941ee6973aff_0_0_3sct30c0d50e_2191_48
 // router.get("/", async (req, res) => await home.getHome(req, res));
 
 router.get("/", async (req, res) => await home.HomeRedirectToLanguages(req, res));
-router.get("/es", async (req, res) => await home.getHome(req, res, "es"));
-router.get("/it", async (req, res) => await home.getHome(req, res, "it"));
-router.get("/en", async (req, res) => await home.getHome(req, res, "en"));
-router.get("/de", async (req, res) => await home.getHome(req, res, "de"));
+router.get("/es/", async (req, res) => await home.getHome(req, res, "es"));
+router.get("/it/", async (req, res) => await home.getHome(req, res, "it"));
+router.get("/en/", async (req, res) => await home.getHome(req, res, "en"));
+router.get("/de/", async (req, res) => await home.getHome(req, res, "de"));
 
 // router.post("/busqueda", async (req, res) => await home.postHome(req, res));
 // router.get("/busqueda", async (req, res) => await home.redirectToHome(req, res));
@@ -42,10 +42,11 @@ router.get("/it/autonoleggio", async (req, res) => await home.redirectToHome(req
 router.get("/en/rentacar", async (req, res) => await home.redirectToHome(req, res));
 router.get("/de/mietwagen", async (req, res) => await home.redirectToHome(req, res));
 
-router.get("/es/alquiler-coches/car/*", async (req, res) => await home.postHomeDirect(req, res));
-router.get("/it/autonoleggio/car/*", async (req, res) => await home.postHomeDirect(req, res));
-router.get("/en/rentacar/car/*", async (req, res) => await home.postHomeDirect(req, res));
-router.get("/de/mietwagen/car/*", async (req, res) => await home.postHomeDirect(req, res));
+//  /es/alquiler-coches/peugeot108/
+router.get("/es/alquiler-coches/*", async (req, res) => await home.postHomeDirect(req, res));
+router.get("/it/autonoleggio/*", async (req, res) => await home.postHomeDirect(req, res));
+router.get("/en/rentacar/*", async (req, res) => await home.postHomeDirect(req, res));
+router.get("/de/mietwagen/*", async (req, res) => await home.postHomeDirect(req, res));
 
 
 //rutas idiomas
@@ -103,10 +104,9 @@ router.get("/?XDEBUG_SESSION_START=phpstorm", async (req, res) => { res.status(4
 
 router.get("/dcd4d28a1af026de6d64f69376648d30.txt", async (req, res) => await challange.URIDetectify(req, res));
 
-
-router.get("/.well-known/acme-challenge/qsYVY7rPFlj946jCH427V9bZRQyB6mBHJ0YXU2WUhyc", async (req, res) => await challange.URIChallangeFirstPart(req, res));
-router.get("/.well-known/acme-challenge/vIxo9rFF0Gc0cOkv5HoVTXv0PMarxGCfjo1x6v_N8Fs", async (req, res) => await challange.URIChallangeSecondPart(req, res));
-// router.get("/.well-known/acme-challenge/*", async (req, res) => await challange.URIChallange(req, res));
+router.get("/.well-known/acme-challenge/*", async (req, res) => await challange.URIChallange(req, res));
+// router.get("/.well-known/acme-challenge/qsYVY7rPFlj946jCH427V9bZRQyB6mBHJ0YXU2WUhyc", async (req, res) => await challange.URIChallangeFirstPart(req, res));
+// router.get("/.well-known/acme-challenge/vIxo9rFF0Gc0cOkv5HoVTXv0PMarxGCfjo1x6v_N8Fs", async (req, res) => await challange.URIChallangeSecondPart(req, res));
 
 // URI health check
 router.get(`/islive_0_QJFs_a_IiW_mFtZS2_f_A_BQ_NTib_Y3O6Ik_D0WNH9I`, async (req, res) => await live.IsLive(req, res));

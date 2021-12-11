@@ -1,15 +1,26 @@
 const path = require("path");
+const fs = require("fs");
 
 exports.URIChallange = async (req, res) => {
-    // console.log("acme challange url=" + JSON.stringify(req));
 
-    if (req.url.indexOf("/.well-known/acme-challenge/") === -1)
-    {
-        return res.send("");
+    try {
+
+        const directory = path.join(process.cwd(), "./acmechallenge/.well-known/acme-challenge/");
+        console.log("directory=" + directory);
+        const files = fs.readdirSync(directory);
+
+        for (let i = 0; i < files.length; i++)
+        {
+            console.log(files[i]);
+            return res.sendFile(directory + files[i]);
+        }
+        
+        
+    } catch (err) {
+        console.log(err);
     }
-
-    const url = req.url.split("/.well-known/acme-challenge/")[1];
-    return res.send(url);
+    
+    return res.send("");
 
 };
 
