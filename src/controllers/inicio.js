@@ -266,9 +266,13 @@ exports.getHome = async (req, res, languageBrowser, isPagoCorrecto = false) =>
 
 
 
-exports.redirectToHome = async (req, res) =>
+exports.redirectToHome = async (req, res, sufixUri ) =>
 {
-    return res.redirect("/");
+
+    const uri = languagesAccpeted[sufixUri];
+    res.redirect(uri);
+
+
 };
 
 exports.postHomeDirect = async (req, res) =>
@@ -748,6 +752,14 @@ exports.OrdenarClaseVehiculos = async (datosOrdenacion, datosVehiculos) => {
 exports.OrdenarPorPrecioTotalDias = async (datosvehiculos) => {
     return await OrdenarPorPrecioTotalDias(datosvehiculos);
 };
+
+
+
+exports.GetSitemap = async (req, res) =>
+{
+    return res.sendFile(path.join(__dirname, "../../public/sitemap.xml"))
+};
+
 
 const ControlDirectSchema = async (body) =>
 {

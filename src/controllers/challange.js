@@ -6,15 +6,12 @@ exports.URIChallange = async (req, res) => {
     try {
 
         const directory = path.join(process.cwd(), "./acmechallenge/.well-known/acme-challenge/");
-        console.log("directory=" + directory);
         const files = fs.readdirSync(directory);
 
         for (let i = 0; i < files.length; i++)
         {
-            console.log(files[i]);
             return res.sendFile(directory + files[i]);
         }
-        
         
     } catch (err) {
         console.log(err);
