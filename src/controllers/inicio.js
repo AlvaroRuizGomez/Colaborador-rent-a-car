@@ -266,9 +266,13 @@ exports.getHome = async (req, res, languageBrowser, isPagoCorrecto = false) =>
 
 
 
-exports.redirectToHome = async (req, res) =>
+exports.redirectToHome = async (req, res, sufixUri ) =>
 {
-    return res.redirect("/");
+
+    const uri = languagesAccpeted[sufixUri];
+    res.redirect(uri);
+
+
 };
 
 exports.postHomeDirect = async (req, res) =>
