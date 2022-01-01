@@ -12,6 +12,20 @@ exports.getShowDetails = async (req, res, languageBrowser) => {
     return res.redirect("/");
 };
 
+exports.temporaryShowDetails = async (req, res) =>
+{
+
+    let idioma = "en";
+
+    if (req.headers["accept-language"] !== undefined) {
+        if (req.headers["accept-language"].indexOf(",") !== -1 && req.headers["accept-language"].indexOf("-") !== -1) {
+            idioma = (req.headers["accept-language"].split(",")[0].split("-")[0]).toLowerCase();
+        }
+    }
+
+    await this.postShowDetails(req, res, idioma);
+
+};
 
 exports.postShowDetails = async (req, res, languageBrowser) =>
 {
