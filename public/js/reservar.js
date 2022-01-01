@@ -240,9 +240,11 @@ boton_reservar.addEventListener("click", async (evento) =>
     });
 
     const datos = await responseRaw.json();
-
-    // contestacion del servidor
-    // console.log("datos");
+    if (datos.isOk === false || datos.merchantPayment === undefined)
+    {
+        return;
+    }
+    
 
     document.getElementById("Ds_MerchantParameters").value = datos.merchantPayment.Ds_MerchantParameters;
     document.getElementById("Ds_Signature").value = datos.merchantPayment.Ds_Signature;
@@ -250,8 +252,6 @@ boton_reservar.addEventListener("click", async (evento) =>
     const formularioPago = document.getElementById("formularioPago");
 
     formularioPago.submit();
-
-
 
 
 });

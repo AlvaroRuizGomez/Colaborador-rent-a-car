@@ -4,7 +4,6 @@ const checkboxRangoEdad = document.getElementById("rangoedad");
 const desplegable_edad = document.getElementById("desplegable_edad");
 const botonModificar = document.getElementById("boton-VerPrecios");
 
-
 //cards
 // const cards = document.getElementsByClassName("card");
 
@@ -44,6 +43,45 @@ const botonModificar = document.getElementById("boton-VerPrecios");
 
 // }
 
+const CambioCondctorCards = async (mayoredad) =>
+{
+
+    const linkCards = document.getElementsByClassName("form-line");
+
+    for (let i = 0; i < linkCards.length; i++ )
+    {
+
+        let textoLink = linkCards[i].attributes.href.textContent;
+        
+        let trozos = [];
+        let linkRehecho = "";
+        const trozoNumeroDias = textoLink.split(`numeroDias=`)[1] - 0;
+        if (trozoNumeroDias === undefined) return;
+        
+        trozos = textoLink.split(`conductor_con_experiencia=${!mayoredad}`);
+        if (trozos === undefined) return;
+
+        if (mayoredad)
+        {
+            linkRehecho = `${trozos[0]}conductor_con_experiencia=${mayoredad}&edad_conductor=25&anyos_carnet=3&numeroDias=${trozoNumeroDias}`;
+            
+        }
+        else
+        {
+            // trozos = textoLink.split(`conductor_con_experiencia=${!mayoredad}`);
+            linkRehecho = `${trozos[0]}conductor_con_experiencia=${mayoredad}&edad_conductor=22&anyos_carnet=2&numeroDias=${trozoNumeroDias}`;
+        }
+        
+        if (trozos === undefined) return;
+        
+        linkCards[i].attributes.href.textContent = linkRehecho;
+
+    }
+
+
+
+};
+
 
 const CheckRangoEdad = async () => {
 
@@ -53,19 +91,23 @@ const CheckRangoEdad = async () => {
         desplegable_edad.style.maxHeight = null;
         desplegable_edad.style.marginBottom = null;
         desplegable_edad.style.overflow = "hidden";
+        
     }
     else {
         desplegable_edad.classList.remove("invisible");
         desplegable_edad.classList.add("visible");
         desplegable_edad.style.maxHeight = "70px";
         desplegable_edad.style.marginBottom = "15px";
-
+        
         setTimeout(() => {
             desplegable_edad.style.overflow = "visible";
         }, 300);
         
-
+        
     }
+    
+    await CambioCondctorCards(checkboxRangoEdad.checked);
+    
 
 }
 
@@ -186,6 +228,6 @@ const ObtenerFecha = async (fecha, hora) => {
 
 
 
-window.onload = function () {
-    CheckRangoEdad();
-};
+// window.onload = function () {
+//     CheckRangoEdad();
+// };

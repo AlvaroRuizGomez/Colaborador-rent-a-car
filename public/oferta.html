@@ -1,9 +1,8 @@
 <% const textoTraduccionUriAlquilerCoches="url_alquilercoches_" + it.locations.idioma_web; const
     uriAlquilerCoches=it.locations[textoTraduccionUriAlquilerCoches]; %>
 
-    
+<form method="post" class="formulario_oferta" action="/detalles.html">
 
-<form method="post"  class="formulario_oferta" action="/<%=it.locations.idioma_web%><%=uriAlquilerCoches%><%=it.locations.detalles %>.html">
     <input type="hidden" name="success" value="<%=it.success %>">
     <input type="hidden" name="fase" value="2">
     <input type="hidden" name="idioma" value="<%=it.locations.idioma_web %>">

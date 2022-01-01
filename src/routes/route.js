@@ -55,6 +55,10 @@ router.get("/it/autonoleggio/dettagli.html", async (req, res) => await details.g
 router.get("/en/rentacar/details.html", async (req, res) => await details.getShowDetails(req, res, "en"));
 router.get("/de/mietwagen/einzelheiten.html", async (req, res) => await details.getShowDetails(req, res, "de"));
 
+router.post("/detalles.html", async (req, res) => await details.temporaryShowDetails(req, res));
+router.get("/detalles.html", async (req, res) => await details.gettemporaryDetails(req, res));
+
+
 // ruta para reservar
 router.get("/reservar", async (req, res) => await reservar.getReservar(req, res, "es"));
 router.get("/prenotazione", async (req, res) => await reservar.getReservar(req, res, "it"));
