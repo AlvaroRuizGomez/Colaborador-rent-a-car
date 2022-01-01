@@ -46,7 +46,7 @@ exports.postRealizarReserva = async (req, res, language ) =>
     
     // Bot check
     if (location.agent && location.agent.isBot === true) {
-        return res.status(404).send("Not found");
+        return res.status(404).send("Not found bot");
     }
 
     const body = { 

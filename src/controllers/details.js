@@ -27,6 +27,12 @@ exports.temporaryShowDetails = async (req, res) =>
 
 };
 
+exports.gettemporaryDetails = async (req, res) =>
+{
+    return res.redirect("/");
+
+};
+
 exports.postShowDetails = async (req, res, languageBrowser) =>
 {
     // console.log(req.useragent);
