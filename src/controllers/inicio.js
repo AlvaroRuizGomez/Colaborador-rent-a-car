@@ -102,9 +102,6 @@ exports.getHome = async (req, res, languageBrowser, isPagoCorrecto = false) =>
         // return res.status(404).send("Not Found");
     }
 
-
-
-
     // // let languageNativeBrowser = undefined;
     // let textoRutaArchivo = "";
 
@@ -292,7 +289,7 @@ exports.postHomeDirect = async (req, res) =>
     
     if (Object.keys(query).length === 0)
     {
-        return res.status(404).send("Not found");
+        return res.status(404).send("No queries");
     }
     if (req.query["vehiculo"] === undefined)
     {
@@ -349,7 +346,7 @@ exports.postHomeDirect = async (req, res) =>
         // TODO: seguridad comprobar que proviene del backend
         if (dataResponse.token !== `sdj&/k.(fk)j#.#$d.a#s%djf.l7).as!#%as/kue#$!.!.#.$!.#$`)
         {
-            res.status(404).send("Not found");
+            res.status(404).send("No token");
             return;
         }
         // const languageBrowser = await CheckLanguage(req.query.idioma);

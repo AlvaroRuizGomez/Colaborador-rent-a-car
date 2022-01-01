@@ -15,7 +15,6 @@ exports.GetBackendVars = async () => {
     const protocolo = process.env.PROTOCOLO || "http://";
     const host = process.env.URL_BACKEND || "localhost";
     
-    // console.log("local secrets=" + process.env.LOCAL_SECRETS);
     if (process.env.LOCAL_SECRETS === "true") {
 
         port_backend = await readLocalSecret("../../secrets/port_backend.txt");
@@ -23,10 +22,9 @@ exports.GetBackendVars = async () => {
         token_for_backend = await readLocalSecret("../../secrets/token_for_backend.txt");
     }
     else {
-        port_backend = await readSecret("/run/secrets/PORT_BACKEND");
-        endpoint_variables_frontend = await readSecret("/run/secrets/ENDPOINT_VARIABLES_FRONTEND");
-        token_for_backend = await readSecret("/run/secrets/TOKEN_FOR_BACKEND_ACCESS");
-        // console.log("endppoint=" + endpoint_variables_frontend);
+        port_backend = await readSecret(`${process.env.SECRET_MOUNT_PATH}/PORT_BACKEND`);
+        endpoint_variables_frontend = await readSecret(`${process.env.SECRET_MOUNT_PATH}/ENDPOINT_VARIABLES_FRONTEND`);
+        token_for_backend = await readSecret(`${process.env.SECRET_MOUNT_PATH}/TOKEN_FOR_BACKEND_ACCESS`);
         
     }
     
