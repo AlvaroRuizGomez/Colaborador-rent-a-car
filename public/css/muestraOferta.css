@@ -949,7 +949,7 @@ details > summary::-webkit-details-marker {
   align-self: center;
   justify-self: flex-start;
   display: grid;
-  grid-template-columns: 0.2fr;
+  grid-template-columns: 1fr;
   grid-template-rows: 20px 40px 20px 20px 20px 40px;
   grid-template-areas:
     "."

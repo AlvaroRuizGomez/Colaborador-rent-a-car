@@ -302,7 +302,7 @@ exports.postHomeDirect = async (req, res) =>
     if (isSchemaValid === false) 
     {
         //TODO: mejorar
-        console.error("inicio.js control schema invalido");
+        console.error("inicio.js control schema invalido postgomedirect");
         return res.status(404).send("Not found");
     }
 
@@ -537,7 +537,7 @@ exports.postHome = async (req, res, languageBrowser) =>
     
     if (isSchemaValid === false) {
         //TODO: mejorar
-        console.error("inicio.js control schema invalido");
+        console.error("inicio.js control schema invalido posthome");
         return res.status(404).send("Not found");
     }
 
