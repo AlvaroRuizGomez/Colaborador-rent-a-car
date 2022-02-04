@@ -161,7 +161,10 @@ exports.PeticionPago = async (req, res) =>
 exports.NotificacionPago = async (req, res) =>
 {
 
-    // console.log("notificaion" + JSON.stringify(req.body));
+    console.log("notificaion pago");
+    
+    if (req.body === {} || req.body === undefined) return res.send();
+
     // enviar
     const responseRaw = await fetch(obtenerVars.URI_DESCODIFICACION_MERCHANTPARAMETERS, {
         method: "POST",
@@ -175,6 +178,13 @@ exports.NotificacionPago = async (req, res) =>
     const datos = await responseRaw.json();
 
     // console.log("datos=" + JSON.stringify(datos));
+
+};
+
+exports.NotificacionPagoGET = async (req, res) =>
+{
+
+    return res.send();
 
 };
 
