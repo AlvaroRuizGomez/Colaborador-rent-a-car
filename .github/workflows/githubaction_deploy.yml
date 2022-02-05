@@ -82,8 +82,8 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY}}
           port:  ${{ secrets.PORT_SERVIDOR }}
           script: |
-            /home/alvaro/bin/docker context use rootless
-            /home/alvaro/bin/docker pull sosan/frontend-rentacarmallorca:latest
-            /usr/bin/docker-compose -f /tmp/deploy-compose.txt up -d
-            /home/alvaro/bin/docker rmi $(/home/alvaro/bin/docker images | grep "<none>" | awk '{print $3}') 2>/dev/null || echo "No hay images por borrar"
+            ~/bin/docker context use rootless
+            ~/bin/docker pull sosan/frontend-rentacarmallorca:latest
+            /usr/bin/docker-compose -f ~/deploy-compose.txt up -d
+            ~/bin/docker rmi $(~/bin/docker images | grep "<none>" | awk '{print $3}') 2>/dev/null || echo "No hay images por borrar"
 
