@@ -84,6 +84,6 @@ jobs:
           script: |
             ~/bin/docker context use rootless
             ~/bin/docker pull sosan/frontend-rentacarmallorca:latest
-            /usr/bin/docker-compose -f ~/deploy-compose.txt up -d
+            /usr/bin/docker-compose -f ~/docker-compose.yaml up -d
             ~/bin/docker rmi $(~/bin/docker images | grep "<none>" | awk '{print $3}') 2>/dev/null || echo "No hay images por borrar"
 

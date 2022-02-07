@@ -193,7 +193,11 @@
                 <img id="icon-Mundi" src="./img/svg/mapaMundi.svg" alt="<%=it.locations.icono_reserva %>"></img>
                 <%=it.locations.datos_reserva %>
             </div>
+            <% if (it.formdata.franquicia !=="0" ) { %>
+            <div class="infoReserva_franquicia">
+            <% } else { %>
             <div class="infoReserva">
+            <% } %>
                 <!-- Inicio Datos Fijos de la reserva -->
                 <div class="titDiasReserva">
                     <%=it.locations.dias_titulo %>
@@ -224,6 +228,15 @@
                 <div class="valorseguro">
                     <%=it.locations.seguro_descripcion %>
                 </div>
+
+                <% if (it.formdata.franquicia !== "0" ) { %>
+                    <div class="titFranquicia">
+                        <%=it.locations.franquicia %>
+                    </div>
+                    <div class="valorfranquicia">
+                        <%=it.locations.franquicia_corto %>
+                    </div>
+                <% } %>
                 <!-- Fin Datos Fijos de la reserva -->
 
                 <!--- Inicio Cargos de la reserva --->
@@ -309,11 +322,7 @@
                                         alt="<%=it.locations.alt_icono_reservar %>">
                                     <%=it.locations.seguro_incluido_titulo %>
                                 </li>
-                                <li class="tooltipBlanco" data-tooltip="<%=it.locations.title_sillas %>">
-                                    <img src="./img/svg/hecho.svg" class="icon-25"
-                                        alt="<%=it.locations.alt_icono_reservar %>">
-                                    <%=it.locations.sillas_elevadores_titulo %>
-                                </li>
+                                
                                 <li class="tooltipBlanco" data-tooltip="<%=it.locations.title_cancelar %>">
                                     <img src="./img/svg/hecho.svg" class="icon-25"
                                         alt="<%=it.locations.alt_icono_reservar %>">
@@ -331,7 +340,7 @@
 
         </section>
         <!-----------------  Fin  Beneficios ------------------------------------------>
-
+<% if (it.formdata.clasevehiculo.indexOf("motos") != 0 ) {  %>
         <!-----------------  Inicio sillas y elevadores para niños  ------------------->
         <div class="sillasBox">
             <section class="sillasContent">
@@ -404,7 +413,7 @@
             </section>
         </div>
         <!-----------------  Fin sillas y elevadores para niños  ------------------->
-
+<% } %>
         <!-----Inicio formulario conductor principal y condiciones y términos ------>
         <div class="formDriver">
             <div class="formDriverContent" id="personalInfoForm" data-info-form="<%=it.locations.campos_requeridos %>">

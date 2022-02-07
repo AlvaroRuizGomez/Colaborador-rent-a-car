@@ -11,6 +11,7 @@
     <input type="hidden" name="horaRecogida" value="<%= it.horaRecogida %>">
     <input id="fechaDevolucionForm" type="hidden" name="fechaDevolucion" value="<%= it.fechaDevolucionFormatoCorto %>">
     <input type="hidden" name="horaDevolucion" value="<%= it.horaDevolucion %>">
+    <input type="hidden" name="clasevehiculo" value="<%= element.clasevehiculo %>"
     
     <!-- Ofertas -->
     <article class="oferta">
@@ -109,6 +110,8 @@
             <input type="hidden" name="alt_modificacion" value="<%= it.locations.alt_modificacion %>">
             <input type="hidden" name="modificaciones" value="<%= it.locations.modificaciones %>">
             <input type="hidden" name="porcentaje" value="<%= element.porcentaje %>">
+            <input type="hidden" name="franquicia" value="<%= element.franquicia %>">
+
 
             <div class="car-info-services-2">
                 <div class="servicios-kilometraje servicios-enlinea" data-tooltip="<%=it.locations.tooltip_vehiculo_tiene%> <%=it.locations.tooltip_kilometraje %>" data-tooltip-location="top">
@@ -123,8 +126,16 @@
                     <img class="icon-25" src="img/svg/hecho.svg" alt="<%=it.locations.alt_modificacion%>">
                     <div class="icon-modificaciones"><%=it.locations.modificaciones %></div>
                 </div>
-                
-
+                <% if (element.franquicia !== 0) { %>
+                    <div class="servicios-modificaciones servicios-enlinea"
+                        data-tooltip="<%=it.locations.tooltip_vehiculo_tiene%> <%=it.locations.franquicia_corto %>"
+                        data-tooltip-location="top">
+                        <img class="icon-25" src="img/svg/hecho.svg" alt="<%=it.locations.alt_modificacion%>">
+                        <div class="icon-modificaciones">
+                            <%=it.locations.franquicia_corto %>
+                        </div>
+                    </div>
+                <% } %>
                 <% for (let k=0; k < element.suplementosgenericos.length; k++ ) { %>
                     <% if (element.suplementosgenericos[k].valor> 0) { %>
                         <div class="servicios-kilometraje servicios-enlinea">
