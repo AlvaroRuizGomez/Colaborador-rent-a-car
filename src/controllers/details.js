@@ -158,8 +158,9 @@ const ControlSchema = async (body) => {
         tooltip_alt_precio_total: Joi.string().required(),
         diasEntreRecogidaDevolucion: Joi.number().required(),
         location_dias: Joi.string().required(),
-        vehiculo: Joi.string().required()
-        
+        vehiculo: Joi.string().required(),
+        clasevehiculo: Joi.string().required(),
+        franquicia: Joi.string().required(),
     });
     
     const options = {

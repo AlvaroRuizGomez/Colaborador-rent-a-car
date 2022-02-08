@@ -193,7 +193,11 @@
                 <img id="icon-Mundi" src="./img/svg/mapaMundi.svg" alt="<%=it.locations.icono_reserva %>"></img>
                 <%=it.locations.datos_reserva %>
             </div>
+            <% if (it.formdata.franquicia !=="0" ) { %>
+            <div class="infoReserva_franquicia">
+            <% } else { %>
             <div class="infoReserva">
+            <% } %>
                 <!-- Inicio Datos Fijos de la reserva -->
                 <div class="titDiasReserva">
                     <%=it.locations.dias_titulo %>
@@ -224,12 +228,21 @@
                 <div class="valorseguro">
                     <%=it.locations.seguro_descripcion %>
                 </div>
+
+                <% if (it.formdata.franquicia !== "0" ) { %>
+                    <div class="titFranquicia">
+                        <%=it.locations.franquicia %>
+                    </div>
+                    <div class="valorfranquicia">
+                        <%=it.locations.franquicia_corto %>
+                    </div>
+                <% } %>
                 <!-- Fin Datos Fijos de la reserva -->
 
                 <!--- Inicio Cargos de la reserva --->
                 <%let total_suplmento_tipo_conductor=0 %>
-                    <%let total=0 %>
-                        <% let pago_online=0 %>
+                <%let total=0 %>
+                <% let pago_online=0 %>
                             <% if (it.formdata.conductor_con_experiencia==="on" ) { %>
                                 <div class="titConductor">
                                     <%=it.locations.conductor_joven_titulo %>
@@ -237,57 +250,57 @@
                                 <div class="valorConductor">
                                     0 €
                                 </div>
-                                <% } else { %>
-                                    <div class="titConductor">
-                                        <%=it.locations.conductor_joven_titulo %>
-                                    </div>
-                                    <div class="valorConductor">
-                                        <% if (dias> 1) { %>
-                                            <% total_suplmento_tipo_conductor=dias *
-                                                (it.formdata.suplementoportipoChofer - 0 ) %>
-                                                <%= dias %>
-                                                    <%=it.locations.dias %> x <%=it.formdata.suplementoportipoChofer %>
-                                                            € = <%= total_suplmento_tipo_conductor %> €
+                            <% } else { %>
+                                <div class="titConductor">
+                                    <%=it.locations.conductor_joven_titulo %>
+                                </div>
+                                <div class="valorConductor">
+                                    <% if (dias> 1) { %>
+                                        <% total_suplmento_tipo_conductor=dias *
+                                            (it.formdata.suplementoportipoChofer - 0 ) %>
+                                            <%= dias %>
+                                                <%=it.locations.dias %> x <%=it.formdata.suplementoportipoChofer %>
+                                                        € = <%= total_suplmento_tipo_conductor %> €
 
-                                        <% } else { %>
-                                                <%= dias %>
-                                                <%=it.locations.dia %> x
-                                                <%=it.formdata.suplementoportipoChofer %> € = <%=it.formdata.suplementoportipoChofer %> €
-                                                <% total_suplmento_tipo_conductor=(it.formdata.suplementoportipoChofer - 0) %>
-                                        <% } %>
-
-                                    </div>
+                                    <% } else { %>
+                                            <%= dias %>
+                                            <%=it.locations.dia %> x
+                                            <%=it.formdata.suplementoportipoChofer %> € = <%=it.formdata.suplementoportipoChofer %> €
+                                            <% total_suplmento_tipo_conductor=(it.formdata.suplementoportipoChofer - 0) %>
                                     <% } %>
-                                        <div class="titTotReserva">
-                                            <%=it.locations.total_titulo %>
-                                        </div>
-                                        <div class="valorTotReserva">
-                                            <% if (it.formdata.suplementoportipoChofer !==undefined) { %>
-                                                <% total=(it.formdata.preciototaldias - 0) + (total_suplmento_tipo_conductor) %>
-                                                <%= total.toFixed(2) %> €
-                                            <% } else { %>
-                                                <% total=(it.formdata.preciototaldias - 0) %>
-                                                <%= total.toFixed(2) %> €
-                                            <% } %>
-                                        </div>
 
-                                        <div class="titValorRecogida">
-                                            <%= it.locations.pago_recogida_titulo %>
-                                        </div>
-                                        <div class="ValorRecogida">
-                                            <%let pago_recogida=((it.formdata.porcentaje - 0) * total) / 100 %>
-                                                <%= pago_recogida.toFixed(2) %> €
-                                        </div>
+                                </div>
+                            <% } %>
+                                <div class="titTotReserva">
+                                    <%=it.locations.total_titulo %>
+                                </div>
+                                <div class="valorTotReserva">
+                                    <% if (it.formdata.suplementoportipoChofer !==undefined) { %>
+                                        <% total=(it.formdata.preciototaldias - 0) + (total_suplmento_tipo_conductor) %>
+                                        <%= total.toFixed(2) %> €
+                                    <% } else { %>
+                                        <% total=(it.formdata.preciototaldias - 0) %>
+                                        <%= total.toFixed(2) %> €
+                                    <% } %>
+                                </div>
 
-                                        <div class="titValorOnline">
-                                            <%= it.locations.pago_online_titulo %>
-                                        </div>
-                                        <div class="ValorOnline">
-                                            <% pago_online=total - pago_recogida%>
-                                                <%= pago_online.toFixed(2) %> €
-                                        </div>
+                                <div class="titValorRecogida">
+                                    <%= it.locations.pago_recogida_titulo %>
+                                </div>
+                                <div class="ValorRecogida">
+                                    <%let pago_recogida=((it.formdata.porcentaje - 0) * total) / 100 %>
+                                        <%= pago_recogida.toFixed(2) %> €
+                                </div>
+
+                                <div class="titValorOnline">
+                                    <%= it.locations.pago_online_titulo %>
+                                </div>
+                                <div class="ValorOnline">
+                                    <% pago_online=(total - pago_recogida).toFixed(2)%>
+                                        <%= pago_online %> €
+                                </div>
                                         
-                                        <!--- Fin Cargos de la reserva --->
+                <!--- Fin Cargos de la reserva --->
             </div>
         </section>
 
@@ -309,11 +322,7 @@
                                         alt="<%=it.locations.alt_icono_reservar %>">
                                     <%=it.locations.seguro_incluido_titulo %>
                                 </li>
-                                <li class="tooltipBlanco" data-tooltip="<%=it.locations.title_sillas %>">
-                                    <img src="./img/svg/hecho.svg" class="icon-25"
-                                        alt="<%=it.locations.alt_icono_reservar %>">
-                                    <%=it.locations.sillas_elevadores_titulo %>
-                                </li>
+                                
                                 <li class="tooltipBlanco" data-tooltip="<%=it.locations.title_cancelar %>">
                                     <img src="./img/svg/hecho.svg" class="icon-25"
                                         alt="<%=it.locations.alt_icono_reservar %>">
@@ -331,7 +340,7 @@
 
         </section>
         <!-----------------  Fin  Beneficios ------------------------------------------>
-
+<% if (it.formdata.clasevehiculo.indexOf("motos") != 0 ) {  %>
         <!-----------------  Inicio sillas y elevadores para niños  ------------------->
         <div class="sillasBox">
             <section class="sillasContent">
@@ -404,7 +413,7 @@
             </section>
         </div>
         <!-----------------  Fin sillas y elevadores para niños  ------------------->
-
+<% } %>
         <!-----Inicio formulario conductor principal y condiciones y términos ------>
         <div class="formDriver">
             <div class="formDriverContent" id="personalInfoForm" data-info-form="<%=it.locations.campos_requeridos %>">

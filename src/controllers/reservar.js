@@ -161,7 +161,10 @@ exports.PeticionPago = async (req, res) =>
 exports.NotificacionPago = async (req, res) =>
 {
 
-    // console.log("notificaion" + JSON.stringify(req.body));
+    console.log("notificaion pago");
+    
+    if (req.body === {} || req.body === undefined) return res.send();
+
     // enviar
     const responseRaw = await fetch(obtenerVars.URI_DESCODIFICACION_MERCHANTPARAMETERS, {
         method: "POST",
@@ -175,6 +178,13 @@ exports.NotificacionPago = async (req, res) =>
     const datos = await responseRaw.json();
 
     // console.log("datos=" + JSON.stringify(datos));
+
+};
+
+exports.NotificacionPagoGET = async (req, res) =>
+{
+
+    return res.send();
 
 };
 
@@ -205,26 +215,6 @@ const ControlSchema = async (body) =>
         idioma: Joi.string().required(),
         
 
-        //----
-        // descripcion_vehiculo: Joi.string().required(),
-        // fechaRecogida: Joi.string().required(),
-        // horaRecogida: Joi.string().required(),
-        // fechaDevolucion: Joi.string().required(),
-        // horaDevolucion: Joi.string().required(),
-        // dias: Joi.number().required(),
-        // alquiler: Joi.number().required(),
-        // total_suplmento_tipo_conductor: Joi.number().required(),
-        // pagoRecogida: Joi.string().required(),
-        // pago_online: Joi.number().required(),
-        // titulo: Joi.string().required(),
-        // child_seat: Joi.number().required(),
-        // booster_seat: Joi.number().required(),
-        // conductor_con_experiencia: Joi.string().required(),
-        // email: Joi.string().required(),
-        // nombre: Joi.string().required(),
-        // apellidos: Joi.string().required(),
-        // telefono: Joi.string().required(),
-        // idioma: Joi.string().required(),
 
     });
 

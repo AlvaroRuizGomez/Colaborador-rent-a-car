@@ -414,7 +414,29 @@
                                     </li>
                                 </ul>
                             </div>
-
+                        </li>
+                        <li class="enlaces_interes">
+                            <button class="enlace_interes_modal">
+                                <%=it.locations.franquicia %>
+                            </button>
+                            <div id="overlay-enlaces" class="overlay-transparente modal-invisible">
+                                <ul class="details-modal resetul">
+                                    <li class="details-modal-close">
+                                        <a class="boton-cerrar-modal" role="button">
+                                            <img class="cerrar-modal" src="./img/svg/cerrar_modal.svg" alt="boton cerrar modal">
+                                        </a>
+                                    </li>
+                                    <li class="details-modal-title">
+                                        <h5 class="details-modal-title-text">
+                                            <%=it.locations.titulo_franquicia %>
+                                        </h5>
+                                    </li>
+                                    <li class="sub-contenido-modal">
+                                        <%=it.locations.contenido_franquicia %>
+                                    </li>
+                                </ul>
+                            </div>
+                        
                         </li>
                     </ul>
                 </div>

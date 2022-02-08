@@ -507,7 +507,8 @@ select {
 }
   
 
-.infoReserva {
+.infoReserva 
+{
     grid-area: info;
     justify-self: left;
     box-sizing: content-box;
@@ -532,6 +533,34 @@ select {
     color: #504e4e;
 }
 
+.infoReserva_franquicia
+{
+    grid-area: info;
+    justify-self: left;
+    box-sizing: content-box;
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: repeat(7, 31px);
+    grid-template-areas:
+        "titulo1 dato1"
+        "titulo2 dato2"
+        "titulo3 dato3"
+        "titulo4 dato4"
+        "titulo5 dato5"
+        "titulo6 dato6"
+        "titulo7 dato7"
+        "titulo8 dato8";
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: 50px;
+    margin-top: 32px;
+    grid-column-gap: 65px;
+    overflow-wrap: break-word;
+    font-size: 15px;
+    color: #504e4e;
+    margin-bottom: 20px;
+}
+
 @media screen and (max-width: 414px) {
   .infoReserva
   {
@@ -553,6 +582,8 @@ select {
 .titValorReserva, 
 .titSeguro,
 .titConductor,
+.titFranquicia,
+.valorfranquicia
 .titTotReserva,
 .titValorRecogida,
 .titValorOnline {
@@ -588,47 +619,37 @@ select {
   
 .valorseguro {
     grid-area: dato3;
-    /* display: inline; */
-    /* width: 100%; */
     justify-self: start;
 }
-  
+
+
 .titConductor {
     grid-area: titulo4;
-    /* display: inline; */
     justify-self: start;
 }
   
 .valorConductor {
     grid-area: dato4;
-    /* display: inline; */
-    /* width: 250px; */
     justify-self: start;
 }
   
 .titTotReserva {
     grid-area: titulo5;
-    /* display: inline; */
     justify-self: start;
 }
   
 .valorTotReserva {
     grid-area: dato5;
-    /* display: inline; */
-    /* width: 250px; */
     justify-self: start;
 }
   
 .titValorRecogida {
     grid-area: titulo6;
-    /* display: inline; */
     justify-self: start;
 }
   
 .ValorRecogida {
     grid-area: dato6;
-    /* display: inline; */
-    /* width: 250px; */
     justify-self: start;
 }
 
@@ -636,17 +657,26 @@ select {
     grid-area: titulo7;
     display: inline;
     background-color: #ff0;
-    /* margin:0px 51px; */
     justify-self: start;
 }
   
 .ValorOnline {
     grid-area: dato7;
-    /* display: inline; */
-    /* width: 250px; */
     background-color: #ff0;
     justify-self: start;
 }
+
+.titFranquicia {
+    grid-area: titulo8;
+    justify-self: start;
+}
+
+.valorfranquicia
+{
+    grid-area: dato8;
+    justify-self: start;
+}
+
   
 .precioIncluye {
     display: flex;
