@@ -925,6 +925,37 @@ background-image: url(/img/Img-Vehiculos/peugeot_208_Card.avif);
   background-image: url(/img/Img-Vehiculos/Suzuki-Burgman_125cc_Card.avif);
 }
 
+.piagio_medley_safari::before
+{
+  background-image: url(/img/Img-Vehiculos/piagio_medley_Card.webp);
+}
+
+.piagio_medley::before
+{
+  background-image: url(/img/Img-Vehiculos/piagio_medley_Card.avif);
+}
+
+
+.yamaha_tricity_safari::before
+{
+  background-image: url(/img/Img-Vehiculos/yamaha_tricity_Card.webp);
+}
+
+.yamaha_tricity::before
+{
+  background-image: url(/img/Img-Vehiculos/yamaha_tricity_Card.avif);
+}
+
+.yamaha_majesty_125_safari::before
+{
+  background-image: url(/img/Img-Vehiculos/yamaha_tricity_Card.webp);
+}
+
+.yamaha_majesty_125::before
+{
+  background-image: url(/img/Img-Vehiculos/yamaha_majesty_125_Card.avif);
+}
+
 
 .title-peugeot108Blue {
   
@@ -938,6 +969,12 @@ background-image: url(/img/Img-Vehiculos/peugeot_208_Card.avif);
 .title-citroenC1AutomaticPlata {
   transform: translateY(-3%);
 }
+
+.title-yamaha_majesty_125
+{
+  transform: translateY(-83%);
+}
+
 
 .title-citroenC1White {
  
@@ -970,6 +1007,11 @@ background-image: url(/img/Img-Vehiculos/peugeot_208_Card.avif);
 .logo-Suzuki-Burgman_125cc
 {
   transform: translateY(-185%);
+}
+
+.logo-yamaha_majesty_125
+{
+  transform: translateY(-195%);
 }
 
 .content {
