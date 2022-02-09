@@ -236,7 +236,29 @@
                     <div class="valorfranquicia">
                         <%=it.locations.franquicia_corto %>
                     </div>
+                <% } else { %>
+                    <div class="titFranquicia">
+                        <%=it.locations.sillas_chicos_titulo_corto %>
+                    </div>
+                    <div class="valorfranquicia">
+                        <input type="hidden" id="dias_sillas" name="dias_sillas" value="<%= it.formdata.diasEntreRecogidaDevolucion %>">
+                        <input type="hidden" id="porcentaje" name="porcentaje" value="<%=it.formdata.porcentaje%>">
+                        <input type="hidden" id="dias_tradu_" name="dias_tradu_" value="<%= it.locations.dias %>">
+                        <input type="hidden" id="sillas_titulo_corto" name="sillas_titulo_corto" value="<%= it.locations.sillas_chicos_titulo_corto %>">
+                        <input type="hidden" id="elevadores_titulo_corto" name="elevadores_titulo_corto" value="<%= it.locations.elevadores_titulo_corto %>">
+                        <input type="hidden" id="sillas_chicos_titulo_corto_singular" name="sillas_chicos_titulo_corto_singular" value="<%= it.locations.sillas_chicos_titulo_corto_singular %>">
+                        <input type="hidden" id="elevadores_titulo_corto_singular" name="elevadores_titulo_corto_singular" value="<%= it.locations.elevadores_titulo_corto_singular %>">
+
+                        <span id="sillas_chicos_total">0 €</span>
+                    </div>
+                    <div class="titElevador">
+                        <%=it.locations.elevadores_titulo_corto %>
+                    </div>
+                    <div class="valorElevador">
+                        <span id="elevadores_chicos_total">0 €</span>
+                    </div>
                 <% } %>
+
                 <!-- Fin Datos Fijos de la reserva -->
 
                 <!--- Inicio Cargos de la reserva --->
@@ -274,7 +296,7 @@
                                 <div class="titTotReserva">
                                     <%=it.locations.total_titulo %>
                                 </div>
-                                <div class="valorTotReserva">
+                                <div class="valorTotReserva" id="valorTotReserva">
                                     <% if (it.formdata.suplementoportipoChofer !==undefined) { %>
                                         <% total=(it.formdata.preciototaldias - 0) + (total_suplmento_tipo_conductor) %>
                                         <%= total.toFixed(2) %> €
@@ -282,20 +304,22 @@
                                         <% total=(it.formdata.preciototaldias - 0) %>
                                         <%= total.toFixed(2) %> €
                                     <% } %>
+                                    
                                 </div>
 
                                 <div class="titValorRecogida">
                                     <%= it.locations.pago_recogida_titulo %>
                                 </div>
-                                <div class="ValorRecogida">
+                                <div class="ValorRecogida" id="ValorRecogida">
                                     <%let pago_recogida=((it.formdata.porcentaje - 0) * total) / 100 %>
-                                        <%= pago_recogida.toFixed(2) %> €
+                                    <%= pago_recogida.toFixed(2) %> €
+                                    
                                 </div>
 
                                 <div class="titValorOnline">
                                     <%= it.locations.pago_online_titulo %>
                                 </div>
-                                <div class="ValorOnline">
+                                <div class="ValorOnline" id="ValorOnline">
                                     <% pago_online=(total - pago_recogida).toFixed(2)%>
                                         <%= pago_online %> €
                                 </div>
@@ -565,6 +589,7 @@
         <!-------------------------  Inicio Botón reservar ------------------------>
         
         
+        <input type="hidden" id="alquiler_original" name="alquiler_original" value="<%=it.formdata.preciototaldias %>">
         <div class="boxBtnRevervar">
             <button id="boton_reservar" name="" class="btnReserva">
                 <form id="formulario-reservar" action="<%=it.locations.reservar %>" method="post" class="formularioreservar">
@@ -595,7 +620,7 @@
                 </form>
                 <img src="./img/svg/candado.svg" alt="padlock" class="candado-imagen">
                     <%=it.locations.reservar_ahora %>
-                        <%= pago_online %> €
+                    <span id="pago_online_texto_boton"><%= pago_online %></span> €
             </button>
 
 

@@ -155,6 +155,78 @@ botonCerrarModal.addEventListener("click", async (evento) =>
 
 });
 
+
+//------ SILLAS -------
+const child_seat = document.getElementById("child_seat");
+const child_booster = document.getElementById("booster_seat");
+
+child_seat.addEventListener("change", async () =>
+{
+    console.log("cambiado");
+    await calcularNuevoPrecioSegunSillasElevadores();
+    
+});
+
+child_booster.addEventListener("change", async () => {
+    console.log("cambiado");
+    await calcularNuevoPrecioSegunSillasElevadores();
+
+});
+
+const calcularNuevoPrecioSegunSillasElevadores = async () =>
+{
+    const precio = 3;
+    const dias = document.getElementById("dias_sillas").value - 0;
+    const cantidadSillas = document.getElementById("child_seat").value - 0;
+    const cantidadBooster = document.getElementById("booster_seat").value - 0;
+    
+    const precioTotalSillas = cantidadSillas * precio * dias;
+    const precioTotalBooster = cantidadBooster * precio * dias;
+
+    const diasTraduccion = document.getElementById("dias_tradu_").value;
+
+    let sillasTraduccion = "", elevadoresTraduccion = "";
+    if (dias === 1)
+    {
+        sillasTraduccion = document.getElementById("sillas_chicos_titulo_corto_singular").value;
+        elevadoresTraduccion = document.getElementById("elevadores_titulo_corto_singular").value;
+
+
+
+    }
+    else
+    {
+
+        sillasTraduccion = document.getElementById("sillas_titulo_corto").value;
+        elevadoresTraduccion = document.getElementById("elevadores_titulo_corto").value;
+    }
+
+    document.getElementById("sillas_chicos_total").innerText = `${cantidadSillas} ${sillasTraduccion} X ${precio} € X ${dias} ${diasTraduccion} = ${precioTotalSillas} €`;
+    document.getElementById("elevadores_chicos_total").innerText = `${cantidadBooster} ${elevadoresTraduccion} X ${precio} € X ${dias} ${diasTraduccion} = ${precioTotalBooster} €`;
+
+    let precioReservaOriginal = document.getElementById("alquiler_original").value - 0;
+    const total_suplmento_tipo_conductor = document.getElementById("total_suplmento_tipo_conductor").value - 0;
+    const porcentaje = document.getElementById("porcentaje").value - 0;
+    precioReservaOriginal += total_suplmento_tipo_conductor;
+    precioReservaOriginal += precioTotalSillas;
+    precioReservaOriginal += precioTotalBooster;
+    
+    const pagoRecogida = ((precioReservaOriginal * porcentaje) / 100);
+    const pagoOnline = (precioReservaOriginal - pagoRecogida);
+    
+    document.getElementById("valorTotReserva").innerText = precioReservaOriginal.toFixed(2);
+    document.getElementById("ValorRecogida").innerText = pagoRecogida.toFixed(2);
+    document.getElementById("ValorOnline").innerText = pagoOnline.toFixed(2);
+    
+    document.getElementById("pago_online").value = pagoOnline.toFixed(2);
+    document.getElementById("pago_online_texto_boton").innerText = pagoOnline.toFixed(2);
+    document.getElementById("pagoRecogida").value = pagoRecogida.toFixed(2);
+    
+
+};
+
+//--------
+
 boton_reservar.addEventListener("click", async (evento) =>
 {
     evento.preventDefault();
