@@ -190,9 +190,6 @@ const calcularNuevoPrecioSegunSillasElevadores = async () =>
     {
         sillasTraduccion = document.getElementById("sillas_chicos_titulo_corto_singular").value;
         elevadoresTraduccion = document.getElementById("elevadores_titulo_corto_singular").value;
-
-
-
     }
     else
     {
@@ -201,8 +198,13 @@ const calcularNuevoPrecioSegunSillasElevadores = async () =>
         elevadoresTraduccion = document.getElementById("elevadores_titulo_corto").value;
     }
 
-    document.getElementById("sillas_chicos_total").innerText = `${cantidadSillas} ${sillasTraduccion} X ${precio} € X ${dias} ${diasTraduccion} = ${precioTotalSillas} €`;
-    document.getElementById("elevadores_chicos_total").innerText = `${cantidadBooster} ${elevadoresTraduccion} X ${precio} € X ${dias} ${diasTraduccion} = ${precioTotalBooster} €`;
+    
+
+    // document.getElementById("sillas_chicos_total").innerText = `${cantidadSillas} ${sillasTraduccion} X ${precio} € X ${dias} ${diasTraduccion} = ${precioTotalSillas} €`;
+    // document.getElementById("elevadores_chicos_total").innerText = `${cantidadBooster} ${elevadoresTraduccion} X ${precio} € X ${dias} ${diasTraduccion} = ${precioTotalBooster} €`;
+
+    document.getElementById("sillas_chicos_total").innerText = `${cantidadSillas}      ${precioTotalSillas} €`;
+    document.getElementById("elevadores_chicos_total").innerText = `${cantidadBooster}      ${precioTotalBooster} €`;
 
     let precioReservaOriginal = document.getElementById("alquiler_original").value - 0;
     const total_suplmento_tipo_conductor = document.getElementById("total_suplmento_tipo_conductor").value - 0;
