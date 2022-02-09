@@ -970,6 +970,12 @@ background-image: url(/img/Img-Vehiculos/peugeot_208_Card.avif);
   transform: translateY(-3%);
 }
 
+.title-yamaha_majesty_125
+{
+  transform: translateY(-83%);
+}
+
+
 .title-citroenC1White {
  
 }
@@ -1001,6 +1007,11 @@ background-image: url(/img/Img-Vehiculos/peugeot_208_Card.avif);
 .logo-Suzuki-Burgman_125cc
 {
   transform: translateY(-185%);
+}
+
+.logo-yamaha_majesty_125
+{
+  transform: translateY(-195%);
 }
 
 .content {
