@@ -197,7 +197,7 @@ select {
 }
   
 #aside {
-    width: 265px;
+    /* width: 265px; */
     float: left;
     background-color: #fff;
     border: 1px solid #ddd;
@@ -226,7 +226,7 @@ select {
   
 .rentacar-info {
     display: grid;
-    grid-template-columns: 259px;
+    /* grid-template-columns: 259px; */
     grid-template-rows: 150px 30px 25px 35px 32px 32px 31px 24px 31px;;
     grid-template-areas:
       "imagen-coche"
