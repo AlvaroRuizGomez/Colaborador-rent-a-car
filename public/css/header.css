@@ -3,7 +3,6 @@
 .fondo_cabecera
 {
   background-color: var(--background-cabecera);
-  /* width: 100%; */
   
   display: grid;
   grid-template-columns: 1fr minmax(1000px, 1300px) 1fr;
@@ -17,14 +16,14 @@
 
 .vacio-1
 {
-  height: 150px;
+  height: 160px;
   grid-area: vacio_cabecera_1;
   background: var(--background-cabecera-container);
 }
 
 .vacio-2
 {
-  height: 150px;
+  height: 160px;
   grid-area: vacio_cabecera_2;
   background: var(--background-cabecera-container);
 }
@@ -32,7 +31,6 @@
 .cabecera
 {
   grid-area: contenido_fijo_cabecera;
-  /* width: 100%; */
   background-color: var(--background-cabecera);
 }
 
