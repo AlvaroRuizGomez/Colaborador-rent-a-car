@@ -1655,7 +1655,7 @@ details > summary::-webkit-details-marker {
 
 }
 
-.ui-datepicker{z-index: 99 !important};
+.ui-datepicker{z-index: 99 !important}
 
 /*---------------- Fin Datos-busqueda/Vehículos-Ofertados encontrados ---------- */
 
@@ -1664,9 +1664,9 @@ details > summary::-webkit-details-marker {
 {
   /* position: relative; */
 
-  display: grid !important;
-  grid-template-columns: 40px auto 40px !important;
-  grid-template-areas: "izq carrusel der" !important;
+  display: grid ;
+  grid-template-columns: 40px auto 40px ;
+  grid-template-areas: "izq carrusel der";
 
   width: 100%;
 
