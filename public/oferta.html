@@ -197,7 +197,12 @@
             <% if (element.preciototaldias> 0) { %>
                 <input type="hidden" name="preciototaldias" value="<%= element.preciototaldias %>">
                 <span class="current-price">
-                    <%= (element.preciototaldias - 0).toFixed(2) %> €
+                    
+                    <% let precioFragmento = (element.preciototaldias - 0).toFixed(2) %>
+                    <% if (precioFragmento.toString().indexOf(".00") > 0) { %>
+                        <% precioFragmento = precioFragmento.toString().split(".")[0] %>
+                    <% } %>
+                    <%= precioFragmento %> €
                 </span>
                 <% if (it.diasEntreRecogidaDevolucion > 1 && element.preciototalsindescuento > element.preciototaldias ) { %>
                     <span class="precio-antiguo">

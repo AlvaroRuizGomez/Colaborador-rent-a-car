@@ -182,43 +182,48 @@ const calcularNuevoPrecioSegunSillasElevadores = async () =>
     
     const precioTotalSillas = cantidadSillas * precio * dias;
     const precioTotalBooster = cantidadBooster * precio * dias;
-
+    
     const diasTraduccion = document.getElementById("dias_tradu_").value;
+    
+    let sillasTraduccion = "";
+    let elevadoresTraduccion = "";
 
-    let sillasTraduccion = "", elevadoresTraduccion = "";
-    if (dias === 1)
+
+    if (cantidadBooster === 0)
     {
-        sillasTraduccion = document.getElementById("sillas_chicos_titulo_corto_singular").value;
-        elevadoresTraduccion = document.getElementById("elevadores_titulo_corto_singular").value;
+        document.getElementById("elevadores_chicos_total").textContent = `0 €`;
     }
     else
     {
-
-        sillasTraduccion = document.getElementById("sillas_titulo_corto").value;
-        elevadoresTraduccion = document.getElementById("elevadores_titulo_corto").value;
+        if (cantidadBooster === 1)
+        {
+            elevadoresTraduccion = document.getElementById("elevadores_titulo_corto_singular").value;
+        }
+        else
+        {
+            elevadoresTraduccion = document.getElementById("elevadores_titulo_corto_plural").value;
+        }
+        document.getElementById("elevadores_chicos_total").textContent = `${cantidadBooster} ${elevadoresTraduccion}\u00a0\u00a0\u00a0\u00a0\u00a0${precioTotalBooster} €`;
+        
     }
-
-    // document.getElementById("sillas_chicos_total").innerText = `${cantidadSillas} ${sillasTraduccion} X ${precio} € X ${dias} ${diasTraduccion} = ${precioTotalSillas} €`;
-    // document.getElementById("elevadores_chicos_total").innerText = `${cantidadBooster} ${elevadoresTraduccion} X ${precio} € X ${dias} ${diasTraduccion} = ${precioTotalBooster} €`;
-
-    if (cantidadSillas > 0)
+    
+    if (cantidadSillas === 0)
     {
-        document.getElementById("sillas_chicos_total").innerText = `${cantidadSillas}      ${precioTotalSillas} €`;
+        document.getElementById("sillas_chicos_total").textContent = `0 €`;
     }
     else
     {
-        document.getElementById("sillas_chicos_total").innerText = `0 €`;
+        if (cantidadSillas === 1)
+        {
+            sillasTraduccion = document.getElementById("sillas_chicos_titulo_corto_singular").value;
+        }
+        else
+        {
+            sillasTraduccion = document.getElementById("sillas_chicos_titulo_corto_plural").value;
+        }
+        document.getElementById("sillas_chicos_total").textContent = `${cantidadSillas} ${sillasTraduccion}\u00a0\u00a0\u00a0\u00a0\u00a0${precioTotalSillas} €`;
     }
 
-    if (cantidadBooster > 0)
-    {
-        document.getElementById("elevadores_chicos_total").innerText = `${cantidadBooster}      ${precioTotalBooster} €`;
-
-    }
-    else
-    {
-        document.getElementById("elevadores_chicos_total").innerText = `0 €`;
-    }
 
     let precioReservaOriginal = document.getElementById("alquiler_original").value - 0;
     const total_suplmento_tipo_conductor = document.getElementById("total_suplmento_tipo_conductor").value - 0;
@@ -230,12 +235,12 @@ const calcularNuevoPrecioSegunSillasElevadores = async () =>
     const pagoRecogida = ((precioReservaOriginal * porcentaje) / 100);
     const pagoOnline = (precioReservaOriginal - pagoRecogida);
     
-    document.getElementById("valorTotReserva").innerText = precioReservaOriginal.toFixed(2);
-    document.getElementById("ValorRecogida").innerText = pagoRecogida.toFixed(2);
-    document.getElementById("ValorOnline").innerText = pagoOnline.toFixed(2);
+    document.getElementById("valorTotReserva").textContent = precioReservaOriginal.toFixed(2);
+    document.getElementById("ValorRecogida").textContent = pagoRecogida.toFixed(2);
+    document.getElementById("ValorOnline").textContent = pagoOnline.toFixed(2);
     
     document.getElementById("pago_online").value = pagoOnline.toFixed(2);
-    document.getElementById("pago_online_texto_boton").innerText = pagoOnline.toFixed(2);
+    document.getElementById("pago_online_texto_boton").textContent = pagoOnline.toFixed(2);
     document.getElementById("pagoRecogida").value = pagoRecogida.toFixed(2);
     
 

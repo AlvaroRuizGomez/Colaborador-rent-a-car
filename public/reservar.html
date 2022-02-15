@@ -248,6 +248,8 @@
                         <input type="hidden" id="elevadores_titulo_corto" name="elevadores_titulo_corto" value="<%= it.locations.elevadores_titulo_corto %>">
                         <input type="hidden" id="sillas_chicos_titulo_corto_singular" name="sillas_chicos_titulo_corto_singular" value="<%= it.locations.sillas_chicos_titulo_corto_singular %>">
                         <input type="hidden" id="elevadores_titulo_corto_singular" name="elevadores_titulo_corto_singular" value="<%= it.locations.elevadores_titulo_corto_singular %>">
+                        <input type="hidden" id="sillas_chicos_titulo_corto_plural" name="sillas_chicos_titulo_corto_plural" value="<%= it.locations.sillas_chicos_titulo_corto_plural %>">
+                        <input type="hidden" id="elevadores_titulo_corto_plural" name="elevadores_titulo_corto_plural" value="<%= it.locations.elevadores_titulo_corto_plural %>">
 
                         <span id="sillas_chicos_total">0 €</span>
                     </div>
@@ -280,14 +282,11 @@
                                     <% if (dias> 1) { %>
                                         <% total_suplmento_tipo_conductor=dias *
                                             (it.formdata.suplementoportipoChofer - 0 ) %>
-                                            <%= dias %>
-                                                <%=it.locations.dias %> x <%=it.formdata.suplementoportipoChofer %>
-                                                        € = <%= total_suplmento_tipo_conductor %> €
+                                            
+                                            <%= total_suplmento_tipo_conductor %> €
 
                                     <% } else { %>
-                                            <%= dias %>
-                                            <%=it.locations.dia %> x
-                                            <%=it.formdata.suplementoportipoChofer %> € = <%=it.formdata.suplementoportipoChofer %> €
+                                            <%=it.formdata.suplementoportipoChofer %> €
                                             <% total_suplmento_tipo_conductor=(it.formdata.suplementoportipoChofer - 0) %>
                                     <% } %>
 

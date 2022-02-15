@@ -878,7 +878,7 @@ details > summary::-webkit-details-marker {
 {
   width: fit-content;
   display: grid;
-  grid-template-columns: 250px 350px 185px;
+  grid-template-columns: 250px 350px 225px;
   grid-template-rows: auto 20px;
   grid-template-areas: 
   "i c d"
@@ -886,10 +886,10 @@ details > summary::-webkit-details-marker {
   border: 1px solid rgb(192, 192, 192);
   border-radius: 2px;
   color: black;
-  /* font-size: 12px; */
   margin-bottom: 20px;
   background-color: #ffffff;
   column-gap: 10px;
+  padding-right: 20px;
 
 
 
@@ -949,7 +949,8 @@ details > summary::-webkit-details-marker {
   align-self: center;
   justify-self: flex-start;
   display: grid;
-  grid-template-columns: 1fr;
+  /* grid-template-columns: 1fr; */
+  grid-template-columns: 100%;
   grid-template-rows: 20px 40px 20px 20px 20px 40px;
   grid-template-areas:
     "."
@@ -961,7 +962,8 @@ details > summary::-webkit-details-marker {
   justify-items: flex-end;
   align-items: center;
   height: 100%;
-
+  width: 100%;
+  
 }
 
 .btn-reservar {
@@ -1655,190 +1657,6 @@ details > summary::-webkit-details-marker {
 
 .ui-datepicker{z-index: 99 !important};
 
-
-/* TOOLTIP */
-
-
-[data-tooltip]
-{
-  position: relative;
-  z-index: 10;
-}
-
-
-[data-tooltip]:before,
-[data-tooltip]:after 
-{
-  position: absolute;
-  visibility: hidden;
-  opacity: 0;
-  left: 50%;
-  bottom: calc(100% + 5px);
-  pointer-events: none;
-  transition: 0.2s;
-  will-change: transform;
-}
-
-
-
-
-[data-tooltip]:before {
-  content: attr(data-tooltip);
-  padding: 10px 18px;
-  min-width: 50px;
-  max-width: 300px;
-  width: max-content;
-  border-radius: 6px;
-  font-size: 14px;
-  background-color: var(--background-color-tooltip);
-  background-image: linear-gradient(30deg,
-    var(--gradiente-tooltip),
-    var(--gradiente-tooltip),
-    var(--gradiente-tooltip)
-    );
-  box-shadow: 0px 0px 24px rgba(0, 0, 0, 0.2);
-  color: #fff;
-  text-align: center;
-  white-space: pre-wrap;
-  transform: translate(-50%, -5px) scale(0.5);
-}
-
-
-
-[data-tooltip]:after {
-  content: '';
-  border-style: solid;
-  border-width: 5px 5px 0px 5px;
-  border-color: var(--border-color-tooltip) transparent transparent transparent;
-  transition-duration: 0s; 
-  transform-origin: top;  
-  transform: translateX(-50%) scaleY(0);
-}
-
-
-[data-tooltip]:hover:before,
-[data-tooltip]:hover:after {
-  visibility: visible;
-  opacity: 1;
-}
-
-
-[data-tooltip]:hover:before 
-{
-  transition-delay: 0.2s;
-  transform: translate(-50%, -5px) scale(1);
-}
-
-
-[data-tooltip]:hover:after {
-  transition-delay: 0.2s;
-  transition-duration: 0.2s;
-  transform: translateX(-50%) scaleY(1);
-}
-
-
-@media screen and (max-width: 414px) 
-{
-  
-  [data-tooltip]:hover:before 
-  {
-    transition-delay: 0.2s;
-    transform: translate(-25%, -5px) scale(1);
-  }
-}
-
-[data-tooltip-location="left"]:before,
-[data-tooltip-location="left"]:after {
-  left: auto;
-  right: calc(100% + 5px);
-  bottom: 50%;
-}
-
-[data-tooltip-location="left"]:before
-{
-  transform: translate(-5px, 50%) scale(0.5);
-}
-[data-tooltip-location="left"]:hover:before
-{
-  transform: translate(-5px, 50%) scale(1);
-}
-
-/* Flechita */
-[data-tooltip-location="left"]:after
-{
-  border-width: 5px 0px 5px 5px;
-  border-color: transparent transparent transparent rgba(55, 64, 70, 0.9);
-  transform-origin: left;
-  transform: translateY(50%) scaleX(0);
-}
-
-[data-tooltip-location="left"]:hover:after
-{
-  transform: translateY(50%) scaleX(1);
-}
-
-
-
-/* RIGHT */
-[data-tooltip-location="right"]:before,
-[data-tooltip-location="right"]:after
-{
-  left: calc(100% + 5px);
-  bottom: 50%;
-}
-
-[data-tooltip-location="right"]:before
-{
-  transform: translate(5px, 50%) scale(0.5);
-}
-
-[data-tooltip-location="right"]:hover:before
-{
-  transform: translate(5px, 50%) scale(1);
-}
-
-[data-tooltip-location="right"]:after
-{
-  border-width: 5px 5px 5px 0px;
-  border-color: transparent var(--background-color-tooltip) transparent transparent;
-  transform-origin: right;
-  transform: translateY(50%) scaleX(0);
-}
-
-[data-tooltip-location="right"]:hover:after
-{
-  transform: translateY(50%) scaleX(1);
-}
-
-
-/* BOTTOM */
-[data-tooltip-location="bottom"]:before,
-[data-tooltip-location="bottom"]:after
-{
-  top: calc(100% + 5px);
-  bottom: auto;
-}
-
-[data-tooltip-location="bottom"]:before
-{
-  transform: translate(-50%, 5px) scale(0.5);
-}
-[data-tooltip-location="bottom"]:hover:before
-{
-  transform: translate(-50%, 5px) scale(1);
-}
-
-[data-tooltip-location="bottom"]:after
-{
-  border-width: 0px 5px 5px 5px;
-  border-color: transparent transparent rgba(55, 64, 70, 0.9) transparent;
-  transform-origin: bottom;
-}
-
-
-
-/* FIN TOOLTIP*/
-
 /*---------------- Fin Datos-busqueda/Vehículos-Ofertados encontrados ---------- */
 
 /* CARRUSEL */
@@ -1846,9 +1664,11 @@ details > summary::-webkit-details-marker {
 {
   /* position: relative; */
 
-  display: grid;
-  grid-template-columns: 40px auto 40px;
-  grid-template-areas: "izq carrusel der";
+  display: grid !important;
+  grid-template-columns: 40px auto 40px !important;
+  grid-template-areas: "izq carrusel der" !important;
+
+  width: 100%;
 
 
 }
@@ -2487,3 +2307,189 @@ transition: color .2s ease-out;
         display: none;
     }
 }
+
+
+
+
+/* TOOLTIP */
+
+
+[data-tooltip]
+{
+  position: relative;
+  z-index: 10;
+}
+
+
+[data-tooltip]:before,
+[data-tooltip]:after 
+{
+  position: absolute;
+  visibility: hidden;
+  opacity: 0;
+  left: 50%;
+  bottom: calc(100% + 5px);
+  pointer-events: none;
+  transition: 0.2s;
+  will-change: transform;
+}
+
+
+
+
+[data-tooltip]:before {
+  content: attr(data-tooltip);
+  padding: 10px 18px;
+  min-width: 50px;
+  max-width: 300px;
+  width: max-content;
+  border-radius: 6px;
+  font-size: 14px;
+  background-color: var(--background-color-tooltip);
+  background-image: linear-gradient(30deg,
+    var(--gradiente-tooltip),
+    var(--gradiente-tooltip),
+    var(--gradiente-tooltip)
+    );
+  box-shadow: 0px 0px 24px rgba(0, 0, 0, 0.2);
+  color: #fff;
+  text-align: center;
+  white-space: pre-wrap;
+  transform: translate(-50%, -5px) scale(0.5);
+}
+
+
+
+[data-tooltip]:after {
+  content: '';
+  border-style: solid;
+  border-width: 5px 5px 0px 5px;
+  border-color: var(--border-color-tooltip) transparent transparent transparent;
+  transition-duration: 0s; 
+  transform-origin: top;  
+  transform: translateX(-50%) scaleY(0);
+}
+
+
+[data-tooltip]:hover:before,
+[data-tooltip]:hover:after {
+  visibility: visible;
+  opacity: 1;
+}
+
+
+[data-tooltip]:hover:before 
+{
+  transition-delay: 0.2s;
+  transform: translate(-50%, -5px) scale(1);
+}
+
+
+[data-tooltip]:hover:after {
+  transition-delay: 0.2s;
+  transition-duration: 0.2s;
+  transform: translateX(-50%) scaleY(1);
+}
+
+
+@media screen and (max-width: 414px) 
+{
+  
+  [data-tooltip]:hover:before 
+  {
+    transition-delay: 0.2s;
+    transform: translate(-25%, -5px) scale(1);
+  }
+}
+
+[data-tooltip-location="left"]:before,
+[data-tooltip-location="left"]:after {
+  left: auto;
+  right: calc(100% + 5px);
+  bottom: 50%;
+}
+
+[data-tooltip-location="left"]:before
+{
+  transform: translate(-5px, 50%) scale(0.5);
+}
+[data-tooltip-location="left"]:hover:before
+{
+  transform: translate(-5px, 50%) scale(1);
+}
+
+/* Flechita */
+[data-tooltip-location="left"]:after
+{
+  border-width: 5px 0px 5px 5px;
+  border-color: transparent transparent transparent rgba(55, 64, 70, 0.9);
+  transform-origin: left;
+  transform: translateY(50%) scaleX(0);
+}
+
+[data-tooltip-location="left"]:hover:after
+{
+  transform: translateY(50%) scaleX(1);
+}
+
+
+
+/* RIGHT */
+[data-tooltip-location="right"]:before,
+[data-tooltip-location="right"]:after
+{
+  left: calc(100% + 5px);
+  bottom: 50%;
+}
+
+[data-tooltip-location="right"]:before
+{
+  transform: translate(5px, 50%) scale(0.5);
+}
+
+[data-tooltip-location="right"]:hover:before
+{
+  transform: translate(5px, 50%) scale(1);
+}
+
+[data-tooltip-location="right"]:after
+{
+  border-width: 5px 5px 5px 0px;
+  border-color: transparent var(--background-color-tooltip) transparent transparent;
+  transform-origin: right;
+  transform: translateY(50%) scaleX(0);
+}
+
+[data-tooltip-location="right"]:hover:after
+{
+  transform: translateY(50%) scaleX(1);
+}
+
+
+/* BOTTOM */
+[data-tooltip-location="bottom"]:before,
+[data-tooltip-location="bottom"]:after
+{
+  top: calc(100% + 5px);
+  bottom: auto;
+}
+
+[data-tooltip-location="bottom"]:before
+{
+  transform: translate(-50%, 5px) scale(0.5);
+}
+[data-tooltip-location="bottom"]:hover:before
+{
+  transform: translate(-50%, 5px) scale(1);
+}
+
+[data-tooltip-location="bottom"]:after
+{
+  border-width: 0px 5px 5px 5px;
+  border-color: transparent transparent rgba(55, 64, 70, 0.9) transparent;
+  transform-origin: bottom;
+}
+
+
+
+/* FIN TOOLTIP*/

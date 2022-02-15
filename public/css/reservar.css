@@ -257,7 +257,7 @@ select {
     font-size: 1.8em;
     font-weight: 700;
     text-size-adjust: none;
-    line-height: 1.3em;
+    line-height: 25px;
     margin-left: 2px;
     margin-bottom: 0px;
 }
@@ -266,6 +266,7 @@ select {
     grid-area: similar;
     margin-left: 75px;
     font-weight: 300;
+    align-self: flex-end;
 }
   
 /* --   Barra de Iconos de Servicios -- */
