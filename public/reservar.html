@@ -282,14 +282,11 @@
                                     <% if (dias> 1) { %>
                                         <% total_suplmento_tipo_conductor=dias *
                                             (it.formdata.suplementoportipoChofer - 0 ) %>
-                                            <%= dias %>
-                                                <%=it.locations.dias %> x <%=it.formdata.suplementoportipoChofer %>
+                                            
                                                         € = <%= total_suplmento_tipo_conductor %> €
 
                                     <% } else { %>
-                                            <%= dias %>
-                                            <%=it.locations.dia %> x
-                                            <%=it.formdata.suplementoportipoChofer %> € = <%=it.formdata.suplementoportipoChofer %> €
+                                            <%=it.formdata.suplementoportipoChofer %> €
                                             <% total_suplmento_tipo_conductor=(it.formdata.suplementoportipoChofer - 0) %>
                                     <% } %>
 
