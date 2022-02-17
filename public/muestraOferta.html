@@ -15,8 +15,8 @@
     <link rel="stylesheet" href="./css/reset.css">
 
     <!-- ------------------- jQuery------------------------- -->
-    <script src="jquery/jquery-3.5.1.min.js"></script>
-    <script async src="./jquery-ui-1.13/jquery-ui.min.js"></script>
+    <script defer src="jquery/jquery-3.5.1.min.js"></script>
+    <script defer src="./jquery-ui-1.13/jquery-ui.min.js"></script>
     <link rel="stylesheet" href="./jquery-ui-1.13/jquery-ui.min.css">
     
     
@@ -572,6 +572,17 @@
 
                             <% } else { %>
                             <% } %>
+
+                            
+                            <% if (it.avisoPreciosAnyo === true)  { %>
+                                <div class="aviso-edad">
+                                    <img class="icono-alerta-edad" src="./img/svg/alerta_edad.svg" alt="<%=it.locations.alt_icono_edad_conductor %>">
+                                    <p class="texto-alerta-edad">
+                                        <%=it.locations.aviso_cambio_anyo %>
+                                    </p>
+                                </div>
+                            <% } %>
+
                         <% } %>
 
                             <% if ( it.vehiculoSeleccionado !==undefined) { %>
@@ -593,10 +604,7 @@
 
                     </div>
                     <!--------------- Fin Ofertas ------------------------>
-                    <!-- <div class="blockSpace"></div> -->
-                    <!-- <div class="blockSpace"></div> -->
-                    <!-- <div class="blockSpace"></div> -->
-                    <!-- <div class="blockSpace"></div> -->
+                    
                     <div class="blockSpace"></div>
                     <div class="blockSpace"></div>
         </div>
@@ -608,7 +616,7 @@
 
     <!----------------------------------- Scripts -------------------------------------------->
     
-    <script async src="./js/clockpicker.js"></script>
+    <script defer src="./js/clockpicker.js"></script>
     <script async src="./js/muestraOferta.js"></script>
     <script async src="./js/lazysizes.min.js"></script>
     <script async src="./js/newsletter.js"></script>
