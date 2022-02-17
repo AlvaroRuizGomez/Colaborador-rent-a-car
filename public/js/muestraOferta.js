@@ -211,6 +211,15 @@ const ComprobarIntervaloFechas = async () => {
     const fechaRecogida = await ObtenerFecha(inputFechaRecogida.value, inputHoraRecogida.value);
     const fechaDevolucion = await ObtenerFecha(inputFechaDevolucion.value, inputHoraDevolucion.value);
 
+    // if (fechaRecogida.getMonth() !== fechaDevolucion.getMonth() || fechaRecogida.getFullYear() !== fechaDevolucion.getFullYear() )
+    // {
+    //     fechaDevolucion.setMonth(fechaRecogida.getMonth());
+    //     fechaDevolucion.setFullYear(fechaRecogida.getFullYear());
+    //     // "Sab,19-02-2022"
+    //     const textoFechaDevolucion = await ObtenerCurrentDate("es", fechaDevolucion);
+    //     inputFechaDevolucion.value = textoFechaDevolucion;
+    // }
+
     const diasDecimales = (new Date(fechaDevolucion) - new Date(fechaRecogida)) / 86400000;
     let numerodias = Math.ceil(diasDecimales);
     let traDias = undefined;
@@ -274,6 +283,20 @@ const ObtenerFecha = async (fecha, hora) => {
 
     const fechaRecogida = new Date(`${anyo}-${mes}-${dia}T${hora}`);
     return fechaRecogida;
+
+};
+
+const ObtenerCurrentDate = async (idioma, fecha) => {
+
+    let date_ob = new Date(fecha);
+    const dia = (date_ob.getDate()).toString().padStart(2, "00");
+    const mes = (date_ob.getMonth() + 1).toString().padStart(2, "00");
+    const anyo = date_ob.getFullYear();
+
+    const textoDia = new Intl.DateTimeFormat(idioma, { weekday: 'short' }).format(date_ob);
+    const fechaActual = `${textoDia},${dia}-${mes}-${anyo}`;
+
+    return fechaActual;
 
 };
 

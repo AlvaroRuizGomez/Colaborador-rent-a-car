@@ -141,7 +141,8 @@ exports.getHome = async (req, res, languageBrowser, isPagoCorrecto = false) =>
         "useragent": req.useragent,
         "direct": false,
         "location": geolocationAgent,
-        "id": id
+        "id": id,
+        "fase": 0,
     };
 
     //enviamos al backedn la informacion
@@ -636,7 +637,13 @@ exports.postHome = async (req, res, languageBrowser) =>
         dataResponse.data = await OrdenarPorPrecioTotalDias(dataResponse.data);
     
         //ordenar por clase vehiculos
-        dataResponse.data = await OrdenaPorClaseVehiculos(dataResponse.datosOrdenacion, dataResponse.data)
+        dataResponse.data = await OrdenaPorClaseVehiculos(dataResponse.datosOrdenacion, dataResponse.data);
+
+        let avisoPreciosAnyo = false;
+        if ((fechaDevolucion.getFullYear() > new Date().getFullYear() ) && (fechaDevolucion.getMonth() >= 3) )
+        {
+            avisoPreciosAnyo = true;
+        }
     
         res.render(path.join(__dirname, "../../public/muestraOferta.html"), {
             "data": dataResponse.data,
@@ -659,7 +666,7 @@ exports.postHome = async (req, res, languageBrowser) =>
             "preciosPorClase": dataResponse.preciosPorClase,
             "condicionesgenerales": dataResponse.condicionesgenerales,
             "locations": locationLanguage,
-            
+            "avisoPreciosAnyo": avisoPreciosAnyo,
         });
     
     }
