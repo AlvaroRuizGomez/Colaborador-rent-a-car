@@ -28,7 +28,8 @@
     "start": "node src/index.js",
     "dev": "NODE_ENV=production LOCAL_SECRETS=true nodemon src/index.js",
     "devhub": "NODE_ENV=development LOCAL_SECRETS=true node src/index.js",
-    "test": ""
+    "test": "",
+    "clinic": "NODE_ENV=development LOCAL_SECRETS=true clinic doctor --autocannon [ /es/ --method GET ] -- node src/index.js"
   },
   "bin": "./src/index.js",
   "pkg": {

@@ -162,28 +162,30 @@ const child_booster = document.getElementById("booster_seat");
 
 child_seat.addEventListener("change", async () =>
 {
-    console.log("cambiado");
+    
     await calcularNuevoPrecioSegunSillasElevadores();
     
 });
 
 child_booster.addEventListener("change", async () => {
-    console.log("cambiado");
+    
     await calcularNuevoPrecioSegunSillasElevadores();
 
 });
 
 const calcularNuevoPrecioSegunSillasElevadores = async () =>
 {
-    const precio = 3;
+    // const precio = 3;
+
+    const precioSillas = document.getElementById("precio_sillas").value - 0;
+    const precioBooster = document.getElementById("precio_booster").value - 0;
+
     const dias = document.getElementById("dias_sillas").value - 0;
     const cantidadSillas = document.getElementById("child_seat").value - 0;
     const cantidadBooster = document.getElementById("booster_seat").value - 0;
     
-    const precioTotalSillas = cantidadSillas * precio * dias;
-    const precioTotalBooster = cantidadBooster * precio * dias;
-    
-    const diasTraduccion = document.getElementById("dias_tradu_").value;
+    const precioTotalSillas = cantidadSillas * precioSillas * dias;
+    const precioTotalBooster = cantidadBooster * precioBooster * dias;
     
     let sillasTraduccion = "";
     let elevadoresTraduccion = "";

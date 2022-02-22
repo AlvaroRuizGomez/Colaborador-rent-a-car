@@ -11,7 +11,9 @@
     <input type="hidden" name="horaRecogida" value="<%= it.horaRecogida %>">
     <input id="fechaDevolucionForm" type="hidden" name="fechaDevolucion" value="<%= it.fechaDevolucionFormatoCorto %>">
     <input type="hidden" name="horaDevolucion" value="<%= it.horaDevolucion %>">
-    <input type="hidden" name="clasevehiculo" value="<%= element.clasevehiculo %>"
+    <input type="hidden" name="clasevehiculo" value="<%= it.clasevehiculo %>">
+    <input type="hidden" name="precio_sillas" value="<%= it.precio_sillas %>">
+    <input type="hidden" name="precio_booster" value="<%= it.precio_booster %>">
     
     <!-- Ofertas -->
     <article class="oferta">
@@ -111,8 +113,7 @@
             <input type="hidden" name="modificaciones" value="<%= it.locations.modificaciones %>">
             <input type="hidden" name="porcentaje" value="<%= element.porcentaje %>">
             <input type="hidden" name="franquicia" value="<%= element.franquicia %>">
-
-
+            
             <div class="car-info-services-2">
                 <div class="servicios-kilometraje servicios-enlinea" data-tooltip="<%=it.locations.tooltip_vehiculo_tiene%> <%=it.locations.tooltip_kilometraje %>" data-tooltip-location="top">
                     <img class="icon-25" src="img/velocimetro.webp" alt="<%=it.locations.alt_kilometraje %>">
