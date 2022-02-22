@@ -379,7 +379,9 @@ exports.postHomeDirect = async (req, res) =>
                 "errorFormulario": dataResponse.errorFormulario,
                 "success": query.success,
                 "diasEntreRecogidaDevolucion": dataResponse.diasEntreRecogidaDevolucion,
-                "locations": locationLanguage
+                "locations": locationLanguage,
+                "precio_sillas": dataResponse.precio_sillas,
+                "precio_booster": dataResponse.precio_booster
     
             });
         }
@@ -415,7 +417,9 @@ exports.postHomeDirect = async (req, res) =>
                 "preciosPorClase": dataResponse.preciosPorClase,
                 "condicionesgenerales": dataResponse.condicionesgenerales,
                 "locations": locationLanguage,
-                "vehiculoSeleccionado": vehiculoSeleccionado
+                "vehiculoSeleccionado": vehiculoSeleccionado,
+                "precio_sillas": dataResponse.precio_sillas,
+                "precio_booster": dataResponse.precio_booster
             });
     
         }
@@ -601,7 +605,7 @@ exports.postHome = async (req, res, languageBrowser) =>
                 "isAvifSupported": isAvifSupported,
                 "success": req.body.success,
                 "errorFormulario": dataResponse.errorFormulario,
-                "locations": locationLanguage
+                "locations": locationLanguage,
             });
         }
     
@@ -623,7 +627,8 @@ exports.postHome = async (req, res, languageBrowser) =>
             "fechaRecogidaFormatoCorto": body.fechaRecogidaFormatoCorto,
             "fechaDevolucionFormatoCorto": body.fechaDevolucionFormatoCorto,
             "numeroDias": req.body.numeroDias,
-            // "formdata": req.body,
+            "precio_sillas": dataResponse.precio_sillas,
+            "precio_booster": dataResponse.precio_booster,
             "errorFormulario": dataResponse.errorFormulario,
             "success": req.body.success,
             "diasEntreRecogidaDevolucion": dataResponse.diasEntreRecogidaDevolucion,
@@ -667,6 +672,8 @@ exports.postHome = async (req, res, languageBrowser) =>
             "condicionesgenerales": dataResponse.condicionesgenerales,
             "locations": locationLanguage,
             "avisoPreciosAnyo": avisoPreciosAnyo,
+            "precio_sillas": dataResponse.precio_sillas,
+            "precio_booster": dataResponse.precio_booster,
         });
     
     }
