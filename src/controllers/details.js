@@ -80,6 +80,7 @@ exports.postShowDetails = async (req, res, languageBrowser) =>
         "formdata": req.body,
     });
 
+    //stats
     const body = {
         "token": process.env.TOKEN_FOR_BACKEND_ACCESS,
         "useragent": req.useragent,
@@ -161,6 +162,9 @@ const ControlSchema = async (body) => {
         vehiculo: Joi.string().required(),
         clasevehiculo: Joi.string().required(),
         franquicia: Joi.string().required(),
+        precio_sillas: Joi.number().required(),
+        precio_booster: Joi.number().required()
+
     });
     
     const options = {
