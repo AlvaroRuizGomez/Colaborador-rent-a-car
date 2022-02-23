@@ -124,6 +124,7 @@ exports.InitServer = async () => {
                 workerSrc: ["'self'"],
                 scriptSrc: [
                     "'unsafe-inline'",
+                    "'self'",
                     // "'strict-dynamic'",
                     "https://www.google.com/maps/embed",
                     "https://www.googletagmanager.com/gtag/js",
