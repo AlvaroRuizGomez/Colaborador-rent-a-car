@@ -314,14 +314,14 @@
                                     <div class="car-info-services">
                                         <div class="servicios-asientos">
                                             <img width="16" height="16" class="icon-24" src="./img/svg/persona.svg" alt="<%=it.locations.alt_persona%>">
-                                            <div class="icon-number">
+                                            <div class="icon-number-blanco">
                                                 <%=it.data[i]["pax"]%>
                                             </div>
                                         </div>
                                         <% if (it.data[i]["puertas"]> 0 ) { %>
                                             <div class="servicios-puertas">
                                                 <img width="16" height="16" class="icon-24" src="img/svg/puerta.svg" alt="<%=it.locations.alt_puerta%>">
-                                                <div class="icon-number">
+                                                <div class="icon-number-blanco">
                                                     <%=it.data[i]["puertas"]%>
                                                 </div>
                                             </div>
@@ -335,13 +335,13 @@
                                                             <div class="servicios-trasmision">
                                                                 <img width="16" height="16" class="icon-24" src="img/svg/cambio_manual.svg"
                                                                     alt="<%=it.locations.alt_cambio_manual%>">
-                                                                <div class="icon-number">M</div>
+                                                                <div class="icon-number-blanco">M</div>
                                                             </div>
                                                             <%} else if (it.data[i].transmision==="A" ) { %>
                                                                 <div class="servicios-trasmision">
                                                                     <img width="16" height="16" class="icon-24" src="img/svg/cambio_automatico.svg"
                                                                         alt="<%=it.locations.alt_cambio_auto%>">
-                                                                    <div class="icon-number">A</div>
+                                                                    <div class="icon-number-blanco">A</div>
                                                                 </div>
                                                                 <% } %>
                                     </div>

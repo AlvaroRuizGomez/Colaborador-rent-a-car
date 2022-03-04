@@ -1106,7 +1106,14 @@ background-image: url(/img/Img-Vehiculos/peugeot_208_Card.avif);
     /* color: white; */
     color: #000000;
 }
-  
+ 
+
+.icon-number-blanco{
+    display: inline;
+    font-size: 13px;
+    color: white;
+}
+
 .servicios-puertas{
     border: 1px solid white;
     width: 82%;
